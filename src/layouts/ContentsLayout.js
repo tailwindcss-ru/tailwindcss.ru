@@ -31,7 +31,7 @@ function TableOfContents({ tableOfContents, currentSection }) {
   return (
     <>
       <h5 className="text-gray-500 uppercase tracking-wide font-bold text-sm lg:text-xs">
-        On this page
+        На этой странице
       </h5>
       <ul className="mt-4 overflow-x-hidden">
         {tableOfContents.map((section) => {

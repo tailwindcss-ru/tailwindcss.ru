@@ -1,7 +1,7 @@
 ---
-title: Most CSS frameworks do too much.
-metaTitle: Tailwind CSS - A Utility-First CSS Framework for Rapidly Building Custom Designs
-metaDescription: A utility-first CSS framework for rapidly building custom user interfaces.
+title: Большинство фреймворков CSS делают слишком много.
+metaTitle: Tailwind CSS - CSS-фреймворк для быстрого создания нестандартных дизайнов
+metaDescription: CSS-фреймворк для быстрого создания пользовательских интерфейсов.
 headerSeparator: false
 containerId: what-is-tailwind
 ---
@@ -13,13 +13,13 @@ export default require('@/layouts/ContentsLayout').ContentsLayout
 import { ResponsiveCodeSample } from '@/components/ResponsiveCodeSample'
 import { Heading } from '@/components/Heading'
 
-## <Heading hidden>Utility-first</Heading>
+## <Heading hidden>Утилита прежде всего</Heading>
 
-They come with all sorts of predesigned components like buttons, cards, and alerts that might help you move quickly at first, but cause more pain than they cure when it comes time to make your site stand out with a custom design.
+Они поставляются со всевозможными предварительно разработанными компонентами, такими как кнопки, карточки и предупреждения, которые могут помочь Вам сначала двигаться быстро, но причинят больше боли, чем облегчения, когда придет время выделить Ваш сайт индивидуальным дизайном.
 
-Tailwind is different.
+Tailwind различен.
 
-Instead of opinionated predesigned components, Tailwind provides low-level utility classes that let you build completely custom designs without ever leaving your HTML.
+Вместо самоуверенных предварительно разработанных компонентов Tailwind предоставляет низкоуровневые служебные классы, которые позволяют создавать полностью индивидуальные проекты, не покидая своего HTML.
 
 ```html
 <template preview class="p-8">
@@ -28,25 +28,25 @@ Instead of opinionated predesigned components, Tailwind provides low-level utili
       <img class="rounded-lg md:w-56" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" alt="Woman paying for a purchase">
     </div>
     <div class="mt-4 md:mt-0 md:ml-6">
-      <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Marketing</div>
-      <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">Finding customers for your new business</a>
-      <p class="mt-2 text-gray-600">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+      <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Маркетинг</div>
+      <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">Поиск клиентов для вашего нового бизнеса</a>
+      <p class="mt-2 text-gray-600">Начало нового бизнеса - это тяжелая работа. Вот пять идей, которые Вы можете использовать, чтобы найти своих первых клиентов.</p>
     </div>
   </div>
 </template>
 ```
 
-If you're sick of fighting the framework, overriding unwanted styles, and battling specificity wars, Tailwind was made for you.
+Если Вам надоело бороться с фреймворком, игнорировать нежелательные стили и бороться за специфичность, Tailwind создан для Вас.
 
-[Learn more about Tailwind's utility-first workflow &rarr;](/docs/utility-first)
+[Узнайте больше о рабочем процессе Tailwind, ориентированном на утилиты &rarr;](/docs/utility-first)
 
 ---
 
-## Responsive to the core
+## Отзывчивость до мозга костей
 
-Every Tailwind utility also comes with responsive variants, making it extremely easy to build responsive interfaces without resorting to custom CSS.
+Каждая утилита Tailwind также поставляется с адаптивными вариантами, что значительно упрощает создание адаптивных интерфейсов без использования настраиваемого CSS.
 
-Tailwind uses an intuitive `{screen}:` prefix that makes it easy to notice responsive classes in your markup while keeping the original class name recognizable and intact.
+Tailwind использует интуитивно понятный префикс `{screen}:`, который позволяет легко заметить отзывчивые классы в Вашей разметке, сохраняя при этом исходное имя класса узнаваемым и неповрежденным.
 
 <ResponsiveCodeSample
   classNames={['justify-start', 'justify-center', 'justify-end', 'justify-between', 'justify-around']}
@@ -59,31 +59,31 @@ Tailwind uses an intuitive `{screen}:` prefix that makes it easy to notice respo
   )}
 />
 
-[Learn more about responsive design with Tailwind &rarr;](/docs/responsive-design)
+[Узнайте больше об адаптивном дизайне с Tailwind &rarr;](/docs/responsive-design)
 
 ---
 
-## Component-friendly
+## Дружественность с компонентами
 
-While you can do a *lot* with just utility classes, as a project grows it can be useful to codify common patterns into higher level abstractions.
+Хотя Вы можете *много* делать только с служебными классами, по мере роста проекта может быть полезно кодифицировать общие шаблоны в абстракции более высокого уровня.
 
-Tailwind provides tools for [extracting component classes](/docs/extracting-components) from repeated utility patterns, making it easy to update multiple instances of a component from one place:
+Tailwind предоставляет инструменты для [извлечения классов компонентов](/docs/extracting-components) из повторяющихся служебных шаблонов, что упрощает обновление нескольких экземпляров компонента из одного места:
 
 ```html
 <template preview class="p-4 text-center">
   <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-    Button
+    Кнопка
   </button>
 </template>
 
-<!-- Using utilities: -->
+<!-- Использование утилит: -->
 <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-  Button
+  Кнопка
 </button>
 
-<!-- Extracting component classes: -->
+<!-- Извлечение классов компонентов: -->
 <button class="btn btn-blue">
-  Button
+  Кнопка
 </button>
 
 <style>
@@ -99,17 +99,17 @@ Tailwind provides tools for [extracting component classes](/docs/extracting-comp
 </style>
 ```
 
-[Learn more about extracting components with Tailwind &rarr;](/docs/extracting-components)
+[Узнайте больше об извлечении компонентов с помощью Tailwind &rarr;](/docs/extracting-components)
 
 ---
 
-## Designed to be customized
+## Создан для настройки
 
-If it makes sense to be customizable, Tailwind lets you customize it. This includes colors, border sizes, font weights, spacing utilities, breakpoints, shadows, and tons more.
+Если есть смысл настраивать, Tailwind позволяет это. Это включает в себя цвета, размеры границ, толщину шрифтов, утилиты интервалов, точки останова, тени и многое другое.
 
-Tailwind is written in [PostCSS](http://postcss.org/) and configured in JavaScript, which means you have the full power of a real programming language at your fingertips.
+Tailwind написан на [PostCSS](http://postcss.org/) и настроен на JavaScript, что означает, что у Вас под рукой вся мощь настоящего языка программирования.
 
-Tailwind is more than a CSS framework, *it's an engine for creating design systems.*
+Tailwind - это больше, чем CSS-фреймворк, *это движок для создания дизайн-систем.*
 
 ```js
 // tailwind.config.js
@@ -144,4 +144,4 @@ module.exports = {
 }
 ```
 
-[Learn more about customizing Tailwind &rarr;](/docs/configuration)
+[Узнать больше о настройке Tailwind &rarr;](/docs/configuration)

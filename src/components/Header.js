@@ -28,27 +28,25 @@ export function Header({ navIsOpen, onNavToggle }) {
             <div className="xl:flex -mx-6">
               <div className="px-6 text-left md:text-center xl:text-left max-w-2xl md:max-w-3xl mx-auto">
                 <h1 className="text-3xl tracking-tight sm:text-4xl md:text-5xl xl:text-4xl font-medium leading-tight">
-                  A utility-first CSS framework for{' '}
+                  CSS-фреймворк для{' '}
                   <span className="sm:block text-teal-500 font-medium">
-                    rapidly building custom designs.
+                  быстрого создания нестандартных дизайнов.
                   </span>
                 </h1>
                 <p className="mt-6 leading-relaxed sm:text-lg md:text-xl xl:text-lg text-gray-600">
-                  Tailwind CSS is a highly customizable, low-level CSS framework that gives you all
-                  of the building blocks you need to build bespoke designs without any annoying
-                  opinionated styles you have to fight to override.
+                  Tailwind CSS - это гибко настраиваемый, низкоуровневый CSS фреймворк, который дает Вам все строительные блоки, необходимые для создания нестандартных дизайнов без каких-либо раздражающих самоуверенных стилей, которые Вам пришлось бы перезаписывать.
                 </p>
                 <div className="flex mt-6 justify-start md:justify-center xl:justify-start">
                   <Link href="/docs/installation">
                     <a className="rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-teal-500 hover:bg-teal-600 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md">
-                      Get Started
+                      Начать
                     </a>
                   </Link>
                   <a
                     href="#what-is-tailwind"
                     className="ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-white hover:bg-gray-200 md:text-lg xl:text-base text-gray-800 font-semibold leading-tight shadow-md"
                   >
-                    Why Tailwind?
+                    Почему Tailwind?
                   </a>
                 </div>
               </div>
