@@ -1,23 +1,23 @@
-# Tailwind CSS Documentation
+# Документация Tailwind CSS
 
-Tailwind CSS uses [Next.js](https://nextjs.org/) for its documentation. Here is how you can run the project locally:
+Tailwind CSS использует [Next.js](https://nextjs.org/) в качестве документации. Вот как можно запустить проект локально:
 
-1. Go to your Tailwind folder
+1. Перейдите в Вашу папку Tailwind
 
     ```sh
     cd docs
     ```
 
-2. Install JS dependencies
+2. Установить зависимости JS
 
     ```sh
     yarn
     ```
 
-3. Start the dev server
+3. Запустите сервер разработки
 
     ```sh
     yarn dev
     ```
 
-Alternatively you can generate a static export of the documentation using the `yarn export` command. The export will be saved in the `out` folder.
+В качестве альтернативы вы можете сгенерировать статический экспорт документации, используя команду `yarn export`. Экспорт будет сохранен в папке ʻout`.
