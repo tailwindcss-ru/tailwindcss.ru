@@ -201,7 +201,7 @@ function TopLevelNav() {
         Screencasts
       </TopLevelLink>
       <TopLevelLink
-        href="https://blog.tailwindcss.com"
+        href="https://blog.tailwindcss.su"
         className="mt-3 lg:mt-1"
         icon={
           <g fillRule="evenodd" clipRule="evenodd">

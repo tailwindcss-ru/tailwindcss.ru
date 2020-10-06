@@ -40,7 +40,7 @@ export default function App({ Component, pageProps, router }) {
     : {}
   const meta = Component.layoutProps?.meta || {}
   const description =
-    meta.metaDescription || meta.description || 'Documentation for the Tailwind CSS framework.'
+    meta.metaDescription || meta.description || 'Документация по CSS-фреймворку Tailwind.'
 
   return (
     <>
@@ -52,20 +52,20 @@ export default function App({ Component, pageProps, router }) {
         <meta
           key="twitter:image"
           name="twitter:image"
-          content={`https://tailwindcss.com${twitterLargeCard}`}
+          content={`https://tailwindcss.su${twitterLargeCard}`}
         />
         <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
         <meta
           key="og:url"
           property="og:url"
-          content={`https://tailwindcss.com${router.pathname}`}
+          content={`https://tailwindcss.su${router.pathname}`}
         />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:description" property="og:description" content={description} />
         <meta
           key="og:image"
           property="og:image"
-          content={`https://tailwindcss.com${twitterLargeCard}`}
+          content={`https://tailwindcss.su${twitterLargeCard}`}
         />
       </Head>
       <Header navIsOpen={navIsOpen} onNavToggle={(isOpen) => setNavIsOpen(isOpen)} />
