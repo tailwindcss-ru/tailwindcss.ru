@@ -10,6 +10,8 @@ import tinytime from 'tinytime'
 import { Community } from '@/components/Community'
 import styles from './index.module.css'
 import { Widont } from '@/components/Widont'
+import { ReactComponent as TuiBundleLogo } from '@/img/tailwind-ui-bundle-logo.svg'
+import { ReactComponent as RefactoringUiCompleteLogo } from '@/img/refactoring-ui-complete-logo.svg'
 
 const whatsNew = [
   {
