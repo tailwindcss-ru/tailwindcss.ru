@@ -44,10 +44,10 @@ const { lines } = tokenizeWithLines.html(
           </div>
           <div class="ml-3 w-0 flex-1 pt-0.5">
             <p class="text-sm font-medium text-gray-900">
-              Successfully saved!
+              Успешно сохранено!
             </p>
             <p class="mt-1 text-sm text-gray-500">
-              Anyone with a link can now view this file.
+              Теперь любой, у кого есть ссылка, может просмотреть этот файл.
             </p>
           </div>
           <div class="ml-4 flex-shrink-0 flex">
@@ -105,16 +105,14 @@ export function Performance() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-teal-500 mb-3">
-          Performance
+          Производительность
         </Caption>
-        <BigText className="mb-8">It’s tiny in production.</BigText>
+        <BigText className="mb-8">В продакшене он крошечный.</BigText>
         <Paragraph className="mb-6">
-          Tailwind automatically removes all unused CSS when building for production, which means
-          your final CSS bundle is the smallest it could possibly be. In fact, most Tailwind
-          projects ship less than 10KB of CSS to the client.
+          Tailwind автоматически удаляет весь неиспользуемый CSS при сборке для рабочей версии, что означает, что Ваш окончательный набор CSS является минимальным из возможных. Фактически, большинство проектов Tailwind отправляют клиенту менее 10 КБ CSS.
         </Paragraph>
         <Link href="/docs/optimizing-for-production" className="text-teal-500 hover:text-teal-700">
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -167,20 +165,20 @@ export function Performance() {
               </div>
               <dl className="p-4 pb-0 sm:p-6 sm:pb-0">
                 <div className="flex-none w-full pl-18 sm:pl-20 sm:py-0.5">
-                  <dt className="text-sm font-medium">Production build</dt>
+                  <dt className="text-sm font-medium">Продакшен билд</dt>
                   <dd className="text-3xl sm:text-4xl font-extrabold text-gray-900">
                     <Counter from={2413.4} to={8.7} round={1} progress={progress} />
-                    KB
+                    КБ
                   </dd>
                 </div>
                 <div className="flex items-center border-t border-gray-100 -mx-4 sm:-mx-6 mt-4 sm:mt-6 px-4 sm:px-6 py-3 font-mono text-xs leading-5">
-                  <dt className="whitespace-pre">Purged </dt>
+                  <dt className="whitespace-pre">Очищено </dt>
                   <dd className="flex-auto">
-                    <Counter from={0} to={20144} progress={progress} /> unused classes
+                    <Counter from={0} to={20144} progress={progress} /> неиспользуемых классов
                   </dd>
                   <dd className="text-rose-700 hidden sm:flex lg:hidden xl:flex items-center">
                     <span>
-                      -<Counter from={0} to={160215} progress={progress} /> lines
+                      -<Counter from={0} to={160215} progress={progress} /> строк
                     </span>
                     <svg viewBox="0 0 82 12" width="82" height="12" className="flex-none ml-2">
                       <motion.rect

@@ -18,7 +18,7 @@ const rotation = [-2, 1, -1, 2, -1, 1]
 
 const testimonials = [
   {
-    content: 'I feel like an idiot for not using Tailwind CSS until now.',
+    content: 'Я чувствую себя идиотом из-за того, что до сих пор не использовал Tailwind CSS.',
     tweetUrl: 'https://twitter.com/ryanflorence/status/1187951799442886656',
     author: {
       name: 'Ryan Florence',
@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     content:
-      'If I had to recommend a way of getting into programming today, it would be HTML + CSS with Tailwind CSS.',
+      'Если бы мне пришлось порекомендовать способ начать программирование сегодня, это был бы HTML + CSS с Tailwind CSS.',
     tweetUrl: 'https://twitter.com/rauchg/status/1225611926320738304',
     author: {
       name: 'Guillermo Rauch',
@@ -37,7 +37,7 @@ const testimonials = [
     },
   },
   {
-    content: `I have no design skills and with Tailwind I can actually make good looking websites with ease and it's everything I ever wanted in a CSS framework.`,
+    content: `У меня нет дизайнерских навыков, а с Tailwind я могу с легкостью создавать красивые веб-сайты, и это все, что я когда-либо хотел в рамках CSS.`,
     author: {
       name: 'Sara Vieira',
       role: 'CodeSandbox',
@@ -46,7 +46,7 @@ const testimonials = [
   },
   {
     content:
-      "I used Tailwind to redesign feltpresence.com the other day. It's fantastic! I only gave myself a few hours to hack it together and it made a huge difference.",
+      "На днях я использовал Tailwind для редизайна сайта feelpresence.com. Это невероятно! Я дал себе всего несколько часов, чтобы собрать все вместе, и это имело огромное значение.",
     author: {
       name: 'Ryan Singer',
       role: 'Basecamp',
@@ -54,7 +54,7 @@ const testimonials = [
     },
   },
   {
-    content: `I started using @tailwindcss. I instantly fell in love with their responsive modifiers, thorough documentation, and how easy it was customizing color palettes.`,
+    content: `Я начал использовать @tailwindcss. Я сразу влюбился в их адаптивные модификаторы, подробную документацию и то, как легко настраивать цветовые палитры.`,
     tweetUrl: 'https://twitter.com/dacey_nolan/status/1303744545587441666',
     author: {
       name: 'Dacey Nolan',
@@ -64,7 +64,7 @@ const testimonials = [
   },
 
   {
-    content: 'Loved it the very moment I used it.',
+    content: 'Мне он понравился в тот момент, когда я его использовать.',
     tweetUrl: 'Gilbert Rabut Tsurwa',
     author: {
       name: 'Gilbert Rabut Tsurwa',
@@ -75,7 +75,7 @@ const testimonials = [
 
   {
     content:
-      'I came into my job wondering why the last dev would ever implement Tailwind into our projects, within days I was a Tailwind convert and use it for all of my personal projects.',
+      'Я пришел на работу, задаваясь вопросом, почему последний разработчик когда-либо внедрил Tailwind в наши проекты, через несколько дней я был преобразован в Tailwind и использовал его для всех своих личных проектов.',
     tweetUrl: 'https://twitter.com/maddiexcampbell/status/1303752658029740032',
     author: {
       name: 'Madeline Campbell',
@@ -86,7 +86,7 @@ const testimonials = [
 
   {
     content:
-      'There’s one thing that sucks about @tailwindcss - once you’ve used it on a handful of projects it is a real pain in the ass to write normal CSS again.',
+      'В @tailwindcss есть одна неприятная вещь: после того, как вы использовали его в нескольких проектах, писать нормальный CSS снова становится настоящей головной болью.',
     tweetUrl: 'https://twitter.com/iamgraem_e/status/1322861404781748228?s=21',
     author: {
       name: 'Graeme Houston',
@@ -96,7 +96,7 @@ const testimonials = [
   },
 
   {
-    content: `Okay, I’m officially *all* in on the @tailwindcss hype train. Never thought building websites could be so ridiculously fast and flexible.`,
+    content: `Хорошо, я официально *весь* участвую в шумихе @tailwindcss. Никогда не думал, что создание веб-сайтов может быть таким смехотворно быстрым и гибким.`,
     tweetUrl: 'https://twitter.com/lukeredpath/status/1316543571684663298?s=21',
     author: {
       name: 'Aaron Bushnell',
@@ -107,7 +107,7 @@ const testimonials = [
 
   {
     content:
-      'Have been working with CSS for over ten years and Tailwind just makes my life easier. It is still CSS and you use flex, grid, etc. but just quicker to write and maintain.',
+      'Я работаю с CSS более десяти лет и попутный ветер просто облегчает мою жизнь. Это все еще CSS, и вы используете flex, grid и т.д., но просто быстрее писать и поддерживать.',
     tweetUrl: 'https://twitter.com/debs_obrien/status/1243255468241420288',
     author: {
       name: `Head of Learning @ Nuxt.js`,
@@ -116,7 +116,7 @@ const testimonials = [
     },
   },
   {
-    content: 'Okay, @tailwindcss just clicked for me and now I feel like a #!@%&$% idiot.',
+    content: 'Хорошо, @tailwindcss просто нажал на меня, и теперь я чувствую себя идиотом #!@%&$%.',
     tweetUrl: 'https://twitter.com/ken_wheeler/status/1225373231139475458',
     author: {
       name: 'Ken Wheeler',
@@ -125,7 +125,7 @@ const testimonials = [
     },
   },
   {
-    content: `I've been using @tailwindcss the past few months and it's amazing. I already used some utility classes before, but going utility-first... this is the way.`,
+    content: `Я использую @tailwindcss последние несколько месяцев, и это потрясающе. Раньше я уже использовал некоторые служебные классы, но сначала я буду использовать служебные программы ... так и будет.`,
     tweetUrl: 'https://twitter.com/JadLimcaco/status/1327417021915561984',
     author: {
       name: 'Jad Limcaco',
@@ -134,7 +134,7 @@ const testimonials = [
     },
   },
   {
-    content: `After finally getting to use @tailwindcss on a real client project in the last two weeks I never want to write CSS by hand again. I was a skeptic, but the hype is real.`,
+    content: `После того, как я наконец смог использовать @tailwindcss в реальном клиентском проекте за последние две недели, я больше никогда не хочу писать CSS вручную. Я был скептиком, но шумиха реальна.`,
     tweetUrl: 'https://twitter.com/lukeredpath/status/1316543571684663298?s=21',
     author: {
       name: 'Luke Redpath',
@@ -144,7 +144,7 @@ const testimonials = [
   },
   {
     content:
-      "I didn't think I was going to like @tailwindcss... spent a day using it for a POC, love it! I wish this had been around when we started our company design system, seriously considering a complete rebuild",
+      "Я не думал, что мне понравится @tailwindcss... потратил день, используя его для POC, в восторге! Хотелось бы, чтобы это было, когда мы начинали дизайн-систему нашей компании, серьезно рассматривая полную перестройку",
     tweetUrl: 'https://twitter.com/JonBloomer/status/1300923818622377984',
     author: {
       name: 'Jon Bloomer',
@@ -153,7 +153,7 @@ const testimonials = [
     },
   },
   {
-    content: '@tailwindcss looked unpleasant at first, but now I’m hooked on it.',
+    content: '@tailwindcss сначала выглядела неприятно, но теперь я подсел на нее.',
     tweetUrl: 'https://twitter.com/droidgilliland/status/1222733372855848961',
     author: {
       name: 'Andrew Gilliland',

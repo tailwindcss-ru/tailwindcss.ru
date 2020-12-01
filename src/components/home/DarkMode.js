@@ -25,13 +25,13 @@ const { code, tokens } = tokenize.html(
     <img src="/full-stack-radio.png" alt="" width="160" height="160" class="flex-none w-20 h-20 rounded-lg bg-gray-100" />
     <div class="min-w-0 flex-auto space-y-0.5">
       <p class="(light)text-lime-600 dark:text-lime-400 text-sm sm:text-base lg:text-sm xl:text-base font-semibold uppercase">
-        <abbr title="Episode">Ep.</abbr> 128
+        <abbr title="Эпизод">Эп.</abbr> 128
       </p>
       <h2 class="(light)text-black dark:text-white text-base sm:text-xl lg:text-base xl:text-xl font-semibold truncate">
-        Scaling CSS at Heroku with Utility Classes
+        Масштабирование CSS в Heroku с помощью служебных классов
       </h2>
       <p class="(light)text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-base xl:text-lg font-medium">
-        Full Stack Radio
+        Полный стек радио
       </p>
     </div>
   </div>
@@ -168,19 +168,16 @@ export function DarkMode() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-green-600 mb-3">
-          Dark mode
+          Темный режим
         </Caption>
         <BigText className="mb-8">
-          <Widont>Now with Dark Mode.</Widont>
+          <Widont>Теперь с темным режимом.</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Don’t want to be one of those websites that blinds people when they open it on their phone
-          at 2am? Throw <InlineCode>dark:</InlineCode> in front of any color utility to apply it
-          when dark mode is active. Works for background colors, text colors, border colors, and
-          even gradients out-of-the-box — no configuration required.
+          Не хотите быть одним из тех веб-сайтов, которые ослепляют людей, когда они открывают его на своем телефоне в 2 часа ночи? Добавьте <InlineCode>dark:</InlineCode> перед любой цветовой утилитой, чтобы применить ее, когда активен темный режим. Работает с цветами фона, цветами текста, цветами границ и даже градиентами прямо из коробки - настройка не требуется.
         </Paragraph>
         <Link href="/docs/dark-mode" className="text-green-600 hover:text-green-800">
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <GradientLockup

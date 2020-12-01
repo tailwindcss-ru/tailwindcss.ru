@@ -17,30 +17,30 @@ import styles from './ComponentDriven.module.css'
 
 const recipes = [
   {
-    title: 'Hank’s Juiciest Beef Burger',
+    title: 'Самый сочный бургер Хенка с говядиной',
     rating: 4.94,
     time: 20,
-    difficulty: 'Easy',
+    difficulty: 'Легко',
     servings: 4,
-    author: 'Hank Douglas',
+    author: 'Хэнк Дуглас',
     image: require('@/img/jucy-beef-burger.jpg').default,
   },
   {
-    title: 'Southern Fried Chicken Sandwich',
+    title: 'Южный жареный сэндвич с курицей',
     rating: 4.94,
     time: 30,
-    difficulty: 'Intermediate',
+    difficulty: 'Средне',
     servings: 4,
-    author: 'Nicholas Denver',
+    author: 'Николас Денвер',
     image: require('@/img/chicken-sandwich.jpg').default,
   },
   {
-    title: 'Lily’s Healthy Beef Burger',
+    title: 'Здоровый бургер Лили с говядиной',
     rating: 4.94,
     time: 20,
-    difficulty: 'Easy',
+    difficulty: 'Легко',
     servings: 6,
-    author: 'Lily Ford',
+    author: 'Лили Форд',
     image: require('@/img/healthy-beef-burger.jpg').default,
   },
 ]
@@ -57,9 +57,9 @@ export default function Recipes({ recipes }) {
   return (
     <div className="divide-y divide-gray-100">
       <Nav>
-        <NavItem href="/featured" isActive>Featured</NavItem>
-        <NavItem href="/popular">Popular</NavItem>
-        <NavItem href="/recent">Recent</NavItem>
+        <NavItem href="/featured" isActive>Рекомендуемые</NavItem>
+        <NavItem href="/popular">Популярные</NavItem>
+        <NavItem href="/recent">Недавние</NavItem>
       </Nav>
       <List>
         {recipes.map((recipe) => (
@@ -112,21 +112,21 @@ export default function Recipes({ recipes }) {
         </h2>
         <dl className="flex flex-wrap text-sm font-medium whitespace-pre">
           <div>
-            <dt className="sr-only">Time</dt>
+            <dt className="sr-only">Время</dt>
             <dd>
               <abbr title={\`\${recipe.time} minutes\`}>{recipe.time}m</abbr>
             </dd>
           </div>
           <div>
-            <dt className="sr-only">Difficulty</dt>
+            <dt className="sr-only">Сложность</dt>
             <dd> · {recipe.difficulty}</dd>
           </div>
           <div>
-            <dt className="sr-only">Servings</dt>
-            <dd> · {recipe.servings} servings</dd>
+            <dt className="sr-only">Порции</dt>
+            <dd> · {recipe.servings} порций</dd>
           </div>
           <div className="flex-none w-full mt-0.5 font-normal">
-            <dt className="inline">By</dt>{' '}
+            <dt className="inline">От</dt>{' '}
             <dd className="inline text-black">{recipe.author}</dd>
           </div>
           <div class="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
@@ -149,9 +149,9 @@ export default function Recipes({ recipes }) {
     'Recipes.vue': tokenizeWithLines.html(`<template>
   <div class="divide-y divide-gray-100">
     <Nav>
-      <NavItem href="/featured" isActive>Featured</NavItem>
-      <NavItem href="/popular">Popular</NavItem>
-      <NavItem href="/recent">Recent</NavItem>
+      <NavItem href="/featured" isActive>Рекомендуемые</NavItem>
+      <NavItem href="/popular">Популярные</NavItem>
+      <NavItem href="/recent">Недавние</NavItem>
     </Nav>
     <List>
       <ListItem v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" />
@@ -222,21 +222,21 @@ export default {
       </h2>
       <dl class="flex flex-wrap text-sm font-medium whitespace-pre">
         <div>
-          <dt class="sr-only">Time</dt>
+          <dt class="sr-only">Время</dt>
           <dd>
             <abbr :title="\`\${recipe.time} minutes\`">{{ recipe.time }}m</abbr>
           </dd>
         </div>
         <div>
-          <dt class="sr-only">Difficulty</dt>
+          <dt class="sr-only">Сложность</dt>
           <dd> · {{ recipe.difficulty }}</dd>
         </div>
         <div>
-          <dt class="sr-only">Servings</dt>
-          <dd> · {{ recipe.servings }} servings</dd>
+          <dt class="sr-only">Порции</dt>
+          <dd> · {{ recipe.servings }} порций</dd>
         </div>
         <div class="flex-none w-full mt-0.5 font-normal">
-          <dt class="inline">By</dt>
+          <dt class="inline">От</dt>
           <dd class="inline text-black">{{ recipe.author }}</dd>
         </div>
         <div class="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
@@ -263,9 +263,9 @@ export default {
   blade: {
     'recipes.blade.php': tokenizeWithLines.html(`<div class="divide-y divide-gray-100">
   <x-nav>
-    <x-nav-item href="/featured" :isActive="true">Featured</x-nav-item>
-    <x-nav-item href="/popular">Popular</x-nav-item>
-    <x-nav-item href="/recent">Recent</x-nav-item>
+    <x-nav-item href="/featured" :isActive="true">Рекомендуемые</x-nav-item>
+    <x-nav-item href="/popular">Популярные</x-nav-item>
+    <x-nav-item href="/recent">Недавние</x-nav-item>
   </x-nav>
   <x-list>
     @foreach ($recipes as $recipe)
@@ -301,21 +301,21 @@ export default {
     </h2>
     <dl class="flex flex-wrap text-sm font-medium whitespace-pre">
       <div>
-        <dt class="sr-only">Time</dt>
+        <dt class="sr-only">Время</dt>
         <dd>
           <abbr title="{{ $recipe->time }} minutes">{{ $recipe->time }}m</abbr>
         </dd>
       </div>
       <div>
-        <dt class="sr-only">Difficulty</dt>
+        <dt class="sr-only">Сложность</dt>
         <dd> · {{ $recipe->difficulty }}</dd>
       </div>
       <div>
-        <dt class="sr-only">Servings</dt>
-        <dd> · {{ $recipe->servings }} servings</dd>
+        <dt class="sr-only">Порции</dt>
+        <dd> · {{ $recipe->servings }} порций</dd>
       </div>
       <div class="flex-none w-full mt-0.5 font-normal">
-        <dt class="inline">By</dt>
+        <dt class="inline">От</dt>
         <dd class="inline text-black">{{ $recipe->author }}</dd>
       </div>
       <div class="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
@@ -519,8 +519,8 @@ const html = tokenizeWithLines.html(`      </dd>
     </div>
   </dl>
   <footer class="grid grid-cols-2 gap-x-6">
-    <button class="btn btn--secondary">Decline</button>
-    <button class="btn btn--primary">Accept</button>
+    <button class="btn btn--secondary">Отказаться</button>
+    <button class="btn btn--primary">Принять</button>
   </footer>
 </article>
 `).lines
@@ -607,7 +607,7 @@ function AtApplySection() {
                 { 'opacity-25': inView }
               )}
             >
-              Weekly one-on-one
+              Еженедельно один на один
             </h2>
             <dl
               className={clsx(
@@ -616,31 +616,31 @@ function AtApplySection() {
               )}
             >
               <div className="px-4 sm:px-6 pb-6">
-                <dt className="sr-only">Date and time</dt>
+                <dt className="sr-only">Дата и время</dt>
                 <dd className="text-sm sm:text-base">
-                  <time dateTime="2020-11-15T10:00:00-05:00">Thu Nov 15, 2020 10:00am</time> -{' '}
+                  <time dateTime="2020-11-15T10:00:00-05:00">Чт 15 ноя 2020, 10:00</time> -{' '}
                   <time dateTime="2020-11-15T11:00:00-05:00">
-                    11:00am<span className="sr-only sm:not-sr-only"> EST</span>
+                    11:00<span className="sr-only sm:not-sr-only"> EST</span>
                   </time>
                 </dd>
               </div>
               <div className="w-full flex-none flex items-baseline px-4 sm:px-6 py-4">
                 <dt className="w-2/5 sm:w-1/3 flex-none uppercase text-xs sm:text-sm font-semibold tracking-wide">
-                  Location
+                  Место расположения
                 </dt>
                 <dd className="text-black text-sm sm:text-base">
-                  Kitchener, <abbr title="Ontario">ON</abbr>
+                  Китченер, <abbr title="Онтарио">Онтарио</abbr>
                 </dd>
               </div>
               <div className="w-full flex-none flex items-baseline px-4 sm:px-6 py-4">
                 <dt className="w-2/5 sm:w-1/3 flex-none uppercase text-xs sm:text-sm font-semibold tracking-wide">
-                  Description
+                  Описание
                 </dt>
-                <dd className="italic text-sm sm:text-base">No meeting description</dd>
+                <dd className="italic text-sm sm:text-base">Нет описания встречи</dd>
               </div>
               <div className="w-full flex-none flex items-center px-4 sm:px-6 py-4">
                 <dt className="w-2/5 sm:w-1/3 flex-none uppercase text-xs sm:text-sm font-semibold tracking-wide">
-                  Attendees
+                  Участники
                 </dt>
                 <dd className="text-sm sm:text-base font-medium text-gray-700 bg-gray-100 rounded-full py-1 pl-2 pr-4 flex items-center">
                   <svg
@@ -655,16 +655,16 @@ function AtApplySection() {
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                     />
                   </svg>
-                  Andrew Parsons
+                  Эндрю Парсонс
                 </dd>
               </div>
             </dl>
             <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 px-4 sm:px-6 py-4">
               <div className="text-base font-medium rounded-lg bg-gray-100 text-black py-3 text-center cursor-pointer">
-                Decline
+                Отказаться
               </div>
               <div className="text-base font-medium rounded-lg bg-rose-500 text-white py-3 text-center cursor-pointer">
-                Accept
+                Принять
               </div>
             </div>
           </article>
@@ -685,18 +685,16 @@ export function ComponentDriven() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-amber-500 mb-3">
-          Component-driven
+          Компонентно-управляемый
         </Caption>
         <BigText className="mb-8">
-          <Widont>Worried about duplication? Don’t be.</Widont>
+          <Widont>Беспокоитесь о дублировании? Не будет.</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          If you're repeating the same utilities over and over and over again, all you have to do is
-          extract them into a component or template partial and boom — you've got a single source of
-          truth so you can make changes in one place.
+          Если Вы повторяете одни и те же утилиты снова и снова, все, что Вам нужно сделать, это извлечь их в компонент или часть шаблона и бум - у Вас есть единственный источник правды, так что Вы можете вносить изменения в одном месте.
         </Paragraph>
         <Link href="/docs/extracting-components" className="text-amber-500 hover:text-amber-700">
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -740,14 +738,14 @@ export function ComponentDriven() {
               <ul className="flex space-x-2">
                 <li>
                   <div className="px-4 py-2 rounded-md bg-amber-100 text-amber-700 cursor-pointer">
-                    Featured
+                    Рекомендуемые
                   </div>
                 </li>
                 <li>
-                  <div className="px-4 py-2 cursor-pointer">Popular</div>
+                  <div className="px-4 py-2 cursor-pointer">Популярные</div>
                 </li>
                 <li>
-                  <div className="px-4 py-2 cursor-pointer">Recent</div>
+                  <div className="px-4 py-2 cursor-pointer">Недавние</div>
                 </li>
               </ul>
             </nav>
@@ -776,21 +774,21 @@ export function ComponentDriven() {
                       <dd>{rating}</dd>
                     </div>
                     <div>
-                      <dt className="sr-only">Time</dt>
+                      <dt className="sr-only">Время</dt>
                       <dd>
                         <abbr title={`${time} minutes`}>{time}m</abbr>
                       </dd>
                     </div>
                     <div>
-                      <dt className="sr-only">Difficulty</dt>
+                      <dt className="sr-only">Сложность</dt>
                       <dd> · {difficulty}</dd>
                     </div>
                     <div>
-                      <dt className="sr-only">Servings</dt>
-                      <dd> · {servings} servings</dd>
+                      <dt className="sr-only">Порции</dt>
+                      <dd> · {servings} порций</dd>
                     </div>
                     <div className="flex-none w-full mt-0.5 font-normal">
-                      <dt className="inline">By</dt> <dd className="inline text-black">{author}</dd>
+                      <dt className="inline">От</dt> <dd className="inline text-black">{author}</dd>
                     </div>
                   </dl>
                 </div>
@@ -802,12 +800,10 @@ export function ComponentDriven() {
       />
       <div className="px-4 sm:px-6 md:px-8 mt-16 sm:mt-24 md:mt-32 mb-10 sm:mb-16 md:mb-20 lg:mb-8">
         <Paragraph className="mb-6">
-          Not into component frameworks and like to keep it old school? Use Tailwind's @apply
-          directive to extract repeated utility patterns into custom CSS classes just by copying and
-          pasting the list of class names.
+          Не в компонентные фреймворки и хотите, чтобы это было олдскульно? Используйте директиву @apply Tailwind для извлечения повторяющихся служебных шаблонов в пользовательские классы CSS, просто скопировав и вставив список имен классов.
         </Paragraph>
         <Link href="/docs/extracting-components" className="text-orange-500 hover:text-orange-700">
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <AtApplySection />

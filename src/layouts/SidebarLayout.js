@@ -167,7 +167,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Documentation
+        Документация
       </TopLevelLink>
       <TopLevelLink
         href="https://tailwindui.com/components?utm_source=tailwindcss&utm_medium=navigation"
@@ -181,7 +181,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Components
+        Компоненты
       </TopLevelLink>
       <TopLevelLink
         href="https://play.tailwindcss.com"
@@ -204,7 +204,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Playground
+        Игровая площадка
       </TopLevelLink>
       <TopLevelLink
         href="https://blog.tailwindcss.com"
@@ -224,7 +224,7 @@ function TopLevelNav() {
           </>
         }
       >
-        News
+        Новости
       </TopLevelLink>
       <TopLevelLink
         href="/resources"
@@ -243,7 +243,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Resources
+        Ресурсы
       </TopLevelLink>
       <TopLevelLink
         href="https://www.youtube.com/tailwindlabs"
@@ -259,7 +259,7 @@ function TopLevelNav() {
           </>
         }
       >
-        Screencasts
+        Скринкасты
       </TopLevelLink>
     </>
   )

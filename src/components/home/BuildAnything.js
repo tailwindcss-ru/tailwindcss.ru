@@ -22,7 +22,7 @@ const { lines } = tokenizeWithLines.html(`<div class="_">
         __content__
       </div>
       <div class="_">
-        In stock
+        В наличии
       </div>
     </div>
     <div class="_">
@@ -48,12 +48,12 @@ const { lines } = tokenizeWithLines.html(`<div class="_">
           XL
         </label>
       </div>
-      <div class="_">Size Guide</div>
+      <div class="_">Таблица размеров</div>
     </div>
     <div class="_">
       <div class="_">
-        <button class="_" type="submit">Buy now</button>
-        <button class="_" type="button">Add to bag</button>
+        <button class="_" type="submit">Купить сейчас</button>
+        <button class="_" type="button">Добавить в корзину</button>
       </div>
       <button class="_" type="button" aria-label="like">
         <svg width="20" height="20" fill="currentColor">
@@ -62,7 +62,7 @@ const { lines } = tokenizeWithLines.html(`<div class="_">
       </button>
     </div>
     <p class="_">
-      Free shipping on all continental US orders.
+      Бесплатная доставка для всех заказов из континентальной части РФ.
     </p>
   </form>
 </div>
@@ -75,9 +75,9 @@ const code = {
   </div>
   <div class="flex-auto p-6">
     <div class="flex flex-wrap">
-      <h1 class="flex-auto text-xl font-semibold">Classic Utility Jacket</h1>
-      <div class="text-xl font-semibold text-gray-500">$110.00</div>
-      <div class="w-full flex-none text-sm font-medium text-gray-500 mt-2">In stock</div>
+      <h1 class="flex-auto text-xl font-semibold">Классическая утилитарная куртка</h1>
+      <div class="text-xl font-semibold text-gray-500">7700.00₽</div>
+      <div class="w-full flex-none text-sm font-medium text-gray-500 mt-2">В наличии</div>
     </div>
     <div class="flex items-baseline mt-4 mb-6">
       <div class="space-x-2 flex">
@@ -87,12 +87,12 @@ const code = {
         <div class="w-9 h-9 flex items-center justify-center">L</div>
         <div class="w-9 h-9 flex items-center justify-center">XL</div>
       </div>
-      <div class="ml-auto text-sm text-gray-500 underline">Size Guide</div>
+      <div class="ml-auto text-sm text-gray-500 underline">Таблица размеров</div>
     </div>
     <div class="flex space-x-3 mb-4 text-sm font-medium">
       <div class="flex-auto flex space-x-3">
-        <div class="w-1/2 flex items-center justify-center rounded-md bg-black text-white">Buy now</div>
-        <div class="w-1/2 flex items-center justify-center rounded-md border border-gray-300">Add to bag</div>
+        <div class="w-1/2 flex items-center justify-center rounded-md bg-black text-white">Купить сейчас</div>
+        <div class="w-1/2 flex items-center justify-center rounded-md border border-gray-300">Добавить в корзину</div>
       </div>
       <div class="flex-none flex items-center justify-center w-9 h-9 rounded-md text-gray-400 border border-gray-300">
         <svg width="20" height="20" fill="currentColor">
@@ -100,7 +100,7 @@ const code = {
         </svg>
       </div>
     </div>
-    <div class="text-sm text-gray-500">Free shipping on all continental US orders.</div>
+    <div class="text-sm text-gray-500">Бесплатная доставка для всех заказов из континентальной части РФ.</div>
   </div>
 </div>`,
   playful: `<div class="flex p-6">
@@ -109,9 +109,9 @@ const code = {
   </div>
   <div class="flex-auto pl-6">
     <div class="flex flex-wrap items-baseline">
-      <h1 class="w-full flex-none font-semibold mb-2.5">Kids Jumpsuit</h1>
-      <div class="text-4xl leading-7 font-bold text-purple-600">$39.00</div>
-      <div class="text-sm font-medium text-gray-400 ml-3">In stock</div>
+      <h1 class="w-full flex-none font-semibold mb-2.5">Детский комбинезон</h1>
+      <div class="text-4xl leading-7 font-bold text-purple-600">2800.00₽</div>
+      <div class="text-sm font-medium text-gray-400 ml-3">В наличии</div>
     </div>
     <div class="flex items-baseline my-8">
       <div class="space-x-2 flex text-sm font-medium">
@@ -121,12 +121,12 @@ const code = {
         <div class="w-9 h-9 flex items-center justify-center rounded-full border-2 border-gray-200">L</div>
         <div class="w-9 h-9 flex items-center justify-center rounded-full border-2 border-gray-200">XL</div>
       </div>
-      <div class="ml-3 text-sm text-gray-500 underline">Size Guide</div>
+      <div class="ml-3 text-sm text-gray-500 underline">Таблица размеров</div>
     </div>
     <div class="flex space-x-3 mb-4 text-sm font-semibold">
       <div class="flex-auto flex space-x-3">
-        <div class="w-1/2 flex items-center justify-center rounded-full bg-purple-700 text-white">Buy now</div>
-        <div class="w-1/2 flex items-center justify-center rounded-full bg-purple-50 text-purple-700">Add to bag</div>
+        <div class="w-1/2 flex items-center justify-center rounded-full bg-purple-700 text-white">Купить сейчас</div>
+        <div class="w-1/2 flex items-center justify-center rounded-full bg-purple-50 text-purple-700">Добавить в корзину</div>
       </div>
       <div class="flex-none flex items-center justify-center w-9 h-9 rounded-full bg-purple-50 text-purple-700">
         <svg width="20" height="20" fill="currentColor">
@@ -134,7 +134,7 @@ const code = {
         </svg>
       </div>
     </div>
-    <div class="text-sm text-gray-500">Free shipping on all continental US orders.</div>
+    <div class="text-sm text-gray-500">Бесплатная доставка для всех заказов из континентальной части РФ.</div>
   </div>
 </div>`,
   elegant: `<div class="flex p-1">
@@ -143,9 +143,9 @@ const code = {
   </div>
   <div class="flex-auto py-7 px-8">
     <div class="flex flex-wrap items-baseline">
-      <h1 class="w-full flex-none text-3xl text-black mb-1.5">Fancy Suit Jacket</h1>
-      <div class="text-lg leading-6 text-black">$600.00</div>
-      <div class="text-sm text-gray-500 ml-3">In stock</div>
+      <h1 class="w-full flex-none text-3xl text-black mb-1.5">Необычный пиджак</h1>
+      <div class="text-lg leading-6 text-black">42000.00₽</div>
+      <div class="text-sm text-gray-500 ml-3">В наличии</div>
     </div>
     <div class="flex items-baseline mt-9 py-4 border-t border-gray-100">
       <div class="space-x-2 flex text-sm font-light text-black">
@@ -155,12 +155,12 @@ const code = {
         <div class="w-9 h-9 flex items-center justify-center rounded-full">L</div>
         <div class="w-9 h-9 flex items-center justify-center rounded-full">XL</div>
       </div>
-      <div class="ml-auto text-sm font-light text-gray-500">Size Guide</div>
+      <div class="ml-auto text-sm font-light text-gray-500">Таблица размеров</div>
     </div>
     <div class="flex space-x-3 mb-3 text-sm font-semibold uppercase">
       <div class="flex-auto flex space-x-3">
-        <div class="w-1/2 flex items-center justify-center bg-black text-white">Buy now</div>
-        <div class="w-1/2 flex items-center justify-center border border-gray-200">Add to bag</div>
+        <div class="w-1/2 flex items-center justify-center bg-black text-white">Купить сейчас</div>
+        <div class="w-1/2 flex items-center justify-center border border-gray-200">Добавить в корзину</div>
       </div>
       <div class="flex-none flex items-center justify-center w-12 h-12 text-gray-900 border border-gray-200">
         <svg width="20" height="20" fill="currentColor">
@@ -168,7 +168,7 @@ const code = {
         </svg>
       </div>
     </div>
-    <div class="text-sm text-gray-500">Free shipping on all continental US orders.</div>
+    <div class="text-sm text-gray-500">Бесплатная доставка для всех заказов из континентальной части РФ.</div>
   </div>
 </div>`,
   brutalist: `<div class="flex p-6 font-mono">
@@ -177,9 +177,9 @@ const code = {
   </div>
   <div class="flex-auto pl-6">
     <div class="flex flex-wrap items-baseline pl-52 -mt-6 -mr-6 -ml-52 py-6 pr-6 bg-black text-white">
-      <h1 class="w-full flex-none text-2xl leading-7 mb-2 font-bold">Retro Shoe</h1>
+      <h1 class="w-full flex-none text-2xl leading-7 mb-2 font-bold">Ретро Обувь</h1>
       <div class="text-2xl leading-7 font-bold">$110.00</div>
-      <div class="text-sm font-medium ml-3">In stock</div>
+      <div class="text-sm font-medium ml-3">В наличии</div>
     </div>
     <div class="flex items-baseline py-8">
       <div class="space-x-3.5 flex text-center text-sm leading-none font-bold text-gray-500">
@@ -189,12 +189,12 @@ const code = {
         <div class="w-6">L</div>
         <div class="w-6">XL</div>
       </div>
-      <div class="ml-auto text-xs underline">Size Guide</div>
+      <div class="ml-auto text-xs underline">Таблица размеров</div>
     </div>
     <div class="flex space-x-3 text-sm font-bold uppercase mb-4">
       <div class="flex-auto flex space-x-3">
-        <div class="w-1/2 flex items-center justify-center bg-lime-300 text-black border border-black shadow-offset-black">Buy now</div>
-        <div class="w-1/2 flex items-center justify-center border border-black shadow-offset-black">Add to bag</div>
+        <div class="w-1/2 flex items-center justify-center bg-lime-300 text-black border border-black shadow-offset-black">Купить сейчас</div>
+        <div class="w-1/2 flex items-center justify-center border border-black shadow-offset-black">Добавить в корзину</div>
       </div>
       <div class="flex-none flex items-center justify-center w-9 h-9 border border-black">
         <svg width="20" height="20" fill="currentColor">
@@ -202,7 +202,7 @@ const code = {
         </svg>
       </div>
     </div>
-    <div class="text-xs leading-5 text-gray-500">Free shipping on all continental US orders.</div>
+    <div class="text-xs leading-5 text-gray-500">Бесплатная доставка для всех заказов из континентальной части РФ.</div>
   </div>
 </div>`,
 }
@@ -219,10 +219,10 @@ const classes = {
 }
 
 const content = {
-  simple: ['/classic-utility-jacket.jpg', 'Classic Utility Jacket', '$110.00'],
-  playful: ['/kids-jumpsuit.jpg', 'Kids Jumpsuit', '$39.00'],
-  elegant: ['/fancy-suit-jacket.jpg', 'Fancy Suit Jacket', '$600.00'],
-  brutalist: ['/retro-shoe.jpg', 'Retro Shoe', '$89.00'],
+  simple: ['/classic-utility-jacket.jpg', 'Классическая утилитарная куртка', '7700.00₽'],
+  playful: ['/kids-jumpsuit.jpg', 'Детский комбинезон', '2800.00₽'],
+  elegant: ['/fancy-suit-jacket.jpg', 'Необычный пиджак', '42000.00₽'],
+  brutalist: ['/retro-shoe.jpg', 'Ретро Обувь', '6300.00₽'],
 }
 
 export function BuildAnything() {
@@ -243,18 +243,16 @@ export function BuildAnything() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-orange-600 mb-3">
-          Build anything
+          Строить что угодно
         </Caption>
         <BigText className="mb-8">
-          <Widont>Build whatever you want, seriously.</Widont>
+          <Widont>Стройте серьезно, что хотите.</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Because Tailwind is so low-level, it never encourages you to design the same site twice.
-          Even with the same color palette and sizing scale, it's easy to build the same component
-          with a completely different look in the next project.
+          Поскольку Tailwind настолько низкоуровневый, он никогда не побуждает Вас создавать один и тот же сайт дважды. Даже с той же цветовой палитрой и шкалой размеров легко создать тот же компонент с совершенно другим внешним видом в следующем проекте.
         </Paragraph>
         <Link href="/docs" className="text-orange-600 hover:text-orange-800">
-          Get started -&gt;
+          Начать -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -265,10 +263,10 @@ export function BuildAnything() {
           <div className="flex overflow-auto py-0.5 -my-0.5 pl-0.5 -mx-4 sm:-mx-6 md:-mx-8 xl:-ml-4 xl:mr-0">
             <Tabs
               tabs={{
-                simple: 'Simple',
-                playful: 'Playful',
-                elegant: 'Elegant',
-                brutalist: 'Brutalist',
+                simple: 'Простой',
+                playful: 'Игривый',
+                elegant: 'Элегантный',
+                brutalist: 'Брутальный',
               }}
               selected={theme}
               onChange={setTheme}

@@ -111,24 +111,21 @@ export function Customization() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-rose-600 mb-3">
-          Customization
+          Настройка
         </Caption>
         <BigText className="mb-8">
-          <Widont>Extend it, tweak it, change it.</Widont>
+          <Widont>Расширьте его, настройте, измените.</Widont>
         </BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Tailwind includes an expertly crafted set of defaults out-of-the-box, but literally
-            everything can be customized — from the color palette to the spacing scale to the box
-            shadows to the mouse cursor.
+            Tailwind включает в себя профессионально созданный набор стандартных настроек по умолчанию, но буквально все можно настроить - от цветовой палитры до шкалы интервалов до теней прямоугольников и курсора мыши.
           </p>
           <p>
-            Use the tailwind.config.js file to craft your own design system, then let Tailwind
-            transform it into your own custom CSS framework.
+            Используйте файл tailwind.config.js для создания собственной системы дизайна, а затем позвольте Tailwind преобразовать ее в Вашу собственную структуру CSS.
           </p>
         </Paragraph>
         <Link href="/docs/configuration" className="text-rose-600 hover:text-rose-800">
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -138,10 +135,10 @@ export function Customization() {
           <div className="flex overflow-auto py-0.5 -my-0.5 pl-0.5 -mx-4 sm:-mx-6 md:-mx-8 xl:-ml-4 xl:mr-0">
             <Tabs
               tabs={{
-                simple: 'Simple',
-                playful: 'Playful',
-                elegant: 'Elegant',
-                brutalist: 'Brutalist',
+                simple: 'Простой',
+                playful: 'Игривый',
+                elegant: 'Элегантный',
+                brutalist: 'Брутальный',
               }}
               selected={theme}
               onChange={setTheme}
@@ -155,7 +152,7 @@ export function Customization() {
           >
             <section className="flex flex-col sm:flex-row lg:flex-col xl:flex-row">
               <h3 className="flex-none w-full sm:w-48 lg:w-full xl:w-48 bg-rose-50 rounded-tr-xl sm:rounded-tr-none sm:rounded-tl-xl lg:rounded-tr-xl xl:rounded-tr-none text-lg leading-6 font-semibold text-rose-800 px-4 py-3 sm:p-8 lg:px-6 lg:py-4 xl:p-8">
-                Typography
+                Типография
               </h3>
               <dl className="flex-auto bg-white sm:rounded-tr-xl lg:rounded-tr-none xl:rounded-tr-xl px-4 py-6 sm:p-6 space-y-6">
                 <div className="space-y-1">
@@ -193,7 +190,7 @@ export function Customization() {
             </section>
             <section className="flex flex-col sm:flex-row lg:flex-col xl:flex-row overflow-hidden">
               <h3 className="flex-none w-full sm:w-48 lg:w-full xl:w-48 bg-rose-50 xl:rounded-bl-xl text-lg leading-6 font-semibold text-rose-800 px-4 py-3 sm:p-8 lg:px-6 lg:py-4 xl:p-8">
-                Color
+                Цвет
               </h3>
               <div className="relative flex-auto bg-white lg:rounded-b-xl xl:rounded-bl-none overflow-hidden">
                 <dl className="px-4 py-6 sm:p-6 space-y-6">

@@ -74,31 +74,31 @@ export default function Home() {
         <meta
           key="twitter:title"
           name="twitter:title"
-          content="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
+          content="Tailwind CSS - быстро создавайте современные веб-сайты, не выходя из HTML."
         />
         <meta
           key="og:title"
           property="og:title"
-          content="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
+          content="Tailwind CSS - быстро создавайте современные веб-сайты, не выходя из HTML."
         />
-        <title>Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.</title>
+        <title>Tailwind CSS - быстро создавайте современные веб-сайты, не выходя из HTML.</title>
       </Head>
       <header className="relative z-10 max-w-screen-lg xl:max-w-screen-xl mx-auto">
         <div className="px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8">
           <div className="border-b border-gray-200 py-6 flex items-center justify-between mb-16 sm:mb-20 -mx-4 px-4 sm:mx-0 sm:px-0">
-            <Search />
-            <div className="flex space-x-6 sm:space-x-10">
+            {/* <Search /> */}
+            <div className="flex space-x-6 sm:space-x-10 ml-auto">
               <NextLink href="/docs">
                 <a className="text-base leading-6 font-medium hover:text-gray-600 transition-colors duration-200">
-                  <span className="sm:hidden">Docs</span>
-                  <span className="hidden sm:inline">Documentation</span>
+                  <span className="sm:hidden">Доки</span>
+                  <span className="hidden sm:inline">Документация</span>
                 </a>
               </NextLink>
               <a
                 href="https://github.com/tailwindlabs/tailwindcss"
                 className="text-gray-400 hover:text-gray-500 transition-colors duration-200"
               >
-                <span className="sr-only">Tailwind CSS on GitHub</span>
+                <span className="sr-only">Tailwind CSS на GitHub</span>
                 <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
                   <path
                     fillRule="evenodd"
@@ -110,18 +110,17 @@ export default function Home() {
           </div>
           <Logo className="w-auto h-7 sm:h-8" />
           <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10">
-            Rapidly build modern websites without ever leaving your HTML.
+            Быстро создавайте современные веб-сайты, не покидая своего HTML.
           </h1>
           <p className="max-w-screen-lg text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11">
-            A utility-first CSS framework packed with classes like <InlineCode>flex</InlineCode>,{' '}
-            <InlineCode>pt-4</InlineCode>, <InlineCode>text-center</InlineCode> and{' '}
-            <InlineCode>rotate-90</InlineCode> that can be composed to build any design, directly in
-            your markup.
+            CSS-фреймворк, ориентированный на полезные функции и содержащий классы вроде <InlineCode>flex</InlineCode>,{' '}
+            <InlineCode>pt-4</InlineCode>, <InlineCode>text-center</InlineCode> и{' '}
+            <InlineCode>rotate-90</InlineCode>, которые можно составлять для создания любого дизайна прямо в разметке.
           </p>
           <div className="flex flex-wrap space-y-4 sm:space-y-0 sm:space-x-4 text-center">
             <NextLink href="/docs">
               <a className="w-full sm:w-auto flex-none bg-gray-900 hover:bg-gray-700 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">
-                Get started
+                Начать
               </a>
             </NextLink>
             <NpmInstallButton />
@@ -132,12 +131,12 @@ export default function Home() {
       <section className="relative z-10 text-center max-w-screen-lg xl:max-w-screen-xl mx-auto">
         <div className="px-4 sm:px-6 md:px-8">
           <BigText as="h2" className="mb-8">
-            <Widont>“Best practices” don’t actually work.</Widont>
+            <Widont>«Лучшие практики» на самом деле не работают.</Widont>
           </BigText>
           <figure>
             <blockquote>
               <Paragraph className="max-w-4xl mx-auto mb-6">
-                I’ve written{' '}
+                Я написал{' '}
                 <a
                   href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/"
                   className="text-light-blue-600 font-semibold"
@@ -146,13 +145,13 @@ export default function Home() {
                       'inset 0 -0.1666666667em 0 0 #fff, inset 0 -0.3333333333em 0 0 #bae6fd',
                   }}
                 >
-                  a few thousand words
+                  несколько тысяч слов
                 </a>{' '}
                 <Widont>
-                  on why traditional “semantic class names” are the reason CSS is hard to maintain,
-                  but the truth is you’re never going to believe me until you actually try it. If
-                  you can suppress the urge to retch long enough to give it a chance, I really think
-                  you'll wonder how you ever worked with CSS any other way.
+                  о том, почему традиционные «семантические имена классов» являются причиной, по которой CSS трудно
+                  поддерживать, но правда в том, что Вы никогда не поверите мне, пока не попробуете это на самом деле.
+                  Если Вы можете подавить желание рвать достаточно долго, чтобы дать ему шанс, я действительно думаю,
+                  Вы удивитесь, как Вы когда-либо работали с CSS каким-либо другим способом.
                 </Widont>
               </Paragraph>
             </blockquote>
@@ -165,8 +164,8 @@ export default function Home() {
                   loading="lazy"
                 />
               </div>
-              <div className="text-gray-900">Adam Wathan</div>
-              <div className="text-light-blue-600">Creator of Tailwind CSS</div>
+              <div className="text-gray-900">Адам Уотан</div>
+              <div className="text-light-blue-600">Создатель Tailwind CSS</div>
             </figcaption>
           </figure>
         </div>

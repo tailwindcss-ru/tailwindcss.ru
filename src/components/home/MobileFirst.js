@@ -25,8 +25,8 @@ const images = {
 const { code: html, lines, classNames } = tokenizeWithLines.html(
   `<div class="{container}">
   <div class="{header}">
-    <p class="{preheading}">Entire house</p>
-    <h2 class="{heading}">Beach House in Collingwood</h2>
+    <p class="{preheading}">Весь дом</p>
+    <h2 class="{heading}">Дом на пляже в Коллингвуде</h2>
   </div>
   <div class="{metaContainer}">
     <div class="{meta}">
@@ -38,16 +38,16 @@ const { code: html, lines, classNames } = tokenizeWithLines.html(
         <span class="{ratingCount}">(128)</span>
       </div>
       <div class="text-base font-normal mx-2">·</div>
-      <div>Collingwood, Ontario</div>
+      <div>Коллингвуд, Онтарио</div>
     </div>
     <hr class="{hr}">
   </div>
   <div class="{footerContainer}">
     <p class="flex items-center text-black text-sm font-medium">
       <img src="/kevin-francis.jpg" alt="" class="w-6 h-6 rounded-full mr-2 bg-gray-100">
-      Hosted by Kevin Francis
+      Хозяин Кевин Фрэнсис
     </p>
-    <button type="button" class="bg-violet-100 text-violet-700 text-base font-semibold px-6 py-2 rounded-lg">Check availability</button>
+    <button type="button" class="bg-violet-100 text-violet-700 text-base font-semibold px-6 py-2 rounded-lg">Проверить наличие</button>
   </div>
   <div class="{imgContainer}">
     <div class="w-full grid grid-cols-3 grid-rows-2 gap-2">
@@ -269,21 +269,19 @@ export function MobileFirst() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-violet-600 mb-3">
-          Mobile-first
+          Сначала мобильные
         </Caption>
-        <BigText className="mb-8">Responsive everything.</BigText>
+        <BigText className="mb-8">Все адаптивно.</BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Wrestling with a bunch of complex media queries in your CSS sucks, so Tailwind lets you
-            build responsive designs right in your HTML instead.
+            Бороться с кучей сложных медиа-запросов в CSS - отстой, поэтому Tailwind позволяет вместо этого создавать адаптивный дизайн прямо в HTML.
           </p>
           <p>
-            Throw a screen size in front of literally any utility class and watch it magically apply
-            at a specific breakpoint.
+            Добавьте размер экрана буквально перед любым служебным классом и посмотрите, как он волшебным образом применяется в определенной контрольной точке.
           </p>
         </Paragraph>
         <Link href="/docs/responsive-design" className="text-violet-600 hover:text-violet-800">
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <GradientLockup

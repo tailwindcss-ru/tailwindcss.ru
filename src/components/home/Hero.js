@@ -21,17 +21,15 @@ const { tokens, code } = tokenize.html(
   <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
     <blockquote>
       <p class="text-lg font-semibold">
-        “Tailwind CSS is the only framework that I've seen scale
-        on large teams. It’s easy to customize, adapts to any design,
-        and the build size is tiny.”
+        “Tailwind CSS - единственный фреймворк, который я видела масштабируемым в больших командах. Его легко настроить, адаптировать к любому дизайну, а размер сборки крошечный.”
       </p>
     </blockquote>
     <figcaption class="font-medium">
       <div class="text-cyan-600">
-        Sarah Dayan
+        Сара Даян
       </div>
       <div class="text-gray-500">
-        Staff Engineer, Algolia
+        Штатный инженер, Алголия
       </div>
     </figcaption>
   </div>
@@ -364,8 +362,7 @@ export function Hero() {
                 >
                   <motion.div layout={layout} className="mb-4" transition={TRANSITION}>
                     <Words bolder={step >= 3} layout={layout} transition={TRANSITION}>
-                      “Tailwind CSS is the only framework that I've seen scale on large teams. It’s
-                      easy to customize, adapts to any design, and the build size is tiny.”
+                      “Tailwind CSS - единственный фреймворк, который я видела масштабируемым в больших командах. Его легко настроить, адаптировать к любому дизайну, а размер сборки крошечный.”
                     </Words>
                   </motion.div>
                   <motion.div
@@ -385,7 +382,7 @@ export function Hero() {
                       }}
                       transition={TRANSITION}
                     >
-                      Sarah Dayan
+                      Сара Даян
                     </motion.p>
                     <motion.p
                       layout={layout}
@@ -395,7 +392,7 @@ export function Hero() {
                       }}
                       transition={TRANSITION}
                     >
-                      Staff Engineer, Algolia
+                      Штатный инженер, Алголия
                     </motion.p>
                   </motion.div>
                 </motion.div>

@@ -60,10 +60,10 @@ const completions = [
 const { lines } = tokenizeWithLines.html(`<div class="__CONFLICT__">
   <div class="flex-1 truncate">
     <div class="flex items-center space-x-3">
-      <h3 class="text-gray-900 text-sm font-medium truncate">Jane Cooper</h3>
-      <span class="__COMPLETION__">Admin</span>
+      <h3 class="text-gray-900 text-sm font-medium truncate">Джейн Купер</h3>
+      <span class="__COMPLETION__">Админ</span>
     </div>
-    <p class="mt-1 text-gray-500 text-sm truncate">Regional Paradigm Technician</p>
+    <p class="mt-1 text-gray-500 text-sm truncate">Региональный техник парадигмы</p>
   </div>
   <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">
 </div>
@@ -75,7 +75,7 @@ const { lines } = tokenizeWithLines.html(`<div class="__CONFLICT__">
           <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
           <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
         </svg>
-        <span class="ml-3">Email</span>
+        <span class="ml-3">Эл. почта</span>
       </a>
     </div>
   </div>
@@ -311,21 +311,19 @@ export function EditorTools() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-light-blue-600 mb-3">
-          Editor tools
+          Инструменты редактора
         </Caption>
-        <BigText className="mb-8">World-class IDE integration.</BigText>
+        <BigText className="mb-8">Интеграция IDE мирового класса.</BigText>
         <Paragraph as="div" className="mb-6">
           <p>
-            Worried about remembering all of these class names? The Tailwind CSS IntelliSense
-            extension for VS Code has you covered.
+            Беспокоитесь о том, чтобы запомнить все эти имена классов? Расширение Tailwind CSS IntelliSense для VS Code поможет Вам.
           </p>
           <p>
-            Get intelligent autocomplete suggestions, linting, class definitions and more, all
-            within your editor and with no configuration required.
+            Получайте интеллектуальные предложения автозаполнения, линтинг, определения классов и многое другое в Вашем редакторе и без необходимости настройки.
           </p>
         </Paragraph>
         <Link href="/docs/intellisense" className="text-light-blue-600 hover:text-light-blue-800">
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <GradientLockup

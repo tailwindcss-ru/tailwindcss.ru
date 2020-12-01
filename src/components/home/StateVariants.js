@@ -18,9 +18,9 @@ import { usePrevious } from '@/hooks/usePrevious'
 import clsx from 'clsx'
 
 const projects = [
-  { title: 'API Integration', category: 'Engineering' },
-  { title: 'New Benefits Plan', category: 'Human Resources' },
-  { title: 'Onboarding Emails', category: 'Customer Success' },
+  { title: 'Интеграция API', category: 'Инженеры' },
+  { title: 'Новый план льгот', category: 'Отдел кадров' },
+  { title: 'Информационные письма', category: 'Успех клиентов' },
 ]
 
 const faces = [
@@ -45,38 +45,38 @@ const {
   lines,
 } = tokenizeWithLines.html(`<section class="px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
   <header class="flex items-center justify-between">
-    <h2 class="text-lg leading-6 font-medium text-black">Projects</h2>
+    <h2 class="text-lg leading-6 font-medium text-black">Проекты</h2>
     <button class="(new-btn-hover)hover:bg-light-blue-200 (new-btn-hover)hover:text-light-blue-800 group flex items-center rounded-md bg-light-blue-100 text-light-blue-600 text-sm font-medium px-4 py-2">
       <svg class="(new-btn-hover)group-hover:text-light-blue-600 text-light-blue-500 mr-2" width="12" height="20" fill="currentColor">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"/>
       </svg>
-      New
+      Новый
     </button>
   </header>
   <form class="relative">
     <svg width="20" height="20" fill="currentColor" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
     </svg>
-    <input class="(input-focus)focus:border-light-blue-500 (input-focus)focus:ring-1 (input-focus)focus:ring-light-blue-500 (input-focus)focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10" type="text" aria-label="Filter projects" placeholder="Filter projects" />
+    <input class="(input-focus)focus:border-light-blue-500 (input-focus)focus:ring-1 (input-focus)focus:ring-light-blue-500 (input-focus)focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10" type="text" aria-label="Фильтровать проекты" placeholder="Фильтровать проекты" />
   </form>
   <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
     <li x-for="item in items">
       <a :href="item.url" class="(item-hover)hover:bg-light-blue-500 (item-hover)hover:border-transparent (item-hover)hover:shadow-lg group block rounded-lg p-4 border border-gray-200">
         <dl class="grid sm:block lg:grid xl:block grid-cols-2 grid-rows-2 items-center">
           <div>
-            <dt class="sr-only">Title</dt>
+            <dt class="sr-only">Заголовок</dt>
             <dd class="(item-hover)group-hover:text-white leading-6 font-medium text-black">
               {item.title}
             </dd>
           </div>
           <div>
-            <dt class="sr-only">Category</dt>
+            <dt class="sr-only">Категория</dt>
             <dd class="(item-hover)group-hover:text-light-blue-200 text-sm font-medium sm:mb-4 lg:mb-0 xl:mb-4">
               {item.category}
             </dd>
           </div>
           <div class="col-start-2 row-start-1 row-end-3">
-            <dt class="sr-only">Users</dt>
+            <dt class="sr-only">Пользователи</dt>
             <dd class="flex justify-end sm:justify-start lg:justify-end xl:justify-start -space-x-2">
               <img x-for="user in item.users" :src="user.avatar" :alt="user.name" width="48" height="48" class="w-7 h-7 rounded-full bg-gray-100 border-2 border-white" />
             </dd>
@@ -86,7 +86,7 @@ const {
     </li>
     <li class="(new-hover)hover:shadow-lg flex rounded-lg">
       <a href="/new" class="(new-hover)hover:border-transparent (new-hover)hover:shadow-xs w-full flex items-center justify-center rounded-lg border-2 border-dashed border-gray-200 text-sm font-medium py-4">
-        New Project
+        Новый проект
       </a>
     </li>
   </ul>
@@ -140,23 +140,19 @@ export function StateVariants() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-light-blue-500 mb-3">
-          State variants
+          Варианты состояний
         </Caption>
         <BigText className="mb-8">
-          <Widont>Hover and focus states? We got ’em.</Widont>
+          <Widont>Состояния наведения и фокусировки? Мы их получили.</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Want to style something on hover? Stick <InlineCode>hover:</InlineCode> at the beginning
-          of the class you want to add. Works for <InlineCode>focus</InlineCode>,{' '}
-          <InlineCode>active</InlineCode>, <InlineCode>disabled</InlineCode>,{' '}
-          <InlineCode>focus-within</InlineCode>, <InlineCode>focus-visible</InlineCode>, and even
-          fancy states we invented ourselves like <InlineCode>group-hover</InlineCode>.
+          Хотите стилизовать что-нибудь при наведении курсора? Приклейте <InlineCode>hover:</InlineCode> в начале класса, который Вы хотите добавить. Работает для фокусировки <InlineCode>focus</InlineCode>, активного состояния <InlineCode>active</InlineCode>, отключенного состояния <InlineCode>disabled</InlineCode>, <InlineCode>focus-within</InlineCode>, <InlineCode>focus-visible</InlineCode> и даже причудливых состояний, которые мы изобрели сами, например, группового наведения <InlineCode>group-hover</InlineCode>.
         </Paragraph>
         <Link
           href="/docs/hover-focus-and-other-states"
           className="text-light-blue-500 hover:text-light-blue-700"
         >
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -166,7 +162,7 @@ export function StateVariants() {
           <div className="relative z-10 bg-white rounded-tr-xl sm:rounded-t-xl lg:rounded-xl shadow-lg lg:-mr-8">
             <section className="px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
               <header className="flex items-center justify-between">
-                <h2 className="text-lg leading-6 font-medium text-black">Projects</h2>
+                <h2 className="text-lg leading-6 font-medium text-black">Проекты</h2>
                 <div
                   className="hover:bg-light-blue-200 hover:text-light-blue-800 group flex items-center rounded-md bg-light-blue-100 text-light-blue-600 text-sm font-medium px-4 py-2 cursor-pointer"
                   onMouseEnter={() => {
@@ -188,7 +184,7 @@ export function StateVariants() {
                       d="M6 5a1 1 0 011 1v3h3a1 1 0 110 2H7v3a1 1 0 11-2 0v-3H2a1 1 0 110-2h3V6a1 1 0 011-1z"
                     />
                   </svg>
-                  New
+                  Новый
                 </div>
               </header>
               <form className="relative">
@@ -213,8 +209,8 @@ export function StateVariants() {
                     // resetScroll()
                   }}
                   type="text"
-                  aria-label="Filter projects"
-                  placeholder="Filter projects"
+                  aria-label="Фильтровать проекты"
+                  placeholder="Фильтровать проекты"
                   className="w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10 focus:border-light-blue-500 focus:outline-none focus:ring-1 focus:ring-light-blue-500"
                 />
               </form>
@@ -278,7 +274,7 @@ export function StateVariants() {
                       setStates((states) => states.filter((x) => x !== 'new-hover'))
                     }}
                   >
-                    New Project
+                    Новый проект
                   </div>
                 </li>
               </ul>

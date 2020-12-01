@@ -6,19 +6,37 @@ const pages = createPageList(
 )
 
 export const documentationNav = {
-  'Getting started': [
-    pages['installation'],
+  'Начало работы': [
+    {
+      title: 'Установка',
+      href: '/docs/installation',
+    },
     {
       title: 'Release Notes',
       href: 'https://blog.tailwindcss.com/tailwindcss-v2',
     },
-    pages['upgrading-to-v2'],
-    pages['using-with-preprocessors'],
-    pages['optimizing-for-production'],
-    pages['browser-support'],
-    pages['intellisense'],
+    {
+      title: 'Обновление до v2',
+      href: '/docs/upgrading-to-v2',
+    },
+    {
+      title: 'Использование с препроцессорами',
+      href: '/docs/using-with-preprocessors',
+    },
+    {
+      title: 'Оптимизация для рабочей версии',
+      href: '/docs/optimizing-for-production',
+    },
+    {
+      title: 'Поддержка браузера',
+      href: '/docs/browser-support',
+    },
+    {
+      title: 'Установка',
+      href: '/docs/intellisense',
+    },
   ],
-  'Core Concepts': [
+  'Основные концепции': [
     pages['utility-first'],
     pages['responsive-design'],
     pages['hover-focus-and-other-states'],
@@ -28,7 +46,7 @@ export const documentationNav = {
     pages['adding-new-utilities'],
     pages['functions-and-directives'],
   ],
-  Customization: [
+  'Настройка': [
     pages['configuration'],
     pages['theme'],
     pages['breakpoints'],

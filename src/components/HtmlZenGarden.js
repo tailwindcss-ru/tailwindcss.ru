@@ -437,8 +437,7 @@ export function HtmlZenGarden({ theme }) {
                       initial={false}
                       animate={{ opacity: theme === 'simple' ? 1 : 0 }}
                     >
-                      <span className="hidden sm:inline whitespace-pre">Classic </span>Utility
-                      Jacket
+                        <span className="hidden sm:inline whitespace-pre">Классическая </span>утилитарная куртка
                     </motion.h2>
                     <motion.h2
                       layout
@@ -448,7 +447,7 @@ export function HtmlZenGarden({ theme }) {
                       initial={false}
                       animate={{ opacity: theme === 'playful' ? 1 : 0 }}
                     >
-                      Kids Jumpsuit
+                      Детский комбинезон
                     </motion.h2>
                     <motion.h2
                       layout
@@ -460,7 +459,7 @@ export function HtmlZenGarden({ theme }) {
                       initial={false}
                       animate={{ opacity: theme === 'elegant' ? 1 : 0 }}
                     >
-                      Fancy Suit Jacket
+                      Необычный пиджак
                     </motion.h2>
                     <motion.h2
                       layout
@@ -470,7 +469,7 @@ export function HtmlZenGarden({ theme }) {
                       initial={false}
                       animate={{ opacity: theme === 'brutalist' ? 1 : 0 }}
                     >
-                      Retro Shoe
+                      Ретро Обувь
                     </motion.h2>
                   </div>
                   <div className="relative">
@@ -524,7 +523,7 @@ export function HtmlZenGarden({ theme }) {
                         theme === 'simple' ? '' : 'absolute bottom-0 left-0'
                       }`}
                     >
-                      In stock
+                      В наличии
                     </motion.div>
                     <motion.div
                       layout
@@ -534,7 +533,7 @@ export function HtmlZenGarden({ theme }) {
                         theme === 'playful' ? '' : 'absolute bottom-0 left-0'
                       }`}
                     >
-                      In stock
+                      В наличии
                     </motion.div>
                     <motion.div
                       layout
@@ -544,7 +543,7 @@ export function HtmlZenGarden({ theme }) {
                         theme === 'elegant' ? '' : 'absolute bottom-0 left-0'
                       }`}
                     >
-                      In stock
+                      В наличии
                     </motion.div>
                     <motion.div
                       layout
@@ -554,7 +553,7 @@ export function HtmlZenGarden({ theme }) {
                         theme === 'brutalist' ? '' : 'absolute bottom-0 left-0'
                       }`}
                     >
-                      In stock
+                      В наличии
                     </motion.div>
                   </div>
                 </div>
@@ -648,7 +647,7 @@ export function HtmlZenGarden({ theme }) {
                           color: themes[name].size.guide.color || '#71717a',
                         }}
                       >
-                        Size Guide
+                        Таблица размеров
                       </motion.div>
                     ))}
                   </div>
@@ -690,7 +689,7 @@ export function HtmlZenGarden({ theme }) {
                           initial={false}
                           animate={{ opacity: theme === name ? 1 : 0 }}
                         >
-                          <motion.span layout>Buy now</motion.span>
+                          <motion.span layout>Купить сейчас</motion.span>
                         </motion.span>
                       ))}
                     </motion.div>
@@ -728,7 +727,7 @@ export function HtmlZenGarden({ theme }) {
                           initial={false}
                           animate={{ opacity: theme === name ? 1 : 0 }}
                         >
-                          <motion.span layout>Add to bag</motion.span>
+                          <motion.span layout>В корзину</motion.span>
                         </motion.span>
                       ))}
                     </motion.div>
@@ -781,8 +780,8 @@ export function HtmlZenGarden({ theme }) {
                       animate={{ opacity: theme === name ? 1 : 0 }}
                     >
                       <span>
-                        Free shipping on all
-                        <span className="hidden sm:inline"> continental US</span> orders.
+                        Бесплатная доставка для всех заказов из
+                        <span className="hidden sm:inline"> РФ</span>.
                       </span>
                     </motion.p>
                   ))}

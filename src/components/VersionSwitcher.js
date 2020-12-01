@@ -7,9 +7,6 @@ export function VersionSwitcher({ className }) {
 
   function submit(e) {
     e.preventDefault()
-    if (selectRef.current.value === 'v0') {
-      window.location = 'https://tailwindcss-v0.netlify.app/'
-    }
     if (selectRef.current.value === 'v1') {
       window.location = 'https://v1.tailwindcss.com/'
     }
@@ -26,7 +23,6 @@ export function VersionSwitcher({ className }) {
         >
           <option value="v2">v{tailwindVersion}</option>
           <option value="v1">v1.9.6</option>
-          <option value="v0">v0.7.4</option>
         </select>
       </label>
       <svg

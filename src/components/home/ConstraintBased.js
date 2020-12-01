@@ -189,19 +189,16 @@ export function ConstraintBased() {
           <Icon />
         </IconContainer>
         <Caption as="h2" className="text-purple-600 mb-3">
-          Constraint-based
+          На основе ограничений
         </Caption>
         <BigText className="mb-8">
-          <Widont>An API for your design system.</Widont>
+          <Widont>API для Вашей дизайн-системы.</Widont>
         </BigText>
         <Paragraph className="mb-6">
-          Utility classes help you work within the constraints of a system instead of littering your
-          stylesheets with arbitrary values. They make it easy to be consistent with color choices,
-          spacing, typography, shadows, and everything else that makes up a well-engineered design
-          system.
+          Служебные классы помогают Вам работать в рамках ограничений системы, вместо того, чтобы забивать Ваши таблицы стилей произвольными значениями. Они позволяют легко согласовываться с выбором цвета, интервалом, типографикой, тенями и всем остальным, что составляет хорошо продуманную систему дизайна.
         </Paragraph>
         <Link href="/docs/utility-first" className="text-purple-600 hover:text-purple-800">
-          Learn more -&gt;
+          Узнать больше -&gt;
         </Link>
       </div>
       <GradientLockup
@@ -211,10 +208,10 @@ export function ConstraintBased() {
           <div className="flex overflow-auto py-0.5 -my-0.5 -mx-4 sm:-mx-6 md:-mx-8 xl:-ml-4 xl:mr-0 pl-0.5">
             <Tabs
               tabs={{
-                sizing: 'Sizing',
-                color: 'Color',
-                typography: 'Typography',
-                shadows: 'Shadows',
+                sizing: 'Размеры',
+                color: 'Цвет',
+                typography: 'Типография',
+                shadows: 'Тени',
               }}
               selected={tab}
               onChange={setTab}
@@ -236,10 +233,10 @@ export function ConstraintBased() {
                 >
                   {
                     {
-                      sizing: 'Width',
-                      color: 'Color',
-                      typography: 'Typography',
-                      shadows: 'Shadows',
+                      sizing: 'Ширина',
+                      color: 'Цвет',
+                      typography: 'Типография',
+                      shadows: 'Тени',
                     }[tab]
                   }
                 </motion.span>
