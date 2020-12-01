@@ -29,5 +29,4 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-publish.sh
-/_gh_pages/
+/_gh_pages
