@@ -1,21 +1,21 @@
 ---
-title: Optimizing for Production
-description: Removing unused CSS from your production builds for maximum performance.
+title: Оптимизация для Продакшена
+description: Удаление неиспользуемого CSS из Ваших производственных сборок для максимальной производительности.
 ---
 
 import { Heading } from '@/components/Heading'
 import { TipGood, TipBad } from '@/components/Tip'
 import stats from '@/utils/stats'
 
-## <Heading hidden>Overview</Heading>
+## <Heading hidden>Обзор</Heading>
 
-<p>Using the default configuration, the development build of Tailwind CSS is {stats.default.original} uncompressed, {stats.default.gzipped} minified and compressed with <a href="https://www.gnu.org/software/gzip/">Gzip</a>, and {stats.default.brotlified} when compressed with <a href="https://github.com/google/brotli">Brotli</a>.</p>
+<p>При использовании конфигурации по умолчанию разрабатываемая сборка Tailwind CSS {stats.default.original} без сжатия, {stats.default.gzipped} минимизирована и сжимается с помощью <a href="https://www.gnu.org/software/gzip/">Gzip</a> и {stats.default.brotlified} при сжатии с помощью <a href="https://github.com/google/brotli">Brotli</a>.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Uncompressed</th>
-      <th>Minified</th>
+      <th>Несжатый</th>
+      <th>Минифицированный</th>
       <th>Gzip</th>
       <th>Brotli</th>
     </tr>
@@ -30,82 +30,82 @@ import stats from '@/utils/stats'
   </tbody>
 </table>
 
-This might sound enormous but **the development build is large by design**.
+Это может показаться огромным, но **сборка для разработчиков большая по дизайну**.
 
-To make the development experience as productive as possible, Tailwind generates thousands of utility classes for you, most of which you probably won't actually use.
+Чтобы сделать процесс разработки максимально продуктивным, Tailwind генерирует для Вас тысячи служебных классов, большинство из которых Вы, вероятно, на самом деле не будете использовать.
 
-Think of Tailwind like a giant box of LEGO — you dump it all out on the floor and build what you want to build, then when you're done you put all the pieces you didn't use back into the box.
+Думайте о попутном ветре как о гигантской коробке LEGO: Вы вываливаете все это на пол и строите то, что хотите построить, а когда закончите, Вы кладете все части, которые не использовали, обратно в коробку.
 
-For example, Tailwind generates margin utilities for every size in your spacing scale, for every side of an element you might want to apply margin to, at every breakpoint you are using in your project. This leads to hundreds of different combinations that are all important to have available, but not all likely to be needed.
+Например, Tailwind генерирует утилиты полей для каждого размера в Вашей шкале интервалов, для каждой стороны элемента, к которому Вы, возможно, захотите применить маржу, в каждой контрольной точке, которую Вы используете в своем проекте. Это приводит к сотням различных комбинаций, которые важно иметь в наличии, но не все, вероятно, понадобятся.
 
-**When building for production, you should always use Tailwind's `purge` option to tree-shake unused styles and optimize your final build size.** When removing unused styles with Tailwind, it's very hard to end up with more than 10kb of compressed CSS.
+**При сборке для производства Вы всегда должны использовать опцию `purge` Tailwind, чтобы встряхнуть неиспользуемые стили и оптимизировать окончательный размер Вашей сборки.** При удалении неиспользуемых стилей с помощью Tailwind очень сложно получить более 10 КБ сжатых файлов CSS.
 
-## Writing purgeable HTML
+## Написание очищаемого HTML
 
-Before getting started with the `purge` feature, it's important to understand how it works and build the correct mental model to make sure you never accidentally remove important styles when building for production.
+Прежде чем приступить к работе с функцией `purge`, важно понять, как она работает, и построить правильную ментальную модель, чтобы убедиться, что Вы случайно не удалите важные стили при сборке для производства.
 
-[PurgeCSS](https://purgecss.com/) _(the library we use under the hood)_ is intentionally very naive in the way it looks for classes in your HTML. It doesn't try to parse your HTML and look for class attributes or dynamically execute your JavaScript — it simply looks for any strings in the entire file that match this regular expression:
+[PurgeCSS](https://purgecss.com/) _(библиотека, которую мы используем под капотом)_ намеренно очень наивен в том, как ищет классы в Вашем HTML. Он не пытается анализировать Ваш HTML и искать атрибуты класса или динамически выполнять Ваш JavaScript - он просто ищет любые строки во всем файле, которые соответствуют этому регулярному выражению:
 
 ```js
 /[^<>"'`\s]*[^<>"'`\s:]/g
 ```
 
-This basically matches any string separated by spaces, quotes or angle brackets, including HTML tags, attributes, classes, and even the actual written content in your markup.
+Это в основном соответствует любой строке, разделенной пробелами, кавычками или угловыми скобками, включая теги HTML, атрибуты, классы и даже фактическое написанное содержимое в Вашей разметке.
 
 ```html
 <template preview>
 <div class="md:flex">
   <div class="md:flex-shrink-0">
-    <img class="rounded-lg md:w-56" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" width="448" height="299" alt="Woman paying for a purchase">
+    <img class="rounded-lg md:w-56" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" width="448" height="299" alt="Женщина платит за покупку">
   </div>
   <div class="mt-4 md:mt-0 md:ml-6">
-    <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Marketing</div>
-    <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">Finding customers for your new business</a>
-    <p class="mt-2 text-gray-600">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+    <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Маркетинг</div>
+    <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">Поиск клиентов для Вашего нового бизнеса</a>
+    <p class="mt-2 text-gray-600">Начало нового бизнеса - это тяжелая работа. Вот пять идей, которые Вы можете использовать, чтобы найти своих первых клиентов.</p>
   </div>
 </div>
 </template>
 
 <**div** **class**="**md:flex**">
   <**div** **class**="**md:flex-shrink-0**">
-    <**img** **class**="**rounded-lg** **md:w-56**" **src**="**/img/shopping.jpg**" **alt**="**Woman** **paying** **for** **a** **purchase**">
+    <**img** **class**="**rounded-lg** **md:w-56**" **src**="**/img/shopping.jpg**" **alt**="**Женщина** **платит** **за** **покупку**">
   </**div**>
   <**div** **class**="**mt-4** **md:mt-0** **md:ml-6**">
     <**div** **class**="**uppercase** **tracking-wide** **text-sm** **text-indigo-600** **font-bold**">
-      **Marketing**
+      **Маркетинг**
     </**div**>
     <**a** **href**="**/get-started**" **class**="**block** **mt-1** **text-lg** **leading-tight** **font-semibold** **text-gray-900** **hover:underline**">
-      **Finding** **customers** **for** **your** **new** **business**
+      **Поиск** **клиентов** **для** **Вашего** **нового** **бизнеса**
     </**a**>
     <**p** **class**="**mt-2** **text-gray-600**">
-      **Getting** **a** **new** **business** **off** **the** **ground** **is** **a** **lot** **of** **hard** **work.**
-      **Here** **are** **five** **ideas** **you** **can** **use** **to** **find** **your** **first** **customers.**
+      **Начало** **нового** **бизнеса** **-** **это** **тяжелая** **работа.**
+      **Вот** **пять** **идей,** **которые** **Вы** **можете** **использовать,** **чтобы** **найти** **своих** **первых** **клиентов.**
     </**p**>
   </**div**>
 </**div**>
 ```
 
-That means that **it is important to avoid dynamically creating class strings in your templates with string concatenation**, otherwise PurgeCSS won't know to preserve those classes.
+Это означает, что **важно избегать динамического создания строк классов в Ваших шаблонах с конкатенацией строк**, иначе PurgeCSS не будет знать, как сохранить эти классы.
 
-<TipBad>Don't use string concatenation to create class names</TipBad>
+<TipBad>Не используйте конкатенацию строк для создания имен классов</TipBad>
 
 ```html mt-4
 <div class="**text-{{**  **error**  **?**  '**red**'  **:**  '**green**'  **}}-600**"></div>
 ```
 
-<TipGood>Do dynamically select a complete class name</TipGood>
+<TipGood>Динамически выбирайте полное имя класса</TipGood>
 
 ```html mt-4
 <div class="**{{**  **error**  **?**  '**text-red-600**'  **:**  '**text-green-600**'  **}}**"></div>
 ```
 
-As long as a class name appears in your template _in its entirety_, PurgeCSS will not remove it.
+Пока имя класса отображается в Вашем шаблоне _полностью_, PurgeCSS не удалит его.
 
-## Removing unused CSS
+## Удаление неиспользуемого CSS
 
-### Basic usage
+### Основное использование
 
-To get started, provide an array of paths to all of your template files using the `purge` option:
+Для начала предоставьте массив путей ко всем Вашим файлам шаблонов, используя опцию `purge`:
 
 ```js
 // tailwind.config.js
@@ -121,13 +121,13 @@ module.exports = {
 }
 ```
 
-**This list should include *any* files in your project that reference any of your styles by name.** For example, if you have a JS file in your project that dynamically toggles some classes in your HTML, you should make sure to include that file in this list.
+**Этот список должен включать *любые* файлы в Вашем проекте, которые ссылаются на любой из Ваших стилей по имени.** Например, если у Вас есть файл JS в Вашем проекте, который динамически переключает некоторые классы в Вашем HTML, Вы должны убедиться, что включить этот файл в этот список.
 
-Now whenever you compile your CSS with `NODE_ENV` set to `production`, Tailwind will automatically purge unused styles from your CSS.
+Теперь всякий раз, когда Вы компилируете свой CSS с параметром `NODE_ENV`, установленным в значение `production`, Tailwind автоматически удаляет неиспользуемые стили из Вашего CSS.
 
-### Enabling manually
+### Включение вручную
 
-If you want to manually control whether unused styles should be removed (instead of depending implicitly on the environment variable), you can use an object syntax and provide the `enabled` option, specifying your templates using the `content` option:
+Если Вы хотите вручную контролировать, следует ли удалять неиспользуемые стили (вместо неявной зависимости от переменной среды), Вы можете использовать синтаксис объекта и предоставить опцию `enabled`, указав Ваши шаблоны с помощью опции `content`:
 
 ```js
 // tailwind.config.js
@@ -140,13 +140,13 @@ module.exports = {
 }
 ```
 
-We recommend only removing unused styles in production, as removing them in development means you need to recompile any time you change your templates and compiling with PurgeCSS enabled is much slower.
+Мы рекомендуем удалять только неиспользуемые стили в рабочей среде, поскольку удаление их в процессе разработки означает, что Вам нужно перекомпилировать каждый раз, когда Вы меняете свои шаблоны, а компиляция с включенным PurgeCSS выполняется намного медленнее.
 
-### Preserving HTML elements
+### Сохранение HTML-элементов
 
-By default, Tailwind will preserve all basic HTML element styles in your CSS, like styles for the `html`, `body`, `p`, `h1`, etc. tags. This is to minimize accidentally over-purging in cases where you are using markdown source files for example (where there is no actual `h1` tag present), or using a framework that hides the document shell (containing the `html` and `body` tags) somewhere in a vendor directory (like Next.js does).
+По умолчанию Tailwind сохраняет все основные стили HTML-элементов в Вашем CSS, например стили для тегов `html`, `body`, `p`, `h1` и т.д. Это сделано для того, чтобы свести к минимуму случайную чрезмерную очистку в случаях, когда Вы, например, используете исходные файлы с уценкой (где нет фактического тега `h1`) или используете структуру, которая скрывает оболочку документа (содержащую теги `html` и `body`) где-нибудь в каталоге поставщика (например, Next.js).
 
-If you want to disable this behavior, you can set `preserveHtmlElements` to false:
+Если Вы хотите отключить это поведение, Вы можете установить для `preserveHtmlElements` значение `false`:
 
 
 ```js
@@ -160,11 +160,11 @@ module.exports = {
 }
 ```
 
-We generally do not recommend this and believe that the risks outweigh the benefits, but we're not the cops, do whatever you want.
+Обычно мы не рекомендуем этого и считаем, что риски перевешивают преимущества, но мы не полицейские, делайте все, что хотите.
 
-### Purging specific layers
+### Очистка определенных слоев
 
-By default, Tailwind will purge all styles in the `base`, `components`, and `utilities` layers. If you'd like to change this, use the `layers` option to manually specify the layers you'd like to purge:
+По умолчанию Tailwind удаляет все стили на слоях `base`, `components` и `utilities`. Если Вы хотите изменить это, используйте опцию `layers`, чтобы вручную указать слои, которые Вы хотите очистить:
 
 ```js
 // tailwind.config.js
@@ -177,30 +177,30 @@ module.exports = {
 }
 ```
 
-### Removing all unused styles
+### Удаление всех неиспользуемых стилей
 
-By default, Tailwind will only remove unused classes that it generates itself, or has been explicitly wrapped in a `@layer` directive. It will _not_ remove unused styles from third-party CSS you pull in to your project, like a datepicker library you pull in for example.
+По умолчанию Tailwind удаляет только неиспользуемые классы, которые он генерирует сам или был явно заключен в директиву `@layer`. Он _не_ удаляет неиспользуемые стили из стороннего CSS, который Вы добавляете в свой проект, например, из библиотеки datepicker, которую Вы загружаете.
 
 ```css
-/* These styles will all be purged */
+/* Все эти стили будут удалены */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* These styles will be purged */
+/* Эти стили будут удалены */
 @layer components {
   .btn { /* ... */ }
 }
 
-/* These styles will not be purged */
+/* Эти стили не будут удалены */
 .flatpickr-innerContainer { /* ... */ }
 .flatpickr-weekdayContainer { /* ... */ }
 .flatpickr-weekday { /* ... */ }
 ```
 
-This is to avoid accidentally removing styles that you might need but are not directly referenced in your templates, like classes that are only referenced deep in your `node_modules` folder that are part of some other dependency.
+Это сделано для того, чтобы избежать случайного удаления стилей, которые могут Вам понадобиться, но на которые нет прямых ссылок в Ваших шаблонах, например на классы, на которые есть ссылки только в глубине Вашей папки `node_modules`, которые являются частью какой-либо другой зависимости.
 
-If you really want to remove _all_ unused styles, set `mode: 'all'` and `preserveHtmlElements: false` and **be very careful** to provide the paths to _all_ files that might reference any classes or HTML elements:
+Если Вы действительно хотите удалить _все_ неиспользуемые стили, установите `mode: 'all'` и `preserveHtmlElements: false` и **будьте очень осторожны**, чтобы указать пути к _все_ файлам, которые могут ссылаться на любые классы или элементы HTML:
 
 ```js
 // tailwind.config.js
@@ -217,11 +217,11 @@ module.exports = {
 }
 ```
 
-**We do not recommend this**, and generally find you get 99% of the file size benefits by sticking with the more conservative default approach.
+**Мы не рекомендуем это** и, как правило, обнаруживаем, что Вы получаете 99% преимуществ от размера файла, придерживаясь более консервативного подхода по умолчанию.
 
-### PurgeCSS options
+### Параметры PurgeCSS
 
-If you need to pass any options directly to PurgeCSS, you can do so using `options`:
+Если Вам нужно передать какие-либо параметры непосредственно в PurgeCSS, Вы можете сделать это с помощью `options`:
 
 ```js
 // tailwind.config.js
@@ -229,7 +229,7 @@ module.exports = {
   purge: {
     content: ['./src/**/*.html'],
 
-    // These options are passed through directly to PurgeCSS
+    // Эти параметры передаются напрямую в PurgeCSS
     options: {
       safelist: ['bg-red-500', 'px-4'],
     }
@@ -238,45 +238,45 @@ module.exports = {
 }
 ```
 
-A list of available options can be found in the [PurgeCSS documentation](https://purgecss.com/configuration.html#options).
+Список доступных опций можно найти в [документации PurgeCSS](https://purgecss.com/configuration.html#options).
 
 ---
 
-## Alternate approaches
+## Альтернативные подходы
 
-If you can't use PurgeCSS for one reason or another, you can also reduce Tailwind's footprint by removing unused values from [your configuration file](/docs/configuration).
+Если Вы не можете использовать PurgeCSS по той или иной причине, Вы также можете уменьшить площадь, занимаемую Tailwind, удалив неиспользуемые значения из [Вашего файла конфигурации](/docs/configuration).
 
-The default theme provides a very generous set of colors, breakpoints, sizes, margins, etc. to make sure that when you pull Tailwind down to prototype something, create a CodePen demo, or just try out the workflow, the experience is as enjoyable and fluid as possible.
+Тема по умолчанию предоставляет очень щедрый набор цветов, контрольных точек, размеров, полей и т.д., чтобы убедиться, что когда Вы запускаете Tailwind для прототипирования чего-либо, создаете демонстрацию CodePen или просто опробуете рабочий процесс, опыт будет таким же приятным и приятным. жидкость насколько возможно.
 
-We don't want you to have to go and write new CSS because we didn't provide enough padding helpers out of the box, or because you wanted to use an orange color scheme for your demo and we only gave you blue.
+Мы не хотим, чтобы Вам приходилось писать новый CSS, потому что мы не предоставили достаточно помощников для заполнения из коробки, или потому что Вы хотели использовать оранжевую цветовую схему для своей демонстрации, а мы дали Вам только синий.
 
-This comes with a trade-off though: the default build is significantly heavier than it would be on a project with a purpose-built configuration file.
+Однако здесь есть компромисс: сборка по умолчанию значительно тяжелее, чем в проекте со специально созданным файлом конфигурации.
 
-Here are a few strategies you can use to keep your generated CSS small and performant.
+Вот несколько стратегий, которые Вы можете использовать, чтобы Ваш сгенерированный CSS был небольшим и производительным.
 
-### Limiting your color palette
+### Ограничение цветовой палитры
 
-The default theme includes a whopping [84 colors](/docs/customizing-colors) used for backgrounds, borders, text, and placeholders, all of which also have `hover:` and `focus:` variants, as well as responsive variants at the six default screen sizes.
+Тема по умолчанию включает в себя колоссальное количество [84 цветов](/docs/customizing-colors), используемых для фона, границ, текста и заполнителей, все из которых также имеют варианты `hover:` и `focus:`, а также адаптивные варианты. при шести размерах экрана по умолчанию.
 
-By default, there are _thousands_ of classes generated to accommodate these colors, and it makes up close to half of the final build size.
+По умолчанию создаются _тысячи_ классов для размещения этих цветов, что составляет почти половину окончательного размера сборки.
 
-Very few projects actually need this many colors, and removing colors you don't need can have a huge impact on the overall file size.
+Очень немногие проекты действительно нуждаются в таком количестве цветов, и удаление ненужных цветов может иметь огромное влияние на общий размер файла.
 
-Here's how using a smaller color palette affects the final size:
+Вот как использование меньшей цветовой палитры влияет на окончательный размер:
 
 <table>
   <thead>
     <tr>
-      <th>Colors</th>
-      <th>Original</th>
-      <th>Minified</th>
+      <th>Цвета</th>
+      <th>Оригинальный</th>
+      <th>Минифицированный</th>
       <th>Gzip</th>
       <th>Brotli</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>84 <em>(default)</em></td>
+      <td>84 <em>(по умолчанию)</em></td>
       <td>{stats.default.original}</td>
       <td>{stats.default.minified}</td>
       <td>{stats.default.gzipped}</td>
@@ -299,25 +299,25 @@ Here's how using a smaller color palette affects the final size:
   </tbody>
 </table>
 
-### Removing unused breakpoints
+### Удаление неиспользуемых контрольных точек
 
-Since almost every Tailwind utility is copied for every screen size, using fewer screen sizes can have a huge impact on the overall file size as well.
+Поскольку почти все утилиты Tailwind копируются для каждого размера экрана, использование меньшего размера экрана также может иметь огромное влияние на общий размер файла.
 
-Here's how defining fewer screens affects the output:
+Вот как определение меньшего количества экранов влияет на вывод:
 
 <table>
   <thead>
     <tr>
-      <th>Breakpoints</th>
-      <th>Original</th>
-      <th>Minified</th>
+      <th>Контрольные точки</th>
+      <th>Оригинальный</th>
+      <th>Минифицированный</th>
       <th>Gzip</th>
       <th>Brotli</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>5 <em>(default)</em></td>
+      <td>5 <em>(по умолчанию)</em></td>
       <td>{stats.default.original}</td>
       <td>{stats.default.minified}</td>
       <td>{stats.default.gzipped}</td>
@@ -347,11 +347,11 @@ Here's how defining fewer screens affects the output:
   </tbody>
 </table>
 
-<p>If you only need 3 screen sizes and 35 colors, you're down to {stats['35-colors-3-screens'].brotlified} compressed without changing anything else.</p>
+<p>Если Вам нужно всего 3 размера экрана и 35 цветов, Вы можете сжать {stats['35-colors-3-screens'].brotlified} без каких-либо изменений.</p>
 
-### Disabling unused core plugins and variants
+### Отключение неиспользуемых основных плагинов и вариантов
 
-If you don't expect to need a certain utility plugin in your project at all, you can disable it completely by setting it to `false` in the `corePlugins` section of your config file:
+Если Вы не ожидаете, что Вам вообще понадобится какой-либо служебный плагин в Вашем проекте, Вы можете полностью отключить его, установив для него значение `false` в разделе `corePlugins` Вашего файла конфигурации:
 
 ```js
 // tailwind.config.js
@@ -363,7 +363,7 @@ module.exports = {
 }
 ```
 
-If you need a utility but don't need the responsive versions, set its variants to an empty array to generate 83% fewer classes:
+Если Вам нужна утилита, но не нужны адаптивные версии, установите для ее вариантов пустой массив, чтобы сгенерировать на 83% меньше классов:
 
 ```js
 module.exports = {
@@ -374,4 +374,4 @@ module.exports = {
 }
 ```
 
-These are mostly small wins compared to limiting your color palette or using fewer breakpoints, but they can still add up.
+В основном это небольшие преимущества по сравнению с ограничением Вашей цветовой палитры или использованием меньшего количества контрольных точек, но они все же могут складываться.
