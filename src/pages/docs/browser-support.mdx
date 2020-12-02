@@ -1,31 +1,31 @@
 ---
-title: Browser Support
-description: Understanding which browsers Tailwind supports and how to manage vendor prefixes.
+title: Поддержка браузера
+description: Понимание, какие браузеры поддерживает Tailwind и как управлять префиксами поставщиков.
 ---
 
-As of v2.0, Tailwind CSS is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. Tailwind CSS v2.0 does not support any version of IE, including IE 11.
+Начиная с версии 2.0, Tailwind CSS разработан для последних стабильных версий Chrome, Firefox, Edge и Safari и протестирован в них. Tailwind CSS v2.0 не поддерживает никакие версии IE, включая IE 11.
 
-If you need to support IE 11, we recommend using Tailwind CSS v1.9, which is still an excellent and very productive framework.
+Если Вам нужна поддержка IE 11, мы рекомендуем использовать Tailwind CSS v1.9, который по-прежнему остается отличным и очень продуктивным фреймворком.
 
-Certain features such as `focus-visible` are included but not supported natively by all modern browsers. We've included information about recommended polyfills for those features directly alongside the documentation for the features themselves.
+Некоторые функции, такие как `focus-visible`, включены, но не поддерживаются всеми современными браузерами. Мы включили информацию о рекомендуемых полифилах для этих функций непосредственно вместе с документацией для самих функций.
 
-## Vendor Prefixes
+## Префиксы поставщиков
 
-If you're compiling your CSS using the `tailwindcss` CLI tool, vendor prefixes will be added automatically.
+Если Вы компилируете свой CSS с помощью инструмента CLI `tailwindcss`, префиксы поставщиков будут добавлены автоматически.
 
-If not, we recommend that you use [Autoprefixer](https://github.com/postcss/autoprefixer).
+Если нет, мы рекомендуем использовать [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-To use it, install it via npm:
+Чтобы использовать его, установите его через npm:
 
 ```shell
-# Using npm
+# Использование npm
 npm install autoprefixer
 
-# Using Yarn
+# Использование Yarn
 yarn add autoprefixer
 ```
 
-Then add it to the very end of your plugin list in your PostCSS configuration:
+Затем добавьте его в самый конец списка плагинов в конфигурации PostCSS:
 
 ```js
 module.exports = {
