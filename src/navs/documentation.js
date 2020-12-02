@@ -24,7 +24,7 @@ export const documentationNav = {
       href: '/docs/using-with-preprocessors',
     },
     {
-      title: 'Оптимизация для рабочей версии',
+      title: 'Оптимизация для продакшена',
       href: '/docs/optimizing-for-production',
     },
     {
