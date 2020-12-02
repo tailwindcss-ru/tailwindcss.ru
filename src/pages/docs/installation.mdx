@@ -1,6 +1,6 @@
 ---
-title: Installation
-description: Learn how to get Tailwind CSS up and running in your project.
+title: Установка
+description: Узнайте, как запустить Tailwind CSS в своем проекте.
 ---
 
 import { Heading } from '@/components/Heading'
@@ -11,47 +11,47 @@ import stats from '@/utils/stats'
 
 
 
-## Integration guides
+## Руководство по интеграции
 
-Installing Tailwind CSS can be a slightly different process depending on what other frameworks/tools you're using, so we've put together a bunch of guides that cover popular setups.
+Процесс установки Tailwind CSS может немного отличаться в зависимости от того, какие другие фреймворки/инструменты Вы используете, поэтому мы составили несколько руководств, которые охватывают популярные настройки.
 
 <IntegrationGuides/>
 
-Don't see your favorite tool in the list? We're always working on new guides, but in the mean time you can follow the instructions for [installing Tailwind CSS as a PostCSS plugin](#installing-tailwind-css-as-a-post-css-plugin) instead to get set up in no time.
+Не видите свой любимый инструмент в списке? Мы постоянно работаем над новыми руководствами, но пока Вы можете следовать инструкциям по [установке Tailwind CSS в качестве плагина PostCSS](#installing-tailwind-css-as-a-post-css-plugin) вместо этого, чтобы получить настроен в кратчайшие сроки.
 
 ---
 
 
 
-## Installing Tailwind CSS as a PostCSS plugin
+## Установка Tailwind CSS в качестве плагина PostCSS
 
-For most real-world projects, we recommend installing Tailwind as a PostCSS plugin. Most modern frameworks use PostCSS under the hood already, and there's a good chance you've used or are currently using other PostCSS plugins like [autoprefixer](https://github.com/postcss/autoprefixer).
+Для большинства реальных проектов мы рекомендуем установить Tailwind как плагин PostCSS. Большинство современных фреймворков уже используют PostCSS под капотом, и есть большая вероятность, что Вы использовали или в настоящее время используете другие плагины PostCSS, такие как [autoprefixer](https://github.com/postcss/autoprefixer).
 
-If you've never heard of PostCSS or are wondering how it's different from tools like Sass, read our guide on [using PostCSS as your preprocessor](/docs/using-with-preprocessors#using-post-css-as-your-preprocessor) for an introduction.
+Если Вы никогда не слышали о PostCSS или Вам интересно, чем он отличается от таких инструментов, как Sass, прочтите наше руководство по [использованию PostCSS в качестве препроцессора](/docs/using-with-preprocessors#using-post-css-as-your-preprocessor) для введения.
 
-If this is a bit over your head and you'd like to try Tailwind without configuring PostCSS, read our instructions on [using Tailwind without PostCSS](#using-tailwind-without-post-css) instead.
+Если это кажется Вам непосильным и Вы хотите попробовать Tailwind без настройки PostCSS, прочтите вместо этого наши инструкции по [использованию Tailwind без PostCSS](#using-tailwind-without-post-css).
 
-### Install Tailwind via npm
+### Установить Tailwind через npm
 
-For most projects (and to take advantage of Tailwind's customization features), you'll want to install Tailwind and its peer-dependencies via npm.
+Для большинства проектов (и для того, чтобы воспользоваться возможностями настройки Tailwind), Вам нужно установить Tailwind и его одноранговые зависимости через npm.
 
 ```shell
 npm install tailwindcss postcss autoprefixer
 ```
 
-Since Tailwind [does not automatically add vendor prefixes](/docs/browser-support#vendor-prefixes) to the CSS it generates, we recommend installing [autoprefixer](https://github.com/postcss/autoprefixer) to handle this for you like we've shown in the snippet above.
+Поскольку Tailwind [не добавляет автоматически префиксы поставщиков](/docs/browser-support#vendor-prefixes) в создаваемый им CSS, мы рекомендуем установить [autoprefixer](https://github.com/postcss/autoprefixer) для решения этой проблемы для Вас, как мы показали в приведенном выше фрагменте.
 
-If you're integrating Tailwind with a tool that relies on an older version of PostCSS, you may see an error like this:
+Если Вы интегрируете Tailwind с инструментом, основанным на более старой версии PostCSS, Вы можете увидеть такую ошибку:
 
 ```shell
-Error: PostCSS plugin tailwindcss requires PostCSS 8.
+Ошибка: Плагин PostCSS tailwindcss требует PostCSS 8.
 ```
 
-In this case, you should [install the PostCSS 7 compatibility build](#post-css-7-compatibility-build) instead.
+В этом случае Вам следует вместо этого [установить сборку совместимости с PostCSS 7](#post-css-7-compatibility-build).
 
-### Add Tailwind as a PostCSS plugin
+### Добавить Tailwind как плагин PostCSS
 
-Add `tailwindcss` and `autoprefixer` to your PostCSS configuration. Most of the time this is a `postcss.config.js` file at the root of your project, but it could also be a `.postcssrc` file, or `postcss` key in your `package.json` file.
+Добавьте `tailwindcss` и `autoprefixer` в Вашу конфигурацию PostCSS. В большинстве случаев это файл `postcss.config.js` в корне Вашего проекта, но это также может быть файл `.postcssrc` или ключ `postcss` в Вашем файле `package.json`.
 
 ```js
 // postcss.config.js
@@ -63,25 +63,25 @@ module.exports = {
 }
 ```
 
-If you aren't sure where PostCSS plugins are configured for the tools you're using, you'll want to refer to the documentation for those tools to learn where this should go. A search for "configure postcss {my tool}" will get you the answer pretty fast, too.
+Если Вы не уверены, где настраиваются плагины PostCSS для используемых Вами инструментов, Вам нужно обратиться к документации по этим инструментам, чтобы узнать, где это должно происходить. Поиск по запросу "configure postcss {my tool}" тоже даст Вам ответ довольно быстро.
 
-If you're using any other PostCSS plugins, you should read our documentation on [using PostCSS as your preprocessor](/docs/using-with-preprocessors) for more details about the best way to order them with Tailwind.
+Если Вы используете какие-либо другие плагины PostCSS, Вам следует прочитать нашу документацию по [использованию PostCSS в качестве препроцессора](/docs/using-with-preprocessors) для получения более подробной информации о том, как лучше всего заказать их с помощью Tailwind.
 
-### Create your configuration file
+### Создайте свой файл конфигурации
 
-If you'd like to customize your Tailwind installation, generate a config file for your project using the Tailwind CLI utility included when you install the `tailwindcss` npm package:
+Если Вы хотите настроить установку Tailwind, сгенерируйте файл конфигурации для своего проекта с помощью утилиты Tailwind CLI, включенной при установке пакета npm `tailwindcss`:
 
 ```shell
 npx tailwindcss init
 ```
 
-This will create a minimal `tailwind.config.js` file at the root of your project:
+Это создаст минимальный файл `tailwind.config.js` в корне Вашего проекта:
 
 ```js
 // tailwind.config.js
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false, // или 'media' или 'class'
   theme: {
     extend: {},
   },
@@ -90,11 +90,11 @@ module.exports = {
 }
 ```
 
-Learn more about configuring Tailwind in the [configuration documentation](/docs/configuration).
+Узнайте больше о настройке Tailwind в [документации по конфигурации](/docs/configuration).
 
-### Include Tailwind in your CSS
+### Включите Tailwind в свой CSS
 
-Create a CSS file if you don't already have one, and use the `@tailwind` directive to inject Tailwind's `base`, `components`, and `utilities` styles:
+Создайте файл CSS, если у вас его еще нет, и используйте директиву `@tailwind` для внедрения стилей Tailwind `base`, `components` и `utilities`:
 
 ```css
 /* ./your-css-folder/styles.css */
@@ -103,9 +103,9 @@ Create a CSS file if you don't already have one, and use the `@tailwind` directi
 @tailwind utilities;
 ```
 
-Tailwind will swap these directives out at build-time with all of the styles it generates based on your configured design system.
+Tailwind заменит эти директивы во время сборки на все стили, которые он генерирует на основе Вашей настроенной дизайн-системы.
 
-If you're using `postcss-import` (or a tool that uses it under the hood, such as [Webpacker](https://github.com/rails/webpacker) for Rails), use our imports instead of the `@tailwind` directive to avoid issues when importing any of your own additional files:
+Если Вы используете `postcss-import` (или инструмент, который использует его под капотом, например [Webpacker](https://github.com/rails/webpacker) для Rails), используйте наш импорт вместо директивы `@tailwind`, чтобы избежать проблем при импорте любых Ваших собственных дополнительных файлов:
 
 ```css
 @import "tailwindcss/base";
@@ -113,20 +113,20 @@ If you're using `postcss-import` (or a tool that uses it under the hood, such as
 @import "tailwindcss/utilities";
 ```
 
-If you're working in a JavaScript framework like React or Vue that supports directly importing CSS files into your JS, you can also skip creating a CSS file altogether and import `tailwindcss/tailwind.css` instead which has all of these directives already in place:
+Если Вы работаете в среде JavaScript, такой как React или Vue, которая поддерживает прямой импорт файлов CSS в Ваш JS, Вы также можете полностью отказаться от создания файла CSS и вместо этого импортировать `tailwindcss/tailwind.css`, в котором все эти директивы уже есть в место:
 
 ```js
 // app.js
 import "tailwindcss/tailwind.css"
 ```
 
-### Building your CSS
+### Создание Вашего CSS
 
-How you actually build your project will depend on the tools that you're using. Your framework may include a command like `npm run dev` to start a development server that compiles your CSS in the background, you may be running `webpack` yourself, or maybe you're using `postcss-cli` and running a command like `postcss styles.css -o compiled.css`.
+То, как Вы на самом деле создаете свой проект, будет зависеть от инструментов, которые Вы используете. Ваша структура может включать команду типа `npm run dev` для запуска сервера разработки, который компилирует Ваш CSS в фоновом режиме, Вы можете запускать `webpack` самостоятельно, или, может быть, Вы используете `postcss-cli` и запускаете такую команду, как `postcss styles.css -o compiled.css`.
 
-If you're already familiar with PostCSS you probably know what you need to do, if not refer to the documentation for the tool you are using.
+Если Вы уже знакомы с PostCSS, Вы, вероятно, знаете, что Вам нужно делать, если не обратитесь к документации для инструмента, который Вы используете.
 
-When building for production, be sure to configure the `purge` option to remove any unused classes for the smallest file size:
+При сборке для производства не забудьте настроить опцию `purge`, чтобы удалить все неиспользуемые классы для файла наименьшего размера:
 
 ```diff-js
   // tailwind.config.js
@@ -135,7 +135,7 @@ When building for production, be sure to configure the `purge` option to remove 
 +     './src/**/*.html',
 +     './src/**/*.js',
 +   ],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: false, // или 'media' или 'class'
     theme: {
       extend: {},
     },
@@ -144,31 +144,31 @@ When building for production, be sure to configure the `purge` option to remove 
   }
 ```
 
-Read our separate guide on [optimizing for production](/docs/optimizing-for-production) to learn more about tree-shaking unused styles for best performance.
+Прочтите наше отдельное руководство по [оптимизации для производства](/docs/optimizing-for-production), чтобы узнать больше о древовидных неиспользуемых стилях для лучшей производительности.
 
-If you're integrating Tailwind with a tool that relies on an older version of PostCSS, you may see an error like this when trying to build your CSS:
+Если Вы интегрируете Tailwind с инструментом, основанным на более старой версии PostCSS, Вы можете увидеть такую ошибку при попытке создать свой CSS:
 
 ```shell
-Error: PostCSS plugin tailwindcss requires PostCSS 8.
+Ошибка: Плагин PostCSS tailwindcss требует PostCSS 8.
 ```
 
-In this case, you should [switch to our PostCSS 7 compatibility build](#post-css-7-compatibility-build) instead.
+В этом случае Вам следует вместо этого [переключиться на нашу сборку совместимости с PostCSS 7](#post-css-7-compatibility-build).
 
 ---
 
-## Using Tailwind without PostCSS
+## Использование Tailwind без PostCSS
 
-For simple projects or just giving Tailwind a spin, you can use the Tailwind CLI tool to generate your CSS without configuring PostCSS or even installing Tailwind as a dependency if you don't want to.
+Для простых проектов или просто для того, чтобы попробовать Tailwind, Вы можете использовать инструмент Tailwind CLI для генерации CSS без настройки PostCSS или даже без установки Tailwind в качестве зависимости, если Вы этого не хотите.
 
-Use `npx` which is a tool that is automatically installed alongside `npm` to generate a fully compiled Tailwind CSS file:
+Используйте `npx`, инструмент, который автоматически устанавливается вместе с `npm`, чтобы сгенерировать полностью скомпилированный файл CSS Tailwind:
 
 ```shell
 npx tailwindcss-cli@latest build -o tailwind.css
 ```
 
-This will create a file called `tailwind.css` generated based on Tailwind's [default configuration](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js), and automatically add any necessary vendor prefixes using [autoprefixer](https://github.com/postcss/autoprefixer).
+Это создаст файл с именем `tailwind.css` , сгенерированный на основе [конфигурации Tailwind по умолчанию](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js), и автоматически добавит любого необходимого поставщика префиксов с использованием [autoprefixer](https://github.com/postcss/autoprefixer).
 
-Now you can pull this file into your HTML just like any other stylesheet:
+Теперь Вы можете вставить этот файл в свой HTML, как и любую другую таблицу стилей:
 
 ```html
 <!doctype html>
@@ -185,9 +185,9 @@ Now you can pull this file into your HTML just like any other stylesheet:
 </html>
 ```
 
-### Using a custom CSS file
+### Использование собственного файла CSS
 
-If you'd like to process any custom CSS alongside the default styles Tailwind generates, create a CSS file wherever you normally would and use the `@tailwind` directive to including Tailwind's `base`, `components`, and `utilities` styles:
+Если вы хотите обрабатывать любой собственный CSS вместе со стилями по умолчанию, которые генерирует Tailwind, создайте файл CSS в любом месте и используйте директиву `@tailwind` для включения стилей Tailwind `base`, `components` и `utilities`:
 
 ```css
 /* ./src/tailwind.css */
@@ -201,30 +201,30 @@ If you'd like to process any custom CSS alongside the default styles Tailwind ge
 @tailwind utilities;
 ```
 
-Then include the path to that file when building your CSS with `npx tailwindcss build`:
+Затем укажите путь к этому файлу при создании CSS с помощью `npx tailwindcss build`:
 
 ```shell
 npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 ```
 
-Read about [adding base styles](/docs/adding-base-styles), [extracting components](/docs/extracting-components), and [adding new utilities](/docs/adding-new-utilities) to learn more about adding custom CSS on top of Tailwind.
+Прочтите о [добавлении базовых стилей](/docs/adding-base-styles), [извлечении компонентов](/docs/extracting-components), и [добавлении новых утилит](/docs/adding-new-utilities), чтобы узнать больше о добавлении пользовательского CSS поверх Tailwind.
 
 
-### Customizing your configuration
+### Настройка Вашей конфигурации
 
-If you'd like to customize what Tailwind generates, create a `tailwind.config.js` file using the Tailwind CLI tool:
+Если Вы хотите настроить то, что генерирует Tailwind, создайте файл `tailwind.config.js` с помощью инструмента Tailwind CLI:
 
 ```shell
 npx tailwindcss-cli@latest init
 ```
 
-This will create a minimal `tailwind.config.js` file at the root of your project:
+Это создаст минимальный файл `tailwind.config.js` в корне Вашего проекта:
 
 ```js
 // tailwind.config.js
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false, // или 'media' или 'class'
   theme: {
     extend: {},
   },
@@ -233,64 +233,64 @@ module.exports = {
 }
 ```
 
-This file will automatically be read when building your CSS with `npx tailwindcss build`:
+Этот файл будет автоматически прочитан при создании Вашего CSS с помощью `npx tailwindcss build`:
 
 ```shell
 npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 ```
 
-If you'd like to keep your config file in a different location or give it a different name, pass the config file path using the `-c` option when building your CSS:
+Если Вы хотите сохранить файл конфигурации в другом месте или дать ему другое имя, передайте путь к файлу конфигурации, используя параметр `-c` при создании CSS:
 
 ```shell
 npx tailwindcss-cli@latest build ./src/tailwind.css -c ./.config/tailwind.config.js -o ./dist/tailwind.css
 ```
 
-Learn more about configuring Tailwind in the [configuration documentation](/docs/configuration).
+Узнайте больше о настройке Tailwind в [документации по конфигурации](/docs/configuration).
 
-### Building for production
+### Сборка для продакшена
 
-When building for production, set `NODE_ENV=production` on the command line when building your CSS:
+При сборке для производства установите `NODE_ENV=production` в командной строке при сборке CSS:
 
 ```shell
 NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 ```
 
-This will make sure Tailwind removes any unused CSS and minifies the CSS file for best performance. Read our separate guide on [optimizing for production](/docs/optimizing-for-production) to learn more.
+Это гарантирует, что Tailwind удалит все неиспользуемые CSS и минимизирует файл CSS для лучшей производительности. Прочтите наше отдельное руководство по [оптимизации для производства](/docs/optimizing-for-production), чтобы узнать больше.
 
 
 ---
 
-## Using Tailwind via CDN
+## Использование Tailwind через CDN
 
-Before using the CDN build, please note that many of the features that make Tailwind CSS great are not available without incorporating Tailwind into your build process.
+Перед использованием сборки CDN обратите внимание, что многие функции, которые делают Tailwind CSS отличным, недоступны без включения Tailwind в процесс сборки.
 
 <List>
-  <ListItemBad>You can't customize Tailwind's default theme</ListItemBad>
-  <ListItemBad>You can't use any <a href="/docs/functions-and-directives">directives</a> like <code>@apply</code>, <code>@variants</code>, etc.</ListItemBad>
-  <ListItemBad>You can't enable additional variants like <a href="/docs/hover-focus-and-other-states#group-focus"><code>group-focus</code></a></ListItemBad>
-  <ListItemBad>You can't install third-party plugins</ListItemBad>
-  <ListItemBad>You can't tree-shake unused styles</ListItemBad>
+  <ListItemBad>Вы не можете настроить тему по умолчанию Tailwind</ListItemBad>
+  <ListItemBad>Вы не можете использовать такие <a href="/docs/functions-and-directives">директивы</a>, как <code>@apply</code>, <code>@variants</code> и т.д.</ListItemBad>
+  <ListItemBad>Вы не можете включить дополнительные варианты, например <a href="/docs/hover-focus-and-other-states#group-focus"><code>group-focus</code></a></ListItemBad>
+  <ListItemBad>Вы не можете устанавливать сторонние плагины</ListItemBad>
+  <ListItemBad>Вы не можете избавиться от неиспользуемых стилей</ListItemBad>
 </List>
 
-To get the most out of Tailwind, you really should [install it as a PostCSS plugin](#installing-tailwind-as-a-post-css-plugin).
+Чтобы получить максимальную отдачу от Tailwind, Вам действительно следует [установить его как плагин PostCSS](#installing-tailwind-as-a-post-css-plugin).
 
-To pull in Tailwind for quick demos or just giving the framework a spin, grab the latest default configuration build via CDN:
+Чтобы использовать Tailwind для быстрых демонстраций или просто попробовать фреймворк, загрузите последнюю сборку конфигурации по умолчанию через CDN:
 
 ```html
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 ```
 
 <p>
-  Note that while the CDN build is large <em>({stats.default.brotlified} compressed, {stats.default.minified} raw)</em>, <strong>it's not representative of the sizes you see when including Tailwind as part of your build process</strong>.
+  NotОбратите внимание, что, хотя сборка CDN велика <em>({stats.default.brotlified} в сжатом виде, {stats.default.minified} в исходном)</em>, <strong>она не соответствует размерам, которые Вы видите при включении Tailwind как части процесса сборки.</strong>.
 </p>
 
-Sites that follow our [best practices](/docs/optimizing-for-production) are almost always under 10kb compressed.
+Сайты, которые следуют нашим [лучшим практикам](/docs/optimizing-for-production), почти всегда имеют после сжатия менее 10КБ.
 
 ---
 
-## HTML starter template
+## HTML стартовый шаблон
 
-For Tailwind's styles to work as expected, you'll want to use the HTML5 doctype and include the responsive viewport meta tag to properly handle responsive styles on all devices.
+Чтобы стили Tailwind работали должным образом, Вы захотите использовать тип документа HTML5 и включить метатег адаптивного окна просмотра для правильной обработки адаптивных стилей на всех устройствах.
 
 ```html
 <!doctype html>
@@ -307,30 +307,30 @@ For Tailwind's styles to work as expected, you'll want to use the HTML5 doctype 
 </html>
 ```
 
-Many front-end frameworks like Next.js, vue-cli and others do all this for you behind the scenes automatically, so depending on what you're building you might not need to set this up.
+Многие интерфейсные фреймворки, такие как Next.js, vue-cli и другие, делают все это за Вас за кулисами автоматически, поэтому в зависимости от того, что Вы создаете, Вам, возможно, не нужно это настраивать.
 
 ---
 
-## PostCSS 7 compatibility build
+## Сборка совместимости с PostCSS 7
 
-As of v2.0, Tailwind CSS depends on PostCSS 8. Because PostCSS 8 is only a few months old, many other tools in the ecosystem haven't updated yet, which means you might see an error like this in your terminal after installing Tailwind and trying to compile your CSS:
+Начиная с версии 2.0, Tailwind CSS зависит от PostCSS 8. Поскольку PostCSS 8 всего несколько месяцев, многие другие инструменты в экосистеме еще не обновлены, что означает, что Вы можете увидеть такую ошибку в своем терминале после установки Tailwind и пытаемся скомпилировать Ваш CSS:
 
 ```shell
-Error: PostCSS plugin tailwindcss requires PostCSS 8.
+Ошибка: Плагин PostCSS tailwindcss требует PostCSS 8.
 ```
 
-To help bridge the gap until everyone has updated, we also publish a PostCSS 7 compatibility build under the `compat` channel on npm.
+Чтобы сократить разрыв до тех пор, пока все не обновятся, мы также публикуем сборку совместимости с PostCSS 7 в канале compat на npm.
 
-If you run into the error mentioned above, uninstall Tailwind and re-install using the compatibility build instead:
+Если Вы столкнулись с упомянутой выше ошибкой, удалите Tailwind и переустановите его, используя вместо этого сборку совместимости:
 
 ```shell
 npm uninstall tailwindcss postcss autoprefixer
 npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 
-The compatibility build is identical to the main build in every way, so you aren't missing out on any features or anything like that.
+Сборка совместимости идентична основной сборке во всех отношениях, поэтому Вы не упускаете ни одной функции или чего-либо в этом роде.
 
-Once the rest of your tools have added support for PostCSS 8, you can move off of the compatibility build by re-installing Tailwind and its peer-dependencies using the `latest` tag:
+После того, как остальные Ваши инструменты добавят поддержку PostCSS 8, Вы можете отказаться от сборки совместимости, переустановив Tailwind и его одноранговые зависимости, используя тег `latest`:
 
 ```shell
 npm uninstall tailwindcss @tailwindcss/postcss7-compat

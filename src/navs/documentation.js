@@ -12,7 +12,7 @@ export const documentationNav = {
       href: '/docs/installation',
     },
     {
-      title: 'Release Notes',
+      title: 'Примечания к выпуску',
       href: 'https://blog.tailwindcss.com/tailwindcss-v2',
     },
     {
@@ -32,7 +32,7 @@ export const documentationNav = {
       href: '/docs/browser-support',
     },
     {
-      title: 'Установка',
+      title: 'Интеллектуальные предложения автозаполнения',
       href: '/docs/intellisense',
     },
   ],

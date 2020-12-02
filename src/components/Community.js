@@ -15,8 +15,8 @@ export function Community() {
             />
           </svg>
           <div className="flex-auto">
-            <h3 className="font-bold text-gray-900">GitHub Discussions</h3>
-            <p>Connect with members of the Tailwind CSS community.</p>
+            <h3 className="font-bold text-gray-900">Обсуждения GitHub</h3>
+            <p>Свяжитесь с членами сообщества Tailwind CSS.</p>
           </div>
         </a>
       </li>
@@ -37,7 +37,7 @@ export function Community() {
           </svg>
           <div className="flex-auto">
             <h3 className="font-bold text-gray-900">Discord</h3>
-            <p>Join our Discord group to chat with other Tailwind users.</p>
+            <p>Присоединяйтесь к нашей группе Discord, чтобы общаться с другими пользователями Tailwind.</p>
           </div>
         </a>
       </li>
@@ -53,7 +53,7 @@ export function Community() {
           </svg>
           <div className="flex-auto">
             <h3 className="font-bold text-gray-900">Twitter</h3>
-            <p>Follow the Tailwind Twitter account for news and updates.</p>
+            <p>Следите за новостями и обновлениями в аккаунте Tailwind Twitter.</p>
           </div>
         </a>
       </li>
@@ -69,7 +69,7 @@ export function Community() {
           </svg>
           <div className="flex-auto">
             <h3 className="font-bold text-gray-900">YouTube</h3>
-            <p>Watch screencasts and feature tutorials of Tailwind.</p>
+            <p>Смотрите скринкасты и обучающие видео о Tailwind.</p>
           </div>
         </a>
       </li>
