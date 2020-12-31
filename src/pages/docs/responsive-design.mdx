@@ -1,18 +1,18 @@
 ---
-title: Responsive Design
-description: Using responsive utility variants to build adaptive user interfaces.
+title: Адаптивный дизайн
+description: Использование адаптивных вариантов утилит для создания адаптивных пользовательских интерфейсов.
 ---
 
 import { Heading } from '@/components/Heading'
 import { TipGood, TipBad } from '@/components/Tip'
 
-## <Heading hidden>Overview</Heading>
+## <Heading hidden>Обзор</Heading>
 
-Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
+Каждый служебный класс в Tailwind можно условно применять в разных контрольных точках, что упрощает создание сложных адаптивных интерфейсов, не покидая своего HTML.
 
-There are five breakpoints by default, inspired by common device resolutions:
+По умолчанию существует пять контрольных точек, основанных на общих разрешениях устройств:
 
-| Breakpoint prefix | Minimum width | CSS |
+| Префикс контрольной точки | Минимальная ширина | CSS |
 | --- | --- | --- |
 | `sm` | 640px | `@media (min-width: 640px) { ... }` |
 | `md` | 768px | `@media (min-width: 768px) { ... }` |
@@ -20,16 +20,16 @@ There are five breakpoints by default, inspired by common device resolutions:
 | `xl` | 1280px | `@media (min-width: 1280px) { ... }` |
 | `2xl` | 1536px | `@media (min-width: 1536px) { ... }` |
 
-To add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
+Чтобы добавить утилиту, но чтобы она вступила в силу только в определенной контрольной точке, все, что Вам нужно сделать, это префикс утилиты с именем контрольной точки, за которым следует символ `:`:
 
 ```html
-<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
+<!-- Ширина 16 по умолчанию, 32 на средних экранах и 48 на больших экранах. -->
 <img class="w-16 **md:w-32** **lg:w-48**" src="...">
 ```
 
-This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
+Это работает для **каждого служебного класса в структуре**, что означает, что Вы можете изменить буквально что угодно в заданной контрольной точке - даже такие вещи, как межбуквенный интервал или стили курсора.
 
-Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens *(resize your browser to see it in action)*:
+Вот простой пример компонента маркетинговой страницы, в котором используется составной макет на маленьких экранах и горизонтальный макет на больших экранах *(измените размер браузера, чтобы увидеть его в действии)*:
 
 ```html indigo
 <template preview class="px-6 py-8">
@@ -61,49 +61,49 @@ Here's a simple example of a marketing page component that uses a stacked layout
 </div>
 ```
 
-Here's how the example above works:
+Вот как работает приведенный выше пример:
 
-- By default, the outer `div` is `display: block`, but by adding the `md:flex` utility, it becomes `display: flex` on medium screens and larger.
-- When the parent is a flex container, we want to make sure the image never shrinks, so we've added `md:flex-shrink-0` to prevent shrinking on medium screens and larger. Technically we could have just used `flex-shrink-0` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear in the class name.
-- On small screens the image is automatically full width by default. On medium screens and up, we've constrained that width to a fixed size using `md:w-48`.
+- По умолчанию внешний `div` - это `display: block`, но при добавлении утилиты `md:flex`, он становится `display: flex` на средних и больших экранах.
+- Когда родительский элемент является гибким контейнером, мы хотим убедиться, что изображение никогда не сжимается, поэтому мы добавили `md:flex-shrink-0`, чтобы предотвратить сжатие на средних экранах и больших экранах. Технически мы могли бы просто использовать `flex-shrink-0`, поскольку он ничего не будет делать на экранах меньшего размера, но поскольку это имеет значение только на экранах `md`, неплохо было бы четко указать это в имени класса.
+- На маленьких экранах по умолчанию изображение автоматически становится полноширинным. На средних экранах и выше мы ограничили эту ширину фиксированным размером с помощью `md:w-48`.
 
-We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, or `xl` responsive prefixes as well.
+В этом примере мы использовали только одну контрольную точку, но Вы можете легко настроить этот компонент для других размеров, используя также префиксы реагирования `sm`, `lg` или `xl`.
 
 ---
 
-## Mobile First
+## Сначала мобильные
 
-By default, Tailwind uses a mobile first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
+По умолчанию Tailwind использует систему мобильной первой контрольной точки, аналогичную той, к которой Вы, возможно, привыкли в других фреймворках, таких как Bootstrap.
 
-What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint *and above*.
+Это означает, что служебные программы без префиксов (например, `uppercase`) действуют на всех размерах экрана, в то время как служебные программы с префиксом (например, `md:uppercase`) действуют только в указанной контрольной точке *и выше*.
 
-### Targeting mobile screens
+### Ориентация на мобильные экраны
 
-Where this approach surprises people most often is that to style something for mobile, you need to use the unprefixed version of a utility, not the `sm:` prefixed version. Don't think of `sm:` as meaning "on small screens", think of it as "at the small *breakpoint*".
+Чаще всего этот подход удивляет людей тем, что для стилизации чего-либо для мобильных устройств Вам нужно использовать версию утилиты без префикса, а не версию с префиксом `sm:`. Не думайте, что `sm:` означает «на маленьких экранах», думайте об этом как «в маленькой *контрольной точке*».
 
-<TipBad>Don't use <code className="text-sm font-bold text-gray-800">sm:</code> to target mobile devices</TipBad>
+<TipBad>Не используйте <code className="text-sm font-bold text-gray-800">sm:</code> для таргетинга мобильных устройств</TipBad>
 
 ```html
-<!-- This will only center text on screens 640px and wider, not on small screens -->
+<!-- Это будет центрировать текст только на экранах 640 пикселей и шире, но не на маленьких экранах -->
 <div class="sm:text-center"></div>
 ```
 
-<TipGood>Use unprefixed utilities to target mobile, and override them at larger breakpoints</TipGood>
+<TipGood>Используйте утилиты без префиксов для таргетинга мобильных устройств и переопределяйте их при больших контрольных точках</TipGood>
 
 ```html
-<!-- This will center text on mobile, and left align it on screens 640px and wider -->
+<!-- Это позволит центрировать текст на мобильном устройстве и выровнять его по левому краю на экранах 640 пикселей и шире -->
 <div class="text-center sm:text-left"></div>
 ```
 
-For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
+По этой причине часто бывает хорошей идеей сначала реализовать мобильный макет для дизайна, а затем наслоить любые изменения, которые имеют смысл для экранов `sm`, затем экранов `md` и т.д.
 
-### Targeting a single breakpoint
+### Ориентация на одну контрольную точку
 
-Tailwind's breakpoints only include a `min-width` and don't include a `max-width`, which means any utilities you add at a smaller breakpoint will also be applied at larger breakpoints.
+Контрольные точки Tailwind включают только `min-width` и не включают `max-width`, что означает, что любые утилиты, которые Вы добавляете в меньшую контрльную точку, также будут применяться к более крупным контрольным точкам.
 
-If you'd like to apply a utility at one breakpoint only, the solution is to *undo* that utility at larger sizes by adding another utility that counteracts it.
+Если Вы хотите применить утилиту только к одной контрольной точке, решение состоит в том, чтобы *отменить* эту утилиту при больших размерах, добавив другую утилиту, которая ей противодействует.
 
-Here is an example where the background color is red at the `md` breakpoint, but teal at every other breakpoint:
+Вот пример, в котором цвет фона красный в контрольной точке `md`, но бирюзовый в каждой другой контрольной точке:
 
 ```html
 <div class="bg-teal-500 md:bg-red-500 lg:bg-teal-500">
@@ -111,13 +111,13 @@ Here is an example where the background color is red at the `md` breakpoint, but
 </div>
 ```
 
-Notice that **we did not** have to specify a background color for the `sm` breakpoint or the `xl` breakpoint — you only need to specify when a utility should *start* taking effect, not when it should stop.
+Обратите внимание, что **нам не** нужно было указывать цвет фона для контрольной точки `sm` или контрольную тчоку `xl` — Вам нужно только указать, когда утилита должна *начать* действовать, а не когда она должна остановиться.
 
 ---
 
-## Customizing breakpoints
+## Кастомизация контрольных точек
 
-You can completely customize your breakpoints in your `tailwind.config.js` file:
+Вы можете полностью настроить контрольные точки в файле `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -137,4 +137,4 @@ module.exports = {
 }
 ```
 
-Learn more in the [customizing breakpoints documentation](/docs/breakpoints).
+Дополнительные сведения смотрите в [документации по настройке контрольных точек](/docs/breakpoints).
