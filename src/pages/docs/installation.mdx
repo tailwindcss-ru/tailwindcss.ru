@@ -36,7 +36,7 @@ import stats from '@/utils/stats'
 Для большинства проектов (и для того, чтобы воспользоваться возможностями настройки Tailwind), Вам нужно установить Tailwind и его одноранговые зависимости через npm.
 
 ```shell
-npm install tailwindcss postcss autoprefixer
+npm install tailwindcss@latest postcss@latest autoprefixer@latest
 ```
 
 Поскольку Tailwind [не добавляет автоматически префиксы поставщиков](/docs/browser-support#vendor-prefixes) в создаваемый им CSS, мы рекомендуем установить [autoprefixer](https://github.com/postcss/autoprefixer) для решения этой проблемы для Вас, как мы показали в приведенном выше фрагменте.
@@ -187,7 +187,7 @@ npx tailwindcss-cli@latest build -o tailwind.css
 
 ### Использование собственного файла CSS
 
-Если вы хотите обрабатывать любой собственный CSS вместе со стилями по умолчанию, которые генерирует Tailwind, создайте файл CSS в любом месте и используйте директиву `@tailwind` для включения стилей Tailwind `base`, `components` и `utilities`:
+Если вы хотите обрабатывать любой пользовательский CSS вместе со стилями по умолчанию, которые генерирует Tailwind, создайте файл CSS в любом месте и используйте директиву `@tailwind` для включения стилей Tailwind `base`, `components` и `utilities`:
 
 ```css
 /* ./src/tailwind.css */
@@ -325,7 +325,7 @@ NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dis
 
 ```shell
 npm uninstall tailwindcss postcss autoprefixer
-npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 
 Сборка совместимости идентична основной сборке во всех отношениях, поэтому Вы не упускаете ни одной функции или чего-либо в этом роде.

@@ -169,8 +169,8 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
   let { prev, next } = usePrevNext()
 
   return (
-    <div id={meta.containerId} className="pt-10 pb-24 lg:pb-16 w-full flex">
-      <div className="min-w-0 flex-auto px-4 sm:px-6 xl:px-8">
+    <div id={meta.containerId} className="w-full flex">
+      <div className="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16">
         <PageHeader
           title={meta.title}
           description={meta.description}
@@ -188,15 +188,25 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
         {(prev || next) && (
           <>
             <hr className="border-gray-200 mt-10 mb-4" />
-            <div className="flex justify-between leading-7 font-medium">
+            <div className="flex leading-6 font-medium">
               {prev && (
                 <Link href={prev.href}>
-                  <a>← {prev.shortTitle || prev.title}</a>
+                  <a className="flex mr-8 transition-colors duration-200 hover:text-gray-900">
+                    <span aria-hidden="true" className="mr-2">
+                      ←
+                    </span>
+                    {prev.shortTitle || prev.title}
+                  </a>
                 </Link>
               )}
               {next && (
                 <Link href={next.href}>
-                  <a>{next.shortTitle || next.title} →</a>
+                  <a className="flex text-right ml-auto transition-colors duration-200 hover:text-gray-900">
+                    {next.shortTitle || next.title}
+                    <span aria-hidden="true" className="ml-2">
+                      →
+                    </span>
+                  </a>
                 </Link>
               )}
             </div>
@@ -204,7 +214,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents }) {
         )}
       </div>
       <div className="hidden xl:text-sm xl:block flex-none w-64 pl-8 mr-8">
-        <div className="flex flex-col justify-between overflow-y-auto sticky max-h-(screen-18) -mt-10 pt-10 pb-4 top-18">
+        <div className="flex flex-col justify-between overflow-y-auto sticky max-h-(screen-18) pt-10 pb-6 top-18">
           {toc.length > 0 && (
             <div className="mb-8">
               <TableOfContents tableOfContents={toc} currentSection={currentSection} />

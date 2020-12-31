@@ -41,16 +41,22 @@ function Nav({ nav, children, fallbackHref }) {
     if (activeItemRef.current) {
       const scrollRect = scrollRef.current.getBoundingClientRect()
       const activeItemRect = activeItemRef.current.getBoundingClientRect()
-      scrollRef.current.scrollTop =
-        activeItemRect.top - scrollRect.top - scrollRect.height / 2 + activeItemRect.height / 2
+
+      const top = activeItemRef.current.offsetTop
+      const bottom = top - scrollRect.height + activeItemRect.height
+
+      if (scrollRef.current.scrollTop > top || scrollRef.current.scrollTop < bottom) {
+        scrollRef.current.scrollTop =
+          activeItemRef.current.offsetTop - scrollRect.height / 2 + activeItemRect.height / 2
+      }
     }
-  }, [])
+  }, [router.pathname])
 
   return (
     <nav
       id="nav"
       ref={scrollRef}
-      className="px-1 pt-6 overflow-y-auto font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pt-10 lg:pb-16 sticky?lg:h-(screen-18)"
+      className="px-1 pt-6 overflow-y-auto font-medium text-base sm:px-3 xl:px-5 lg:text-sm pb-10 lg:pt-10 lg:pb-14 sticky?lg:h-(screen-18)"
     >
       <div className="relative flex mb-8 px-3 lg:hidden">
         <VersionSwitcher />
