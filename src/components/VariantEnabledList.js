@@ -20,7 +20,7 @@ export function VariantEnabledList({ variant }) {
     return (
       <p>
         <strong>
-          By default, the <code>{variant}</code> variant is not enabled for any core plugins
+          По умолчанию вариант <code>{variant}</code> не включен ни для каких основных плагинов
         </strong>
         .
       </p>
@@ -30,7 +30,7 @@ export function VariantEnabledList({ variant }) {
   return (
     <>
       <p>
-        By default, the <code>{variant}</code> variant is enabled for the following core plugins:
+        По умолчанию вариант <code>{variant}</code> включен для следующих основных подключаемых модулей:
       </p>
 
       <ul>

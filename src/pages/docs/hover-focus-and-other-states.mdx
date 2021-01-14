@@ -1,6 +1,6 @@
 ---
-title: Hover, Focus, & Other States
-description: Using utilities to style elements on hover, focus, and more.
+title: Наведение, фокус и другие состояния
+description: Использование утилит для стилизации элементов при наведении, фокусе и т. д.
 ---
 
 import { Heading } from '@/components/Heading'
@@ -8,16 +8,16 @@ import { TipCompat } from '@/components/Tip'
 import { DefaultVariantsConfig } from '@/components/DefaultVariantsConfig'
 import { VariantEnabledList } from '@/components/VariantEnabledList'
 
-## <Heading hidden>Overview</Heading>
+## <Heading hidden>Обзор</Heading>
 
-Similar to how Tailwind handles [responsive design](/docs/responsive-design), styling elements on hover, focus, and more can be accomplished by prefixing utilities with the appropriate state variant.
+Подобно тому, как Tailwind обрабатывает [адаптивный дизайн](/docs/responsive-design), стилизация элементов при наведении курсора, фокусе и т. д. может выполняться с помощью префикса утилит с соответствующим вариантом состояния.
 
 ```html purple
 <template preview>
   <form class="flex w-full max-w-sm mx-auto space-x-3">
-    <input class="flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="email" placeholder="Your email">
+    <input class="flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="email" placeholder="Ваша эл. почта">
     <button class="flex-shrink-0 bg-purple-600 text-white text-base font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="button">
-      Sign up
+      Зарегистрироваться
     </button>
   </form>
 </template>
@@ -25,34 +25,34 @@ Similar to how Tailwind handles [responsive design](/docs/responsive-design), st
 <form>
   <input class="border border-transparent **focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent** ...">
   <button class="bg-purple-600 **hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50** ...">
-    Sign up
+    Зарегистрироваться
   </button>
 </form>
 ```
 
-**Not all state variants are enabled for all utilities by default due to file-size considerations**, but we've tried our best to enable the most commonly used combinations out of the box.
+**Не все варианты состояния включены для всех утилит по умолчанию из-за соображений размера файла**, но мы постарались сделать все возможное, чтобы включить наиболее часто используемые комбинации из коробки.
 
-For a complete list of which variants are enabled by default, see the [reference table](#default-variants-reference) at the end of this page.
+Полный список вариантов, включенных по умолчанию, смотрите в [справочной таблице](#spravochnik-variantov-po-umolchaniyu) в конце этой страницы.
 
-If you need to target a state that Tailwind doesn't support, you can extend the supported variants by [writing a variant plugin](#creating-custom-variants).
+Если Вам нужно настроить таргетинг на состояние, которое Tailwind не поддерживает, Вы можете расширить поддерживаемые варианты, [написав вариант плагина](#sozdanie-sobstvennyh-variantov).
 
 ---
 
 ## Hover
 
-Add the `hover:` prefix to only apply a utility on hover.
+Добавьте префикс `hover:` чтобы использовать утилиту только при наведении курсора.
 
 ```html rose
 <template preview>
   <div class="text-center">
     <button type="button" class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none" tabindex="-1">
-      Hover me
+      Наведите на меня
     </button>
   </div>
 </template>
 
 <button class="bg-red-500 **hover:bg-red-700** ...">
-  Hover me
+  Наведите на меня
 </button>
 ```
 
@@ -60,7 +60,7 @@ Add the `hover:` prefix to only apply a utility on hover.
   <VariantEnabledList variant="hover"/>
 </div>
 
-You can control whether `hover` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `hover` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -78,12 +78,12 @@ module.exports = {
 
 ## Focus
 
-Add the `focus:` prefix to only apply a utility on focus.
+Добавьте префикс `focus:`, чтобы применить утилиту только к фокусу.
 
 ```html lightBlue
 <template preview>
   <div class="max-w-xs w-full mx-auto">
-    <input class="py-3 px-4 bg-white rounded-lg placeholder-gray-400 text-gray-900 appearance-none inline-block w-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Focus me">
+    <input class="py-3 px-4 bg-white rounded-lg placeholder-gray-400 text-gray-900 appearance-none inline-block w-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Фокус на мне">
   </div>
 </template>
 
@@ -94,7 +94,7 @@ Add the `focus:` prefix to only apply a utility on focus.
   <VariantEnabledList variant="focus"/>
 </div>
 
-You can control whether `focus` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `focus` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -112,19 +112,19 @@ module.exports = {
 
 ## Active
 
-Add the `active:` prefix to only apply a utility when an element is active.
+Добавьте префикс `active:`, чтобы применить утилиту только тогда, когда элемент активен.
 
 ```html emerald
 <template preview>
   <div class="text-center">
     <button type="button" class="py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md active:bg-emerald-700 focus:outline-none" tabindex="-1">
-      Click me
+      Кликните на меня
     </button>
   </div>
 </template>
 
 <button class="bg-green-500 **active:bg-green-700** ...">
-  Click me
+  Кликните на меня
 </button>
 ```
 
@@ -132,7 +132,7 @@ Add the `active:` prefix to only apply a utility when an element is active.
   <VariantEnabledList variant="active"/>
 </div>
 
-You can control whether `active` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли `active` варианты для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -150,19 +150,19 @@ module.exports = {
 
 ## Group-hover
 
-If you need to style a child element when hovering over a specific parent element, add the `group` class to the parent element and add the `group-hover:` prefix to the utility on the child element.
+Если Вам нужно стилизовать дочерний элемент при наведении курсора на определенный родительский элемент, добавьте класс `group` к родительскому элементу и добавьте префикс `group-hover:` к утилите на дочернем элементе.
 
 ```html indigo
 <template preview>
   <div class="group px-6 py-5 max-w-full mx-auto w-72 border border-indigo-500 border-opacity-25 cursor-pointer rounded-lg select-none overflow-hidden space-y-1 hover:bg-white hover:shadow-lg hover:border-transparent">
-    <p class="font-semibold text-lg text-indigo-600 group-hover:text-gray-900">New Project</p>
-    <p class="text-indigo-500 group-hover:text-gray-500">Create a new project from a variety of starting templates.</p>
+    <p class="font-semibold text-lg text-indigo-600 group-hover:text-gray-900">Новый проект</p>
+    <p class="text-indigo-500 group-hover:text-gray-500">Создайте новый проект из множества начальных шаблонов.</p>
   </div>
 </template>
 
 <div class="**group** border-indigo-500 hover:bg-white hover:shadow-lg hover:border-transparent ...">
-  <p class="text-indigo-600 **group-hover:text-gray-900** ...">New Project</p>
-  <p class="text-indigo-500 **group-hover:text-gray-500** ...">Create a new project from a variety of starting templates.</p>
+  <p class="text-indigo-600 **group-hover:text-gray-900** ...">Новый проект</p>
+  <p class="text-indigo-500 **group-hover:text-gray-500** ...">Создайте новый проект из множества начальных шаблонов.</p>
 </div>
 ```
 
@@ -170,7 +170,7 @@ If you need to style a child element when hovering over a specific parent elemen
   <VariantEnabledList variant="group-hover"/>
 </div>
 
-You can control whether `group-hover` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `group-hover` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -188,21 +188,21 @@ module.exports = {
 
 ## Group-focus
 
-The `group-focus` variant works just like [`group-hover`](#group-hover) except for focus:
+Вариант `group-focus` работает так же, как [`group-hover`](#group-hover) за исключением фокуса:
 
 ```html amber
 <template preview>
   <div class="text-center">
     <button type="button" class="group inline-flex items-center py-2 px-4 bg-amber-500 text-white font-semibold rounded-lg shadow-md focus:bg-amber-600 focus:outline-none">
       <svg fill="currentColor" viewBox="0 0 20 20" class="-ml-1 mr-3 w-5 h-5 text-white group-focus:text-amber-300"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"></path></svg>
-      Bookmark
+      Закладка
     </button>
   </div>
 </template>
 
 <button class="**group** bg-yellow-500 focus:bg-yellow-600 ...">
   <svg class="text-white **group-focus:text-yellow-300** ..."></svg>
-  Bookmark
+  Закладка
 </button>
 ```
 
@@ -210,7 +210,7 @@ The `group-focus` variant works just like [`group-hover`](#group-hover) except f
   <VariantEnabledList variant="group-focus"/>
 </div>
 
-You can control whether `group-focus` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `group-focus` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -228,7 +228,7 @@ module.exports = {
 
 ## Focus-within
 
-Add the `focus-within:` prefix to only apply a utility when a child element has focus.
+Добавьте префикс `focus-within:`, чтобы применить утилиту только тогда, когда дочерний элемент имеет фокус.
 
 ```html purple
 <template preview>
@@ -256,7 +256,7 @@ Add the `focus-within:` prefix to only apply a utility when a child element has 
   <VariantEnabledList variant="focus-within"/>
 </div>
 
-You can control whether `focus-within` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `focus-within` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -274,31 +274,31 @@ module.exports = {
 
 ## Focus-visible
 
-<TipCompat>Note that focus-visible currently requires JS and PostCSS polyfills for sufficient browser support.</TipCompat>
+<TipCompat>Обратите внимание, что focus-visible в настоящее время требует полифиллов JS и PostCSS для достаточной поддержки браузером.</TipCompat>
 
-Add the `focus-visible:` prefix to only apply a utility when an element has focus but only if the user is using the keyboard.
+Добавьте префикс `focus-visible:`, чтобы применить утилиту только тогда, когда элемент имеет фокус, но только если пользователь использует клавиатуру.
 
 ```html rose
 <template preview>
   <div class="flex justify-center space-x-8">
     <button type="button" class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:bg-red-500 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-opacity-75 focus:ring-transparent">
-      Ring on focus
+      Кольцо в focus
     </button>
     <button type="button" class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:bg-red-500 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-opacity-75 focus-visible:ring-transparent">
-      Ring on focus-visible
+      Кольцо в focus-visible
     </button>
   </div>
 </template>
 
 <button class="**focus:ring-2 focus:ring-red-500** ...">
-  Ring on focus
+  Кольцо в focus
 </button>
 <button class="**focus-visible:ring-2 focus-visible:ring-rose-500** ...">
-  Ring on focus-visible
+  Кольцо в focus-visible
 </button>
 ```
 
-Note that currently only [Chrome, Edge, and Firefox](https://caniuse.com/?search=focus-visible) support `focus-visible` natively, so for sufficient browser support you should install and configure both the [focus-visible JS polyfill](https://github.com/WICG/focus-visible) and the [focus-visible PostCSS polyfill](https://github.com/csstools/postcss-focus-visible). Make sure to include the PostCSS plugin _after_ Tailwind in your list of PostCSS plugins:
+Обратите внимание, что в настоящее время только [Chrome, Edge и Firefox](https://caniuse.com/?search=focus-visible) нативно поддерживают `focus-visible`, поэтому для достаточной поддержки браузера Вы должны установить и настроить оба параметра [JS полифил focus-visible](https://github.com/WICG/focus-visible) и [PostCSS полифил focus-visible](https://github.com/csstools/postcss-focus-visible). Обязательно включите плагин PostCSS _после_ Tailwind в свой список плагинов PostCSS:
 
 ```js
 // postcss.config.js
@@ -315,7 +315,7 @@ module.exports = {
   <VariantEnabledList variant="focus-visible"/>
 </div>
 
-You can control whether `focus-visible` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `focus-visible` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -333,25 +333,25 @@ module.exports = {
 
 ## Motion-safe
 
-Add the `motion-safe:` prefix to only apply a utility when the `prefers-reduced-motion` media feature matches `no-preference`.
+Добавьте префикс `motion-safe:`, чтобы применить утилиту только тогда, когда мультимедийная функция `prefers-reduced-motion` совпадает с `no-preference`.
 
-For example, this button will only animate on hover if the user hasn't enabled "Reduce motion" on their system.
+Например, эта кнопка будет анимироваться только при наведении курсора, если пользователь не включил «Уменьшить движение» в своей системе.
 
 ```html lightBlue
 <template preview>
   <div class="text-center">
     <button type="button" class="py-2 px-4 bg-light-blue-500 text-white font-semibold rounded-lg shadow-md transform transition motion-safe:hover:scale-110 duration-500 focus:outline-none" tabindex="-1">
-      Hover me
+      Наведите на меня
     </button>
   </div>
 </template>
 
 <button class="transform **motion-safe:hover:scale-110** ...">
-  Hover me
+  Наведите на меня
 </button>
 ```
 
-Note that unlike most other variants, `motion-safe` can be combined with both responsive variants _and_ other variants like `hover`, by stacking them in this order:
+Обратите внимание, что в отличие от большинства других вариантов, `motion-safe` можно комбинировать как с адаптивными вариантами, _так и_ с другими вариантами, такими как `hover`, складывая их в следующем порядке:
 
 ```html
 <div class="**sm:motion-safe:hover:animate-spin**">
@@ -363,7 +363,7 @@ Note that unlike most other variants, `motion-safe` can be combined with both re
   <VariantEnabledList variant="motion-safe"/>
 </div>
 
-You can control whether `motion-safe` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `motion-safe` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -381,25 +381,25 @@ module.exports = {
 
 ## Motion-reduce
 
-Add the `motion-reduce:` prefix to only apply a utility when the `prefers-reduced-motion` media feature matches `reduce`.
+Добавьте префикс `motion-reduce:`, чтобы применить утилиту только тогда, когда мультимедийная функция `prefers-reduced-motion` совпадает с `reduce`.
 
-For example, this button will animate on hover by default, but the animations will be disabled if the user has enabled "Reduce motion" on their system.
+Например, эта кнопка по умолчанию будет анимировать при наведении курсора, но анимация будет отключена, если пользователь включил «Уменьшить движение» в своей системе.
 
 ```html fuchsia
 <template preview>
   <div class="text-center">
     <button type="button" class="py-2 px-4 bg-fuchsia-500 text-white font-semibold rounded-lg shadow-md transform transition motion-reduce:transform-none hover:scale-110 duration-500 focus:outline-none" tabindex="-1">
-      Hover me
+      Наведите на меня
     </button>
   </div>
 </template>
 
 <button class="transform hover:scale-110 **motion-reduce:transform-none** ...">
-  Hover me
+  Наведите на меня
 </button>
 ```
 
-Note that unlike most other variants, `motion-reduce` can be combined with both responsive variants _and_ other variants like `hover`, by stacking them in this order:
+Обратите внимание, что в отличие от большинства других вариантов, `motion-reduce` можно комбинировать как с адаптивными вариантами, _так и_ с другими вариантами, такими как `hover`, складывая их в следующем порядке:
 
 ```html
 <div class="**sm:motion-reduce:hover:animate-none**">
@@ -411,7 +411,7 @@ Note that unlike most other variants, `motion-reduce` can be combined with both 
   <VariantEnabledList variant="motion-reduce"/>
 </div>
 
-You can control whether `motion-reduce` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `motion-reduce` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -429,25 +429,25 @@ module.exports = {
 
 ## Disabled
 
-Add the `disabled:` prefix to only apply a utility when an element is disabled.
+Добавьте префикс `disabled:`,  чтобы применять утилиту только тогда, когда элемент отключен.
 
 ```html emerald
 <template preview>
   <div class="text-center space-x-8">
     <button type="button" class="py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 focus:outline-none disabled:opacity-50" tabindex="-1">
-      Submit
+      Отправить
     </button>
     <button type="button" class="py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md disabled:opacity-50" disabled tabindex="-1">
-      Submit
+      Отправить
     </button>
   </div>
 </template>
 
 <button class="**disabled:opacity-50** ...">
-  Submit
+  Отправить
 </button>
 <button class="**disabled:opacity-50** ..." disabled>
-  Submit
+  Отправить
 </button>
 ```
 
@@ -455,7 +455,7 @@ Add the `disabled:` prefix to only apply a utility when an element is disabled.
   <VariantEnabledList variant="disabled"/>
 </div>
 
-You can control whether `disabled` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `disabled` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -473,24 +473,24 @@ module.exports = {
 
 ## Visited
 
-Add the `visited:` prefix to only apply a utility when a link has been visited.
+Добавьте префикс `visited:`, чтобы применять утилиту только при посещении ссылки.
 
 ```html indigo
 <template preview>
   <div class="text-center space-x-16">
-    <a href="#" class="font-semibold text-blue-600 ">Unvisited link</a>
-    <a href="#" class="font-semibold text-purple-600 ">Visited link</a>
+    <a href="#" class="font-semibold text-blue-600 ">Непосещенная ссылка</a>
+    <a href="#" class="font-semibold text-purple-600 ">Посещенная ссылка</a>
   </div>
 </template>
 
-<a href="#" class="text-blue-600 **visited:text-purple-600** ...">Link</a>
+<a href="#" class="text-blue-600 **visited:text-purple-600** ...">Ссылка</a>
 ```
 
 <div>
   <VariantEnabledList variant="visited"/>
 </div>
 
-You can control whether `visited` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `visited` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -508,14 +508,14 @@ module.exports = {
 
 ## Checked
 
-Add the `checked:` prefix to only apply a utility when a radio or checkbox is currently checked.
+Добавьте префикс `checked:`, чтобы применять утилиту только тогда, когда в данный момент установлен переключатель или флажок.
 
 ```html lightBlue
 <template preview>
   <div class="p-4 max-w-xs mx-auto bg-white rounded-xl shadow-md">
     <label class="flex items-center space-x-3">
       <input type="checkbox" name="checked-demo" value="1" class="form-tick appearance-none h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-600 checked:border-transparent focus:outline-none">
-      <span class="text-gray-900 font-medium">Option 1</span>
+      <span class="text-gray-900 font-medium">Опция 1</span>
     </label>
   </div>
 </template>
@@ -527,7 +527,7 @@ Add the `checked:` prefix to only apply a utility when a radio or checkbox is cu
   <VariantEnabledList variant="checked"/>
 </div>
 
-You can control whether `checked` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `checked` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -546,7 +546,7 @@ module.exports = {
 
 ## First-child
 
-Add the `first:` prefix to only apply a utility when it is the first-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+Добавьте префикс `first:`, чтобы применять утилиту только тогда, когда она является первым потомком своего родителя. Это в основном полезно, когда элементы создаются в каком-то цикле.
 
 ```html indigo
 <template preview>
@@ -565,13 +565,13 @@ Add the `first:` prefix to only apply a utility when it is the first-child of it
 </div>
 ```
 
-It's important to note that you should add any `first:` utilities to the child element, not the parent element.
+Важно отметить, что Вы должны добавлять любые утилиты `first:` к дочернему элементу, а не к родительскому элементу.
 
 <div>
   <VariantEnabledList variant="first-child"/>
 </div>
 
-You can control whether `first` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `first` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -589,7 +589,7 @@ module.exports = {
 
 ## Last-child
 
-Add the `last:` prefix to only apply a utility when it is the last-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+Добавьте префикс `last:`, чтобы применять утилиту только тогда, когда она является последним потомком своего родителя. Это в основном полезно, когда элементы создаются в каком-то цикле.
 
 ```html amber
 <template preview>
@@ -608,13 +608,13 @@ Add the `last:` prefix to only apply a utility when it is the last-child of its 
 </div>
 ```
 
-It's important to note that you should add any `last:` utilities to the child element, not the parent element.
+Важно отметить, что Вы должны добавлять любые утилиты `last:` к дочернему элементу, а не к родительскому элементу.
 
 <div>
   <VariantEnabledList variant="last-child"/>
 </div>
 
-You can control whether `last` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `last` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -632,7 +632,7 @@ module.exports = {
 
 ## Odd-child
 
-Add the `odd:` prefix to only apply a utility when it is an odd-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+Добавьте префикс `odd:`, чтобы использовать утилиту, только если она является нечетным потомком своего родителя. Это в основном полезно, когда элементы создаются в каком-то цикле.
 
 ```html rose
 <template preview>
@@ -651,13 +651,13 @@ Add the `odd:` prefix to only apply a utility when it is an odd-child of its par
 </div>
 ```
 
-It's important to note that you should add any `odd:` utilities to the child element, not the parent element.
+Важно отметить, что Вы должны добавлять любые утилиты `odd:` к дочернему элементу, а не к родительскому элементу.
 
 <div>
   <VariantEnabledList variant="odd-child"/>
 </div>
 
-You can control whether `odd` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `odd` для плагина в разделе `variants` файла `tailwind.config.js` file:
 
 ```js
 // tailwind.config.js
@@ -675,7 +675,7 @@ module.exports = {
 
 ## Even-child
 
-Add the `even:` prefix to only apply a utility when it is an even-child of its parent. This is mostly useful when elements are being generated in some kind of loop.
+Добавьте префикс `even:`, чтобы применять утилиту только тогда, когда она является четным потомком своего родителя. Это в основном полезно, когда элементы создаются в каком-то цикле.
 
 ```html fuchsia
 <template preview>
@@ -694,13 +694,13 @@ Add the `even:` prefix to only apply a utility when it is an even-child of its p
 </div>
 ```
 
-It's important to note that you should add any `even:` utilities to the child element, not the parent element.
+Важно отметить, что вы должны добавлять любые утилиты `even:` к дочернему элементу, а не к родительскому элементу.
 
 <div>
   <VariantEnabledList variant="even-child"/>
 </div>
 
-You can control whether `even` variants are enabled for a plugin in the `variants` section of your `tailwind.config.js` file:
+Вы можете контролировать, включены ли варианты `even` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -716,11 +716,11 @@ module.exports = {
 
 ---
 
-## Combining with responsive prefixes
+## Комбинирование с адаптивными префиксами
 
-State variants are also responsive, meaning you can do things like change an element's hover style at different breakpoints for example.
+Варианты состояния также являются адаптивными, что означает, что Вы можете делать такие вещи, как, например, изменять стиль наведения элемента в разных контрольных точках.
 
-To apply a state variant at a specific breakpoint, add the responsive prefix first, before the state prefix:
+Чтобы применить вариант состояния к определенной контрольной точке, сначала добавьте префикс ответа перед префиксом состояния:
 
 ```html
 <button class="... hover:bg-green-500 **sm:hover:bg-blue-500**">
@@ -730,19 +730,19 @@ To apply a state variant at a specific breakpoint, add the responsive prefix fir
 
 ---
 
-## Generating variants for custom utilities
+## Создание вариантов для пользовательских утилит
 
-You can generate state variants for your own custom CSS classes by wrapping them with the `@variants` directive:
+Вы можете сгенерировать варианты состояния для Ваших собственных пользовательских классов CSS, заключив их в директиву `@variants`:
 
 ```css
-/* Input: */
+/* Ввод: */
 @variants group-hover, hover, focus {
   .banana {
     color: yellow;
   }
 }
 
-/* Output: */
+/* Вывод: */
 .banana {
   color: yellow;
 }
@@ -758,15 +758,15 @@ You can generate state variants for your own custom CSS classes by wrapping them
 
 ```
 
-For more information, see the [@variants directive documentation](/docs/functions-and-directives#variants).
+Дополнительные сведения смотрите в [документации директивы @variants](/docs/functions-and-directives#variants).
 
 ---
 
-## Creating custom variants
+## Создание собственных вариантов
 
-You can create your own variants for any states Tailwind doesn't support by default by writing a custom variant plugin.
+Вы можете создавать свои собственные варианты для любых состояний, которые Tailwind не поддерживает по умолчанию, написав собственный вариант плагина.
 
-For example, this simple plugin adds support for the `required` pseudo-class variant:
+Например, этот простой плагин добавляет поддержку варианта псевдокласса `required`:
 
 ```js
 // tailwind.config.js
@@ -785,15 +785,15 @@ module.exports = {
 }
 ```
 
-Learn more about writing variant plugins in the [variant plugin documentation](/docs/plugins#adding-variants).
+Узнайте больше о написании альтернативных плагинов в [документации по вариантам плагинов](/docs/plugins#adding-variants).
 
 ---
 
-## Default variants reference
+## Справочник вариантов по умолчанию
 
-Due to file-size considerations, Tailwind does not include all variants for all utilities by default.
+Из-за соображений размера файла Tailwind по умолчанию не включает все варианты для всех утилит.
 
-To configure which variants are enabled for your project, see the [configuring variants documentation](/docs/configuring-variants).
+Чтобы настроить, какие варианты включены для Вашего проекта, смотрите [документацию по настройке вариантов](/docs/configuring-variants).
 
 <div>
   <DefaultVariantsConfig />
