@@ -1,28 +1,28 @@
 ---
-title: Dark Mode
-description: Using Tailwind CSS to style your site in dark mode.
+title: Темный режим
+description: Использование Tailwind CSS для стилизации Вашего сайта в темном режиме.
 ---
 
 import { Heading } from '@/components/Heading'
 
-## <Heading hidden>Basic usage</Heading>
+## <Heading hidden>Основы использования</Heading>
 
-Now that dark mode is a first-class feature of many operating systems, it's becoming more and more common to design a dark version of your website to go along with the default design.
+Теперь, когда темный режим является первоклассной особенностью многих операционных систем, становится все более распространенным создание темной версии Вашего веб-сайта в соответствии с дизайном по умолчанию.
 
-To make this as easy as possible, Tailwind includes a `dark` variant that lets you style your site differently when dark mode is enabled:
+Чтобы максимально упростить эту задачу, Tailwind включает в себя `dark` вариант, который позволяет Вам стилизовать Ваш сайт по-разному, когда включен темный режим:
 
 ```html
 <div class="bg-white **dark:bg-gray-800**">
-  <h1 class="text-gray-900 **dark:text-white**">Dark mode is here!</h1>
+  <h1 class="text-gray-900 **dark:text-white**">Темный режим здесь!</h1>
   <p class="text-gray-600 **dark:text-gray-300**">
     Lorem ipsum...
   </p>
 </div>
 ```
 
-It's important to note that because of file size considerations, **the dark mode variant is not enabled in Tailwind by default**.
+Важно отметить, что из-за соображений размера файла **вариант темного режима не включен в Tailwind по умолчанию**.
 
-To enable it, set the `darkMode` option in your `tailwind.config.js` file to `media`:
+Чтобы включить его, установите параметр `darkMode` в Вашем файле `tailwind.config.js` на `media`:
 
 ```js
 // tailwind.config.js
@@ -32,15 +32,15 @@ module.exports = {
 }
 ```
 
-Now whenever dark mode is enabled on the user's operating system, `dark:{class}` classes will take precedence over unprefixed classes. The `media` strategy uses the `prefers-color-scheme` media feature under the hood, but if you'd like to support toggling dark mode manually, you can also [use the 'class' strategy](#toggling-dark-mode-manually) for more control.
+Теперь всякий раз, когда в операционной системе пользователя включен темный режим, классы `dark:{class}` будут иметь приоритет над классами без префикса. Стратегия `media` использует под капотом мультимедийную функцию `prefers-color-scheme` , но если Вы хотите поддерживать переключение темного режима вручную, Вы также можете [использовать стратегию 'class'](#toggling-dark-mode-manually) для большего контроля.
 
-By default, when `darkMode` is enabled `dark` variants are only generated for color-related classes, which includes text color, background color, border color, gradients, and placeholder color.
+По умолчанию, когда включен `darkMode`, варианты `dark` генерируются только для классов, связанных с цветом, которые включают цвет текста, цвет фона, цвет границы, градиенты и цвет заполнителя.
 
 ---
 
-## Stacking with other variants
+## Укладка с другими вариантами
 
-The `dark` variant can be combined with both [responsive](https://tailwindcss.com/docs/responsive-design) variants and [state variants](https://tailwindcss.com/docs/hover-focus-and-other-states) (like hover and focus):
+Вариант `dark` можно комбинировать как с [адаптивными](https://tailwindcss.com/docs/responsive-design) вариантами, так и с [вариантами состояния](https://tailwindcss.com/docs/hover-focus-and-other-states) (например, наведение и фокус):
 
 ```html
 <button class="lg:dark:hover:bg-white ...">
@@ -48,13 +48,13 @@ The `dark` variant can be combined with both [responsive](https://tailwindcss.co
 </button>
 ```
 
-The responsive variant needs to come first, then `dark`, then the state variant for this to work.
+Сначала должен быть адаптивный вариант, затем `dark`, а затем вариант состояния, чтобы это работало.
 
 ---
 
-## Enabling for other utilities
+## Включение для других утилит
 
-To enable the `dark` variant for other utilities, add `dark` to the the variants list for whatever utility you'd like to enable it for:
+Чтобы включить вариант `dark` для других утилит, добавьте `dark` в список вариантов для той утилиты, для которой Вы хотите включить его:
 
 ```js
 // tailwind.config.js
@@ -68,13 +68,13 @@ module.exports = {
 }
 ```
 
-By default, the `dark` variant is enabled for `backgroundColor`, `borderColor`, `gradientColorStops`, `placeholderColor`, and `textColor`.
+По умолчанию вариант `dark` включен для `backgroundColor`, `borderColor`, `gradientColorStops`, `placeholderColor` и `textColor`.
 
 ---
 
-## Toggling dark mode manually
+## Переключение темного режима вручную
 
-If you want to support toggling dark mode manually instead of relying on the operating system preference, use the `class` strategy instead of the `media` strategy:
+Если Вы хотите поддерживать переключение темного режима вручную вместо того, чтобы полагаться на предпочтения операционной системы, используйте стратегию `class` вместо стратегии `media`:
 
 ```js
 // tailwind.config.js
@@ -84,23 +84,23 @@ module.exports = {
 }
 ```
 
-Now instead of `dark:{class}` classes being applied based on `prefers-color-scheme`, they will be applied whenever `dark` class is present earlier in the HTML tree.
+Теперь вместо классов `dark:{class}`, применяемых на основе `prefers-color-scheme`, они будут применяться всякий раз, когда класс `dark` присутствует ранее в дереве HTML.
 
 ```html
-<!-- Dark mode not enabled -->
+<!-- Темный режим не включен -->
 <html>
 <body>
-  <!-- Will be white -->
+  <!-- Будет белым -->
   <div class="**bg-white** dark:bg-black">
     <!-- ... -->
   </div>
 </body>
 </html>
 
-<!-- Dark mode enabled -->
+<!-- Темный режим включен -->
 <html class="**dark**">
 <body>
-  <!-- Will be black -->
+  <!-- Будет черным -->
   <div class="bg-white **dark:bg-black**">
     <!-- ... -->
   </div>
@@ -108,26 +108,26 @@ Now instead of `dark:{class}` classes being applied based on `prefers-color-sche
 </html>
 ```
 
-How you add the `dark` class to the `html` element is up to you, but a common approach is to use a bit of JS that reads a preference from somewhere (like `localStorage`) and updates the DOM accordingly.
+Как Вы добавляете класс `dark` к элементу `html` - решать Вам, но общий подход - использовать немного JS, который считывает предпочтения откуда-то (например, `localStorage`) и соответственно обновляет DOM.
 
-Here's a simple example of how you can support light mode, dark mode, as well as respecting the operating system preference:
+Вот простой пример того, как Вы можете поддерживать светлый режим, темный режим, а также соблюдать настройки операционной системы:
 
 ```js
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+// При загрузке страницы или при смене темы лучше всего добавлять строку в `head`, чтобы избежать FOUC
 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
   document.querySelector('html').classList.add('dark')
 } else {
   document.querySelector('html').classList.remove('dark')
 }
 
-// Whenever the user explicitly chooses light mode
+// Всякий раз, когда пользователь явно выбирает светлый режим
 localStorage.theme = 'light'
 
-// Whenever the user explicitly chooses dark mode
+// Всякий раз, когда пользователь явно выбирает темный режим
 localStorage.theme = 'dark'
 
-// Whenever the user explicitly chooses to respect the OS preference
+// Всякий раз, когда пользователь явно выбирает соблюдение предпочтений ОС
 localStorage.removeItem('theme')
 ```
 
-Again you can manage this however you like, even storing the preference server-side in a database and rendering the class on the server — it's totally up to you.
+Опять же, Вы можете управлять этим как хотите, даже сохраняя серверные предпочтения в базе данных и отображая класс на сервере - это полностью зависит от Вас.
