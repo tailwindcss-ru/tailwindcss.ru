@@ -295,7 +295,7 @@ export default function DocsLandingPage() {
 
 DocsLandingPage.layoutProps = {
   meta: {
-    title: 'Documentation',
+    title: 'Документация',
   },
   Layout: DocumentationLayout,
 }

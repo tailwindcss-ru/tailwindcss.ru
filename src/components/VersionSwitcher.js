@@ -22,7 +22,7 @@ export function VersionSwitcher({ className }) {
           onChange={submit}
         >
           <option value="v2">v{tailwindVersion}</option>
-          <option value="v1">v1.9.6</option>
+          {/* <option value="v1">v1.9.6</option> */}
         </select>
       </label>
       <svg
