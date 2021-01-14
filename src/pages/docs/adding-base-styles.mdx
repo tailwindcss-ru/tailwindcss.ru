@@ -1,23 +1,23 @@
 ---
-title: Adding Base Styles
-description: Best practices for adding your own global base styles on top of Tailwind.
+title: Добавление базовых стилей
+description: Рекомендации по добавлению Ваших собственных глобальных базовых стилей поверх Tailwind.
 ---
 
-Base (or global) styles are the styles at the beginning of a stylesheet that set useful defaults for basic HTML elements like `<a>` tags, headings, etc. or apply opinionated resets like the popular [box-sizing reset](https://www.paulirish.com/2012/box-sizing-border-box-ftw/).
+Базовые (или глобальные) стили - это стили в начале таблицы стилей, которые устанавливают полезные значения по умолчанию для основных элементов HTML, таких как теги `<a>`, заголовки и т. д., или применяют выборочные сбросы, такие как популярный [box-sizing reset](https://www.paulirish.com/2012/box-sizing-border-box-ftw/).
 
-Tailwind includes a useful set of base styles out of the box that we call [Preflight](/docs/preflight), which is really just [modern-normalize](https://github.com/sindresorhus/modern-normalize) plus a thin layer of additional more opinionated styles.
+Tailwind «из коробки» включает полезный набор базовых стилей, который мы называем [Preflight](/docs/preflight), что на самом деле просто [modern-normalize](https://github.com/sindresorhus/modern-normalize) плюс тонкий слой дополнительных, более самоуверенных стилей.
 
-Preflight is a great starting point for most projects, but if you'd ever like to add your own additional base styles, here are some recommendations for doing it idiomatically.
+Preflight  - отличная отправная точка для большинства проектов, но если Вы когда-нибудь захотите добавить свои собственные дополнительные базовые стили, вот несколько рекомендаций, как сделать это идиоматически.
 
 ---
 
-## Using classes in your HTML
+## Использование классов в Вашем HTML
 
-If you just want to apply some global styling to the `html` or `body` elements, consider just adding existing classes to those elements in your HTML instead of writing new CSS:
+Если Вы просто хотите применить глобальный стиль к элементам `html` или `body`, рассмотрите возможность простого добавления существующих классов к этим элементам в Вашем HTML вместо написания нового CSS:
 
 ```html
 <!doctype html>
-<html lang="en" class="text-gray-900 leading-tight">
+<html lang="ru" class="text-gray-900 leading-tight">
   <!-- ... -->
   <body class="min-h-screen bg-gray-100">
     <!-- ... -->
@@ -27,9 +27,9 @@ If you just want to apply some global styling to the `html` or `body` elements, 
 
 ---
 
-## Using CSS
+## Использование CSS
 
-If you want to apply some base styles to specific elements, the easiest way is to simply add them in your CSS.
+Если Вы хотите применить некоторые базовые стили к определенным элементам, самый простой способ - просто добавить их в свой CSS.
 
 ```css
 @tailwind base;
@@ -46,15 +46,15 @@ If you want to apply some base styles to specific elements, the easiest way is t
 }
 ```
 
-By using the `@layer` directive, Tailwind will automatically move those styles to the same place as `@tailwind base` to avoid unintended specificity issues.
+Используя директиву `@layer`, Tailwind автоматически перемещает эти стили в то же место, что и `@tailwind base`, чтобы избежать непреднамеренных проблем со специфичностью.
 
-Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `base` layer. Read our [documentation on optimizing for production](/docs/optimizing-for-production) for more details.
+Использование директивы `@layer` также проинструктирует Tailwind рассмотреть эти стили для очистки при очистке базового слоя. Прочтите нашу [документацию по оптимизации для продакшена](/docs/optimizing-for-production) для получения более подробной информации.
 
-It's a good idea to use [@apply](/docs/functions-and-directives#apply) or [theme()](/docs/functions-and-directives#theme) to define these styles to avoid accidentally deviating from your design system.
+Рекомендуется использовать [@apply](/docs/functions-and-directives#apply) или [theme()](/docs/functions-and-directives#theme) для определения этих стилей, чтобы избежать случайного отклонения от Вашей дизайн-системы.
 
-### @font-face rules
+### Правила @font-face
 
-You can use the same approach to add your `@font-face` rules for any custom fonts you're using:
+Вы можете использовать тот же подход, чтобы добавить свои правила `@font-face` для любых пользовательских шрифтов, которые Вы используете:
 
 ```css
 @tailwind base;
@@ -77,9 +77,9 @@ You can use the same approach to add your `@font-face` rules for any custom font
 
 ---
 
-## Using a plugin
+## Использование плагина
 
-You can also add base styles by [writing a plugin](/docs/plugins#adding-base-styles) and using the `addBase` function:
+Вы также можете добавить базовые стили, [написав плагин](/docs/plugins#adding-base-styles) и используя функцию `addBase`:
 
 ```js
 // tailwind.config.js
@@ -98,4 +98,4 @@ module.exports = {
 }
 ```
 
-Any styles added using `addBase` will be inserted into the `base` layer alongside Tailwind's other base styles.
+Любые стили, добавленные с помощью `addBase`, будут вставлены в `base` слой вместе с другими базовыми стилями Tailwind.
