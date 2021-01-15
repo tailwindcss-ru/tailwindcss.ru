@@ -104,10 +104,6 @@ export function Search() {
           <DocSearchModal
             initialQuery={initialQuery}
             initialScrollY={window.scrollY}
-            searchParameters={{
-              facetFilters: 'version:v2',
-              distinct: 1,
-            }}
             onClose={onClose}
             indexName="tailwindcss-ru"
             apiKey="cc3f503f26b4acaa623c463e5db4fef9"
