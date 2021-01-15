@@ -83,19 +83,19 @@ export function Search() {
           />
         </svg>
         <span>
-          Quick search<span className="hidden sm:inline"> for anything</span>
+          Быстрый поиск<span className="hidden sm:inline"> чего угодно</span>
         </span>
         {actionKey && (
           <span className="hidden sm:block text-gray-400 text-sm leading-5 py-0.5 px-1.5 border border-gray-300 rounded-md">
-            <span className="sr-only">Press </span>
+            <span className="sr-only">Нажмите </span>
             <kbd className="font-sans">
               <abbr title={actionKey[1]} className="no-underline">
                 {actionKey[0]}
               </abbr>
             </kbd>
-            <span className="sr-only"> and </span>
+            <span className="sr-only"> и </span>
             <kbd className="font-sans">K</kbd>
-            <span className="sr-only"> to search</span>
+            <span className="sr-only"> для поиска</span>
           </span>
         )}
       </button>
