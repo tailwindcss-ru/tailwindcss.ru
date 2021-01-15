@@ -1,19 +1,19 @@
 ---
-title: Adding New Utilities
-description: Extending Tailwind with your own custom utility classes.
+title: Добавление новых утилит
+description: Расширение Tailwind с помощью Ваших собственных классов утилит.
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 
-Although Tailwind provides a pretty comprehensive set of utility classes out of the box, you may run into situations where you need to add a few of your own.
+Хотя Tailwind предоставляет довольно полный набор служебных классов «из коробки», Вы можете столкнуться с ситуациями, когда Вам нужно добавить несколько собственных.
 
-Deciding on the best way to extend a framework can be paralyzing, so here are some best practices to help you add your own utilities in the most idiomatic way possible.
+Выбор лучшего способа расширения фреймворка может парализовать, поэтому вот несколько передовых практик, которые помогут Вам добавить свои собственные утилиты наиболее идиоматическим способом.
 
 ---
 
-## Using CSS
+## Использование CSS
 
-The easiest way to add your own utilities to Tailwind is to simply add them to your CSS.
+Самый простой способ добавить свои собственные утилиты в Tailwind - просто добавить их в свой CSS.
 
 ```css
 @tailwind base;
@@ -33,13 +33,13 @@ The easiest way to add your own utilities to Tailwind is to simply add them to y
 }
 ```
 
-By using the `@layer` directive, Tailwind will automatically move those styles to the same place as `@tailwind utilities` to avoid unintended specificity issues.
+Используя директиву `@layer`, Tailwind автоматически перемещает эти стили в то же место, что и утилиты `@tailwind utilities`, чтобы избежать непреднамеренных проблем со специфичностью.
 
-Using the `@layer` directive will also instruct Tailwind to consider those styles for purging when purging the `utilities` layer. Read our [documentation on optimizing for production](/docs/optimizing-for-production) for more details.
+Использование директивы `@layer` также проинструктирует Tailwind учитывать эти стили для очистки при очистке уровня `utilities`. Прочтите нашу [документацию по оптимизации для продакшена](/docs/optimizing-for-production) для получения более подробной информации.
 
-### Generating responsive variants
+### Создание адаптивных вариантов
 
-If you'd like to generate [responsive variants](/docs/responsive-design) of your own utilities based on the breakpoints defined in your `tailwind.config.js` file, wrap your utilities in the `@variants` directive and add `responsive` to the list of variants:
+Если Вы хотите сгенерировать [адаптивные варианты](/docs/responsive-design) своих собственных утилит на основе контрольных  точек, определенных в Вашем файле `tailwind.config.js`, заключите свои утилиты в директиву `@variants` и добавьте `responsive` в список вариантов:
 
 ```css
 @tailwind base;
@@ -61,18 +61,18 @@ If you'd like to generate [responsive variants](/docs/responsive-design) of your
 }
 ```
 
-Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different breakpoints:
+Tailwind автоматически сгенерирует версии с префиксом каждой пользовательской утилиты, которые Вы можете использовать для условного применения этих стилей в разных контрольных точках:
 
 ```html
-<!-- Use `scroll-snap-type: none` by default, then use `scroll-snap-type: x` on medium screens and up -->
+<!-- Используйте по умолчанию `scroll-snap-type: none`, затем используйте `scroll-snap-type: x` на средних экранах и выше -->
 <div class="scroll-snap-none **md:scroll-snap-x**"></div>
 ```
 
-Learn more about responsive utilities in the [responsive design documentation](/docs/responsive-design).
+Узнайте больше об адаптивных утилитах в [документации по адаптивному дизайну](/docs/responsive-design).
 
-### Generating dark mode variants
+### Создание вариантов темного режима
 
-If you'd like to generate [dark mode variants](/docs/dark-mode) of your own utilities, first make sure `darkMode` is set to either `media` or `class` in your `tailwind.config.js` file:
+Если Вы хотите сгенерировать [варианты темного режима](/docs/dark-mode) своих собственных утилит, сначала убедитесь, что для параметра `darkMode` установлено значение `media` или `class` в файле `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -82,7 +82,8 @@ module.exports = {
 }
 ```
 
-Next, wrap your utilities in the `@variants` directive and add `dark` to the list of variants:
+Затем оберните Ваши утилиты в директиву `@variants` и добавьте `dark` в список вариантов:
+
 
 ```css
 @tailwind base;
@@ -101,17 +102,17 @@ Next, wrap your utilities in the `@variants` directive and add `dark` to the lis
 }
 ```
 
-Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different states:
+Tailwind автоматически генерирует префиксные версии каждой пользовательской утилиты, которую Вы можете использовать для условного применения этих стилей в разных состояниях:
 
 ```html
 <div class="filter-grayscale **dark:filter-none**"></div>
 ```
 
-Learn more about dark mode utilities in the [dark mode documentation](/docs/dark-mode).
+Узнайте больше об утилитах темного режима в [документации темного режима](/docs/dark-mode).
 
-### Generating state variants
+### Создание вариантов состояния
 
-If you'd like to create [state variants](/docs/hover-focus-and-other-states) for your own utilities, wrap your utilities in the `@variants` directive and list the variants you'd like to enable:
+Если Вы хотите создать [варианты состояния](/docs/hover-focus-and-other-states) для Ваших собственных утилит, заключите свои утилиты в директиву `@variants` и перечислите варианты, которые Вы хотите включить :
 
 ```css
 @tailwind base;
@@ -130,16 +131,16 @@ If you'd like to create [state variants](/docs/hover-focus-and-other-states) for
 }
 ```
 
-Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different states:
+Tailwind автоматически генерирует префиксные версии каждой пользовательской утилиты, которую Вы можете использовать для условного применения этих стилей в разных состояниях:
 
 ```html
 <div class="filter-grayscale **hover:filter-none**"></div>
 ```
 
-State variants are generated in the same order you list them in the `@variants` directive, so if you'd like one variant to take precedence over another, make sure you list that one last:
+Варианты состояний генерируются в том же порядке, в котором Вы указываете их в директиве `@variants`, поэтому, если Вы хотите, чтобы один вариант имел приоритет над другим, убедитесь, что Вы указали последним:
 
 ```css
-/* Focus will take precedence over hover */
+/* Фокус будет иметь приоритет над наведением курсора */
 @variants hover, focus {
   .filter-grayscale {
     filter: grayscale(100%);
@@ -147,7 +148,7 @@ State variants are generated in the same order you list them in the `@variants` 
   /* ... */
 }
 
-/* Hover will take precedence over focus */
+/* Наведение будет иметь приоритет над фокусом */
 @variants focus, hover {
   .filter-grayscale {
     filter: grayscale(100%);
@@ -156,13 +157,13 @@ State variants are generated in the same order you list them in the `@variants` 
 }
 ```
 
-Learn more about state variants in the [state variants documentation](/docs/hover-focus-and-other-states).
+Дополнительные сведения о вариантах состояния смотрите в [документации вариантов состояния](/docs/hover-focus-and-other-states).
 
 ---
 
-## Using a plugin
+## Использование плагина
 
-In addition to adding new utility classes directly in your CSS files, you can also add utilities to Tailwind by writing your own plugin:
+Помимо добавления новых служебных классов непосредственно в Ваши файлы CSS, Вы также можете добавить утилиты в Tailwind, написав свой собственный плагин:
 
 ```js
 // tailwind.config.js
@@ -187,6 +188,6 @@ module.exports = {
 
 ```
 
-This can be a good choice if you want to publish your custom utilities as a library or make it easier to share them across multiple projects.
+Это может быть хорошим выбором, если Вы хотите опубликовать свои пользовательские утилиты в виде библиотеки или упростить их совместное использование в нескольких проектах.
 
-Learn more in the [utility plugin documentation](/docs/plugins#adding-utilities).
+Дополнительные сведения смотрите в [документации по плагину утилит](/docs/plugins#adding-utilities).
