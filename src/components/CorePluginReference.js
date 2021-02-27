@@ -1,17 +1,17 @@
 import { corePluginsWithExamples } from '@/utils/corePluginsWithExamples'
 
 const descriptions = {
-  preflight: "Tailwind's base/reset styles",
-  container: 'The `container` component',
-  accessibility: 'The `sr-only` and `not-sr-only` utilities',
-  backgroundOpacity: 'The `background-color` opacity utilities like `bg-opacity-25`',
-  borderOpacity: 'The `border-color` opacity utilities like `border-opacity-25`',
-  divideColor: 'The between elements `border-color` utilities like `divide-gray-500`',
-  divideWidth: 'The between elements `border-width` utilities like `divide-x-2`',
-  placeholderColor: 'The placeholder `color` utilities like `placeholder-red-600`',
-  placeholderOpacity: 'The placeholder `color` opacity utilities like `placeholder-opacity-25`',
-  space: 'The "space-between" utilities like `space-x-4`',
-  transform: 'The `transform` utility (for enabling transform features)',
+  preflight: "Tailwind стили base/reset",
+  container: 'Компонент `container`',
+  accessibility: 'Утилиты `sr-only` и `not-sr-only`',
+  backgroundOpacity: 'Утилиты opacity `background-color`, такие как `bg-opacity-25`',
+  borderOpacity: 'Утилиты opacity `border-color`, такие как `border-opacity-25`',
+  divideColor: 'Утилиты между элементами `border-color`, например, `divide-gray-500`',
+  divideWidth: 'Утилиты между элементами `border-width`, например, `divide-x-2`',
+  placeholderColor: 'Утилиты placeholder `color`, такие как `placeholder-red-600`',
+  placeholderOpacity: 'Утилиты placeholder `color`, такие как `placeholder-opacity-25`',
+  space: 'Утилиты "space-between", например, `space-x-4`',
+  transform: 'Утилиты `transform` (для включения функций преобразования)',
 }
 
 export function CorePluginReference() {
@@ -20,8 +20,8 @@ export function CorePluginReference() {
       <table>
         <thead>
           <tr>
-            <th>Core Plugin</th>
-            <th>Description</th>
+            <th>Плагин Ядра</th>
+            <th>Описание</th>
           </tr>
         </thead>
         <tbody>
@@ -37,14 +37,14 @@ export function CorePluginReference() {
                     i % 2 === 0 ? segment : <code key={i}>{segment}</code>
                   ) || (
                   <>
-                    The{' '}
+                    Утилиты{' '}
                     <code>
                       {plugin.replace(
                         /([a-z])([A-Z])/g,
                         (_m, p1, p2) => `${p1}-${p2.toLowerCase()}`
                       )}
-                    </code>{' '}
-                    utilities like <code>{example}</code>
+                    </code>{', '}
+                    такие как <code>{example}</code>
                   </>
                 )}
               </td>

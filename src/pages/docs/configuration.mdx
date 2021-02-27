@@ -1,16 +1,16 @@
 ---
-title: Configuration
-description: A guide to configuring and customizing your Tailwind installation.
+title: Конфигурация
+description: Руководство по настройке и кастомизации Вашей установки Tailwind.
 ---
 
 import { CorePluginReference } from '@/components/CorePluginReference'
 
-Because Tailwind is a framework for building bespoke user interfaces, it has been designed from the ground up with customization in mind.
+Поскольку Tailwind - это фреймворк для создания индивидуальных пользовательских интерфейсов, он был разработан с нуля с учетом индивидуальных особенностей.
 
-By default, Tailwind will look for an optional `tailwind.config.js` file at the root of your project where you can define any customizations.
+По умолчанию Tailwind будет искать необязательный файл `tailwind.config.js` в корне Вашего проекта, где Вы можете определить любые настройки.
 
 ```js
-// Example `tailwind.config.js` file
+// Пример файла `tailwind.config.js`
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -44,23 +44,23 @@ module.exports = {
 }
 ```
 
-Every section of the config file is optional, so you only have to specify what you'd like to change. Any missing sections will fall back to Tailwind's [default configuration](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js).
+Каждый раздел файла конфигурации является необязательным, поэтому Вам нужно только указать, что Вы хотите изменить. Любые недостающие разделы будут возвращены к [конфигурации по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js).
 
-## Creating your configuration file
+## Создание Вашего файла конфигурации
 
-Generate a Tailwind config file for your project using the Tailwind CLI utility included when you install the `tailwindcss` npm package:
+Создайте файл конфигурации Tailwind для своего проекта с помощью утилиты Tailwind CLI, включенной после установки пакета npm `tailwindcss`:
 
 ```shell
 npx tailwindcss init
 ```
 
-This will create a minimal `tailwind.config.js` file at the root of your project:
+Это создаст минимальный файл `tailwind.config.js` в корне Вашего проекта:
 
 ```js
 // tailwind.config.js
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false, // или 'media' или 'class'
   theme: {
     extend: {},
   },
@@ -71,15 +71,15 @@ module.exports = {
 }
 ```
 
-### Using a different file name
+### Использование другого имени файла
 
-To use a name other than `tailwind.config.js`, pass it as an argument on the command-line:
+Чтобы использовать имя, отличное от `tailwind.config.js`, передайте его в качестве аргумента в командной строке:
 
 ```shell
 npx tailwindcss init tailwindcss-config.js
 ```
 
-If you use a custom file name, you will need to specify it when including Tailwind as a plugin in your PostCSS configuration as well:
+Если Вы используете собственное имя файла, Вам нужно будет указать его при включении Tailwind в качестве плагина в Вашу конфигурацию PostCSS:
 
 ```js
 // postcss.config.js
@@ -90,15 +90,15 @@ module.exports = {
 }
 ```
 
-### Generating a PostCSS configuration file
+### Создание файла конфигурации PostCSS
 
-Use the `-p` flag if you'd like to also generate a basic `postcss.config.js` file alongside your `tailwind.config.js` file:
+Используйте флаг `-p`, если Вы хотите также сгенерировать базовый файл `postcss.config.js` вместе с файлом `tailwind.config.js`:
 
 ```shell
 npx tailwindcss init -p
 ```
 
-This will generate a `postcss.config.js` file in your project that looks like this:
+Это сгенерирует в Вашем проекте файл `postcss.config.js`, который выглядит следующим образом:
 
 ```js
 module.exports = {
@@ -109,21 +109,21 @@ module.exports = {
 }
 ```
 
-### Scaffolding the entire default configuration
+### Строим всю конфигурацию по умолчанию
 
-For most users we encourage you to keep your config file as minimal as possible, and only specify the things you want to customize.
+Для большинства пользователей мы рекомендуем, чтобы Ваш файл конфигурации был как можно более минимальным и указывал только то, что Вы хотите настроить.
 
-If you'd rather scaffold a complete configuration file that includes all of Tailwind's default configuration, use the `--full` option:
+Если Вы предпочитаете создать полный файл конфигурации, включающий всю конфигурацию Tailwind по умолчанию, используйте параметр `--full`:
 
 ```shell
 npx tailwindcss init --full
 ```
 
-You'll get a file that matches the [default configuration file](https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js) Tailwind uses internally.
+Вы получите файл, соответствующий [файлу конфигурации по умолчанию](https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js), который Tailwind использует для внутренних целей.
 
-## Theme
+## Тема
 
-The `theme` section is where you define your color palette, fonts, type scale, border sizes, breakpoints — anything related to the visual design of your site.
+В разделе `theme` Вы определяете свою цветовую палитру, шрифты, масштаб шрифта, размеры границ, контрольные точки - все, что связано с визуальным дизайном Вашего сайта.
 
 ```js
 // tailwind.config.js
@@ -152,11 +152,11 @@ module.exports = {
 }
 ```
 
-Learn more about the default theme and how to customize it in the [theme configuration guide](/docs/theme).
+Узнайте больше о теме по умолчанию и о том, как ее настроить, в [руководстве по настройке темы](/docs/theme).
 
-## Variants
+## Варианты
 
-The `variants` section lets you control which [variants](/docs/hover-focus-and-other-states) are generated for each core utility plugin.
+Раздел `variants` позволяет Вам контролировать, какие [варианты](/docs/hover-focus-and-other-states) генерируются для каждого основного подключаемого модуля.
 
 ```js
 // tailwind.config.js
@@ -171,11 +171,11 @@ module.exports = {
 }
 ```
 
-Learn more in the [variants configuration guide](/docs/configuring-variants).
+Дополнительные сведения смотрите в [руководстве по настройке вариантов](/docs/configuring-variants).
 
-## Plugins
+## Плагины
 
-The `plugins` section allows you to register plugins with Tailwind that can be used to generate extra utilities, components, base styles, or custom variants.
+Раздел `plugins` позволяет Вам регистрировать плагины в Tailwind, которые можно использовать для создания дополнительных утилит, компонентов, базовых стилей или пользовательских вариантов.
 
 ```js
 // tailwind.config.js
@@ -189,11 +189,11 @@ module.exports = {
 }
 ```
 
-Learn more about writing your own plugins in the [plugin authoring guide](/docs/plugins).
+Узнайте больше о написании собственных плагинов в [руководстве по созданию плагинов](/docs/plugins).
 
-## Presets
+## Пресеты
 
-The `presets` section allows you to specify your own custom base configuration instead of using Tailwind's default base configuration.
+Раздел `presets` позволяет Вам указать Вашу собственную базовую конфигурацию вместо использования базовой конфигурации Tailwind по умолчанию.
 
 ```js
 // tailwind.config.js
@@ -202,7 +202,7 @@ module.exports = {
     require('@acmecorp/base-tailwind-config')
   ],
 
-  // Project-specific customizations
+  // Индивидуальные настройки проекта
   theme: {
     //...
   },
@@ -210,13 +210,13 @@ module.exports = {
 }
 ```
 
-Learn more about presets in the [presets documentation](/docs/presets).
+Узнайте больше о предустановках в [документации о пресетах](/docs/presets).
 
-## Prefix
+## Префикс
 
-The `prefix` option allows you to add a custom prefix to all of Tailwind's generated utility classes. This can be really useful when layering Tailwind on top of existing CSS where there might be naming conflicts.
+Опция `prefix` позволяет Вам добавить собственный префикс ко всем сгенерированным Tailwind служебным классам. Это может быть действительно полезно при наложении Tailwind поверх существующего CSS, где могут возникнуть конфликты имен.
 
-For example, you could add a `tw-` prefix by setting the `prefix` option like so:
+Например, Вы можете добавить префикс `tw-`, установив опцию `prefix` следующим образом:
 
 ```js
 // tailwind.config.js
@@ -225,7 +225,7 @@ module.exports = {
 }
 ```
 
-Now every class will be generated with the configured prefix:
+Теперь каждый класс будет сгенерирован с настроенным префиксом:
 
 ```css
 .tw-text-left {
@@ -237,10 +237,10 @@ Now every class will be generated with the configured prefix:
 .tw-text-right {
   text-align: right;
 }
-/* etc. */
+/* и так далее */
 ```
 
-It's important to understand that this prefix is added _after_ any variant prefixes. That means that classes with responsive or state prefixes like `sm:` or `hover:` will still have the responsive or state prefix *first*, with your custom prefix appearing after the colon:
+Важно понимать, что этот префикс добавляется _после_ любых вариантных префиксов. Это означает, что классы с адаптивным префиксом или префиксом состояния, например `sm:` или `hover:`, по-прежнему будут иметь префикс ответа или состояния * first *, а Ваш настраиваемый префикс появится после двоеточия:
 
 ```html
 <div class="tw-text-lg md:tw-text-xl tw-bg-red-500 **hover:tw-bg-blue-500**">
@@ -248,9 +248,9 @@ It's important to understand that this prefix is added _after_ any variant prefi
 </div>
 ```
 
-Prefixes are only added to classes generated by Tailwind; **no prefix will be added to your own custom classes.**
+Префиксы добавляются только к классам, созданным Tailwind; **никакие префиксы не будут добавлены к Вашим собственным классам.**
 
-That means if you add your own responsive utility like this:
+Это означает, что если Вы добавите собственную адаптивную утилиту, например:
 
 ```css
 @variants hover {
@@ -258,14 +258,14 @@ That means if you add your own responsive utility like this:
 }
 ```
 
-...the generated responsive classes will not have your configured prefix:
+...у сгенерированных отзывчивых классов не будет Вашего настроенного префикса:
 
 ```css
 .bg-brand-gradient { /* ... */ }
 .hover\:bg-brand-gradient:hover { /* ... */ }
 ```
 
-If you'd like to prefix your own utilities as well, just add the prefix to the class definition:
+Если Вы хотите добавить префикс к своим собственным утилитам, просто добавьте префикс в определение класса:
 
 ```css
 @variants hover {
@@ -275,9 +275,9 @@ If you'd like to prefix your own utilities as well, just add the prefix to the c
 
 ## Important
 
-The `important` option lets you control whether or not Tailwind's utilities should be marked with `!important`. This can be really useful when using Tailwind with existing CSS that has high specificity selectors.
+Опция `important` позволяет вам контролировать, должны ли утилиты Tailwind помечаться `!important`. Это может быть действительно полезно при использовании Tailwind с существующим CSS, который имеет селекторы высокой специфичности.
 
-To generate utilities as `!important`, set the `important` key in your configuration options to `true`:
+Чтобы сгенерировать утилиты как `!important`, установите ключ `important` в параметрах конфигурации на `true`:
 
 ```js
 // tailwind.config.js
@@ -286,7 +286,7 @@ module.exports = {
 }
 ```
 
-Now all of Tailwind's utility classes will be generated as `!important`:
+Теперь все служебные классы Tailwind будут сгенерированы как `!important`:
 
 ```css
 .leading-none {
@@ -298,12 +298,12 @@ Now all of Tailwind's utility classes will be generated as `!important`:
 .leading-snug {
   line-height: 1.375 !important;
 }
-/* etc. */
+/* и так далее */
 ```
 
-Note that any of your own custom utilities **will not** automatically be marked as `!important` by enabling this option.
+Обратите внимание, что любая из Ваших собственных утилит **не будет** автоматически помечена как `!important` при включении этой опции.
 
-If you'd like to make your own utilities `!important`, just add `!important` to the end of each declaration yourself:
+Если Вы хотите создать свои собственные утилиты `!important`, просто добавьте `!important` в конец каждого объявления самостоятельно:
 
 ```css
 @responsive {
@@ -313,11 +313,11 @@ If you'd like to make your own utilities `!important`, just add `!important` to 
 }
 ```
 
-### Selector strategy
+### Стратегия селектора
 
-Setting `important` to `true` can introduce some issues when incorporating third-party JS libraries that add inline styles to your elements. In those cases, Tailwind's `!important` utilities defeat the inline styles, which can break your intended design.
+Установка для `important` значения `true` может вызвать некоторые проблемы при включении сторонних JS-библиотек, которые добавляют встроенные стили к Вашим элементам. В таких случаях утилиты Tailwind `!important` побеждают встроенные стили, которые могут нарушить Ваш намеченный дизайн.
 
-To get around this, you can set `important` to an ID selector like `#app` instead:
+Чтобы обойти это, Вы можете вместо этого установить `important` в селектор идентификаторов, например `#app`:
 
 ```js
 // tailwind.config.js
@@ -326,11 +326,11 @@ module.exports = {
 }
 ```
 
-This configuration will prefix all of your utilities with the given selector, effectively increasing their specificity without actually making them `!important`.
+Эта конфигурация будет префикс всех Ваших утилит с данным селектором, эффективно увеличивая их специфичность, не делая их на самом деле `!important`.
 
-After you specify the `important` selector, you'll need to ensure that the root element of your site matches it.  Using the example above, we would need to set our root element's `id` attribute to `app` in order for styles to work properly.
+После того, как Вы укажете селектор `important`, Вам нужно будет убедиться, что корневой элемент Вашего сайта соответствует ему. Используя приведенный выше пример, нам нужно установить для атрибута `id` нашего корневого элемента значение `app`, чтобы стили работали правильно.
 
-After your configuration is all set up and your root element matches the selector in your Tailwind config, all of Tailwind's utilities will have a high enough specificity to defeat other classes used in your project, **without** interfering with inline styles:
+После того, как Ваша конфигурация полностью настроена и Ваш корневой элемент соответствует селектору в Вашей конфигурации Tailwind, все утилиты Tailwind будут иметь достаточно высокую специфичность, чтобы победить другие классы, используемые в Вашем проекте, **без** вмешательства во встроенные стили:
 
 ```html
 <html>
@@ -343,23 +343,23 @@ After your configuration is all set up and your root element matches the selecto
 <body id="app">
   <div class="high-specificity">
     <div class="nested">
-      <!-- Will be red-500 -->
+      <!-- Будет red-500 -->
       <div class="selector text-red-500"><!-- ... --></div>
     </div>
   </div>
 
-  <!-- Will be #bada55 -->
+  <!-- Будет #bada55 -->
   <div class="text-red-500" style="color: #bada55;"><!-- ... --></div>
 </body>
 </html>
 ```
 
 
-## Separator
+## Разделитель
 
-The `separator` option lets you customize what character or string should be used to separate variant prefixes (screen sizes, `hover`, `focus`, etc.) from utility names (`text-center`, `items-end`, etc.).
+Опция `separator` позволяет Вам настроить, какой символ или строку следует использовать для разделения префиксов вариантов (размеры экрана, `hover`, `focus`, и т.д.) от имен утилит (`text-center`, `items-end`, и т.д.).
 
-We use a colon by default (`:`), but it can be useful to change this if you're using a templating language like [Pug](https://pugjs.org) that doesn't support special characters in class names.
+По умолчанию мы используем двоеточие (`:`), но это может быть полезно изменить, если Вы используете язык шаблонов, например [Pug](https://pugjs.org), который не поддерживает специальные символы в имени класса.
 
 ```js
 // tailwind.config.js
@@ -368,11 +368,11 @@ module.exports = {
 }
 ```
 
-## Variant Order
+## Варианты порядка
 
-If you are using the `extend` feature to enable extra variants, those variants are automatically sorted to respect a sensible default variant order.
+Если Вы используете функцию `extend` для включения дополнительных вариантов, эти варианты автоматически сортируются в соответствии с разумным порядком вариантов по умолчанию.
 
-You can customize this if necessary under the `variantOrder` key:
+При необходимости Вы можете настроить это с помощью ключа `variantOrder`:
 
 ```js
 // tailwind.config.js
@@ -397,11 +397,11 @@ module.exports = {
 }
 ```
 
-## Core Plugins
+## Основные плагины
 
-The `corePlugins` section lets you completely disable classes that Tailwind would normally generate by default if you don't need them for your project.
+Раздел `corePlugins` позволяет полностью отключить классы, которые Tailwind обычно генерирует по умолчанию, если они Вам не нужны для Вашего проекта.
 
-If you don't provide any `corePlugins` configuration, all core plugins will be enabled by default:
+Если Вы не укажете конфигурацию `corePlugins`, все основные плагины будут включены по умолчанию:
 
 ```js
 // tailwind.config.js
@@ -410,7 +410,7 @@ module.exports = {
 }
 ```
 
-If you'd like to disable specific core plugins, provide an object for `corePlugins` that sets those plugins to `false`:
+Если Вы хотите отключить определенные плагины ядра, укажите объект для `corePlugins`, который устанавливает для этих плагинов значение `false`:
 
 ```js
 // tailwind.config.js
@@ -423,7 +423,7 @@ module.exports = {
 }
 ```
 
-If you'd like to safelist which core plugins should be enabled, provide an array that includes a list of the core plugins you'd like to use:
+Если Вы хотите внести в список надежных отправителей, какие основные плагины должны быть включены, предоставьте массив, который включает список основных плагинов, которые Вы хотите использовать:
 
 ```js
 // tailwind.config.js
@@ -437,7 +437,7 @@ module.exports = {
 }
 ```
 
-If you'd like to disable all of Tailwind's core plugins and simply use Tailwind as a tool for processing your own custom plugins, provide an empty array:
+Если Вы хотите отключить все основные плагины Tailwind и просто использовать Tailwind как инструмент для обработки Ваших собственных плагинов, предоставьте пустой массив:
 
 ```js
 // tailwind.config.js
@@ -447,15 +447,15 @@ module.exports = {
 ```
 
 
-Here's a list of every core plugin for reference:
+Вот список всех основных плагинов для справки:
 
 <CorePluginReference />
 
-## Referencing in JavaScript
+## Ссылки в JavaScript
 
-It can often be useful to reference your configuration values in your own client-side JavaScript — for example to access some of your theme values when dynamically applying inline styles in a React or Vue component.
+Часто бывает полезно ссылаться на значения Вашей конфигурации в Вашем собственном клиентском JavaScript - например, для доступа к некоторым из значений Вашей темы при динамическом применении встроенных стилей в компоненте React или Vue.
 
-To make this easy, Tailwind provides a `resolveConfig` helper you can use to generate a fully merged version of your configuration object:
+Чтобы упростить эту задачу, Tailwind предоставляет помощник `resolveConfig`, который Вы можете использовать для генерации полностью объединенной версии Вашего объекта конфигурации:
 
 ```js
 import resolveConfig from 'tailwindcss/resolveConfig'
@@ -473,4 +473,4 @@ fullConfig.theme.boxShadow['2xl']
 // => '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
 ```
 
-Note that this will transitively pull in a lot of our build-time dependencies, resulting in bigger bundle client-side size. To avoid this, we recommend using a tool like [babel-plugin-preval](https://github.com/kentcdodds/babel-plugin-preval) to generate a static version of your configuration at build-time.
+Обратите внимание, что это транзитивно влечет за собой множество наших зависимостей во время сборки, что приведет к увеличению размера пакета на стороне клиента. Чтобы избежать этого, мы рекомендуем использовать такой инструмент, как [babel-plugin-preval](https://github.com/kentcdodds/babel-plugin-preval) для создания статической версии Вашей конфигурации во время сборки.
