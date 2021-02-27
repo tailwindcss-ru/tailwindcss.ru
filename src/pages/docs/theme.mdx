@@ -1,13 +1,13 @@
 ---
-title: Theme Configuration
-shortTitle: Theme
-description: Customizing the default theme for your project.
+title: Конфигурация темы
+shortTitle: Тема
+description: Настройка темы по умолчанию для Вашего проекта.
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 import { ThemeReference } from '@/components/ThemeReference'
 
-The `theme` section of your `tailwind.config.js` file is where you define your project's color palette, type scale, fonts, breakpoints, border radius values, and more.
+В разделе `theme` файла `tailwind.config.js` Вы определяете цветовую палитру проекта, масштаб шрифтов, шрифты, контрольные точки, значения радиуса границы и многое другое.
 
 ```js
 // tailwind.config.js
@@ -44,19 +44,19 @@ module.exports = {
 }
 ```
 
-We provide a sensible [default theme](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7) with a very generous set of values to get you started, but don't be afraid to change it or extend; you're encouraged to customize it as much as you need to fit the goals of your design.
+Мы предлагаем разумную [тему по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7) с очень щедрым набором значений, чтобы Вы могли начать, но не делайте этого. не бойтесь менять или расширять; Вам предлагается настроить его столько, сколько Вам нужно, чтобы соответствовать целям Вашего дизайна.
 
 ---
 
-## Theme structure
+## Структура темы
 
-The `theme` object contains keys for `screens`, `colors`, and `spacing`, as well as a key for each customizable [core plugin](/docs/configuration#core-plugins).
+Объект `theme` содержит ключи для `screens`, `colors` и `spacing`, а также ключ для каждого настраиваемого [основного плагина](/docs/configuration#core-plugins).
 
-See the [theme configuration reference](#configuration-reference) or the [default theme](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7) for a complete list of theme options.
+Смотрите [справку по конфигурации темы](#configuration-reference) или [тему по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7) для получения полного списка опций темы.
 
-### Screens
+### Экраны
 
-The `screens` key allows you to customize the responsive breakpoints in your project.
+Ключ `screens` позволяет Вам настраивать адаптивные контрольные точки в Вашем проекте.
 
 ```js
 // tailwind.config.js
@@ -73,11 +73,11 @@ module.exports = {
 }
 ```
 
-To learn more, see the [breakpoint customization documentation](/docs/breakpoints).
+Чтобы узнать больше, смотрите [документацию по настройке контрольной точки](/docs/breakpoints).
 
-### Colors
+### Цвета
 
-The `colors` key allows you to customize the global color palette for your project.
+Ключ `colors` позволяет Вам настроить глобальную цветовую палитру для Вашего проекта.
 
 ```js
 // tailwind.config.js
@@ -99,13 +99,13 @@ module.exports = {
 }
 ```
 
-By default, these colors are inherited by all color-related core plugins, like `backgroundColor`, `borderColor`, `textColor`, and others.
+По умолчанию эти цвета наследуются всеми базовыми плагинами, связанными с цветом, такими как `backgroundColor`, `borderColor`, `textColor` и другими.
 
-To learn more, see the [color customization documentation](/docs/colors).
+Чтобы узнать больше, смотрите [документацию по настройке цвета](/docs/colors).
 
-### Spacing
+### Интервал
 
-The `spacing` key allows you to customize the global spacing and sizing scale for your project.
+Ключ `spacing` позволяет Вам настроить глобальную шкалу интервалов и размеров для Вашего проекта.
 
 ```js
 // tailwind.config.js
@@ -152,15 +152,15 @@ module.exports = {
 }
 ```
 
-By default, these values are inherited by the `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space`, and `translate` core plugins.
+По умолчанию эти значения наследуются подключаемыми модулями ядра `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space` и `translate`.
 
-To learn more, see the [spacing customization documentation](/docs/customizing-spacing).
+Чтобы узнать больше смотрите [документацию по настройке интервалов](/docs/customizing-spacing).
 
-### Core plugins
+### Основные плагины
 
-The rest of the `theme` section is used to configure which values are available for each individual core plugin.
+Остальная часть раздела `theme` используется для настройки того, какие значения доступны для каждого отдельного основного плагина.
 
-For example, the `borderRadius` key lets you customize which border radius utilities will be generated:
+Например, ключ `borderRadius` позволяет Вам настроить, какие утилиты радиуса границы будут сгенерированы:
 
 ```js
 module.exports = {
@@ -176,9 +176,9 @@ module.exports = {
 }
 ```
 
-The keys determine the suffix for the generated classes, and the values determine the value of the actual CSS declaration.
+Ключи определяют суффикс для сгенерированных классов, а значения определяют значение фактического объявления CSS.
 
-The example `borderRadius` configuration above would generate the following CSS classes:
+Приведенный выше пример конфигурации `borderRadius` генерирует следующие классы CSS:
 
 ```css
 .rounded-none { border-radius: 0 }
@@ -188,28 +188,28 @@ The example `borderRadius` configuration above would generate the following CSS 
 .rounded-full { border-radius: 9999px }
 ```
 
-You'll notice that using a key of `DEFAULT` in the theme configuration created the class `rounded` with no suffix. This is a common convention in Tailwind and is supported by all core plugins.
+Вы заметите, что использование ключа `DEFAULT` в конфигурации темы привело к созданию класса `rounded` без суффикса. Это обычное соглашение в Tailwind, которое поддерживается всеми основными плагинами.
 
-To learn more about customizing a specific core plugin, visit the documentation for that plugin.
+Чтобы узнать больше о настройке конкретного основного плагина, посетите документацию по этому плагину.
 
-For a complete reference of available theme properties and their default values, [see the default theme configuration](https://github.com/tailwindlabs/tailwindcss/blob/v1/stubs/defaultConfig.stub.js#L5).
+Полный справочник доступных свойств темы и их значений по умолчанию смотрите в [конфигурации темы по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/v1/stubs/defaultConfig.stub.js#L5).
 
-## Customizing the default theme
+## Настройка темы по умолчанию
 
-Out of the box, your project will automatically inherit the values from [the default theme configuration](https://github.com/tailwindlabs/tailwindcss/blob/v1/stubs/defaultConfig.stub.js#L5). If you would like to customize the default theme, you have a few different options depending on your goals.
+По умолчанию Ваш проект автоматически наследует значения из [конфигурации темы по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/v1/stubs/defaultConfig.stub.js#L5). Если Вы хотите настроить тему по умолчанию, у Вас есть несколько различных вариантов в зависимости от Ваших целей.
 
-### Extending the default theme
+### Расширение темы по умолчанию
 
-If you'd like to preserve the default values for a theme option but also add new values, add your extensions under the `extend` key in the `theme` section of your configuration file.
+Если Вы хотите сохранить значения по умолчанию для параметра темы, но также добавить новые значения, добавьте свои расширения под ключ `extend` в разделе `theme` Вашего файла конфигурации.
 
-For example, if you wanted to add an extra breakpoint but preserve the existing ones, you could extend the `screens` property:
+Например, если Вы хотите добавить дополнительную контрольную точку, но сохранить существующие, Вы можете расширить свойство `screens`:
 
 ```js
 // tailwind.config.js
 module.exports = {
   theme: {
     extend: {
-      // Adds a new breakpoint in addition to the default breakpoints
+      // Добавляет новую контрольную точку в дополнение к контрольным точкам по умолчанию
       screens: {
         '3xl': '1600px',
       }
@@ -218,15 +218,15 @@ module.exports = {
 }
 ```
 
-### Overriding the default theme
+### Замена темы по умолчанию
 
-To override an option in the default theme, add your overrides directly under the `theme` section of your `tailwind.config.js`:
+Чтобы переопределить параметр в теме по умолчанию, добавьте свои переопределения непосредственно в раздел `theme` Вашего `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
 module.exports = {
   theme: {
-    // Replaces all of the default `opacity` values
+    // Заменяет все значения непрозрачности `opacity` по умолчанию
     opacity: {
       '0': '0',
       '20': '0.2',
@@ -239,11 +239,11 @@ module.exports = {
 }
 ```
 
-This will completely replace Tailwind's default configuration for that key, so in the example above none of the default opacity utilities would be generated.
+Это полностью заменит конфигурацию Tailwind по умолчанию для этого ключа, поэтому в приведенном выше примере ни одна из утилит непрозрачности по умолчанию не будет сгенерирована.
 
-Any keys you **do not** provide will be inherited from the default theme, so in the above example, the default theme configuration for things like colors, spacing, border-radius, background-position, etc. would be preserved.
+Любые ключи, которые Вы **не предоставляете**, будут унаследованы от темы по умолчанию, поэтому в приведенном выше примере конфигурация темы по умолчанию для таких вещей, как цвета, интервал, радиус границы, положение фона и т.д. Будет сохранена.
 
-You can of course both override some parts of the default theme and extend other parts of the default theme within the same configuration:
+Конечно, Вы можете как переопределить некоторые части темы по умолчанию, так и расширить другие части темы по умолчанию в той же конфигурации:
 
 ```js
 // tailwind.config.js
@@ -266,11 +266,11 @@ module.exports = {
 }
 ```
 
-### Referencing other values
+### Ссылка на другие значения
 
-If you need to reference another value in your theme, you can do so by providing a closure instead of a static value. The closure will receive a `theme()` function that you can use to look up other values in your theme using dot notation.
+Если Вам нужно сослаться на другое значение в Вашей теме, Вы можете сделать это, указав закрытие вместо статического значения. Замыкание получит функцию `theme()`, которую Вы можете использовать для поиска других значений в Вашей теме, используя точечную нотацию.
 
-For example, you could generate `fill` utilities for every color in your color palette by referencing `theme('colors')` in your `fill` configuration:
+Например, Вы можете сгенерировать утилиты `fill` для каждого цвета в Вашей цветовой палитре, указав тему `theme('colors')` в Вашей конфигурации `fill`:
 
 ```js
 // tailwind.config.js
@@ -284,13 +284,13 @@ module.exports = {
 }
 ```
 
-The `theme()` function attempts to find the value you are looking for from the fully merged theme object, so it can reference your own customizations as well as the default theme values. It also works recursively, so as long as there is a static value at the end of the chain it will be able to resolve the value you are looking for.
+Функция `theme()` пытается найти значение, которое Вы ищете, в полностью объединенном объекте темы, чтобы он мог ссылаться на Ваши собственные настройки, а также на значения темы по умолчанию. Он также работает рекурсивно, поэтому до тех пор, пока в конце цепочки есть статическое значение, оно сможет разрешить искомое значение.
 
-### Referencing the default theme
+### Ссылка на тему по умолчанию
 
-If you'd like to reference a value in the default theme for any reason, you can import it from `tailwindcss/defaultTheme`.
+Если Вы по какой-либо причине хотите указать значение в теме по умолчанию, Вы можете импортировать его из `tailwindcss/defaultTheme`.
 
-One example of where this is useful is if you'd like to add a font family to one of Tailwind's default font stacks:
+Один из примеров того, где это полезно, - это если Вы хотите добавить семейство шрифтов в один из стеков шрифтов Tailwind по умолчанию:
 
 ```js
 // tailwind.config.js
@@ -310,11 +310,11 @@ module.exports = {
 }
 ```
 
-### Disabling an entire core plugin
+### Отключение всего основного плагина
 
-If you don't want to generate any classes for a certain core plugin, it's better to set that plugin to false in your `corePlugins` configuration than to provide an empty object for that key in your `theme` configuration.
+Если Вы не хотите создавать какие-либо классы для определенного основного плагина, лучше установить для этого плагина значение `false` в конфигурации `corePlugins`, чем предоставлять пустой объект для этого ключа в конфигурации `theme`.
 
-<TipBad>Don't assign an empty object in your theme configuration</TipBad>
+<TipBad>Не назначайте пустой объект в конфигурации Вашей темы</TipBad>
 
 ```js
 // tailwind.config.js
@@ -325,7 +325,7 @@ module.exports = {
 }
 ```
 
-<TipGood>Do disable the plugin in your corePlugins configuration</TipGood>
+<TipGood>Отключите плагин в конфигурации corePlugins</TipGood>
 
 ```js
 // tailwind.config.js
@@ -336,13 +336,13 @@ module.exports = {
 }
 ```
 
-The end result is the same, but since many core plugins expose no configuration they can only be disabled using `corePlugins` anyways, so it's better to be consistent.
+Конечный результат тот же, но поскольку многие плагины ядра не предоставляют никакой конфигурации, их в любом случае можно отключить только с помощью `corePlugins`, так что лучше быть последовательным.
 
-### Adding your own keys
+### Добавление собственных ключей
 
-There are a number of situations where it can be useful to add your own keys to the `theme` object.
+Есть ряд ситуаций, когда может быть полезно добавить свои собственные ключи к объекту `theme`.
 
-One example of this is adding new keys to create a single source of truth for values that are common between multiple core plugins. For example, you could extract a shared `positions` object that could be referenced by both the `backgroundPosition` and `objectPosition` plugins:
+Одним из примеров этого является добавление новых ключей для создания единого источника истины для значений, которые являются общими для нескольких основных плагинов. Например, Вы можете извлечь общий объект `positions`, на который могут ссылаться плагины `backgroundPosition` и `objectPosition`:
 
 ```js
 // tailwind.config.js
@@ -365,7 +365,7 @@ module.exports = {
 }
 ```
 
-Another example is adding a new key to reference inside a custom plugin. For example, if you've written a `filters` plugin for your project, you might add a `filters` key to your `theme` object that the plugin references:
+Другой пример - добавление нового ключа для ссылки внутри настраиваемого плагина. Например, если Вы написали плагин `filter` для своего проекта, Вы можете добавить ключ `filters` к Вашему объекту `theme`, на который ссылается плагин:
 
 ```js
 // tailwind.config.js
@@ -384,12 +384,12 @@ module.exports = {
 }
 ```
 
-Since the entire `theme` object is available in your CSS using the [theme function](/docs/functions-and-directives#theme), you might also add a key just to be able to reference it in your CSS.
+Поскольку весь объект `theme` доступен в Вашем CSS с помощью [функции темы](/docs/functions-and-directives#theme), Вы также можете добавить ключ, чтобы иметь возможность ссылаться на него в Вашем CSS.
 
-## Configuration reference
+## Ссылка на конфигурацию
 
-Except for `screens`, `colors`, and `spacing`, all of the keys in the `theme` object map to one of Tailwind's [core plugins](/docs/configuration#core-plugins). Since many plugins are responsible for CSS properties that only accept a static set of values (like `float` for example), note that not every plugin has a corresponding key in the `theme` object.
+За исключением `screens`, `colors` и `spacing`, все ключи в объекте `theme` соответствуют одному из [основных плагинов](/docs/configuration#core-plugins) Tailwind. Поскольку многие плагины отвечают за свойства CSS, которые принимают только статический набор значений (например, `float`), обратите внимание, что не каждый плагин имеет соответствующий ключ в объекте `theme`.
 
-All of these keys are also available under the `theme.extend` key to enable [extending the default theme](#extending-the-default-theme).
+Все эти ключи также доступны под ключом `theme.extend` для включения [расширения темы по умолчанию](#extending-the-default-theme).
 
 <ThemeReference />
