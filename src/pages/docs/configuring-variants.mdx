@@ -1,16 +1,16 @@
 ---
-title: Configuring Variants
-shortTitle: Variants
-description: Configuring which utility variants are enabled in your project.
+title: Настройка вариантов
+shortTitle: Варианты
+description: Настройка того, какие варианты утилит включены в Вашем проекте.
 ---
 
 import { Heading } from '@/components/Heading'
 import { DefaultVariantsConfig } from '@/components/DefaultVariantsConfig'
 import { TipGood, TipBad } from '@/components/Tip'
 
-## <Heading hidden>Overview</Heading>
+## <Heading hidden>Обзор</Heading>
 
-The `variants` section of your `tailwind.config.js` file is where you control which variants should be enabled for each core plugin:
+В разделе `variants` Вашего файла `tailwind.config.js` Вы определяете, какие варианты должны быть включены для каждого основного плагина:
 
 ```js
 // tailwind.config.js
@@ -27,45 +27,45 @@ module.exports = {
 }
 ```
 
-Each property is a core plugin name pointing to an array of variants to generate for that plugin.
+Каждое свойство - это имя основного плагина, указывающее на массив вариантов, которые нужно сгенерировать для этого плагина.
 
-The following variants are supported out of the box:
+Из коробки поддерживаются следующие варианты:
 
-| Variant | Description |
+| Вариант | Описание |
 | --- | --- |
-| `responsive` | Responsive variants like `sm`, `md`, `lg`, and `xl`. |
-| `dark` | Targets dark mode. |
-| `motion-safe` | Targets the `prefers-reduced-motion: no-preference` media query. |
-| `motion-reduce` | Targets the `prefers-reduced-motion: reduce` media query. |
-| `first` | Targets the `first-child` pseudo-class. |
-| `last` | Targets the `last-child` pseudo-class.  |
-| `odd` | Targets the `odd-child` pseudo-class.  |
-| `even` | Targets the `even-child` pseudo-class.  |
-| `visited` | Targets the `visited` pseudo-class.  |
-| `checked` | Targets the `checked` pseudo-class.  |
-| `group-hover` | Targets an element when a marked parent matches the `hover` pseudo-class. |
-| `group-focus` | Targets an element when a marked parent matches the `focus` pseudo-class. |
-| `focus-within` | Targets the `focus-within` pseudo-class. |
-| `hover` | Targets the `hover` pseudo-class. |
-| `focus` | Targets the `focus` pseudo-class. |
-| `focus-visible` | Targets the `focus-visible` pseudo-class. |
-| `active` | Targets the `active` pseudo-class. |
-| `disabled` | Targets the `disabled` pseudo-class. |
+| `responsive` | Адаптивные варианты, такие как `sm`, `md`, `lg` и `xl`. |
+| `dark` | Нацелен на темный режим. |
+| `motion-safe` | Нацелен на медиа выражение `prefers-reduced-motion: no-preference`. |
+| `motion-reduce` | Нацелен на медиа выражение `prefers-reduced-motion: reduce`. |
+| `first` | Нацелен на псевдокласс `first-child`. |
+| `last` | Нацелен на псевдокласс `last-child`.  |
+| `odd` | Нацелен на псевдокласс `odd-child`.  |
+| `even` | Нацелен на псевдокласс `even-child`.  |
+| `visited` | Нацелен на псевдокласс `visited`.  |
+| `checked` | Нацелен на псевдокласс `checked`.  |
+| `group-hover` | Нацелен на элемент, когда отмеченный родительский элемент соответствует `hover`. |
+| `group-focus` | Нацелен на элемент, когда отмеченный родительский элемент соответствует `focus`. |
+| `focus-within` | Нацелен на псевдокласс `focus-within`. |
+| `hover` | Нацелен на псевдокласс `hover`. |
+| `focus` | Нацелен на псевдокласс `focus`. |
+| `focus-visible` | Нацелен на псевдокласс `focus-visible`. |
+| `active` | Нацелен на псевдокласс `active`. |
+| `disabled` | Нацелен на псевдокласс `disabled`. |
 
-For more information about how variants work, read our documentation on [responsive variants](/docs/responsive-design), [dark mode variants](/docs/dark-mode), and [hover, focus and other state variants](/docs/hover-focus-and-other-states).
+Для получения дополнительной информации о том, как работают варианты, прочтите нашу документацию по [адаптивным вариантам](/docs/responsive-design), [вариантам темного режима](/docs/dark-mode) и [hover, focus и другим вариантам состояния](/docs/hover-focus-and-other-states).
 
 ---
 
 
-## Enabling extra variants
+## Включение дополнительных вариантов
 
-If you'd like to enable extra variants for a plugin in addition to the defaults, you can configure your variants using the `extend` keyword, similar to how you can use extend inside of the `theme` section:
+Если Вы хотите включить дополнительные варианты для плагина в дополнение к настройкам по умолчанию, Вы можете настроить свои варианты с помощью ключевого слова `extend`, аналогично тому, как Вы можете использовать расширение внутри раздела `theme`:
 
 ```js
 // tailwind.config.js
 module.exports = {
   variants: {
-    // The 'active' variant will be generated in addition to the defaults
+    // "Активный" вариант будет сгенерирован в дополнение к значениям по умолчанию.
     extend: {
       backgroundColor: ['active']
     }
@@ -73,31 +73,31 @@ module.exports = {
 }
 ```
 
-Because [the order of variants is important](/docs/configuring-variants#ordering-variants), any variants added under the `extend` key are automatically ordered for you using a sensible default variant order. You can customize this order using the [variantOrder](/docs/configuration#variant-order) option if necessary.
+Поскольку [порядок вариантов важен](/docs/configuring-variants#ordering-variants), любые варианты, добавленные под ключом `extend`, автоматически упорядочиваются для Вас с использованием разумного порядка вариантов по умолчанию. При необходимости Вы можете настроить этот порядок с помощью параметра [variantOrder](/docs/configuration#variant-order).
 
 ---
 
-## Overriding default variants
+## Переопределение вариантов по умолчанию
 
-Any variants configured directly under the `variants` key will **override** the default variants for that plugin.
+Любые варианты, настроенные непосредственно под ключом `options`, **переопределяют** варианты по умолчанию для этого подключаемого модуля.
 
 ```js
 // tailwind.config.js
 module.exports = {
   variants: {
-    // Only 'active' variants will be generated
+    // Будут созданы только "активные" варианты
     backgroundColor: ['active'],
   },
 }
 ```
 
-When overriding the default variants, make sure you always specify _all_ the variants you'd like to enable, not just the new ones you'd like to add.
+При переопределении вариантов по умолчанию убедитесь, что Вы всегда указываете _все_ варианты, которые хотите включить, а не только новые, которые Вы хотите добавить.
 
-### Ordering variants
+### Варианты заказа
 
-It's important to note that when overriding variants, **variants are generated in the order you specify them**, so variants at the end of the list will take precedence over variants at the beginning of the list.
+Важно отметить, что при переопределении вариантов **варианты создаются в указанном Вами порядке**, поэтому варианты в конце списка будут иметь приоритет над вариантами в начале списка.
 
-For example, here `focus` variants have the highest precedence for `backgroundColor` utilities, but `hover` variants have the highest precedence for `borderColor` utilities:
+Например, здесь варианты `focus` имеют наивысший приоритет для утилит` backgroundColor`, а варианты `hover` имеют наивысший приоритет для утилит `borderColor`:
 
 ```js
 // tailwind.config.js
@@ -110,7 +110,7 @@ module.exports = {
 ```
 
 ```css
-/* Generated CSS */
+/* Сгенерированный CSS */
 
 .bg-black { background-color: #000 }
 .bg-white { background-color: #fff }
@@ -137,25 +137,25 @@ module.exports = {
 /* ... */
 ```
 
-This means that given the following HTML:
+Это означает, что с учетом следующего HTML:
 
 ```html
 <input class="focus:bg-white hover:bg-black focus:border-white hover:border-black">
 ```
 
-...if the input was hovered _and_ focused at the same time, the background would be white but the border would be black.
+...если бы вход был завис и одновременно сфокусирован, фон был бы белым, а граница была бы черной.
 
-Generating variants in order this way gives you the most flexibility as an end-user, but it's also a sharp tool and can have unintended consequences if you aren't careful. We recommend [enabling extra variants](#enabling-extra-variants) instead of overriding the defaults whenever possible, and using this feature only as an escape hatch.
+Создание вариантов таким образом дает Вам максимальную гибкость как конечному пользователю, но это также острый инструмент и может иметь непредвиденные последствия, если Вы не будете осторожны. Мы рекомендуем [включить дополнительные варианты](#enabling-extra-variants) вместо того, чтобы переопределять значения по умолчанию, когда это возможно, и использовать эту функцию только как аварийный выход.
 
 ---
 
-## Special variants
+## Особые варианты
 
-### Responsive
+### Отзывчивый
 
-The `responsive` variant is a special case in Tailwind and is _not_ impacted by the order you list in your variants configuration.
+Вариант `responsive` - это особый случай в Tailwind, и на него _не_ влияет порядок, который Вы указываете в конфигурации вариантов.
 
-This is because the `responsive` variant automatically _stacks_ with other variants, meaning that if you specify both `responsive` and `hover` variants for a utility, Tailwind will generate _responsive hover_ variants as well:
+Это связано с тем, что вариант `responsive` автоматически _складывается_ с другими вариантами, а это означает, что если Вы укажете для утилиты и `responsive`, и `hover` варианты , Tailwind также сгенерирует _responsive hover_ варианты:
 
 ```js
 // tailwind.config.js
@@ -167,23 +167,23 @@ module.exports = {
 }
 ```
 
-Responsive variants are grouped together and inserted at the end of your stylesheet by default to avoid specificity issues, regardless of where `responsive` appears in your `variants` list.
+Адаптивные варианты сгруппированы вместе и вставлены в конец Вашей таблицы стилей по умолчанию, чтобы избежать проблем со специфичностью, независимо от того, где в Вашем списке `variants` появляется `responsive`.
 
-If you'd like to customize this behavior for whatever reason, you can use the [@tailwind screens](/docs/functions-and-directives#tailwind) directive to specify where responsive variants should be inserted.
+Если Вы по какой-либо причине хотите настроить это поведение, Вы можете использовать директиву [@tailwind screens](/docs/functions-and-directives#tailwind), чтобы указать, где должны быть вставлены адаптивные варианты.
 
-### Dark, motion-safe, and motion-reduce
+### Темный, с защитой от движения и с уменьшением движения
 
-The `dark`, `motion-safe`, and `motion-reduce` variants also stack with other variants, but unlike `responsive`, they stack in the same "slot", so you can combine them with both `responsive` and simple state variants, but not with each other.
+Варианты `dark`, `motion-safe` и `motion-reduce` также складываются с другими вариантами, но, в отличие от `responsive`, они складываются в один и тот же «слот», так что Вы можете комбинировать их как с `responsive`, так и с варианты простых состояний, но не друг с другом.
 
-The order of these variants matter relative to each other, but not relative to other variants. There is just about no situation imaginable where these would conflict with each other in practice, so this ends up being a non-issue anyways.
+Порядок этих вариантов имеет значение относительно друг друга, но не относительно других вариантов. Практически невозможно представить себе ситуацию, в которой они могли бы конфликтовать друг с другом на практике, так что это в любом случае не является проблемой.
 
-You can include these variants in any order in your `variants` configuration and never notice the difference.
+Вы можете включать эти варианты в любом порядке в конфигурацию `variants` и никогда не замечать разницы.
 
-### Default
+### По умолчанию
 
-You can use the special `DEFAULT` variant to control where the normal, non-prefixed version of a utility is generated relative to the other variants.
+Вы можете использовать специальный вариант `DEFAULT` , чтобы указать, где генерируется обычная версия утилиты без префикса по сравнению с другими вариантами.
 
-This is an advanced feature and only really useful if you have a custom variant (like `children` in the example below) that should have a lower precedence than the normal version of a utility.
+Это расширенная функция, которая действительно полезна только в том случае, если у Вас есть собственный вариант (например, `children` в приведенном ниже примере), который должен иметь более низкий приоритет, чем обычная версия утилиты.
 
 ```js
 // tailwind.config.js
@@ -213,15 +213,15 @@ module.exports = {
 /* ... */
 ```
 
-Learn more about creating custom variants in the [variant plugin documentation](/docs/plugins#adding-variants).
+Дополнительные сведения о создании пользовательских вариантов смотрите в [документации по подключаемым модулям вариантов](/docs/plugins#adding-variants).
 
 ---
 
-## Using custom variants
+## Использование пользовательских вариантов
 
-If you've written or installed a [plugin](/docs/plugins) that adds a new variant, you can enable that variant by including it in your variants configuration just like if it were a built-in variant.
+Если Вы написали или установили [плагин](/docs/plugins), который добавляет новый вариант, Вы можете включить этот вариант, включив его в конфигурацию вариантов, как если бы это был встроенный вариант.
 
-For example, the [tailwindcss-interaction-variants plugin](https://github.com/benface/tailwindcss-interaction-variants) adds a `group-disabled` variant (among others):
+Например, [плагин tailwindcss-interaction-variants](https://github.com/benface/tailwindcss-interaction-variants) добавляет вариант с `group-disabled` (среди прочего):
 
 ```js
 // tailwind.config.js
@@ -235,11 +235,11 @@ For example, the [tailwindcss-interaction-variants plugin](https://github.com/be
 }
 ```
 
-Learn more about creating custom variants in the [variant plugin documentation](/docs/plugins#adding-variants).
+Дополнительные сведения о создании пользовательских вариантов смотрите в [документации по подключаемым модулям вариантов](/docs/plugins#adding-variants).
 
-### Ordering custom variants
+### Заказ нестандартных вариантов
 
-If you'd like to specify a default sort position for a custom variant, override your `variantOrder` to include the custom variant:
+Если Вы хотите указать позицию сортировки по умолчанию для настраиваемого варианта, переопределите свой вариант `variantOrder`, чтобы включить настраиваемый вариант:
 
 ```js
 // tailwind.config.js
@@ -270,12 +270,12 @@ module.exports = {
 }
 ```
 
-You'll need to specify the entire list when overriding the `variantOrder` to include any custom variants.
+Вам нужно будет указать весь список при переопределении `variantOrder`, чтобы включить любые пользовательские варианты.
 
 ---
 
-## Default variants reference
+## Ссылка на варианты по умолчанию
 
-Here is a complete reference of Tailwind's default variants configuration, which can be useful when you'd like to add a new variant while preserving the defaults.
+Вот полный справочник по конфигурации вариантов Tailwind по умолчанию, который может быть полезен, если Вы хотите добавить новый вариант с сохранением значений по умолчанию.
 
 <DefaultVariantsConfig />
