@@ -1,15 +1,15 @@
 ---
-title: Breakpoints
-description: Customizing the default breakpoints for your project.
+title: Контрольные точки
+description: Настройка контрольных точек по умолчанию для Вашего проекта.
 ---
 
 import { Heading } from '@/components/Heading'
 
-## <Heading hidden>Basic customization</Heading>
+## <Heading hidden>Базовая кастомизация</Heading>
 
-You define your project's breakpoints in the `theme.screens` section of your `tailwind.config.js` file. The keys are your screen names (used as the prefix for the responsive utility variants Tailwind generates, like `md:text-center`), and the values are the `min-width` where that breakpoint should start.
+Вы определяете контрольные точки Вашего проекта в разделе `theme.screens` Вашего файла `tailwind.config.js`. Ключи - это Ваши имена экранов (используются в качестве префикса для вариантов отзывчивой утилиты, которые генерирует Tailwind, например, `md:text-center`), а значения - это `min-width`, где должна начинаться эта контрольная точка.
 
-The default breakpoints are inspired by common device resolutions:
+Контрольные точки по умолчанию основаны на общих разрешениях устройств:
 
 ```js
 // tailwind.config.js
@@ -35,9 +35,9 @@ module.exports = {
 }
 ```
 
-Feel free to have as few or as many screens as you want, naming them in whatever way you'd prefer for your project.
+Не стесняйтесь иметь столько экранов, сколько хотите, называя их так, как Вы предпочитаете для своего проекта.
 
-For example, you could use device names instead of sizes:
+Например, Вы можете использовать имена устройств вместо размеров:
 
 ```js
 // tailwind.config.js
@@ -57,7 +57,7 @@ module.exports = {
 }
 ```
 
-These screen names will be reflected in your utilities, so your `text-center` utilities would now look like this:
+Эти экранные имена будут отражены в Ваших утилитах, поэтому Ваши утилиты `text-center` теперь будут выглядеть следующим образом:
 
 ```css
 .text-center { text-align: center }
@@ -75,9 +75,9 @@ These screen names will be reflected in your utilities, so your `text-center` ut
 }
 ```
 
-## Max-width breakpoints
+## Контрольные точки максимальной ширины
 
-If you want to work with max-width breakpoints instead of min-width, you can specify your screens as objects with a `max` key:
+Если Вы хотите работать с контрольными точками максимальной ширины вместо минимальной ширины, Вы можете указать свои экраны как объекты с помощью ключа `max`:
 
 ```js
 // tailwind.config.js
@@ -103,9 +103,9 @@ module.exports = {
 }
 ```
 
-Make sure to list them in reverse order as compared to min-width breakpoints so that they override each other as expected.
+Обязательно перечислите их в обратном порядке по сравнению с контрольными точками минимальной ширины, чтобы они переопределяли друг друга, как и ожидалось.
 
-You can even create breakpoints with both `min-width` and `max-width` definitions if necessary, for example:
+Вы даже можете создавать контрольные точки с определениями `min-width` и `max-width`, если необходимо, например:
 
 ```js
 // tailwind.config.js
@@ -122,11 +122,11 @@ module.exports = {
 }
 ```
 
-## Multi-range breakpoints
+## Контрольные точки с несколькими диапазонами
 
-Sometimes it can be useful to have a single breakpoint definition apply in multiple ranges.
+Иногда может быть полезно применить одно определение контрольной точки в нескольких диапазонах.
 
-For example, say you have a sidebar and want your breakpoints to be based on the content-area width rather than the entire viewport. You can simulate this having one of your breakpoints fall back to a smaller breakpoint when the sidebar becomes visible and shrinks the content area:
+Например, предположим, что у Вас есть боковая панель и Вы хотите, чтобы контрольные точки основывались на ширине области содержимого, а не на всем окне просмотра. Вы можете смоделировать это, если одна из Ваших контрольных точек вернется к меньшей контрольной точке, когда боковая панель станет видимой и сузит область содержимого:
 
 ```js
 // tailwind.config.js
@@ -135,9 +135,9 @@ module.exports = {
     screens: {
       'sm': '500px',
       'md': [
-        // Sidebar appears at 768px, so revert to `sm:` styles between 768px
-        // and 868px, after which the main content area is wide enough again to
-        // apply the `md:` styles.
+        // Боковая панель отображается с размером 768 пикселей,
+        // поэтому вернитесь к стилям `sm:` от 768 до 868 пикселей,
+        // после чего основная область содержимого снова станет достаточно широкой для применения стилей `md:`.
         {'min': '668px', 'max': '767px'},
         {'min': '868px'}
       ],
@@ -148,9 +148,9 @@ module.exports = {
 }
 ```
 
-## Custom media queries
+## Пользовательские медиа-запросы
 
-If you need to provide a completely custom media query for a breakpoint, you can do so using an object with a `raw` key:
+Если Вам нужно предоставить полностью настраиваемый медиа-запрос для контрольной точки, Вы можете сделать это, используя объект с ключом `raw`:
 
 ```js
 // tailwind.config.js
@@ -166,11 +166,11 @@ module.exports = {
 }
 ```
 
-### Styling for print
+### Стиль для печати
 
-The `raw` option can be particularly useful if you need to apply different styles specifically for print.
+Параметр `raw` может быть особенно полезен, если Вам нужно применить разные стили специально для печати.
 
-All you need to do is add a `print` screen under `theme.extend.screens`:
+Все, что Вам нужно сделать, это добавить экран `print` в `theme.extend.screens`:
 
 ```js
 // tailwind.config.js
@@ -186,7 +186,7 @@ module.exports = {
 }
 ```
 
-Then you can use classes like `print:text-black` to specify styles that should only be applied when someone tries to print the page you're working on:
+Затем Вы можете использовать такие классы, как `print:text-black`, чтобы указать стили, которые должны применяться только тогда, когда кто-то пытается распечатать страницу, над которой Вы работаете:
 
 ```html
 <div class="text-gray-700 print:text-black">
