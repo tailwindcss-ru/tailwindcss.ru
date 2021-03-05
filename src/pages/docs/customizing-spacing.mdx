@@ -1,12 +1,12 @@
 ---
-title: Customizing Spacing
-shortTitle: Spacing
-description: Customizing the default spacing and sizing scale for your project.
+title: Настройка интервала
+shortTitle: Интервал
+description: Настройка интервала и шкалы размеров по умолчанию для Вашего проекта.
 ---
 
 import { SpacingScale } from '@/components/SpacingScale'
 
-Use the `spacing` key in the `theme` section of your `tailwind.config.js` file to customize Tailwind's [default spacing/sizing scale](#default-spacing-scale).
+Используйте ключ `spacing` в разделе `theme` Вашего файла `tailwind.config.js`, чтобы настроить Tailwind [шкала интервалов/размеров по умолчанию](#shkala-intervalov-po-umolchaniyu).
 
 ```js
 // tailwind.config.js
@@ -24,14 +24,14 @@ module.exports = {
 }
 ```
 
-By default the spacing scale is inherited by the `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space`, and `translate` core plugins.
+По умолчанию шкала интервалов наследуется подключаемыми модулями ядра `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space` и `translate`.
 
 ---
 
-## Extending the default spacing scale
+## Расширение шкалы интервалов по умолчанию
 
 
-As described in the [theme documentation](/docs/theme#extending-the-default-theme), if you'd like to extend the default spacing scale, you can do so using the `theme.extend.spacing` section of your `tailwind.config.js` file:
+Как описано в [документации темы](/docs/theme#rasshirenie-temy-po-umolchaniyu), если вы хотите расширить шкалу интервалов по умолчанию, вы можете сделать это, используя раздел `theme.extend.spacing` в Вашем файле `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -49,13 +49,13 @@ module.exports = {
 }
 ```
 
-This will generate classes like `p-13`, `m-15`, and `h-128` in addition to all of Tailwind's default spacing/sizing utilities.
+Это сгенерирует такие классы, как `p-13`, `m-15` и `h-128`, в дополнение ко всем утилитам Tailwind по умолчанию для определения расстояния/размера.
 
 ---
 
-## Overriding the default spacing scale
+## Перезапись шкалы интервалов по умолчанию
 
-As described in the [theme documentation](/docs/theme#overriding-the-default-theme), if you'd like to override the default spacing scale, you can do so using the `theme.spacing` section of your `tailwind.config.js` file:
+Как описано в [документации темы](/docs/theme#zamena-temy-po-umolchaniyu), если вы хотите переопределить шкалу интервалов по умолчанию, вы можете сделать это, используя раздел `theme.spacing` Вашего файла `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -71,12 +71,12 @@ module.exports = {
 }
 ```
 
-This will disable Tailwind's default spacing scale and generate classes like `p-sm`, `m-md`, `w-lg`, and `h-xl` instead.
+Это отключит стандартную шкалу интервалов Tailwind по умолчанию и вместо этого сгенерирует такие классы, как `p-sm`, `m-md`, `w-lg` и `h-xl`.
 
 ---
 
-## Default spacing scale
+## Шкала интервалов по умолчанию
 
-By default, Tailwind includes a generous and comprehensive numeric spacing scale. The values are proportional, so `16` is twice as much spacing as `8` for example. One spacing unit is equal to `0.25rem`, which translates to `4px` by default in common browsers.
+По умолчанию Tailwind включает обширную и исчерпывающую числовую шкалу интервалов. Значения пропорциональны, поэтому, например, `16` в два раза больше интервала, чем `8`. Одна единица интервала равна `0.25rem`, что по умолчанию в обычных браузерах переводится в `4px`.
 
 <SpacingScale />
