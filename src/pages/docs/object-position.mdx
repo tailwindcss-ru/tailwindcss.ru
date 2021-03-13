@@ -15,47 +15,47 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## Использование
 
-Use the `object-{side}` utilities to specify how a replaced element's content should be positioned within its container.
+Используйте утилиты `object-{side}`, чтобы указать, как содержимое заменяемого элемента должно располагаться в его контейнере.
 
 ```html amber
 <template preview>
   <div class="grid grid-cols-3 gap-4">
     <div>
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Left Top</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">Слева Вверху</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-left-top object-none" src="/img/placeholder-square-amber.svg">
     </div>
     <div>
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Top</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">Вверху</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-top object-none" src="/img/placeholder-square-amber.svg">
     </div>
     <div>
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Right Top</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">Справа Вверху</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-right-top object-none" src="/img/placeholder-square-amber.svg">
     </div>
     <div>
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Left</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">Слева</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-left object-none" src="/img/placeholder-square-amber.svg">
     </div>
     <div>
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Center</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">По центру</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-center object-none" src="/img/placeholder-square-amber.svg">
     </div>
     <div>
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Right</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">Справа</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-right object-none" src="/img/placeholder-square-amber.svg">
     </div>
     <div>
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Left Bottom</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">Слева Внизу</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-left-bottom object-none" src="/img/placeholder-square-amber.svg">
     </div>
     <div class="flex-1">
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Bottom</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">Внизу</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-bottom object-none" src="/img/placeholder-square-amber.svg">
     </div>
     <div class="flex-1">
-      <p class="text-center text-sm text-amber-600 font-medium mb-1">Right Bottom</p>
+      <p class="text-center text-sm text-amber-600 font-medium mb-1">Справа Внизу</p>
       <img class="mx-auto bg-amber-300 bg-stripes bg-stripes-white w-24 h-24 rounded-md overflow-hidden object-right-bottom object-none" src="/img/placeholder-square-amber.svg">
     </div>
   </div>
@@ -72,9 +72,9 @@ Use the `object-{side}` utilities to specify how a replaced element's content sh
 <img class="object-none **object-right-bottom** bg-yellow-300 w-24 h-24 ..." src="...">
 ```
 
-## Responsive
+## Адаптивность
 
-To position an object only at a specific breakpoint, add a `{screen}:` prefix to any existing object position utility. For example, adding the class `md:object-top` to an element would apply the `object-top` utility at medium screen sizes and above.
+Чтобы разместить объект только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите позиционирования объекта. Например, добавление класса `md:object-top` к элементу приведет к применению утилиты `object-top` при средних размерах экрана и выше.
 
 ```html
 <img class="object-center **md:object-top** ..." src="...">
@@ -84,9 +84,9 @@ To position an object only at a specific breakpoint, add a `{screen}:` prefix to
 
 ## Кастомизация
 
-### Object Positioning
+### Позиционирование объекта
 
-By default, Tailwind provides nine object position utilities. You can change, add, or remove these by editing the `theme.objectPosition` section of your Tailwind config.
+По умолчанию Tailwind предоставляет девять утилит для позиционирования объектов. Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.objectPosition` в Вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js
