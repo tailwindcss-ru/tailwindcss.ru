@@ -1,6 +1,7 @@
 ---
-title: "Display"
-description: "Utilities for controlling the display box type of an element."
+title: "Отображение"
+shortTitle: "Display"
+description: "Утилиты для управления типом отображения элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/display'
@@ -9,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Block
+## Блочный
 
-Use `block` to create a block-level element.
+Используйте `block`, чтобы создать блочный элемент.
 
 ```html lightBlue
 <template preview>
@@ -29,9 +30,9 @@ Use `block` to create a block-level element.
 </div>
 ```
 
-## Flow-Root
+## Поток-Корень
 
-Use `flow-root` to create a block-level element with its own [block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context).
+Используйте `flow-root` для создания элемента блочного уровня с его собственным [контекстом форматирования блока](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context).
 
 ```html purple
 <template preview>
@@ -55,9 +56,9 @@ Use `flow-root` to create a block-level element with its own [block formatting c
 </div>
 ```
 
-## Inline Block
+## Строчно-Блочный
 
-Use `inline-block` to create an inline block-level element.
+Используйте `inline-block` для создания встроенного элемента блочного уровня.
 
 ```html rose
 <template preview>
@@ -75,9 +76,9 @@ Use `inline-block` to create an inline block-level element.
 </div>
 ```
 
-## Inline
+## Строчный
 
-Use `inline` to create an inline element.
+Используйте `inline` для создания встроенного элемента.
 
 ```html amber
 <template preview>
@@ -95,9 +96,9 @@ Use `inline` to create an inline element.
 </div>
 ```
 
-## Flex
+## Флекс
 
-Use `flex` to create a block-level flex container.
+Используйте `flex` для создания гибкого контейнера на уровне блока.
 
 ```html emerald
 <template preview>
@@ -115,9 +116,9 @@ Use `flex` to create a block-level flex container.
 </div>
 ```
 
-## Inline flex
+## Инлайновый-Флекс
 
-Use `inline-flex` to create an inline flex container.
+Используйте `inline-flex` для создания встроенного гибкого контейнера.
 
 ```html indigo
 <template preview>
@@ -135,9 +136,9 @@ Use `inline-flex` to create an inline flex container.
 </div>
 ```
 
-## Grid
+## Гриды
 
-Use `grid` to create a grid container.
+Используйте `grid` для создания контейнера сетки.
 
 ```html fuchsia
 <template preview>
@@ -159,9 +160,9 @@ Use `grid` to create a grid container.
 </div>
 ```
 
-## Inline Grid
+## Инлайновые Гриды
 
-Use `inline-grid` to create an inline grid container.
+Используйте `inline-grid` для создания контейнера встроенной сетки.
 
 ```html lightBlue
 <template preview class="p-10 space-x-3">
@@ -189,9 +190,9 @@ Use `inline-grid` to create an inline grid container.
 </span>
 ```
 
-## Contents
+## Контенты
 
-Use `contents` to create a "phantom" container whose children act like direct children of the parent..
+Используйте `contents`, чтобы создать "фантомный" контейнер, дочерние элементы которого действуют как прямые дочерние элементы родителя.
 
 ```html purple
 <template preview>
@@ -215,23 +216,23 @@ Use `contents` to create a "phantom" container whose children act like direct ch
 </div>
 ```
 
-## Table
+## Таблица
 
-Use the `table`, `.table-row`, `.table-cell`, `.table-caption`, `.table-column`, `.table-column-group`, `.table-header-group`, `table-row-group`, and `.table-footer-group` utilities to create elements that behave like their respective table elements.
+Используйте таблицы `table`, `.table-row`, `.table-cell`, `.table-caption`, `.table-column`, `.table-column-group`, `.table-header-group`, `table-row-group` и `.table-footer-group` для создания элементов, которые ведут себя как соответствующие им элементы таблицы.
 
 ```html rose
 <template preview>
   <div class="table w-full bg-rose-300 bg-stripes bg-stripes-white rounded-md overflow-hidden">
     <div class="table-row-group">
       <div class="table-row">
-        <div class="table-cell text-white font-extrabold text-center bg-rose-500 px-6 py-4">A cell with more content</div>
-        <div class="table-cell text-white font-extrabold text-center bg-rose-400 px-6 py-4">Cell 2</div>
-        <div class="table-cell text-white font-extrabold text-center bg-rose-500 px-6 py-4">Cell 3</div>
+        <div class="table-cell text-white font-extrabold text-center bg-rose-500 px-6 py-4">Ячейка с большим количеством содержимого</div>
+        <div class="table-cell text-white font-extrabold text-center bg-rose-400 px-6 py-4">Ячейка 2</div>
+        <div class="table-cell text-white font-extrabold text-center bg-rose-500 px-6 py-4">Ячейка 3</div>
       </div>
       <div class="table-row">
-        <div class="table-cell text-white font-extrabold text-center bg-rose-400 px-6 py-4">Cell 4</div>
-        <div class="table-cell text-white font-extrabold text-center bg-rose-500 px-6 py-4">A cell with more content</div>
-        <div class="table-cell text-white font-extrabold text-center bg-rose-400 px-6 py-4">Cell 6</div>
+        <div class="table-cell text-white font-extrabold text-center bg-rose-400 px-6 py-4">Ячейка 4</div>
+        <div class="table-cell text-white font-extrabold text-center bg-rose-500 px-6 py-4">Ячейка с большим количеством содержимого</div>
+        <div class="table-cell text-white font-extrabold text-center bg-rose-400 px-6 py-4">Ячейка 6</div>
       </div>
     </div>
   </div>
@@ -240,22 +241,22 @@ Use the `table`, `.table-row`, `.table-cell`, `.table-caption`, `.table-column`,
 <div class="**table** w-full ...">
   <div class="**table-row-group**">
     <div class="**table-row**">
-      <div class="**table-cell** ...">A cell with more content</div>
-      <div class="**table-cell** ...">Cell 2</div>
-      <div class="**table-cell** ...">Cell 3</div>
+      <div class="**table-cell** ...">Ячейка с большим количеством содержимого</div>
+      <div class="**table-cell** ...">Ячейка 2</div>
+      <div class="**table-cell** ...">Ячейка 3</div>
     </div>
     <div class="**table-row**">
-      <div class="**table-cell** ...">Cell 4</div>
-      <div class="**table-cell** ...">A cell with more content</div>
-      <div class="**table-cell** ...">Cell 6</div>
+      <div class="**table-cell** ...">Ячейка 4</div>
+      <div class="**table-cell** ...">Ячейка с большим количеством содержимого</div>
+      <div class="**table-cell** ...">Ячейка 6</div>
     </div>
   </div>
 </div>
 ```
 
-## Hidden
+## Скрытый
 
-Use `hidden` to set an element to `display: none` and remove it from the page layout (compare with `.invisible` from the [visibility](/docs/visibility#invisible) documentation).
+Используйте `hidden`, чтобы установить элемент на `display: none` и удалить его из макета страницы (сравните с `.invisible` из документации [visibility](/docs/visibility#invisible)).
 
 ```html amber
 <template preview>
@@ -273,9 +274,9 @@ Use `hidden` to set an element to `display: none` and remove it from the page la
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control the display property of an element at a specific breakpoint, add a `{screen}:` prefix to any existing display utility class. For example, use `md:inline-flex` to apply the `inline-flex` utility at only medium screen sizes and above.
+Чтобы управлять свойством отображения элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему служебному классу отображения. Например, используйте `md:inline-flex`, чтобы применить утилиту `inline-flex` только при средних размерах экрана и выше.
 
 ```html
 <div class="flex **md:inline-flex** ...">
@@ -283,14 +284,14 @@ To control the display property of an element at a specific breakpoint, add a `{
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="display" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="display" />
