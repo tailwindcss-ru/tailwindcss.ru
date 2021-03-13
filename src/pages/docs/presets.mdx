@@ -1,14 +1,14 @@
 ---
-title: Presets
-description: Creating your own reusable configuration presets.
+title: Предустановки
+description: Создание собственных предустановок конфигурации многократного использования.
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 import { ThemeReference } from '@/components/ThemeReference'
 
-By default, any configuration you add in your own `tailwind.config.js` file is intelligently merged with the [default configuration](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js), with your own configuration acting as a set of overrides and extensions.
+По умолчанию любая конфигурация, которую Вы добавляете в свой собственный файл `tailwind.config.js`, разумно объединяется с [конфигурацией по умолчанию](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js) с Вашей собственной конфигурацией, действующей как набор переопределений и расширений.
 
-The `presets` option lets you specify a _different_ configuration to use as your base, making it easy to package up a set of customizations that you'd like to reuse across projects.
+Опция `presets` позволяет Вам указать _различную_ конфигурацию для использования в качестве основы, что упрощает пакетирование набора настроек, которые Вы хотели бы повторно использовать в проектах.
 
 ```js
 // tailwind.config.js
@@ -20,16 +20,16 @@ module.exports = {
 }
 ```
 
-This can be very useful for teams that manage multiple Tailwind projects for the same brand where they want a single source of truth for colors, fonts, and other common customizations.
+Это может быть очень полезно для команд, которые управляют несколькими проектами Tailwind для одного и того же бренда, где им нужен единый источник достоверной информации о цветах, шрифтах и других общих настройках.
 
 ---
 
-## Creating a preset
+## Создание предустановки
 
-Presets are just regular Tailwind configuration objects, taking the exact same shape as the configuration you would add in your `tailwind.config.js` file.
+Пресеты - это обычные объекты конфигурации Tailwind, принимающие ту же форму, что и конфигурация, которую Вы добавляете в свой файл `tailwind.config.js`.
 
 ```js
-// Example preset
+// Пример предустановки
 module.exports = {
   theme: {
     colors: {
@@ -75,9 +75,9 @@ module.exports = {
 }
 ```
 
-As you can see, presets can contain all of the configuration options you're used to, including theme overrides and extensions, adding plugins, configuring a prefix, and so on. Read about [how configurations are merged](#how-configurations-are-merged) for more details.
+Как видите, предустановки могут содержать все параметры конфигурации, к которым Вы привыкли, включая переопределения и расширения тем, добавление плагинов, настройку префикса и т. д. Прочтите [как объединяются конфигурации](#how-configurations-are-merged) для получения более подробной информации.
 
-Assuming this preset was saved at `./tailwind-preset.js`, you would use it by adding it to the `tailwind.config.js` file in your actual project under the `presets` key:
+Предполагая, что этот пресет был сохранен в `./tailwind-preset.js`, Вы можете использовать его, добавив его в файл `tailwind.config.js` в Вашем фактическом проекте под ключом `presets`:
 
 ```js
 // tailwind.config.js
@@ -85,7 +85,7 @@ module.exports = {
   presets: [
     require('./tailwind-preset.js')
   ],
-  // Customizations specific to this project would go here
+  // Здесь можно найти настройки, относящиеся к этому проекту
   theme: {
     extend: {
       minHeight: {
@@ -101,10 +101,10 @@ module.exports = {
 }
 ```
 
-**By default, presets themselves extend Tailwind's [default configuration](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js) just like your own configuration would**. If you'd like to create a preset that completely replaces the default configuration, include an empty `presets` key in the preset itself:
+**По умолчанию сами пресеты расширяют [конфигурацию Tailwind по умолчанию](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js), как и Ваша собственная конфигурация**. Если Вы хотите создать пресет, который полностью заменяет конфигурацию по умолчанию, включите в сам пресет пустую ключ `presets`:
 
 ```js
-// Example preset
+// Пример предустановки
 module.exports = {
   presets: [],
   theme: {
@@ -116,15 +116,15 @@ module.exports = {
 }
 ```
 
-For more information, read about [disabling the default configuration](#disabling-the-default-configuration).
+Для получения дополнительной информации прочтите о [отключении конфигурации по умолчанию](#disabling-the-default-configuration).
 
 ---
 
-## How configurations are merged
+## Как объединяются конфигурации
 
-Project-specific configurations (those found in your `tailwind.config.js` file) are merged against presets the same way they are merged against the default configuration.
+Конфигурации для конкретного проекта (те, что находятся в Вашем файле `tailwind.config.js`) объединяются с пресетами так же, как они объединяются с конфигурацией по умолчанию.
 
-The following options in `tailwind.config.js` simply **replace** the same option if present in a preset:
+Следующие параметры в `tailwind.config.js` просто **перезаписывают** тот же параметр, если он присутствует в пресете:
 
 - `purge`
 - `darkMode`
@@ -133,35 +133,35 @@ The following options in `tailwind.config.js` simply **replace** the same option
 - `variantOrder`
 - `separator`
 
-The remaining options are each carefully merged in the way that makes the most sense for that option, explained in more detail next.
+Каждый из оставшихся вариантов тщательно объединен таким образом, чтобы он был наиболее целесообразным для этого варианта, что более подробно объясняется далее.
 
-### Theme
+### Тема
 
-The `theme` object is merged shallowly, with top-level keys in `tailwind.config.js` replacing the same top-level keys in any presets. The exception to this is the `extend` key, which is collected across all configurations and applied on top of the rest of the theme configuration.
+Объект `theme` объединяется неглубоко, причем ключи верхнего уровня в `tailwind.config.js` заменяют те же самые ключи верхнего уровня в любых пресетах. Исключением является ключ `extend`, который собирается во всех конфигурациях и применяется поверх остальной конфигурации темы.
 
-Learn more about how the `theme` option works in the [theme configuration documentation](/docs/theme).
+Узнайте больше о том, как работает опция `theme` в [документации по настройке темы](/docs/theme).
 
-### Variants
+### Варианты
 
-The `variants` object is merged shallowly just like the `theme` object, with top-level keys replacing the same top-level keys in any presets. The `extend` key is the only exception, and is collected across all configurations, just like with `theme`.
+Объект `variants` объединяется неглубоко, как и объект `theme`, причем ключи верхнего уровня заменяют одни и те же ключи верхнего уровня в любых пресетах. Ключ `extend` - единственное исключение, и он собирается во всех конфигурациях, как и в случае с `theme`.
 
-Learn more about how the `variants` option works in the [variants configuration documentation](/docs/configuring-variants).
+Узнайте больше о том, как работает опция `variants`, в [документации по конфигурации вариантов](/docs/configuring-variants).
 
-### Presets
+### Пресеты
 
-The `presets` array is merged across configurations, allowing presets to include their own presets, which can also include their own presets.
+Массив `presets` объединен во всех конфигурациях, что позволяет предустановкам включать свои собственные предустановки, которые также могут включать свои собственные предустановки.
 
-### Plugins
+### Плагины
 
-The `plugins` array is merged across configurations to make it possible for a preset to register plugins while also allowing you to add additional plugins at the project-level.
+Массив `plugins` объединен между конфигурациями, чтобы позволить предустановке регистрировать плагины, а также позволяет Вам добавлять дополнительные плагины на уровне проекта.
 
-This means it's not possible to disable a plugin that has been added by a preset. If you find yourself wanting to disable a plugin in a preset, it's a sign that you should probably remove that plugin from the preset and include it on a project-by-project basis instead, or [split your preset into two presets](#extending-multiple-presets).
+Это означает, что отключить плагин, добавленный с помощью предустановки, невозможно. Если Вы обнаружите, что хотите отключить плагин в предустановке, это признак того, что Вам, вероятно, следует удалить этот плагин из предустановки и вместо этого включать его для каждого проекта или [разделить предустановку на две предустановки](#extending-multiple-presets).
 
-### Core plugins
+### Основные плагины
 
-The `corePlugins` option behaves differently depending on whether you configure it as an object or as an array.
+Параметр `corePlugins` ведет себя по-разному в зависимости от того, настроили ли Вы его как объект или как массив.
 
-If you configure `corePlugins` as an object, it is merged across configurations.
+Если Вы сконфигурируете `corePlugins` как объект, он будет объединен во всех конфигурациях.
 
 ```js
 // ./example-preset.js
@@ -177,14 +177,14 @@ module.exports = {
   presets: [
     require('./example-preset.js'),
   ],
-  // This configuration will be merged
+  // Эта конфигурация будет объединена
   corePlugins: {
     cursor: false
   }
 }
 ```
 
-If you configure `corePlugins` as an array, it replaces any `corePlugins` configuration provided by your configured preset(s).
+Если Вы сконфигурируете `corePlugins` как массив, он заменит любую конфигурацию `corePlugins`, предоставленную Вашим настроенным пресет(ом)(ами).
 
 ```js
 // ./example-preset.js
@@ -200,16 +200,16 @@ module.exports = {
   presets: [
     require('./example-preset.js'),
   ],
-  // This will replace the configuration in the preset
+  // Это заменит конфигурацию в предустановке
   corePlugins: ['float', 'padding', 'margin']
 }
 ```
 
 ---
 
-## Extending multiple presets
+## Расширение нескольких предустановок
 
-The `presets` option is an array and can accept multiple presets. This is useful if you want to split your reusable customizations up into composable chunks that can be imported independently.
+Параметр `presets` представляет собой массив и может принимать несколько предустановок. Это полезно, если Вы хотите разделить свои повторно используемые настройки на составляемые блоки, которые можно импортировать независимо.
 
 ```js
 // tailwind.config.js
@@ -222,9 +222,9 @@ module.exports = {
 }
 ```
 
-When adding multiple presets, it's important to note that if they overlap in any way, they are resolved the same way your own customizations are resolved against a preset, and the last configuration wins.
+При добавлении нескольких предустановок важно отметить, что если они каким-либо образом пересекаются, они разрешаются так же, как Ваши собственные настройки сравниваются с предустановкой, и последняя конфигурация побеждает.
 
-For example, if both of these configurations provided a custom color palette (and were not using `extend`), the color palette from `configuration-b` would be used:
+Например, если обе эти конфигурации предоставляют пользовательскую цветовую палитру (и не используют `extend`), будет использоваться цветовая палитра из `configuration-b`:
 
 ```js
 // tailwind.config.js
@@ -238,9 +238,9 @@ module.exports = {
 
 ---
 
-## Disabling the default configuration
+## Отключение конфигурации по умолчанию
 
-If you'd like to completely disable the default configuration and start with no base configuration at all, set `presets` to an empty array:
+Если Вы хотите полностью отключить конфигурацию по умолчанию и начать без базовой конфигурации, установите `presets` в пустой массив:
 
 ```js
 // tailwind.config.js
@@ -250,9 +250,9 @@ module.exports = {
 }
 ```
 
-This will completely disable all of Tailwind's defaults, so no colors, font families, font sizes, spacing values, etc. will be generated at all.
+Это полностью отключит все настройки Tailwind по умолчанию, поэтому цвета, семейства шрифтов, размеры шрифтов, значения интервалов и т. д. не будут генерироваться вообще.
 
-You can also do this from within a preset if you'd like your preset to provide a complete design system on its own that doesn't extend Tailwind's defaults:
+Вы также можете сделать это из предустановки, если хотите, чтобы Ваша предустановка предоставляла полную систему дизайна сама по себе, которая не расширяет настройки Tailwind по умолчанию:
 
 ```js
 // ./example-preset.js

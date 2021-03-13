@@ -56,8 +56,8 @@ export const documentationNav = {
     pages['plugins'],
     pages['presets'],
   ],
-  'Base Styles': [pages['preflight']],
-  Layout: [
+  'Базовые стили': [pages['preflight']],
+  'Макет': [
     pages['container'],
     pages['box-sizing'],
     pages['display'],
