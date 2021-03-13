@@ -1,6 +1,7 @@
 ---
-title: "Object Fit"
-description: "Utilities for controlling how a replaced element's content should be resized."
+title: "Подгонка объекта"
+shortTitle: "Object Fit"
+description: "Утилиты для управления изменением размера содержимого заменяемого элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/objectFit'
@@ -11,7 +12,7 @@ export const classes = { plugin }
 
 ## Contain
 
-Resize an element's content to stay contained within its container using `.object-contain`.
+Измените размер содержимого элемента, чтобы оно оставалось внутри контейнера, используя `.object-contain`.
 
 ```html rose
 <template preview>
@@ -27,7 +28,7 @@ Resize an element's content to stay contained within its container using `.objec
 
 ## Cover
 
-Resize an element's content to cover its container using `.object-cover`.
+Измените размер содержимого элемента, чтобы закрыть его контейнер, используя `.object-cover`.
 
 ```html indigo
 <template preview>
@@ -43,7 +44,7 @@ Resize an element's content to cover its container using `.object-cover`.
 
 ## Fill
 
-Stretch an element's content to fit its container using `.object-fill`.
+Растяните содержимое элемента, чтобы оно соответствовало его контейнеру, используя `.object-fill`.
 
 ```html lightBlue
 <template preview>
@@ -59,7 +60,7 @@ Stretch an element's content to fit its container using `.object-fill`.
 
 ## None
 
-Display an element's content at its original size ignoring the container size using `.object-none`.
+Отобразить содержимое элемента в исходном размере, игнорируя размер контейнера, используя `.object-none`.
 
 ```html amber
 <template preview>
@@ -75,7 +76,7 @@ Display an element's content at its original size ignoring the container size us
 
 ## Scale Down
 
-Display an element's content at its original size but scale it down to fit its container if necessary using `.object-scale-down`.
+Отобразите содержимое элемента в исходном размере, но при необходимости уменьшите его до размера контейнера, используя `.object-scale-down`.
 
 ```html emerald
 <template preview>
@@ -91,7 +92,7 @@ Display an element's content at its original size but scale it down to fit its c
 
 ## Responsive
 
-To control how a replaced element's content should be resized only at a specific breakpoint, add a `{screen}:` prefix to any existing object fit utility. For example, adding the class `md:object-scale-down` to an element would apply the `object-scale-down` utility at medium screen sizes and above.
+Чтобы контролировать, как содержимое заменяемого элемента должно изменяться только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите подгонки объекта. Например, добавление класса `md:object-scale-down` к элементу приведет к применению утилиты `object-scale-down` при средних размерах экрана и выше.
 
 ```html
 <div>
