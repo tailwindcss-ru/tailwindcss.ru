@@ -1,6 +1,7 @@
 ---
-title: "Box Sizing"
-description: "Utilities for controlling how the browser should calculate an element's total size."
+title: "Размеры коробки"
+shortTitle: "Box Sizing"
+description: "Утилиты для управления тем, как браузер должен вычислять общий размер элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/boxSizing'
@@ -9,13 +10,13 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Include borders and padding
+## Включите границы и отступы
 
-Use `box-border` to set an element's `box-sizing` to `border-box`, telling the browser to include the element's borders and padding when you give it a height or width.
+Используйте `box-border`, чтобы установить для элемента `box-sizing` значение `border-box`, указав браузеру включать границы и отступы элемента, когда вы задаете ему высоту или ширину.
 
-This means a 100px &times; 100px element with a 2px border and 4px of padding on all sides will be rendered as 100px &times; 100px, with an internal content area of 88px &times; 88px.
+Это означает, что 100px &times; Элемент 100px с границей 2px и отступом 4px со всех сторон будет отображаться как 100px &times; 100px, с внутренней областью содержимого 88px &times; 88px.
 
-Tailwind makes this the default for all elements in our [preflight base styles](/docs/preflight).
+Tailwind делает это значение по умолчанию для всех элементов в наших [базовых стилях предварительной проверки](/docs/preflight).
 
 ```html lightBlue
 <template preview>
@@ -31,11 +32,11 @@ Tailwind makes this the default for all elements in our [preflight base styles](
 </div>
 ```
 
-## Exclude borders and padding
+## Исключить границы и отступы
 
-Use `box-content` to set an element's `box-sizing` to `content-box`, telling the browser to add borders and padding on top of the element's specified width or height.
+Используйте `box-content`, чтобы установить для элемента `box-sizing` значение `content-box`, указав браузеру добавить границы и отступы поверх указанной ширины или высоты элемента.
 
-This means a 100px &times; 100px element with a 2px border and 4px of padding on all sides will actually be rendered as 112px &times; 112px, with an internal content area of 100px &times; 100px.
+Это означает, что 100px &times; Элемент 100px с границей 2px и отступом 4px со всех сторон будет отображаться как 112px &times; 112px, с внутренней областью содержимого 100px &times; 100px.
 
 ```html emerald
 <template preview>
@@ -51,9 +52,9 @@ This means a 100px &times; 100px element with a 2px border and 4px of padding on
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control the box-sizing at a specific breakpoint, add a `{screen}:` prefix to any existing box-sizing utility. For example, use `md:box-content` to apply the `box-content` utility at only medium screen sizes and above.
+Чтобы контролировать размер блока в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите изменения размера блока. Например, используйте `md:box-content`, чтобы применить утилиту `box-content` только при средних размерах экрана и выше.
 
 ```html
 <div class="box-border **md:box-content** ...">
@@ -61,14 +62,14 @@ To control the box-sizing at a specific breakpoint, add a `{screen}:` prefix to 
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="boxSizing" name="box-sizing" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="boxSizing" name="box-sizing" />
