@@ -9,23 +9,23 @@ export function Variants({ plugin, name }) {
     .filter((x) => !variants.includes(x))
     .slice(0, 2)
 
-  const opening = `By default, ${
+  const opening = `По умолчанию, ${
     variants.length
-      ? `only ${joinWithAnd(variants).replace('dark', 'dark mode <em>(if enabled)</em>')}`
-      : 'no'
-  } variants are generated for ${name} utilities.`
+      ? `только ${joinWithAnd(variants).replace('dark', 'темный режим <em>(если включен)</em>')}`
+      : 'нет'
+  } варианты создаются для утилит ${name}.`
 
   return (
     <div className="prose">
       <p dangerouslySetInnerHTML={{ __html: opening }} />
       <p>
-        You can control which variants are generated for the {name} utilities by modifying the{' '}
-        <code>{plugin}</code> property in the <code>variants</code> section of your{' '}
-        <code>tailwind.config.js</code> file.
+      Вы можете контролировать, какие варианты создаются для утилит {name} для изменения свойства{' '}
+        <code>{plugin}</code> в разделе <code>variants</code> Вашего файла конфигурации{' '}
+        <code>tailwind.config.js</code>.
       </p>
       <p>
-        For example, this config will {variants.length > 0 ? 'also ' : ''}generate{' '}
-        {joinWithAnd(extraVariants)} variants:
+      Например, эта конфигурация {variants.length > 0 ? 'также ' : ''}будет генерировать варианты{' '}
+        {joinWithAnd(extraVariants)}:
       </p>
       <ConfigSample path="variants.extend" before="..." add={{ [plugin]: extraVariants }} />
     </div>

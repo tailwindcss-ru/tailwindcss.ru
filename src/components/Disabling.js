@@ -9,15 +9,14 @@ export function Disabling({ plugin, name }) {
   return (
     <div className="prose">
       <p>
-        If you don't plan to use the {name} utilities in your project, you can disable them entirely
-        by setting the{' '}
+      Если Вы не планируете использовать в своем проекте утилиты для изменения {name}, Вы можете полностью отключить их, установив для {' '}
         <span
           dangerouslySetInnerHTML={{
             __html: joinWithAnd(plugins.map((p) => `<code>${p}</code>`)),
           }}
         />{' '}
-        {plugins.length > 1 ? 'properties' : 'property'} to <code>false</code> in the{' '}
-        <code>corePlugins</code> section of your config file:
+        {plugins.length > 1 ? 'характеристики' : 'свойство'} значение <code>false</code> в разделе{' '}
+        <code>corePlugins</code> Вашего файла конфигурации:
       </p>
 
       <ConfigSample
