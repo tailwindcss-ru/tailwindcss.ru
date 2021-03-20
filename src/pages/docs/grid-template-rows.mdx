@@ -1,6 +1,7 @@
 ---
-title: "Grid Template Rows"
-description: "Utilities for specifying the rows in a grid layout."
+title: "Строки шаблона сетки"
+shortTitle: "Grid Template Rows"
+description: "Утилиты для указания строк в макете сетки."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/gridTemplateRows'
@@ -9,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## Применение
 
-Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
+Используйте утилиты `grid-rows-{n}` для создания сеток с _n_ строками одинакового размера.
 
 ```html lightBlue
 <template preview class="bg-white p-8">
@@ -37,7 +38,7 @@ Use the `grid-rows-{n}` utilities to create grids with _n_ equally sized rows.
 
 ## Адаптивность
 
-To control the rows of a grid at a specific breakpoint, add a `{screen}:` prefix to any existing grid-template-rows utility. For example, use `md:grid-rows-6` to apply the `grid-rows-6` utility at only medium screen sizes and above.
+Чтобы управлять строками сетки в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите existing grid-template-rows. Например, используйте `md:grid-rows-6`, чтобы применить утилиту `grid-rows-6` только при средних размерах экрана и выше.
 
 ```html
 <div class="grid grid-rows-2 **md:grid-rows-6** ...">
@@ -49,9 +50,9 @@ To control the rows of a grid at a specific breakpoint, add a `{screen}:` prefix
 
 ## Кастомизация
 
-By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You change, add, or remove these by customizing the `gridTemplateRows` section of your Tailwind theme config.
+По умолчанию Tailwind включает в себя утилиты grid-template-row для создания базовых сеток, содержащих до 6 строк одинаковой ширины. Вы изменяете, добавляете или удаляете их, настраивая раздел `gridTemplateRows` в конфигурации Вашей темы Tailwind.
 
-You have direct access to the `grid-template-rows` CSS property here so you can make your custom rows values as generic or as complicated and site-specific as you like.
+Здесь у Вас есть прямой доступ к CSS-свойству `grid-template-rows`, так что Вы можете сделать свои пользовательские значения строк как общими, так и сложными и специфичными для сайта, как Вам нравится.
 
 ```diff-js
   // tailwind.config.js
@@ -59,10 +60,10 @@ You have direct access to the `grid-template-rows` CSS property here so you can 
     theme: {
       extend: {
         gridTemplateRows: {
-          // Simple 8 row grid
+          // Простая 8-рядная сетка
 +         '8': 'repeat(8, minmax(0, 1fr))',
 
-          // Complex site-specific row configuration
+          // Сложная конфигурация строки для конкретного сайта
 +         'layout': '200px minmax(900px, 1fr) 100px',
         }
       }
@@ -70,7 +71,7 @@ You have direct access to the `grid-template-rows` CSS property here so you can 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
 
 ### Варианты
 

@@ -1,6 +1,7 @@
 ---
-title: "Gap"
-description: "Utilities for controlling gutters between grid rows and columns."
+title: "Промежутки"
+shortTitle: "Gap"
+description: "Утилиты для управления промежутками между строками и столбцами сетки."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/gap'
@@ -13,9 +14,9 @@ export const classes = {
   sort: numbersFirst,
 }
 
-## Usage
+## Применение
 
-Use `gap-{size}` to change the gap between both rows and columns in grid layouts.
+Используйте `gap-{size}`, чтобы изменить зазор между строками и столбцами в макетах сетки.
 
 ```html indigo
 <template preview class="p-6">
@@ -37,9 +38,9 @@ Use `gap-{size}` to change the gap between both rows and columns in grid layouts
 </div>
 ```
 
-### Changing row and column gaps independently
+### Независимое изменение промежутков между строками и столбцами
 
-Use `gap-x-{size}` and `gap-y-{size}` to change the gap between rows and columns independently.
+Используйте `gap-x-{size}` и `gap-y-{size}` для независимого изменения зазора между строками и столбцами.
 
 ```html rose
 <template preview class="p-6">
@@ -69,7 +70,7 @@ Use `gap-x-{size}` and `gap-y-{size}` to change the gap between rows and columns
 
 ## Адаптивность
 
-To control the gap at a specific breakpoint, add a `{screen}:` prefix to any existing gap utility. For example, use `md:gap-6` to apply the `gap-6` utility at only medium screen sizes and above.
+Чтобы контролировать зазоры в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите промежутка. Например, используйте `md:gap-6`, чтобы применить утилиту `gap-6` только при средних размерах экрана и выше.
 
 ```html
 <div class="grid gap-4 **md:gap-6** ...">
@@ -83,9 +84,9 @@ To control the gap at a specific breakpoint, add a `{screen}:` prefix to any exi
 
 ## Кастомизация
 
-By default, Tailwind's gap scale matches your configured [spacing scale](/docs/customizing-spacing).
+По умолчанию шкала промежутка Tailwind соответствует настроенной Вами [шкале интервалов](/docs/customizing-spacing).
 
-You can customize the global spacing scale in the `theme.spacing` or `theme.extend.spacing` sections of your `tailwind.config.js` file:
+Вы можете настроить глобальную шкалу интервалов в разделах `theme.spacing` или `theme.extend.spacing` Вашего файла `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -102,7 +103,7 @@ You can customize the global spacing scale in the `theme.spacing` or `theme.exte
   }
 ```
 
-To customize the gap scale separately, use the `gap` section of your Tailwind theme config.
+Чтобы настроить масштаб промежутка отдельно, используйте раздел `gap` в конфигурации Вашей темы Tailwind.
 
 ```diff-js
   // tailwind.config.js
@@ -118,7 +119,7 @@ To customize the gap scale separately, use the `gap` section of your Tailwind th
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
 
 ### Варианты
 

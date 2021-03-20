@@ -1,6 +1,7 @@
 ---
-title: "Grid Auto Rows"
-description: "Utilities for controlling the size of implicitly-created grid rows."
+title: "Автоматические ряды сетки"
+shortTitle: "Grid Auto Rows"
+description: "Утилиты для управления размером неявно созданных строк сетки."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/gridAutoRows'
@@ -9,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## Применение
 
-Use the `auto-rows-{size}` utilities to control the size implicitly-created grid rows.
+Используйте утилиты `auto-rows-{size}` для управления размером неявно создаваемых строк сетки.
 
 ```html
 <div class="grid grid-flow-row **auto-rows-max**">
@@ -23,7 +24,7 @@ Use the `auto-rows-{size}` utilities to control the size implicitly-created grid
 
 ## Адаптивность
 
-To control the grid-auto-rows property at a specific breakpoint, add a `{screen}:` prefix to any existing grid-auto-rows utility. For example, use `md:auto-rows-min` to apply the `auto-rows-min` utility at only medium screen sizes and above.
+Чтобы управлять свойством grid-auto-rows в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите grid-auto-rows. Например, используйте `md:auto-rows-min`, чтобы применить утилиту `auto-rows-min` только при средних размерах экрана и выше.
 
 ```html
 <div class="grid grid-flow-row auto-rows-max **md:auto-rows-min**">
@@ -37,7 +38,7 @@ To control the grid-auto-rows property at a specific breakpoint, add a `{screen}
 
 ## Кастомизация
 
-By default, Tailwind includes four general purpose grid-auto-rows utilities. You can customize these in the `theme.gridAutoRows` section of your `tailwind.config.js` file.
+По умолчанию Tailwind включает в себя четыре универсальных утилиты grid-auto-rows. Вы можете настроить их в разделе `theme.gridAutoRows` Вашего файла `tailwind.config.js`.
 
 ```js
   // tailwind.config.js
@@ -52,7 +53,7 @@ By default, Tailwind includes four general purpose grid-auto-rows utilities. You
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
 
 ### Варианты
 

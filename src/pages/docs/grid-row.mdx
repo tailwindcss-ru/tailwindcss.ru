@@ -1,6 +1,7 @@
 ---
-title: "Grid Row Start / End"
-description: "Utilities for controlling how elements are sized and placed across grid rows."
+title: "Начало / конец строки сетки"
+shortTitle: "Grid Row Start / End"
+description: "Утилиты для управления размером элементов и их размещением по строкам сетки."
 ---
 
 import gridRowPlugin from 'tailwindcss/lib/plugins/gridRow'
@@ -12,9 +13,9 @@ export const classes = {
   plugin: [gridRowPlugin, gridRowStartPlugin, gridRowEndPlugin]
 }
 
-## Spanning rows
+## Составные строки
 
-Use the `row-span-{n}` utilities to make an element span _n_ rows.
+Используйте утилиты `row-span-{n}`, чтобы сделать элемент охватывающим _n_ строк.
 
 ```html fuchsia
 <template preview>
@@ -32,11 +33,11 @@ Use the `row-span-{n}` utilities to make an element span _n_ rows.
 </div>
 ```
 
-## Starting and ending lines
+## Начало и окончание линии
 
-Use the `row-start-{n}` and `row-end-{n}` utilities to make an element start or end at the _nth_ grid line. These can also be combined with the `row-span-{n}` utilities to span a specific number of rows.
+Используйте утилиты `row-start-{n}` и `row-end-{n}`, чтобы сделать начало или конец элемента на линии сетки _nth_. Их также можно комбинировать с утилитами `row-span-{n}` для охвата определенного количества строк.
 
-Note that CSS grid lines start at 1, not 0, so a full-height element in a 3-row grid would start at line 1 and end at line 4.
+Обратите внимание, что линии сетки CSS начинаются с 1, а не с 0, поэтому элемент во всю высоту в трехстрочной сетке будет начинаться со строки 1 и заканчиваться на строке 4.
 
 ```html lightBlue
 <template preview>
@@ -56,7 +57,7 @@ Note that CSS grid lines start at 1, not 0, so a full-height element in a 3-row 
 
 ## Адаптивность
 
-To control the row placement of an element at a specific breakpoint, add a `{screen}:` prefix to any existing grid-row utility. For example, use `md:row-span-3` to apply the `row-span-3` utility at only medium screen sizes and above.
+Чтобы управлять размещением строки элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите grid-row. Например, используйте `md:row-span-3`, чтобы применить утилиту `row-span-3` только при средних размерах экрана и выше.
 
 ```html
 <div class="grid grid-rows-3 ...">
@@ -68,9 +69,9 @@ To control the row placement of an element at a specific breakpoint, add a `{scr
 
 ## Кастомизация
 
-By default, Tailwind includes grid-row utilities for working with grids with up to 6 explicit rows. You change, add, or remove these by customizing the `gridRow`, `gridRowStart`, and `gridRowEnd` sections of your Tailwind theme config.
+По умолчанию Tailwind включает в себя утилиты для работы с сетками, содержащими до 6 явных строк. Вы можете изменять, добавлять или удалять их, настраивая разделы `gridRow`, `gridRowStart` и `gridRowEnd` в конфигурации Вашей темы Tailwind.
 
-For creating more `row-{value}` utilities that control the `grid-row` shorthand property directly, customize the `gridRow` section of your Tailwind theme config:
+Для создания дополнительных утилит `row-{value}`, которые напрямую управляют сокращенным свойством `grid-row`, настройте раздел `gridRow` в конфигурации Вашей темы Tailwind:
 
 ```diff-js
   // tailwind.config.js
@@ -85,9 +86,9 @@ For creating more `row-{value}` utilities that control the `grid-row` shorthand 
   }
 ```
 
-We use this internally for our `row-span-{n}` utilities. Note that since this configures the `grid-row` shorthand property directly, we include the word `span` directly in the value name, it's _not_ baked into the class name automatically. That means you are free to add entries that do whatever you want here — they don't just have to be `span` utilities.
+Мы используем это внутренне для наших утилит `row-span-{n}`. Обратите внимание, что, поскольку это настраивает сокращенное свойство `grid-row` напрямую, мы включаем слово `span` непосредственно в имя значения, оно _не_ автоматически вставляется в имя класса. Это означает, что Вы можете добавлять сюда записи, которые делают все, что захотите - они не должны быть просто утилитами `span`.
 
-To add new `row-start-{n}` utilities, use the `gridRowStart` section of your Tailwind theme config:
+Чтобы добавить новые утилиты `row-start-{n}`, используйте раздел `gridRowStart` конфигурации Вашей темы Tailwind:
 
 ```diff-js
   // tailwind.config.js
@@ -107,7 +108,7 @@ To add new `row-start-{n}` utilities, use the `gridRowStart` section of your Tai
   }
 ```
 
-To add new `row-end-{n}` utilities, use the `gridRowEnd` section of your Tailwind theme config:
+Чтобы добавить новые утилиты `row-end-{n}`, используйте раздел `gridRowEnd` конфигурации Вашей темы Tailwind:
 
 ```diff-js
   // tailwind.config.js
@@ -127,13 +128,13 @@ To add new `row-end-{n}` utilities, use the `gridRowEnd` section of your Tailwin
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
 
 ### Варианты
 
-By default, only responsive variants are generated for grid-row utilities.
+По умолчанию для утилит строки сетки создаются только адаптивные варианты.
 
-You can control which variants are generated for the grid-row utilities by modifying the `gridRow`, `gridRowStart`, and `gridRowEnd` properties in the `variants` section of your `tailwind.config.js` file.
+Вы можете контролировать, какие варианты создаются для утилит строки сетки, изменяя свойства `gridRow`, `gridRowStart` и `gridRowEnd` в разделе `variants` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
@@ -147,7 +148,7 @@ You can control which variants are generated for the grid-row utilities by modif
   }
 ```
 
-Learn more about configuring variants in the [configuring variants documentation](/docs/configuring-variants/).
+Дополнительные сведения о настройке вариантов смотрите в [документации по настройке вариантов](/docs/configuring-variants/).
 
 ### Отключение
 
