@@ -1,6 +1,7 @@
 ---
-title: "Flex Wrap"
-description: "Utilities for controlling how flex items wrap."
+title: "Перенос flex-элементов"
+shortTitle: "Flex Wrap"
+description: "Утилиты для управления переносом flex-элементов."
 features:
   responsive: true
   customizable: false
@@ -14,9 +15,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Don't wrap
+## Не переносить
 
-Use `flex-nowrap` to prevent flex items from wrapping, causing inflexible items to overflow the container if necessary:
+Используйте `flex-nowrap`, чтобы предотвратить перенос flex-элементов, в результате чего flex-элементы при необходимости переполняют контейнер:
 
 ```html emerald
 <template preview>
@@ -34,9 +35,9 @@ Use `flex-nowrap` to prevent flex items from wrapping, causing inflexible items 
 </div>
 ```
 
-## Wrap normally
+## Переносить нормально
 
-Use `flex-wrap` to allow flex items to wrap:
+Используйте `flex-wrap`, чтобы позволить flex-элементам перенос:
 
 ```html lightBlue
 <template preview>
@@ -54,9 +55,9 @@ Use `flex-wrap` to allow flex items to wrap:
 </div>
 ```
 
-## Wrap reversed
+## Обратный перенос
 
-Use `flex-wrap-reverse` to wrap flex items in the reverse direction:
+Используйте `flex-wrap-reverse`, чтобы переносить flex-элементы в обратном направлении:
 
 ```html purple
 <template preview>
@@ -76,7 +77,7 @@ Use `flex-wrap-reverse` to wrap flex items in the reverse direction:
 
 ## Адаптивность
 
-To control how flex items wrap at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:flex-wrap-reverse` to apply the `flex-wrap-reverse` utility at only medium screen sizes and above.
+Чтобы управлять переносом flex-элементов в определенную контрольную точку, добавьте префикс `{screen}:` к любому существующему классу утилиты. Например, используйте `md:flex-wrap-reverse`, чтобы применить утилиту `flex-wrap-reverse` только при средних размерах экрана и выше.
 
 ```html
 <div class="flex flex-wrap **md:flex-wrap-reverse** ...">

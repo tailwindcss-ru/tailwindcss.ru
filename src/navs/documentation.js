@@ -72,7 +72,7 @@ export const documentationNav = {
     pages['visibility'],
     pages['z-index'],
   ],
-  Flexbox: [
+  'Flexbox': [
     pages['flex-direction'],
     pages['flex-wrap'],
     pages['flex'],

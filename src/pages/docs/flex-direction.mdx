@@ -1,6 +1,7 @@
 ---
-title: "Flex Direction"
-description: "Utilities for controlling the direction of flex items."
+title: "Направление flex-элементов"
+shortTitle: "Flex Direction"
+description: "Утилиты для управления направлением flex-элементов."
 features:
   responsive: true
   customizable: false
@@ -14,9 +15,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Row
+## Строка
 
-Use `flex-row` to position flex items horizontally in the same direction as text:
+Используйте `flex-row` для размещения flex-элементов по горизонтали в том же направлении, что и текст:
 
 ```html amber
 <template preview class="p-4">
@@ -34,9 +35,9 @@ Use `flex-row` to position flex items horizontally in the same direction as text
 </div>
 ```
 
-## Row reversed
+## Реверсивная строка
 
-Use `flex-row-reverse` to position flex items horizontally in the opposite direction:
+Используйте `flex-row-reverse` для позиционирования flex-элементов по горизонтали в противоположном направлении:
 
 ```html lightBlue
 <template preview class="p-4">
@@ -54,9 +55,9 @@ Use `flex-row-reverse` to position flex items horizontally in the opposite direc
 </div>
 ```
 
-## Column
+## Столбец
 
-Use `flex-col` to position flex items vertically:
+Используйте `flex-col` для вертикального расположения flex-элементов:
 
 ```html emerald
 <template preview class="p-4">
@@ -74,9 +75,9 @@ Use `flex-col` to position flex items vertically:
 </div>
 ```
 
-## Column reversed
+## Реверсивный столбец
 
-Use `flex-col-reverse` to position flex items vertically in the opposite direction:
+Используйте `flex-col-reverse` для размещения flex-элементов по вертикали в противоположном направлении:
 
 ```html rose
 <template preview class="p-4">
@@ -96,7 +97,7 @@ Use `flex-col-reverse` to position flex items vertically in the opposite directi
 
 ## Адаптивность
 
-To apply a flex direction utility only at a specific breakpoint, add a `{screen}:` prefix to the existing class name. For example, adding the class `md:flex-row` to an element would apply the `flex-row` utility at medium screen sizes and above.
+Чтобы применить утилиту направления flex-элементов только в определенной контрольной точке, добавьте префикс `{screen}:` к существующему имени класса. Например, добавление класса `md:flex-row` к элементу приведет к применению утилиты `flex-row` при средних размерах экрана и выше.
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 

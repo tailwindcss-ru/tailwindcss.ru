@@ -1,6 +1,7 @@
 ---
-title: "Order"
-description: "Utilities for controlling the order of flex items."
+title: "Порядок"
+shortTitle: "Order"
+description: "Утилиты для управления порядком flex-элементов."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/order'
@@ -9,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## Применение
 
-Use `order-{order}` to render flex items in a different order than they appear in the DOM.
+Используйте `order-{order}` для рендеринга гибких элементов в другом порядке, чем они отображаются в DOM.
 
 ```html lightBlue
 <template preview>
@@ -32,7 +33,7 @@ Use `order-{order}` to render flex items in a different order than they appear i
 
 ## Адаптивность
 
-To apply a flex direction utility only at a specific breakpoint, add a `{screen}:` prefix to the existing class name. For example, adding the class `md:flex-row` to an element would apply the `flex-row` utility at medium screen sizes and above.
+Чтобы применить утилиту порядка flex-элементов только в определенной контрольной точке, добавьте префикс `{screen}:` к существующему имени класса. Например, добавление класса `md:order-last` к элементу приведет к применению утилиты `order-last` при средних размерах экрана и выше.
 
 ```html
 <div class="flex">
@@ -46,7 +47,7 @@ To apply a flex direction utility only at a specific breakpoint, add a `{screen}
 
 ## Кастомизация
 
-By default, Tailwind provides utilities for `order-first`, `order-last`, `order-none`, and an `order-{number}` utility for the numbers 1 through 12. You change, add, or remove these by editing the `theme.order` section of your `tailwind.config.js` file.
+По умолчанию Tailwind предоставляет утилиты для `order-first`, `order-last`, `order-none` и `order-{number}` для чисел от 1 до 12. Вы меняете, добавляете или удаляете их, отредактировав раздел `theme.order` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js

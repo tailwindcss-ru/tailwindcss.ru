@@ -1,6 +1,7 @@
 ---
-title: "Flex Shrink"
-description: "Utilities for controlling how flex items shrink."
+title: "Сжатие flex-элементов"
+shortTitle: "Flex Shrink"
+description: "Утилиты для управления сжатием flex-элементов."
 features:
   responsive: true
   customizable: true
@@ -14,9 +15,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Shrink
+## Сжиматься
 
-Use `flex-shrink` to allow a flex item to shrink if needed:
+Используйте `flex-shrink`, чтобы позволить flex-элементу сжиматься при необходимости:
 
 ```html amber resizable
 <template preview class="p-6">
@@ -35,20 +36,20 @@ Use `flex-shrink` to allow a flex item to shrink if needed:
 
 <div class="flex ...">
   <div class="flex-grow w-16 h-16 ...">
-    <!-- This item will grow or shrink as needed -->
+    <!-- Этот элемент будет увеличиваться или уменьшаться по мере необходимости. -->
   </div>
   <div class="**flex-shrink** w-64 h-16 ...">
-    <!-- This item will shrink -->
+    <!-- Этот предмет будет сжиматься -->
   </div>
   <div class="flex-grow w-16 h-16 ...">
-    <!-- This item will grow or shrink as needed -->
+    <!-- Этот элемент будет увеличиваться или уменьшаться по мере необходимости. -->
   </div>
 </div>
 ```
 
-## Don't shrink
+## Не сжиматься
 
-Use `flex-shrink-0` to prevent a flex item from shrinking:
+Используйте `flex-shrink-0`, чтобы предотвратить сжатие flex-элемента:
 
 ```html lightBlue resizable
 <template preview class="p-6">
@@ -67,26 +68,26 @@ Use `flex-shrink-0` to prevent a flex item from shrinking:
 
 <div class="flex ...">
   <div class="flex-1 h-16 ...">
-    <!-- This item will grow or shrink as needed -->
+    <!-- Этот элемент будет увеличиваться или уменьшаться по мере необходимости. -->
   </div>
   <div class="**flex-shrink-0** h-16 w-32 ...">
-    <!-- This item will not shrink below its initial size-->
+    <!-- Этот элемент не будет уменьшаться меньше своего первоначального размера. -->
   </div>
   <div class="flex-1 h-16 ...">
-    <!-- This item will grow or shrink as needed -->
+    <!-- Этот элемент будет увеличиваться или уменьшаться по мере необходимости. -->
   </div>
 </div>
 ```
 
 ## Адаптивность
 
-To control how a flex item shrinks at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:flex-shrink-0` to apply the `flex-shrink-0` utility at only medium screen sizes and above.
+Чтобы контролировать сжатие flex-элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему служебному классу. Например, используйте `md:flex-shrink-0`, чтобы применить утилиту `flex-shrink-0` только при средних размерах экрана и выше.
 
 ```html
 <div class="flex ...">
   <!-- ... -->
   <div class="flex-shrink **md:flex-shrink-0** ...">
-    Responsive flex item
+    Адаптивный гибкий элемент
   </div>
   <!-- ... -->
 </div>
@@ -96,9 +97,9 @@ To control how a flex item shrinks at a specific breakpoint, add a `{screen}:` p
 
 ## Кастомизация
 
-### Shrink Values
+### Значения Сжатия
 
-By default, Tailwind provides two `flex-shrink` utilities. You change, add, or remove these by editing the `theme.flexShrink` section of your Tailwind config.
+По умолчанию Tailwind предоставляет две утилиты `flex-shrink`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.flexShrink` Вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js
