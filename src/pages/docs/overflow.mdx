@@ -15,9 +15,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Visible
+## Видимость
 
-Use `overflow-visible` to prevent content within an element from being clipped. Note that any content that overflows the bounds of the element will then be visible.
+Используйте `overflow-visible`, чтобы предотвратить обрезку содержимого внутри элемента. Обратите внимание, что любое содержимое, выходящее за границы элемента, будет тогда видимым.
 
 ```html lightBlue
 <template preview>
@@ -33,9 +33,9 @@ Use `overflow-visible` to prevent content within an element from being clipped. 
 <div class="**overflow-visible** h-24 h- ...">Lorem ipsum dolor sit amet...</div>
 ```
 
-## Auto
+## Авто
 
-Use `overflow-auto` to add scrollbars to an element in the event that its content overflows the bounds of that element. Unlike `.overflow-scroll`, which always shows scrollbars, this utility will only show them if scrolling is necessary.
+Используйте `overflow-auto` для добавления полос прокрутки к элементу в случае, если его содержимое выходит за границы этого элемента. В отличие от `.overflow-scroll`, который всегда показывает полосы прокрутки, эта утилита будет показывать их только в том случае, если прокрутка необходима.
 
 ```html rose
 <template preview>
@@ -49,9 +49,9 @@ Use `overflow-auto` to add scrollbars to an element in the event that its conten
 <div class="**overflow-auto** h-32 ...">Lorem ipsum dolor sit amet...</div>
 ```
 
-## Hidden
+## Скрытие
 
-Use `overflow-hidden` to clip any content within an element that overflows the bounds of that element.
+Используйте `overflow-hidden`, чтобы вырезать любое содержимое внутри элемента, выходящее за границы этого элемента.
 
 ```html purple
 <template preview>
@@ -65,9 +65,9 @@ Use `overflow-hidden` to clip any content within an element that overflows the b
 <div class="**overflow-hidden** h-32 ...">Lorem ipsum dolor sit amet...</div>
 ```
 
-## Scroll horizontally if needed
+## Скролл по горизонтали при необходимости
 
-Use `overflow-x-auto` to allow horizontal scrolling if needed.
+Используйте `overflow-x-auto`, чтобы разрешить горизонтальную прокрутку, если это необходимо.
 
 ```html fuchsia
 <template preview>
@@ -81,9 +81,9 @@ Use `overflow-x-auto` to allow horizontal scrolling if needed.
 <div class="**overflow-x-auto** ...">QrLmmW69vMQD...</div>
 ```
 
-## Scroll vertically if needed
+## Скролл по вертикали при необходимости
 
-Use `overflow-y-auto` to allow vertical scrolling if needed.
+Используйте `overflow-y-auto`, чтобы разрешить вертикальную прокрутку, если это необходимо.
 
 ```html amber
 <template preview>
@@ -97,9 +97,9 @@ Use `overflow-y-auto` to allow vertical scrolling if needed.
 <div class="**overflow-y-auto** h-32 ...">Lorem ipsum dolor sit amet...</div>
 ```
 
-## Scroll horizontally always
+## Скролл по горизонтали всегда
 
-Use `overflow-x-scroll` to allow horizontal scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system.
+Используйте `overflow-x-scroll`, чтобы разрешить горизонтальную прокрутку и всегда показывать полосы прокрутки, если операционная система не отключила всегда видимые полосы прокрутки.
 
 ```html emerald
 <template preview>
@@ -113,9 +113,9 @@ Use `overflow-x-scroll` to allow horizontal scrolling and always show scrollbars
 <div class="**overflow-x-scroll** ...">QrLmmW69vMQD...</div>
 ```
 
-## Scroll vertically always
+## Скролл по вертикали всегда
 
-Use `overflow-y-scroll` to allow vertical scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system.
+Используйте `overflow-y-scroll`, чтобы разрешить вертикальную прокрутку и всегда показывать полосы прокрутки, если операционная система не отключила всегда видимые полосы прокрутки.
 
 ```html lightBlue
 <template preview>
@@ -130,9 +130,9 @@ Use `overflow-y-scroll` to allow vertical scrolling and always show scrollbars u
 ```
 
 
-## Scroll in all directions
+## Скролл во всех направлениях
 
-Use `overflow-scroll` to add scrollbars to an element. Unlike `.overflow-auto`, which only shows scrollbars if they are necessary, this utility always shows them. Note that some operating systems (like macOS) hide unnecessary scrollbars regardless of this setting.
+Используйте `overflow-scroll` для добавления полос прокрутки к элементу. В отличие от `.overflow-auto`, который показывает полосы прокрутки, только если они необходимы, эта утилита всегда показывает их. Обратите внимание, что некоторые операционные системы (например, macOS) скрывают ненужные полосы прокрутки независимо от этого параметра.
 
 ```html fuchsia
 <template preview>
@@ -148,7 +148,7 @@ Use `overflow-scroll` to add scrollbars to an element. Unlike `.overflow-auto`, 
 
 ## Адаптивность
 
-To apply an overflow utility only at a specific breakpoint, add a `{screen}:` prefix to the existing class name. For example, adding the class `md:overflow-scroll` to an element would apply the `overflow-scroll` utility at medium screen sizes and above.
+Чтобы применить утилиту переполнения только к определенной контрольной точке, добавьте префикс `{screen}:` к существующему имени класса. Например, добавление класса `md:overflow-scroll` к элементу приведет к применению утилиты `overflow-scroll` при средних размерах экрана и выше.
 
 ```html
 <div class="overflow-auto **md:overflow-scroll** ...">

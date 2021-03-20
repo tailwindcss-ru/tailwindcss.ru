@@ -1,6 +1,7 @@
 ---
-title: "Top / Right / Bottom / Left"
-description: "Utilities for controlling the placement of positioned elements."
+title: "Верх / Право / Низ / Лево"
+shortTitle: "Top / Right / Bottom / Left"
+description: "Утилиты для управления размещением позиционируемых элементов."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/inset'
@@ -13,11 +14,11 @@ export const classes = {
   sort: numbersFirst,
 }
 
-## Usage
+## Применение
 
-Use the `{top|right|bottom|left|inset}-0` utilities to anchor absolutely positioned elements against any of the edges of the nearest positioned parent.
+Используйте утилиты `{top|right|bottom|left|inset}-0` для привязки абсолютно позиционированных элементов к любому из краев ближайшего расположенного родителя.
 
-Combined with Tailwind's padding and margin utilities, you'll probably find that these are all you need to precisely control absolutely positioned elements.
+В сочетании с утилитами заполнения и поля Tailwind Вы, вероятно, обнаружите, что это все, что Вам нужно для точного управления абсолютно позиционированными элементами.
 
 ```html emerald
 <template preview>
@@ -52,47 +53,47 @@ Combined with Tailwind's padding and margin utilities, you'll probably find that
   </div>
 </template>
 
-<!-- Span top edge -->
+<!-- Притянут к верхнему краю -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **inset-x-0 top-0** h-16 ...">1</div>
 </div>
 
-<!-- Span right edge -->
+<!-- Притянут к правому краю -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **inset-y-0 right-0** w-16 ...">2</div>
 </div>
 
-<!-- Span bottom edge -->
+<!-- Притянут к нижнему краю -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **inset-x-0 bottom-0** h-16 ...">3</div>
 </div>
 
-<!-- Span left edge -->
+<!-- Притянут к левому краю -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **inset-y-0 left-0** w-16 ...">4</div>
 </div>
 
-<!-- Fill entire parent -->
+<!-- Заполнить весь родитель -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **inset-0** ...">5</div>
 </div>
 
-<!-- Pin to top left corner -->
+<!-- Закрепить в верхнем левом углу -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **left-0 top-0** h-16 w-16 ...">6</div>
 </div>
 
-<!-- Pin to top right corner -->
+<!-- Закрепить в верхнем правом углу -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **top-0 right-0** h-16 w-16 ...">7</div>
 </div>
 
-<!-- Pin to bottom right corner -->
+<!-- Закрепить в нижнем правом углу -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **bottom-0 right-0** h-16 w-16 ...">8</div>
 </div>
 
-<!-- Pin to bottom left corner -->
+<!-- Закрепить в нижнем левом углу -->
 <div class="relative h-32 w-32 ...">
   <div class="absolute **bottom-0 left-0** h-16 w-16 ...">9</div>
 </div>
@@ -100,7 +101,7 @@ Combined with Tailwind's padding and margin utilities, you'll probably find that
 
 ## Адаптивность
 
-To position an element only at a specific breakpoint, add a `{screen}:` prefix to any existing positioning utility. For example, adding the class `md:inset-y-0` to an element would apply the `inset-y-0` utility at medium screen sizes and above.
+Чтобы разместить элемент только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите позиционирования. Например, добавление класса `md:inset-y-0` к элементу приведет к применению утилиты `inset-y-0` при средних размерах экрана и выше.
 
 ```html
 <div class="relative h-32 ...">
@@ -112,11 +113,11 @@ To position an element only at a specific breakpoint, add a `{screen}:` prefix t
 
 ## Кастомизация
 
-### Top / Right / Bottom / Left scale
+### Шкала Top / Right / Bottom / Left
 
-By default, Tailwind provides top/right/bottom/left/inset utilities for a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale), `auto`, `full` as well as some additional fraction values.
+По умолчанию Tailwind предоставляет утилиты top/right/bottom/left/inset для комбинации [шкалы интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), `auto`, `full`, а также некоторые дополнительные значения дроби.
 
-You can change, add, or remove these by editing the `theme.inset` section of your `tailwind.config.js` file.
+Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.inset` в файле `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
@@ -132,9 +133,9 @@ You can change, add, or remove these by editing the `theme.inset` section of you
   }
 ```
 
-### Negative values
+### Отрицательные значения
 
-If you'd like to add any negative top/right/bottom/left classes that take the same form as Tailwind's [negative margin](/docs/margin#negative-margins) classes, prefix the keys in your config file with a dash:
+Если Вы хотите добавить какие-либо отрицательные классы top/right/bottom/left, которые принимают ту же форму, что и классы Tailwind [отрицательные поля](/docs/margin#negative-margins), поставьте перед ключами в файле конфигурации дефис:
 
 ```diff-js
   // tailwind.config.js
@@ -149,7 +150,7 @@ If you'd like to add any negative top/right/bottom/left classes that take the sa
   }
 ```
 
-Tailwind is smart enough to generate classes like `-top-16` when it sees the leading dash, not `top--16` like you might expect.
+Tailwind достаточно умен, чтобы генерировать классы вроде `-top-16`, когда видит начальное тире, а не `top--16`, как Вы могли ожидать.
 
 ### Варианты
 

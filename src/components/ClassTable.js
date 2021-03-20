@@ -81,7 +81,7 @@ export const ClassTable = memo(
     return (
       <div className="border-b border-gray-200 overflow-hidden relative">
         <Heading level={2} id="class-reference" toc={true} className="relative">
-          <span className="sr-only">Default class reference</span>
+          <span className="sr-only">Справочник классов по умолчанию</span>
         </Heading>
         <div
           className={clsx(
@@ -94,7 +94,7 @@ export const ClassTable = memo(
               <thead>
                 <tr>
                   <th className="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
-                    <div className="pb-2 pr-2 border-b border-gray-200">Class</div>
+                    <div className="pb-2 pr-2 border-b border-gray-200">Класс</div>
                   </th>
                   <th
                     className={clsx(
@@ -107,13 +107,13 @@ export const ClassTable = memo(
                     <div
                       className={clsx('pb-2 pl-2 border-b border-gray-200', { 'pr-2': preview })}
                     >
-                      Properties
+                      Свойства
                     </div>
                   </th>
                   {preview && (
                     <th className="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
                       <div className="pb-2 pl-2 border-b border-gray-200">
-                        <span className="sr-only">Preview</span>&nbsp;
+                        <span className="sr-only">Предпросмотр</span>&nbsp;
                       </div>
                     </th>
                   )}

@@ -12,7 +12,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `overscroll-auto` to make it possible for the user to continue scrolling a parent scroll area when they reach the boundary of the primary scroll area.
+Используйте `overscroll-auto`, чтобы пользователь мог продолжить прокрутку родительской области прокрутки, когда они достигнут границы основной области прокрутки.
 
 ```html emerald
 <template preview>
@@ -28,7 +28,7 @@ Use `overscroll-auto` to make it possible for the user to continue scrolling a p
 
 ## Contain
 
-Use `overscroll-contain` to prevent scrolling in the target area from triggering scrolling in the parent element, but preserve "bounce" effects when scrolling past the end of the container in operating systems that support it.
+Используйте `overscroll-contain`, чтобы прокрутка в целевой области не запускала прокрутку в родительском элементе, но сохраняла эффекты «отскока» при прокрутке за конец контейнера в операционных системах, которые его поддерживают.
 
 ```html lightBlue
 <template preview>
@@ -44,7 +44,7 @@ Use `overscroll-contain` to prevent scrolling in the target area from triggering
 
 ## None
 
-Use `overscroll-none` to prevent scrolling in the target area from triggering scrolling in the parent element, and also prevent "bounce" effects when scrolling past the end of the container.
+Используйте `overscroll-none`, чтобы прокрутка в целевой области не запускала прокрутку в родительском элементе, а также предотвращала эффекты «отскока» при прокрутке за конец контейнера.
 
 ```html amber
 <template preview>
@@ -60,7 +60,7 @@ Use `overscroll-none` to prevent scrolling in the target area from triggering sc
 
 ## Адаптивность
 
-To control the overscroll-behavior property at a specific breakpoint, add a `{screen}:` prefix to any existing overscroll-behavior utility. For example, use `md:overscroll-contain` to apply the `overscroll-contain` utility at only medium screen sizes and above.
+Чтобы управлять свойством overscroll-behavior в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите overscroll-behavior. Например, используйте `md:overscroll-contain`, чтобы применить утилиту `overscroll-contain` только для средних размеров экрана и выше.
 
 ```html
 <div class="overscroll-auto **md:overscroll-contain lg:overscroll-none** ...">

@@ -160,7 +160,7 @@ export function ContentsLayoutOuter({ children, layoutProps, ...props }) {
 export function ContentsLayout({ children, meta, classes, tableOfContents }) {
   const toc = [
     ...(classes
-      ? [{ title: 'Default class reference', slug: 'class-reference', children: [] }]
+      ? [{ title: 'Справочник классов по умолчанию', slug: 'class-reference', children: [] }]
       : []),
     ...tableOfContents,
   ]

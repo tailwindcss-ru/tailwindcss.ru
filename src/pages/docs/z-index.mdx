@@ -1,6 +1,7 @@
 ---
-title: "Z-Index"
-description: "Utilities for controlling the stack order of an element."
+title: "Z-индекс"
+shortTitle: "Z-Index"
+description: "Утилиты для управления порядком стека элемента."
 features:
   responsive: true
   customizable: true
@@ -14,9 +15,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## Применение
 
-Control the stack order (or three-dimensional positioning) of an element in Tailwind, regardless of order it has been displayed, using the `z-{index}` utilities.
+Управляйте порядком стека (или трехмерным расположением) элемента в Tailwind, независимо от порядка, в котором он был отображен, с помощью утилит `z-{index}`.
 
 ```html fuchsia
 <template preview class="p-4">
@@ -38,7 +39,7 @@ Control the stack order (or three-dimensional positioning) of an element in Tail
 
 ## Адаптивность
 
-To control the z-index of an element at a specific breakpoint, add a `{screen}:` prefix to any existing z-index utility. For example, use `md:z-50` to apply the `z-50` utility at only medium screen sizes and above.
+Чтобы управлять z-индексом элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите z-index. Например, используйте `md:z-50`, чтобы применить утилиту `z-50` только при средних размерах экрана и выше.
 
 ```html
 <div class="z-0 **md:z-50** ...">
@@ -50,9 +51,9 @@ To control the z-index of an element at a specific breakpoint, add a `{screen}:`
 
 ## Кастомизация
 
-### Z-Index scale
+### Шкала Z-индекса
 
-By default, Tailwind provides six numeric `z-index` utilities and an `auto` utility. You change, add, or remove these by editing the `theme.zIndex` section of your Tailwind config.
+По умолчанию Tailwind предоставляет шесть числовых утилит `z-index` и утилиту `auto`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.zIndex` Вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js
@@ -75,9 +76,9 @@ By default, Tailwind provides six numeric `z-index` utilities and an `auto` util
   }
 ```
 
-### Negative values
+### Отрицательные значения
 
-If you'd like to add any negative z-index classes that take the same form as Tailwind's [negative margin](/docs/margin#negative-margins) classes, prefix the keys in your config file with a dash:
+Если Вы хотите добавить какие-либо классы с отрицательным z-индексом, которые имеют ту же форму, что и классы Tailwind [отрицательные поля](/docs/margin#negative-margins), поставьте перед ключами в файле конфигурации дефис:
 
 ```diff-js
   // tailwind.config.js
@@ -92,7 +93,7 @@ If you'd like to add any negative z-index classes that take the same form as Tai
   }
 ```
 
-Tailwind is smart enough to generate classes like `-z-10` when it sees the leading dash, not `z--10` like you might expect.
+Tailwind достаточно умен, чтобы генерировать классы вроде `-z-10`, когда видит начальную черту, а не `z--10`, как Вы могли ожидать.
 
 ### Варианты
 

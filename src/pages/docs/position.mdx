@@ -1,6 +1,7 @@
 ---
-title: "Position"
-description: "Utilities for controlling how an element is positioned in the DOM."
+title: "Позиция"
+shortTitle: "Position"
+description: "Утилиты для управления расположением элемента в DOM."
 features:
   responsive: true
   customizable: false
@@ -17,92 +18,92 @@ export const classes = { plugin }
 
 ## Static
 
-Use `static` to position an element according to the normal flow of the document.
+Используйте `static` для позиционирования элемента в соответствии с обычным потоком документа.
 
-Any offsets will be ignored and the element will not act as a position reference for absolutely positioned children.
+Любые смещения будут игнорироваться, и элемент не будет действовать как ссылка на позицию для абсолютно позиционированных дочерних элементов.
 
 ```html fuchsia
 <template preview>
   <div class="relative bg-fuchsia-200 p-6">
     <div class="static h-32 bg-fuchsia-300 p-4 text-fuchsia-600 font-medium">
-      <p>Static parent</p>
+      <p>Статический родитель</p>
       <div class="absolute bottom-0 left-0 bg-fuchsia-500 p-4 text-fuchsia-50">
-        <p>Absolute child</p>
+        <p>Абсолютный ребенок</p>
       </div>
     </div>
   </div>
 </template>
 
 <div class="**static** ...">
-  <p>Static parent</p>
+  <p>Статический родитель</p>
   <div class="absolute bottom-0 left-0 ...">
-    <p>Absolute child</p>
+    <p>Абсолютный ребенок</p>
   </div>
 </div>
 ```
 
 ## Relative
 
-Use `relative` to position an element according to the normal flow of the document.
+Используйте `relative`, чтобы позиционировать элемент в соответствии с нормальным потоком документа.
 
-Offsets are calculated relative to the element's normal position and the element *will* act as a position reference for absolutely positioned children.
+Смещения рассчитываются относительно нормального положения элемента, и элемент *будет* действовать как ссылка на позицию для абсолютно позиционированных дочерних элементов.
 
 ```html rose
 <template preview>
   <div class="relative bg-rose-200 p-6">
     <div class="relative h-32 bg-rose-300 p-4 text-rose-600 font-medium">
-      <p>Static parent</p>
+      <p>Статический родитель</p>
       <div class="absolute bottom-0 left-0 bg-rose-500 p-4 text-rose-50">
-        <p>Absolute child</p>
+        <p>Абсолютный ребенок</p>
       </div>
     </div>
   </div>
 </template>
 
 <div class="**relative** ...">
-  <p>Static parent</p>
+  <p>Статический родитель</p>
   <div class="absolute bottom-0 left-0 ...">
-    <p>Absolute child</p>
+    <p>Абсолютный ребенок</p>
   </div>
 </div>
 ```
 
 ## Absolute
 
-Use `absolute` to position an element *outside* of the normal flow of the document, causing neighboring elements to act as if the element doesn't exist.
+Используйте `absolute` для позиционирования элемента *вне* обычного потока документа, заставляя соседние элементы действовать так, как будто этот элемент не существует.
 
-Offsets are calculated relative to the nearest parent that has a position other than `static`, and the element *will* act as a position reference for other absolutely positioned children.
+Смещения вычисляются относительно ближайшего родителя, у которого позиционирование, отличное от `static`, и элемент *будет* действовать как ссылка на позицию для других абсолютно позиционированных дочерних элементов.
 
 ```html indigo
 <template preview>
   <div class="space-y-6">
     <div>
-      <p class="text-sm text-indigo-900 mb-2">With static positioning</p>
+      <p class="text-sm text-indigo-900 mb-2">Со статическим позиционированием</p>
       <div class="relative bg-indigo-200 px-6 pt-2 pb-6 font-medium">
-        <p class="mb-2 text-indigo-600">Relative parent</p>
+        <p class="mb-2 text-indigo-600">Родитель с позиционированием relative</p>
         <div class="static bg-indigo-300 p-4 text-indigo-700">
-          <p class="mb-2">Static parent</p>
+          <p class="mb-2">Статический родитель</p>
           <div class="static bottom-0 left-0 bg-indigo-500 p-4 text-indigo-50 inline-block">
-            <p>Static child</p>
+            <p>Статический ребенок</p>
           </div>
           <div class="bg-indigo-200 p-4 text-indigo-600 inline-block">
-            <p>Static sibling</p>
+            <p>Статический брат</p>
           </div>
         </div>
       </div>
     </div>
 
     <div>
-      <p class="text-sm text-indigo-900 mb-2">With absolute positioning</p>
+      <p class="text-sm text-indigo-900 mb-2">С абсолютным позиционированием</p>
       <div class="relative bg-indigo-200 px-6 pt-2 pb-6 font-medium">
-        <p class="mb-2 text-indigo-600">Relative parent</p>
+        <p class="mb-2 text-indigo-600">Родитель с позиционированием relative</p>
         <div class="static bg-indigo-300 p-4 text-indigo-700">
-          <p class="mb-2">Static parent</p>
+          <p class="mb-2">Статический родитель</p>
           <div class="absolute top-0 right-0 bg-indigo-500 p-4 text-indigo-50 inline-block">
-            <p>Absolute child</p>
+            <p>Абсолютный ребенок</p>
           </div>
           <div class="bg-indigo-200 p-4 text-indigo-600 inline-block">
-            <p>Static sibling</p>
+            <p>Статический брат</p>
           </div>
         </div>
       </div>
@@ -111,21 +112,21 @@ Offsets are calculated relative to the nearest parent that has a position other 
 </template>
 
 <div class="static ...">
-  <!-- Static parent -->
-  <div class="static ..."><p>Static child</p></div>
-  <div class="inline-block ..."><p>Static sibling</p></div>
-  <!-- Static parent -->
-  <div class="**absolute** ..."><p>Absolute child</p></div>
-  <div class="inline-block ..."><p>Static sibling</p></div>
+  <!-- Статический родитель -->
+  <div class="static ..."><p>Статический ребенок</p></div>
+  <div class="inline-block ..."><p>Статический брат</p></div>
+  <!-- Статический родитель -->
+  <div class="**absolute** ..."><p>Абсолютный ребенок</p></div>
+  <div class="inline-block ..."><p>Статический брат</p></div>
 </div>
 
 ```
 
 ## Fixed
 
-Use `fixed` to position an element relative to the browser window.
+Используйте `fixed` для позиционирования элемента относительно окна браузера.
 
-Offsets are calculated relative to the viewport and the element *will* act as a position reference for absolutely positioned children.
+Смещения вычисляются относительно области просмотра, и элемент *будет* действовать как ссылка на позицию для абсолютно позиционированных дочерних элементов.
 
 ```html amber
 <template preview>
@@ -140,13 +141,13 @@ Offsets are calculated relative to the viewport and the element *will* act as a 
     </div>
     <div class="relative bg-amber-100 text-amber-600 h-64 font-medium">
 
-      <!-- Hey fellow nerd! Yes, we're using position absolute instead of position fixed in the demo; it's the best way we could come up with to demonstrate how position fixed works without totally jacking up the layout of the entire documentation site. Forgive us! 😄 -->
+      <!-- Привет, ботаник! Да, мы используем абсолютную позицию вместо фиксированной позиции в демонстрации; это лучший способ, который мы могли придумать, чтобы продемонстрировать, как работает фиксированная позиция, без полного искажения макета всего сайта документации. Простите нас! 😄 -->
 
       <div class="absolute left-0 right-0 top-0 bg-amber-300 text-amber-700 z-10 px-4 py-3">
-        Fixed child
+        Фиксированный ребенок
       </div>
       <div class="absolute inset-0 overflow-auto pt-16 px-6 pb-4 space-y-4 font-flow">
-        <p class="font-sans">Scroll me!</p>
+        <p class="font-sans">Прокрутите меня!</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. </p>
         <p>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
         <p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. </p>
@@ -162,10 +163,10 @@ Offsets are calculated relative to the viewport and the element *will* act as a 
 
 <div>
   <div class="**fixed** ...">
-    Fixed child
+    Фиксированный ребенок
   </div>
 
-  Scroll me!
+  Прокрутите меня!
 
   Lorem ipsum...
 </div>
@@ -173,60 +174,60 @@ Offsets are calculated relative to the viewport and the element *will* act as a 
 
 ## Sticky
 
-<TipCompat>Note that sticky positioning is not supported in IE11.</TipCompat>
+<TipCompat>Обратите внимание, что sticky позиционирование не поддерживается в IE11.</TipCompat>
 
-Use `sticky` to position an element as `relative` until it crosses a specified threshold, then treat it as fixed until its parent is off screen.
+Используйте `sticky`, чтобы позиционировать элемент как `relative` до тех пор, пока он не пересечет указанный порог, а затем рассматривать его как фиксированный, пока его родительский элемент не выйдет за пределы экрана.
 
-Offsets are calculated relative to the element's normal position and the element *will* act as a position reference for absolutely positioned children.
+Смещения рассчитываются относительно нормального положения элемента, и элемент *будет* действовать как ссылка на позицию для абсолютно позиционированных дочерних элементов.
 
 ```html emerald
 <template preview>
   <div class="h-64 overflow-auto">
     <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Sticky Heading 1</div>
+      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 1</div>
       <p class="py-4 font-medium text-emerald-500">Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. </p>
     </div>
     <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Sticky Heading 2</div>
+      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 2</div>
       <p class="py-4 font-medium text-emerald-500">Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. </p>
     </div>
     <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Sticky Heading 3</div>
+      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 3</div>
       <p class="py-4 font-medium text-emerald-500">Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. </p>
     </div>
     <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Sticky Heading 4</div>
+      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 4</div>
       <p class="py-4 font-medium text-emerald-500">Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. </p>
     </div>
     <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Sticky Heading 5</div>
+      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 5</div>
       <p class="py-4 font-medium text-emerald-500">Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. </p>
     </div>
     <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Sticky Heading 6</div>
+      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 6</div>
       <p class="py-4 font-medium text-emerald-500">Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. </p>
     </div>
   </div>
 </template>
 
 <div>
-  <div class="sticky top-0 ...">Sticky Heading 1</div>
+  <div class="sticky top-0 ...">Прикрепленный заголовок 1</div>
   <p class="py-4">Quisque cursus...</p>
 </div>
 <div>
-  <div class="sticky top-0 ...">Sticky Heading 2</div>
+  <div class="sticky top-0 ...">Прикрепленный заголовок 2</div>
   <p class="py-4">Integer lacinia...</p>
 </div>
 <div>
-  <div class="sticky top-0 ...">Sticky Heading 3</div>
+  <div class="sticky top-0 ...">Прикрепленный заголовок 3</div>
   <p class="py-4">Nullam mauris...</p>
 </div>
-<!-- etc. -->
+<!-- и т.д. -->
 ```
 
 ## Адаптивность
 
-To change how an element is positioned only at a specific breakpoint, add a `{screen}:` prefix to any existing position utility. For example, adding the class `md:absolute` to an element would apply the `absolute` utility at medium screen sizes and above.
+Чтобы изменить расположение элемента только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите позиции. Например, добавление класса `md:absolute` к элементу применит утилиту `absolute` при средних размерах экрана и выше.
 
 ```html
 <div class="relative h-32 ...">
