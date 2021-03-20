@@ -1,6 +1,7 @@
 ---
-title: "Justify Content"
-description: "Utilities for controlling how flex and grid items are positioned along a container's main axis."
+title: "Выравнивание содержимого по главной оси"
+shortTitle: "Justify Content"
+description: "Утилиты для управления расположением флекс-элементов и сетки вдоль главной оси контейнера."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/justifyContent'
@@ -11,7 +12,7 @@ export const classes = { plugin }
 
 ## Start
 
-Use `justify-start` to justify items against the start of the container's main axis:
+Используйте `justify-start`, чтобы выровнять элементы относительно начала главной оси контейнера:
 
 ```html fuchsia
 <template preview class="p-6">
@@ -31,7 +32,7 @@ Use `justify-start` to justify items against the start of the container's main a
 
 ## Center
 
-Use `justify-center` to justify items along the center of the container's main axis:
+Используйте `justify-center`, чтобы выровнять элементы по центру главной оси контейнера:
 
 ```html indigo
 <template preview class="p-6">
@@ -51,7 +52,7 @@ Use `justify-center` to justify items along the center of the container's main a
 
 ## End
 
-Use `justify-end` to justify items against the end of the container's main axis:
+Используйте `justify-end`, чтобы выровнять элементы относительно конца главной оси контейнера:
 
 ```html lightBlue
 <template preview class="p-6">
@@ -71,7 +72,7 @@ Use `justify-end` to justify items against the end of the container's main axis:
 
 ## Space between
 
-Use `justify-between` to justify items along the container's main axis such that there is an equal amount of space between each item:
+Используйте `justify-between` для выравнивания элементов по главной оси контейнера таким образом, чтобы между каждым элементом оставалось равное пространство:
 
 ```html emerald
 <template preview class="p-6">
@@ -91,7 +92,7 @@ Use `justify-between` to justify items along the container's main axis such that
 
 ## Space around
 
-Use `justify-around` to justify items along the container's main axis such that there is an equal amount of space on each side of each item:
+Используйте `justify-around` для выравнивания элементов по главной оси контейнера таким образом, чтобы с каждой стороны каждого элемента оставалось равное количество места:
 
 ```html purple
 <template preview class="p-6">
@@ -111,7 +112,7 @@ Use `justify-around` to justify items along the container's main axis such that 
 
 ## Space evenly
 
-Use `justify-evenly` to justify items along the container's main axis such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using `justify-around`:
+Используйте `justify-evenly` для выравнивания элементов по главной оси контейнера таким образом, чтобы вокруг каждого элемента было одинаковое пространство, но также с учетом удвоения пространства, которое Вы обычно видите между каждым элементом при использовании `justify-around`:
 
 ```html amber
 <template preview class="p-6">
@@ -131,7 +132,7 @@ Use `justify-evenly` to justify items along the container's main axis such that 
 
 ## Адаптивность
 
-To justify flex items at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:justify-between` to apply the `justify-between` utility at only medium screen sizes and above.
+Чтобы выровнять флекс-элементы в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему классу утилиты. Например, используйте `md:justify-between`, чтобы применить утилиту `justify-between` только при средних размерах экрана и выше.
 
 ```html
 <div class="justify-start **md:justify-between** ...">

@@ -1,6 +1,7 @@
 ---
-title: "Justify Items"
-description: "Utilities for controlling how grid items are aligned along their inline axis."
+title: "Выравнивание элементов по встроенной оси"
+shortTitle: "Justify Items"
+description: "Утилиты для управления выравниванием элементов сетки вдоль их встроенной оси."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/justifyItems'
@@ -11,7 +12,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `justify-items-auto` to justify grid items automatically on their inline axis:
+Используйте `justify-items-auto` для автоматического выравнивания элементов сетки по их встроенной оси:
 
 ```html emerald
 <template preview class="p-4">
@@ -37,7 +38,7 @@ Use `justify-items-auto` to justify grid items automatically on their inline axi
 
 ## Start
 
-Use `justify-items-start` to justify grid items against the start of their inline axis:
+Используйте `justify-items-start` для выравнивания элементов сетки относительно начала их встроенной оси:
 
 ```html indigo
 <template preview class="p-4">
@@ -63,7 +64,7 @@ Use `justify-items-start` to justify grid items against the start of their inlin
 
 ## End
 
-Use `justify-items-end` to justify grid items against the end of their inline axis:
+Используйте `justify-items-end` для выравнивания элементов сетки относительно конца их встроенной оси:
 
 ```html lightBlue
 <template preview class="p-4">
@@ -89,7 +90,7 @@ Use `justify-items-end` to justify grid items against the end of their inline ax
 
 ## Center
 
-Use `justify-items-center` to justify grid items along their inline axis:
+Используйте `justify-items-center`, чтобы выровнять элементы сетки по их встроенной оси:
 
 ```html amber
 <template preview class="p-4">
@@ -115,7 +116,7 @@ Use `justify-items-center` to justify grid items along their inline axis:
 
 ## Stretch
 
-Use `justify-items-stretch` to stretch items along their inline axis:
+Используйте `justify-items-stretch`, чтобы растянуть элементы вдоль их встроенной оси:
 
 ```html fuchsia
 <template preview class="p-4">
@@ -141,7 +142,7 @@ Use `justify-items-stretch` to stretch items along their inline axis:
 
 ## Адаптивность
 
-To justify flex items at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:justify-items-center` to apply the `justify-items-center` utility at only medium screen sizes and above.
+Чтобы выровнять флекс-элементы в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему служебному классу. Например, используйте `md:justify-items-center`, чтобы применить утилиту `justify-items-center` только при средних размерах экрана и выше.
 
 ```html
 <div class="justify-items-start md:justify-items-center">

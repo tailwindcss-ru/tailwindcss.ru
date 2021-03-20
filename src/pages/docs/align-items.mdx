@@ -1,6 +1,7 @@
 ---
-title: "Align Items"
-description: "Utilities for controlling how flex and grid items are positioned along a container's cross axis."
+title: "Выравнивание элементов"
+shortTitle: "Align Items"
+description: "Утилиты для управления расположением флекс элементов и сетки вдоль поперечной оси контейнера."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/alignItems'
@@ -11,7 +12,7 @@ export const classes = { plugin }
 
 ## Stretch
 
-Use `items-stretch` to stretch items to fill the container's cross axis:
+Используйте `items-stretch`, чтобы растянуть элементы до заполнения поперечной оси контейнера:
 
 ```html lightBlue
 <template preview class="p-4">
@@ -31,7 +32,7 @@ Use `items-stretch` to stretch items to fill the container's cross axis:
 
 ## Start
 
-Use `items-start` to align items to the start of the container's cross axis:
+Используйте `items-start`, чтобы выровнять элементы по началу поперечной оси контейнера:
 
 ```html fuchsia
 <template preview class="p-4">
@@ -51,7 +52,7 @@ Use `items-start` to align items to the start of the container's cross axis:
 
 ## Center
 
-Use `items-center` to align items along the center of the container's cross axis:
+Используйте `items-center` для выравнивания элементов по центру поперечной оси контейнера:
 
 ```html rose
 <template preview class="p-4">
@@ -71,7 +72,7 @@ Use `items-center` to align items along the center of the container's cross axis
 
 ## End
 
-Use `items-end` to align items to the end of the container's cross axis:
+Используйте `items-end`, чтобы выровнять элементы по концу поперечной оси контейнера:
 
 ```html purple
 <template preview class="p-4">
@@ -91,7 +92,7 @@ Use `items-end` to align items to the end of the container's cross axis:
 
 ## Baseline
 
-Use `items-baseline` to align items along the container's cross axis such that all of their baselines align:
+Используйте `items-baseline` для выравнивания элементов по поперечной оси контейнера так, чтобы все их базовые линии были выровнены:
 
 ```html emerald
 <template preview class="p-4">
@@ -111,7 +112,7 @@ Use `items-baseline` to align items along the container's cross axis such that a
 
 ## Адаптивность
 
-To control the alignment of flex items at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:items-center` to apply the `items-center` utility at only medium screen sizes and above.
+Чтобы контролировать выравнивание гибких элементов в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему служебному классу. Например, используйте `md:items-center`, чтобы применить утилиту `items-center` только при средних размерах экрана и выше.
 
 ```html
 <div class="items-stretch **md:items-center** ...">

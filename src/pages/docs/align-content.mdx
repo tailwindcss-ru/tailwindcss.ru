@@ -1,6 +1,7 @@
 ---
-title: "Align Content"
-description: "Utilities for controlling how rows are positioned in multi-row flex and grid containers."
+title: "Выравнивание сождержимого"
+shortTitle: "Align Content"
+description: "Утилиты для управления расположением строк в многорядных флекс и грид контейнерах."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/alignContent'
@@ -11,7 +12,7 @@ export const classes = { plugin }
 
 ## Start
 
-Use `content-start` to pack rows in a container against the start of the cross axis:
+Используйте `content-start`, чтобы упаковать строки в контейнер напротив начала поперечной оси:
 
 ```html rose
 <template preview class="p-4">
@@ -45,7 +46,7 @@ Use `content-start` to pack rows in a container against the start of the cross a
 
 ## Center
 
-Use `content-center` to pack rows in a container in the center of the cross axis:
+Используйте `content-center`, чтобы упаковать строки в контейнер в центре поперечной оси:
 
 ```html indigo
 <template preview class="p-4">
@@ -79,7 +80,7 @@ Use `content-center` to pack rows in a container in the center of the cross axis
 
 ## End
 
-Use `content-end` to pack rows in a container against the end of the cross axis:
+Используйте `content-end`, чтобы упаковать строки в контейнер напротив конца поперечной оси:
 
 ```html emerald
 <template preview class="p-4">
@@ -113,7 +114,7 @@ Use `content-end` to pack rows in a container against the end of the cross axis:
 
 ## Space between
 
-Use `content-between` to distribute rows in a container such that there is an equal amount of space between each line:
+Используйте `content-between` для распределения строк в контейнере таким образом, чтобы между каждой строкой оставалось равное пространство:
 
 ```html amber
 <template preview class="p-4">
@@ -147,7 +148,7 @@ Use `content-between` to distribute rows in a container such that there is an eq
 
 ## Space around
 
-Use `content-around` to distribute rows in a container such that there is an equal amount of space around each line:
+Используйте `content-around` для распределения строк в контейнере таким образом, чтобы вокруг каждой строки оставалось равное количество места:
 
 ```html lightBlue
 <template preview class="p-4">
@@ -181,7 +182,7 @@ Use `content-around` to distribute rows in a container such that there is an equ
 
 ## Адаптивность
 
-To control the alignment of flex content at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:content-around` to apply the `content-around` utility at only medium screen sizes and above.
+Используйте для управления выравниванием гибкого содержимого в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему классу утилиты. Например, используйте `md:content-around`, чтобы применить утилиту `content-around` только при средних размерах экрана и выше.
 
 ```html
 <div class="content-start **md:content-around** ...">

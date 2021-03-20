@@ -1,6 +1,7 @@
 ---
-title: "Justify Self"
-description: "Utilities for controlling how an individual grid item is aligned along its inline axis."
+title: "Выравнивание себя по встроенной оси"
+shortTitle: "Justify Self"
+description: "Утилиты для управления выравниванием отдельного элемента сетки по его встроенной оси."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/justifySelf'
@@ -11,7 +12,7 @@ export const classes = { plugin }
 
 ## Auto
 
-Use `justify-self-auto` to align an item based on the value of the grid's `justify-items` property:
+Используйте `justify-self-auto` для выравнивания элемента на основе значения свойства сетки `justify-items`:
 
 ```html purple
 <template preview class="p-4">
@@ -37,7 +38,7 @@ Use `justify-self-auto` to align an item based on the value of the grid's `justi
 
 ## Start
 
-Use `justify-self-start` to align a grid item to the start its inline axis:
+Используйте `justify-self-start`, чтобы выровнять элемент сетки относительно начала его встроенной оси:
 
 ```html emerald
 <template preview class="p-4">
@@ -63,7 +64,7 @@ Use `justify-self-start` to align a grid item to the start its inline axis:
 
 ## Center
 
-Use `justify-self-center` to align a grid item along the center its inline axis:
+Используйте `justify-self-center`, чтобы выровнять элемент сетки по центру его встроенной оси:
 
 ```html amber
 <template preview class="p-4">
@@ -89,7 +90,7 @@ Use `justify-self-center` to align a grid item along the center its inline axis:
 
 ## End
 
-Use `justify-self-end` to align a grid item to the end its inline axis:
+Используйте `justify-self-end`, чтобы выровнять элемент сетки до конца его встроенной оси:
 
 ```html rose
 <template preview class="p-4">
@@ -115,7 +116,7 @@ Use `justify-self-end` to align a grid item to the end its inline axis:
 
 ## Stretch
 
-Use `justify-self-stretch` to stretch a grid item to fill the grid area on its inline axis:
+Используйте `justify-self-stretch`, чтобы растянуть элемент сетки, чтобы заполнить область сетки на его встроенной оси:
 
 ```html fuchsia
 <template preview class="p-4">
@@ -141,7 +142,7 @@ Use `justify-self-stretch` to stretch a grid item to fill the grid area on its i
 
 ## Адаптивность
 
-To control the alignment of a grid item inside its grid area at a specific breakpoint, add a `{screen}:` prefix to any existing utility class. For example, use `md:justify-self-end` to apply the `justify-self-end` utility at only medium screen sizes and above.
+Чтобы контролировать выравнивание элемента сетки внутри его области сетки в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему служебному классу. Например, используйте `md:justify-self-end`, чтобы применить утилиту `justify-self-end` только при средних размерах экрана и выше.
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
