@@ -72,7 +72,7 @@ export const documentationNav = {
     pages['visibility'],
     pages['z-index'],
   ],
-  'Flexbox': [
+  'Флексы': [
     pages['flex-direction'],
     pages['flex-wrap'],
     pages['flex'],
@@ -80,7 +80,7 @@ export const documentationNav = {
     pages['flex-shrink'],
     pages['order'],
   ],
-  Grid: [
+  'Сетка': [
     pages['grid-template-columns'],
     pages['grid-column'],
     pages['grid-template-rows'],
@@ -90,7 +90,7 @@ export const documentationNav = {
     pages['grid-auto-rows'],
     pages['gap'],
   ],
-  'Box Alignment': [
+  'Выравнивание': [
     pages['justify-content'],
     pages['justify-items'],
     pages['justify-self'],
@@ -101,8 +101,12 @@ export const documentationNav = {
     pages['place-items'],
     pages['place-self'],
   ],
-  Spacing: [pages['padding'], pages['margin'], pages['space']],
-  Sizing: [
+  'Интервал': [
+    pages['padding'],
+    pages['margin'],
+    pages['space']
+  ],
+  'Размеры': [
     pages['width'],
     pages['min-width'],
     pages['max-width'],

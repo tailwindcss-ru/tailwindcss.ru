@@ -1,6 +1,7 @@
 ---
-title: "Min-Width"
-description: "Utilities for setting the minimum width of an element"
+title: "Минимальная ширина"
+shortTitle: "Min-Width"
+description: "Утилиты для установки минимальной ширины элемента"
 features:
   responsive: true
   customizable: true
@@ -16,7 +17,7 @@ export const classes = { plugin }
 
 ## Применение
 
-Set the minimum width of an element using the `min-w-0` or `min-w-full` utilities.
+Установите минимальную ширину элемента с помощью утилит `min-w-0` или `min-w-full`.
 
 ```html indigo
 <template preview>
@@ -34,7 +35,7 @@ Set the minimum width of an element using the `min-w-0` or `min-w-full` utilitie
 
 ## Адаптивность
 
-To control the min-width of an element at a specific breakpoint, add a `{screen}:` prefix to any existing min-width utility.
+Чтобы управлять минимальной шириной элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите минимальной ширины.
 
 ```html
 <div class="w-24 min-w-full **md:min-w-0** ...">
@@ -48,9 +49,9 @@ To control the min-width of an element at a specific breakpoint, add a `{screen}
 
 ## Кастомизация
 
-### Min-width scale
+### Шкала минимальной ширины
 
-Customize Tailwind's default min-width scale in the `theme.minWidth` section of your `tailwind.config.js` file.
+Настройте шкалу минимальной ширины Tailwind по умолчанию в разделе `theme.minWidth` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js

@@ -1,6 +1,7 @@
 ---
-title: "Height"
-description: "Utilities for setting the height of an element"
+title: "Высота"
+shortTitle: "Height"
+description: "Утилиты для установки высоты элемента"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/height'
@@ -13,9 +14,9 @@ export const classes = {
   sort: numbersFirst,
 }
 
-## Auto
+## Авто
 
-Use `h-auto` to let the browser determine the height for the element.
+Используйте `h-auto`, чтобы браузер определял высоту элемента.
 
 ```html amber
 <template preview>
@@ -25,9 +26,9 @@ Use `h-auto` to let the browser determine the height for the element.
 <div class="**h-auto** ...">h-auto</div>
 ```
 
-## Screen height
+## Высота экрана
 
-Use `h-screen` to make an element span the entire height of the viewport.
+Используйте `h-screen`, чтобы элемент занимал всю высоту области просмотра.
 
 ```html rose
 <template preview>
@@ -37,9 +38,9 @@ Use `h-screen` to make an element span the entire height of the viewport.
 <div class="**h-screen** p-6 ...">h-screen</div>
 ```
 
-## Fixed height
+## Фиксированная высота
 
-Use `h-{number}` or `h-px` to set an element to a fixed height.
+Используйте `h-{number}` или `h-px`, чтобы установить элемент на фиксированную высоту.
 
 ```html indigo
 <template preview>
@@ -71,9 +72,9 @@ Use `h-{number}` or `h-px` to set an element to a fixed height.
 </div>
 ```
 
-## Full height
+## Полная высота
 
-Use `h-full` to set an element's height to 100% of its parent, as long as the parent has a defined height.
+Используйте `h-full`, чтобы установить высоту элемента равной 100% от его родительского элемента, если родительский элемент имеет определенную высоту.
 
 ```html
 <template preview class="flex justify-around items-end text-sm p-4">
@@ -91,7 +92,7 @@ Use `h-full` to set an element's height to 100% of its parent, as long as the pa
 
 ## Адаптивность
 
-To control the height of an element at a specific breakpoint, add a `{screen}:` prefix to any existing width utility. For example, adding the class `md:h-full` to an element would apply the `h-full` utility at medium screen sizes and above.
+Чтобы контролировать высоту элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите ширины. Например, добавление класса `md:h-full` к элементу приведет к применению утилиты `h-full` при средних размерах экрана и выше.
 
 ```html
 <div class="h-8 **md:h-full**"></div>
@@ -103,11 +104,11 @@ To control the height of an element at a specific breakpoint, add a `{screen}:` 
 
 ## Кастомизация
 
-### Height Scale
+### Шкала высоты
 
-By default, Tailwind's height scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to heights.
+По умолчанию шкала высоты Tailwind представляет собой комбинацию [шкалы интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), а также некоторых дополнительных значений, специфичных для высот.
 
-You can customize the spacing scale for padding, margin, width, and height all at once in the `theme.spacing` section of your `tailwind.config.js` file:
+Вы можете настроить шкалу интервалов для заполнения, полей, ширины и высоты одновременно в разделе `theme.spacing` Вашего файла `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -123,7 +124,7 @@ You can customize the spacing scale for padding, margin, width, and height all a
   }
 ```
 
-To customize height separately, use the `theme.height` section of your `tailwind.config.js` file.
+Чтобы настроить высоту отдельно, используйте раздел `theme.height` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js

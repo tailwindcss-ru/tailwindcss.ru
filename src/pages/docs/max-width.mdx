@@ -1,6 +1,7 @@
 ---
-title: "Max-Width"
-description: "Utilities for setting the maximum width of an element"
+title: "Максимальная ширина"
+shortTitle: "Max-Width"
+description: "Утилиты для установки максимальной ширины элемента"
 ---
 
 import plugin from 'tailwindcss/lib/plugins/maxWidth'
@@ -15,7 +16,7 @@ export const classes = {
 
 ## Применение
 
-Set the maximum width of an element using the `max-w-{size}` utilities.
+Установите максимальную ширину элемента с помощью утилит `max-w-{size}`.
 
 ```html emerald
 <template preview>
@@ -29,21 +30,21 @@ Set the maximum width of an element using the `max-w-{size}` utilities.
 </div>
 ```
 
-## Prose
+## Проза
 
-We added a new max-width by default called `max-w-prose`. If you are familiar with the [typography plugin](https://github.com/tailwindlabs/tailwindcss-typography) you might recognize this one. The idea behind this class is that it allows you to have an optimal reading width.
+Мы добавили новую максимальную ширину по умолчанию под названием `max-w-prose`. Если Вы знакомы с [плагином типографики](https://github.com/tailwindlabs/tailwindcss-typography), Вы можете узнать его. Идея этого класса заключается в том, что он позволяет Вам иметь оптимальную ширину чтения.
 
 ```html purple
 <template preview>
   <div class="max-w-prose text-sm text-purple-700 p-6">
-    <p class="font-bold">Why do you never see elephants hiding in trees?</p>
-    <p>Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+    <p class="font-bold">Почему вы никогда не видите слонов, прячущихся на деревьях?</p>
+    <p>Потому что они так хороши в этом. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
   </div>
 </template>
 
 <div class="**max-w-prose** ...">
-  <p class="font-bold">Why do you never see elephants hiding in trees?</p>
-  <p>Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+  <p class="font-bold">Почему вы никогда не видите слонов, прячущихся на деревьях?</p>
+  <p>Потому что они так хороши в этом. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
 </div>
 ```
 
@@ -51,7 +52,7 @@ We added a new max-width by default called `max-w-prose`. If you are familiar wi
 
 ## Адаптивность
 
-To control the max-width of an element at a specific breakpoint, add a `{screen}:` prefix to any existing max-width utility.
+Чтобы контролировать максимальную ширину элемента в определенной точке останова, добавьте префикс `{screen}:` к любой существующей утилите максимальной ширины.
 
 ```html
 <div class="max-w-sm **md:max-w-lg** ...">
@@ -65,9 +66,9 @@ To control the max-width of an element at a specific breakpoint, add a `{screen}
 
 ## Кастомизация
 
-### Max-Width Scale
+### Шкала максимальной ширины
 
-Customize Tailwind's default max-width scale in the `theme.maxWidth` section of your `tailwind.config.js` file.
+Настройте масштаб максимальной ширины Tailwind по умолчанию в разделе `theme.maxWidth` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js

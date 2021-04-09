@@ -1,6 +1,7 @@
 ---
-title: "Min-Height"
-description: "Utilities for setting the minimum height of an element"
+title: "Минимальная высота"
+shortTitle: "Min-Height"
+description: "Утилиты для установки минимальной высоты элемента"
 features:
   responsive: true
   customizable: true
@@ -16,7 +17,7 @@ export const classes = { plugin }
 
 ## Применение
 
-Set the minimum height of an element using the `min-h-0`, `min-h-full`, or `min-h-screen` utilities.
+Установите минимальную высоту элемента с помощью утилит `min-h-0`, `min-h-full` или `min-h-screen`.
 
 ```html purple
 <template preview>
@@ -38,7 +39,7 @@ Set the minimum height of an element using the `min-h-0`, `min-h-full`, or `min-
 
 ## Адаптивность
 
-To control the min-height of an element at a specific breakpoint, add a `{screen}:` prefix to any existing min-height utility.
+Чтобы управлять минимальной высотой элемента в определенной точке останова, добавьте префикс `{screen}:` к любой существующей утилите минимальной высоты.
 
 ```html
 <div class="h-48 ...">
@@ -54,9 +55,9 @@ To control the min-height of an element at a specific breakpoint, add a `{screen
 
 ## Кастомизация
 
-### Min-height scale
+### Шкала минимальной высоты
 
-Customize Tailwind's default min-height scale in the `theme.minHeight` section of your `tailwind.config.js` file.
+Настройте шкалу минимальной высоты по умолчанию для Tailwind в разделе `theme.minHeight` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
