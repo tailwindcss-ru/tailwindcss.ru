@@ -1,7 +1,7 @@
 ---
-title: "Space Between"
+title: "Пространство между"
 shortTitle: "Space Between"
-description: "Utilities for controlling the space between child elements."
+description: "Утилиты для управления пространством между дочерними элементами."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/space'
@@ -19,9 +19,9 @@ export const classes = {
   ),
 }
 
-## Add horizontal space between children
+## Добавьте горизонтальное пространство между дочерними элементами
 
-Control the horizontal space between elements using the `space-x-{amount}` utilities.
+Контролируйте расстояние между элементами по горизонтали с помощью утилит `space-x-{amount}`.
 
 ```html fuchsia
 <template preview>
@@ -41,9 +41,9 @@ Control the horizontal space between elements using the `space-x-{amount}` utili
 </div>
 ```
 
-## Add vertical space between children
+## Добавьте вертикальное пространство между дочерними элементами
 
-Control the vertical space between elements using the `space-y-{amount}` utilities.
+Контролируйте расстояние между элементами по вертикали с помощью утилит `space-y-{amount}`.
 
 ```html lightBlue
 <template preview>
@@ -63,9 +63,9 @@ Control the vertical space between elements using the `space-y-{amount}` utiliti
 </div>
 ```
 
-## Reversing children order
+## Изменение порядка дочерних элементов
 
-If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `space-x-reverse` or `space-y-reverse` utilities to ensure the space is added to the correct side of each element.
+Если Ваши элементы расположены в обратном порядке (например, `flex-row-reverse` или `flex-col-reverse`), используйте утилиты `space-x-reverse` или `space-y-reverse`, чтобы обеспечить свободное пространство, добавив к правильной стороне каждого элемента.
 
 ```html
 <template preview>
@@ -89,7 +89,7 @@ If your elements are in reverse order (using say `flex-row-reverse` or `flex-col
 
 ## Адаптивность
 
-To control the space between elements at a specific breakpoint, add a `{screen}:` prefix to any existing space utility. For example, adding the class `md:space-x-8` to an element would apply the `space-x-8` utility at medium screen sizes and above.
+Чтобы контролировать расстояние между элементами в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите интервалов. Например, добавление класса `md:space-x-8` к элементу приведет к применению утилиты `space-x-8` при средних размерах экрана и выше.
 
 ```html
 <div class="flex space-x-2 **md:space-x-8**">
@@ -105,9 +105,9 @@ To control the space between elements at a specific breakpoint, add a `{screen}:
 
 ## Кастомизация
 
-### Spacing scale
+### Шкала интервалов
 
-If you'd like to customize your values for space between, padding, margin, width, and height all at once, use the `theme.spacing` section of your `tailwind.config.js` file.
+Если Вы хотите одновременно настроить значения расстояния между ними, отступов, полей, ширины и высоты, используйте раздел `theme.spacing` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
@@ -123,7 +123,7 @@ If you'd like to customize your values for space between, padding, margin, width
   }
 ```
 
-To customize only the space between values, use the `theme.space` section of your `tailwind.config.js` file.
+Чтобы настроить только расстояние между значениями, используйте раздел `theme.space` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js

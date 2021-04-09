@@ -1,7 +1,7 @@
 ---
 title: "Отступы"
 shortTitle: "Margin"
-description: "Utilities for controlling an element's margin."
+description: "Утилиты для управления отступами элемента."
 features:
   responsive: true
   customizable: true
@@ -19,11 +19,11 @@ export const classes = {
   sort: numbersFirstByPrefix,
 }
 
-## Add margin to a single side
+## Добавить отступ с одной стороны
 
-Control the margin on one side of an element using the `m{t|r|b|l}-{size}` utilities.
+Управляйте отступом на одной стороне элемента с помощью утилит `m{t|r|b|l}-{size}`.
 
-For example, `mt-6` would add `1.5rem` of margin to the top of an element, `mr-4` would add `1rem` of margin to the right of an element, `mb-8` would add `2rem` of margin to the bottom of an element, and `ml-2` would add `0.5rem` of margin to the left of an element.
+Например, `mt-6` добавит `1.5rem` отступ элементу сверху, `mr-4` добавит `1rem` отступ элементу справа, `mb-8` добавит `2rem` отступ элементу снизу, и `ml-2` добавит `0.5rem` отступ элементу слева.
 
 ```html rose
 <template preview>
@@ -53,9 +53,9 @@ For example, `mt-6` would add `1.5rem` of margin to the top of an element, `mr-4
 <div class="**ml-8** ...">ml-8</div>
 ```
 
-## Add horizontal margin
+## Добавить горизонтальный отступ
 
-Control the horizontal margin of an element using the `mx-{size}` utilities.
+Управляйте горизонтальным отступом элемента с помощью утилит `mx-{size}`.
 
 ```html purple
 <template preview>
@@ -69,9 +69,9 @@ Control the horizontal margin of an element using the `mx-{size}` utilities.
 <div class="**mx-8** ...">mx-8</div>
 ```
 
-## Add vertical margin
+## Добавить вертикальный отступ
 
-Control the vertical margin of an element using the `my-{size}` utilities.
+Управляйте вертикальным отступом элемента с помощью утилит `my-{size}`.
 
 ```html emerald
 <template preview>
@@ -85,9 +85,9 @@ Control the vertical margin of an element using the `my-{size}` utilities.
 <div class="**my-8** ...">my-8</div>
 ```
 
-## Add margin to all sides
+## Добавить отступ для всех сторон
 
-Control the margin on all sides of an element using the `m-{size}` utilities.
+Контролируйте отступы со всех сторон элемента с помощью утилит `m-{size}`.
 
 ```html lightBlue
 <template preview>
@@ -101,9 +101,9 @@ Control the margin on all sides of an element using the `m-{size}` utilities.
 <div class="**m-8** ...">m-8</div>
 ```
 
-## Negative margins
+## Отрицательные отступы
 
-Control the negative margin of an element using the `-m{side?}-{size}` utilities.
+Управляйте отрицательным отступом элемента с помощью утилит `-m{side?}-{size}`.
 
 ```html fuchsia
 <template preview>
@@ -125,7 +125,7 @@ Control the negative margin of an element using the `-m{side?}-{size}` utilities
 
 ## Адаптивность
 
-To control the margin of an element at a specific breakpoint, add a `{screen}:` prefix to any existing margin utility. For example, adding the class `md:my-8` to an element would apply the `my-8` utility at medium screen sizes and above.
+Чтобы управлять отступом элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите отступа. Например, добавление класса `md:my-8` к элементу приведет к применению утилиты `my-8` при средних размерах экрана и выше.
 
 ```html
 <div class="mt-8 **md:my-8**">
@@ -139,11 +139,11 @@ To control the margin of an element at a specific breakpoint, add a `{screen}:` 
 
 ## Кастомизация
 
-### Margin scale
+### Шкала отступов
 
-By default, Tailwind provides 20 margin utilities for each side and axis.
+По умолчанию Tailwind предоставляет 20 утилит отступов для каждой стороны и оси.
 
-If you'd like to customize these values for padding, margin, width, and height all at once, use the `theme.spacing` section of your `tailwind.config.js` file.
+Если Вы хотите настроить эти значения для заполнения, полей, ширины и высоты одновременно, используйте раздел `theme.spacing` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
@@ -159,7 +159,7 @@ If you'd like to customize these values for padding, margin, width, and height a
   }
 ```
 
-To customize only the margin values, use the `theme.margin` section of your `tailwind.config.js` file.
+Чтобы настроить только значения отступов, используйте раздел `theme.margin` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
@@ -177,9 +177,9 @@ To customize only the margin values, use the `theme.margin` section of your `tai
 
 Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
 
-### Negative values
+### Отрицательные значения
 
-If you'd like to add additional negative margin classes (taking the form `-m{side?}-{size}`), prefix the keys in your config file with a dash:
+Если Вы хотите добавить дополнительные классы отрицательных отступов (принимающие форму `-m{side?}-{size}`), поставьте перед ключами в Вашем файле конфигурации дефис:
 
 ```diff-js
   // tailwind.config.js
@@ -194,7 +194,7 @@ If you'd like to add additional negative margin classes (taking the form `-m{sid
   }
 ```
 
-Tailwind is smart enough to generate classes like `-mx-72` when it sees the leading dash, not `mx--72` like you might expect.
+Tailwind достаточно умен, чтобы сгенерировать такие классы, как `-mx-72`, когда видит тире, а не `mx--72`, как Вы могли ожидать.
 
 ### Варианты
 

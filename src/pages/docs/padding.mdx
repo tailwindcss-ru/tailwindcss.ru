@@ -19,11 +19,11 @@ export const classes = {
   sort: numbersFirstByPrefix,
 }
 
-## Add padding to a single side
+## Добавить поле с одной стороны
 
-Control the padding on one side of an element using the `p{t|r|b|l}-{size}` utilities.
+Управляйте полями c одной сторонs элемента с помощью утилит `p{t|r|b|l}-{size}`.
 
-For example, `pt-6` would add `1.5rem` of padding to the top of an element, `pr-4` would add `1rem` of padding to the right of an element, `pb-8` would add `2rem` of padding to the bottom of an element, and `pl-2` would add `0.5rem` of padding to the left of an element.
+Например, `pt-6` добавит `1.5rem` отступ к верху элемента, `pr-4` добавит `1rem` отступ элементу справа, `pb-8` добавит `2rem` отступ к низу элемента, и `pl-2` добавит `0.5rem` отступ элементу слева.
 
 ```html rose
 <template preview>
@@ -57,9 +57,9 @@ For example, `pt-6` would add `1.5rem` of padding to the top of an element, `pr-
 <div class="**pl-2** ...">pl-2</div>
 ```
 
-## Add horizontal padding
+## Добавить поля по горизонтали
 
-Control the horizontal padding of an element using the `px-{size}` utilities.
+Управляйте полями элемента по горизонтали с помощью утилит `px-{size}`.
 
 ```html emerald
 <template preview>
@@ -73,9 +73,9 @@ Control the horizontal padding of an element using the `px-{size}` utilities.
 <div class="**px-8** ...">px-8</div>
 ```
 
-## Add vertical padding
+## Добавить поля по вертикали
 
-Control the vertical padding of an element using the `py-{size}` utilities.
+Управляйте вертикальными полями элемента с помощью утилит `py-{size}`.
 
 ```html indigo
 <template preview>
@@ -89,9 +89,9 @@ Control the vertical padding of an element using the `py-{size}` utilities.
 <div class="**py-8** ...">py-8</div>
 ```
 
-## Add padding to all sides
+## Добавить поля со всех сторон
 
-Control the padding on all sides of an element using the `p-{size}` utilities.
+Управляйте полями со всех сторон элемента с помощью утилит `p-{size}`.
 
 ```html fuchsia
 <template preview>
@@ -109,7 +109,7 @@ Control the padding on all sides of an element using the `p-{size}` utilities.
 
 ## Адаптивность
 
-To control the padding of an element at a specific breakpoint, add a `{screen}:` prefix to any existing padding utility. For example, adding the class `md:py-8` to an element would apply the `py-8` utility at medium screen sizes and above.
+Чтобы управлять заполнением элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите заполнения. Например, добавление класса `md:py-8` к элементу приведет к применению утилиты `py-8` при средних размерах экрана и выше.
 
 ```html
 <div class="**md:py-8** ...">
@@ -123,11 +123,11 @@ To control the padding of an element at a specific breakpoint, add a `{screen}:`
 
 ## Кастомизация
 
-### Padding scale
+### Шкала полей
 
-By default, Tailwind provides 19 fixed padding utilities for each side and axis.
+По умолчанию Tailwind предоставляет 19 фиксированных утилит заполнения для каждой стороны и оси.
 
-If you'd like to customize these values for padding, margin, width, and height all at once, use the `theme.spacing` section of your `tailwind.config.js` file.
+Если Вы хотите настроить эти значения для заполнения, полей, ширины и высоты одновременно, используйте раздел `theme.spacing` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
@@ -143,7 +143,7 @@ If you'd like to customize these values for padding, margin, width, and height a
   }
 ```
 
-To customize only the padding values, use the `theme.padding` section of your `tailwind.config.js` file.
+Чтобы настроить только значения заполнения, используйте раздел `theme.padding` Вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
