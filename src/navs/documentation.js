@@ -114,7 +114,7 @@ export const documentationNav = {
     pages['min-height'],
     pages['max-height'],
   ],
-  Typography: [
+  'Типография': [
     pages['font-family'],
     pages['font-size'],
     pages['font-smoothing'],

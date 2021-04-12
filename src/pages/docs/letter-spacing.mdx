@@ -1,6 +1,7 @@
 ---
-title: "Letter Spacing"
-description: "Utilities for controlling the tracking (letter spacing) of an element."
+title: "Межбуквенное расстояние"
+shortTitle: "Letter Spacing"
+description: "Утилиты для управления трекингом (межбуквенным интервалом) элемента."
 features:
   responsive: true
   customizable: true
@@ -16,59 +17,59 @@ export const classes = { plugin }
 
 ## Применение
 
-Control the letter spacing of an element using the `tracking-{size}` utilities.
+Управляйте межбуквенным интервалом в элементе с помощью утилит `tracking-{size}`.
 
 ```html lightBlue
 <template preview>
   <div class="mb-6">
     <p class="mb-1 text-sm text-light-blue-600">.tracking-tighter</p>
-    <p class="tracking-tighter text-lg text-light-blue-800">The quick brown fox jumped over the lazy dog.</p>
+    <p class="tracking-tighter text-lg text-light-blue-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
   </div>
   <div class="mb-6">
     <p class="mb-1 text-sm text-light-blue-600">.tracking-tight</p>
-    <p class="tracking-tight text-lg text-light-blue-800">The quick brown fox jumped over the lazy dog.</p>
+    <p class="tracking-tight text-lg text-light-blue-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
   </div>
   <div class="mb-6">
     <p class="mb-1 text-sm text-light-blue-600">.tracking-normal</p>
-    <p class="tracking-normal text-lg text-light-blue-800">The quick brown fox jumped over the lazy dog.</p>
+    <p class="tracking-normal text-lg text-light-blue-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
   </div>
   <div class="mb-6">
     <p class="mb-1 text-sm text-light-blue-600">.tracking-wide</p>
-    <p class="tracking-wide text-lg text-light-blue-800">The quick brown fox jumped over the lazy dog.</p>
+    <p class="tracking-wide text-lg text-light-blue-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
   </div>
   <div class="mb-6">
     <p class="mb-1 text-sm text-light-blue-600">.tracking-wider</p>
-    <p class="tracking-wider text-lg text-light-blue-800">The quick brown fox jumped over the lazy dog.</p>
+    <p class="tracking-wider text-lg text-light-blue-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
   </div>
   <div>
     <p class="mb-1 text-sm text-light-blue-600">.tracking-widest</p>
-    <p class="tracking-widest text-lg text-light-blue-800">The quick brown fox jumped over the lazy dog.</p>
+    <p class="tracking-widest text-lg text-light-blue-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
   </div>
 </template>
 
-<p class="**tracking-tighter** ...">The quick brown fox ...</p>
-<p class="**tracking-tight** ...">The quick brown fox ...</p>
-<p class="**tracking-normal** ...">The quick brown fox ...</p>
-<p class="**tracking-wide** ...">The quick brown fox ...</p>
-<p class="**tracking-wider** ...">The quick brown fox ...</p>
-<p class="**tracking-widest** ...">The quick brown fox ...</p>
+<p class="**tracking-tighter** ...">Быстрая коричневая лиса...</p>
+<p class="**tracking-tight** ...">Быстрая коричневая лиса...</p>
+<p class="**tracking-normal** ...">Быстрая коричневая лиса...</p>
+<p class="**tracking-wide** ...">Быстрая коричневая лиса...</p>
+<p class="**tracking-wider** ...">Быстрая коричневая лиса...</p>
+<p class="**tracking-widest** ...">Быстрая коричневая лиса...</p>
 ```
 
 ## Адаптивность
 
-To control the letter spacing of an element at a specific breakpoint, add a `{screen}:` prefix to any existing letter spacing utility. For example, use `md:tracking-wide` to apply the `tracking-wide` utility at only medium screen sizes and above.
+Чтобы контролировать межбуквенный интервал элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите межбуквенного интервала. Например, используйте `md:tracking-wide`, чтобы применить утилиту `tracking-wide` только на экранах средних размеров и выше.
 
 ```html
-<p class="tracking-tight **md:tracking-wide** ...">The quick brown fox jumped over the lazy dog.</p>
+<p class="tracking-tight **md:tracking-wide** ...">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 ```
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
 ## Кастомизация
 
-### Letter Spacings
+### Расстояние между буквами
 
-By default, Tailwind provides six tracking utilities. You can change, add, or remove these by editing the `theme.letterSpacing` section of your Tailwind config.
+По умолчанию Tailwind предоставляет шесть утилит для отслеживания. Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.letterSpacing` в Вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

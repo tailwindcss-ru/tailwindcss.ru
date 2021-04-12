@@ -1,6 +1,7 @@
 ---
-title: "Text Color"
-description: "Utilities for controlling the text color of an element."
+title: "Цвет текста"
+shortTitle: "Text Color"
+description: "Утилиты для управления цветом текста элемента."
 features:
   responsive: true
   customizable: true
@@ -29,93 +30,93 @@ export const classes = {
 
 ## Применение
 
-Control the text color of an element using the `text-{color}` utilities.
+Управляйте цветом текста элемента с помощью утилит `text-{color}`.
 
 ```html
 <template preview>
   <p class="text-purple-600 text-center text-xl font-semibold truncate">
-    The quick brown fox jumped over the lazy dog.
+    Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
   </p>
 </template>
 
 <p class="**text-purple-600** ..."></p>
 ```
 
-### Changing opacity
+### Изменение непрозрачности
 
-Control the opacity of an element's text color using the `text-opacity-{amount}` utilities.
+Управляйте непрозрачностью цвета текста элемента с помощью утилит `text-opacity-{amount}`.
 
 ```html
 <template preview>
   <div class="space-y-4">
-    <p class="font-semibold text-xl text-purple-700 text-opacity-100">The quick brown fox jumped over the lazy dog.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-75">The quick brown fox jumped over the lazy dog.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-50">The quick brown fox jumped over the lazy dog.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-25">The quick brown fox jumped over the lazy dog.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-0">The quick brown fox jumped over the lazy dog.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-100">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-75">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-50">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-25">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-0">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
   </div>
 </template>
 
-<p class="text-purple-700 **text-opacity-100** ...">The quick brown fox ...</p>
-<p class="text-purple-700 **text-opacity-75** ...">The quick brown fox ...</p>
-<p class="text-purple-700 **text-opacity-50** ...">The quick brown fox ...</p>
-<p class="text-purple-700 **text-opacity-25** ...">The quick brown fox ...</p>
-<p class="text-purple-700 **text-opacity-0** ...">The quick brown fox ...</p>
+<p class="text-purple-700 **text-opacity-100** ...">Быстрая коричневая лиса...</p>
+<p class="text-purple-700 **text-opacity-75** ...">Быстрая коричневая лиса...</p>
+<p class="text-purple-700 **text-opacity-50** ...">Быстрая коричневая лиса...</p>
+<p class="text-purple-700 **text-opacity-25** ...">Быстрая коричневая лиса...</p>
+<p class="text-purple-700 **text-opacity-0** ...">Быстрая коричневая лиса...</p>
 ```
 
-Learn more in the [text opacity documentation](/docs/text-opacity).
+Дополнительные сведения смотрите в [документации по непрозрачности текста](/docs/text-opacity).
 
 ## Адаптивность
 
-To control the text color of an element at a specific breakpoint, add a `{screen}:` prefix to any existing text color utility. For example, use `md:text-green-600` to apply the `text-green-600` utility at only medium screen sizes and above.
+Чтобы управлять цветом текста элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите цвета текста. Например, используйте `md:text-green-600`, чтобы применить утилиту `text-green-600` только при средних размерах экрана и выше.
 
 ```html
 <p class="text-blue-600 **md:text-green-600** ...">
-  The quick brown fox...
+  Быстрая коричневая лиса...
 </p>
 ```
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Hover
+## Наведение
 
-To control the text color of an element on hover, add the `hover:` prefix to any existing text color utility. For example, use `hover:text-blue-600` to apply the `text-blue-600` utility on hover.
+Чтобы контролировать цвет текста элемента при наведении, добавьте префикс `hover:` к любой существующей утилите цвета текста. Например, используйте `hover:text-blue-600`, чтобы применить утилиту `text-blue-600` при наведении курсора.
 
 ```html rose
 <template preview>
   <div class="text-center">
     <button type="button" class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-white hover:text-red-500 focus:outline-none" tabindex="-1">
-      Hover me
+      Наведите меня
     </button>
   </div>
 </template>
 
 <button class="text-white **hover:text-red-500** ...">
-  Hover me
+  Наведите меня
 </button>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `hover:` prefix.
+Утилиты Наведения также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `hover:`.
 
 ```html
-<button class="... md:text-blue-500 **md:hover:text-blue-600** ...">Button</button>
+<button class="... md:text-blue-500 **md:hover:text-blue-600** ...">Кнопка</button>
 ```
 
-## Focus
+## Фокус
 
-To control the text color of an element on focus, add the `focus:` prefix to any existing text color utility. For example, use `focus:text-blue-600` to apply the `text-blue-600` utility on focus.
+Чтобы управлять цветом текста элемента в фокусе, добавьте префикс `focus:` к любой существующей утилите цвета текста. Например, используйте `focus:text-blue-600`, чтобы применить утилиту `text-blue-600` к фокусу.
 
 ```html emerald
 <template preview>
   <div class="max-w-xs w-full mx-auto">
-    <input class="border border-emerald-300 focus:border-emerald-500 bg-white text-green-900 appearance-none inline-block w-full focus:text-red-600 rounded py-3 px-4 focus:outline-none" placeholder="Focus me" value="Focus me">
+    <input class="border border-emerald-300 focus:border-emerald-500 bg-white text-green-900 appearance-none inline-block w-full focus:text-red-600 rounded py-3 px-4 focus:outline-none" placeholder="Сфокусируйтесь на мне" value="Сфокусируйтесь на мне">
   </div>
 </template>
 
 <input class="text-green-900 focus:text-red-600 ...">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+Утилиты Фокуса также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
 
 ```html
 <input class="... md:text-gray-900 **md:focus:text-red-600** ...">
@@ -123,11 +124,11 @@ Focus utilities can also be combined with responsive utilities by adding the res
 
 ## Кастомизация
 
-### Text Colors
+### Цвета текста
 
-By default, Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as text colors.
+По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной в виде цветов текста.
 
-You can [customize your color palette](/docs/colors#customizing) by editing `theme.colors` in your `tailwind.config.js` file, or customize just your text colors in the `theme.textColor` section.
+Вы можете [настроить цветовую палитру](/docs/colors#customizing), отредактировав `theme.colors` в Вашем файле `tailwind.config.js`, или настроить только цвета текста в разделе `theme.textColor`.
 
 ```diff-js
   // tailwind.config.js

@@ -1,6 +1,7 @@
 ---
-title: "Placeholder Color"
-description: "Utilities for controlling the color of placeholder text."
+title: "Цвет заполнителя"
+shortTitle: "Placeholder Color"
+description: "Утилиты для управления цветом текста заполнителя."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/placeholderColor'
@@ -28,7 +29,7 @@ export const classes = {
 
 ## Применение
 
-Control the placeholder color of an element using the `placeholder-{color}` utilities.
+Управляйте цветом заполнителя элемента с помощью утилит `placeholder-{color}`.
 
 ```html emerald
 <template preview class="text-center p-6">
@@ -42,9 +43,9 @@ Control the placeholder color of an element using the `placeholder-{color}` util
 <input class="**placeholder-red-300** ..." placeholder="jane@example.com">
 ```
 
-### Changing opacity
+### Изменение непрозрачности
 
-Control the opacity of an element's placeholder color using the `placeholder-opacity-{amount}` utilities.
+Управляйте непрозрачностью цвета заполнителя элемента с помощью утилит `placeholder-opacity-{amount}`.
 
 ```html lightBlue
 <template preview>
@@ -74,11 +75,11 @@ Control the opacity of an element's placeholder color using the `placeholder-opa
 <input class="placeholder-gray-500 **placeholder-opacity-0** ..." placeholder="jane@example.com">
 ```
 
-Learn more in the [placeholder opacity documentation](/docs/placeholder-opacity).
+Дополнительные сведения смотрите в [документации по прозрачности заполнителя](/docs/placeholder-opacity).
 
 ## Адаптивность
 
-To control the text color of an input placeholder at a specific breakpoint, add a `{screen}:` prefix to any existing text color utility. For example, use `md:placeholder-green-500` to apply the `placeholder-green-500` utility at only medium screen sizes and above.
+Чтобы управлять цветом текста заполнителя ввода в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите цвета текста. Например, используйте `md:placeholder-green-500`, чтобы применить утилиту `placeholder-green-500` только при средних размерах экрана и выше.
 
 ```html
 <input class="placeholder-gray-500 **md:placeholder-green-500**" placeholder="jane@example.com">
@@ -86,9 +87,9 @@ To control the text color of an input placeholder at a specific breakpoint, add 
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Focus
+## Фокус
 
-To control the placeholder color of an element on focus, add the `focus:` prefix to any existing placeholder color utility. For example, use `focus:placeholder-blue-600` to apply the `placeholder-blue-600` utility on focus.
+Чтобы управлять цветом заполнителя элемента в фокусе, добавьте префикс `focus:` к любой существующей утилите цвета заполнителя. Например, используйте `focus:placeholder-blue-600`, чтобы применить утилиту `placeholder-blue-600` к фокусу.
 
 ```html indigo
 <template preview class="text-center p-6">
@@ -100,7 +101,7 @@ To control the placeholder color of an element on focus, add the `focus:` prefix
 <input class="placeholder-gray-600 **focus:placeholder-gray-400** ..." placeholder="jane@example.com">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+Утилиты Фокуса также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` отзывчивого *перед* префиксом `focus:`.
 
 ```html
 <input class="... md:placeholder-gray-900 **md:focus:placeholder-red-600** ...">
@@ -108,11 +109,11 @@ Focus utilities can also be combined with responsive utilities by adding the res
 
 ## Кастомизация
 
-### Placeholder Colors
+### Цвета заполнителя
 
-By default, Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as placeholder colors.
+По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной в качестве цветов-заполнителей.
 
-You can [customize your color palette](/docs/colors#customizing) by editing `theme.colors` in your `tailwind.config.js` file, or customize just your placeholder colors in the `theme.textColor` section.
+Вы можете [настроить свою цветовую палитру](/docs/colors#customizing), отредактировав `theme.colors` в Вашем файле `tailwind.config.js`, или настроив только цвета Вашего заполнителя в разделе `theme.textColor`.
 
 ```diff-js
   // tailwind.config.js

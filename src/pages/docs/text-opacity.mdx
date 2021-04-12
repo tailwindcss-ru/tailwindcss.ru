@@ -1,6 +1,7 @@
 ---
-title: "Text Opacity"
-description: "Utilities for controlling the opacity of an element's text color."
+title: "Непрозрачность текста"
+shortTitle: "Text Opacity"
+description: "Утилиты для управления непрозрачностью цвета текста элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/textOpacity'
@@ -12,29 +13,29 @@ export const classes = { plugin }
 
 ## Применение
 
-Control the opacity of an element's text color using the `text-opacity-{amount}` utilities.
+Управляйте непрозрачностью цвета текста элемента с помощью утилит `text-opacity-{amount}`.
 
 ```html
 <template preview>
   <div class="space-y-4">
-    <p class="font-semibold text-xl text-purple-700 text-opacity-100">The quick brown fox jumped over the lazy dog.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-75">The quick brown fox jumped over the lazy dog.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-50">The quick brown fox jumped over the lazy dog.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-25">The quick brown fox jumped over the lazy dog.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-0">The quick brown fox jumped over the lazy dog.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-100">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-75">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-50">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-25">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+    <p class="font-semibold text-xl text-purple-700 text-opacity-0">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
   </div>
 </template>
 
-<p class="text-purple-700 **text-opacity-100** ...">The quick brown fox ...</p>
-<p class="text-purple-700 **text-opacity-75** ...">The quick brown fox ...</p>
-<p class="text-purple-700 **text-opacity-50** ...">The quick brown fox ...</p>
-<p class="text-purple-700 **text-opacity-25** ...">The quick brown fox ...</p>
-<p class="text-purple-700 **text-opacity-0** ...">The quick brown fox ...</p>
+<p class="text-purple-700 **text-opacity-100** ...">Быстрая коричневая лиса...</p>
+<p class="text-purple-700 **text-opacity-75** ...">Быстрая коричневая лиса...</p>
+<p class="text-purple-700 **text-opacity-50** ...">Быстрая коричневая лиса...</p>
+<p class="text-purple-700 **text-opacity-25** ...">Быстрая коричневая лиса...</p>
+<p class="text-purple-700 **text-opacity-0** ...">Быстрая коричневая лиса...</p>
 ```
 
-Note that because these utilities are implemented using CSS custom properties, a `.text-{color}` utility must be present on the same element for them to work.
+Обратите внимание: поскольку эти утилиты реализованы с использованием настраиваемых свойств CSS, для их работы в том же элементе должна присутствовать утилита `.text-{color}`.
 
-<TipBad>Don't try to use text opacity utilities on an inherited text color</TipBad>
+<TipBad>Не пытайтесь использовать утилиты непрозрачности текста для унаследованного цвета текста</TipBad>
 
 ```html rose
 <div class="text-black">
@@ -42,7 +43,7 @@ Note that because these utilities are implemented using CSS custom properties, a
 </div>
 ```
 
-<TipGood>Do make sure to add a text color utility to the same element explicitly</TipGood>
+<TipGood>Убедитесь, что Вы явно добавили утилиту цвета текста к тому же элементу</TipGood>
 
 ```html emerald
 <div class="text-black">
@@ -52,7 +53,7 @@ Note that because these utilities are implemented using CSS custom properties, a
 
 ## Адаптивность
 
-To control an element's text color opacity at a specific breakpoint, add a `{screen}:` prefix to any existing text color opacity utility. For example, use `md:text-opacity-50` to apply the `text-opacity-50` utility at only medium screen sizes and above.
+Чтобы управлять непрозрачностью цвета текста элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите прозрачности цвета текста. Например, используйте `md:text-opacity-50`, чтобы применить утилиту `text-opacity-50` только при средних размерах экрана и выше.
 
 ```html
 <div class="text-blue-500 text-opacity-75 md:text-opacity-50">
@@ -64,7 +65,7 @@ To control an element's text color opacity at a specific breakpoint, add a `{scr
 
 ## Кастомизация
 
-To customize the opacity values for all opacity-related utilities at once, use the `opacity` section of your `tailwind.config.js` theme configuration:
+Чтобы настроить значения непрозрачности сразу для всех утилит, связанных с непрозрачностью, используйте раздел `opacity` в конфигурации темы `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -81,7 +82,7 @@ To customize the opacity values for all opacity-related utilities at once, use t
   }
 ```
 
-If you want to customize only the text opacity utilities, use the `textOpacity` section:
+Если Вы хотите настроить только утилиты непрозрачности текста, используйте раздел `textOpacity`:
 
 ```diff-js
   // tailwind.config.js

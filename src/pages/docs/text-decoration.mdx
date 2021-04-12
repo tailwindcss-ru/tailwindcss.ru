@@ -1,6 +1,7 @@
 ---
-title: "Text Decoration"
-description: "Utilities for controlling the decoration of text."
+title: "Оформление текста"
+shortTitle: "Text Decoration"
+description: "Утилиты для управления оформлением текста."
 features:
   responsive: true
   customizable: false
@@ -14,76 +15,76 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Underline
+## Подчеркивание
 
-Use the `underline` utility to underline text.
+Используйте утилиту `underline` для подчеркивания текста.
 
 ```html fuchsia
 <template preview>
-  <p class="underline text-xl text-fuchsia-600">The quick brown fox jumped over the lazy dog.</p>
+  <p class="underline text-xl text-fuchsia-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 </template>
 
-<p class="**underline** ...">The quick brown fox ...</p>
+<p class="**underline** ...">Быстрая коричневая лиса...</p>
 ```
 
-## Line Through
+## Линия, проходящая через
 
-Use the `line-through` utility to strike out text.
+Используйте утилиту `line-through`, чтобы зачеркнуть текст.
 
 ```html rose
 <template preview>
-  <p class="line-through text-xl text-rose-600">The quick brown fox jumped over the lazy dog.</p>
+  <p class="line-through text-xl text-rose-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 </template>
 
-<p class="**line-through** ...">The quick brown fox ...</p>
+<p class="**line-through** ...">Быстрая коричневая лиса...</p>
 ```
 
-## No Underline
+## Без подчеркивания
 
-Use the `no-underline` utility to remove underline or line-through styling.
+Используйте утилиту `no-underline`, чтобы удалить подчеркивание или сквозной стиль.
 
 ```html purple
 <template preview>
   <div class="text-center">
-    <a href="#" class="no-underline text-purple-600 text-xl">Link with no underline</a>
+    <a href="#" class="no-underline text-purple-600 text-xl">Ссылка без подчеркивания</a>
   </div>
 </template>
 
-<a href="#" class="**no-underline** ...">Link with no underline</a>
+<a href="#" class="**no-underline** ...">Ссылка без подчеркивания</a>
 ```
 
 ## Адаптивность
 
-To control the text decoration of an element at a specific breakpoint, add a `{screen}:` prefix to any existing text decoration utility. For example, use `md:underline` to apply the `underline` utility at only medium screen sizes and above.
+Чтобы управлять оформлением текста элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите оформления текста. Например, используйте `md:underline`, чтобы применить утилиту `underline` только при средних размерах экрана и выше.
 
 ```html
 <p class="no-underline **md:underline** ...">
-  The quick brown fox jumped over the lazy dog.
+  Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
 </p>
 ```
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Hover
+## Наведение
 
-To control the text decoration of an element on hover, add the `hover:` prefix to any existing text decoration utility. For example, use `hover:underline` to apply the `underline` utility on hover.
+Чтобы управлять оформлением текста элемента при наведении, добавьте `hover:` к любой существующей утилите оформления текста. Например, используйте `hover:underline`, чтобы применить утилиту `underline` при наведении курсора.
 
 ```html indigo
 <template preview class="text-center p-4">
-  <a href="#hover" class="no-underline hover:underline text-indigo-600 text-xl">Link</a>
+  <a href="#hover" class="no-underline hover:underline text-indigo-600 text-xl">Ссылка</a>
 </template>
-<a href="#" class="no-underline **hover:underline** ...">Link</a>
+<a href="#" class="no-underline **hover:underline** ...">Ссылка</a>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `hover:` prefix.
+Утилиты Наведения также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `hover:`.
 
 ```html
-<a href="#" class="... md:no-underline **md:hover:underline** ...">Link</a>
+<a href="#" class="... md:no-underline **md:hover:underline** ...">Ссылка</a>
 ```
 
-## Focus
+## Фокус
 
-To control the text decoration of an element on focus, add the `focus:` prefix to any existing text decoration utility. For example, use `focus:underline` to apply the `underline` utility on focus.
+Чтобы управлять оформлением текста элемента в фокусе, добавьте префикс `focus:` к любой существующей утилите оформления текста. Например, используйте `focus:underline`, чтобы применить утилиту `underline` к фокусу.
 
 ```html emerald
 <template preview>
@@ -94,7 +95,7 @@ To control the text decoration of an element on focus, add the `focus:` prefix t
 <input class="**focus:underline** ..." value="Focus me">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+Утилиты Фокуса также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
 
 ```html
 <input class="**md:focus:underline** ..." value="Focus me">

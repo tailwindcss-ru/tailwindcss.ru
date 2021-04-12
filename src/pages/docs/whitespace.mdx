@@ -1,6 +1,7 @@
 ---
-title: "Whitespace"
-description: "Utilities for controlling an element's white-space property."
+title: "Пробел"
+shortTitle: "Whitespace"
+description: "Утилиты для управления свойством пустого пространства элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/whitespace'
@@ -11,7 +12,7 @@ export const classes = { plugin }
 
 ## Normal
 
-Use `whitespace-normal` to cause text to wrap normally within an element. Newlines and spaces will be collapsed.
+Используйте `whitespace-normal`, чтобы нормально переносить текст внутри элемента. Новые строки и пробелы будут свернуты.
 
 ```html indigo
 <template preview>
@@ -35,7 +36,7 @@ Use `whitespace-normal` to cause text to wrap normally within an element. Newlin
 
 ## No Wrap
 
-Use `whitespace-nowrap` to prevent text from wrapping within an element. Newlines and spaces will be collapsed.
+Используйте `whitespace-nowrap`, чтобы предотвратить перенос текста внутри элемента. Новые строки и пробелы будут свернуты.
 
 ```html emerald
 <template preview>
@@ -59,7 +60,7 @@ Use `whitespace-nowrap` to prevent text from wrapping within an element. Newline
 
 ## Pre
 
-Use `whitespace-pre` to preserve newlines and spaces within an element. Text will not be wrapped.
+Используйте `whitespace-pre`, чтобы сохранить символы новой строки и пробелы внутри элемента. Текст не переносится.
 
 ```html amber
 <template preview>
@@ -128,7 +129,7 @@ Use `whitespace-pre-wrap` to preserve newlines and spaces within an element. Tex
 
 ## Адаптивность
 
-To control the whitespace property of an element only at a specific breakpoint, add a `{screen}:` prefix to any existing whitespace utility. For example, adding the class `md:whitespace-pre` to an element would apply the `whitespace-pre` utility at medium screen sizes and above.
+Чтобы управлять свойством пробела элемента только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите пробелов. Например, добавление класса `md:whitespace-pre` к элементу приведет к применению утилиты `whitespace-pre` при средних размерах экрана и выше.
 
 ```html
 <div class="whitespace-normal **md:whitespace-pre** ...">

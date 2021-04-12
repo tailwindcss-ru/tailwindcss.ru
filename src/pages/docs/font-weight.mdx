@@ -1,6 +1,7 @@
 ---
-title: "Font Weight"
-description: "Utilities for controlling the font weight of an element."
+title: "Толщина шрифта"
+shortTitle: "Font Weight"
+description: "Утилиты для управления жирностью шрифта элемента."
 features:
   responsive: true
   customizable: true
@@ -16,76 +17,76 @@ export const classes = { plugin }
 
 ## Применение
 
-Control the font weight of an element using the `font-{weight}` utilities.
+Управляйте толщиной шрифта элемента с помощью утилит `font-{weight}`.
 
 ```html lightBlue
 <template preview>
   <dl class="text-light-blue-600 space-y-6">
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">thin</dt>
-      <dd class="text-xl font-thin">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-thin">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">extralight</dt>
-      <dd class="text-xl font-extralight">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-extralight">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">light</dt>
-      <dd class="text-xl font-light">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-light">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">normal</dt>
-      <dd class="text-xl font-normal">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-normal">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">medium</dt>
-      <dd class="text-xl font-medium">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">semibold</dt>
-      <dd class="text-xl font-semibold">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-semibold">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">bold</dt>
-      <dd class="text-xl font-bold">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-bold">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">extrabold</dt>
-      <dd class="text-xl font-extrabold">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-extrabold">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
     <div class="flex items-start">
       <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">black</dt>
-      <dd class="text-xl font-black">The quick brown fox jumped over the lazy dog.</dd>
+      <dd class="text-xl font-black">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
     </div>
   </dl>
 </template>
 
-<p class="**font-thin** ...">The quick brown fox ...</p>
-<p class="**font-extralight** ...">The quick brown fox ...</p>
-<p class="**font-light** ...">The quick brown fox ...</p>
-<p class="**font-normal** ...">The quick brown fox ...</p>
-<p class="**font-medium** ...">The quick brown fox ...</p>
-<p class="**font-semibold** ...">The quick brown fox ...</p>
-<p class="**font-bold** ...">The quick brown fox ...</p>
-<p class="**font-extrabold** ...">The quick brown fox ...</p>
-<p class="**font-black** ...">The quick brown fox ...</p>
+<p class="**font-thin** ...">Быстрая коричневая лиса...</p>
+<p class="**font-extralight** ...">Быстрая коричневая лиса...</p>
+<p class="**font-light** ...">Быстрая коричневая лиса...</p>
+<p class="**font-normal** ...">Быстрая коричневая лиса...</p>
+<p class="**font-medium** ...">Быстрая коричневая лиса...</p>
+<p class="**font-semibold** ...">Быстрая коричневая лиса...</p>
+<p class="**font-bold** ...">Быстрая коричневая лиса...</p>
+<p class="**font-extrabold** ...">Быстрая коричневая лиса...</p>
+<p class="**font-black** ...">Быстрая коричневая лиса...</p>
 ```
 
 ## Адаптивность
 
-To control the font weight of an element at a specific breakpoint, add a `{screen}:` prefix to any existing font weight utility. For example, use `md:font-bold` to apply the `font-bold` utility at only medium screen sizes and above.
+Чтобы контролировать вес шрифта элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите веса шрифта. Например, используйте `md:font-bold`, чтобы применить утилиту `font-bold` только при средних размерах экрана и выше.
 
 ```html
-<p class="font-normal **md:font-bold** ...">The quick brown fox jumped over the lazy dog.</p>
+<p class="font-normal **md:font-bold** ...">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 ```
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
 ## Кастомизация
 
-### Font Weights
+### Веса шрифтов
 
-By default, Tailwind provides 10 `font-weight` utilities. You change, add, or remove these by editing the `theme.fontWeight` section of your Tailwind config.
+По умолчанию Tailwind предоставляет 10 утилит `font-weight`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.fontWeight` Вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

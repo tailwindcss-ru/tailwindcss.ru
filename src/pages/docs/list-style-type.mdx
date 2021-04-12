@@ -1,6 +1,7 @@
 ---
-title: "List Style Type"
-description: "Utilities for controlling the bullet/number style of a list."
+title: "Тип стиля списка"
+shortTitle: "List Style Type"
+description: "Утилиты для управления стилем маркера/номера списка."
 features:
   responsive: true
   customizable: true
@@ -16,7 +17,7 @@ export const classes = { plugin }
 
 ## Применение
 
-To create bulleted or numeric lists, use the `list-disc` and `list-decimal` utilities.
+Для создания маркированных или числовых списков используйте утилиты `list-disc` и `list-decimal`.
 
 ```html purple
 <template preview>
@@ -65,7 +66,7 @@ To create bulleted or numeric lists, use the `list-disc` and `list-decimal` util
 
 ## Адаптивность
 
-To control the list style type of a list element at a specific breakpoint, add a `{screen}:` prefix to any existing list utility. For example, use `.md:list-disc` to apply the `list-disc` utility at only medium screen sizes and above.
+Чтобы управлять типом стиля списка элемента списка в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите списка. Например, используйте `.md:list-disc`, чтобы применить утилиту `list-disc` только при средних размерах экрана и выше.
 
 ```html
 <ul class="list-none **md:list-disc**">
@@ -79,7 +80,7 @@ To control the list style type of a list element at a specific breakpoint, add a
 
 ## Кастомизация
 
-By default, Tailwind provides three utilities for the most common list style types. You change, add, or remove these by editing the `theme.listStyleType` section of your Tailwind config.
+По умолчанию Tailwind предоставляет три утилиты для наиболее распространенных типов стилей списков. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.listStyleType` Вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

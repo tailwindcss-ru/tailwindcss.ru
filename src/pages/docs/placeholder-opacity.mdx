@@ -1,6 +1,7 @@
 ---
-title: "Placeholder Opacity"
-description: "Utilities for controlling the opacity of an element's placeholder color."
+title: "Прозрачность заполнителя"
+shortTitle: "Placeholder Opacity"
+description: "Утилиты для управления непрозрачностью цвета заполнителя элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/placeholderOpacity'
@@ -14,7 +15,7 @@ export const classes = {
 
 ## Применение
 
-Control the opacity of an element's placeholder color using the `placeholder-opacity-{amount}` utilities.
+Управляйте непрозрачностью цвета заполнителя элемента с помощью утилит `placeholder-opacity-{amount}`.
 
 ```html fuchsia
 <template preview>
@@ -46,7 +47,7 @@ Control the opacity of an element's placeholder color using the `placeholder-opa
 
 ## Адаптивность
 
-To control an element's placeholder color opacity at a specific breakpoint, add a `{screen}:` prefix to any existing placeholder color opacity utility. For example, use `md:placeholder-opacity-50` to apply the `placeholder-opacity-50` utility at only medium screen sizes and above.
+Чтобы управлять прозрачностью цвета заполнителя элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите прозрачности цвета заполнителя. Например, используйте `md:placeholder-opacity-50`, чтобы применить утилиту `placeholder-opacity-50` только при средних размерах экрана и выше.
 
 ```html
 <input class="placeholder-gray-500 placeholder-opacity-75 **md:placeholder-opacity-50** ..." placeholder="jane@example.com">
@@ -56,7 +57,7 @@ To control an element's placeholder color opacity at a specific breakpoint, add 
 
 ## Кастомизация
 
-To customize the opacity values for all opacity-related utilities at once, use the `opacity` section of your `tailwind.config.js` theme configuration:
+Чтобы настроить значения непрозрачности сразу для всех утилит, связанных с непрозрачностью, используйте раздел `opacity` в конфигурации темы `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -73,7 +74,7 @@ To customize the opacity values for all opacity-related utilities at once, use t
   }
 ```
 
-If you want to customize only the placeholder opacity utilities, use the `placeholderOpacity` section:
+Если Вы хотите настроить только утилиты непрозрачности заполнителя, используйте раздел `placeholderOpacity`:
 
 ```diff-js
   // tailwind.config.js

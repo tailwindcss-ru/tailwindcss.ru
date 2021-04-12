@@ -1,6 +1,7 @@
 ---
-title: "Font Smoothing"
-description: "Utilities for controlling the font smoothing of an element."
+title: "Сглаживание шрифтов"
+shortTitle: "Font Smoothing"
+description: "Утилиты для управления сглаживанием шрифта элемента."
 features:
   responsive: true
   customizable: false
@@ -14,37 +15,37 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Subpixel Antialiasing
+## Сглаживание Subpixel
 
-Use the `subpixel-antialiased` utility to render text using subpixel antialiasing.
+Используйте утилиту `subpixel-antialiased` для рендеринга текста с использованием субпиксельного сглаживания.
 
 ```html lightBlue
 <template preview>
-  <p class="subpixel-antialiased text-lg text-light-blue-800">The quick brown fox jumped over the lazy dog.</p>
+  <p class="subpixel-antialiased text-lg text-light-blue-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 </template>
 
-<p class="**subpixel-antialiased** ...">The quick brown fox ...</p>
+<p class="**subpixel-antialiased** ...">Быстрая коричневая лиса...</p>
 ```
 
-## Grayscale Antialiasing
+## Сглаживание Grayscale
 
-Use the `antialiased` utility to render text using grayscale antialiasing.
+Используйте утилиту `antialiased` для рендеринга текста с использованием сглаживания оттенков серого.
 
 ```html emerald
 <template preview>
-  <p class="antialiased text-lg text-emerald-800">The quick brown fox jumped over the lazy dog.</p>
+  <p class="antialiased text-lg text-emerald-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 </template>
 
-<p class="**antialiased** ...">The quick brown fox ...</p>
+<p class="**antialiased** ...">Быстрая коричневая лиса...</p>
 ```
 
 ## Адаптивность
 
-To control the font smoothing of an element at a specific breakpoint, add a `{screen}:` prefix to any existing font smoothing utility. For example, use `md:antialiased` to apply the `antialiased` utility at only medium screen sizes and above.
+Чтобы управлять сглаживанием шрифта элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите сглаживания шрифтов. Например, используйте `md:antialiased`, чтобы применить утилиту `antialiased` только при средних размерах экрана и выше.
 
 ```html
 <p class="antialiased sm:subpixel-antialiased **md:antialiased** ...">
-  The quick brown fox jumped over the lazy dog.
+  Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
 </p>
 ```
 

@@ -1,6 +1,7 @@
 ---
-title: "Text Overflow"
-description: "Utilities for controlling text overflow in an element."
+title: "Переполнение текста"
+shortTitle: "Text Overflow"
+description: "Утилиты для управления переполнением текста в элементе."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/textOverflow'
@@ -9,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Truncate
+## Обрезка
 
-Use `truncate` to truncate overflowing text with an ellipsis (<code>…</code>) if needed.
+При необходимости используйте `truncate`, чтобы обрезать переполняющий текст многоточием (<code>…</code>).
 
 ```html indigo
 <template preview>
@@ -23,9 +24,9 @@ Use `truncate` to truncate overflowing text with an ellipsis (<code>…</code>) 
 <p class="**truncate** ...">...</p>
 ```
 
-## Overflow Ellipsis
+## Многоточие за переполнение
 
-Use `overflow-ellipsis` to truncate overflowing text with an ellipsis (<code>…</code>) if needed.
+При необходимости используйте `overflow-ellipsis`, чтобы обрезать переполняющий текст многоточием (<code>…</code>).
 
 ```html emerald
 <template preview>
@@ -37,9 +38,9 @@ Use `overflow-ellipsis` to truncate overflowing text with an ellipsis (<code>…
 <p class="**overflow-ellipsis** overflow-hidden ...">...</p>
 ```
 
-## Overflow Clip
+## Зажим переполнения
 
-Use `overflow-clip` to truncate the text at the limit of the content area.
+Используйте `overflow-clip`, чтобы обрезать текст до предела области содержимого.
 
 ```html lightBlue
 <template preview>
@@ -53,7 +54,7 @@ Use `overflow-clip` to truncate the text at the limit of the content area.
 
 ## Адаптивность
 
-To control the text overflow in an element only at a specific breakpoint, add a `{screen}:` prefix to any existing text overflow utility. For example, adding the class `md:overflow-clip` to an element would apply the `overflow-clip` utility at medium screen sizes and above.
+Чтобы управлять переполнением текста в элементе только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите переполнения текста. Например, добавление класса `md:overflow-clip` к элементу приведет к применению утилиты `overflow-clip` при средних размерах экрана и выше.
 
 ```html
 <p class="truncate **md:overflow-clip** ...">

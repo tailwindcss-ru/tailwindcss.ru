@@ -1,6 +1,7 @@
 ---
-title: "Line Height"
-description: "Utilities for controlling the leading (line height) of an element."
+title: "Высота строки"
+shortTitle: "Line Height"
+description: "Утилиты для управления интерлиньяжем (высотой строки) элемента."
 features:
   responsive: true
   customizable: true
@@ -15,9 +16,9 @@ import { Heading } from '@/components/Heading'
 
 export const classes = { plugin }
 
-## Relative line-heights
+## Относительная высота строк
 
-Use the `leading-none`, `leading-tight`, `leading-snug`, `leading-normal`, `leading-relaxed`, and `leading-loose` utilities to give an element a relative line-height based on its current font-size.
+Чтобы задать относительную высоту строки для элемента, используйте утилиты `leading-none`, `leading-tight`, `leading-snug`, `leading-normal`, `leading-relaxed` и `leading-loose` и его текущий размер шрифта.
 
 ```html purple
 <template preview>
@@ -55,9 +56,9 @@ Use the `leading-none`, `leading-tight`, `leading-snug`, `leading-normal`, `lead
 <p class="**leading-loose** ...">Lorem ipsum dolor sit amet ...</p>
 ```
 
-## Fixed line-heights
+## Фиксированная высота строки
 
-Use the `leading-{size}` utilities to give an element a fixed line-height, irrespective of the current font-size. These are useful when you need very precise control over an element's final size.
+Используйте утилиты `leading-{size}`, чтобы задать элементу фиксированную высоту строки, независимо от текущего размера шрифта. Это полезно, когда Вам нужен очень точный контроль над окончательным размером элемента.
 
 ```html emerald
 <template preview>
@@ -107,7 +108,7 @@ Use the `leading-{size}` utilities to give an element a fixed line-height, irres
 
 ## Адаптивность
 
-To control the line height of an element at a specific breakpoint, add a `{screen}:` prefix to any existing line height utility. For example, use `md:leading-loose` to apply the `leading-loose` utility at only medium screen sizes and above.
+Чтобы контролировать высоту строки элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите высоты строки. Например, используйте `md:leading-loose`, чтобы применить утилиту `leading-loose` только на экранах среднего размера и выше.
 
 ```html
 <p class="leading-none **md:leading-loose** ...">Lorem ipsum dolor sit amet ...</p>
@@ -117,7 +118,7 @@ To control the line height of an element at a specific breakpoint, add a `{scree
 
 ## Кастомизация
 
-By default, Tailwind provides six relative and eight fixed `line-height` utilities. You change, add, or remove these by customizing the `lineHeight` section of your Tailwind theme config.
+По умолчанию Tailwind предоставляет шесть относительных и восемь фиксированных утилит `line-height`. Вы изменяете, добавляете или удаляете их, настраивая раздел `lineHeight` в конфигурации Вашей темы Tailwind.
 
 ```diff-js
   // tailwind.config.js

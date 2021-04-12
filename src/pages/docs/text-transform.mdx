@@ -1,6 +1,7 @@
 ---
-title: "Text Transform"
-description: "Utilities for controlling the transformation of text."
+title: "Преобразование текста"
+shortTitle: "Text Transform"
+description: "Утилиты для управления преобразованием текста."
 features:
   responsive: true
   customizable: false
@@ -14,61 +15,61 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Normal Case
+## Нормальный регистр
 
-Use the `normal-case` utility to preserve the original casing. This is typically used to reset capitalization at different breakpoints.
+Используйте утилиту `normal-case`, чтобы сохранить исходный корпус. Обычно это используется для сброса заглавных букв в разных контрольных точках.
 
 ```html emerald
 <template preview>
-  <p class="normal-case text-xl text-emerald-600">The quick brown fox jumped over the lazy dog.</p>
+  <p class="normal-case text-xl text-emerald-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 </template>
 
-<p class="**normal-case** ...">The quick brown fox ...</p>
+<p class="**normal-case** ...">Быстрая коричневая лиса...</p>
 ```
 
-## Uppercase
+## Верхний регистр
 
-Use the `uppercase` utility to uppercase text.
+Используйте утилиту `uppercase` для текста в верхнем регистре.
 
 ```html purple
 <template preview>
-  <p class="uppercase text-xl text-purple-600">The quick brown fox jumped over the lazy dog.</p>
+  <p class="uppercase text-xl text-purple-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 </template>
 
-<p class="**uppercase** ...">The quick brown fox ...</p>
+<p class="**uppercase** ...">Быстрая коричневая лиса...</p>
 ```
 
-## Lowercase
+## Строчные буквы
 
-Use the `lowercase` utility to lowercase text.
+Используйте утилиту `lowercase` для текста в нижнем регистре.
 
 ```html rose
 <template preview>
-  <p class="lowercase text-xl text-rose-600">The quick brown fox jumped over the lazy dog.</p>
+  <p class="lowercase text-xl text-rose-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 </template>
 
-<p class="**lowercase** ...">The quick brown fox ...</p>
+<p class="**lowercase** ...">Быстрая коричневая лиса...</p>
 ```
 
-## Capitalize
+## Заглавные буквы
 
-Use the `capitalize` utility to capitalize text.
+Используйте утилиту `capitalize` для написания текста с заглавной буквы.
 
 ```html fuchsia
 <template preview>
-  <p class="capitalize text-xl text-fuchsia-600">The quick brown fox jumped over the lazy dog.</p>
+  <p class="capitalize text-xl text-fuchsia-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
 </template>
 
-<p class="**capitalize** ...">The quick brown fox ...</p>
+<p class="**capitalize** ...">Быстрая коричневая лиса...</p>
 ```
 
 ## Адаптивность
 
-To control the text transformation of an element at a specific breakpoint, add a `{screen}:` prefix to any existing text transformation utility. For example, use `md:uppercase` to apply the `uppercase` utility at only medium screen sizes and above.
+Чтобы управлять преобразованием текста элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите преобразования текста. Например, используйте `md:uppercase`, чтобы применить утилиту `uppercase` только при средних размерах экрана и выше.
 
 ```html
 <p class="capitalize **md:uppercase** ...">
-  The quick brown fox jumped over the lazy dog.
+  Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
 </p>
 ```
 
