@@ -1,6 +1,6 @@
 ---
-title: "Background Color"
-description: "Utilities for controlling an element's background color."
+title: "Цвет фона"
+description: "Утилиты для управления цветом фона элемента."
 features:
   responsive: true
   customizable: true
@@ -31,23 +31,23 @@ export const classes = {
 
 ## Применение
 
-Control the background color of an element using the `bg-{color}` utilities.
+Управляйте цветом фона элемента с помощью утилит `bg-{color}`.
 
 ```html emerald
 <template preview>
   <div class="text-center">
     <button type="button" class="py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md focus:outline-none" tabindex="-1">
-      Click me
+      Нажми на меня
     </button>
   </div>
 </template>
 
-<button class="**bg-green-500** ...">Button</button>
+<button class="**bg-green-500** ...">Кнопка</button>
 ```
 
-### Changing opacity
+### Изменение непрозрачности
 
-Control the opacity of an element's background color using the `bg-opacity-{amount}` utilities.
+Управляйте непрозрачностью цвета фона элемента с помощью утилит `bg-opacity-{amount}`.
 
 ```html purple
 <template preview>
@@ -67,43 +67,43 @@ Control the opacity of an element's background color using the `bg-opacity-{amou
 <div class="bg-purple-600 **bg-opacity-0** ..."></div>
 ```
 
-Learn more in the [background opacity documentation](/docs/background-opacity).
+Дополнительные сведения смотрите в [документации по прозрачности фона](/docs/background-opacity).
 
 ## Адаптивность
 
-To control the background color of an element at a specific breakpoint, add a `{screen}:` prefix to any existing background color utility. For example, use `md:bg-green-500` to apply the `bg-green-500` utility at only medium screen sizes and above.
+Чтобы управлять цветом фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите цвета фона. Например, используйте `md:bg-green-500`, чтобы применить утилиту `bg-green-500` только при средних размерах экрана и выше.
 
 ```html
-<button class="bg-blue-500 **md:bg-green-500** ...">Button</button>
+<button class="bg-blue-500 **md:bg-green-500** ...">Кнопка</button>
 ```
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Hover
+## Наведение
 
-To control the background color of an element on hover, add the `hover:` prefix to any existing background color utility. For example, use `hover:bg-red-700` to apply the `bg-red-700` utility on hover.
+Чтобы управлять цветом фона элемента при наведении, добавьте префикс `hover:` к любой существующей утилите цвета фона. Например, используйте `hover:bg-red-700`, чтобы применить утилиту `bg-red-700` при наведении курсора.
 
 ```html rose
 <template preview>
   <div class="text-center">
     <button type="button" class="py-2 px-4 bg-rose-500 text-white font-semibold rounded-lg shadow-md hover:bg-rose-700 focus:outline-none" tabindex="-1">
-      Click me
+      Нажми на меня
     </button>
   </div>
 </template>
 
-<button class="bg-red-500 **hover:bg-red-700** ...">Button</button>
+<button class="bg-red-500 **hover:bg-red-700** ...">Кнопка</button>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `hover:` prefix.
+Утилиты Hover также можно комбинировать с адаптивными утилитами, добавив префикс `{screen}:` *перед* префиксом `hover:`.
 
 ```html
-<button class="... md:bg-blue-500 **md:hover:bg-blue-700** ...">Button</button>
+<button class="... md:bg-blue-500 **md:hover:bg-blue-700** ...">Кнопка</button>
 ```
 
-## Focus
+## Фокус
 
-To control the background color of an element on focus, add the `focus:` prefix to any existing background color utility. For example, use `focus:bg-blue-500` to apply the `bg-blue-500` utility on focus.
+Чтобы управлять цветом фона элемента в фокусе, добавьте префикс `focus:` к любой существующей утилите цвета фона. Например, используйте `focus:bg-blue-500`, чтобы применить утилиту `bg-blue-500` к фокусу.
 
 ```html amber
 <template preview>
@@ -115,7 +115,7 @@ To control the background color of an element on focus, add the `focus:` prefix 
 <input class="bg-gray-200 **focus:bg-white** ...">
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+Утилиты Focus также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
 
 ```html
 <input class="... md:bg-gray-200 **md:focus:bg-white** ...">
@@ -123,11 +123,11 @@ Focus utilities can also be combined with responsive utilities by adding the res
 
 ## Кастомизация
 
-### Background Colors
+### Цвета фона
 
-By default, Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as background colors.
+По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной в качестве цветов фона.
 
-You can [customize your color palette](/docs/colors#customizing) by editing the `theme.colors` variable in your `tailwind.config.js` file, or customize just your background colors using the `theme.backgroundColor` section of your Tailwind config.
+Вы можете [настроить свою цветовую палитру](/docs/colors#customizing), отредактировав переменную `theme.colors` в вашем файле `tailwind.config.js`, или настроить только цвета фона, используя раздел `theme.backgroundColor` вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

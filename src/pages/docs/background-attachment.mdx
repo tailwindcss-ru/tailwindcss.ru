@@ -1,6 +1,6 @@
 ---
-title: "Background Attachment"
-description: "Utilities for controlling how a background image behaves when scrolling."
+title: "Закрепление фона"
+description: "Утилиты для управления поведением фонового изображения при прокрутке."
 features:
   responsive: true
   customizable: false
@@ -14,9 +14,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Fixed
+## Фиксированный
 
-Use `bg-fixed` to fix the background image relative to the viewport.
+Используйте `bg-fixed` для исправления фонового изображения относительно области просмотра.
 
 ```html lightBlue
 <template preview>
@@ -28,9 +28,9 @@ Use `bg-fixed` to fix the background image relative to the viewport.
 <div class="**bg-fixed** ..." style="background-image: url(...)"></div>
 ```
 
-## Local
+## Локальный
 
-Use `bg-local` to scroll the background image with the container and the viewport.
+Используйте `bg-local` для прокрутки фонового изображения с контейнером и окном просмотра.
 
 ```html indigo
 <template preview>
@@ -42,9 +42,9 @@ Use `bg-local` to scroll the background image with the container and the viewpor
 <div class="**bg-local** ..." style="background-image: url(...)"></div>
 ```
 
-## Scroll
+## Прокрутка
 
-Use `bg-scroll` to scroll the background image with the viewport, but not with the container.
+Используйте `bg-scroll` для прокрутки фонового изображения в области просмотра, но не в контейнере.
 
 ```html fuchsia
 <template preview>
@@ -58,7 +58,7 @@ Use `bg-scroll` to scroll the background image with the viewport, but not with t
 
 ## Адаптивность
 
-To control the background attachment of an element at a specific breakpoint, add a `{screen}:` prefix to any existing background attachment utility. For example, use `md:bg-fixed` to apply the `bg-fixed` utility at only medium screen sizes and above.
+Чтобы управлять фоновым прикреплением элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите закрепления фона. Например, используйте `md:bg-fixed`, чтобы применить утилиту `bg-fixed` только при средних размерах экрана и выше.
 
 ```html
 <div class="bg-local **md:bg-fixed** ...">

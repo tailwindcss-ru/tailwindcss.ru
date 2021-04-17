@@ -1,6 +1,6 @@
 ---
-title: "Background Position"
-description: "Utilities for controlling the position of an element's background image."
+title: "Положение фона"
+description: "Утилиты для управления положением фонового изображения элемента."
 features:
   responsive: true
   customizable: false
@@ -17,7 +17,7 @@ export const classes = { plugin }
 
 ## Применение
 
-Use the `bg-{side}` utilities to control the position of an element's background image.
+Используйте утилиты `bg-{side}` для управления положением фонового изображения элемента.
 
 ```html lightBlue
 <template preview>
@@ -78,7 +78,7 @@ Use the `bg-{side}` utilities to control the position of an element's background
 
 ## Адаптивность
 
-To control the position of an element's background image at a specific breakpoint, add a `{screen}:` prefix to any existing background position utility. For example, adding the class `md:bg-top` to an element would apply the `bg-top` utility at medium screen sizes and above.
+Чтобы управлять положением фонового изображения элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите определения положения фона. Например, добавление класса `md:bg-top` к элементу приведет к применению утилиты `bg-top` при средних размерах экрана и выше.
 
 ```html
 <div class="bg-center **md:bg-top** ..." style="background-image: url(...)"></div>
@@ -88,9 +88,9 @@ To control the position of an element's background image at a specific breakpoin
 
 ## Кастомизация
 
-### Background Positions
+### Позиции фона
 
-By default, Tailwind provides nine `background-position` utilities. You change, add, or remove these by editing the `theme.backgroundPosition` section of your Tailwind config.
+По умолчанию Tailwind предоставляет девять утилит `background-position`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.backgroundPosition` в вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

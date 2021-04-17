@@ -137,7 +137,7 @@ export const documentationNav = {
     pages['whitespace'],
     pages['word-break'],
   ],
-  Backgrounds: [
+  'Фоны': [
     pages['background-attachment'],
     pages['background-clip'],
     pages['background-color'],

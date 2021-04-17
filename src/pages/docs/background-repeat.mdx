@@ -1,6 +1,6 @@
 ---
-title: "Background Repeat"
-description: "Utilities for controlling the repetition of an element's background image."
+title: "Повтор фона"
+description: "Утилиты для управления повторением фонового изображения элемента."
 features:
   responsive: true
   customizable: false
@@ -14,9 +14,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Repeat
+## Повторять
 
-Use `bg-repeat` to repeat the background image both vertically and horizontally.
+Используйте `bg-repeat` для повторения фонового изображения как по вертикали, так и по горизонтали.
 
 ```html fuchsia
 <template preview>
@@ -27,9 +27,9 @@ Use `bg-repeat` to repeat the background image both vertically and horizontally.
 <div class="**bg-repeat** ..." style="background-image: url(...)"></div>
 ```
 
-## No Repeat
+## Не повторять
 
-Use `bg-no-repeat` when you don't want to repeat the background image.
+Используйте `bg-no-repeat`, если вы не хотите повторять фоновое изображение.
 
 ```html rose
 <template preview>
@@ -40,9 +40,9 @@ Use `bg-no-repeat` when you don't want to repeat the background image.
 <div class="**bg-no-repeat** bg-center ..." style="background-image: url(...)"></div>
 ```
 
-## Repeat Horizontally
+## Повторять по горизонтали
 
-Use `bg-repeat-x` to repeat the background image only horizontally.
+Используйте `bg-repeat-x`, чтобы повторять фоновое изображение только по горизонтали.
 
 ```html purple
 <template preview>
@@ -53,9 +53,9 @@ Use `bg-repeat-x` to repeat the background image only horizontally.
 <div class="**bg-repeat-x** bg-center ..." style="background-image: url(...)"></div>
 ```
 
-## Repeat Vertically
+## Повторять по вертикали
 
-Use `bg-repeat-y` to repeat the background image only vertically.
+Используйте `bg-repeat-y`, чтобы повторять фоновое изображение только по вертикали.
 
 ```html indigo
 <template preview>
@@ -68,7 +68,7 @@ Use `bg-repeat-y` to repeat the background image only vertically.
 
 ## Адаптивность
 
-To control the repetition of an element's background image at a specific breakpoint, add a `{screen}:` prefix to any existing background repeat utility. For example, adding the class `md:bg-repeat-x` to an element would apply the `bg-repeat-x` utility at medium screen sizes and above.
+Чтобы контролировать повторение фонового изображения элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите повторения фона. Например, добавление класса `md:bg-repeat-x` к элементу приведет к применению утилиты `bg-repeat-x` при средних размерах экрана и выше.
 
 ```html
 <div class="bg-repeat **md:bg-repeat-x** ..."></div>

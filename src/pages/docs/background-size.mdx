@@ -1,6 +1,6 @@
 ---
-title: "Background Size"
-description: "Utilities for controlling the background size of an element's background image."
+title: "Размер фона"
+description: "Утилиты для управления размером фона фонового изображения элемента."
 features:
   responsive: true
   customizable: false
@@ -14,9 +14,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Auto
+## Авто
 
-Use `bg-auto` to display the background image at its default size.
+Используйте `bg-auto` для отображения фонового изображения с размером по умолчанию.
 
 ```html amber
 <template preview>
@@ -27,9 +27,9 @@ Use `bg-auto` to display the background image at its default size.
 <div class="**bg-auto** bg-no-repeat bg-center ..." style="background-image: url(...)"></div>
 ```
 
-## Cover
+## Заполнить
 
-Use `bg-cover` to scale the background image until it fills the background layer.
+Используйте `bg-cover`, чтобы масштабировать фоновое изображение до тех пор, пока оно не заполнит фоновый слой.
 
 ```html emerald
 <template preview>
@@ -40,9 +40,9 @@ Use `bg-cover` to scale the background image until it fills the background layer
 <div class="bg-cover bg-center ..." style="background-image: url(...)"></div>
 ```
 
-## Contain
+## Вместить
 
-Use `bg-contain` to scale the background image to the outer edges without cropping or stretching.
+Используйте `bg-contain`, чтобы масштабировать фоновое изображение до внешних краев без обрезки или растяжения.
 
 ```html indigo
 <template preview>
@@ -55,7 +55,7 @@ Use `bg-contain` to scale the background image to the outer edges without croppi
 
 ## Адаптивность
 
-To control the size of an element's background image at a specific breakpoint, add a `{screen}:` prefix to any existing background size utility. For example, adding the class `md:bg-contain` to an element would apply the `bg-contain` utility at medium screen sizes and above.
+Чтобы контролировать размер фонового изображения элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите размера фона. Например, добавление класса `md:bg-contain` к элементу приведет к применению утилиты `bg-contain` при средних размерах экрана и выше.
 
 ```html
 <div class="bg-auto **md:bg-contain** ..."></div>
@@ -65,7 +65,7 @@ To control the size of an element's background image at a specific breakpoint, a
 
 ## Кастомизация
 
-By default, Tailwind provides utilities for `auto`, `cover`, and `contain` background sizes. You can change, add, or remove these by editing the `theme.backgroundSize` section of your config.
+По умолчанию Tailwind предоставляет утилиты для размеров фона `auto`, `cover` и `contain`. Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.backgroundSize` в вашей конфигурации.
 
 ```diff-js
   // tailwind.config.js

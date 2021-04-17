@@ -1,6 +1,6 @@
 ---
-title: "Gradient Color Stops"
-description: "Utilities for controlling the color stops in background gradients."
+title: "Остановки градиентного цвета"
+description: "Утилиты для управления остановками цвета в фоновых градиентах."
 features:
   responsive: true
   customizable: true
@@ -35,9 +35,9 @@ export const classes = {
   ),
 }
 
-## Starting color
+## Начальный цвет
 
-Set the starting color of a gradient using the `from-{color}` utilities.
+Установите начальный цвет градиента с помощью утилит `from-{color}`.
 
 ```html
 <template preview>
@@ -47,11 +47,11 @@ Set the starting color of a gradient using the `from-{color}` utilities.
 <div class="bg-gradient-to-r **from-red-500** ..."></div>
 ```
 
-Gradients fade out to transparent by default.
+По умолчанию градиенты становятся прозрачными.
 
-## Ending color
+## Конечный цвет
 
-Set the ending color of a gradient using the `to-{color}` utilities.
+Установите конечный цвет градиента с помощью утилит `to-{color}`.
 
 ```html
 <template preview>
@@ -61,11 +61,11 @@ Set the ending color of a gradient using the `to-{color}` utilities.
 <div class="bg-gradient-to-r from-green-400 **to-blue-500** ..."></div>
 ```
 
-Gradients to **do not** fade in from transparent by default. To fade in from transparent, reverse the gradient direction and use a `from-{color}` utility.
+По умолчанию градиенты **не** становятся прозрачными. Чтобы перейти от прозрачного, измените направление градиента на противоположное и воспользуйтесь утилитой `from-{color}`.
 
-## Middle color
+## Средний цвет
 
-Add a middle color to a gradient using the `via-{color}` utilities.
+Добавьте средний цвет к градиенту с помощью утилит `via-{color}`.
 
 ```html
 <template preview>
@@ -75,12 +75,12 @@ Add a middle color to a gradient using the `via-{color}` utilities.
 <div class="bg-gradient-to-r from-purple-400 **via-pink-500** to-red-500 ..."></div>
 ```
 
-Gradients with a `from-{color}` and `via-{color}` will fade out to transparent by default if no `to-{color}` is present.
+Градиенты с `from-{color}` и `via-{color}` по умолчанию станут прозрачными, если нет `to-{color}`.
 
 
 ## Адаптивность
 
-To control the gradient color stops of an element at a specific breakpoint, add a `{screen}:` prefix to any existing gradient color stop utility. For example, use `md:from-green-500` to apply the `from-green-500` utility at only medium screen sizes and above.
+Чтобы управлять ограничениями цвета градиента элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите остановки цвета градиента. Например, используйте `md:from-green-500`, чтобы применить утилиту `from-green-500` только при средних размерах экрана и выше.
 
 ```html
 <div class="bg-gradient-to-r from-purple-400 **md:from-yellow-500**"></div>
@@ -89,62 +89,62 @@ To control the gradient color stops of an element at a specific breakpoint, add 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
 
-## Hover
+## Наведние
 
-To control the gradient color stops of an element on hover, add the `hover:` prefix to any existing gradient color stop utility. For example, use `hover:bg-blue-500` to apply the `bg-blue-500` utility on hover.
+Чтобы управлять границами цвета градиента элемента при наведении, добавьте `hover:` к любой существующей утилите остановки цвета градиента. Например, используйте `hover:bg-blue-500`, чтобы применить утилиту `bg-blue-500` при наведении.
 
 ```html
 <template preview>
   <div class="flex justify-center">
     <button type="button" class="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 text-white font-semibold px-6 py-3 rounded-md">
-      Hover me
+      Наведи меня
     </button>
   </div>
 </template>
 
 <button type="button" class="bg-gradient-to-r from-green-400 to-blue-500 **hover:from-pink-500 hover:to-yellow-500** ...">
-  Hover me
+  Наведи меня
 </button>
 ```
 
-Hover utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+Утилиты при наведении курсора также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
 
 ```html
-<button class="... **md:from-blue-500 md:hover:from-blue-700** ...">Button</button>
+<button class="... **md:from-blue-500 md:hover:from-blue-700** ...">Кнопка</button>
 ```
 
-## Focus
+## Фокус
 
-To control the gradient color stops of an element on focus, add the `focus:` prefix to any existing gradient color stop utility. For example, use `focus:bg-blue-500` to apply the `bg-blue-500` utility on focus.
+Чтобы управлять ограничениями цвета градиента элемента в фокусе, добавьте `focus:` к любой существующей утилите остановки цвета градиента. Например, используйте `focus:bg-blue-500`, чтобы применить утилиту `bg-blue-500` фокуса.
 
 ```html
 <template preview>
   <div class="flex justify-center">
     <button type="button" class="bg-gradient-to-r from-teal-400 to-blue-500 focus:from-pink-500 focus:to-orange-500 text-white font-semibold px-6 py-3 rounded-md">
-      Focus me
+      Сфокусируй меня
     </button>
   </div>
 </template>
 
 <button type="button" class="bg-gradient-to-r from-green-400 to-blue-500 **focus:from-pink-500 focus:to-yellow-500**">
-  Focus me
+  Сфокусируй меня
 </button>
 ```
 
-Focus utilities can also be combined with responsive utilities by adding the responsive `{screen}:` prefix *before* the `focus:` prefix.
+Утилиты Focus также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
 
 ```html
-<button class="... md:from-blue-500 md:focus:from-blue-700 ...">Button</button>
+<button class="... md:from-blue-500 md:focus:from-blue-700 ...">Кнопка</button>
 ```
 
 
 ## Кастомизация
 
-### Background Colors
+### Цвета фона
 
-By default, Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as gradient color stops.
+По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной в качестве остановки цвета градиента.
 
-You can [customize your color palette](/docs/colors#customizing) by editing the `theme.colors` variable in your `tailwind.config.js` file, or customize just your gradient color stop colors using the `theme.gradientColorStops` section of your Tailwind config.
+Вы можете [настроить свою цветовую палитру](/docs/colors#customizing), отредактировав переменную `theme.colors` в вашем файле `tailwind.config.js`, или настроить только конечные цвета цвета градиента с помощью `theme.gradientColorStops` раздела вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

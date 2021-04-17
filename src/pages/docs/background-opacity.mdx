@@ -1,6 +1,6 @@
 ---
-title: "Background Opacity"
-description: "Utilities for controlling the opacity of an element's background color."
+title: "Прозрачность фона"
+description: "Утилиты для управления непрозрачностью цвета фона элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/backgroundOpacity'
@@ -11,7 +11,7 @@ export const classes = { plugin }
 
 ## Применение
 
-Control the opacity of an element's background color using the `bg-opacity-{amount}` utilities.
+Управляйте непрозрачностью цвета фона элемента с помощью утилит `bg-opacity-{amount}`.
 
 ```html indigo
 <template preview>
@@ -33,7 +33,7 @@ Control the opacity of an element's background color using the `bg-opacity-{amou
 
 ## Адаптивность
 
-To control an element's background color opacity at a specific breakpoint, add a `{screen}:` prefix to any existing background color opacity utility. For example, use `md:bg-opacity-50` to apply the `bg-opacity-50` utility at only medium screen sizes and above.
+Чтобы управлять непрозрачностью цвета фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите прозрачности цвета фона. Например, используйте `md:bg-opacity-50`, чтобы применить утилиту `bg-opacity-50` только при средних размерах экрана и выше.
 
 ```html
 <div class="bg-blue-500 bg-opacity-75 **md:bg-opacity-50**">
@@ -45,7 +45,7 @@ To control an element's background color opacity at a specific breakpoint, add a
 
 ## Кастомизация
 
-To customize the opacity values for all opacity-related utilities at once, use the `opacity` section of your `tailwind.config.js` theme configuration:
+Чтобы настроить значения непрозрачности сразу для всех утилит, связанных с непрозрачностью, используйте раздел `opacity` в конфигурации темы `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -62,7 +62,7 @@ To customize the opacity values for all opacity-related utilities at once, use t
   }
 ```
 
-If you want to customize only the background opacity utilities, use the `backgroundOpacity` section:
+Если вы хотите настроить только утилиты непрозрачности фона, используйте раздел `backgroundOpacity`:
 
 ```diff-js
   // tailwind.config.js

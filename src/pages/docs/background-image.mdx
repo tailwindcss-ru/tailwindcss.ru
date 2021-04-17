@@ -1,6 +1,6 @@
 ---
-title: "Background Image"
-description: "Utilities for controlling an element's background image."
+title: "Фоновое изображение"
+description: "Утилиты для управления фоновым изображением элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/backgroundImage'
@@ -10,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Linear gradients
+## Линейные градиенты
 
-To give an element a linear gradient background, use one of the `bg-gradient-{direction}` utilities, in combination with the [gradient color stop](/docs/gradient-color-stops) utilities.
+Чтобы придать элементу фон с линейным градиентом, используйте одну из утилит `bg-gradient-{direction}` в сочетании с утилитами [остановки градиентного цвета](/docs/gradient-color-stops).
 
 ```html
 <template preview>
@@ -24,7 +24,7 @@ To give an element a linear gradient background, use one of the `bg-gradient-{di
 
 ## Адаптивность
 
-To control the background image of an element at a specific breakpoint, add a `{screen}:` prefix to any existing background image utility. For example, use `md:bg-gradient-to-r` to apply the `bg-gradient-to-r` utility at only medium screen sizes and above.
+Чтобы управлять фоновым изображением элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите фонового изображения. Например, используйте `md:bg-gradient-to-r`, чтобы применить утилиту `bg-gradient-to-r` только при средних размерах экрана и выше.
 
 ```html
 <div class="bg-gradient-to-l **md:bg-gradient-to-r** ..."></div>
@@ -34,11 +34,11 @@ To control the background image of an element at a specific breakpoint, add a `{
 
 ## Кастомизация
 
-### Background Images
+### Фоновые изображения
 
-By default, Tailwind includes background image utilities for creating linear gradient backgrounds in eight directions.
+По умолчанию Tailwind включает в себя утилиты фоновых изображений для создания фонов с линейным градиентом в восьми направлениях.
 
-You can add your own background images by editing the `theme.backgroundImage` section of your `tailwind.config.js` file:
+Вы можете добавить свои собственные фоновые изображения, отредактировав раздел `theme.backgroundImage` вашего файла `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -54,9 +54,9 @@ You can add your own background images by editing the `theme.backgroundImage` se
   }
 ```
 
-These don't just have to be gradients — they can be any background images you need.
+Это не обязательно должны быть градиенты - это могут быть любые фоновые изображения, которые вам нужны.
 
-These classes will take the form `bg-{key}`, so `hero-pattern` will become `bg-hero-pattern` for example.
+Эти классы будут иметь форму `bg-{key}`, поэтому, например, `hero-pattern` превратится в `bg-hero-pattern`.
 
 ### Варианты
 
