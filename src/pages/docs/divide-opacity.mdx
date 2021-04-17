@@ -1,6 +1,6 @@
 ---
-title: "Divide Opacity"
-description: "Utilities for controlling the opacity borders between elements."
+title: "Разделение непрозрачности"
+description: "Утилиты для управления непрозрачностью границ между элементами."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/divideOpacity'
@@ -16,7 +16,7 @@ export const classes = {
 
 ## Применение
 
-Control the opacity of borders between elements using the `divide-opacity-{amount}` utilities.
+Управляйте непрозрачностью границ между элементами с помощью утилит `divide-opacity-{amount}`.
 
 ```html purple
 <template preview>
@@ -36,7 +36,7 @@ Control the opacity of borders between elements using the `divide-opacity-{amoun
 
 ## Адаптивность
 
-To control the opacity of borders between elements at a specific breakpoint, add a `{screen}:` prefix to any existing divide opacity utility. For example, use `md:divide-opacity-50` to apply the `divide-opacity-50` utility at only medium screen sizes and above.
+Чтобы контролировать непрозрачность границ между элементами в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите разделения непрозрачности. Например, используйте `md:divide-opacity-50`, чтобы применить утилиту `divide-opacity-50` только при средних размерах экрана и выше.
 
 ```html
 <div class="divide-y-2 divide-blue-500 divide-opacity-75 **md:divide-opacity-50**">
@@ -48,7 +48,7 @@ To control the opacity of borders between elements at a specific breakpoint, add
 
 ## Кастомизация
 
-To customize the opacity values for all opacity-related utilities at once, use the `opacity` section of your `tailwind.config.js` theme configuration:
+Чтобы настроить значения непрозрачности сразу для всех утилит, связанных с непрозрачностью, используйте раздел `opacity` в конфигурации темы `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -65,7 +65,7 @@ To customize the opacity values for all opacity-related utilities at once, use t
   }
 ```
 
-If you want to customize only the divide opacity utilities, use the `divideOpacity` section:
+Если вы хотите настроить только утилиты непрозрачности разделения, используйте раздел `divideOpacity`:
 
 ```diff-js
   // tailwind.config.js

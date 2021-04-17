@@ -1,6 +1,6 @@
 ---
-title: "Border Opacity"
-description: "Utilities for controlling the opacity of an element's border color."
+title: "Непрозрачность границы"
+description: "Утилиты для управления непрозрачностью цвета границы элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/borderOpacity'
@@ -11,7 +11,7 @@ export const classes = { plugin }
 
 ## Применение
 
-Control the opacity of an element's border color using the `border-opacity-{amount}` utilities.
+Управляйте непрозрачностью цвета границы элемента с помощью утилит `border-opacity-{amount}`.
 
 ```html lightBlue
 <template preview>
@@ -33,7 +33,7 @@ Control the opacity of an element's border color using the `border-opacity-{amou
 
 ## Адаптивность
 
-To control an element's border color opacity at a specific breakpoint, add a `{screen}:` prefix to any existing border color opacity utility. For example, use `md:border-opacity-50` to apply the `border-opacity-50` utility at only medium screen sizes and above.
+Чтобы управлять непрозрачностью цвета границы элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите непрозрачности цвета границы. Например, используйте `md:border-opacity-50`, чтобы применить утилиту `border-opacity-50` только при средних размерах экрана и выше.
 
 ```html
 <div class="border-2 border-blue-500 border-opacity-75 md:border-opacity-50">
@@ -45,7 +45,7 @@ To control an element's border color opacity at a specific breakpoint, add a `{s
 
 ## Кастомизация
 
-To customize the opacity values for all opacity-related utilities at once, use the `opacity` section of your `tailwind.config.js` theme configuration:
+Чтобы настроить значения непрозрачности сразу для всех утилит, связанных с непрозрачностью, используйте раздел `opacity` в конфигурации темы `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -62,7 +62,7 @@ To customize the opacity values for all opacity-related utilities at once, use t
   }
 ```
 
-If you want to customize only the border opacity utilities, use the `borderOpacity` section:
+Если вы хотите настроить только утилиты непрозрачности границы, используйте раздел `borderOpacity`:
 
 ```diff-js
   // tailwind.config.js

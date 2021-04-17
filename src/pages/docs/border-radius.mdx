@@ -1,6 +1,6 @@
 ---
-title: "Border Radius"
-description: "Utilities for controlling the border radius of an element."
+title: "Радиус границы"
+description: "Утилиты для управления радиусом границы элемента."
 features:
   responsive: true
   customizable: true
@@ -14,9 +14,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Rounded corners
+## Закругленные углы
 
-Use utilities like `.rounded-sm`, `.rounded`, or `.rounded-lg` to apply different border radius sizes to an element.
+Используйте такие утилиты, как `.rounded-sm`, `.rounded` или `.rounded-lg`, чтобы применить к элементу разные размеры радиуса границы.
 
 ```html lightBlue
 <template preview>
@@ -34,27 +34,27 @@ Use utilities like `.rounded-sm`, `.rounded`, or `.rounded-lg` to apply differen
 <div class="**rounded-lg** ..."></div>
 ```
 
-## Pills and circles
+## Таблетки и круги
 
-Use the `rounded-full` utility to create pills and circles.
+Используйте утилиту `rounded-full` для создания таблеток и кругов.
 
 ```html indigo
 <template preview>
   <div class="flex justify-center items-center space-x-6">
-    <div class="bg-indigo-500 px-6 py-3 text-white text-center font-extrabold rounded-full">Pill Shape</div>
-    <div class="bg-indigo-500 h-24 w-24 text-white text-center font-extrabold flex items-center justify-center rounded-full">Circle</div>
+    <div class="bg-indigo-500 px-6 py-3 text-white text-center font-extrabold rounded-full">Форма таблетки</div>
+    <div class="bg-indigo-500 h-24 w-24 text-white text-center font-extrabold flex items-center justify-center rounded-full">Круг</div>
   </div>
 </template>
 
-<div class="**rounded-full** py-3 px-6...">Pill Shape</div>
-<div class="**rounded-full** h-24 w-24 flex items-center justify-center...">Circle</div>
+<div class="**rounded-full** py-3 px-6...">Форма таблетки</div>
+<div class="**rounded-full** h-24 w-24 flex items-center justify-center...">Круг</div>
 ```
 
-## No rounding
+## Без округления
 
-Use `rounded-none` to remove an existing border radius from an element.
+Используйте `rounded-none`, чтобы удалить существующий радиус границы элемента.
 
-This is most commonly used to remove a border radius that was applied at a smaller breakpoint.
+Это чаще всего используется для удаления радиуса границы, который был применен в меньшей контрольной точке.
 
 ```html rose
 <template preview>
@@ -66,9 +66,9 @@ This is most commonly used to remove a border radius that was applied at a small
 <div class="**rounded-none** ...">.rounded-none</div>
 ```
 
-## Rounding sides separately
+## Округление сторон отдельно
 
-Use `rounded-{t|r|b|l}{-size?}` to only round one side an element.
+Используйте `rounded-{t|r|b|l}{-size?}`, чтобы закруглить элемент только с одной стороны.
 
 ```html emerald
 <template preview>
@@ -86,9 +86,9 @@ Use `rounded-{t|r|b|l}{-size?}` to only round one side an element.
 <div class="**rounded-l-lg** ...">.rounded-l-lg</div>
 ```
 
-## Rounding corners separately
+## Отдельное скругление углов
 
-Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
+Используйте `rounded-{tl|tr|br|bl}{-size?}` только для скругления одного угла элемента.
 
 ```html amber
 <template preview>
@@ -108,7 +108,7 @@ Use `rounded-{tl|tr|br|bl}{-size?}` to only round one corner an element.
 
 ## Адаптивность
 
-To control the border radius of an element at a specific breakpoint, add a `{screen}:` prefix to any existing border radius utility. For example, use `md:rounded-lg` to apply the `rounded-lg` utility at only medium screen sizes and above.
+Чтобы контролировать радиус границы элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите радиуса границы. Например, используйте `md:rounded-lg`, чтобы применить утилиту `rounded-lg` только при средних размерах экрана и выше.
 
 ```html
 <div class="rounded **md:rounded-lg** ...">
@@ -120,9 +120,9 @@ To control the border radius of an element at a specific breakpoint, add a `{scr
 
 ## Кастомизация
 
-### Border Radiuses
+### Радиусы границ
 
-By default, Tailwind provides five border radius size utilities. You can change, add, or remove these by editing the `theme.borderRadius` section of your Tailwind config.
+По умолчанию Tailwind предоставляет пять утилит для определения размера радиуса границы. Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.borderRadius` вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

@@ -1,5 +1,5 @@
 ---
-title: "Divide Color"
+title: "Разделение цвета"
 description: "Utilities for controlling the border color between elements."
 ---
 
@@ -34,7 +34,7 @@ export const classes = {
 
 ## Применение
 
-Control the border color between elements using the `divide-{color}` utilities.
+Управляйте цветом границы между элементами с помощью утилит `divide-{color}`.
 
 ```html fuchsia
 <template preview>
@@ -52,9 +52,9 @@ Control the border color between elements using the `divide-{color}` utilities.
 </div>
 ```
 
-### Changing opacity
+### Изменение непрозрачности
 
-Control the opacity of borders between elements using the `divide-opacity-{amount}` utilities.
+Управляйте непрозрачностью границ между элементами с помощью утилит `divide-opacity-{amount}`.
 
 ```html lightBlue
 <template preview>
@@ -72,13 +72,13 @@ Control the opacity of borders between elements using the `divide-opacity-{amoun
 </div>
 ```
 
-Learn more in the [divide opacity documentation](/docs/divide-opacity).
+Дополнительные сведения смотрите в [документации по разделению непрозрачности](/docs/divide-opacity).
 
 ---
 
 ## Адаптивность
 
-To control the borders between elements at a specific breakpoint, add a `{screen}:` prefix to any existing divide utility. For example, adding the class `md:divide-x-8` to an element would apply the `divide-x-8` utility at medium screen sizes and above.
+Чтобы контролировать границы между элементами в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите разделения. Например, добавление класса `md:divide-x-8` к элементу приведет к применению утилиты `divide-x-8` при средних размерах экрана и выше.
 
 ```html
 <div class="divide-y divide-teal-400 **md:divide-pink-400**">
@@ -94,11 +94,11 @@ To control the borders between elements at a specific breakpoint, add a `{screen
 
 ## Кастомизация
 
-### Border Colors
+### Цвета границы
 
-By default, Tailwind makes the entire [default color palette](/docs/customizing-colors#default-color-palette) available as divide colors.
+По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной для разделения цветов.
 
-You can [customize your color palette](/docs/colors#customizing) by editing the `theme.colors` section of your `tailwind.config.js` file, customize just your border and divide colors together using the `theme.borderColor` section, or customize only the divide colors using the `theme.divideColor` section.
+Вы можете [настроить свою цветовую палитру](/docs/colors#customizing), отредактировав раздел `theme.colors` вашего файла `tailwind.config.js`, настроить только границу и разделить цвета вместе с помощью раздела `theme.borderColor` или настроить только цвета разделения с помощью раздела `theme.divideColor`.
 
 ```diff-js
   // tailwind.config.js

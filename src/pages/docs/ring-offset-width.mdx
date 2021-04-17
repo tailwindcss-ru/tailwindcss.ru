@@ -1,6 +1,6 @@
 ---
-title: "Ring Offset Width"
-description: "Utilities for simulating an offset when adding outline rings."
+title: "Ширина смещения кольца"
+description: "Утилиты для имитации смещения при добавлении контурных колец."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/ringOffsetWidth'
@@ -18,7 +18,7 @@ export const classes = {
 
 ## Применение
 
-Use the `ring-offset-{width}` utilities to simulate an offset by adding solid white box-shadow and increasing the thickness of the accompanying outline ring to accommodate the offset.
+Используйте утилиты `ring-offset-{width}` для имитации смещения, добавляя сплошную белую тень прямоугольника и увеличивая толщину сопутствующего кольца контура для соответствия смещению.
 
 ```html fuchsia
 <template preview class="p-0 border -mb-px">
@@ -40,9 +40,9 @@ Use the `ring-offset-{width}` utilities to simulate an offset by adding solid wh
 <button class="... ring ring-pink-600 **ring-offset-4**">ring-4</button>
 ```
 
-### Changing the offset color
+### Изменение цвета смещения
 
-You can't actually offset a box-shadow in CSS, so we have to fake it using a solid color shadow that matches the parent background color. We use white by default, but if you are adding a ring offset over a different background color, you should use the `ring-offset-{color}` utilities to match the parent background color:
+На самом деле вы не можете компенсировать тень блока в CSS, поэтому мы должны имитировать ее, используя сплошную цветную тень, которая соответствует цвету родительского фона. По умолчанию мы используем белый цвет, но если вы добавляете кольцевое смещение поверх другого цвета фона, вы должны использовать утилиты `ring-offset-{color}` для соответствия родительскому цвету фона:
 
 ```html emerald
 <template preview class="p-0">
@@ -61,14 +61,14 @@ You can't actually offset a box-shadow in CSS, so we have to fake it using a sol
 </div>
 ```
 
-For more information, see the [ringOffsetColor documentation](/docs/ring-offset-color).
+Дополнительные сведения смотрите в [документации ringOffsetColor](/docs/ring-offset-color).
 
 ---
 
 
 ## Адаптивность
 
-To control the ring offset width at a specific breakpoint, add a `{screen}:` prefix to any existing ring offset width utility. For example, use `md:ring-offset-4` to apply the `ring-offset-4` utility at only medium screen sizes and above.
+Чтобы управлять шириной смещения кольца в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите ширины смещения кольца. Например, используйте `md:ring-offset-4`, чтобы применить утилиту `ring-offset-4` только при средних размерах экрана и выше.
 
 ```html
 <button class="ring-2 ring-offset-2 **md:ring-offset-4**">
@@ -82,7 +82,7 @@ To control the ring offset width at a specific breakpoint, add a `{screen}:` pre
 
 ## Кастомизация
 
-To customize which ring offset width utilities are generated, add your custom values under `ringOffsetWidth` key in the `theme` section of your `tailwind.config.js` file.
+Чтобы настроить, какие утилиты ширины смещения кольца генерируются, добавьте свои пользовательские значения под ключом `ringOffsetWidth` в разделе `theme` файла `tailwind.config.js`.
 
 ```js
 // tailwind.config.js

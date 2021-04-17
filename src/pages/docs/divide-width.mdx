@@ -1,6 +1,6 @@
 ---
-title: "Divide Width"
-description: "Utilities for controlling the border width between elements."
+title: "Разделение ширины"
+description: "Утилиты для управления шириной границы между элементами."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/divideWidth'
@@ -16,9 +16,9 @@ export const classes = {
   ),
 }
 
-## Add borders between horizontal children
+## Добавить границы между горизонтальными дочерними элементами
 
-Add borders between horizontal elements using the `divide-x-{amount}` utilities.
+Добавьте границы между горизонтальными элементами с помощью утилит `divide-x-{amount}`.
 
 ```html emerald
 <template preview>
@@ -36,9 +36,9 @@ Add borders between horizontal elements using the `divide-x-{amount}` utilities.
 </div>
 ```
 
-## Add borders between stacked children
+## Добавить границы между сложенными дочерними элементами
 
-Add borders between stacked elements using the `divide-y-{amount}` utilities.
+Добавьте границы между составными элементами с помощью утилит `divide-y-{amount}`.
 
 ```html amber
 <template preview>
@@ -56,9 +56,9 @@ Add borders between stacked elements using the `divide-y-{amount}` utilities.
 </div>
 ```
 
-## Reversing children order
+## Изменение порядка дочерних элементов
 
-If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `divide-x-reverse` or `divide-y-reverse` utilities to ensure the border is added to the correct side of each element.
+Если ваши элементы расположены в обратном порядке (например, `flex-row-reverse` или `flex-col-reverse`), используйте утилиты `divide-x-reverse` или `divide-y-reverse`, чтобы убедиться, что граница добавлен к правильной стороне каждого элемента.
 
 ```html rose
 <template preview>
@@ -80,7 +80,7 @@ If your elements are in reverse order (using say `flex-row-reverse` or `flex-col
 
 ## Адаптивность
 
-To control the borders between elements at a specific breakpoint, add a `{screen}:` prefix to any existing divide utility. For example, adding the class `md:divide-y-8` to an element would apply the `divide-y-8` utility at medium screen sizes and above.
+Чтобы контролировать границы между элементами в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите разделения. Например, добавление к элементу класса `md:divide-y-8` приведет к применению утилиты `divide-y-8` при средних размерах экрана и выше.
 
 ```html
 <div class="divide-y divide-gray-400 **md:divide-y-8**">
@@ -96,9 +96,9 @@ To control the borders between elements at a specific breakpoint, add a `{screen
 
 ## Кастомизация
 
-### Divide width scale
+### Шкала разделения ширины
 
-The divide width scale inherits its values from the `borderWidth` scale by default, so if you'd like to customize your values for both border width and divide width together, use the `theme.borderWidth` section of your `tailwind.config.js` file.
+Шкала ширины разделения по умолчанию наследует свои значения из шкалы `borderWidth`, поэтому, если вы хотите настроить свои значения как для ширины границы, так и для ширины разделения, используйте раздел `theme.borderWidth` в файле `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
@@ -117,7 +117,7 @@ The divide width scale inherits its values from the `borderWidth` scale by defau
   }
 ```
 
-To customize only the divide width values, use the `theme.divideWidth` section of your `tailwind.config.js` file.
+Чтобы настроить только значения ширины разделения, используйте раздел `theme.divideWidth` вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
