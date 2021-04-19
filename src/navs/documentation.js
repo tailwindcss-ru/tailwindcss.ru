@@ -195,7 +195,11 @@ export const documentationNav = {
     pages['resize'],
     pages['user-select'],
   ],
-  SVG: [pages['fill'], pages['stroke'], pages['stroke-width']],
+  'SVG': [
+    pages['fill'],
+    pages['stroke'],
+    pages['stroke-width']
+  ],
   Accessibility: [pages['screen-readers']],
   'Official Plugins': [pages['typography-plugin']],
 }

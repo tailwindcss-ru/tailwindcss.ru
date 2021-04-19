@@ -1,6 +1,6 @@
 ---
-title: "Fill"
-description: "Utilities for styling the fill of SVG elements."
+title: "Заполнение"
+description: "Утилиты для стилизации заливки элементов SVG."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/fill'
@@ -11,9 +11,9 @@ export const classes = { plugin }
 
 ## Применение
 
-Use `fill-current` to set the fill color of an SVG to the current text color. This makes it easy to set an element's fill color by combining this class with an existing [text color utility](/docs/text-color).
+Используйте `fill-current`, чтобы установить цвет заливки SVG на текущий цвет текста. Это упрощает установку цвета заливки элемента, комбинируя этот класс с существующей [утилитой цвета текста](/docs/text-color).
 
-Useful for styling icon sets like [Zondicons](http://www.zondicons.com/) that are drawn entirely with fills.
+Полезно для стилизации наборов иконок, таких как [Zondicons](http://www.zondicons.com/), которые полностью нарисованы с заливкой.
 
 ```html emerald
 <template preview>
@@ -29,7 +29,7 @@ Useful for styling icon sets like [Zondicons](http://www.zondicons.com/) that ar
 
 ## Кастомизация
 
-Control which fill utilities Tailwind generates by customizing the `theme.fill` section of your `tailwind.config.js` file:
+Управляйте тем, какие утилиты заливки генерирует Tailwind, настраивая раздел `theme.fill` в вашем файле `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js

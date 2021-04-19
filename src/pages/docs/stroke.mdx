@@ -1,6 +1,6 @@
 ---
-title: "Stroke"
-description: "Utilities for styling the stroke of SVG elements."
+title: "Штрих"
+description: "Утилиты для стилизации штриха элементов SVG."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/stroke'
@@ -11,9 +11,9 @@ export const classes = { plugin }
 
 ## Применение
 
-Use `stroke-current` to set the stroke color of an SVG to the current text color. This makes it easy to set an element's stroke color by combining this class with an existing [text color utility](/docs/text-color).
+Используйте `stroke-current`, чтобы установить цвет обводки SVG на текущий цвет текста. Это упрощает установку цвета обводки элемента, комбинируя этот класс с существующей [утилитой цвета текста](/docs/text-color).
 
-Useful for styling icon sets like [Heroicons](http://heroicons.com/) that are drawn entirely with strokes.
+Полезно для стилизации наборов иконок, таких как [Heroicons](http://heroicons.com/), которые полностью нарисованы штрихами.
 
 ```html purple
 <template preview>
@@ -31,7 +31,7 @@ Useful for styling icon sets like [Heroicons](http://heroicons.com/) that are dr
 
 ## Кастомизация
 
-Control which stroke utilities Tailwind generates by customizing the `theme.stroke` section in your `tailwind.config.js` file:
+Управляйте тем, какие утилиты штрихов генерирует Tailwind, настроив раздел `theme.stroke` в вашем файле `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js

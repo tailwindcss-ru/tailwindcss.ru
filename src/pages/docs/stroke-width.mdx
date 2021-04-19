@@ -1,6 +1,6 @@
 ---
-title: "Stroke Width"
-description: "Utilities for styling the stroke width of SVG elements."
+title: "Ширина штриха"
+description: "Утилиты для стилизации ширины штриха элементов SVG."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/strokeWidth'
@@ -11,9 +11,9 @@ export const classes = { plugin }
 
 ## Применение
 
-Use the `stroke-{width}` utilities to set the stroke width of an SVG.
+Используйте утилиты `stroke-{width}`, чтобы установить ширину штриха SVG.
 
-Useful for styling icon sets like [Heroicons](http://heroicons.com/) that are drawn entirely with strokes.
+Полезно для стилизации наборов иконок, таких как [Heroicons](http://heroicons.com/), которые полностью нарисованы штрихами.
 
 ```html emerald
 <template preview>
@@ -45,7 +45,7 @@ Useful for styling icon sets like [Heroicons](http://heroicons.com/) that are dr
 
 ## Адаптивность
 
-To control the stroke width of an SVG element at a specific breakpoint, add a `{screen}:` prefix to any existing width utility. For example, adding the class `md:stroke-2` to an element would apply the `stroke-2` utility at medium screen sizes and above.
+Чтобы управлять шириной штриха элемента SVG в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите ширины. Например, добавление класса `md:stroke-2` к элементу приведет к применению утилиты `stroke-2` при средних размерах экрана и выше.
 
 ```html
 <svg class="stroke-1 **md:stroke-2** ...">
@@ -57,7 +57,7 @@ To control the stroke width of an SVG element at a specific breakpoint, add a `{
 
 ## Кастомизация
 
-Control which stroke-width utilities Tailwind generates by customizing the `theme.strokeWidth` section in your `tailwind.config.js` file:
+Управляйте тем, какие утилиты ширины штриха генерирует Tailwind, настраивая раздел `theme.strokeWidth` в вашем файле `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
