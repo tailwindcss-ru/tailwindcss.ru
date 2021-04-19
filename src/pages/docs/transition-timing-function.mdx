@@ -1,6 +1,6 @@
 ---
-title: "Transition Timing Function"
-description: "Utilities for controlling the easing of CSS transitions."
+title: "Функция времени перехода"
+description: "Утилиты для управления плавностью переходов CSS."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/transitionTimingFunction'
@@ -11,39 +11,39 @@ export const classes = { plugin }
 
 ## Применение
 
-Use the `ease-{timing}` utilities to control an element's easing curve.
+Для управления кривой плавности элемента используйте утилиты `ease-{timing}`.
 
 ```html indigo
 <template preview>
   <div class="flex justify-around items-center">
     <button class="transition duration-700 ease-in transform hover:scale-125 bg-indigo-600 text-white font-semibold py-3 px-6 rounded-md">
-      Hover me
+      Наведи на меня
     </button>
     <button class="transition duration-700 ease-out transform hover:scale-125 bg-indigo-600 text-white font-semibold py-3 px-6 rounded-md">
-      Hover me
+      Наведи на меня
     </button>
     <button class="transition duration-700 ease-in-out transform hover:scale-125 bg-indigo-600 text-white font-semibold py-3 px-6 rounded-md">
-      Hover me
+      Наведи на меня
     </button>
   </div>
 </template>
 
-<button class="transition **ease-in** duration-700 ...">Hover me</button>
-<button class="transition **ease-out** duration-700 ...">Hover me</button>
-<button class="transition **ease-in-out** duration-700 ...">Hover me</button>
+<button class="transition **ease-in** duration-700 ...">Наведи на меня</button>
+<button class="transition **ease-out** duration-700 ...">Наведи на меня</button>
+<button class="transition **ease-in-out** duration-700 ...">Наведи на меня</button>
 ```
 
 ## Адаптивность
 
-To control an element's transition-timing-function at a specific breakpoint, add a `{screen}:` prefix to any existing transition-timing-function utility. For example, use `md:ease-in-out` to apply the `ease-in-out` utility at only medium screen sizes and above.
+Чтобы управлять функцией времени перехода элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите функции времени перехода. Например, используйте `md:ease-in-out`, чтобы применить утилиту `ease-in-out` только для средних размеров экрана и выше.
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
 ## Кастомизация
 
-### Timing values
+### Значения времени
 
-By default, Tailwind provides four general purpose transition-timing-function utilities. You change, add, or remove these by customizing the `transitionTimingFunction` section of your Tailwind theme config.
+По умолчанию Tailwind предоставляет четыре универсальные утилиты с функцией синхронизации перехода. Вы изменяете, добавляете или удаляете их, настраивая раздел `transitionTimingFunction` в конфигурации вашей темы Tailwind.
 
 ```diff-js
   // tailwind.config.js

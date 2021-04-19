@@ -172,7 +172,7 @@ export const documentationNav = {
     pages['border-collapse'],
     pages['table-layout']
   ],
-  'Transitions and Animation': [
+  'Переходы и анимация': [
     pages['transition-property'],
     pages['transition-duration'],
     pages['transition-timing-function'],
