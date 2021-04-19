@@ -1,6 +1,6 @@
 ---
-title: "Border Collapse"
-description: "Utilities for controlling whether table borders should collapse or be separated."
+title: "Границы вокруг ячеек"
+description: "Утилиты для контроля того, должны ли границы таблицы сворачиваться или разделяться."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/borderCollapse'
@@ -9,31 +9,31 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Separate
+## Разделить
 
-Use `border-separate` to force each cell to display its own separate borders.
+Используйте `border-separate`, чтобы каждая ячейка отображала свои отдельные границы.
 
 ```html emerald
 <template preview>
   <table class="border-separate w-full border-2 border-emerald-800">
     <thead class="bg-emerald-200">
       <tr>
-        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">State</th>
-        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">City</th>
+        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">Область</th>
+        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">Город</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Indiana</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Indianapolis</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Индиана</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Индианаполис</td>
       </tr>
       <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Ohio</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Columbus</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Огайо</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Колумбус</td>
       </tr>
       <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Michigan</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Detroit</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Мичиган</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Детройт</td>
       </tr>
     </tbody>
   </table>
@@ -42,52 +42,52 @@ Use `border-separate` to force each cell to display its own separate borders.
 <table class="**border-separate** border border-green-800 ...">
   <thead>
     <tr>
-      <th class="border border-green-600 ...">State</th>
-      <th class="border border-green-600 ...">City</th>
+      <th class="border border-green-600 ...">Область</th>
+      <th class="border border-green-600 ...">Город</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="border border-green-600 ...">Indiana</td>
-      <td class="border border-green-600 ...">Indianapolis</td>
+      <td class="border border-green-600 ...">Индиана</td>
+      <td class="border border-green-600 ...">Индианаполис</td>
     </tr>
     <tr>
-      <td class="border border-green-600 ...">Ohio</td>
-      <td class="border border-green-600 ...">Columbus</td>
+      <td class="border border-green-600 ...">Огайо</td>
+      <td class="border border-green-600 ...">Колумбус</td>
     </tr>
     <tr>
-      <td class="border border-green-600 ...">Michigan</td>
-      <td class="border border-green-600 ...">Detroit</td>
+      <td class="border border-green-600 ...">Мичиган</td>
+      <td class="border border-green-600 ...">Детройт</td>
     </tr>
   </tbody>
 </table>
 ```
 
-## Collapse
+## Свернуть
 
-Use `border-collapse` to combine adjacent cell borders into a single border when possible. Note that this includes collapsing borders on the top-level `<table>` tag.
+Используйте `border-collapse`, чтобы объединить границы смежных ячеек в единую границу, когда это возможно. Обратите внимание, что это включает сворачивание границ тега верхнего уровня `<table>`.
 
 ```html emerald
 <template preview>
   <table class="border-collapse w-full border-2 border-emerald-800">
     <thead class="bg-emerald-200">
       <tr>
-        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">State</th>
-        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">City</th>
+        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">Область</th>
+        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">Город</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Indiana</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Indianapolis</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Индиана</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Индианаполис</td>
       </tr>
       <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Ohio</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Columbus</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Огайо</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Колумбус</td>
       </tr>
       <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Michigan</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Detroit</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Мичиган</td>
+        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Детройт</td>
       </tr>
     </tbody>
   </table>
@@ -96,22 +96,22 @@ Use `border-collapse` to combine adjacent cell borders into a single border when
 <table class="**border-collapse** border border-green-800 ...">
   <thead>
     <tr>
-      <th class="border border-green-600 ...">State</th>
-      <th class="border border-green-600 ...">City</th>
+      <th class="border border-green-600 ...">Область</th>
+      <th class="border border-green-600 ...">Город</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="border border-green-600 ...">Indiana</td>
-      <td class="border border-green-600 ...">Indianapolis</td>
+      <td class="border border-green-600 ...">Индиана</td>
+      <td class="border border-green-600 ...">Индианаполис</td>
     </tr>
     <tr>
-      <td class="border border-green-600 ...">Ohio</td>
-      <td class="border border-green-600 ...">Columbus</td>
+      <td class="border border-green-600 ...">Огайо</td>
+      <td class="border border-green-600 ...">Колумбус</td>
     </tr>
     <tr>
-      <td class="border border-green-600 ...">Michigan</td>
-      <td class="border border-green-600 ...">Detroit</td>
+      <td class="border border-green-600 ...">Мичиган</td>
+      <td class="border border-green-600 ...">Детройт</td>
     </tr>
   </tbody>
 </table>

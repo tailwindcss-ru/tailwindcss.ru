@@ -1,6 +1,6 @@
 ---
-title: "Opacity"
-description: "Utilities for controlling the opacity of an element."
+title: "Непрозрачность"
+description: "Утилиты для управления непрозрачностью элемента."
 features:
   responsive: true
   customizable: true
@@ -16,7 +16,7 @@ export const classes = { plugin }
 
 ## Применение
 
-Control the opacity of an element using the `opacity-{amount}` utilities.
+Управляйте непрозрачностью элемента с помощью утилит `opacity-{amount}`.
 
 ```html lightBlue
 <template preview>
@@ -38,7 +38,7 @@ Control the opacity of an element using the `opacity-{amount}` utilities.
 
 ## Адаптивность
 
-To control the opacity of an element at a specific breakpoint, add a `{screen}:` prefix to any existing opacity utility. For example, use `md:opacity-50` to apply the `opacity-50` utility at only medium screen sizes and above.
+Чтобы контролировать непрозрачность элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите непрозрачности. Например, используйте `md:opacity-50`, чтобы применить утилиту `opacity-50` только при средних размерах экрана и выше.
 
 ```html
 <div class="opacity-100 **md:opacity-50** ...">
@@ -50,9 +50,9 @@ To control the opacity of an element at a specific breakpoint, add a `{screen}:`
 
 ## Кастомизация
 
-### Opacity Scale
+### Шкала непрозрачности
 
-By default, Tailwind provides five opacity utilities based on a simple numeric scale. You change, add, or remove these by editing the `theme.opacity` section of your Tailwind config.
+По умолчанию Tailwind предоставляет пять утилит непрозрачности на основе простой числовой шкалы. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.opacity` вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

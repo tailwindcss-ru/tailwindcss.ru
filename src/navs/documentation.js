@@ -164,8 +164,14 @@ export const documentationNav = {
     pages['ring-offset-width'],
     pages['ring-offset-color'],
   ],
-  Effects: [pages['box-shadow'], pages['opacity']],
-  Tables: [pages['border-collapse'], pages['table-layout']],
+  'Эффекты': [
+    pages['box-shadow'],
+    pages['opacity'],
+  ],
+  'Таблицы': [
+    pages['border-collapse'],
+    pages['table-layout']
+  ],
   'Transitions and Animation': [
     pages['transition-property'],
     pages['transition-duration'],

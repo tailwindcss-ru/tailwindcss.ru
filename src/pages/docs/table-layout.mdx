@@ -1,6 +1,6 @@
 ---
-title: "Table Layout"
-description: "Utilities for controlling the table layout algorithm."
+title: "Макет таблицы"
+description: "Утилиты для управления алгоритмом макета таблицы."
 features:
   responsive: true
   customizable: false
@@ -14,34 +14,34 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Auto
+## Авто
 
-Use `table-auto` to allow the table to automatically size columns to fit the contents of the cell.
+Используйте `table-auto`, чтобы разрешить таблице автоматически изменять размер столбцов в соответствии с содержимым ячейки.
 
 ```html emerald
 <template preview>
   <table class="table-auto">
     <thead>
       <tr>
-        <th class="px-4 py-2 text-emerald-600">Title</th>
-        <th class="px-4 py-2 text-emerald-600">Author</th>
-        <th class="px-4 py-2 text-emerald-600">Views</th>
+        <th class="px-4 py-2 text-emerald-600">Заголовок</th>
+        <th class="px-4 py-2 text-emerald-600">Автор</th>
+        <th class="px-4 py-2 text-emerald-600">Просмотры</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Intro to CSS</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Adam</td>
+        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Введение в CSS</td>
+        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Адам</td>
         <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">858</td>
       </tr>
       <tr class="bg-emerald-200">
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">A Long and Winding Tour of the History of UI Frameworks and Tools and the Impact on Design</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Adam</td>
+        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Длинный и извилистый тур по истории UI-фреймворков и инструментов и их влияния на дизайн</td>
+        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Адам</td>
         <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">112</td>
       </tr>
       <tr>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Intro to JavaScript</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Chris</td>
+        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Введение в JavaScript</td>
+        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Крис</td>
         <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">1,280</td>
       </tr>
     </tbody>
@@ -51,61 +51,61 @@ Use `table-auto` to allow the table to automatically size columns to fit the con
 <table class="**table-auto**">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Views</th>
+      <th>Заголовок</th>
+      <th>Автор</th>
+      <th>Просмотры</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Intro to CSS</td>
-      <td>Adam</td>
+      <td>Введение в CSS</td>
+      <td>Адам</td>
       <td>858</td>
     </tr>
     <tr class="bg-emerald-200">
-      <td>A Long and Winding Tour of the History of UI Frameworks and Tools and the Impact on Design</td>
-      <td>Adam</td>
+      <td>Длинный и извилистый тур по истории UI-фреймворков и инструментов и их влияния на дизайн</td>
+      <td>Адам</td>
       <td>112</td>
     </tr>
     <tr>
-      <td>Intro to JavaScript</td>
-      <td>Chris</td>
+      <td>Введение в JavaScript</td>
+      <td>Крис</td>
       <td>1,280</td>
     </tr>
   </tbody>
 </table>
 ```
 
-## Fixed
+## Фиксированный
 
-Use `table-fixed` to allow the table to ignore the content and use fixed widths for columns. The width of the first row will set the column widths for the whole table.
+Используйте `table-fixed`, чтобы таблица игнорировала содержимое и использовала фиксированную ширину для столбцов. Ширина первой строки задает ширину столбца для всей таблицы.
 
-You can manually set the widths for some columns and the rest of the available width will be divided evenly amongst the columns without explicit width.
+Вы можете вручную установить ширину для некоторых столбцов, а остальная доступная ширина будет равномерно разделена между столбцами без явной ширины.
 
 ```html lightBlue
 <template preview>
   <table class="table-fixed">
     <thead>
       <tr>
-        <th class="w-1/2 px-4 py-2 text-light-blue-600">Title</th>
-        <th class="w-1/4 px-4 py-2 text-light-blue-600">Author</th>
-        <th class="w-1/4 px-4 py-2 text-light-blue-600">Views</th>
+        <th class="w-1/2 px-4 py-2 text-light-blue-600">Заголовок</th>
+        <th class="w-1/4 px-4 py-2 text-light-blue-600">Автор</th>
+        <th class="w-1/4 px-4 py-2 text-light-blue-600">Просмотры</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Intro to CSS</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Adam</td>
+        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Введение в CSS</td>
+        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Адам</td>
         <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">858</td>
       </tr>
       <tr class="bg-light-blue-200">
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">A Long and Winding Tour of the History of UI Frameworks and Tools and the Impact on Design</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Adam</td>
+        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Длинный и извилистый тур по истории UI-фреймворков и инструментов и их влияния на дизайн</td>
+        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Адам</td>
         <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">112</td>
       </tr>
       <tr>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Intro to JavaScript</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Chris</td>
+        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Введение в JavaScript</td>
+        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Крис</td>
         <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">1,280</td>
       </tr>
     </tbody>
@@ -115,25 +115,25 @@ You can manually set the widths for some columns and the rest of the available w
 <table class="**table-fixed**">
   <thead>
     <tr>
-      <th class="w-1/2 ...">Title</th>
-      <th class="w-1/4 ...">Author</th>
-      <th class="w-1/4 ...">Views</th>
+      <th class="w-1/2 ...">Заголовок</th>
+      <th class="w-1/4 ...">Автор</th>
+      <th class="w-1/4 ...">Просмотры</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Intro to CSS</td>
-      <td>Adam</td>
+      <td>Введение в CSS</td>
+      <td>Адам</td>
       <td>858</td>
     </tr>
     <tr class="bg-blue-200">
-      <td>A Long and Winding Tour of the History of UI Frameworks and Tools and the Impact on Design</td>
-      <td>Adam</td>
+      <td>Длинный и извилистый тур по истории UI-фреймворков и инструментов и их влияния на дизайн</td>
+      <td>Адам</td>
       <td>112</td>
     </tr>
     <tr>
-      <td>Intro to JavaScript</td>
-      <td>Chris</td>
+      <td>Введение в JavaScript</td>
+      <td>Крис</td>
       <td>1,280</td>
     </tr>
   </tbody>
