@@ -203,5 +203,7 @@ export const documentationNav = {
   'Доступность': [
     pages['screen-readers']
   ],
-  'Official Plugins': [pages['typography-plugin']],
+  'Официальные плагины': [
+    pages['typography-plugin']
+  ],
 }
