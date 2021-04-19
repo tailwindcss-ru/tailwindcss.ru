@@ -1,6 +1,6 @@
 ---
-title: "Rotate"
-description: "Utilities for rotating elements with transform."
+title: "Вращение"
+description: "Утилиты для вращения элементов с преобразованием."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/rotate'
@@ -11,7 +11,7 @@ export const classes = { plugin }
 
 ## Применение
 
-Rotate an element by first enabling transforms with the `transform` utility, then specifying the rotation angle using the `rotate-{angle}` utilities.
+Поверните элемент, сначала включив преобразования с помощью утилиты `transform`, а затем указав угол поворота с помощью утилит `rotate-{angle}`.
 
 ```html lightBlue
 <template preview>
@@ -37,11 +37,11 @@ Rotate an element by first enabling transforms with the `transform` utility, the
 <img class="transform **rotate-180** ...">
 ```
 
-Note that because Tailwind implements transforms using [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), **the transform utilities are not supported in older browsers like IE11**. If you need transforms for your project and need to support older browsers, [add your own utilities](/docs/adding-new-utilities) or other custom CSS.
+Обратите внимание: поскольку Tailwind реализует преобразования с использованием [настраиваемых свойств CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), **утилиты преобразования не поддерживаются в старых браузерах, таких как IE11**. Если вам нужны преобразования для вашего проекта и вам нужна поддержка старых браузеров, [добавьте свои собственные утилиты](/docs/adding-new-utilities) или другой настраиваемый CSS.
 
 ## Адаптивность
 
-To control the rotation of an element at a specific breakpoint, add a `{screen}:` prefix to any existing rotate utility. For example, use `md:rotate-90` to apply the `rotate-90` utility at only medium screen sizes and above.
+Чтобы управлять поворотом элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите поворота. Например, используйте `md:rotate-90`, чтобы применить утилиту `rotate-90` только для средних размеров экрана и выше.
 
 ```html
 <div class="transform rotate-45 **md:rotate-90**"></div>
@@ -51,9 +51,9 @@ To control the rotation of an element at a specific breakpoint, add a `{screen}:
 
 ## Кастомизация
 
-### Rotate scale
+### Масштаб вращения
 
-By default, Tailwind provides seven general purpose rotate utilities. You change, add, or remove these by editing the `theme.rotate` section of your Tailwind config.
+По умолчанию Tailwind предоставляет семь универсальных утилит поворота. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.rotate` вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

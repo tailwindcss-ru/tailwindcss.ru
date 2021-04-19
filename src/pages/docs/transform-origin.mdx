@@ -1,6 +1,6 @@
 ---
-title: "Transform Origin"
-description: "Utilities for specifying the origin for an element's transformations."
+title: "Исходные координаты"
+description: "Утилиты для указания исходной точки для преобразований элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/transformOrigin'
@@ -11,7 +11,7 @@ export const classes = { plugin }
 
 ## Применение
 
-Specify an element's transform origin using the `origin-{keyword}` utilities.
+Укажите источник преобразования элемента с помощью утилит `origin-{keyword}`.
 
 ```html indigo
 <template preview>
@@ -39,7 +39,7 @@ Specify an element's transform origin using the `origin-{keyword}` utilities.
 
 ## Адаптивность
 
-To control the transform-origin of an element at a specific breakpoint, add a `{screen}:` prefix to any existing transform-origin utility. For example, use `md:origin-top` to apply the `origin-top` utility at only medium screen sizes and above.
+Чтобы управлять источником преобразования элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите источника преобразования. Например, используйте `md:origin-top`, чтобы применить утилиту `origin-top` только при средних размерах экрана и выше.
 
 ```html
 <img class="origin-center **md:origin-top** ...">
@@ -50,9 +50,9 @@ To control the transform-origin of an element at a specific breakpoint, add a `{
 
 ## Кастомизация
 
-### Origin values
+### Значения источника
 
-By default, Tailwind provides transform-origin utilities for all of the built-in browser keyword options. You change, add, or remove these by customizing the `transformOrigin` section of your Tailwind theme config.
+По умолчанию Tailwind предоставляет утилиты transform-origin для всех встроенных параметров ключевых слов браузера. Вы изменяете, добавляете или удаляете их, настраивая раздел `transformOrigin` в конфигурации вашей темы Tailwind.
 
 ```diff-js
   // tailwind.config.js

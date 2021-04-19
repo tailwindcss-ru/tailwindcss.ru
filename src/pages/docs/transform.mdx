@@ -1,6 +1,6 @@
 ---
-title: "Transform"
-description: "Utilities for controlling transform behaviour."
+title: "Преобразование"
+description: "Утилиты для управления поведением трансформации."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/transform'
@@ -9,9 +9,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Transform
+## Преобразование
 
-To enable transformations you have to add the `transform` utility.
+Чтобы включить преобразования, вы должны добавить утилиту `transform`.
 
 ```html amber
 <template preview>
@@ -37,17 +37,17 @@ To enable transformations you have to add the `transform` utility.
 <img class="**transform** translate-x-4 translate-y-4 ...">
 ```
 
-## Hardware acceleration
+## Аппаратное ускорение
 
-A lot of transformations can be executed on the GPU instead of the CPU. This enables better performance. You can use the `transform-gpu` utility to enable GPU Acceleration.
+Многие преобразования могут выполняться на графическом процессоре вместо процессора. Это обеспечивает лучшую производительность. Вы можете использовать утилиту `transform-gpu`, чтобы включить ускорение графического процессора.
 
 ```html
 <div class="**transform-gpu** scale-150 ..."></div>
 ```
 
-## None
+## Отключение
 
-If you want to disable transformations, then you can use the `transform-none` utility.
+Если вы хотите отключить преобразования, вы можете использовать утилиту `transform-none`.
 
 ```html
 <div class="transform rotate-45 **lg:transform-none** ..."></div>
@@ -55,7 +55,7 @@ If you want to disable transformations, then you can use the `transform-none` ut
 
 ## Адаптивность
 
-To enable or disable transforms at a specific breakpoint, add a `{screen}:` prefix to any of the transform utilities. For example, use `md:transform` to apply the `transform` utility at only medium screen sizes and above.
+Чтобы включить или отключить преобразования в определенной контрольной точке, добавьте префикс `{screen}:` к любой из утилит преобразования. Например, используйте `md:transform`, чтобы применить утилиту `transform` только при средних размерах экрана и выше.
 
 ```html
 <img class="transform **sm:transform-gpu md:transform-none** ...">

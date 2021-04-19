@@ -1,6 +1,6 @@
 ---
-title: "Translate"
-description: "Utilities for translating elements with transform."
+title: "Перевод"
+description: "Утилиты для перевода элементов с трансформацией."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/translate'
@@ -15,7 +15,7 @@ export const classes = {
 
 ## Применение
 
-Translate an element by first enabling transforms with the `transform` utility, then specifying the translate direction and distance using the `translate-x-{amount}` and `translate-y-{amount}` utilities.
+Переведите элемент, включив сначала преобразования с помощью утилиты `transform`, а затем указав направление перевода и расстояние с помощью утилит `translate-x-{amount}` и `translate-y-{amount}`.
 
 ```html purple
 <template preview>
@@ -37,11 +37,11 @@ Translate an element by first enabling transforms with the `transform` utility, 
 <img class="transform **translate-y-0** ...">
 ```
 
-Note that because Tailwind implements transforms using [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), **the transform utilities are not supported in older browsers like IE11**. If you need transforms for your project and need to support older browsers, [add your own utilities](/docs/adding-new-utilities) or other custom CSS.
+Обратите внимание: поскольку Tailwind реализует преобразования с использованием [настраиваемых свойств CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), **утилиты преобразования не поддерживаются в старых браузерах, таких как IE11**. Если вам нужны преобразования для вашего проекта и вам нужна поддержка старых браузеров, [добавьте свои собственные утилиты](/docs/adding-new-utilities) или другой настраиваемый CSS.
 
 ## Адаптивность
 
-To control the translation of an element at a specific breakpoint, add a `{screen}:` prefix to any existing translate utility. For example, use `md:translate-x-8` to apply the `translate-x-8` utility at only medium screen sizes and above.
+Чтобы контролировать перевод элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите перевода. Например, используйте `md:translate-x-8`, чтобы применить утилиту `translate-x-8` только при средних размерах экрана и выше.
 
 ```html
 <img class="transform translate-x-2 **md:translate-x-8** ...">
@@ -51,11 +51,11 @@ To control the translation of an element at a specific breakpoint, add a `{scree
 
 ## Кастомизация
 
-### Translate scale
+### Шкала перевода
 
-By default, Tailwind provides fixed value translate utilities that match our [spacing scale](/docs/customizing-spacing), as well as 50% and 100% variations for translating relative to the element's size.
+По умолчанию Tailwind предоставляет утилиты перевода с фиксированным значением, которые соответствуют нашему [шкале интервалов](/docs/customizing-spacing), а также 50% и 100% вариации для перевода относительно размера элемента.
 
-You can customize the global spacing scale in the `theme.spacing` or `theme.extend.spacing` sections of your `tailwind.config.js` file:
+Вы можете настроить глобальную шкалу интервалов в разделах `theme.spacing` или `theme.extend.spacing` вашего файла `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -72,7 +72,7 @@ You can customize the global spacing scale in the `theme.spacing` or `theme.exte
   }
 ```
 
-To customize the translate scale separately, use the `theme.translate` section of your `tailwind.config.js` file.
+Чтобы настроить масштаб перевода отдельно, используйте раздел `theme.translate` вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js

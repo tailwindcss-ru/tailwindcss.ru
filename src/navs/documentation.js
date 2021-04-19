@@ -179,7 +179,7 @@ export const documentationNav = {
     pages['transition-delay'],
     pages['animation'],
   ],
-  Transforms: [
+  'Преобразования': [
     pages['transform'],
     pages['transform-origin'],
     pages['scale'],
