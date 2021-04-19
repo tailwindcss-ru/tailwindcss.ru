@@ -21,28 +21,27 @@ function Logo({ title, component: Component }) {
 export default function Resources() {
   return (
     <div className="px-4 sm:px-6 md:px-8 pt-10 pb-16">
-      <h1 className="text-3xl text-gray-900 font-extrabold mb-4">Resources</h1>
+      <h1 className="text-3xl text-gray-900 font-extrabold mb-4">Ресурсы</h1>
       <div className="max-w-3xl">
         <div className="text-lg mb-5 space-y-5">
           <p>
-            We think Tailwind is an amazing CSS framework, but you need more than just a CSS
-            framework to produce visually awesome work.
+            Мы думаем, что Tailwind - потрясающий фреймворк CSS, но для создания визуально потрясающей работы вам нужно нечто большее, чем просто фреймворк CSS.
           </p>
           <p>
-            Here are some resources that can help you take your Tailwind projects to the next level.
+            Вот несколько ресурсов, которые помогут вывести ваши проекты Tailwind на новый уровень.
           </p>
         </div>
         <p>
-          For Tailwind CSS brand assets and usage guidelines, please visit our{' '}
+          Чтобы ознакомиться с активами бренда Tailwind CSS и правилами использования, посетите нашу{' '}
           <Link href="/brand">
-            <a className="text-cyan-700 font-medium shadow-link">Brand page</a>
+            <a className="text-cyan-700 font-medium shadow-link">страницу бренда</a>
           </Link>
           .
         </p>
       </div>
       <div className="grid md:grid-cols-2 gap-8 md:gap-6 xl:gap-8 my-8 sm:my-12">
         <section>
-          <h2 className="text-xl text-gray-900 font-bold mb-4">Learn UI Design</h2>
+          <h2 className="text-xl text-gray-900 font-bold mb-4">Изучение UI-дизайна</h2>
           <a
             href="https://refactoringui.com/book"
             className="h-40 sm:h-56 xl:h-64 bg-gray-900 bg-cover rounded-3xl mb-6 flex items-center justify-center"
@@ -54,18 +53,16 @@ export default function Resources() {
           </a>
           <div className="space-y-5">
             <p>
-              Refactoring UI is a design-for-developers book + video series put together by Adam
-              Wathan and Steve Schoger. It covers literally everything we know about making things
-              look awesome.
+              Refactoring UI - это серия книг и видеороликов для разработчиков, составленная Адамом Уотаном и Стивом Шогером.
+              Он охватывает буквально все, что мы знаем о том, как заставить вещи выглядеть потрясающе.
             </p>
             <p>
-              Almost 10,000 people have picked it up so far and have all sorts of awesome things to
-              say about how it helped them improve their work.
+              На данный момент почти 10 000 человек подхватили его и могут сказать много замечательных вещей о том, как это помогло им улучшить свою работу.
             </p>
           </div>
         </section>
         <section>
-          <h2 className="text-xl text-gray-900 font-bold mb-4">Official Tailwind CSS Components</h2>
+          <h2 className="text-xl text-gray-900 font-bold mb-4">Официальные компоненты Tailwind CSS</h2>
           <a
             href="https://tailwindui.com/"
             className="h-40 sm:h-56 xl:h-64 bg-gray-300 rounded-3xl mb-6 overflow-hidden flex"
@@ -83,12 +80,12 @@ export default function Resources() {
           </a>
           <div className="space-y-5">
             <p>
-              Tailwind UI is a collection of professionally designed, pre-built, fully responsive
-              HTML snippets you can drop into your Tailwind projects.
+              Пользовательский интерфейс Tailwind - это набор профессионально разработанных, предварительно созданных,
+              полностью адаптивных фрагментов HTML, которые вы можете добавить в свои проекты Tailwind.
             </p>
             <p>
-              There are currently over 350 components available in two different categories
-              (Marketing and Application UI) and we’re always adding more.
+              В настоящее время доступно более 350 компонентов в двух разных категориях
+              (маркетинг и пользовательский интерфейс приложений), и мы постоянно добавляем новые.
             </p>
           </div>
         </section>
@@ -105,13 +102,13 @@ export default function Resources() {
             <Logo title="Headless UI" component={HeadlessUi} />
           </a>
           <p>
-            Completely unstyled, fully accessible UI components, designed to integrate beautifully
-            with Tailwind CSS.
+            Полностью не стилизованные, полностью доступные компоненты пользовательского интерфейса,
+            разработанные для красивой интеграции с Tailwind CSS.
           </p>
         </section>
         <section>
           <h2 className="text-xl text-gray-900 font-bold mb-4">
-            Icons<span className="sr-only">: Heroicons</span>
+            Иконки<span className="sr-only">: Heroicons</span>
           </h2>
           <a
             href="https://heroicons.com/"
@@ -127,12 +124,12 @@ export default function Resources() {
             </div>
           </a>
           <p>
-            A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.
+            Набор бесплатных высококачественных иконок SVG, лицензированных MIT, для использования в ваших веб-проектах.
           </p>
         </section>
         <section>
           <h2 className="text-xl text-gray-900 font-bold mb-4">
-            Patterns<span className="sr-only">: Heropatterns</span>
+            Узоры<span className="sr-only">: Heropatterns</span>
           </h2>
           <a
             href="https://www.heropatterns.com/"
@@ -148,14 +145,13 @@ export default function Resources() {
             </div>
           </a>
           <p>
-            A set of free MIT-licensed high-quality SVG patterns for you to use in your web
-            projects.
+            Набор бесплатных высококачественных шаблонов SVG с лицензией MIT, которые вы можете использовать в своих веб-проектах.
           </p>
         </section>
       </div>
       <section>
         <h2 className="text-2xl tracking-tight font-extrabold text-gray-900 mt-10 mb-8">
-          Get involved
+          Вовлекайтесь
         </h2>
         <Community />
       </section>

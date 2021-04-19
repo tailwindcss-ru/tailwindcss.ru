@@ -3,6 +3,18 @@ export function Community() {
     <ul className="grid sm:grid-cols-2 gap-6 xl:gap-8">
       <li>
         <a
+          href="https://t.me/tailwindcss_rus"
+          className="flex items-start space-x-4"
+        >
+          <svg className="flex-none text-blue-100 w-12 h-12" viewBox="0 0 32 32"><path d="m26 32h-20c-3.314 0-6-2.686-6-6v-20c0-3.314 2.686-6 6-6h20c3.314 0 6 2.686 6 6v20c0 3.314-2.686 6-6 6z" fill="#e3f8fa" /><path d="m16 24c4.419 0 8-3.581 8-8s-3.581-8-8-8-8 3.581-8 8 3.581 8 8 8zm-4.34-8.173 7.713-2.974c.358-.129.671.087.555.629l.001-.001-1.313 6.187c-.097.438-.358.545-.723.339l-2-1.474-.965.929c-.107.107-.197.197-.403.197l.142-2.036 3.707-3.349c.161-.142-.036-.222-.248-.081l-4.581 2.884-1.974-.616c-.43-.135-.439-.428.089-.634z" fill="#26c6da" /></svg>
+          <div className="flex-auto">
+            <h3 className="font-bold text-gray-900">Чат Telegram</h3>
+            <p>Обсуждайте Tailwind CSS в чате телеграм.</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a
           href="https://github.com/tailwindlabs/tailwindcss/discussions"
           className="flex items-start space-x-4"
         >

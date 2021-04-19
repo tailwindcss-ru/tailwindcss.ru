@@ -103,6 +103,9 @@ export default function DocsLandingPage() {
       <p className="text-2xl tracking-tight mb-10">
         Изучите Tailwind способом, который лучше всего соответствует вашему стилю обучения.
       </p>
+      <p className="text-xl tracking-tight mb-10">
+        Неофициальный перевод официальной документации Tailwind CSS.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8">
         <section className="flex">
           <div className="w-full relative text-white overflow-hidden rounded-3xl flex shadow-lg">

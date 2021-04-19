@@ -19,6 +19,7 @@ const footerNav = {
   },
   'Сообщество': {
     items: [
+      { title: 'Telegram', href: 'https://t.me/tailwindcss_rus' },
       { title: 'GitHub', href: 'https://github.com/tailwindlabs/tailwindcss' },
       { title: 'Discord', href: '/discord' },
       { title: 'Twitter', href: 'https://twitter.com/tailwindcss' },
