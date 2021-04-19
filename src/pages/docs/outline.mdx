@@ -1,6 +1,6 @@
 ---
-title: "Outline"
-description: "Utilities for controlling an element's outline."
+title: "Контур"
+description: "Утилиты для управления контуром элемента."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/outline'
@@ -10,54 +10,54 @@ import { Heading } from '@/components/Heading'
 
 export const classes = { plugin }
 
-## Remove outlines
+## Удалить контуры
 
-Use `outline-none` to hide the default browser outline on focused elements.
+Используйте `outline-none`, чтобы скрыть контур браузера по умолчанию на элементах с фокусом.
 
-It is highly recommended to apply your own focus styling for accessibility when using this utility.
+Настоятельно рекомендуется применять собственный стиль фокуса для доступности при использовании этой утилиты.
 
 ```html amber
 <template preview>
   <div class="flex space-x-6 justify-center">
     <input type="text" class="px-4 py-3 leading-5 border rounded-md" placeholder="Default focus style" />
-    <input type="text" class="px-4 py-3 leading-5 border rounded-md focus:outline-none focus:ring focus:border-blue-400" placeholder="Custom focus style" />
+    <input type="text" class="px-4 py-3 leading-5 border rounded-md focus:outline-none focus:ring focus:border-blue-400" placeholder="Пользовательский стиль фокуса" />
   </div>
 </template>
 
 <input type="text"
-  placeholder="Default focus style"
+  placeholder="Стиль фокуса по умолчанию"
   class="..." />
 
 <input type="text"
-  placeholder="Custom focus style"
+  placeholder="Пользовательский стиль фокуса"
   class="**focus:outline-none focus:ring focus:border-blue-300** ..." />
 ```
 
-The `outline-none` utility is implemented using a transparent outline under the hood to ensure elements are still visibly focused to [Windows high contrast mode](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/) users.
+Утилита `outline-none` реализована с использованием прозрачного контура под капотом, чтобы элементы по-прежнему были явно сфокусированы на [режим высокой контрастности Windows](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/) пользователей.
 
-## Dotted outlines
+## Пунктирные контуры
 
-Use the `outline-white` and `outline-black` utilities to add a 2px dotted border around an element with a 2px offset. These are useful as an accessible general purpose custom focus style if you don't want to design your own.
+Используйте утилиты `outline-white` и `outline-black`, чтобы добавить пунктирную границу 2 пикселя вокруг элемента со смещением 2 пикселя. Они полезны в качестве доступного пользовательского стиля фокуса общего назначения, если вы не хотите создавать свой собственный.
 
 ```html
 <template preview class="flex">
   <div class="min-w-0 flex-1 bg-gray-100 p-10 flex items-center justify-center">
-    <button type="button" class="px-6 py-3 rounded-md font-semibold bg-blue-600 text-white focus:outline-black">Button A</button>
+    <button type="button" class="px-6 py-3 rounded-md font-semibold bg-blue-600 text-white focus:outline-black">Кнопка А</button>
   </div>
   <div class="min-w-0 flex-1 bg-blue-700 p-10 flex items-center justify-center">
-    <button type="button" class="px-6 py-3 rounded-md font-semibold bg-white text-gray-900 focus:outline-white">Button B</button>
+    <button type="button" class="px-6 py-3 rounded-md font-semibold bg-white text-gray-900 focus:outline-white">Кнопка Б</button>
   </div>
 </template>
 
-<button class="**focus:outline-black** ...">Button A</button>
-<button class="**focus:outline-white** ...">Button B</button>
+<button class="**focus:outline-black** ...">Кнопка А</button>
+<button class="**focus:outline-white** ...">Кнопка Б</button>
 ```
 
 ## Кастомизация
 
-### Outlines
+### Контуры
 
-By default, Tailwind provides three outline utilities. You can customize these by editing the `theme.outline` section of your `tailwind.config.js` file.
+По умолчанию Tailwind предоставляет три утилиты. Вы можете настроить их, отредактировав раздел `theme.outline` в файле `tailwind.config.js`.
 
 ```js
   // tailwind.config.js
@@ -72,7 +72,7 @@ By default, Tailwind provides three outline utilities. You can customize these b
   }
 ```
 
-You can also provide an `outline-offset` value for any custom outline utilities using a tuple of the form `[outline, outlineOffset]`:
+Вы также можете указать значение `outline-offset` для любых пользовательских утилит структуры, используя кортеж вида `[outline, outlineOffset]`:
 
 ```js
   // tailwind.config.js

@@ -1,6 +1,6 @@
 ---
-title: "User Select"
-description: "Utilities for controlling whether the user can select text in an element."
+title: "Выделение текста"
+description: "Утилиты для управления возможностью выделения пользователем текста в элементе."
 features:
  responsive: true
  customizable: false
@@ -14,67 +14,67 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Disable selecting text
+## Отключить выделение текста
 
-Use `select-none` to prevent selecting text in an element and its children.
+Используйте `select-none`, чтобы предотвратить выделение текста в элементе и его дочерних элементах.
 
 ```html amber
 <template preview>
   <div class="mx-auto max-w-sm bg-amber-200 p-2 select-none text-center">
-    This text is not selectable
+    Этот текст нельзя выбрать
   </div>
 </template>
 
 <div class="**select-none** ...">
-  This text is not selectable
+  Этот текст нельзя выбрать
 </div>
 ```
 
-## Allow selecting text
+## Разрешить выделение текста
 
-Use `select-text` to allow selecting text in an element and its children.
+Используйте `select-text`, чтобы разрешить выделение текста в элементе и его дочерних элементах.
 
 ```html emerald
 <template preview>
   <div class="mx-auto max-w-sm bg-emerald-200 p-2 select-text text-center">
-    This text is selectable
+    Этот текст можно выбрать
   </div>
 </template>
 
 <div class="**select-text** ...">
-  This text is selectable
+  Этот текст можно выбрать
 </div>
 ```
 
-## Select all text in one click
+## Выделите весь текст одним щелчком мыши
 
-Use `select-all` to automatically select all the text in an element when a user clicks.
+Используйте `select-all`, чтобы автоматически выделять весь текст в элементе, когда пользователь щелкает мышью.
 
 ```html fuchsia
 <template preview>
   <div class="mx-auto max-w-sm bg-fuchsia-200 p-2 select-all text-center">
-    Click anywhere in this text to select it all
+    Щелкните в любом месте этого текста, чтобы выделить все
   </div>
 </template>
 
 <div class="**select-all** ...">
-  Click anywhere in this text to select it all
+  Щелкните в любом месте этого текста, чтобы выделить все
 </div>
 ```
 
-## Auto
+## Авто
 
-Use `select-auto` to use the default browser behavior for selecting text. Useful for undoing other classes like `.select-none` at different breakpoints.
+Используйте `select-auto`, чтобы использовать поведение браузера по умолчанию для выделения текста. Полезно для отмены других классов, таких как `.select-none`, в разных контрольных точках.
 
 ```html lightBlue
 <template preview>
   <div class="mx-auto max-w-sm bg-light-blue-200 p-2 select-auto text-center">
-    This text is selectable
+    Этот текст можно выбрать
   </div>
 </template>
 
 <div class="**select-auto** ...">
-  This text is selectable
+  Этот текст можно выбрать
 </div>
 ```
 

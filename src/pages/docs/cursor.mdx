@@ -1,6 +1,6 @@
 ---
-title: "Cursor"
-description: "Utilities for controlling the cursor style when hovering over an element."
+title: "Курсор"
+description: "Утилиты для управления стилем курсора при наведении курсора на элемент."
 features:
   responsive: true
   customizable: true
@@ -14,123 +14,123 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Auto
+## Авто
 
-Use `cursor-auto` to allow the browser to change the cursor based on the current content (e.g. automatically change to `text` cursor when hovering over text).
+Используйте `cursor-auto`, чтобы позволить браузеру изменять курсор в зависимости от текущего содержимого (например, автоматически менять курсор на `text` при наведении курсора на текст).
 
 ```html rose
 <template preview>
   <div class="cursor-auto max-w-xs p-2 bg-rose-200 mx-auto text-center">
-    Hover over this text
+    Наведите курсор на этот текст
   </div>
 </template>
 
 <div class="**cursor-auto** ...">
-  Hover over this text
+  Наведите курсор на этот текст
 </div>
 ```
 
-## Default
+## По умолчанию
 
-Use `cursor-default` to change the mouse cursor to always use the platform-dependent default cursor (usually an arrow).
+Используйте `cursor-default`, чтобы изменить курсор мыши, чтобы всегда использовать курсор по умолчанию, зависящий от платформы (обычно стрелку).
 
 ```html amber
 <template preview>
   <div class="cursor-default max-w-xs p-2 bg-amber-200 mx-auto text-center">
-    Hover over this text
+    Наведите курсор на этот текст
   </div>
 </template>
 
 <div class="**cursor-default** ...">
-  Hover over this text
+  Наведите курсор на этот текст
 </div>
 ```
 
-## Pointer
+## Указатель
 
-Use `cursor-pointer` to change the mouse cursor to indicate an interactive element (usually a pointing hand).
+Используйте `cursor-pointer`, чтобы изменить курсор мыши, чтобы указать интерактивный элемент (обычно указывающую руку).
 
 ```html purple
 <template preview>
   <div class="cursor-pointer max-w-xs p-2 bg-purple-200 mx-auto text-center">
-    Hover me
+    Наведи на меня
   </div>
 </template>
 
 <div class="**cursor-pointer** ...">
-  Hover me
+  Наведи на меня
 </div>
 ```
 
-## Wait
+## Ожидание
 
-Use `cursor-wait` to change the mouse cursor to indicate something is happening in the background (usually an hourglass or watch).
+Используйте `cursor-wait`, чтобы изменить курсор мыши, чтобы указать, что что-то происходит в фоновом режиме (обычно это песочные часы или часы).
 
 ```html emerald
 <template preview>
   <div class="cursor-wait max-w-xs p-2 bg-emerald-200 mx-auto text-center">
-    Hover me
+    Наведи на меня
   </div>
 </template>
 
 <div class="**cursor-wait** ...">
-  Hover me
+  Наведи на меня
 </div>
 ```
 
-## Text
+## Текст
 
-Use `cursor-text` to change the mouse cursor to indicate the text can be selected (usually an I-beam shape).
+Используйте `cursor-text`, чтобы изменить курсор мыши, чтобы указать, что текст может быть выбран (обычно двутавровая форма).
 
 ```html fuchsia
 <template preview>
   <div class="cursor-text max-w-xs p-2 bg-fuchsia-200 mx-auto text-center">
-    Hover me
+    Наведи на меня
   </div>
 </template>
 
 <div class="cursor-text ...">
-  Hover me
+  Наведи на меня
 </div>
 ```
 
-## Move
+## Перемещение
 
-Use `cursor-move` to change the mouse cursor to indicate something that can be moved.
+Используйте `cursor-move`, чтобы изменить курсор мыши, чтобы указать что-то, что можно переместить.
 
 ```html indigo
 <template preview>
   <div class="cursor-move max-w-xs p-2 bg-indigo-200 mx-auto text-center">
-    Hover me
+    Наведи на меня
   </div>
 </template>
 
 <div class="**cursor-move** ...">
-  Hover me
+  Наведи на меня
 </div>
 ```
 
-## Not Allowed
+## Не разрешено
 
-Use `cursor-not-allowed` to change the mouse cursor to indicate something can not be interacted with or clicked.
+Используйте `cursor-not-allowed`, чтобы изменить курсор мыши, чтобы указать, что с чем-то нельзя взаимодействовать или щелкать.
 
 ```html lightBlue
 <template preview>
   <div class="cursor-not-allowed max-w-xs p-2 bg-light-blue-200 mx-auto text-center">
-    Hover me
+    Наведи на меня
   </div>
 </template>
 
 <div class="**cursor-not-allowed** ...">
-  Hover me
+  Наведи на меня
 </div>
 ```
 
 ## Кастомизация
 
-### Cursors
+### Курсоры
 
-By default, Tailwind provides six `cursor` utilities. You change, add, or remove these by editing the `theme.cursor` section of your Tailwind config.
+По умолчанию Tailwind предоставляет шесть утилит `cursor`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.cursor` вашей конфигурации Tailwind.
 
 ```diff-js
   // tailwind.config.js

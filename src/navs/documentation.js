@@ -187,7 +187,7 @@ export const documentationNav = {
     pages['translate'],
     pages['skew'],
   ],
-  Interactivity: [
+  'Интерактивность': [
     pages['appearance'],
     pages['cursor'],
     pages['outline'],
