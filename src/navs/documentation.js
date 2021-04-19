@@ -200,6 +200,8 @@ export const documentationNav = {
     pages['stroke'],
     pages['stroke-width']
   ],
-  Accessibility: [pages['screen-readers']],
+  'Доступность': [
+    pages['screen-readers']
+  ],
   'Official Plugins': [pages['typography-plugin']],
 }

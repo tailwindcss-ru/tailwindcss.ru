@@ -1,6 +1,6 @@
 ---
-title: "Screen Readers"
-description: "Utilities for improving accessibility with screen readers."
+title: "Экранные считыватели"
+description: "Утилиты для улучшения доступности с помощью программ чтения с экрана."
 ---
 
 import plugin from 'tailwindcss/lib/plugins/accessibility'
@@ -11,29 +11,29 @@ export const classes = { plugin }
 
 ## Применение
 
-Use `sr-only` to hide an element visually without hiding it from screen readers:
+Используйте `sr-only`, чтобы скрыть элемент визуально, не скрывая его от программ чтения с экрана:
 
 ```html
 <a href="#">
   <svg><!-- ... --></svg>
-  <span class="sr-only">Settings</span>
+  <span class="sr-only">Настройки</span>
 </a>
 ```
 
-Use `not-sr-only` to undo `sr-only`, making an element visible to sighted users as well as screen readers. This can be useful when you want to visually hide something on small screens but show it on larger screens for example:
+Используйте `not-sr-only`, чтобы отменить `sr-only`, сделав элемент видимым для зрячих пользователей, а также для программ чтения с экрана. Это может быть полезно, когда вы хотите визуально скрыть что-то на маленьких экранах, но показать это на больших экранах, например:
 
 ```html
 <a href="#">
   <svg><!-- ... --></svg>
-  <span class="sr-only sm:not-sr-only">Settings</span>
+  <span class="sr-only sm:not-sr-only">Настройки</span>
 </a>
 ```
 
-By default, `responsive` and `focus` variants are generated for these utilities. You can use `focus:not-sr-only` to make an element visually hidden by default but visible when the user tabs to it — useful for "skip to content" links:
+По умолчанию для этих утилит генерируются варианты `responsive` и `focus`. Вы можете использовать `focus:not-sr-only`, чтобы сделать элемент визуально скрытым по умолчанию, но видимым, когда пользователь переходит на него - полезно для ссылок «перейти к содержанию»:
 
 ```html
 <a href="#" class="sr-only focus:not-sr-only">
-  Skip to content
+  Перейти к содержанию
 </a>
 ```
 
