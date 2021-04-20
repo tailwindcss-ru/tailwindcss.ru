@@ -1,12 +1,12 @@
 ---
-title: "Install Tailwind CSS with Angular"
-description: "Setting up Tailwind CSS in an Angular project."
+title: "Установите Tailwind CSS с Angular"
+description: "Настройка Tailwind CSS в проекте Angular."
 tool: Angular
 ---
 
 <!--
 #####
-Launch day test: Angular works with the normal tailwindcss package 🎉
+Тест в день запуска: Angular работает с обычным пакетом tailwindcss 🎉
 #####
 -->
 
@@ -34,7 +34,7 @@ purge:
   - ./resources/**/*.vue
 ```
 
-Next, let's create a `webpack.config.js` at the root of our project, and tell webpack to handle CSS files with the `postcss-loader`:
+Затем давайте создадим `webpack.config.js` в корне нашего проекта и скажем webpack обрабатывать файлы CSS с помощью `postcss-loader`:
 
 ```js
 module.exports = {
@@ -59,9 +59,9 @@ module.exports = {
 file: ./src/styles.css
 ```
 
-Finally, we need to update the `angular.json` file to let it know about our custom webpack config. We'll need to update the `architect.build` and `architect.serve` sections of the config.
+Наконец, нам нужно обновить файл `angular.json`, чтобы он знал о нашей настраиваемой конфигурации веб-пакета. Нам нужно будет обновить разделы конфигурации `architect.build` и `architect.serve`.
 
-Locate the `architect.build` key, and under `builder`, replace `@angular-devkit/build-angular:browser` with `@angular-builders/custom-webpack:browser`.
+Найдите ключ `architect.build` и в `builder` замените `@angular-devkit/build-angular:browser` на `@angular-builders/custom-webpack:browser`.
 
 ```diff-json
   "architect": {
@@ -72,7 +72,7 @@ Locate the `architect.build` key, and under `builder`, replace `@angular-devkit/
   }
 ```
 
-In the `options` just below, add a `customWebpackConfig` object with the `path` to the webpack config:
+В параметрах `options` чуть ниже добавьте объект `customWebpackConfig` с `path` к конфигурации webpack:
 
 ```diff-json
   "architect": {
@@ -88,7 +88,7 @@ In the `options` just below, add a `customWebpackConfig` object with the `path` 
   }
 ```
 
-Now, let's do something very similar in `architect.serve`:
+Теперь давайте сделаем что-то очень похожее в `architect.serve`:
 
 ```diff-json
   "architect": {

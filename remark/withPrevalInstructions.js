@@ -11,8 +11,9 @@ const stubs = {
   postcss: fs.readFileSync(require.resolve('tailwindcss/stubs/defaultPostCssConfig.stub'), 'utf8'),
 }
 
-// Abusing the front-matter plugin to parse the Yaml, so that we don't have to
-// load another yaml tool. Shush, don't tell anyone!
+// Злоупотребление плагином фронтальной части для синтаксического анализа Yaml,
+// чтобы нам не приходилось загружать другой инструмент yaml.
+// Тише, никому не говори!
 function yaml(input) {
   return fm(['---', input, '---'].join('\n')).attributes
 }
@@ -22,7 +23,7 @@ function md(input) {
   return markdown.parse(redent(input).replace(/^\n+/gm, '\n')).children
 }
 
-function joinAsSpeech(words, separator = ' and ') {
+function joinAsSpeech(words, separator = ' и ') {
   let all = words.slice()
   let last = all.pop()
 
@@ -71,7 +72,7 @@ function indent(amount = 2) {
 }
 
 function error(input) {
-  return `<div class="fixed top-0 left-0 right-0 p-4 z-50 bg-red-500 text-white text-2xl">Pages contains issues!</div><span class="font-bold bg-red-100 bg-opacity-50 ring-4 ring-red-600 ring-opacity-75 rounded-2xl px-2">${input}</span>`
+  return `<div class="fixed top-0 left-0 right-0 p-4 z-50 bg-red-500 text-white text-2xl">Страницы содержат проблемы!</div><span class="font-bold bg-red-100 bg-opacity-50 ring-4 ring-red-600 ring-opacity-75 rounded-2xl px-2">${input}</span>`
 }
 
 function code(language, contents, { file = null, indent = 8 } = {}) {
@@ -106,12 +107,12 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
       disclaimer = null,
     }) {
       return md(`
-        ## Creating your project
+        ## Создание вашего проекта
 
-        Start by creating a new ${tool} project if you don't have one set up already.
+        Начните с создания нового проекта ${tool}, если у вас его еще нет.
         ${
           reference !== null
-            ? `The most common approach is to use [${reference.name}](${reference.link}):`
+            ? `Самый распространенный подход - использовать [${reference.name}](${reference.link}):`
             : ''
         }
 
@@ -119,7 +120,7 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
         ${disclaimer !== null ? code('shell', `${script} my-project`) : ''}
         ${disclaimer !== null ? disclaimer : ''}
 
-        ${disclaimer !== null ? 'Next, change directories to your new project:' : ''}
+        ${disclaimer !== null ? 'Затем смените каталоги на свой новый проект:' : ''}
         ${disclaimer !== null ? code('shell', 'cd my-project') : ''}
 
         ${
@@ -128,46 +129,46 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
             : ''
         }
 
-        ${npmInstall ? `Next, install ${tool}'s front-end dependencies using \`npm\`:` : ''}
+        ${npmInstall ? `Затем установите клиентские зависимости ${tool}, используя \`npm\`:` : ''}
         ${npmInstall ? code('shell', 'npm install') : ''}
       `)
     },
-    configuration({ purge = [], types = ['pages', 'components'], postcss = true }) {
+    configuration({ purge = [], types = ['страницы', 'компоненты'], postcss = true }) {
       let files = ['tailwind.config.js', postcss && 'postcss.config.js']
         .filter(Boolean)
         .map(quote('`'))
       let multipleFiles = files.length > 1
 
       return md(`
-        ### Create your configuration ${multipleFiles ? 'files' : 'file'}
+        ### Создайте свою конфигурацию ${multipleFiles ? 'файлов' : 'файл'}
 
-        Next, generate your ${joinAsSpeech(files)} ${multipleFiles ? 'files' : 'file'}:
+        Затем сгенерируйте свои(й) ${joinAsSpeech(files)} ${multipleFiles ? 'файлы' : 'файл'}:
 
         ${code('shell', `npx tailwindcss init ${postcss ? '-p' : ''}`)}
 
-        This will create a minimal \`tailwind.config.js\` file at the root of your project:
+        Это создаст минимальный файл \`tailwind.config.js\` в корне вашего проекта:
 
         ${code('js', stubs.tailwind, { file: 'tailwind.config.js' })}
 
-        Learn more about configuring Tailwind in the [configuration documentation](/docs/configuration).
+        Узнайте больше о настройке Tailwind в [документации по конфигурации](/docs/configuration).
 
         ${
           postcss
-            ? 'It will also create a `postcss.config.js` file that includes `tailwindcss` and `autoprefixer` already configured:'
+        ? 'Он также создаст файл `postcss.config.js`, который включает уже настроенные файлы `tailwindcss` и `autoprefixer`:'
             : ''
         }
         ${postcss ? code('js', stubs.postcss, { file: 'postcss.config.js' }) : ''}
         ${
           postcss
-            ? "If you're planning to use any other PostCSS plugins, you should read our documentation on [using PostCSS as your preprocessor](/docs/using-with-preprocessors) for more details about the best way to order them alongside Tailwind."
+        ? "Если вы планируете использовать какие-либо другие плагины PostCSS, вам следует прочитать нашу документацию по [использованию PostCSS в качестве препроцессора](/docs/using-with-preprocessors) для получения более подробной информации о том, как лучше всего заказать их вместе с Tailwind."
             : ''
         }
 
-        ### Configure Tailwind to remove unused styles in production
+        ### Настройте Tailwind, чтобы удалить неиспользуемые стили в продакшене
 
-        In your \`tailwind.config.js\` file, configure the \`purge\` option with the paths to all of your ${joinAsSpeech(
+        В вашем файле \`tailwind.config.js\`, настройте опцию \`purge\`, указав пути ко всем вашим ${joinAsSpeech(
           types
-        )} so Tailwind can tree-shake unused styles in production builds:
+        )}, чтобы Tailwind мог изменять дерево неиспользуемых стилей в производственных сборках:
 
         ${code(
           'diff-js',
@@ -186,7 +187,7 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
           { file: 'tailwind.config.js' }
         )}
 
-        Read our separate guide on [optimizing for production](/docs/optimizing-for-production) to learn more about tree-shaking unused styles for best performance.
+        Прочтите наше отдельное руководство по [оптимизации для продакшена](/docs/optimizing-for-production), чтобы узнать больше о древовидных неиспользуемых стилях для лучшей производительности.
       `)
     },
     setup({
@@ -216,14 +217,14 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
         .map(([name, mode]) => {
           if (knownDependencies[mode] === undefined) {
             throw new Error(
-              `Unknown version "${mode}". Only valid versions are: ${joinAsSpeech(
+              `Неизвестная версия "${mode}". Только действующие версии: ${joinAsSpeech(
                 Object.values(knownDependencies).map(quote('`'))
               )}`
             )
           }
 
           return [
-            hasMultipleVersion && `# If you're on ${name}`,
+            hasMultipleVersion && `# Если вы на ${name}`,
             `npm install ${dev ? '-D ' : ''}${[...dependencies, ...knownDependencies[mode]].join(
               ' '
             )}`,
@@ -235,35 +236,35 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
 
       let outdatedVersions = Object.keys(version)
         .filter((name) => version[name] === 'compat-7')
-        .flatMap((version) => version.split(/\s(?:and|or)\s/)) // "Next.js or older" -> ["Next.js", "older"]
+        .flatMap((version) => version.split(/\s(?:и|или)\s/)) // "Next.js или старше" -> ["Next.js", "старше"]
         .filter(Boolean)
       let information =
         outdatedVersions.length > 0
           ? `${joinAsSpeech(outdatedVersions)} ${
-              outdatedVersions.length === 1 ? "doesn't" : "don't"
-            } support PostCSS 8 yet${
-              soon ? " _(but it's coming soon)_" : ''
-            } so you need to install [the Tailwind CSS v2.0 PostCSS 7 compatibility build](/docs/installation#post-css-7-compatibility-build) for now as we've shown above.`
+          outdatedVersions.length === 1 ? "не" : "не"
+            } пока поддерживает PostCSS 8${
+              soon ? " _(но это скоро)_" : ''
+            } поэтому вам необходимо установить [сборку совместимости с Tailwind CSS v2.0 PostCSS 7](/docs/installation#post-css-7-compatibility-build), как мы показали выше.`
           : ''
 
       return md(`
-        ## Setting up Tailwind CSS
+        ## Настройка Tailwind CSS
 
-        ### Install Tailwind via npm
+        ### Установка Tailwind через npm
 
         ${
           uninstall.length > 0
-            ? `If you already have the ${joinAsSpeech(uninstall.map(quote('`')))} ${
-                uninstall.length === 1 ? 'module' : 'modules'
-              } installed for any reason, it's important that you uninstall it before installing Tailwind itself:`
+            ? `Если у вас уже установлен(ы) ${joinAsSpeech(uninstall.map(quote('`')))} ${
+                uninstall.length === 1 ? 'модуль' : 'модули'
+              } по какой-либо причине, важно удалить его перед установкой самого Tailwind:`
             : ''
         }
         ${uninstall.length > 0 ? code('shell', `npm uninstall ${uninstall.join(' ')}`) : ''}
 
-        ${uninstall.length > 0 ? 'Next, install' : 'Install'} ${joinAsSpeech(
+        ${uninstall.length > 0 ? 'Далее устанавливаем' : 'Устанавливаем'} ${joinAsSpeech(
         [...dependencies.map(quote('`')), 'Tailwind'],
-        ' as well as '
-      )} and its peer-dependencies using \`npm\`:
+        ', а также '
+      )} его одноранговые зависимости, используя \`npm\`:
 
         ${code('shell', installCode)}
 
@@ -272,14 +273,14 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
     },
     include({ file, create = false, tool = pageTool, withChromiumBug = false, level = 3 }) {
       return md(`
-        ${'#'.repeat(level)} Include Tailwind in your CSS
+        ${'#'.repeat(level)} Включите Tailwind в свой CSS
 
         ${
           create
-            ? `Create the \`${file}\` file`
-            : `Open the \`${file}\` file that ${tool} generates for you by default`
+            ? `Создать \`${file}\` файл`
+            : `Откройте файл \`${file}\`, который ${tool} генерирует для вас по умолчанию`
         }
-        and use the \`@tailwind\` directive to include Tailwind's \`base\`, \`components\`, and \`utilities\` styles, replacing the original file contents:
+        , и используйте директиву \`@tailwind\`, чтобы включить утилиты Tailwind \`base\`, \`components\` и \`utilities\` стили, заменяющие исходное содержимое файла:
 
         ${code(
           'css',
@@ -294,23 +295,23 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
 
         ${
           withChromiumBug
-            ? "_Due to [a bug in Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1131113), it's important that you include the weird `/*! @import */` comment to avoid performance issues in Chrome DevTools during development. This is already fixed in Canary but hasn't been released generally yet._"
+            ? "_Из-за [ошибки в Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1131113) важно, чтобы вы включили странный символ `/*! @import */` комментарий, чтобы избежать проблем с производительностью в Chrome DevTools во время разработки. Это уже исправлено в Canary, но в целом еще не выпущено._"
             : ''
         }
 
-        Tailwind will swap these directives out at build-time with all of the styles it generates based on your configured design system.
+        Tailwind заменит эти директивы во время сборки на все стили, которые он генерирует на основе вашей настроенной дизайн-системы.
 
-        Read our documentation on [adding base styles](/docs/adding-base-styles), [extracting components](/docs/extracting-components), and [adding new utilities](/docs/adding-new-utilities) for best practices on extending Tailwind with your own custom CSS.
+        Прочтите нашу документацию по [добавлению базовых стилей](/docs/adding-base-styles), [извлечению компонентов](/docs/extracting-components), и [добавлению новых утилит](/docs/adding-new-utilities) для лучшие практики по расширению Tailwind с помощью вашего собственного CSS.
       `)
     },
     finish({ scripts = [], tool = pageTool }) {
       return md(`
-        You're finished! Now when you run ${joinAsSpeech(
+        Вы закончили! Теперь, когда ты бежишь ${joinAsSpeech(
           scripts.map(quote('`')),
-          ' or '
-        )}, Tailwind CSS will be ready to use in your ${tool} project.
+          ' или '
+        )}, Tailwind CSS будет готов к использованию в вашем проекте ${tool}.
 
-        [Next learn about the utility-first workflow &rarr;](/docs/utility-first)
+        [Далее узнайте о рабочем процессе "сначала утилиты" &rarr;](/docs/utility-first)
       `)
     },
   }
@@ -335,7 +336,7 @@ module.exports.withPrevalInstructions = () => {
       if (node.lang !== 'preval') return
       if (prevals[node.meta] === undefined)
         throw new Error(
-          `Preval instruction "${node.meta}" is not handled properly!\n\n\tSee: ./remark/withPrevalInstructions.js`
+          `Предыдущая инструкция "${node.meta}" не обрабатывается должным образом!\n\n\tСмотрите: ./remark/withPrevalInstructions.js`
         )
 
       parent.children.splice(index, 1, ...[].concat(prevals[node.meta](yaml(node.value), node)))

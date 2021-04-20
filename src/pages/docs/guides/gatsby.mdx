@@ -1,6 +1,6 @@
 ---
-title: "Install Tailwind CSS with Gatsby"
-description: "Setting up Tailwind CSS in a Gatsby project."
+title: "Установите Tailwind CSS с Gatsby"
+description: "Настройка Tailwind CSS в проекте Gatsby."
 tool: Gatsby
 ---
 
@@ -23,9 +23,9 @@ purge:
   - ./src/**/*.{js,jsx,ts,tsx}
 ```
 
-### Enable gatsby-plugin-postcss 
+### Включить gatsby-plugin-postcss 
 
-In your `gatsby-config.js` file, enable the [postcss plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-postcss/).
+В вашем файле `gatsby-config.js`, включите [плагин postcss](https://www.gatsbyjs.com/plugins/gatsby-plugin-postcss/).
 
 ```diff-js
   // gatsby-config.js
@@ -41,14 +41,14 @@ create: true
 file: ./src/styles/global.css
 ```
 
-Finally, create a `./gatsby-browser.js` file at the root of your project if it doesn't already exist, and import your CSS file:
+Наконец, создайте файл `./gatsby-browser.js` в корне вашего проекта, если он еще не существует, и импортируйте свой файл CSS:
 
 ```diff-js
   // ./gatsby-browser.js
 + import './src/styles/global.css';
 ```
 
-Read [the Gatsby documentation on using global styles](https://www.gatsbyjs.com/tutorial/part-two/#using-global-styles) to learn more about working with global CSS files in Gatsby.
+Прочтите [документацию Gatsby по использованию глобальных стилей](https://www.gatsbyjs.com/tutorial/part-two/#using-global-styles), чтобы узнать больше о работе с глобальными файлами CSS в Gatsby.
 
 ---
 

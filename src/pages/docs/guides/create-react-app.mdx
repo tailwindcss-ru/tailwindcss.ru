@@ -1,6 +1,6 @@
 ---
-title: "Install Tailwind CSS with Create React App"
-description: "Setting up Tailwind CSS in a Create React App project."
+title: "Установите Tailwind CSS с Create React App"
+description: "Настройка Tailwind CSS в проекте Create React App."
 tool: Create React App
 ---
 
@@ -17,15 +17,15 @@ script: npx create-react-app
 version: compat-7
 ```
 
-### Install and configure CRACO
+### Установить и настроить CRACO
 
-Since Create React App doesn't let you override the PostCSS configuration natively, we also need to install [CRACO](https://github.com/gsoft-inc/craco) to be able to configure Tailwind:
+Поскольку Create React App не позволяет вам изначально переопределить конфигурацию PostCSS, нам также необходимо установить [CRACO](https://github.com/gsoft-inc/craco), чтобы иметь возможность настраивать Tailwind:
 
 ```shell
 npm install @craco/craco
 ```
 
-Once it's installed, update your `scripts` in your `package.json` file to use `craco` instead of `react-scripts` for all scripts except `eject`:
+После его установки обновите ваши `scripts` в файле `package.json`, чтобы использовать `craco` вместо `react-scripts` для всех скриптов, кроме `eject`:
 
 ```diff-json
   {
@@ -42,7 +42,7 @@ Once it's installed, update your `scripts` in your `package.json` file to use `c
   }
 ```
 
-Next, create a `craco.config.js` at the root of our project and add the `tailwindcss` and `autoprefixer` as PostCSS plugins:
+Затем создайте `craco.config.js` в корне нашего проекта и добавьте `tailwindcss` и `autoprefixer` как плагины PostCSS:
 
 ```js
 // craco.config.js
@@ -58,7 +58,7 @@ module.exports = {
 }
 ```
 
-If you're planning to use any other PostCSS plugins, you should read our documentation on [using PostCSS as your preprocessor](/docs/using-with-preprocessors) for more details about the best way to order them alongside Tailwind.
+Если вы планируете использовать какие-либо другие плагины PostCSS, вам следует прочитать нашу документацию по [использованию PostCSS в качестве препроцессора](/docs/using-with-preprocessors) для получения более подробной информации о том, как лучше всего заказать их вместе с Tailwind.
 
 ```preval configuration
 postcss: false
@@ -73,7 +73,7 @@ purge:
 file: ./src/index.css
 ```
 
-Finally, ensure your CSS file is being imported in your `./src/index.js` file:
+Наконец, убедитесь, что ваш файл CSS импортируется в файл `./src/index.js`:
 
 ```diff-js
   // src/index.js

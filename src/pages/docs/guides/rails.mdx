@@ -1,34 +1,34 @@
 ---
-title: "Install Tailwind CSS with Rails"
-description: "Setting up Tailwind CSS in a Rails project."
+title: "Установите Tailwind CSS с Rails"
+description: "Настройка Tailwind CSS в проекте Rails."
 tool: Rails
 ---
 
 <!--
 #####
-Launch day test: it works with the normal tailwindcss package 🎉
+Тест в день запуска: работает с обычным пакетом tailwindcss 🎉
 #####
 -->
 
-# Using Tailwind CSS with Rails
+# Использование Tailwind CSS с Rails
 
-## Creating your project
+## Создание вашего проекта
 
-Start by creating a new Rails project if you don't have one set up already. The most common approach is to use the [Rails CLI](https://guides.rubyonrails.org/command_line.html#rails-new):
+Начните с создания нового проекта Rails, если у вас его еще нет. Наиболее распространенный подход - использовать [Rails CLI](https://guides.rubyonrails.org/command_line.html#rails-new):
 
 ```shell
 rails new my-project
 ```
 
-## Setting up Tailwind CSS
+## Настройка Tailwind CSS
 
-Install Tailwind using `npm` or `yarn`:
+Установите Tailwind с помощью `npm` или `yarn`:
 
 ```shell
 yarn add tailwindcss
 ```
 
-Next, let's add Tailwind to our project's `postcss.config.js` file:
+Затем добавим Tailwind в файл `postcss.config.js` нашего проекта:
 
 ```diff-js
   module.exports = {
@@ -47,13 +47,13 @@ Next, let's add Tailwind to our project's `postcss.config.js` file:
 
 ```
 
-Next, let's create a default Tailwind config file:
+Затем давайте создадим конфигурационный файл Tailwind по умолчанию:
 
 ```shell
 npx tailwindcss init
 ```
 
-In our Rails project, let's create a new file called `tailwind.css` inside the `app/javascript/styles` directory. This file will contain three `@tailwind` declaratives:
+В нашем проекте Rails создадим новый файл с именем `tailwind.css` внутри каталога `app/javascript/styles`. Этот файл будет содержать три декларатива `@tailwind`:
 
 ```css
 @import "tailwindcss/base";
@@ -61,7 +61,7 @@ In our Rails project, let's create a new file called `tailwind.css` inside the `
 @import "tailwindcss/utilities";
 ```
 
-Next, let's import this file in our application JavaScript pack (`app/javascript/packs/application.js`):
+Затем давайте импортируем этот файл в пакет JavaScript нашего приложения (`app/javascript/packs/application.js`):
 
 ```diff-js
   require("@rails/ujs").start();
@@ -72,7 +72,7 @@ Next, let's import this file in our application JavaScript pack (`app/javascript
 
 ```
 
-Finally, in our application layout file (`rails/app/views/layouts/application.html.erb`), let's replace the `stylesheet_link_tag` with the `stylesheet_pack_tag`:
+Наконец, в файле макета нашего приложения (`rails/app/views/layouts/application.html.erb`), давайте заменим `stylesheet_link_tag` на `stylesheet_pack_tag`:
 
 ```diff-html
   <html>
@@ -89,4 +89,4 @@ Finally, in our application layout file (`rails/app/views/layouts/application.ht
   </html>
 ```
 
-That's it! Tailwind CSS is now available throughout our entire Rails application 🎉
+Это оно! CSS Tailwind теперь доступен во всем приложении Rails 🎉
