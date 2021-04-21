@@ -1,20 +1,20 @@
 ---
-title: Just-in-Time Mode
-shortTitle: Just-in-Time Mode
-description: A faster, more powerful, on-demand engine for Tailwind CSS v2.1+.
+title: "Режим «на лету»"
+shortTitle: "Режим Just-in-Time"
+description: "Более быстрый и мощный движок по запросу для Tailwind CSS v2.1+."
 featureVersion: 'v2.1+'
 ---
 import { Heading } from '@/components/Heading'
 import { TipGood, TipBad, TipInfo } from '@/components/Tip'
 import { ThemeReference } from '@/components/ThemeReference'
 
-## <Heading hidden>Overview</Heading>
+## <Heading hidden>Обзор</Heading>
 
 <TipInfo>
-  <strong className="font-semibold text-blue-900">This feature is currently in preview.</strong> Preview features are not covered by semantic versioning and some details may change as we continue to refine them.
+  <strong className="font-semibold text-blue-900">Эта функция в настоящее время находится на стадии превью.</strong> Предварительные функции не охватываются семантическим управлением версиями, и некоторые детали могут измениться, поскольку мы продолжаем их совершенствовать.
 </TipInfo>
 
-Tailwind CSS v2.1 introduces a new just-in-time compiler for Tailwind CSS that generates your styles on-demand as you author your templates instead of generating everything in advance at initial build time.
+Tailwind CSS v2.1 представляет новый своевременный компилятор для Tailwind CSS, который генерирует ваши стили по запросу, когда вы создаете свои шаблоны, вместо того, чтобы создавать все заранее во время начальной сборки.
 
 <div className="relative pb-[calc(9/16*100%)] my-12">
   <iframe
@@ -26,19 +26,19 @@ Tailwind CSS v2.1 introduces a new just-in-time compiler for Tailwind CSS that g
   ></iframe>
 </div>
 
-This comes with a lot of advantages:
+Это дает множество преимуществ:
 
-- **Lightning fast build times**. Tailwind can take 3–8s to initially compile using our CLI, and upwards of 30–45s in webpack projects because webpack struggles with large CSS files. This library can compile even the biggest projects in about 800ms _(with incremental rebuilds as fast as 3ms)_, no matter what build tool you're using.
-- **Every variant is enabled out of the box**. Variants like `focus-visible`, `active`, `disabled`, and others are not normally enabled by default due to file-size considerations. Since this library generates styles on demand, you can use any variant you want, whenever you want. You can even stack them like `sm:hover:active:disabled:opacity-75`. Never configure your variants again.
-- **Generate arbitrary styles without writing custom CSS.** Ever needed some ultra-specific value that wasn't part of your design system, like `top: -113px` for a quirky background image? Since styles are generated on demand, you can just generate a utility for this as needed using square bracket notation like `top-[-113px]`. Works with variants too, like `md:top-[-113px]`.
-- **Your CSS is identical in development and production**. Since styles are generated as they are needed, you don't need to purge unused styles for production, which means you see the exact same CSS in all environments. Never worry about accidentally purging an important style in production again.
-- **Better browser performance in development**. Since development builds are as small as production builds, the browser doesn't have to parse and manage multiple megabytes of pre-generated CSS. In projects with heavily extended configurations this makes dev tools a lot more responsive.
+- **Молниеносно быстрое время сборки**. Первоначальная компиляция Tailwind с использованием нашего интерфейса командной строки может занять 3–8 секунд, а в проектах webpack может потребоваться более 30–45 секунд, поскольку webpack борется с большими файлами CSS. Эта библиотека может компилировать даже самые большие проекты примерно за 800 мс _(с инкрементальной перестройкой всего за 3 мс)_, независимо от того, какой инструмент сборки вы используете.
+- **Каждый вариант включен из коробки**. Такие варианты, как `focus-visible`, `active`, `disabled` и другие обычно не включаются по умолчанию из-за соображений размера файла. Поскольку эта библиотека генерирует стили по запросу, вы можете использовать любой вариант, какой захотите, когда захотите. Вы даже можете складывать их, например, `sm:hover:active:disabled:opacity-75`. Никогда больше не настраивайте свои варианты.
+- **Создание произвольных стилей без написания собственного CSS.** Когда-нибудь требовалось какое-то сверхспецифическое значение, которое не было частью вашей системы дизайна, например `top: -113px` для причудливого фонового изображения? Поскольку стили генерируются по запросу, вы можете просто сгенерировать для этого утилиту по мере необходимости, используя обозначение в квадратных скобках, например `top-[-113px]`. Также работает с вариантами, такими как `md:top-[-113px]`.
+- **Ваш CSS идентичен в разработке и продакшене**. Поскольку стили генерируются по мере необходимости, вам не нужно очищать неиспользуемые стили для продакшена, что означает, что вы видите один и тот же CSS во всех средах. Никогда не беспокойтесь о том, что снова случайно удалите важный стиль в продакшене.
+- **Повышение производительности браузера в разработке**. Поскольку сборки для разработки такие же маленькие, как и продакшен сборки, браузеру не нужно анализировать и управлять несколькими мегабайтами предварительно сгенерированного CSS. В проектах с сильно расширенными конфигурациями это делает инструменты разработки намного более отзывчивыми.
 
-To see it in action, [watch our announcement video](https://www.youtube.com/watch?v=3O_3X7InOw8).
+Чтобы увидеть это в действии, [посмотрите наше анонсирующее видео](https://www.youtube.com/watch?v=3O_3X7InOw8).
 
-## Enabling JIT mode
+## Включение режима JIT
 
-To enable just-in-time mode, set the `mode` option to `'jit'` in your `tailwind.config.js` file:
+Чтобы включить режим JIT, установите для параметра `mode` значение `'jit'` в файле `tailwind.config.js`:
 
 ```diff-js
   // tailwind.config.js
@@ -54,13 +54,13 @@ To enable just-in-time mode, set the `mode` option to `'jit'` in your `tailwind.
   }
 ```
 
-Since JIT mode generates your CSS on-demand by scanning your template files, it's crucial that you configure the `purge` option in your `tailwind.config.js` file with all of your template paths, otherwise your CSS will be empty:
+Поскольку в режиме JIT ваш CSS создается по запросу путем сканирования файлов шаблонов, очень важно настроить опцию `purge` в файле `tailwind.config.js` со всеми вашими путями к шаблонам, иначе ваш CSS будет пуст:
 
 ```diff-js
   // tailwind.config.js
   module.exports = {
     mode: 'jit',
-+   // These paths are just examples, customize them to match your project structure
++   // Эти пути являются лишь примерами, настройте их в соответствии со структурой вашего проекта
 +   purge: [
 +     './public/**/*.html',
 +     './src/**/*.{js,jsx,ts,tsx,vue}',
@@ -72,114 +72,114 @@ Since JIT mode generates your CSS on-demand by scanning your template files, it'
   }
 ```
 
-Now when you start your development server or build runner, Tailwind will generate your styles on-demand instead of generating everything in advance.
+Теперь, когда вы запускаете свой сервер разработки или сборщик, Tailwind будет генерировать ваши стили по запросу, вместо того, чтобы создавать все заранее.
 
-## Watch mode and one-off builds
+## Режим просмотра и разовые сборки
 
-Behind the scenes, the JIT engine uses its own file-watching system to watch your templates for changes as efficiently as possible.
+За кулисами движок JIT использует свою собственную систему просмотра файлов, чтобы максимально эффективно отслеживать изменения в ваших шаблонах.
 
-By default, Tailwind will start a long-running watch process if `NODE_ENV=development`, and it will run in one-off mode if `NODE_ENV=production`.
+По умолчанию Tailwind запускает длительный процесс наблюдения, если `NODE_ENV=development`, и запускается в одноразовом режиме, если `NODE_ENV=production`.
 
 ```js
 // package.json
 {
   // ...
   scripts: {
-    // Will start a long-running watch process
+    // Запустит длительный процесс наблюдения
     "dev": "NODE_ENV=development postcss tailwind.css -o ./dist/tailwind.css -w"
-    // Will perform a one-off build
+    // Выполним разовую сборку
     "build": "NODE_ENV=production postcss tailwind.css -o ./dist/tailwind.css"
   },
   // ...
 }
 ```
 
-If it appears like your one-off build process is hanging, it's almost certainly because `NODE_ENV=development` in your build script. To fix this, you can either set `NODE_ENV=production`, or explicitly tell Tailwind not to start a watcher by setting `TAILWIND_MODE=build` as part of your script.
+Если кажется, что процесс разовой сборки завис, это почти наверняка из-за `NODE_ENV=development` в вашем сценарии сборки. Чтобы исправить это, вы можете либо установить `NODE_ENV=production`, либо явно указать Tailwind не запускать наблюдатель, установив `TAILWIND_MODE=build` как часть вашего скрипта.
 
 ```js
 // package.json
 {
   // ...
   scripts: {
-    // Will start a long-running watch process
+    // Запустит длительный процесс наблюдения
     "dev": "TAILWIND_MODE=watch NODE_ENV=development postcss tailwind.css -o ./dist/tailwind.css -w"
-    // Will perform a one-off development build
+    // Выполнит разовую сборку разработки
     "build:dev": "TAILWIND_MODE=build NODE_ENV=development postcss tailwind.css -o ./dist/tailwind.css"
-    // Will perform a one-off production build
+    // Выполнит разовую сборку продакшена
     "build:prod": "TAILWIND_MODE=build NODE_ENV=production postcss tailwind.css -o ./dist/tailwind.css"
   },
   // ...
 }
 ```
 
-## New features
+## Новые возможности
 
-### All variants are enabled
+### Все варианты включены
 
-Since styles are generated on-demand, there's no need to configure which variants are available for each core plugin.
+Поскольку стили создаются по запросу, нет необходимости настраивать, какие варианты доступны для каждого основного плагина.
 
 ```html
 <input class="disabled:opacity-75">
 ```
 
-You can use variants like `focus-visible`, `active`, `disabled`, `even`, and more in combination with any utility, without making any changes to your `tailwind.config.js` file.
+Вы можете использовать такие варианты, как `focus-visible`, `active`, `disabled`, `even` и другие, в сочетании с любой утилитой, не внося никаких изменений в файл `tailwind.config.js`.
 
-### Stackable variants
+### Стекируемые варианты
 
-All variants can be combined together to easily target very specific situations without writing custom CSS.
+Все варианты можно комбинировать вместе, чтобы легко ориентироваться в очень специфических ситуациях без написания собственного CSS.
 
 ```html
 <button class="md:dark:disabled:focus:hover:bg-gray-400">
 ```
 
-### Arbitrary value support
+### Поддержка произвольных значений
 
-Many utilities support arbitrary values using a new square bracket notation to indicate that you're "breaking out" of your design system.
+Многие утилиты поддерживают произвольные значения с использованием новой записи в квадратные скобки, чтобы указать, что вы «вырываете» свою дизайн-систему.
 
 ```html
-<!-- Sizes and positioning -->
+<!-- Размеры и расположение -->
 <img class="absolute w-[762px] h-[918px] top-[-325px] right-[62px] md:top-[-400px] md:right-[80px]" src="/crazy-background-image.png">
 
-<!-- Colors -->
-<button class="bg-[#1da1f1]">Share on Twitter</button>
+<!-- Цвета -->
+<button class="bg-[#1da1f1]">Поделиться в Твиттере</button>
 
-<!-- Complex grids -->
+<!-- Сложные сетки -->
 <div class="grid-cols-[1fr,700px,2fr]">
   <!-- ... -->
 </div>
 ```
 
-This is very useful for building pixel-perfect designs where there are a few elements that need hyper-specific styles, like a carefully positioned background image on a marketing site.
+Это очень полезно для создания идеальных по пикселям дизайнов, где есть несколько элементов, требующих гиперспецифических стилей, например, тщательно расположенное фоновое изображение на маркетинговом сайте.
 
-We'll likely add some form of "strict mode" in the future for power-hungry team leads who don't trust their colleagues to use this feature responsibly.
+Скорее всего, в будущем мы добавим некоторую форму «строгого режима» для требовательных к власти руководителей команд, которые не доверяют своим коллегам ответственно использовать эту функцию.
 
-### Built-in important modifier
+### Встроенный важный модификатор
 
-You can make any utility important by adding a `!` character to the beginning:
+Вы можете сделать любую утилиту важной, добавив в ее начало символ `!`:
 
 ```html
 <p class="font-bold !font-medium">
-  This will be medium even though bold comes later in the CSS.
+  Это будет средний размер, даже если жирный шрифт появится позже в CSS.
 </p>
 ```
 
-The `!` always goes at the beginning of the utility name, after any variants, but before any prefix:
+`!` всегда стоит в начале имени утилиты, после любых вариантов, но перед любым префиксом:
 
 ```html
 <div class="sm:hover:!tw-font-bold">
 ```
 
-This can be useful in rare situations where you need to increase specificity because you're at war with some styles you don't control.
+Это может быть полезно в редких ситуациях, когда вам нужно повысить специфичность, потому что вы ведете войну с некоторыми стилями, которые вы не контролируете.
 
-## Known limitations
+## Известные ограничения
 
-This new engine is very close to feature parity with `tailwindcss` currently and for most projects I bet you'll find it works exactly as you'd expect.
+Этот новый движок в настоящее время очень близок к паритету функций с `tailwindcss`, и я уверен, что для большинства проектов вы обнаружите, что он работает именно так, как вы ожидаете.
 
-There are a few items still on our todo list though that we are actively working on:
+В нашем списке дел все еще есть несколько пунктов, над которыми мы активно работаем:
 
-- Advanced PurgeCSS options like `safelist` aren't supported yet since we aren't actually using PurgeCSS. We'll add a way to safelist classes for sure though. For now, a `safelist.txt` file somewhere in your project with all the classes you want to safelist will work fine.
-- You can only `@apply` classes that are part of core, generated by plugins, or defined within a `@layer` rule. You can't `@apply` arbitrary CSS classes that aren't defined within a `@layer` rule.
+- Дополнительные параметры PurgeCSS, такие как `safelist`, пока не поддерживаются, поскольку мы фактически не используем PurgeCSS. Тем не менее, мы обязательно добавим способ для классов списков надежных отправителей. На данный момент файл `safelist.txt` где-нибудь в вашем проекте со всеми классами, которые вы хотите добавить в список надежных отправителей, будет работать нормально.
+- Вы можете использовать только классы `@apply`, которые являются частью ядра, сгенерированы плагинами или определены в правиле `@layer`. Вы не можете `@apply` произвольных классов CSS, которые не определены в правиле `@layer`.
 
-We are also ironing out some compatibility issues with certain build tools like Parcel and Snowpack, which you can follow in our [issue tracker](https://github.com/tailwindlabs/tailwindcss/issues).
+Мы также устраняем некоторые проблемы совместимости с некоторыми инструментами сборки, такими как Parcel и Snowpack, за которыми вы можете следить в нашем [трекере проблем](https://github.com/tailwindlabs/tailwindcss/issues).
 
-If you run into any other issues or find any bugs, please [open an issue](https://github.com/tailwindlabs/tailwindcss/issues/new/choose) so we can fix it.
+Если вы столкнетесь с другими проблемами или обнаружите какие-либо ошибки, пожалуйста, [откройте проблему](https://github.com/tailwindlabs/tailwindcss/issues/new/choose), чтобы мы могли исправить это.
