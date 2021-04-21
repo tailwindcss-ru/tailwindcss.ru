@@ -8,14 +8,14 @@ export function VersionSwitcher({ className }) {
   function submit(e) {
     e.preventDefault()
     if (selectRef.current.value === 'v1') {
-      window.location = 'https://v1.tailwindcss.com/'
+      window.location = 'https://v1.tailwindcss.su/'
     }
   }
 
   return (
     <form onSubmit={submit} className={clsx('relative', className)}>
       <label>
-        <span className="sr-only">Tailwind CSS Version</span>
+        <span className="sr-only">Версия Tailwind CSS</span>
         <select
           ref={selectRef}
           className="appearance-none block bg-transparent pr-7 py-1 text-gray-500 font-medium text-sm focus:outline-none focus:text-gray-900 transition-colors duration-200"

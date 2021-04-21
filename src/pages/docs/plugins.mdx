@@ -776,11 +776,11 @@ module.exports = plugin(function({ addUtilities, e, theme, variants }) {
 
 Указав таким образом настройки по умолчанию, конечные пользователи смогут [переопределить](/docs/theme#overriding-the-default-theme) и [расширить](/docs/theme#extending-the-default-theme) Ваши значения по умолчанию так же, как и со встроенными стилями Tailwind.
 
-### Exposing advanced configuration options
+### Предоставление расширенных параметров конфигурации
 
-Sometimes it makes sense for a plugin to be configurable in a way that doesn't really belong under `theme` or `variants`, like perhaps you want users to be able to customize the class name your plugin uses.
+Иногда имеет смысл настраивать плагин таким образом, который на самом деле не относится к `theme` или `variants`, например, возможно, вы хотите, чтобы пользователи могли настраивать имя класса, которое использует ваш плагин.
 
-For cases like this, you can use `plugin.withOptions` to define a plugin that can be invoked with a configuration object. This API is similar to the regular `plugin` API, except each argument should be a function that receives the user's `options` and returns the value that you would have normally passed in using the regular API:
+В таких случаях вы можете использовать `plugin.withOptions` для определения подключаемого модуля, который может быть вызван с помощью объекта конфигурации. Этот API похож на обычный API `plugin`, за исключением того, что каждый аргумент должен быть функцией, которая принимает `options` пользователя и возвращает значение, которое вы обычно передали бы с помощью обычного API:
 
 ```js
 // ./plugins/gradients.js
@@ -817,7 +817,7 @@ module.exports = plugin.withOptions(function (options) {
 })
 ```
 
-The user would invoke your plugin passing along their options when registering it in their `plugins` configuration:
+Пользователь будет вызывать ваш плагин, передавая свои параметры при регистрации его в своей конфигурации `plugins`:
 
 ```js
 // tailwind.config.js
@@ -836,7 +836,7 @@ module.exports = {
 }
 ```
 
-The user can also register plugins created this way normally without invoking them if they don't need to pass in any custom options:
+Пользователь также может зарегистрировать плагины, созданные таким образом, обычно, не вызывая их, если им не нужно передавать какие-либо настраиваемые параметры:
 
 ```js
 // tailwind.config.js

@@ -228,19 +228,19 @@ export const documentationNav = {
   ],
   'Официальные плагины': [
     {
-      title: 'Typography',
+      title: 'Типография',
       href: 'https://github.com/tailwindlabs/tailwindcss-typography',
     },
     {
-      title: 'Forms',
+      title: 'Формы',
       href: 'https://github.com/tailwindlabs/tailwindcss-forms',
     },
     {
-      title: 'Aspect Ratio',
+      title: 'Соотношение сторон',
       href: 'https://github.com/tailwindlabs/tailwindcss-aspect-ratio',
     },
     {
-      title: 'Line Clamp',
+      title: 'Линейный зажим',
       href: 'https://github.com/tailwindlabs/tailwindcss-line-clamp',
     },
   ],
