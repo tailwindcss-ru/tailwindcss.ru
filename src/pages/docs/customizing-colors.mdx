@@ -235,8 +235,7 @@ module.exports = {
       gray: colors.coolGray,
       red: colors.red,
       yellow: colors.amber,
-      blue: colors.blue,
-      pink: colors.pink,
+      blue: colors.blue
     }
   }
 }
@@ -309,6 +308,9 @@ module.exports = {
 @tailwind components;
 @tailwind utilities;
 ```
+
+*Note that colors defined using custom properties will not work with color opacity utilities like `bg-opacity-50` without additional configuration. See [this example repository](https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo) for more information on how to make this work.*
+
 
 ---
 

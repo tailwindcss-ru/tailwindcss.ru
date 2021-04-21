@@ -21,8 +21,8 @@ version:
 
 ```preval configuration
 purge: 
-  - ./pages/**/*.js
-  - ./components/**/*.js
+  - ./pages/**/*.{js,ts,jsx,tsx}
+  - ./components/**/*.{js,ts,jsx,tsx}
 ```
 
 ### Включите Tailwind в свой CSS
@@ -36,7 +36,7 @@ purge:
 ```diff-js
   // pages/_app.js
 - import '../styles/globals.css'
-+ import "tailwindcss/tailwind.css";
++ import 'tailwindcss/tailwind.css'
 
   function MyApp({ Component, pageProps }) {
     return <Component {...pageProps} />

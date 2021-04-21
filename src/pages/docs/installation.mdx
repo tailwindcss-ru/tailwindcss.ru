@@ -9,9 +9,7 @@ import { IntegrationGuides } from '@/components/IntegrationGuides'
 import Link from 'next/link'
 import stats from '@/utils/stats'
 
-
-
-## Руководство по интеграции
+## Руководства по интеграции
 
 Процесс установки Tailwind CSS может немного отличаться в зависимости от того, какие другие фреймворки/инструменты вы используете, поэтому мы составили несколько руководств, которые охватывают популярные настройки.
 
@@ -21,9 +19,9 @@ import stats from '@/utils/stats'
 
 ---
 
-
-
 ## Установка Tailwind CSS в качестве плагина PostCSS
+
+*Tailwind CSS требует Node.js 12.13.0 или выше.*
 
 Для большинства реальных проектов мы рекомендуем установить Tailwind как плагин PostCSS. Большинство современных фреймворков уже используют PostCSS под капотом, и есть большая вероятность, что вы использовали или в настоящее время используете другие плагины PostCSS, такие как [autoprefixer](https://github.com/postcss/autoprefixer).
 
@@ -36,7 +34,7 @@ import stats from '@/utils/stats'
 Для большинства проектов (и для того, чтобы воспользоваться возможностями настройки Tailwind), вам нужно установить Tailwind и его одноранговые зависимости через npm.
 
 ```shell
-npm install tailwindcss@latest postcss@latest autoprefixer@latest
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 ```
 
 Поскольку Tailwind [не добавляет автоматически префиксы поставщиков](/docs/browser-support#vendor-prefixes) в создаваемый им CSS, мы рекомендуем установить [autoprefixer](https://github.com/postcss/autoprefixer) для решения этой проблемы для Вас, как мы показали в приведенном выше фрагменте.
@@ -158,7 +156,9 @@ import "tailwindcss/tailwind.css"
 
 ## Использование Tailwind без PostCSS
 
-Для простых проектов или просто для того, чтобы попробовать Tailwind, вы можете использовать инструмент Tailwind CLI для генерации CSS без настройки PostCSS или даже без установки Tailwind в качестве зависимости, если вы этого не хотите.
+*Tailwind CSS требует Node.js 12.13.0 или выше.*
+
+Для простых проектов или просто для пробуждения Tailwind вы можете использовать инструмент Tailwind CLI для генерации CSS без настройки PostCSS или даже без установки Tailwind в качестве зависимости, если вы этого не хотите.
 
 Используйте `npx`, инструмент, который автоматически устанавливается вместе с `npm`, чтобы сгенерировать полностью скомпилированный файл CSS Tailwind:
 
@@ -247,16 +247,23 @@ npx tailwindcss-cli@latest build ./src/tailwind.css -c ./.config/tailwind.config
 
 Узнайте больше о настройке Tailwind в [документации по конфигурации](/docs/configuration).
 
+### Отключение Autoprefixer
+
+По умолчанию инструмент Tailwind CLI будет запускать ваш CSS через [Autoprefixer](https://github.com/postcss/autoprefixer) для добавления любых необходимых префиксов поставщиков. Если у вас уже есть Autoprefixer, настроенный в конвейере сборки где-то дальше по цепочке, вы можете отключить его в инструменте Tailwind CLI с помощью флага `--no-autoprefixer`, чтобы не запускать его дважды:
+
+```shell
+npx tailwindcss-cli@latest build --no-autoprefixer -o tailwind.css
+```
+
 ### Сборка для продакшена
 
-При сборке для производства установите `NODE_ENV=production` в командной строке при сборке CSS:
+При сборке для продакшена установите `NODE_ENV=production` в командной строке при сборке CSS:
 
 ```shell
 NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dist/tailwind.css
 ```
 
-Это гарантирует, что Tailwind удалит все неиспользуемые CSS и минимизирует файл CSS для лучшей производительности. Прочтите наше отдельное руководство по [оптимизации для производства](/docs/optimizing-for-production), чтобы узнать больше.
-
+Это гарантирует, что Tailwind удалит все неиспользуемые CSS для лучшей производительности. Прочтите наше отдельное руководство по [оптимизации для продакшена](/docs/optimizing-for-production), чтобы узнать больше.
 
 ---
 
@@ -272,7 +279,7 @@ NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dis
   <ListItemBad>вы не можете избавиться от неиспользуемых стилей</ListItemBad>
 </List>
 
-Чтобы получить максимальную отдачу от Tailwind, вам действительно следует [установить его как плагин PostCSS](#installing-tailwind-as-a-post-css-plugin).
+Чтобы получить максимальную отдачу от Tailwind, вам действительно следует [установить его как плагин PostCSS](#installing-tailwind-css-as-a-post-css-plugin).
 
 Чтобы использовать Tailwind для быстрых демонстраций или просто попробовать фреймворк, загрузите последнюю сборку конфигурации по умолчанию через CDN:
 
@@ -325,7 +332,7 @@ NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dis
 
 ```shell
 npm uninstall tailwindcss postcss autoprefixer
-npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 
 Сборка совместимости идентична основной сборке во всех отношениях, поэтому вы не упускаете ни одной функции или чего-либо в этом роде.
@@ -334,5 +341,5 @@ npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-c
 
 ```shell
 npm uninstall tailwindcss @tailwindcss/postcss7-compat
-npm install tailwindcss@latest postcss@latest autoprefixer@latest
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 ```

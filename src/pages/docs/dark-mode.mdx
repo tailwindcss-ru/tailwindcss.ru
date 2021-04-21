@@ -115,9 +115,9 @@ module.exports = {
 ```js
 // При загрузке страницы или при смене темы лучше всего добавлять строку в `head`, чтобы избежать FOUC
 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.querySelector('html').classList.add('dark')
+  document.documentElement.classList.add('dark')
 } else {
-  document.querySelector('html').classList.remove('dark')
+  document.documentElement.classList.remove('dark')
 }
 
 // Всякий раз, когда пользователь явно выбирает светлый режим

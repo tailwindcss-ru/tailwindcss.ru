@@ -8,12 +8,8 @@ const pages = createPageList(
 export const documentationNav = {
   'Начало работы': [
     {
-      title: 'Установка',
-      href: '/docs/installation',
-    },
-    {
       title: 'Примечания к выпуску',
-      href: 'https://blog.tailwindcss.com/tailwindcss-v2',
+      href: 'https://github.com/tailwindlabs/tailwindcss/releases',
     },
     {
       title: 'Обновление до v2',
@@ -48,6 +44,7 @@ export const documentationNav = {
   ],
   'Настройка': [
     pages['configuration'],
+    pages['just-in-time-mode'],
     pages['theme'],
     pages['breakpoints'],
     pages['customizing-colors'],
@@ -59,10 +56,12 @@ export const documentationNav = {
   'Базовые стили': [pages['preflight']],
   'Макет': [
     pages['container'],
+    pages['box-decoration-break'],
     pages['box-sizing'],
     pages['display'],
     pages['float'],
     pages['clear'],
+    pages['isolation'],
     pages['object-fit'],
     pages['object-position'],
     pages['overflow'],
@@ -167,6 +166,30 @@ export const documentationNav = {
   'Эффекты': [
     pages['box-shadow'],
     pages['opacity'],
+    pages['mix-blend-mode'],
+    pages['background-blend-mode'],
+  ],
+  'Filters': [
+    pages['filter'],
+    pages['blur'],
+    pages['brightness'],
+    pages['contrast'],
+    pages['drop-shadow'],
+    pages['grayscale'],
+    pages['hue-rotate'],
+    pages['invert'],
+    pages['saturate'],
+    pages['sepia'],
+    pages['backdrop-filter'],
+    pages['backdrop-blur'],
+    pages['backdrop-brightness'],
+    pages['backdrop-contrast'],
+    pages['backdrop-grayscale'],
+    pages['backdrop-hue-rotate'],
+    pages['backdrop-invert'],
+    pages['backdrop-opacity'],
+    pages['backdrop-saturate'],
+    pages['backdrop-sepia'],
   ],
   'Таблицы': [
     pages['border-collapse'],
@@ -204,6 +227,21 @@ export const documentationNav = {
     pages['screen-readers']
   ],
   'Официальные плагины': [
-    pages['typography-plugin']
+    {
+      title: 'Typography',
+      href: 'https://github.com/tailwindlabs/tailwindcss-typography',
+    },
+    {
+      title: 'Forms',
+      href: 'https://github.com/tailwindlabs/tailwindcss-forms',
+    },
+    {
+      title: 'Aspect Ratio',
+      href: 'https://github.com/tailwindlabs/tailwindcss-aspect-ratio',
+    },
+    {
+      title: 'Line Clamp',
+      href: 'https://github.com/tailwindlabs/tailwindcss-line-clamp',
+    },
   ],
 }

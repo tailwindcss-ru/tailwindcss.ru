@@ -104,14 +104,13 @@ const testimonials = [
       avatar: require('@/img/avatars/aaron-bushnell.jpg').default,
     },
   },
-
   {
     content:
       'Я работаю с CSS более десяти лет и попутный ветер просто облегчает мою жизнь. Это все еще CSS, и вы используете flex, grid и т.д., но просто быстрее писать и поддерживать.',
     tweetUrl: 'https://twitter.com/debs_obrien/status/1243255468241420288',
     author: {
-      name: `Head of Learning @ Nuxt.js`,
-      role: 'Full-Stack Developer',
+      name: `Debbie O'Brien`,
+      role: 'Head of Learning @ Nuxt.js',
       avatar: require('@/img/avatars/debbie-obrien.jpg').default,
     },
   },

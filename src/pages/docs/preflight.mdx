@@ -106,6 +106,18 @@ ul {
 
 Если вы хотите выборочно ввести стили списка по умолчанию в части страницы, стилизованные под статью, мы рекомендуем [плагин типографии @tailwindcss](/docs/typography-plugin/).
 
+### Accessibility considerations
+
+Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). If your content is truly a list but you would like to keep it unstyled, [add a "list" role](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) to the element:
+
+```html
+<ul role="list">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
+
 ---
 
 ## Изображения блочного уровня

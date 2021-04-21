@@ -40,6 +40,89 @@ module.exports = {
 
 ---
 
+## Официальные плагины
+
+Мы разработали несколько официальных плагинов для популярных функций, которые по тем или иным причинам еще не входят в состав ядра.
+
+Плагины могут быть добавлены в ваш проект, установив их через npm, а затем добавив их в ваш файл `tailwind.config.js`:
+
+```js
+// tailwind.config.js
+module.exports = {
+  // ...
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
+  ]
+}
+```
+
+
+### Типография
+
+Плагин `@tailwindcss/typography` добавляет набор классов `prose`, которые можно использовать для быстрого добавления разумных типографских стилей к блокам контента, которые поступают из таких источников, как маркдаун или база данных CMS.
+
+```html
+<article class="prose lg:prose-xl">
+  <h1>Чесночный хлеб с сыром: что нам подсказывает наука</h1>
+  <p>
+    В течение многих лет родители защищали своих детей от употребления чесночного хлеба с сыром о пользе для здоровья, и эта еда приобрела такой знаковый статус в нашей культуре, что дети часто наряжаются в теплые сырные буханки на Хэллоуин.
+  </p>
+  <p>
+    Но недавнее исследование показывает, что знаменитая закуска может быть связана с серией случаев заболевания бешенством, возникающих по всей стране.
+  </p>
+  <!-- ... -->
+</article>
+```
+
+[Узнать больше о плагине типографики &rarr;](https://github.com/tailwindlabs/tailwindcss-typography)
+
+### Формы
+
+Плагин `@tailwindcss/forms` добавляет упорядоченный уровень сброса формы, который упрощает стилизацию элементов формы с помощью классов утилит.
+
+```html
+<!-- Фактически вы можете настроить отступы для выбранного элемента: -->
+<select class="px-4 py-3 rounded-full">
+  <!-- ... -->
+</select>
+
+<!-- Или измените цвет флажка с помощью утилит для настройки цвета текста: -->
+<input type="checkbox" class="rounded text-pink-500" />
+```
+
+[Узнать больше о плагине форм &rarr;](https://github.com/tailwindlabs/tailwindcss-forms)
+
+### Line-clamp
+
+Плагин `@tailwindcss/line-clamp` добавляет классы `line-clamp-{lines}`, которые вы можете использовать для усечения текста до фиксированного количества строк.
+
+```html
+<p class="line-clamp-3 md:line-clamp-none">
+  Et molestiae hic earum repellat aliquid est doloribus delectus. Enim illum odio porro ut omnis
+  dolor debitis natus. Voluptas possimus deserunt sit delectus est saepe nihil. Qui voluptate
+  possimus et quia. Eligendi voluptas voluptas dolor cum. Rerum est quos quos id ut molestiae fugit.
+</p>
+```
+
+[Узнать больше о плагине line-clamp &rarr;](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+
+### Соотношение сторон
+
+Плагин `@tailwindcss/aspect-ratio` добавляет классы `aspect-w-{n}` и `aspect-h-{n}`, которые можно комбинировать, чтобы придать элементу фиксированное соотношение сторон.
+
+```html
+<div class="aspect-w-16 aspect-h-9">
+  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+```
+
+[Узнать больше о плагине соотношения сторон &rarr;](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+
+---
+
 ## Добавление утилит
 
 Функция `addUtilities` позволяет вам регистрировать новые стили в слое `utilities` Tailwind.
@@ -608,7 +691,7 @@ module.exports = {
       // => undefined
 
       variants('customPlugin')
-      // => ['reponsive', 'hover', 'focus']
+      // => ['responsive', 'hover', 'focus']
     })
   ]
 }
@@ -692,6 +775,83 @@ module.exports = plugin(function({ addUtilities, e, theme, variants }) {
 Этот объект является просто еще одним [объектом конфигурации Tailwind](/docs/configuration) и имеет все те же свойства и возможности, что и объект конфигурации, с которым вы привыкли работать в `tailwind.config.js`.
 
 Указав таким образом настройки по умолчанию, конечные пользователи смогут [переопределить](/docs/theme#overriding-the-default-theme) и [расширить](/docs/theme#extending-the-default-theme) Ваши значения по умолчанию так же, как и со встроенными стилями Tailwind.
+
+### Exposing advanced configuration options
+
+Sometimes it makes sense for a plugin to be configurable in a way that doesn't really belong under `theme` or `variants`, like perhaps you want users to be able to customize the class name your plugin uses.
+
+For cases like this, you can use `plugin.withOptions` to define a plugin that can be invoked with a configuration object. This API is similar to the regular `plugin` API, except each argument should be a function that receives the user's `options` and returns the value that you would have normally passed in using the regular API:
+
+```js
+// ./plugins/gradients.js
+const _ = require('lodash')
+const plugin = require('tailwindcss/plugin')
+
+module.exports = plugin.withOptions(function (options) {
+  return function({ addUtilities, e, theme, variants }) {
+    const classPrefix = options.classPrefix ?? 'bg-gradient'
+    const gradients = theme('gradients', {})
+    const gradientVariants = variants('gradients', [])
+
+    const utilities = _.map(gradients, ([start, end], name) => ({
+      [`.${e(`${classPrefix}-${name}`)}`]: {
+        backgroundImage: `linear-gradient(to right, ${start}, ${end})`
+      }
+    }))
+
+    addUtilities(utilities, gradientVariants)
+  })
+}, function (options) {
+  return {
+    theme: {
+      gradients: theme => ({
+        'blue-green': [theme('colors.blue.500'), theme('colors.green.500')],
+        'purple-blue': [theme('colors.purple.500'), theme('colors.blue.500')],
+        // ...
+      })
+    },
+    variants: {
+      gradients: ['responsive', 'hover'],
+    }
+  }
+})
+```
+
+The user would invoke your plugin passing along their options when registering it in their `plugins` configuration:
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  variants: {
+    // ...
+  },
+  plugins: [
+    require('./plugins/gradients')({
+      classPrefix: 'bg-grad'
+    })
+  ],
+}
+```
+
+The user can also register plugins created this way normally without invoking them if they don't need to pass in any custom options:
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  variants: {
+    // ...
+  },
+  plugins: [
+    require('./plugins/gradients')
+  ],
+}
+```
 
 ---
 

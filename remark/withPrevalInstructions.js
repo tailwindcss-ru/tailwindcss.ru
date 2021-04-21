@@ -193,7 +193,6 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
     setup({
       dependencies = [],
       uninstall = [],
-      dev = false,
       soon = false,
       tool = pageTool,
       version = 'latest',
@@ -225,9 +224,7 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
 
           return [
             hasMultipleVersion && `# Если вы на ${name}`,
-            `npm install ${dev ? '-D ' : ''}${[...dependencies, ...knownDependencies[mode]].join(
-              ' '
-            )}`,
+            `npm install -D ${[...dependencies, ...knownDependencies[mode]].join(' ')}`,
           ]
             .filter(Boolean)
             .join('\n')
@@ -249,6 +246,8 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
 
       return md(`
         ## Настройка Tailwind CSS
+
+        *Tailwind CSS требует Node.js 12.13.0 или выше.*
 
         ### Установка Tailwind через npm
 

@@ -51,7 +51,7 @@ export const classes = { plugin }
 <template preview>
   <div class="relative bg-rose-200 p-6">
     <div class="relative h-32 bg-rose-300 p-4 text-rose-600 font-medium">
-      <p>Статический родитель</p>
+      <p>Относительный родитель</p>
       <div class="absolute bottom-0 left-0 bg-rose-500 p-4 text-rose-50">
         <p>Абсолютный ребенок</p>
       </div>
@@ -60,7 +60,7 @@ export const classes = { plugin }
 </template>
 
 <div class="**relative** ...">
-  <p>Статический родитель</p>
+  <p>Относительный родитель</p>
   <div class="absolute bottom-0 left-0 ...">
     <p>Абсолютный ребенок</p>
   </div>
@@ -172,8 +172,6 @@ export const classes = { plugin }
 ```
 
 ## Sticky
-
-<TipCompat>Обратите внимание, что sticky позиционирование не поддерживается в IE11.</TipCompat>
 
 Используйте `sticky`, чтобы позиционировать элемент как `relative` до тех пор, пока он не пересечет указанный порог, а затем рассматривать его как фиксированный, пока его родительский элемент не выйдет за пределы экрана.
 

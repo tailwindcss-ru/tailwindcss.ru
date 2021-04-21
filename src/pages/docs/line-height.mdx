@@ -42,7 +42,7 @@ export const classes = { plugin }
     <p class="leading-relaxed text-purple-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
   </div>
   <div>
-    <p class="text-sm text-gray-600">.leading-loose</p>
+    <p class="text-sm text-purple-600">.leading-loose</p>
     <p class="leading-loose text-purple-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
   </div>
 </template>
@@ -114,6 +114,26 @@ export const classes = { plugin }
 ```
 
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+
+Важно отметить, что по умолчанию каждая утилита Tailwind [font-size](/docs/font-size) устанавливает собственную высоту строки по умолчанию. Это означает, что каждый раз, когда вы используете адаптивную утилиту размера шрифта, такую как `sm:text-xl`, любая явная высота строки, которую вы установили для меньшей контрольной точки, будет отменена.
+
+```html
+<!-- Класс `leading-loose` будет переопределен в контрольной точке `md` breakpoint -->
+<p class="text-lg leading-loose md:text-xl">
+  Lorem ipsum dolor sit amet ...
+</p>
+```
+
+Если вы хотите переопределить высоту строки по умолчанию после установки размера шрифта, зависящего от контрольной точки, не забудьте также установить высоту строки, зависящую от контрольной точки:
+
+```html
+<!-- Класс `leading-loose` будет переопределен в контрольной точке `md` breakpoint -->
+<p class="text-lg leading-loose md:text-xl md:leading-loose">
+  Lorem ipsum dolor sit amet ...
+</p>
+```
+
+Использование одинаковой высоты строки для разных размеров шрифта, как правило, не дает хороших типографских результатов. Высота строки обычно должна уменьшаться по мере увеличения размера шрифта, поэтому поведение по умолчанию здесь обычно экономит вам массу работы. Если вы обнаружите, что боретесь с этим, вы всегда можете [настроить масштаб размера шрифта](https://tailwindcss.com/docs/font-size#customizing), чтобы не включать высоту строк по умолчанию.
 
 ## Кастомизация
 

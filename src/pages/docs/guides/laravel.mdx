@@ -7,8 +7,8 @@ tool: Laravel Mix
 ```preval installation
 tool: Laravel
 reference:
-  name: установщик Laravel 
-  link: https://laravel.com/docs/8.x#via-laravel-installer
+  name: установщик Laravel
+  link: https://laravel.com/docs/8.x#the-laravel-installer
 script: laravel new
 npmInstall: true
 ```
@@ -16,9 +16,7 @@ npmInstall: true
 ---
 
 ```preval setup
-dev: true
-soon: true
-version: compat-7
+version: latest
 ```
 
 ```preval configuration
@@ -26,7 +24,7 @@ postcss: false
 types:
   - Blade templates
   - JavaScript components
-purge: 
+purge:
   - ./resources/**/*.blade.php
   - ./resources/**/*.js
   - ./resources/**/*.vue
@@ -49,7 +47,7 @@ tool: Laravel
 file: ./resources/css/app.css
 ```
 
-Затем импортируйте свою таблицу стилей в основной макет Blade (обычно `resources/views/layouts/app.php` или аналогичный) и добавьте метатег адаптивного окна просмотра, если он еще не присутствует:
+Затем импортируйте свою таблицу стилей в основной макет Blade (обычно `resources/views/layouts/app.blade.php` или аналогичный) и добавьте метатег адаптивного окна просмотра, если он еще не присутствует:
 
 ```diff-html
   <!doctype html>
