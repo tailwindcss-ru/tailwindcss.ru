@@ -1,6 +1,6 @@
 ---
-title: "Background Blend Mode"
-description: "Utilities for controlling how an element's background image should blend with its background color."
+title: "Режим фонового смешивания"
+description: "Утилиты для управления тем, как фоновое изображение элемента должно сливаться с его цветом фона."
 featureVersion: 'v2.1+'
 ---
 
@@ -10,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## Применение
 
-Use the `bg-blend-{mode}` utilities to control how an element's background image should be blended its background color.
+Используйте утилиты `bg-blend-{mode}` для управления тем, как фоновое изображение элемента должно смешиваться с цветом фона.
 
 ```html
 <div class="bg-blend-multiply ...">
@@ -20,9 +20,9 @@ Use the `bg-blend-{mode}` utilities to control how an element's background image
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control the background-blend-mode property at a specific breakpoint, add a `{screen}:` prefix to any existing background-blend-mode utility. For example, use `md:bg-blend-darken` to apply the `bg-blend-darken` utility at only medium screen sizes and above.
+Чтобы управлять свойством `background-blend-mode` в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите `background-blend-mode`. Например, используйте `md:bg-blend-darken`, чтобы применить утилиту `bg-blend-darken` только на средних размерах экрана и выше.
 
 ```html
 <div class="bg-blend-lighten **md:bg-blend-darken** ...">
@@ -30,14 +30,14 @@ To control the background-blend-mode property at a specific breakpoint, add a `{
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="backgroundBlendMode" name="background-blend-mode" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="backgroundBlendMode" name="background-blend-mode" />
