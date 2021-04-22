@@ -1,6 +1,6 @@
 ---
-title: "Backdrop Sepia"
-description: "Utilities for applying backdrop sepia filters to an element."
+title: "Фон Сепия"
+description: "Утилиты для применения фильтров фоновой сепии к элементу."
 featureVersion: 'v2.1+'
 ---
 
@@ -18,9 +18,9 @@ export const classes = {
   }
 }
 
-## Usage
+## Применение
 
-Use the `backdrop-sepia` and `backdrop-sepia-0` utilities alongside the `backdrop-filter` utility to whether an element's backdrop should be rendered as sepia or in full color.
+Используйте утилиты `backdrop-sepia` и `backdrop-sepia-0` вместе с утилитой `backdrop-filter`, чтобы определить, должен ли фон элемента отображаться как сепия или в полном цвете.
 
 ```html
 <div class="backdrop-filter backdrop-sepia ...">
@@ -28,9 +28,9 @@ Use the `backdrop-sepia` and `backdrop-sepia-0` utilities alongside the `backdro
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control an element's backdrop sepia filter at a specific breakpoint, add a `{screen}:` prefix to any existing backdrop sepia utility. For example, use `md:backdrop-sepia-0` to apply the `backdrop-sepia-0` utility at only medium screen sizes and above.
+Чтобы управлять фильтром фона сепия элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите фона сепия. Например, используйте `md:backdrop-sepia-0`, чтобы применить утилиту `backdrop-sepia-0` только при средних размерах экрана и выше.
 
 ```html
 <div class="backdrop-filter backdrop-sepia **md:backdrop-sepia-0** ...">
@@ -38,14 +38,14 @@ To control an element's backdrop sepia filter at a specific breakpoint, add a `{
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="backdropSepia" name="backdrop sepia" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="backdropSepia" name="backdrop sepia" />

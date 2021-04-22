@@ -53,7 +53,9 @@ export const documentationNav = {
     pages['plugins'],
     pages['presets'],
   ],
-  'Базовые стили': [pages['preflight']],
+  'Базовые стили': [
+    pages['preflight']
+  ],
   'Макет': [
     pages['container'],
     pages['box-decoration-break'],
@@ -169,7 +171,7 @@ export const documentationNav = {
     pages['mix-blend-mode'],
     pages['background-blend-mode'],
   ],
-  'Filters': [
+  'Фильтры': [
     pages['filter'],
     pages['blur'],
     pages['brightness'],
@@ -242,6 +244,16 @@ export const documentationNav = {
     {
       title: 'Линейный зажим',
       href: 'https://github.com/tailwindlabs/tailwindcss-line-clamp',
+    },
+  ],
+  'Перевод': [
+    {
+      title: 'Сообщить об ошибке',
+      href: 'https://github.com/tailwindcss-ru/tailwindcss.su/issues/new',
+    },
+    {
+      title: 'Улучшить',
+      href: 'https://github.com/tailwindcss-ru/tailwindcss.su/pulls',
     },
   ],
 }

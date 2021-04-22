@@ -1,6 +1,6 @@
 ---
-title: "Backdrop Blur"
-description: "Utilities for applying backdrop blur filters to an element."
+title: "Размытие фона"
+description: "Утилиты для применения фильтров размытия фона к элементу."
 featureVersion: 'v2.1+'
 ---
 
@@ -24,9 +24,9 @@ export const classes = {
   }
 }
 
-## Usage
+## Применение
 
-Use the `backdrop-blur-{amount?}` utilities alongside the `backdrop-filter` utility to blur an element.
+Используйте утилиты `backdrop-blur-{amount?}` вместе с утилитой `backdrop-filter`, чтобы размыть элемент.
 
 ```html
 <div class="backdrop-filter backdrop-blur-lg ...">
@@ -34,9 +34,9 @@ Use the `backdrop-blur-{amount?}` utilities alongside the `backdrop-filter` util
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control an element's backdrop blur at a specific breakpoint, add a `{screen}:` prefix to any existing backdrop blur utility. For example, use `md:backdrop-blur-lg` to apply the `backdrop-blur-lg` utility at only medium screen sizes and above.
+Чтобы управлять размытием фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите размытия фона. Например, используйте `md:backdrop-blur-lg`, чтобы применить утилиту `backdrop-blur-lg` только при средних размерах экрана и выше.
 
 ```html
 <div class="backdrop-filter backdrop-blur-sm **md:backdrop-blur-lg** ...">
@@ -44,14 +44,14 @@ To control an element's backdrop blur at a specific breakpoint, add a `{screen}:
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="backdropBlur" name="backdrop blur" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="backdropBlur" name="backdrop blur" />

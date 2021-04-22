@@ -1,6 +1,6 @@
 ---
-title: "Contrast"
-description: "Utilities for applying contrast filters to an element."
+title: "Контрастность"
+description: "Утилиты для применения контрастных фильтров к элементу."
 featureVersion: 'v2.1+'
 ---
 
@@ -23,9 +23,9 @@ export const classes = {
   }
 }
 
-## Usage
+## Применение
 
-Use the `contrast-{amount?}` utilities alongside the `filter` utility to control an element's contrast.
+Используйте утилиты `contrast-{amount?}` вместе с утилитой `filter` для управления контрастностью элемента.
 
 ```html
 <div class="filter contrast-125 ...">
@@ -33,9 +33,9 @@ Use the `contrast-{amount?}` utilities alongside the `filter` utility to control
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control an element's contrast at a specific breakpoint, add a `{screen}:` prefix to any existing contrast utility. For example, use `md:contrast-150` to apply the `contrast-150` utility at only medium screen sizes and above.
+Чтобы управлять контрастностью элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите контрастности. Например, используйте `md:contrast-150`, чтобы применить утилиту `contrast-150` только при средних размерах экрана и выше.
 
 ```html
 <div class="filter contrast-110 **md:contrast-150** ...">
@@ -43,14 +43,14 @@ To control an element's contrast at a specific breakpoint, add a `{screen}:` pre
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="contrast" name="contrast" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="contrast" name="contrast" />

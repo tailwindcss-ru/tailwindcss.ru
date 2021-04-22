@@ -1,6 +1,6 @@
 ---
-title: "Backdrop Grayscale"
-description: "Utilities for applying backdrop grayscale filters to an element."
+title: "Фон в оттенках серого"
+description: "Утилиты для применения фоновых фильтров оттенков серого к элементу."
 featureVersion: 'v2.1+'
 ---
 
@@ -18,9 +18,9 @@ export const classes = {
   }
 }
 
-## Usage
+## Применение
 
-Use the `backdrop-grayscale` and `backdrop-grayscale-0` utilities alongside the `backdrop-filter` utility to whether an element's backdrop should be rendered as grayscale or in full color.
+Используйте утилиты `backdrop-grayscale` и `backdrop-grayscale-0` вместе с утилитой `backdrop-filter`, чтобы определить, должен ли фон элемента отображаться в оттенках серого или в полноцветном.
 
 ```html
 <div class="backdrop-filter backdrop-grayscale ...">
@@ -28,9 +28,9 @@ Use the `backdrop-grayscale` and `backdrop-grayscale-0` utilities alongside the 
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control an element's backdrop grayscale filter at a specific breakpoint, add a `{screen}:` prefix to any existing backdrop grayscale utility. For example, use `md:backdrop-grayscale-0` to apply the `backdrop-grayscale-0` utility at only medium screen sizes and above.
+Чтобы управлять фильтром фона оттенка серого элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите фона оттенка серого. Например, используйте `md:backdrop-grayscale-0`, чтобы применить утилиту `backdrop-grayscale-0` только при средних размерах экрана и выше.
 
 ```html
 <div class="backdrop-filter backdrop-grayscale **md:backdrop-grayscale-0** ...">
@@ -38,14 +38,14 @@ To control an element's backdrop grayscale filter at a specific breakpoint, add 
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="backdropGrayscale" name="backdrop grayscale" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="backdropGrayscale" name="backdrop grayscale" />

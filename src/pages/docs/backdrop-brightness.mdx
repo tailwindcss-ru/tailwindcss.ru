@@ -1,6 +1,6 @@
 ---
-title: "Backdrop Brightness"
-description: "Utilities for applying backdrop brightness filters to an element."
+title: "Яркость фона"
+description: "Утилиты для применения фильтров яркости фона к элементу."
 featureVersion: 'v2.1+'
 ---
 
@@ -27,9 +27,9 @@ export const classes = {
   }
 }
 
-## Usage
+## Применение
 
-Use the `backdrop-brightness-{amount?}` utilities alongside the `backdrop-filter` utility to control an element's backdrop brightness.
+Используйте утилиты `backdrop-brightness-{amount?}` вместе с утилитой `backdrop-filter`, чтобы управлять яркостью фона.
 
 ```html
 <div class="backdrop-filter backdrop-brightness-125 ...">
@@ -37,9 +37,9 @@ Use the `backdrop-brightness-{amount?}` utilities alongside the `backdrop-filter
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control an element's backdrop brightness at a specific breakpoint, add a `{screen}:` prefix to any existing backdrop brightness utility. For example, use `md:backdrop-brightness-150` to apply the `backdrop-brightness-150` utility at only medium screen sizes and above.
+Чтобы управлять яркостью фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите яркости фона. Например, используйте `md:backdrop-brightness-150`, чтобы применить утилиту `backdrop-brightness-150` только при средних размерах экрана и выше.
 
 ```html
 <div class="backdrop-filter backdrop-brightness-110 **md:backdrop-brightness-150** ...">
@@ -47,14 +47,14 @@ To control an element's backdrop brightness at a specific breakpoint, add a `{sc
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="backdropBrightness" name="backdrop brightness" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="backdropBrightness" name="backdrop brightness" />

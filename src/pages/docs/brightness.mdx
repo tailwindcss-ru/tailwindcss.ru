@@ -1,6 +1,6 @@
 ---
-title: "Brightness"
-description: "Utilities for applying brightness filters to an element."
+title: "Яркость"
+description: "Утилиты для применения фильтров яркости к элементу."
 featureVersion: 'v2.1+'
 ---
 
@@ -27,9 +27,9 @@ export const classes = {
   }
 }
 
-## Usage
+## Применение
 
-Use the `brightness-{amount?}` utilities alongside the `filter` utility to control an element's brightness.
+Используйте утилиты `brightness-{amount?}` вместе с утилитой `filter`, чтобы управлять яркостью.
 
 ```html
 <div class="filter brightness-125 ...">
@@ -37,9 +37,9 @@ Use the `brightness-{amount?}` utilities alongside the `filter` utility to contr
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control an element's brightness at a specific breakpoint, add a `{screen}:` prefix to any existing brightness utility. For example, use `md:brightness-150` to apply the `brightness-150` utility at only medium screen sizes and above.
+Чтобы управлять яркостью элемента в определенной контрольной  точке, добавьте префикс `{screen}:` к любой существующей утилите яркости. Например, используйте `md:brightness-150`, чтобы применить утилиту `brightness-150` только при средних размерах экрана и выше.
 
 ```html
 <div class="filter brightness-110 **md:brightness-150** ...">
@@ -47,14 +47,14 @@ To control an element's brightness at a specific breakpoint, add a `{screen}:` p
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="brightness" name="brightness" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="brightness" name="brightness" />

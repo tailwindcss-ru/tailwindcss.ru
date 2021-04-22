@@ -1,6 +1,6 @@
 ---
-title: "Backdrop Hue Rotate"
-description: "Utilities for applying backdrop hue-rotate filters to an element."
+title: "Вращение оттенка фона"
+description: "Утилиты для применения фильтров изменения цвета фона к элементу."
 featureVersion: 'v2.1+'
 ---
 
@@ -27,9 +27,9 @@ export const classes = {
   }
 }
 
-## Usage
+## Применение
 
-Use the `backdrop-hue-rotate-{amount}` utilities alongside the `backdrop-filter` utility to blur an element.
+Используйте утилиты `backdrop-hue-rotate-{amount}` вместе с утилитой `backdrop-filter`, чтобы размыть элемент.
 
 ```html
 <div class="backdrop-filter backdrop-hue-rotate-15 ...">
@@ -37,9 +37,9 @@ Use the `backdrop-hue-rotate-{amount}` utilities alongside the `backdrop-filter`
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control an element's backdrop hue rotation at a specific breakpoint, add a `{screen}:` prefix to any existing backdrop hue-rotate utility. For example, use `md:backdrop-hue-rotate-60` to apply the `backdrop-hue-rotate-60` utility at only medium screen sizes and above.
+Чтобы управлять вращением оттенка фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите фона `hue-rotate`. Например, используйте `md:backdrop-hue-rotate-60`, чтобы применить утилиту `backdrop-hue-rotate-60` только при средних размерах экрана и выше.
 
 ```html
 <div class="backdrop-filter backdrop-hue-rotate-15 **md:backdrop-hue-rotate-60** ...">
@@ -47,14 +47,14 @@ To control an element's backdrop hue rotation at a specific breakpoint, add a `{
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="backdropHueRotate" name="backdrop hue-rotate" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="backdropHueRotate" name="backdrop hue-rotate" />

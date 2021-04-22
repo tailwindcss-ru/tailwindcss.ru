@@ -1,6 +1,6 @@
 ---
-title: "Blur"
-description: "Utilities for applying blur filters to an element."
+title: "Размытие"
+description: "Утилиты для применения фильтров размытия к элементу."
 featureVersion: 'v2.1+'
 ---
 
@@ -24,9 +24,9 @@ export const classes = {
   }
 }
 
-## Usage
+## Применение
 
-Use the `blur-{amount?}` utilities alongside the `filter` utility to blur an element.
+Используйте утилиты `blur-{amount?}` вместе с утилитой `filter`, чтобы размыть элемент.
 
 ```html
 <div class="filter blur-lg ...">
@@ -34,9 +34,9 @@ Use the `blur-{amount?}` utilities alongside the `filter` utility to blur an ele
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control an element's blur at a specific breakpoint, add a `{screen}:` prefix to any existing blur utility. For example, use `md:blur-lg` to apply the `blur-lg` utility at only medium screen sizes and above.
+Чтобы управлять размытием элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите размытия. Например, используйте `md:blur-lg`, чтобы применить утилиту `blur-lg` только при средних размерах экрана и выше.
 
 ```html
 <div class="filter blur-sm **md:blur-lg** ...">
@@ -44,14 +44,14 @@ To control an element's blur at a specific breakpoint, add a `{screen}:` prefix 
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="blur" name="blur" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="blur" name="blur" />
