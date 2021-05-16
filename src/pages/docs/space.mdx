@@ -84,11 +84,11 @@ export const classes = {
 </div>
 ```
 
-## Limitations
+## Ограничения
 
-These utilities are really just a shortcut for adding margin to all-but-the-first-item in a group, and aren't designed to handle complex cases like grids, layouts that wrap, or situations where the children are rendered in a complex custom order rather than their natural DOM order.
+Эти утилиты на самом деле являются просто ярлыком для добавления поля для всех элементов в группе, кроме первого, и не предназначены для обработки сложных случаев, таких как сетки, компоновки с переносом или ситуации, когда дочерние элементы отображаются в сложной форме. индивидуальный порядок, а не их естественный порядок DOM.
 
-For those situations, it's better to use the [gap utilities](https://tailwindcss.com/docs/gap) when possible, or add margin to every element with a matching negative margin on the parent:
+В таких ситуациях лучше использовать [утилиты промежутков](https://tailwindcss.com/docs/gap), когда это возможно, или добавить поле к каждому элементу с соответствующим отрицательным полем на родительском элементе:
 
 ```html
 <div class="flow-root">
