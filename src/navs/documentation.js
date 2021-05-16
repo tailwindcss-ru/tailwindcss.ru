@@ -73,15 +73,13 @@ export const documentationNav = {
     pages['visibility'],
     pages['z-index'],
   ],
-  'Флексы': [
+  'Флексбокс и Сетка': [
     pages['flex-direction'],
     pages['flex-wrap'],
     pages['flex'],
     pages['flex-grow'],
     pages['flex-shrink'],
     pages['order'],
-  ],
-  'Сетка': [
     pages['grid-template-columns'],
     pages['grid-column'],
     pages['grid-template-rows'],
@@ -90,8 +88,6 @@ export const documentationNav = {
     pages['grid-auto-columns'],
     pages['grid-auto-rows'],
     pages['gap'],
-  ],
-  'Выравнивание': [
     pages['justify-content'],
     pages['justify-items'],
     pages['justify-self'],

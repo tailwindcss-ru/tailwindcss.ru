@@ -332,7 +332,7 @@ NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./dis
 
 ```shell
 npm uninstall tailwindcss postcss autoprefixer
-npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 
 Сборка совместимости идентична основной сборке во всех отношениях, поэтому вы не упускаете ни одной функции или чего-либо в этом роде.
@@ -340,6 +340,6 @@ npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss
 После того, как остальные Ваши инструменты добавят поддержку PostCSS 8, вы можете отказаться от сборки совместимости, переустановив Tailwind и его одноранговые зависимости, используя тег `latest`:
 
 ```shell
-npm uninstall tailwindcss @tailwindcss/postcss7-compat
+npm uninstall tailwindcss
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 ```

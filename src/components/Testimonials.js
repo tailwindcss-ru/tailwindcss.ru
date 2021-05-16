@@ -45,15 +45,6 @@ const testimonials = [
     },
   },
   {
-    content:
-      "На днях я использовал Tailwind для редизайна сайта feelpresence.com. Это невероятно! Я дал себе всего несколько часов, чтобы собрать все вместе, и это имело огромное значение.",
-    author: {
-      name: 'Ryan Singer',
-      role: 'Basecamp',
-      avatar: require('@/img/avatars/ryan-singer.jpg').default,
-    },
-  },
-  {
     content: `Я начал использовать @tailwindcss. Я сразу влюбился в их адаптивные модификаторы, подробную документацию и то, как легко настраивать цветовые палитры.`,
     tweetUrl: 'https://twitter.com/dacey_nolan/status/1303744545587441666',
     author: {

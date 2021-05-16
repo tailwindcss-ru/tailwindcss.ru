@@ -36,7 +36,7 @@ import { TipGood, TipBad } from '@/components/Tip'
   <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
     <div class="md:flex">
       <div class="md:flex-shrink-0">
-        <img class="h-48 w-full object-cover md:w-48" src="https://images.unsplash.com/photo-1515711660811-48832a4c6f69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" width="448" height="299" alt="Man looking at item at a store">
+        <img class="h-48 w-full object-cover md:h-full md:w-48" src="https://images.unsplash.com/photo-1515711660811-48832a4c6f69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" width="448" height="299" alt="Man looking at item at a store">
       </div>
       <div class="p-8">
         <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
@@ -50,7 +50,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden **md:max-w-2xl**">
   <div class="**md:flex**">
     <div class="**md:flex-shrink-0**">
-      <img class="h-48 w-full object-cover **md:w-48**" src="/img/store.jpg" alt="Man looking at item at a store">
+      <img class="h-48 w-full object-cover **md:h-full md:w-48**" src="/img/store.jpg" alt="Man looking at item at a store">
     </div>
     <div class="p-8">
       <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
@@ -63,9 +63,9 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 Вот как работает приведенный выше пример:
 
-- По умолчанию внешний `div` - это `display: block`, но при добавлении утилиты `md:flex`, он становится `display: flex` на средних и больших экранах.
-- Когда родительский элемент является гибким контейнером, мы хотим убедиться, что изображение никогда не сжимается, поэтому мы добавили `md:flex-shrink-0`, чтобы предотвратить сжатие на средних экранах и больших экранах. Технически мы могли бы просто использовать `flex-shrink-0`, поскольку он ничего не будет делать на экранах меньшего размера, но поскольку это имеет значение только на экранах `md`, неплохо было бы четко указать это в имени класса.
-- На маленьких экранах по умолчанию изображение автоматически становится полноширинным. На средних экранах и выше мы ограничили эту ширину фиксированным размером с помощью `md:w-48`.
+- По умолчанию внешний `div` - это `display: block`, но при добавлении утилиты `md:flex` он становится `display: flex` на средних и больших экранах.
+- Когда родительский элемент является гибким контейнером, мы хотим убедиться, что изображение никогда не сжимается, поэтому мы добавили `md:flex-shrink-0`, чтобы предотвратить сжатие на средних и больших экранах. Технически мы могли бы просто использовать `flex-shrink-0`, так как он ничего не сделает на экранах меньшего размера, но поскольку это имеет значение только на экранах `md`, неплохо было бы четко указать это в имени класса.
+- На маленьких экранах по умолчанию изображение автоматически становится полноширинным. На средних экранах и выше мы ограничили ширину фиксированным размером и обеспечили полную высоту изображения с помощью `md:h-full md:w-48`.
 
 В этом примере мы использовали только одну контрольную точку, но вы можете легко настроить этот компонент для других размеров, используя также префиксы реагирования `sm`, `lg` или `xl`.
 
