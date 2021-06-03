@@ -42,6 +42,23 @@ export const classes = {
 
 ## Кастомизация
 
+Вы можете настроить, какие утилиты `backdrop-grayscale` будут генерироваться, используя ключ `backdropGrayscale` в разделе `theme` вашего файла `tailwind.config.js`.
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+    theme: {
++     extend: {
++       backdropGrayscale: {
++         50: '.5',
++       }
++     }
+    }
+  }
+```
+
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+
 ### Варианты
 
 <Variants plugin="backdropGrayscale" name="backdrop grayscale" />

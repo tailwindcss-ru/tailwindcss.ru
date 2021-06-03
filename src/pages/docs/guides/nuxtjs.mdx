@@ -10,19 +10,13 @@ reference:
   name: Create Nuxt App
   link: https://nuxtjs.org/guides/get-started/installation#using-create-nuxt-app
 script: npx create-nuxt-app
-disclaimer: >
-  **Не выбирайте "Tailwind CSS" когда будет предложено выбрать "UI Framework"**.
-  Это вызовет конфликты, которые не позволят вам установить Tailwind CSS v2.0 из-за модуля `@nuxtjs/tailwindcss` в зависимости от старой версии Tailwind.
 ```
 
 ---
 
 ```preval setup
 version:
-  Nuxt.js: compat-7
-uninstall:
-  - '@nuxtjs/tailwindcss'
-  - tailwindcss
+  Nuxt.js: latest
 dependencies:
   - '@nuxtjs/tailwindcss'
 ```

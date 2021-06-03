@@ -51,6 +51,24 @@ export const classes = {
 
 ## Кастомизация
 
+Вы можете настроить, какие утилиты `backdrop-hue-rotate` будут генерироваться, используя ключ `backdropHueRotate` в разделе `theme` вашего файла `tailwind.config.js`.
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+    theme: {
++     extend: {
++       backdropHueRotate: {
++         '-270': '-270deg',
++         270: '270deg',
++       }
++     }
+    }
+  }
+```
+
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+
 ### Варианты
 
 <Variants plugin="backdropHueRotate" name="backdrop hue-rotate" />

@@ -11,26 +11,11 @@ export const documentationNav = {
       title: 'Примечания к выпуску',
       href: 'https://github.com/tailwindlabs/tailwindcss/releases',
     },
-    {
-      title: 'Обновление до v2',
-      href: '/docs/upgrading-to-v2',
-    },
-    {
-      title: 'Использование с препроцессорами',
-      href: '/docs/using-with-preprocessors',
-    },
-    {
-      title: 'Оптимизация для продакшена',
-      href: '/docs/optimizing-for-production',
-    },
-    {
-      title: 'Поддержка браузера',
-      href: '/docs/browser-support',
-    },
-    {
-      title: 'Интеллектуальные предложения автозаполнения',
-      href: '/docs/intellisense',
-    },
+    pages['upgrading-to-v2'],
+    pages['editor-support'],
+    pages['using-with-preprocessors'],
+    pages['optimizing-for-production'],
+    pages['browser-support'],
   ],
   'Основные концепции': [
     pages['utility-first'],

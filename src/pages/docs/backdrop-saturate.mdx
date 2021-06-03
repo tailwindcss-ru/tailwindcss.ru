@@ -45,6 +45,23 @@ export const classes = {
 
 ## Кастомизация
 
+Вы можете настроить, какие утилиты `backdrop-saturate` будут генерироваться, используя ключ `backdropSaturate` в разделе `theme` вашего файла `tailwind.config.js`.
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+    theme: {
++     extend: {
++       backdropSaturate: {
++         25: '.25',
++       }
++     }
+    }
+  }
+```
+
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+
 ### Варианты
 
 <Variants plugin="backdropSaturate" name="backdrop saturate" />

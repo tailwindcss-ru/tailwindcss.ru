@@ -51,6 +51,24 @@ export const classes = {
 
 ## Кастомизация
 
+Вы можете настроить, какие утилиты `brightness` будут генерироваться, используя ключ `brightness` в разделе `theme` вашего файла `tailwind.config.js`.
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+    theme: {
++     extend: {
++       brightness: {
++         25: '.25',
++         175: '1.75',
++       }
++     }
+    }
+  }
+```
+
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+
 ### Варианты
 
 <Variants plugin="brightness" name="brightness" />

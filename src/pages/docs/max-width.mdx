@@ -17,33 +17,53 @@ export const classes = {
 
 Установите максимальную ширину элемента с помощью утилит `max-w-{size}`.
 
-```html emerald
+```html emerald resizable
 <template preview>
-  <div class="max-w-md mx-auto rounded-md bg-emerald-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">
-    max-w-md
-  </div>
+  <div class="max-w-md mx-auto rounded-md h-16 bg-emerald-500 select-none"></div>
 </template>
 
 <div class="**max-w-md** mx-auto ...">
-  max-w-md
+  <!-- ... -->
 </div>
 ```
 
-## Проза
+## Ширина чтения
 
-Мы добавили новую максимальную ширину по умолчанию под названием `max-w-prose`. Если вы знакомы с [плагином типографики](https://github.com/tailwindlabs/tailwindcss-typography), вы можете узнать его. Идея этого класса заключается в том, что он позволяет вам иметь оптимальную ширину чтения.
+Утилита `max-w-prose` дает элементу максимальную ширину, оптимизированную для удобочитаемости, и адаптируется в зависимости от размера шрифта.
 
 ```html purple
 <template preview>
   <div class="max-w-prose text-sm text-purple-700 p-6">
-    <p class="font-bold">Почему вы никогда не видите слонов, прячущихся на деревьях?</p>
-    <p>Потому что они так хороши в этом. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+    <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+  </div>
+  <div class="max-w-prose text-base text-purple-700 p-6">
+    <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+  </div>
+  <div class="max-w-prose text-xl text-purple-700 p-6">
+    <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
   </div>
 </template>
 
-<div class="**max-w-prose** ...">
-  <p class="font-bold">Почему вы никогда не видите слонов, прячущихся на деревьях?</p>
-  <p>Потому что они так хороши в этом. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+<div class="text-sm **max-w-prose** ...">
+  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+</div>
+
+<div class="text-base **max-w-prose** ...">
+  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+</div>
+
+<div class="text-xl **max-w-prose** ...">
+  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+</div>
+```
+
+## Ограничение ваших контрольных точек
+
+Классы `max-w-screen-{breakpoint}` могут использоваться, чтобы дать элементу максимальную ширину, соответствующую определенной точке останова. Эти значения автоматически берутся из [раздела `theme.screens`](/docs/theme#screens) вашего файла `tailwind.config.js`.
+
+```html
+<div class="max-w-screen-2xl">
+  <!-- ... -->
 </div>
 ```
 
@@ -67,7 +87,7 @@ export const classes = {
 
 ### Шкала максимальной ширины
 
-Настройте масштаб максимальной ширины Tailwind по умолчанию в разделе `theme.maxWidth` Вашего файла `tailwind.config.js`.
+Настройте шкалу максимальной ширины Tailwind по умолчанию для классов `max-w-*` в разделе `theme.maxWidth` вашего файла `tailwind.config.js`.
 
 ```diff-js
   // tailwind.config.js
@@ -81,6 +101,8 @@ export const classes = {
     }
   }
 ```
+
+Классы `max-w-screen-*` происходят из [раздела `theme.screens`](/docs/theme#screens) вашего файла `tailwind.config.js`.
 
 Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
 

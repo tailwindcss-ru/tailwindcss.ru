@@ -55,6 +55,23 @@ export const classes = {
 
 ## Кастомизация
 
+Вы можете настроить, какие утилиты `backdrop-opacity` будут генерироваться, используя ключ `backdropOpacity` в разделе `theme` вашего файла `tailwind.config.js`.
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+    theme: {
++     extend: {
++       backdropOpacity: {
++         15: '.15',
++       }
++     }
+    }
+  }
+```
+
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+
 ### Варианты
 
 <Variants plugin="backdropOpacity" name="backdrop opacity" />

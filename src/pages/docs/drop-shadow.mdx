@@ -24,7 +24,7 @@ export const classes = {
 
 ## Применение
 
-Используйте утилиты `drop-shadow-{amount}` вместе с утилитой `filter` для размытия элемента.
+Используйте утилиты `drop-shadow-{amount}` вместе с утилитой `filter`, чтобы добавить тень к элементу.
 
 ```html
 <div class="filter drop-shadow-lg ...">
@@ -45,6 +45,23 @@ export const classes = {
 Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
 ## Кастомизация
+
+Вы можете настроить, какие утилиты `drop-shadow` будут генерироваться, используя ключ `dropShadow` в разделе `theme` вашего файла `tailwind.config.js`.
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+    theme: {
++     extend: {
++       dropShadow: {
++         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
++       }
++     }
+    }
+  }
+```
+
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
 
 ### Варианты
 

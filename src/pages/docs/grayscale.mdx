@@ -42,6 +42,23 @@ export const classes = {
 
 ## Кастомизация
 
+Вы можете настроить, какие утилиты `grayscale` будут генерироваться, используя ключ `grayscale` в разделе `theme` вашего файла `tailwind.config.js`.
+
+```diff-js
+  // tailwind.config.js
+  module.exports = {
+    theme: {
++     extend: {
++       grayscale: {
++         50: '50%',
++       }
++     }
+    }
+  }
+```
+
+Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+
 ### Варианты
 
 <Variants plugin="grayscale" name="grayscale" />
