@@ -8,7 +8,7 @@ export function VersionSwitcher({ className }) {
   function submit(e) {
     e.preventDefault()
     if (selectRef.current.value === 'v1') {
-      window.location = 'https://v1.tailwindcss.su/'
+      window.location = 'https://v1.tailwindcss.ru/'
     }
   }
 

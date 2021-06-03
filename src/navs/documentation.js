@@ -230,11 +230,11 @@ export const documentationNav = {
   'Перевод': [
     {
       title: 'Сообщить об ошибке',
-      href: 'https://github.com/tailwindcss-ru/tailwindcss.su/issues/new',
+      href: 'https://github.com/tailwindcss-ru/tailwindcss.ru/issues/new',
     },
     {
       title: 'Улучшить',
-      href: 'https://github.com/tailwindcss-ru/tailwindcss.su/pulls',
+      href: 'https://github.com/tailwindcss-ru/tailwindcss.ru/pulls',
     },
   ],
 }

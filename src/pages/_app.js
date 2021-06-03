@@ -72,20 +72,20 @@ export default function App({ Component, pageProps, router }) {
         <meta
           key="twitter:image"
           name="twitter:image"
-          content={`https://tailwindcss.su${twitterLargeCard}`}
+          content={`https://tailwindcss.ru${twitterLargeCard}`}
         />
         <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
         <meta
           key="og:url"
           property="og:url"
-          content={`https://tailwindcss.su${router.pathname}`}
+          content={`https://tailwindcss.ru${router.pathname}`}
         />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:description" property="og:description" content={description} />
         <meta
           key="og:image"
           property="og:image"
-          content={`https://tailwindcss.su${twitterLargeCard}`}
+          content={`https://tailwindcss.ru${twitterLargeCard}`}
         />
       </Head>
       {router.pathname !== '/' && (
