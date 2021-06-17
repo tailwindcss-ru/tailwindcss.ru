@@ -1,6 +1,6 @@
 ---
-title: "Background Origin"
-description: "Utilities for controlling how an element's background is positioned relative to borders, padding, and content."
+title: "Происхождение фона"
+description: "Утилиты для управления расположением фона элемента относительно границ, отступов и содержимого."
 featureVersion: 'v2.2+'
 ---
 
@@ -10,9 +10,9 @@ import { Disabling } from '@/components/Disabling'
 
 export const classes = { plugin }
 
-## Usage
+## Применение
 
-Use `bg-origin-border`, `bg-origin-padding`, and `bg-origin-content` to control where an element's background is rendered.
+Используйте `bg-origin-border`, `bg-origin-padding` и `bg-origin-content` для управления тем, где отображается фон элемента.
 
 
 ```html gray
@@ -45,9 +45,9 @@ Use `bg-origin-border`, `bg-origin-padding`, and `bg-origin-content` to control 
 </div>
 ```
 
-## Responsive
+## Адаптивность
 
-To control the background-origin property at a specific breakpoint, add a `{screen}:` prefix to any existing background-origin utility. For example, use `md:bg-origin-padding` to apply the `bg-origin-padding` utility at only medium screen sizes and above.
+Чтобы управлять свойством background-origin в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите background-origin. Например, используйте `md:bg-origin-padding`, чтобы применить утилиту `bg-origin-padding` только при средних размерах экрана и выше.
 
 ```html
 <div class="bg-origin-border **md:bg-origin-padding** ...">
@@ -55,14 +55,14 @@ To control the background-origin property at a specific breakpoint, add a `{scre
 </div>
 ```
 
-For more information about Tailwind's responsive design features, check out the [Responsive Design](/docs/responsive-design) documentation.
+Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
-## Customizing
+## Кастомизация
 
-### Variants
+### Варианты
 
 <Variants plugin="backgroundOrigin" name="background-origin" />
 
-### Disabling
+### Отключение
 
 <Disabling plugin="backgroundOrigin" name="background-origin" />
