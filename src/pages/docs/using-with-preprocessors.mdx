@@ -33,11 +33,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 Чтобы использовать его, установите плагин через npm:
 
 ```shell
-# npm
 npm install postcss-import
-
-# yarn
-yarn add postcss-import
 ```
 
 Затем добавьте его как самый первый плагин в Вашу конфигурацию PostCSS:
@@ -126,95 +122,113 @@ module.exports = {
 
 ### Вложенность
 
-Чтобы добавить поддержку вложенных объявлений, у вас есть два варианта:
+Чтобы добавить поддержку вложенных объявлений, мы рекомендуем наш связанный плагин `tailwindcss/nesting`, который представляет собой плагин PostCSS, который обертывает [postcss-nested](https://github.com/postcss/postcss-nested) или [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) и действует как уровень совместимости, чтобы убедиться, что выбранный вами плагин вложенности правильно понимает пользовательский синтаксис Tailwind, такой как `@apply` и `@screen`.
 
-- [postcss-nested](https://github.com/postcss/postcss-nested), который использует синтаксис, очень похожий на Sass.
-
-- [postcss-nesting](https://github.com/jonathantneal/postcss-nesting), который следует за [CSS Nesting](https://drafts.csswg.org/css-nesting-1/) спецификация, которая, надеюсь, будет доступна прямо в браузере в будущем.
-
-Чтобы использовать любой из этих плагинов, установите их через npm:
-
-```shell
-# npm
-npm install postcss-nested  # или postcss-nesting
-
-# yarn
-yarn add postcss-nested  # или postcss-nesting
-```
-
-Затем добавьте их в свою конфигурацию PostCSS, где-нибудь после самого Tailwind, но до Autoprefixer:
+Он включен непосредственно в сам пакет `tailwindcss`, поэтому для его использования все, что вам нужно сделать, это добавить его в свою конфигурацию PostCSS где-нибудь перед Tailwind:
 
 ```js
 // postcss.config.js
 module.exports = {
   plugins: [
     require('postcss-import'),
+    require('tailwindcss/nesting'),
     require('tailwindcss'),
-    require('postcss-nested'), // или require('postcss-nesting')
     require('autoprefixer'),
+  ]
+}
+```
+
+По умолчанию он использует подключаемый модуль [postcss-nested](https://github.com/postcss/postcss-nested) под капотом, который использует синтаксис, подобный Sass, и является подключаемым модулем, обеспечивающим поддержку вложенности в [Tailwind API плагинов CSS](/docs/plugins#css-in-js-syntax).
+
+Если вы предпочитаете использовать [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) (который основан на незавершенной работе [CSS Nesting](https://drafts.csswg.org/css-nesting-1/)), сначала установите плагин:
+
+```shell
+npm install postcss-nesting
+```
+
+Затем передайте сам плагин в качестве аргумента для `tailwindcss/nesting` в вашей конфигурации PostCSS:
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('postcss-import'),
+    require('tailwindcss/nesting')(require('postcss-nesting')),
+    require('tailwindcss'),
+    require('autoprefixer'),
+  ]
+}
+```
+
+Это также может быть полезно, если по какой-либо причине вам нужно использовать очень специфическую версию `postcss-nested` и вы хотите переопределить версию, которую мы связываем с самим `tailwindcss/nesting`.
+
+Обратите внимание: если вы используете [`postcss-preset-env`](https://github.com/csstools/postcss-preset-env) в своем проекте, вы должны обязательно отключить вложение и позволить `tailwindcss/nesting` вместо этого сделайте это за вас:
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('postcss-import'),
+    require('tailwindcss/nesting')(require('postcss-nesting')),
+    require('tailwindcss'),
+    require('postcss-preset-env')({
+      features: { 'nesting-rules': false }
+    }),
   ]
 }
 ```
 
 ### Переменные
 
-В наши дни переменные CSS (официально известные как настраиваемые свойства) имеют действительно хорошую [поддержку браузера](https://caniuse.com/#search=css%20custom%20properties), так что вам может вообще не понадобиться плагин для переменных.
+В наши дни переменные CSS (официально известные как настраиваемые свойства) имеют действительно хорошую [поддержку браузера](https://caniuse.com/#search=css%20custom%20properties), поэтому вам вообще не нужен препроцессор для использования переменных.
 
-Однако, если вам нужно поддерживать IE11, вы можете использовать плагин [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties) для автоматического создания резервных вариантов для Ваших переменных.
+```css
+:root {
+  --theme-color: #52b3d0;
+}
+
+/* ... */
+
+.btn {
+  background-color: var(--theme-color);
+  /* ... */
+}
+```
+
+Мы широко используем переменные CSS в самом Tailwind, поэтому, если вы можете использовать Tailwind, вы можете использовать собственные переменные CSS.
+
+Вы также можете обнаружить, что большинство вещей, для которых вы использовали переменные в прошлом, можно заменить функцией Tailwind `theme()`, которая дает вам доступ ко всем вашим токенам дизайна из вашего файла `tailwind.config.js` прямо в вашем CSS:
+
+```css
+.btn {
+  background-color: theme('colors.blue.500');
+  padding: theme('spacing.2') theme('spacing.4');
+  /* ... */
+}
+```
+
+Узнайте больше о функции `theme()` в нашей [документации по функциям и директивам](/docs/functions-and-directives#theme);
+
+### Префиксы вендора
+
+Для автоматического управления префиксами поставщиков в вашем CSS следует использовать [Autoprefixer](https://github.com/postcss/autoprefixer).
 
 Чтобы использовать его, установите его через npm:
 
 ```shell
-# npm
-npm install postcss-custom-properties
-
-# yarn
-yarn add postcss-custom-properties
+npm install autoprefixer
 ```
 
-Затем добавьте его в конфигурацию PostCSS, где-нибудь после самого Tailwind, но перед Autoprefixer:
+Затем добавьте его в самый конец списка плагинов в конфигурации PostCSS:
 
 ```js
-// postcss.config.js
 module.exports = {
   plugins: [
-    require('postcss-import'),
     require('tailwindcss'),
-    require('postcss-nested'),
-    require('postcss-custom-properties'),
     require('autoprefixer'),
   ]
 }
 ```
-
-### Будущие возможности CSS
-
-Вы можете добавить поддержку десятков будущих функций CSS в свой проект с помощью плагина [postcss-preset-env](https://github.com/csstools/postcss-preset-env).
-
-Чтобы использовать его, установите его через npm:
-
-```shell
-# npm
-npm install postcss-preset-env
-
-# yarn
-yarn add postcss-preset-env
-```
-
-Затем добавьте его в конфигурацию PostCSS где-нибудь после самого Tailwind:
-
-```js
-// postcss.config.js
-module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('postcss-preset-env')({ stage: 1 }),
-  ]
-}
-```
-
-**Важно отметить, что переменные CSS, вложение и автопрефиксатор включены в готовые**, поэтому, если вы используете `postcss-preset-env`, вам не нужно добавлять отдельные плагины для эти особенности.
 
 ---
 

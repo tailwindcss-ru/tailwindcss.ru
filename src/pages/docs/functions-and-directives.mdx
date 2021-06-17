@@ -347,6 +347,26 @@ Tailwind автоматически переместит любой CSS в ди�
 
 ---
 
+## screen()
+
+The `screen` function accepts a screen name like `md` and generates the corresponding media feature expression:
+
+```css
+/* Input */
+@media screen(sm) {
+  /* ... */
+}
+
+/* Output */
+@media (min-width: 640px) {
+  /* ... */
+}
+```
+
+This can be useful when you using Tailwind with other CSS tooling that handles the `@screen` directive poorly. For example `postcss-nesting` doesn't understand `@screen` but understands `@media`, so using `@media` alongside the `screen()` function behaves more correctly.
+
+---
+
 ## theme()
 
 Используйте функцию `theme()` для доступа к Вашим значениям конфигурации Tailwind, используя точечную нотацию.
