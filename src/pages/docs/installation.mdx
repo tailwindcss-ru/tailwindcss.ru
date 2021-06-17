@@ -264,9 +264,9 @@ npx tailwindcss -i ./src/tailwind.css -c ./.config/tailwind.config.js -o ./dist/
 npx tailwindcss --no-autoprefixer -o tailwind.css
 ```
 
-### Using a custom PostCSS configuration
+### Использование пользовательской конфигурации PostCSS
 
-If you'd like to use other PostCSS plugins alongside Tailwind, you can create a `postcss.config.js` file in your project root to add your extra plugins and Tailwind will include them when building your CSS:
+Если вы хотите использовать другие плагины PostCSS вместе с Tailwind, вы можете создать файл `postcss.config.js` в корне вашего проекта, чтобы добавить дополнительные плагины, и Tailwind включит их при построении вашего CSS:
 
 ```js
 // postcss.config.js
@@ -277,7 +277,7 @@ module.exports = {
 }
 ```
 
-By default, plugins are applied _after_ Tailwind generates your CSS. If you have plugins that need to run before Tailwind, just include `tailwindcss` in your plugin list and Tailwind CLI will detect it and respect your custom plugin order:
+По умолчанию плагины применяются _после того, как_ Tailwind сгенерирует ваш CSS. Если у вас есть плагины, которые необходимо запустить до Tailwind, просто включите `tailwindcss` в свой список плагинов, и интерфейс командной строки Tailwind обнаружит его и соблюдает ваш собственный порядок плагинов:
 
 ```js
 // postcss.config.js
@@ -290,7 +290,7 @@ module.exports = {
 }
 ```
 
-If you'd like to automatically generate a basic `postcss.config.js` file when creating your `tailwind.config.js` file, use the `--postcss` or `-p` flag when initializing your config file:
+Если вы хотите автоматически сгенерировать базовый файл `postcss.config.js` при создании файла `tailwind.config.js`, используйте флаг `--postcss` или `-p` при инициализации файла конфигурации:
 
 ```shell
 npx tailwindcss init --postcss
