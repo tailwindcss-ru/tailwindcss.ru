@@ -66,7 +66,7 @@ const latestUpdates = [
     title: 'Tailwind CSS v2.2',
     date: '2021-06-17T19:00:00.000Z',
     url: 'https://blog.tailwindcss.com/tailwindcss-2-2',
-    description: `Over the last few weeks, we've been having a ton of fun dumping new and exciting features into Tailwind. Now feels like the right time to cut a release, so here it is — Tailwind CSS v2.2! We've built-in a new high-performance CLI tool, added before and after pseudo-element support, introduced new sibling selector variants, the ability to style highlighted text, and tons more.`,
+    description: `За последние несколько недель мы получили массу удовольствия, добавляя новые интересные функции в Tailwind. Кажется, сейчас подходящее время для выпуска релиза, так что вот он — Tailwind CSS v2.2! Мы встроили новый высокопроизводительный инструмент CLI, добавили поддержку псевдоэлементов до и после, представили новые варианты селектора родственников, возможность стилизовать выделенный текст и многое другое.`,
   },
   {
     title: 'Tailwind CSS v2.1',
