@@ -266,7 +266,11 @@ npx tailwindcss --no-autoprefixer -o tailwind.css
 
 ### Использование пользовательской конфигурации PostCSS
 
-Если вы хотите использовать другие плагины PostCSS вместе с Tailwind, вы можете создать файл `postcss.config.js` в корне вашего проекта, чтобы добавить дополнительные плагины, и Tailwind включит их при построении вашего CSS:
+Если вы хотите использовать другие плагины PostCSS вместе с Tailwind, вы можете создать файл `postcss.config.js` в корне вашего проекта, чтобы добавить дополнительные плагины, и Tailwind будет включать их, если вы используете флаг `--postcss`, когда создание вашего CSS:
+
+```shell
+npx tailwindcss --postcss -o tailwind.css
+```
 
 ```js
 // postcss.config.js
