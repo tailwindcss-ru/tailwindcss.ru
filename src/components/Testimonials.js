@@ -55,8 +55,8 @@ const testimonials = [
   },
 
   {
-    content: 'Мне он понравился в тот момент, когда я его использовать.',
-    tweetUrl: 'Gilbert Rabut Tsurwa',
+    content: 'Мне он понравился в тот момент, когда я его использовал.',
+    tweetUrl: 'https://twitter.com/GTsurwa/status/1304226774491033601',
     author: {
       name: 'Gilbert Rabut Tsurwa',
       role: 'Web Developer',
