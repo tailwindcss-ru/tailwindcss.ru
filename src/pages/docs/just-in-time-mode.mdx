@@ -489,7 +489,9 @@ Tailwind не включает в себя какую-либо среду вып
 
 Если вы хотите, чтобы Tailwind полностью перестроил CSS с нуля в режиме просмотра, сохранение файла `tailwind.config.js` или входного файла CSS сделает недействительными все кеши и вызовет новую перестройку.
 
-### Стили не обновляются при сохранении содержимого файлов
+<a name="watch-mode-and-one-off-builds" style={{'scroll-margin-top': '6.875rem'}}></a>
+
+### Стили не обновляются при сохранении файлов содержимого
 
 Начиная с Tailwind CSS v2.2 +, механизм JIT зависит от [сообщений о зависимостях каталогов](https://github.com/postcss/postcss/blob/main/docs/guidelines/runner.md#3-dependencies) PostCSS, чтобы зарегистрируйте файлы содержимого как зависимости сборки CSS с помощью инструмента сборки. Это довольно новое дополнение к PostCSS (добавлено в мае 2021 года), и еще не все инструменты сборки были обновлены для их поддержки.
 
@@ -506,7 +508,7 @@ Tailwind не включает в себя какую-либо среду вып
     "dev": "TAILWIND_MODE=watch postcss -i tailwind.css -o build.css --watch",
 
     // Не устанавливайте TAILWIND_MODE для разовых сборок
-    "build": "postcss -i tailwind.css -o build.css",
+    "build": "postcss -i tailwind.css -o build.css --minify",
     // ...
   },
   // ...
@@ -515,7 +517,9 @@ Tailwind не включает в себя какую-либо среду вып
 
 _Если вы используете Windows, мы рекомендуем [cross-env](https://www.npmjs.com/package/cross-env) для установки переменных среды в ваших скриптах._
 
-Обратите внимание, что установка `TAILWIND_MODE=watch` запускает длительный процесс наблюдения в фоновом режиме, поэтому, если вы установите эту переменную среды при попытке выполнить одноразовую сборку, это будет выглядеть так, как будто сборка зависает. Вы должны устанавливать `TAILWIND_MODE=watch` только тогда, когда вы фактически запускаете процесс server/watch.
+Обратите внимание, что установка `TAILWIND_MODE=watch` запускает длительный процесс наблюдения в фоновом режиме, поэтому, если вы установите эту переменную среды при попытке выполнить одноразовую сборку, это будет выглядеть так, как будто сборка зависает.
+
+Вы должны устанавливать `TAILWIND_MODE=watch` только тогда, когда вы фактически запускаете процесс разработки `server/watch`, и только если ваш инструмент сборки еще не поддерживает сообщения о зависимостях каталогов PostCSS. Этот флаг является временным решением для несовместимых инструментов и в конечном итоге будет удален в будущей версии Tailwind CSS.
 
 ### Стили перестраиваются в бесконечном цикле
 
@@ -578,10 +582,10 @@ module.exports = {
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:parcel": "parcel serve ./src/index.html",
-    "dev:css": "tailwindcss -o src/tailwind.css -w",
+    "dev:css": "tailwindcss -o src/tailwind.css --watch",
     "build": "npm-run-all build:css build:parcel",
     "build:parcel": "parcel build ./src/index.html",
-    "build:css": "tailwindcss -o src/tailwind.css",
+    "build:css": "tailwindcss -o src/tailwind.css --minify",
   },
 }
 ```
