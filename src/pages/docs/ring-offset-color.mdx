@@ -3,12 +3,14 @@ title: "Цвет смещения кольца"
 description: "Утилиты для настройки цвета смещения контура кольца."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/ringOffsetColor'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=ringOffsetColor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   transformProperties: ({ selector, properties }) => {
     properties['box-shadow'] = `0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow)`
     return properties
@@ -16,86 +18,62 @@ export const classes = {
 }
 
 
-## Применение
+## Основы использования
+
+### Настройка цвета смещения кольца
 
 Используйте утилиты `ring-offset-{color}`, чтобы изменить цвет смещения кольца. Обычно это делается, чтобы попытаться сопоставить смещение с родительским цветом фона, поскольку истинные смещения тени блока фактически невозможны в CSS.
 
-```html violet
-<template preview class="p-0">
-  <div class="bg-violet-100 grid grid-cols-1 gap-6 justify-items-center p-8 ">
-    <p class="font-semibold text-violet-600">bg-purple-100</p>
-    <button tabindex="-1" class="focus:outline-none text-sm px-5 py-3 rounded-md font-semibold text-white bg-violet-500 ring ring-violet-600 ring-offset-4 ring-offset-violet-100">
-      ring-offset-purple-100
-    </button>
+<Example>
+  <div class="grid place-content-center text-white text-sm text-center font-bold leading-6 text-white">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm font-mono text-gray-500 text-center mb-3">ring-offset-purple-100</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-white text-gray-700 border border-gray-300 rounded-md shadow-sm ring-2 ring-offset-4 ring-offset-purple-100 ring-purple-500">Сохранить изменения</button>
+    </div>
   </div>
-</template>
-
-<div class="... **bg-purple-100**">
-  <button class="... ring ring-purple-600 **ring-offset-4** **ring-offset-purple-100**">
-    ring-offset-purple-100
-  </button>
-</div>
-```
-
----
-
-
-## Адаптивность
-
-Чтобы управлять цветом смещения кольца в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите цвета смещения кольца. Например, используйте `md:ring-offset-blue-500`, чтобы применить утилиту `ring-offset-blue-500` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<button class="ring-2 ring-offset-2 ring-offset-blue-300 **md:ring-offset-blue-500**">
-  <!-- ... -->
+<button class="ring-2 ring-purple-500 ring-offset-4 **ring-offset-purple-100** ...">
+  Сохранить изменения
 </button>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+
+### Изменение непрозрачности
+
+Управляйте непрозрачностью цвета смещения кольца элемента с помощью модификатора непрозрачности цвета.
+
+```html
+<button class="ring-2 ring-purple-500 ring-offset-4 ring-offset-purple-100**/50**"></button>
+```
+
+Вы можете использовать любое значение, определенное в вашей [шкале непрозрачности](/docs/opacity), или использовать произвольные значения, если вам нужно отклониться от маркеров вашего дизайна.
+
+```html
+<button class="ring-2 ring-purple-500 ring-offset-4 ring-offset-purple-100**/[.55]**"></button>
+```
 
 ---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-Вы можете настроить, какие утилиты цвета смещения кольца будут генерироваться, настроив вашу цветовую палитру с помощью ключа `colors` в разделе `theme` вашего файла `tailwind.config.js`:
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
+<HoverFocusAndOtherStates defaultClass="ring-2 ring-offset-2 ring-offset-blue-300" featuredClass="ring-offset-blue-500" />
 
-module.exports = {
-  theme: {
-    colors: {
-      gray: colors.blueGray,
-      indigo: colors.indigo,
-      red: colors.rose,
-      yellow: colors.yellow,
-    }
-  }
-}
-```
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-Если вы хотите настроить только утилиты цвета смещения кольца, не затрагивая вашу глобальную цветовую палитру, используйте вместо этого ключ `ringOffsetColor`:
+<BreakpointsAndMediaQueries defaultClass="ring-2 ring-offset-2 ring-offset-blue-300" featuredClass="ring-offset-blue-500" />
 
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
+---
 
-module.exports = {
-  theme: {
-    ringOffsetColor: {
-      white: colors.white,
-      pink: colors.fuchsia,
-    }
-  }
-}
-```
+## Использование пользовательских значений
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+### Настройка вашей темы
 
-### Варианты
+<CustomizePluginColors name="ring offset color" configKey="ringOffsetColor" />
 
-<Variants plugin="ringOffsetColor" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="ringOffsetColor" />
+<ArbitraryValues property="ring-offset-{color}" featuredClass="ring-offset-[#50d71e]" />

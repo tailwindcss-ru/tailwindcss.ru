@@ -1,16 +1,17 @@
 ---
 title: "Изоляция"
 description: "Утилиты для управления, должен ли элемент явно создавать новый контекст стекирования."
-featureVersion: 'v2.1+'
 ---
 
-import plugin from 'tailwindcss/lib/plugins/isolation'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=isolation'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка контекста наложения
 
 Используйте утилиты `isolate` и `isolation-auto`, чтобы указать, должен ли элемент явно создавать новый контекст стекирования.
 
@@ -20,24 +21,14 @@ export const classes = { plugin }
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять свойством изоляции в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите изоляции. Например, используйте `md:isolation-auto`, чтобы применить утилиту `isolation-auto` только на экранах среднего размера и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="isolate **md:isolation-auto** ...">
-  <!-- ... -->
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="isolate" featuredClass="isolation-auto" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-### Варианты
-
-<Variants plugin="isolation" name="isolation" />
-
-### Отключение
-
-<Disabling plugin="isolation" name="isolation" />
+<BreakpointsAndMediaQueries defaultClass="isolate" featuredClass="isolation-auto" />

@@ -3,81 +3,79 @@ title: "Порядок"
 description: "Утилиты для управления порядком элементов гибкости и сетки."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/order'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=order'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Порядок флекс и грид элементов
 
 Используйте `order-{order}` для рендеринга элементов гибкости и сетки в другом порядке, чем они отображаются в DOM.
 
-```html lightBlue
-<template preview>
-  <div class="flex justify-between ...">
-    <div class="order-last w-16 h-16 rounded-md bg-blue-500 text-white text-2xl font-extrabold flex items-center justify-center">1</div>
-    <div class="w-16 h-16 rounded-md bg-blue-300 text-white text-2xl font-extrabold flex items-center justify-center">2</div>
-    <div class="w-16 h-16 rounded-md bg-blue-300 text-white text-2xl font-extrabold flex items-center justify-center">3</div>
+<Example>
+  <div class="flex justify-between font-mono text-white text-sm font-bold leading-6">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg order-last">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">03</div>
   </div>
-</template>
-
-<div class="flex justify-between ...">
-  <div class="**order-last**">1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
-
-
-## Адаптивность
-
-Чтобы применить служебную программу заказа только к определенной контрольной точке, добавьте префикс `{screen}:` к существующему имени класса. Например, добавление класса `md:order-last` к элементу приведет к применению утилиты `order-last` при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="flex">
-  <div>1</div>
-  <div class="order-first **md:order-last**">2</div>
-  <div>3</div>
+<div class="flex justify-between ...">
+  <div class="**order-last**">01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### Использование отрицательных значений
 
-## Кастомизация
+Чтобы использовать значение отрицательного порядка, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
-По умолчанию Tailwind предоставляет утилиты для `order-first`, `order-last`, `order-none` и `order-{number}` для чисел от 1 до 12. Вы меняете, добавляете или удаляете их, отредактировав раздел `theme.order` Вашего файла `tailwind.config.js`.
+```html
+<div class="**-order-1**">
+  <!-- ... -->
+</div>
+```
 
-```diff-js
-  // tailwind.config.js
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="order-first" featuredClass="order-last" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="order-first" featuredClass="order-last" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind предоставляет утилиты для `order-first`, `order-last`, `order-none` и `order-{number}` для чисел от 1 до 12. Вы можете настроить эти значения, отредактировав `theme.order` или `theme.extend.order` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      order: {
-        first: '-9999',
-        last: '9999',
--       none: '0',
-+       normal: '0',
-        '1': '1',
-        '2': '2',
-        '3': '3',
-        '4': '4',
-        '5': '5',
-        '6': '6',
--       '7': '7',
--       '8': '8',
--       '9': '9',
--       '10': '10',
--       '11': '11',
--       '12': '12',
+      extend: {
++       order: {
++         '13': '13'
++       }
       }
     }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="order" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="order" />
+<ArbitraryValues property="order" featuredClass="order-[13]" />

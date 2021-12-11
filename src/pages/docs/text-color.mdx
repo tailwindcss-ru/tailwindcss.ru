@@ -1,20 +1,23 @@
 ---
 title: "Цвет текста"
 description: "Утилиты для управления цветом текста элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: true
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/textColor'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { Heading } from '@/components/Heading'
+import utilities from 'utilities?plugin=textColor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
+  transformProperties: ({ selector, properties }) => {
+    delete properties['--tw-text-opacity']
+    Object.keys(properties).forEach(key => {
+      properties[key] = properties[key].replace(' / var(--tw-text-opacity)', '')
+    })
+    return properties
+  },
   preview: (css, { className }) => (
     <td
       className={`text-center font-medium text-base whitespace-nowrap align-middle ${className}`}
@@ -27,126 +30,82 @@ export const classes = {
   ),
 }
 
-## Применение
+## Основы использования
+
+### Установка цвета текста
 
 Управляйте цветом текста элемента с помощью утилит `text-{color}`.
 
-```html
-<template preview>
-  <p class="text-purple-600 text-center text-xl font-semibold truncate">
-    Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
-  </p>
-</template>
+<Example>
+  <div class="relative text-xl text-center font-medium leading-6">
+    <p class="text-blue-600">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+  </div>
+</Example>
 
-<p class="**text-purple-600** ..."></p>
+```html
+<p class="**text-blue-600**">Быстрая коричневая лиса...</p>
 ```
 
 ### Изменение непрозрачности
 
-Управляйте непрозрачностью цвета текста элемента с помощью утилит `text-opacity-{amount}`.
+Управляйте непрозрачностью цвета текста элемента с помощью модификатора непрозрачности цвета.
 
-```html
-<template preview>
-  <div class="space-y-4">
-    <p class="font-semibold text-xl text-purple-700 text-opacity-100">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-75">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-50">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-25">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-    <p class="font-semibold text-xl text-purple-700 text-opacity-0">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+<Example>
+  <div class="text-xl font-medium leading-6 space-y-4">
+    <p class="text-blue-600/100">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-blue-600/75">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-blue-600/50">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-blue-600/25">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
   </div>
-</template>
-
-<p class="text-purple-700 **text-opacity-100** ...">Быстрая коричневая лиса...</p>
-<p class="text-purple-700 **text-opacity-75** ...">Быстрая коричневая лиса...</p>
-<p class="text-purple-700 **text-opacity-50** ...">Быстрая коричневая лиса...</p>
-<p class="text-purple-700 **text-opacity-25** ...">Быстрая коричневая лиса...</p>
-<p class="text-purple-700 **text-opacity-0** ...">Быстрая коричневая лиса...</p>
-```
-
-Дополнительные сведения смотрите в [документации по непрозрачности текста](/docs/text-opacity).
-
-## Адаптивность
-
-Чтобы управлять цветом текста элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите цвета текста. Например, используйте `md:text-green-600`, чтобы применить утилиту `text-green-600` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<p class="text-blue-600 **md:text-green-600** ...">
-  Быстрая коричневая лиса...
-</p>
+<p class="text-blue-600**/100**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/75**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/50**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/25**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/0**">Быстрая коричневая лиса...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+Вы можете использовать любое значение, определенное в вашей [шкале непрозрачности](/docs/opacity), или использовать произвольные значения, если вам нужно отклониться от маркеров вашего дизайна.
 
-## Наведение
+```html
+<p class="text-blue-600**/[.06]**">Быстрая коричневая лиса...</p>
+```
 
-Чтобы контролировать цвет текста элемента при наведении, добавьте префикс `hover:` к любой существующей утилите цвета текста. Например, используйте `hover:text-blue-600`, чтобы применить утилиту `text-blue-600` при наведении курсора.
+---
 
-```html rose
-<template preview>
-  <div class="text-center">
-    <button type="button" class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-white hover:text-red-500 focus:outline-none" tabindex="-1">
-      Наведите меня
-    </button>
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates featuredClass="text-blue-600">
+
+<Example hint="Попробуйте навести курсор мыши на текст, чтобы увидеть ожидаемое поведение">
+  <div class="relative text-xl text-center font-medium leading-6">
+    <p class="text-gray-500 hover:text-blue-600">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
   </div>
-</template>
-
-<button class="text-white **hover:text-red-500** ...">
-  Наведите меня
-</button>
-```
-
-Утилиты Наведения также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `hover:`.
+</Example>
 
 ```html
-<button class="... md:text-blue-500 **md:hover:text-blue-600** ...">Кнопка</button>
+<p class="text-gray-500 **hover:text-blue-600**">Быстрая коричневая лиса...</p>
 ```
 
-## Фокус
+</HoverFocusAndOtherStates>
 
-Чтобы управлять цветом текста элемента в фокусе, добавьте префикс `focus:` к любой существующей утилите цвета текста. Например, используйте `focus:text-blue-600`, чтобы применить утилиту `text-blue-600` к фокусу.
 
-```html emerald
-<template preview>
-  <div class="max-w-xs w-full mx-auto">
-    <input class="border border-emerald-300 focus:border-emerald-500 bg-white text-green-900 appearance-none inline-block w-full focus:text-red-600 rounded py-3 px-4 focus:outline-none" placeholder="Сфокусируйтесь на мне" value="Сфокусируйтесь на мне">
-  </div>
-</template>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<input class="text-green-900 focus:text-red-600 ...">
-```
+<BreakpointsAndMediaQueries defaultClass="text-blue-600" featuredClass="text-green-600" element="p" />
 
-Утилиты Фокуса также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
+---
 
-```html
-<input class="... md:text-gray-900 **md:focus:text-red-600** ...">
-```
+## Использование пользовательских значений
 
-## Кастомизация
+### Настройка вашей темы
 
-### Цвета текста
+<CustomizePluginColors name="text" configKey="textColor" />
 
-По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной в виде цветов текста.
+### Произвольные значения
 
-Вы можете [настроить цветовую палитру](/docs/colors#customizing), отредактировав `theme.colors` в Вашем файле `tailwind.config.js`, или настроить только цвета текста в разделе `theme.textColor`.
-
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
--     textColor: theme => theme('colors'),
-+     textColor: {
-+       'primary': '#3490dc',
-+       'secondary': '#ffed4a',
-+       'danger': '#e3342f',
-+     }
-    }
-  }
-```
-
-### Варианты
-
-<Variants plugin="textColor" />
-
-### Отключение
-
-<Disabling plugin="textColor" />
+<ArbitraryValues property="color" featuredClass="text-[#50d71e]" element="p" />

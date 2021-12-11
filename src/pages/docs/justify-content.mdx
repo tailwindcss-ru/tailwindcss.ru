@@ -3,150 +3,142 @@ title: "Выравнивание содержимого по главной ос
 description: "Утилиты для управления расположением флекс-элементов и сетки вдоль главной оси контейнера."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/justifyContent'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=justifyContent'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Start
+## Основы использования
+
+### Start
 
 Используйте `justify-start`, чтобы выровнять элементы относительно начала главной оси контейнера:
 
-```html fuchsia
-<template preview class="p-6">
-  <div class="flex justify-start -m-2">
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500 m-2">1</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500 m-2">2</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500 m-2">3</div>
+<Example>
+  <div class="flex justify-start space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **justify-start** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Center
+### Center
 
 Используйте `justify-center`, чтобы выровнять элементы по центру главной оси контейнера:
 
-```html indigo
-<template preview class="p-6">
-  <div class="flex justify-center -m-2">
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-indigo-500 m-2">1</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-indigo-500 m-2">2</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-indigo-500 m-2">3</div>
+<Example>
+  <div class="flex justify-center space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-blue rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **justify-center** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## End
+### End
 
 Используйте `justify-end`, чтобы выровнять элементы относительно конца главной оси контейнера:
 
-```html lightBlue
-<template preview class="p-6">
-  <div class="flex justify-end -m-2">
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-light-blue-500 m-2">1</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-light-blue-500 m-2">2</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-light-blue-500 m-2">3</div>
+<Example>
+  <div class="flex justify-end space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-cyan rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **justify-end** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Space between
+### Space between
 
 Используйте `justify-between` для выравнивания элементов по главной оси контейнера таким образом, чтобы между каждым элементом оставалось равное пространство:
 
-```html emerald
-<template preview class="p-6">
-  <div class="flex justify-between -m-2">
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-emerald-500 m-2">1</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-emerald-500 m-2">2</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-emerald-500 m-2">3</div>
+<Example>
+  <div class="flex justify-between space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-pink rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **justify-between** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Space around
+### Space around
 
 Используйте `justify-around` для выравнивания элементов по главной оси контейнера таким образом, чтобы с каждой стороны каждого элемента оставалось равное количество места:
 
-```html purple
-<template preview class="p-6">
-  <div class="flex justify-around -m-2">
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-purple-500 m-2">1</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-purple-500 m-2">2</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-purple-500 m-2">3</div>
+<Example>
+  <div class="flex justify-around space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-purple rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **justify-around** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Space evenly
+### Space evenly
 
 Используйте `justify-evenly` для выравнивания элементов по главной оси контейнера таким образом, чтобы вокруг каждого элемента было одинаковое пространство, но также с учетом удвоения пространства, которое вы обычно видите между каждым элементом при использовании `justify-around`:
 
-```html amber
-<template preview class="p-6">
-  <div class="flex justify-evenly -m-2">
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-amber-500 m-2">1</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-amber-500 m-2">2</div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-amber-500 m-2">3</div>
+<Example>
+  <div class="flex justify-evenly space-x-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-indigo rounded-lg">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">03</div>
   </div>
-</template>
-
-<div class="flex **justify-evenly** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы выровнять флекс-элементы в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему классу утилиты. Например, используйте `md:justify-between`, чтобы применить утилиту `justify-between` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="justify-start **md:justify-between** ...">
-  <!-- ... -->
+<div class="flex **justify-evenly** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="justifyContent" name="justify-content" />
+<HoverFocusAndOtherStates defaultClass="justify-start" featuredClass="justify-between" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="justifyContent" name="justify-content" />
+<BreakpointsAndMediaQueries defaultClass="justify-start" featuredClass="justify-between" />

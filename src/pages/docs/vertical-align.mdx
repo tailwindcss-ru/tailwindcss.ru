@@ -1,146 +1,145 @@
 ---
 title: "Вертикальное выравнивание"
 description: "Утилиты для управления вертикальным выравниванием строчного или табличного поля."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/verticalAlign'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=verticalAlign'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Baseline
+## Основы использования
+
+### Baseline
 
 Используйте `align-baseline`, чтобы выровнять базовую линию элемента с базовой линией его родителя.
 
-```html lightBlue
-<template preview>
-  <div class="leading-none relative">
-    <span class="w-0 h-8 inline-block align-baseline">
-      <span class="absolute top-0 border-light-blue-300 border-t border-b border-dashed w-full h-8"></span>
-      <span class="absolute top-0 border-light-blue-300 border-t border-b border-dashed w-full h-4"></span>
-    </span>
-    <span class="relative z-10 text-light-blue-600 font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</span>
+<Example>
+  <div class="bg-white rounded-lg shadow-lg ring-1 ring-gray-900/5 py-4 max-w-md mx-auto">
+    <div class="leading-none relative">
+      <span class="w-0 h-8 inline-block align-baseline">
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-8"></span>
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-4"></span>
+      </span>
+      <span class="relative z-10 text-gray-700 font-medium px-4">Быстрая коричневая лиса прыгает через ленивую собаку.</span>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <span class="inline-block **align-baseline** ...">...</span>
 ```
 
-## Top
+### Top
 
 Используйте `align-top`, чтобы выровнять верх элемента и его потомков с верхом всей строки.
 
-```html emerald
-<template preview>
-  <div class="leading-none relative">
-    <span class="w-0 h-8 inline-block align-top">
-      <span class="absolute top-0 border-emerald-300 border-t border-b border-dashed w-full h-8"></span>
-      <span class="absolute top-0 border-emerald-300 border-t border-b border-dashed w-full h-4"></span>
-    </span>
-    <span class="relative z-10 text-emerald-600 font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</span>
+<Example>
+  <div class="bg-white rounded-lg shadow-lg ring-1 ring-gray-900/5 py-4 max-w-md mx-auto">
+    <div class="leading-none relative">
+      <span class="w-0 h-8 inline-block align-top">
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-8"></span>
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-4"></span>
+      </span>
+      <span class="relative z-10 text-gray-700 font-medium px-4">Быстрая коричневая лиса прыгает через ленивую собаку.</span>
+    </div>
   </div>
-</template>
+</Example>
 
+
+```html
 <span class="inline-block **align-top** ...">...</span>
 ```
 
-## Middle
+### Middle
 
 Используйте `align-middle`, чтобы выровнять середину элемента с базовой линией плюс половину x-высоты родительского элемента.
 
-```html purple
-<template preview>
-  <div class="leading-none relative">
-    <span class="w-0 h-8 inline-block align-middle">
-      <span class="absolute top-0 border-purple-300 border-t border-b border-dashed w-full h-8"></span>
-      <span class="absolute top-0 border-purple-300 border-t border-b border-dashed w-full h-4"></span>
-    </span>
-    <span class="relative z-10 text-purple-600 font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</span>
+<Example>
+  <div class="bg-white rounded-lg shadow-lg ring-1 ring-gray-900/5 py-4 max-w-md mx-auto">
+    <div class="leading-none relative">
+      <span class="w-0 h-8 inline-block align-middle">
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-8"></span>
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-4"></span>
+      </span>
+      <span class="relative z-10 text-gray-700 font-medium px-4">Быстрая коричневая лиса прыгает через ленивую собаку.</span>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <span class="inline-block **align-middle** ...">...</span>
 ```
 
-## Bottom
+### Bottom
 
 Используйте `align-bottom`, чтобы выровнять нижнюю часть элемента и его потомков с нижней частью всей строки.
 
-```html rose
-<template preview>
-  <div class="leading-none relative">
-    <span class="w-0 h-8 inline-block align-bottom">
-      <span class="absolute top-0 border-rose-300 border-t border-b border-dashed w-full h-8"></span>
-      <span class="absolute top-0 border-rose-300 border-t border-b border-dashed w-full h-4"></span>
-    </span>
-    <span class="relative z-10 text-rose-600 font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</span>
+<Example>
+  <div class="bg-white rounded-lg shadow-lg ring-1 ring-gray-900/5 py-4 max-w-md mx-auto">
+    <div class="leading-none relative">
+      <span class="w-0 h-8 inline-block align-bottom">
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-8"></span>
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-4"></span>
+      </span>
+      <span class="relative z-10 text-gray-700 font-medium px-4">Быстрая коричневая лиса прыгает через ленивую собаку.</span>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <span class="inline-block **align-bottom** ...">...</span>
 ```
 
-## Text Top
+### Text Top
 
 Используйте `align-text-top`, чтобы выровнять верх элемента по верхнему краю шрифта родительского элемента.
 
-```html amber
-<template preview>
-  <div class="leading-none relative">
-    <span class="w-0 h-8 inline-block align-text-top">
-      <span class="absolute top-0 border-amber-300 border-t border-b border-dashed w-full h-8"></span>
-      <span class="absolute top-0 border-amber-300 border-t border-b border-dashed w-full h-4"></span>
-    </span>
-    <span class="relative z-10 text-amber-600 font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</span>
+<Example>
+  <div class="bg-white rounded-lg shadow-lg ring-1 ring-gray-900/5 py-4 max-w-md mx-auto">
+    <div class="leading-none relative">
+      <span class="w-0 h-8 inline-block align-text-top">
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-8"></span>
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-4"></span>
+      </span>
+      <span class="relative z-10 text-gray-700 font-medium px-4">Быстрая коричневая лиса прыгает через ленивую собаку.</span>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <span class="inline-block **align-text-top** ...">...</span>
 ```
 
-## Text Bottom
+### Text Bottom
 
 Используйте `align-text-bottom`, чтобы выровнять нижнюю часть элемента по нижней части шрифта родительского элемента.
 
-```html fuchsia
-<template preview>
-  <div class="leading-none relative">
-    <span class="w-0 h-8 inline-block align-text-bottom">
-      <span class="absolute top-0 border-fuchsia-300 border-t border-b border-dashed w-full h-8"></span>
-      <span class="absolute top-0 border-fuchsia-300 border-t border-b border-dashed w-full h-4"></span>
-    </span>
-    <span class="relative z-10 text-fuchsia-600 font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</span>
+<Example>
+  <div class="bg-white rounded-lg shadow-lg ring-1 ring-gray-900/5 py-4 max-w-md mx-auto">
+    <div class="leading-none relative">
+      <span class="w-0 h-8 inline-block align-text-bottom">
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-8"></span>
+        <span class="absolute top-0 border-gray-200 border-t border-b border-dashed w-full h-4"></span>
+      </span>
+      <span class="relative z-10 text-gray-700 font-medium px-4">Быстрая коричневая лиса прыгает через ленивую собаку.</span>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <span class="inline-block **align-text-bottom** ...">...</span>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять вертикальным выравниванием только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите вертикального выравнивания. Например, добавление класса `md:align-top` к элементу приведет к применению утилиты `align-top` при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="relative">
-  <span class="align-middle **md:align-top** ...">...</span>
-  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="align-middle" featuredClass="align-top" element="p" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-### Варианты
-
-<Variants plugin="verticalAlign" name="vertical-alignment" />
-
-### Отключение
-
-<Disabling plugin="verticalAlign" name="vertical-alignment" />
+<BreakpointsAndMediaQueries defaultClass="align-middle" featuredClass="align-top" element="p" />

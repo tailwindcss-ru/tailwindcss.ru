@@ -1,80 +1,99 @@
 ---
 title: "Обтекание"
 description: "Утилиты для управления переносом содержимого вокруг элемента."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/float'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=float'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Обтекание справа
+## Основы использования
+
+### Обтекание элементов справа
 
 Используйте `float-right`, чтобы разместить элемент справа от его контейнера.
 
-```html emerald
-<template preview>
-  <img class="float-right mt-2 mr-0 mb-4 ml-10 h-32" src="/img/placeholder-emerald.svg">
-  <p class="text-emerald-500 font-flow text-justify font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-</template>
+<Example resizable p="none">
+  <div class="mx-4 bg-white shadow-xl p-8 text-gray-700">
+    <div class="float-right ml-6">
+      <div class="relative aspect-w-4 aspect-h-5 sm:aspect-w-16 sm:aspect-h-9 w-20 sm:w-44">
+        <img class="object-cover rounded-lg" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <p class="text-justify">Может быть, мы сможем жить без библиотек, таких как мы с вами. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки писающих и писающих писателей на Коте в? Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего? Смотреть. Если вы думаете, что дело в просроченных штрафах и пропавших без вести книгах, подумайте еще раз. Речь идет о праве ребенка читать книгу, не отвлекая его от мысли! Или: может быть, это тебя заводит, Сайнфельд; может быть, вот как ты получаешь удовольствие. Вы и ваши приятели.</p>
+  </div>
+</Example>
 
+```html
 <img class="**float-right** ..." src="path/to/image.jpg">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
+<p>Может быть, мы сможем жить без библиотек, таких как мы с вами. ...</p>
 ```
 
-## Обтекание слева
+### Обтекание элементов слева
 
 Используйте `float-left`, чтобы разместить элемент слева от его контейнера.
 
-```html indigo
-<template preview>
-  <img class="float-left mt-2 ml-0 mb-4 mr-10 h-32" src="/img/placeholder-indigo.svg">
-  <p class="text-indigo-500 font-flow text-justify font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-</template>
+<Example resizable p="none">
+  <div class="mx-4 bg-white shadow-xl p-8 text-gray-700">
+    <div class="float-left mr-6">
+      <div class="relative aspect-w-4 aspect-h-5 sm:aspect-w-16 sm:aspect-h-9 w-20 sm:w-44">
+        <img class="object-cover rounded-lg" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <p class="text-justify">Может быть, мы сможем жить без библиотек, таких как мы с вами. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки писающих и писающих писателей на Коте в? Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего? Смотреть. Если вы думаете, что дело в просроченных штрафах и пропавших без вести книгах, подумайте еще раз. Речь идет о праве ребенка читать книгу, не отвлекая его от мысли! Или: может быть, это тебя заводит, Сайнфельд; может быть, вот как ты получаешь удовольствие. Вы и ваши приятели.</p>
+  </div>
+</Example>
 
+```html
 <img class="**float-left** ..." src="path/to/image.jpg">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
+<p>Может быть, мы сможем жить без библиотек, таких как мы с вами. ...</p>
 ```
 
-## Без обтекания
+### Отключение обтекания
 
 Используйте `float-none`, чтобы сбросить любые обтекания, которые применяются к элементу. Это значение по умолчанию для свойства `float`.
 
-```html purple
-<template preview>
-  <img class="float-none mb-8 h-32" src="/img/placeholder-purple.svg">
-  <p class="text-purple-500 font-flow text-justify font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-</template>
-
-<img class="**float-none** ..." src="path/to/image.jpg">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-```
-
-## Адаптивность
-
-Чтобы управлять перемещением элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите обтекания. Например, используйте `md:float-left`, чтобы применить утилиту `float-left` только при средних размерах экрана и выше.
+<Example resizable p="none">
+  <div class="mx-4 bg-white shadow-xl p-8 text-gray-700">
+    <div class="inline-block relative mb-4">
+      <div class="relative aspect-w-16 aspect-h-9 w-44">
+        <img class="object-cover rounded-lg" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <p class="text-justify">Может быть, мы сможем жить без библиотек, таких как мы с вами. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки писающих и писающих писателей на Коте в? Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего? Смотреть. Если вы думаете, что дело в просроченных штрафах и пропавших без вести книгах, подумайте еще раз. Речь идет о праве ребенка читать книгу, не отвлекая его от мысли! Или: может быть, это тебя заводит, Сайнфельд; может быть, вот как ты получаешь удовольствие. Вы и ваши приятели.</p>
+  </div>
+</Example>
 
 ```html
-<div class="bg-gray-200 p-4">
-  <img class="float-right **md:float-left** ...">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-</div>
+<img class="**float-none** ..." src="path/to/image.jpg">
+<p>Может быть, мы сможем жить без библиотек, таких как мы с вами. ...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивный дизайн](/docs/responsive-design) documentation.
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="float" />
+<HoverFocusAndOtherStates featuredClass="float-right">
 
-### Отключение
+```html
+<img class="float-right **hover:float-left**" src="path/to/image.jpg">
+```
 
-<Disabling plugin="float" />
+</HoverFocusAndOtherStates>
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries featuredClass="float-right">
+
+```html
+<img class="float-right **md:float-left**" src="path/to/image.jpg">
+```
+
+</BreakpointsAndMediaQueries>

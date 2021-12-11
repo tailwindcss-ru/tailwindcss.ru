@@ -1,79 +1,93 @@
 ---
 title: "Закрепление фона"
 description: "Утилиты для управления поведением фонового изображения при прокрутке."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundAttachment'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=backgroundAttachment'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Фиксированный
+## Основы использования
+
+### Фиксированный
 
 Используйте `bg-fixed` для исправления фонового изображения относительно области просмотра.
 
-```html lightBlue
-<template preview>
-  <div class="w-full h-48 bg-fixed bg-contain bg-center overflow-y-scroll" style="background-image:url('/img/placeholder-light-blue.svg');">
-    <div class="h-64"></div>
+<Example p="none">
+  <div class="px-4">
+    <div class="max-w-lg mx-auto h-80 overflow-y-scroll scrollbar-w-1.5 scrollbar-track-gray-100 scrollbar-thumb-rounded scrollbar-thumb-gray-300 bg-cover shadow-lg" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80'); background-position: center -80px;">
+      <div class="mt-40">
+        <div class="bg-white p-4 sm:p-8">
+          <div class="font-inter font-extrabold text-2xl text-black tracking-tight">Моя поездка на вершину</div>
+          <div class="mt-1 font-medium text-sm text-gray-500">16 ноября 2021 г. · Чтение займет 4 мин.</div>
+          <p class="mt-4 leading-7 text-gray-500">Может быть, мы сможем жить без библиотек, таких как мы с вами. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки писающих и писающих писателей на Коте в? Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего?</p>
+          <p class="mt-4 leading-7 text-gray-500">Смотреть. Если вы думаете, что дело в просроченных штрафах и пропавших без вести книгах, подумайте еще раз. Речь идет о праве ребенка читать книгу, не отвлекая его от мысли! Или: может быть, это тебя заводит, Сайнфельд; может быть, вот как ты получаешь удовольствие. Вы и ваши приятели.</p>
+        </div>
+      </div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**bg-fixed** ..." style="background-image: url(...)"></div>
 ```
 
-## Локальный
+### Локальный
 
 Используйте `bg-local` для прокрутки фонового изображения с контейнером и окном просмотра.
 
-```html indigo
-<template preview>
-  <div class="w-full h-72 bg-local bg-cover bg-center overflow-y-scroll" style="background-image:url('/img/placeholder-indigo.svg');">
-    <div class="h-96"></div>
+<Example p="none">
+  <div class="px-4">
+    <div class="max-w-lg mx-auto bg-white shadow-lg">
+      <div class="py-8 sm:py-12">
+        <div class="h-64 overflow-y-scroll scrollbar-w-1.5 scrollbar-track-gray-100 scrollbar-thumb-rounded scrollbar-thumb-gray-300 bg-cover bg-local" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80');">
+          <div class="p-6 sm:px-16 sm:py-12 bg-black/40">
+            <p class="font-serif italic text-base sm:text-2xl text-white text-center leading-6 sm:leading-8">"Потому что почта никогда не останавливается. Он просто продолжает приходить, приходить и приходить, никогда не прекращается. Это безжалостно. С каждым днем их накапливается все больше и больше. И вы должны достать его, но чем больше вы его извлекаете, тем больше он поступает. А затем сломается считыватель штрих-кода, и наступает день Информационной палаты издателя."</p>
+            <div class="mt-6 font-inter font-bold text-sm sm:text-base text-white text-center">&mdash; Newman</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**bg-local** ..." style="background-image: url(...)"></div>
 ```
 
-## Прокрутка
+### Прокрутка
 
 Используйте `bg-scroll` для прокрутки фонового изображения в области просмотра, но не в контейнере.
 
-```html fuchsia
-<template preview>
-  <div class="w-full h-72 bg-scroll bg-cover overflow-y-scroll" style="background-image:url('/img/placeholder-fuchsia.svg');">
-    <div class="h-96"></div>
+<Example p="none">
+  <div class="px-4">
+    <div class="max-w-lg mx-auto bg-white shadow-lg">
+      <div class="py-8 sm:py-12">
+        <div class="h-64 overflow-y-scroll scrollbar-w-1.5 scrollbar-track-gray-100 scrollbar-thumb-rounded scrollbar-thumb-gray-300 bg-cover bg-scroll" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80');">
+          <div class="p-6 sm:px-16 sm:py-12 bg-black/40">
+            <p class="font-serif italic text-base sm:text-2xl text-white text-center leading-6 sm:leading-8">"Потому что почта никогда не останавливается. Он просто продолжает приходить, приходить и приходить, никогда не прекращается. Это безжалостно. С каждым днем их накапливается все больше и больше. И вы должны достать его, но чем больше вы его извлекаете, тем больше он поступает. А затем сломается считыватель штрих-кода, и наступает день Информационной палаты издателя."</p>
+            <div class="mt-6 font-inter font-bold text-sm sm:text-base text-white text-center">&mdash; Newman</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**bg-scroll** ..." style="background-image: url(...)"></div>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять фоновым прикреплением элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите закрепления фона. Например, используйте `md:bg-fixed`, чтобы применить утилиту `bg-fixed` только при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="bg-local **md:bg-fixed** ...">
-  <!-- ... -->
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="bg-local" featuredClass="bg-fixed" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-### Варианты
-
-<Variants plugin="backgroundAttachment" />
-
-### Отключение
-
-<Disabling plugin="backgroundAttachment" />
+<BreakpointsAndMediaQueries defaultClass="bg-local" featuredClass="bg-fixed" />

@@ -3,94 +3,134 @@ title: "Сброс"
 description: "Утилиты для управления переносом содержимого вокруг элемента."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/clear'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=clear'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Сбросить слева
+## Основы использования
+
+### Очистка плавающих элементов в влево
 
 Используйте `clear-left`, чтобы разместить элемент под любыми предыдущими элементами, обтекающими слева.
 
-```html fuchsia
-<template preview>
-  <img class="float-left mr-4 my-2 h-24" src="/img/placeholder-fuchsia.svg">
-  <img class="float-right ml-4 my-2 h-32" src="/img/placeholder-fuchsia.svg">
-  <p class="clear-left font-flow text-justify text-fuchsia-500 font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-</template>
+<Example resizable p="none">
+  <div class="mx-4 bg-white shadow-xl p-8 text-gray-700 text-sm sm:text-base leading-6 sm:leading-7">
+    <div class="float-left mb-4 rounded-xl overflow-hidden">
+      <div class="relative aspect-w-1 aspect-h-1 sm:aspect-w-16 sm:aspect-h-9 w-24 sm:w-44">
+        <img class="object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+      </div>
+    </div>
+    <div class="float-right ml-6 mb-4 rounded-xl overflow-hidden ">
+      <div class="relative aspect-w-1 aspect-h-1 sm:aspect-w-16 sm:aspect-h-9 w-40 sm:w-64">
+        <img class="object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+      </div>
+    </div>
+    <p class="clear-left text-justify">Может быть, мы сможем жить без библиотек, таких как мы с вами. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки писающих и писающих писателей на Коте в? Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего? Смотреть. Если вы думаете, что дело в просроченных штрафах и пропавших без вести книгах, подумайте еще раз. Речь идет о праве ребенка читать книгу, не отвлекая его от мысли! Или: может быть, это тебя заводит, Сайнфельд; может быть, вот как ты получаешь удовольствие. Вы и ваши приятели.</p>
+  </div>
+</Example>
 
+```html
 <img class="float-left ..." src="path/to/image.jpg">
 <img class="float-right ..." src="path/to/image.jpg">
-<p class="**clear-left** ...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
+<p class="**clear-left** ...">Может быть, мы сможем жить без библиотек...</p>
 ```
 
-## Сбросить справа
+### Очистка плавающих элементов в вправо
 
 Используйте `clear-right`, чтобы расположить элемент под любыми предыдущими элементами, обтекающими справа.
 
-```html lightBlue
-<template preview>
-  <img class="float-left mr-4 my-2 h-24" src="/img/placeholder-light-blue.svg">
-  <img class="float-right ml-4 my-2 h-32" src="/img/placeholder-light-blue.svg">
-  <p class="clear-right font-flow text-light-blue-500 text-justify font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-</template>
+<Example resizable p="none">
+  <div class="mx-4 bg-white shadow-xl p-8 text-gray-700 text-sm sm:text-base leading-6 sm:leading-7">
+    <div class="float-left mr-6 mb-4 rounded-xl overflow-hidden">
+      <div class="relative aspect-w-4 aspect-h-5 sm:aspect-w-16 sm:aspect-h-9 w-28 sm:w-64">
+        <img class="object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+      </div>
+    </div>
+    <div class="float-right mb-4 rounded-xl overflow-hidden ">
+      <div class="relative aspect-w-4 aspect-h-5 sm:aspect-w-16 sm:aspect-h-9 w-20 sm:w-44">
+        <img class="object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+      </div>
+    </div>
+    <p class="clear-right text-justify">Может быть, мы сможем жить без библиотек, таким людям, как ты и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки писающих и писающих писателей на Коте в? Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего? Смотреть. Если вы думаете, что дело в просроченных штрафах и пропавших без вести книгах, подумайте еще раз. Речь идет о праве ребенка читать книгу, не отвлекая его от мысли! Или: может быть, это тебя заводит, Сайнфельд; может быть, вот как ты получаешь удовольствие. Вы и ваши приятели.</p>
+  </div>
+</Example>
 
+```html
 <img class="float-left ..." src="path/to/image.jpg">
 <img class="float-right ..." src="path/to/image.jpg">
-<p class="**clear-right** ...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
+<p class="**clear-right** ...">Может быть, мы сможем жить без библиотек...</p>
 ```
 
-## Сбросить оба
+### Очистка всех плавающих элементов
 
 Используйте `clear-both`, чтобы разместить элемент под всеми предыдущими плавающими элементами.
 
-```html emerald
-<template preview>
-  <img class="float-left mr-4 my-2 h-24" src="/img/placeholder-emerald.svg">
-  <img class="float-right ml-4 my-2 h-32" src="/img/placeholder-emerald.svg">
-  <p class="clear-both font-flow text-emerald-500 text-justify font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-</template>
+<Example resizable p="none">
+  <div class="mx-4 bg-white shadow-xl p-8 text-gray-700 text-sm sm:text-base leading-6 sm:leading-7">
+    <div class="float-left mb-4 rounded-xl overflow-hidden">
+      <div class="relative aspect-w-16 aspect-h-9 w-44">
+        <img class="object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+      </div>
+    </div>
+    <div class="float-right ml-6 mb-4 rounded-xl overflow-hidden ">
+      <div class="relative aspect-w-16 aspect-h-9 w-64">
+        <img class="object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+      </div>
+    </div>
+    <p class="clear-both text-justify">Может быть, мы сможем жить без библиотек, таким людям, как ты и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки писающих и писающих писателей на Коте в? Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего? Смотреть. Если вы думаете, что дело в просроченных штрафах и пропавших без вести книгах, подумайте еще раз. Речь идет о праве ребенка читать книгу, не отвлекая его от мысли! Или: может быть, это тебя заводит, Сайнфельд; может быть, вот как ты получаешь удовольствие. Вы и ваши приятели.</p>
+  </div>
+</Example>
 
+```html
 <img class="float-left ..." src="path/to/image.jpg">
 <img class="float-right ..." src="path/to/image.jpg">
-<p class="**clear-both** ...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
+<p class="**clear-both** ...">Может быть, мы сможем жить без библиотек...</p>
 ```
 
-## Не сбрасывать
+### Отключение примененных очисток
 
 Используйте `clear-none`, чтобы сбросить все примененное к элементу. Это значение по умолчанию для свойства `clear`.
 
-```html amber
-<template preview>
-  <img class="float-left mr-4 my-2 h-24" src="/img/placeholder-amber.svg">
-  <img class="float-right ml-4 my-2 h-32" src="/img/placeholder-amber.svg">
-  <p class="clear-none font-flow text-amber-500 text-justify font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-</template>
-
-<img class="float-left ..." src="path/to/image.jpg">
-<img class="float-right ..." src="path/to/image.jpg">
-<p class="**clear-none** ...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis et lorem sit amet vehicula. Etiam vel nibh nec nisi euismod mollis ultrices condimentum velit. Proin velit libero, interdum ac rhoncus sit amet, pellentesque ac turpis. Quisque ac luctus turpis, vel efficitur ante. Cras convallis risus vel vehicula dapibus. Donec eget neque fringilla, faucibus mi quis, porttitor magna. Cras pellentesque leo est, et luctus neque rutrum eu. Aliquam consequat velit sed sem posuere, vitae sollicitudin mi consequat. Mauris eget ipsum sed dui rutrum fringilla. Donec varius vehicula magna sit amet auctor. Ut congue vehicula lectus in blandit. Vivamus suscipit eleifend turpis, nec sodales sem vulputate a. Curabitur pulvinar libero viverra, efficitur odio eu, finibus justo. Etiam eu vehicula felis.</p>
-```
-
-## Адаптивность
-
-Чтобы управлять свойством очистки элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите очистки. Например, используйте `md:clear-left`, чтобы применить утилиту `clear-left` только при средних размерах экрана и выше.
+<Example resizable p="none">
+  <div class="mx-4 bg-white shadow-xl p-8 text-gray-700">
+    <div class="relative float-left mr-6 mb-4 rounded-xl overflow-hidden">
+      <div class="relative aspect-w-16 aspect-h-9 w-44">
+        <img class="h-24 object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+      </div>
+    </div>
+    <div class="relative float-right ml-6 mb-4 rounded-xl overflow-hidden">
+      <div class="relative aspect-w-16 aspect-h-9 w-64">
+        <img class="h-36 object-cover" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-xl"></div>
+      </div>
+    </div>
+    <p class="clear-none text-justify">Может быть, мы сможем жить без библиотек, таким людям, как ты и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки писающих и писающих писателей на Коте в? Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего? Смотреть. Если вы думаете, что дело в просроченных штрафах и пропавших без вести книгах, подумайте еще раз. Речь идет о праве ребенка читать книгу, не отвлекая его от мысли! Или: может быть, это тебя заводит, Сайнфельд; может быть, вот как ты получаешь удовольствие. Вы и ваши приятели.</p>
+  </div>
+</Example>
 
 ```html
-<p class="clear-right **md:clear-left** ...">
-  <!-- ... -->
-</p>
+<img class="float-left ..." src="path/to/image.jpg">
+<img class="float-right ..." src="path/to/image.jpg">
+<p class="**clear-none** ...">Может быть, мы сможем жить без библиотек...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="clear" />
+<HoverFocusAndOtherStates defaultClass="clear-left" featuredClass="clear-none" element="p" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="clear" />
+<BreakpointsAndMediaQueries defaultClass="clear-left" featuredClass="clear-none" element="p" />

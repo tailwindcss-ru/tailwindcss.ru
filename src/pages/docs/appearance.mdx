@@ -1,49 +1,47 @@
 ---
-title: "Внешний вид"
-description: "Утилиты для подавления стилей элементов управления нативными формами."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
+title: "Появление"
+description: "Утилиты для подавления стилей элементов управления собственными формами."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/appearance'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=appearance'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Удаление внешнего вида элемента по умолчанию
 
 Используйте `appearance-none`, чтобы сбросить стиль элемента, специфичный для браузера. Эта утилита часто используется при создании [компонентов пользовательских форм](/docs/examples/forms).
 
-```html indigo
-<template preview>
-  <div class="max-w-md mx-auto">
-    <div class="flex my-4">
+<Example>
+  <div class="max-w-sm mx-auto items-center">
+    <div class="flex my-6">
       <select class="w-16">
         <option>Да</option>
         <option>Нет</option>
         <option>Возможно</option>
       </select>
-      <div class="mx-4">
+      <div class="mx-6 text-gray-900 text-sm font-semibold">
         Применены стили браузера по умолчанию
       </div>
     </div>
-    <div class="flex my-4">
+    <div class="flex my-6 items-center">
       <select class="appearance-none w-16">
         <option>Да</option>
         <option>Нет</option>
         <option>Возможно</option>
       </select>
-      <div class="mx-4">
+      <div class="mx-6 text-gray-900 text-sm font-semibold">
         Стили по умолчанию удалены
       </div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <select>
   <option>Да</option>
   <option>Нет</option>
@@ -56,13 +54,3 @@ export const classes = { plugin }
   <option>Возможно</option>
 </select>
 ```
-
-## Кастомизация
-
-### Варианты
-
-<Variants plugin="appearance" />
-
-### Отключение
-
-<Disabling plugin="appearance" />

@@ -1,81 +1,110 @@
 ---
 title: "Прозрачность фона"
 description: "Утилиты для применения фильтров прозрачности фона к элементу."
-featureVersion: 'v2.1+'
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=backdropOpacity'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingBackdropFilters } from '@/components/RemovingBackdropFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-        '.backdrop-opacity-0': { '--tw-backdrop-opacity': 'opacity(0)'},
-        '.backdrop-opacity-5': { '--tw-backdrop-opacity': 'opacity(0.05)'},
-        '.backdrop-opacity-10': { '--tw-backdrop-opacity': 'opacity(0.1)'},
-        '.backdrop-opacity-20': { '--tw-backdrop-opacity': 'opacity(0.2)'},
-        '.backdrop-opacity-25': { '--tw-backdrop-opacity': 'opacity(0.25)'},
-        '.backdrop-opacity-30': { '--tw-backdrop-opacity': 'opacity(0.3)'},
-        '.backdrop-opacity-40': { '--tw-backdrop-opacity': 'opacity(0.4)'},
-        '.backdrop-opacity-50': { '--tw-backdrop-opacity': 'opacity(0.5)'},
-        '.backdrop-opacity-60': { '--tw-backdrop-opacity': 'opacity(0.6)'},
-        '.backdrop-opacity-70': { '--tw-backdrop-opacity': 'opacity(0.7)'},
-        '.backdrop-opacity-75': { '--tw-backdrop-opacity': 'opacity(0.75)'},
-        '.backdrop-opacity-80': { '--tw-backdrop-opacity': 'opacity(0.8)'},
-        '.backdrop-opacity-90': { '--tw-backdrop-opacity': 'opacity(0.9)'},
-        '.backdrop-opacity-95': { '--tw-backdrop-opacity': 'opacity(0.95)'},
-        '.backdrop-opacity-100': { '--tw-backdrop-opacity': 'opacity(1)'},
-      })
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      'backdrop-filter': properties['--tw-backdrop-opacity'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `backdrop-opacity-{amount}` вместе с утилитой `backdrop-filter` для управления непрозрачностью других фильтров фона, применяемых к элементу.
+### Управление непрозрачностью фильтров фона
+
+Используйте утилиты `backdrop-opacity-{amount}` для управления непрозрачностью других фильтров фона, применяемых к элементу.
+
+<Example p="none">
+  <div class="flex justify-start sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">backdrop-opacity-10</p>
+      <div class="relative">
+        <div class="absolute inset-6 backdrop-opacity-10 backdrop-invert h-20 w-20 bg-white/30"></div>
+        <img class="w-32 h-32 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">backdrop-opacity-60</p>
+      <div class="relative">
+        <div class="absolute inset-6 backdrop-opacity-60 backdrop-invert h-20 w-20 bg-white/30"></div>
+        <img class="w-32 h-32 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">backdrop-opacity-95</p>
+      <div class="relative">
+        <div class="absolute inset-6 backdrop-opacity-95 backdrop-invert h-20 w-20 bg-white/30"></div>
+        <img class="w-32 h-32 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
 
 ```html
-<div class="backdrop-filter backdrop-opacity-80 ...">
+<div class="**backdrop-opacity-10** backdrop-invert bg-white/30 ...">
+  <!-- ... -->
+</div>
+<div class="**backdrop-opacity-60** backdrop-invert bg-white/30 ...">
+  <!-- ... -->
+</div>
+<div class="**backdrop-opacity-95** backdrop-invert bg-white/30 ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Удаление фильтров фона
 
-Чтобы управлять прозрачностью фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите прозрачности фона. Например, используйте `md:backdrop-opacity-lg`, чтобы применить утилиту `backdrop-opacity-lg` только при средних размерах экрана и выше.
+<RemovingBackdropFilters defaultClass="backdrop-blur-md backdrop-opacity-60" />
 
-```html
-<div class="backdrop-filter backdrop-opacity-sm **md:backdrop-opacity-lg** ...">
-  <!-- ... -->
-</div>
-```
+---
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+## <Heading ignore>Применяя условно</Heading>
 
-## Кастомизация
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Вы можете настроить, какие утилиты `backdrop-opacity` будут генерироваться, используя ключ `backdropOpacity` в разделе `theme` вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="backdrop-opacity-100" featuredClass="backdrop-opacity-60" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="backdrop-opacity-100" featuredClass="backdrop-opacity-60" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `backdrop-opacity`. Вы можете настроить эти значения, отредактировав `theme.backdropOpacity` или `theme.extend.backdropOpacity` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       backdropOpacity: {
 +         15: '.15',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="backdropOpacity" name="backdrop opacity" />
-
-### Отключение
-
-<Disabling plugin="backdropOpacity" name="backdrop opacity" />
+<ArbitraryValues property="backdrop-opacity" featuredClass="backdrop-opacity-[.15]" />

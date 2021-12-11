@@ -3,13 +3,15 @@ title: "Экранные считыватели"
 description: "Утилиты для улучшения доступности с помощью программ чтения с экрана."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/accessibility'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=accessibility'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Элементы только для чтения с экрана
 
 Используйте `sr-only`, чтобы скрыть элемент визуально, не скрывая его от программ чтения с экрана:
 
@@ -20,6 +22,8 @@ export const classes = { plugin }
 </a>
 ```
 
+### Отмена элементов, предназначенных только для чтения с экрана
+
 Используйте `not-sr-only`, чтобы отменить `sr-only`, сделав элемент видимым для зрячих пользователей, а также для программ чтения с экрана. Это может быть полезно, когда вы хотите визуально скрыть что-то на маленьких экранах, но показать это на больших экранах, например:
 
 ```html
@@ -29,20 +33,22 @@ export const classes = { plugin }
 </a>
 ```
 
-По умолчанию для этих утилит генерируются варианты `responsive` и `focus`. Вы можете использовать `focus:not-sr-only`, чтобы сделать элемент визуально скрытым по умолчанию, но видимым, когда пользователь переходит на него - полезно для ссылок «перейти к содержанию»:
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates featuredClass="not-sr-only" variant="focus">
 
 ```html
-<a href="#" class="sr-only focus:not-sr-only">
-  Перейти к содержанию
+<a href="#content" class="sr-only **focus:not-sr-only**">
+  Skip to content
 </a>
 ```
 
-## Кастомизация
+</HoverFocusAndOtherStates>
 
-### Варианты
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Variants plugin="accessibility" />
-
-### Отключение
-
-<Disabling plugin="accessibility" />
+<BreakpointsAndMediaQueries defaultClass="sr-only" featuredClass="not-sr-only" />

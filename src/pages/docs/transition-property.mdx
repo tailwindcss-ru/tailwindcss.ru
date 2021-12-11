@@ -3,33 +3,36 @@ title: "Свойство перехода"
 description: "Утилиты для управления переходом свойств CSS."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/transitionProperty'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=transitionProperty'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Управление переходными свойствами
 
 Используйте утилиты `transition-{properties}`, чтобы указать, какие свойства должны переходить при изменении.
 
-```html lightBlue
-<template preview>
-  <div class="text-center">
-    <button class="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-blue-600 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-md">
-      Наведи на меня
+<Example hint="Hover the button to see the expected behaviour">
+  <div class="flex justify-around text-white text-sm font-bold leading-6">
+    <button class="px-4 py-2 font-semibold text-sm bg-blue-500 text-white rounded-md shadow-sm hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 ease-in-out delay-150 duration-300">
+      Сохранить изменения
     </button>
   </div>
-</template>
+</Example>
 
-<button class="**transition** duration-500 ease-in-out bg-blue-600 hover:bg-red-600 transform hover:-translate-y-1 hover:scale-110 ...">
-  Наведи на меня
+```html
+<button class="**transition** ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 ...">
+  Сохранить изменения
 </button>
 ```
 
-## Предпочительно уменьшенное движение
+### Предпочитает ограниченное движение
 
-Вы можете условно применять анимацию и переходы, используя варианты `motion-safe` и `motion-reduce`:
+Для ситуаций, когда пользователь указал, что он предпочитает уменьшенное движение, вы можете условно применить анимацию и переходы, используя варианты `motion-safe` и `motion-reduce`:
 
 ```html
 <button class="transition transform hover:-translate-y-1 **motion-reduce:transition-none motion-reduce:transform-none** ...">
@@ -37,52 +40,41 @@ export const classes = { plugin }
 </button>
 ```
 
-**Эти варианты не включены по умолчанию**, но вы можете включить их в разделе `variants` вашего файла `tailwind.config.js`:
+---
 
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    transitionProperty: ['responsive', 'motion-safe', 'motion-reduce']
-  }
-}
-```
+## <Heading ignore>Применяя условно</Heading>
 
-Дополнительные сведения смотрите в [документации по вариантам](/docs/hover-focus-and-other-states#motion-safe).
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-## Адаптивность
+<HoverFocusAndOtherStates featuredClass="transition-all" />
 
-Чтобы изменить свойства перехода элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите свойств перехода. Например, используйте `md:transition-colors`, чтобы применить утилиту `transition-colors` только для средних размеров экрана и выше.
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<BreakpointsAndMediaQueries featuredClass="transition-all" />
 
-## Кастомизация
+---
 
-### Значения свойств
+## Использование пользовательских значений
 
-По умолчанию Tailwind предоставляет утилиты свойств перехода для семи общих комбинаций свойств. Вы изменяете, добавляете или удаляете их, настраивая раздел `transitionProperty` в конфигурации вашей темы Tailwind.
+### Настройка вашей темы
 
-```diff-js
-  // tailwind.config.js
+По умолчанию Tailwind предоставляет утилиты свойств перехода для семи общих комбинаций свойств. Вы можете настроить эти значения, отредактировав `theme.transitionProperty` или `theme.extend.transitionProperty` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        transitionProperty: {
++       transitionProperty: {
 +         'height': 'height',
 +         'spacing': 'margin, padding',
-        }
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="transitionProperty" name="transition-property" />
-
-### Отключение
-
-<Disabling plugin="transitionProperty" name="transition-property" />
+<ArbitraryValues property="transition-property" featuredClass="transition-[height]" />

@@ -3,58 +3,79 @@ title: "Изменение размера"
 description: "Утилиты для управления изменением размера элемента."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/resize'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=resize'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Изменить размер во всех направлениях
+## Основы использования
+
+### Изменение размера во всех направлениях
 
 Используйте `resize`, чтобы изменить размер элемента по горизонтали и вертикали.
 
-```html purple
-<template preview>
-  <textarea class="resize border rounded-md"></textarea>
-</template>
+<Example hint="Drag the textarea handle in the demo to see the expected behaviour">
+  <div class="w-full flex items-center justify-center">
+    <textarea class="resize text-sm p-2 w-80 ring-1 ring-gray-900/10 shadow-sm rounded-md" rows="3"></textarea>
+  </div>
+</Example>
+
+```html
+<textarea class="**resize** rounded-md"></textarea>
 ```
 
-## Изменить размер по вертикали
+### Изменить размер по вертикали
 
 Используйте `resize-y`, чтобы изменить размер элемента по вертикали.
 
-```html emerald
-<template preview>
-  <textarea class="resize-y border rounded-md"></textarea>
-</template>
+<Example hint="Drag the textarea handle in the demo to see the expected behaviour">
+  <div class="w-full flex items-center justify-center">
+    <textarea class="resize-y text-sm p-2 w-80 ring-1 ring-gray-900/10 shadow-sm rounded-md" rows="3"></textarea>
+  </div>
+</Example>
+
+```html
+<textarea class="**resize-y** rounded-md"></textarea>
 ```
 
-## Изменить размер по горизонтали
+### Изменить размер по горизонтали
 
 Используйте `resize-x`, чтобы изменить размер элемента по горизонтали.
 
-```html amber
-<template preview>
-  <textarea class="resize-x border rounded-md"></textarea>
-</template>
+<Example hint="Drag the textarea handle in the demo to see the expected behaviour">
+  <div class="w-full flex items-center justify-center">
+    <textarea class="resize-x text-sm p-2 w-80 ring-1 ring-gray-900/10 shadow-sm rounded-md" rows="3"></textarea>
+  </div>
+</Example>
+
+```html
+<textarea class="**resize-x** rounded-md"></textarea>
 ```
 
-## Предотвратить изменение размера
+### Предотвратить изменение размера
 
 Используйте `resize-none`, чтобы предотвратить изменение размера элемента.
 
-```html lightBlue
-<template preview>
-  <textarea class="resize-none border rounded-md"></textarea>
-</template>
+<Example hint="Notice that the textarea handle is gone">
+  <div class="w-full flex items-center justify-center">
+    <textarea class="resize-none text-sm p-2 w-80 ring-1 ring-gray-900/10 shadow-sm rounded-md" rows="3"></textarea>
+  </div>
+</Example>
+
+```html
+<textarea class="**resize-none** rounded-md"></textarea>
 ```
 
-## Кастомизация
+---
 
-### Варианты
+## <Heading ignore>Применяя условно</Heading>
 
-<Variants plugin="resize" name="resizing" />
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-### Отключение
+<HoverFocusAndOtherStates defaultClass="resize-none" featuredClass="resize" />
 
-<Disabling plugin="resize" name="resizing" />
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="resize-none" featuredClass="resize" />

@@ -8,10 +8,7 @@ import { ThemeReference } from '@/components/ThemeReference'
 
 В разделе `theme` файла `tailwind.config.js` вы определяете цветовую палитру проекта, масштаб шрифтов, шрифты, контрольные точки, значения радиуса границы и многое другое.
 
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
-
+```js tailwind.config.js
 module.exports = {
   theme: {
     screens: {
@@ -21,10 +18,15 @@ module.exports = {
       xl: '1440px',
     },
     colors: {
-      gray: colors.coolGray,
-      blue: colors.lightBlue,
-      red: colors.rose,
-      pink: colors.fuchsia,
+      'blue': '#1fb6ff',
+      'purple': '#7e5bef',
+      'pink': '#ff49db',
+      'orange': '#ff7849',
+      'green': '#13ce66',
+      'yellow': '#ffc82c',
+      'gray-dark': '#273444',
+      'gray': '#8492a6',
+      'gray-light': '#d3dce6',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -43,7 +45,7 @@ module.exports = {
 }
 ```
 
-Мы предлагаем разумную [тему по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js#L7) с очень щедрым набором значений, чтобы вы могли начать, но не делайте этого. не бойтесь менять или расширять; вам предлагается настроить его столько, сколько вам нужно, чтобы соответствовать целям Вашего дизайна.
+Мы предоставляем разумную [тему по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js) с очень щедрым набором значений, чтобы вы могли начать, но не боится его изменить или продлить; Вам предлагается настроить его настолько, насколько вам нужно, чтобы соответствовать целям вашего дизайна.
 
 ---
 
@@ -57,8 +59,7 @@ module.exports = {
 
 Ключ `screens` позволяет вам настраивать адаптивные контрольные точки в Вашем проекте.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     screens: {
@@ -78,8 +79,7 @@ module.exports = {
 
 Ключ `colors` позволяет вам настроить глобальную цветовую палитру для Вашего проекта.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     colors: {
@@ -106,8 +106,7 @@ module.exports = {
 
 Ключ `spacing` позволяет вам настроить глобальную шкалу интервалов и размеров для Вашего проекта.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     spacing: {
@@ -151,7 +150,7 @@ module.exports = {
 }
 ```
 
-По умолчанию эти значения наследуются подключаемыми модулями ядра `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space` и `translate`.
+По умолчанию, эти значения наследуются элементами плагинов ядра `padding`, `margin`, `width`, `height`, `maxHeight`, `flex-basis`, `gap`, `inset`, `space`, `translate`, `scrollMargin`, `scrollPadding` и `textIndent`.
 
 Чтобы узнать больше смотрите [документацию по настройке интервалов](/docs/customizing-spacing).
 
@@ -193,6 +192,8 @@ module.exports = {
 
 Полный справочник доступных свойств темы и их значений по умолчанию смотрите в [конфигурации темы по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/v1/stubs/defaultConfig.stub.js#L5).
 
+---
+
 ## Настройка темы по умолчанию
 
 По умолчанию ваш проект автоматически наследует значения из [конфигурации темы по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/v1/stubs/defaultConfig.stub.js#L5). Если вы хотите настроить тему по умолчанию, у вас есть несколько различных вариантов в зависимости от Ваших целей.
@@ -203,8 +204,7 @@ module.exports = {
 
 Например, если вы хотите добавить дополнительную контрольную точку, но сохранить существующие, вы можете расширить свойство `screens`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     extend: {
@@ -221,8 +221,7 @@ module.exports = {
 
 Чтобы переопределить параметр в теме по умолчанию, добавьте свои переопределения непосредственно в раздел `theme` Вашего `tailwind.config.js`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     // Заменяет все значения непрозрачности `opacity` по умолчанию
@@ -244,8 +243,7 @@ module.exports = {
 
 Конечно, вы можете как переопределить некоторые части темы по умолчанию, так и расширить другие части темы по умолчанию в той же конфигурации:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     opacity: {
@@ -267,18 +265,22 @@ module.exports = {
 
 ### Ссылка на другие значения
 
-Если вам нужно сослаться на другое значение в Вашей теме, вы можете сделать это, указав закрытие вместо статического значения. Замыкание получит функцию `theme()`, которую вы можете использовать для поиска других значений в Вашей теме, используя точечную нотацию.
+Если вам нужно сослаться на другое значение в вашей теме, вы можете сделать это, указав закрытие вместо статического значения. Замыкание получит объект, который включает функцию `theme()`, которую вы можете использовать для поиска других значений в вашей теме, используя точечную нотацию.
 
-Например, вы можете сгенерировать утилиты `fill` для каждого цвета в Вашей цветовой палитре, указав тему `theme('colors')` в Вашей конфигурации `fill`:
+Например, вы можете сгенерировать утилиты `background-size` для каждого значения в вашей шкале интервалов, указав тему `theme('spacing')` в вашей конфигурации `backgroundSize`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
-    colors: {
+    spacing: {
       // ...
     },
-    fill: theme => theme('colors')
+    backgroundSize: ({ theme }) => {
+      auto: 'auto',
+      cover: 'cover',
+      contain: 'contain',
+      ...theme('spacing')
+    }
   }
 }
 ```
@@ -289,12 +291,11 @@ module.exports = {
 
 <TipBad>Вы не можете использовать функции для отдельных значений</TipBad>
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     fill: {
-      gray: theme => theme('colors.gray')
+      gray: ({ theme }) => theme('colors.gray')
     }
   }
 }
@@ -302,11 +303,10 @@ module.exports = {
 
 <TipGood>Используйте функции для ключей темы верхнего уровня</TipGood>
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
-    fill: theme => ({
+    fill: ({ theme }) => ({
       gray: theme('colors.gray')
     })
   }
@@ -319,8 +319,7 @@ module.exports = {
 
 Один из примеров того, где это полезно, - это если вы хотите добавить семейство шрифтов в один из стеков шрифтов Tailwind по умолчанию:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -343,8 +342,7 @@ module.exports = {
 
 <TipBad>Не назначайте пустой объект в конфигурации Вашей темы</TipBad>
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     opacity: {},
@@ -354,8 +352,7 @@ module.exports = {
 
 <TipGood>Отключите плагин в конфигурации corePlugins</TipGood>
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   corePlugins: {
     opacity: false,
@@ -365,53 +362,7 @@ module.exports = {
 
 Конечный результат тот же, но поскольку многие плагины ядра не предоставляют никакой конфигурации, их в любом случае можно отключить только с помощью `corePlugins`, так что лучше быть последовательным.
 
-### Добавление собственных ключей
-
-Есть ряд ситуаций, когда может быть полезно добавить свои собственные ключи к объекту `theme`.
-
-Одним из примеров этого является добавление новых ключей для создания единого источника истины для значений, которые являются общими для нескольких основных плагинов. Например, вы можете извлечь общий объект `positions`, на который могут ссылаться плагины `backgroundPosition` и `objectPosition`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    positions: {
-      bottom: 'bottom',
-      center: 'center',
-      left: 'left',
-      'left-bottom': 'left bottom',
-      'left-top': 'left top',
-      right: 'right',
-      'right-bottom': 'right bottom',
-      'right-top': 'right top',
-      top: 'top',
-    },
-    backgroundPosition: theme => theme('positions'),
-    objectPosition: theme => theme('positions'),
-  }
-}
-```
-
-Другой пример - добавление нового ключа для ссылки внутри настраиваемого плагина. Например, если вы написали плагин `filter` для своего проекта, вы можете добавить ключ `filters` к Вашему объекту `theme`, на который ссылается плагин:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    filters: {
-      none: 'none',
-      grayscale: 'grayscale(1)',
-      invert: 'invert(1)',
-      sepia: 'sepia(1)',
-    }
-  },
-  plugins: [
-    require('./plugins/filters')
-  ],
-}
-```
-
-Поскольку весь объект `theme` доступен в Вашем CSS с помощью [функции темы](/docs/functions-and-directives#theme), вы также можете добавить ключ, чтобы иметь возможность ссылаться на него в Вашем CSS.
+---
 
 ## Ссылка на конфигурацию
 

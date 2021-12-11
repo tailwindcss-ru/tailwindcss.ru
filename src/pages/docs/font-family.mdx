@@ -1,87 +1,71 @@
 ---
 title: "Семейство шрифтов"
 description: "Утилиты для управления семейством шрифтов элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/fontFamily'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=fontFamily'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Sans-serif
+## Основы использования
 
-Используйте `font-sans`, чтобы применить семейство веб-безопасных шрифтов без засечек:
+### Установка семейства шрифтов
 
-```html lightBlue
-<template preview>
-  <p class="font-sans text-xl text-light-blue-600 text-center">
-    Быстрая коричневая лиса прыгает через ленивую собаку.
-  </p>
-</template>
+Вы можете управлять шрифтом текста с помощью утилит семейства шрифтов.
 
-<p class="**font-sans** ...">
-  Быстрая коричневая лиса прыгает через ленивую собаку.
-</p>
-```
-
-## Serif
-
-Используйте `font-serif`, чтобы применить семейство веб-безопасных шрифтов с засечками:
-
-```html emerald
-<template preview>
-  <p class="font-serif text-xl text-emerald-600 text-center">
-    Быстрая коричневая лиса прыгает через ленивую собаку.
-  </p>
-</template>
-
-<p class="**font-serif** ...">
-  Быстрая коричневая лиса прыгает через ленивую собаку.
-</p>
-```
-
-## Monospaced
-
-Используйте `font-mono` для применения семейства веб-безопасных моноширинных шрифтов:
-
-```html indigo
-<template preview>
-  <p class="font-mono text-xl text-indigo-600 text-center">
-    Быстрая коричневая лиса прыгает через ленивую собаку.
-  </p>
-</template>
-
-<p class="**font-mono** ...">
-  Быстрая коричневая лиса прыгает через ленивую собаку.
-</p>
-```
-
-## Адаптивность
-
-Чтобы управлять семейством шрифтов элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему служебному классу семейства шрифтов. Например, используйте `md:font-serif`, чтобы применить утилиту `font-serif` только при средних размерах экрана и выше.
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">font-sans</span>
+      <p class="font-sans text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">font-serif</span>
+      <p class="font-serif text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">font-mono</span>
+      <p class="font-mono text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+  </div>
+</Example>
 
 ```html
-<p class="font-sans **md:font-serif**">
-  <!-- ... -->
-</p>
+<p class="**font-sans** ...">Быстрая коричневая лиса ...</p>
+<p class="**font-serif** ...">Быстрая коричневая лиса ...</p>
+<p class="**font-mono** ...">Быстрая коричневая лиса ...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Семейства шрифтов
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="font-sans" featuredClass="font-serif" element="p" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="font-sans" featuredClass="font-serif" element="p" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind предоставляет три утилиты семейства шрифтов: кроссбраузерный стек без засечек, кроссбраузерный стек с засечками и кроссбраузерный моноширинный стек. Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.fontFamily` в Вашей конфигурации Tailwind.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       fontFamily: {
@@ -120,13 +104,10 @@ export const classes = { plugin }
   // ...или экранируйте из пробела:
   'sans': ['Exo\\ 2', ...],
 }
-
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="fontFamily" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="fontFamily" />
+<ArbitraryValues property="font-family" featuredClass="font-['Open_Sans']" element="p" />

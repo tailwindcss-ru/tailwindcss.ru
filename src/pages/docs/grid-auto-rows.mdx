@@ -3,61 +3,61 @@ title: "Автоматические ряды сетки"
 description: "Утилиты для управления размером неявно созданных строк сетки."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/gridAutoRows'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=gridAutoRows'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Размер неявно созданных строк сетки
 
 Используйте утилиты `auto-rows-{size}` для управления размером неявно создаваемых строк сетки.
 
 ```html
 <div class="grid grid-flow-row **auto-rows-max**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять свойством grid-auto-rows в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите grid-auto-rows. Например, используйте `md:auto-rows-min`, чтобы применить утилиту `auto-rows-min` только при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="grid grid-flow-row auto-rows-max **md:auto-rows-min**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="grid grid-flow-row auto-rows-max" featuredClass="auto-rows-min" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-По умолчанию Tailwind включает в себя четыре универсальных утилиты grid-auto-rows. Вы можете настроить их в разделе `theme.gridAutoRows` Вашего файла `tailwind.config.js`.
+<BreakpointsAndMediaQueries defaultClass="grid grid-flow-row auto-rows-max" featuredClass="auto-rows-min" />
 
-```js
-  // tailwind.config.js
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает четыре универсальных `grid-auto-rows`. Вы можете настроить эти значения, отредактировав `theme.gridAutoRows` или `theme.extend.gridAutoRows` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        gridAutoRows: {
-          '2fr': 'minmax(0, 2fr)',
-        }
++       gridAutoRows: {
++         '2fr': 'minmax(0, 2fr)',
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="gridAutoRows" name="grid-auto-rows" />
-
-### Отключение
-
-<Disabling plugin="gridAutoRows" name="grid-auto-rows" />
+<ArbitraryValues property="grid-auto-rows" featuredClass="auto-rows-[minmax(0,_2fr)]" />

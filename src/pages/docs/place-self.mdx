@@ -3,160 +3,158 @@ title: "Размещение себя"
 description: "Утилиты для управления одновременным выравниванием отдельного элемента."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/placeSelf'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=placeSelf'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Auto
+## Основы использования
+
+### Auto
 
 Используйте `place-self-auto` для выравнивания элемента на основе значения свойства контейнера `place-items`:
 
-```html emerald
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-items-stretch h-48">
-    <div class="rounded-md bg-emerald-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">1</div>
-    <div class="place-self-auto rounded-md bg-emerald-500 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">2</div>
-    <div class="rounded-md bg-emerald-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">3</div>
-    <div class="rounded-md bg-emerald-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">4</div>
-    <div class="rounded-md bg-emerald-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">5</div>
-    <div class="rounded-md bg-emerald-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300">01</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg palce-self-auto">02</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-indigo-300">06</div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 ...">
-  <div>1</div>
-  <div class="**place-self-auto** ...">2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 ...">
+  <div>01</div>
+  <div class="**place-self-auto** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Start
+### Start
 
 Используйте `place-self-start`, чтобы выровнять элемент по началу по обеим осям:
 
-```html fuchsia
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-items-stretch h-48">
-    <div class="rounded-md bg-fuchsia-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">1</div>
-    <div class="place-self-start rounded-md bg-fuchsia-500 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">2</div>
-    <div class="rounded-md bg-fuchsia-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">3</div>
-    <div class="rounded-md bg-fuchsia-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">4</div>
-    <div class="rounded-md bg-fuchsia-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">5</div>
-    <div class="rounded-md bg-fuchsia-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300">01</div>
+    <div class="bg-stripes-purple rounded-lg grid">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg place-self-start">02</div>
+    </div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-purple-300">06</div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 ...">
-  <div>1</div>
-  <div class="**place-self-start** ...">2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 ...">
+  <div>01</div>
+  <div class="**place-self-start** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Center
+### Center
 
 Используйте `place-self-center`, чтобы выровнять элемент по центру по обеим осям:
 
-```html amber
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-items-stretch h-48">
-    <div class="rounded-md bg-amber-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">1</div>
-    <div class="place-self-center rounded-md bg-amber-500 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">2</div>
-    <div class="rounded-md bg-amber-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">3</div>
-    <div class="rounded-md bg-amber-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">4</div>
-    <div class="rounded-md bg-amber-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">5</div>
-    <div class="rounded-md bg-amber-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300">01</div>
+    <div class="bg-stripes-light-blue rounded-lg grid">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg place-self-center">02</div>
+    </div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-light-blue-300">06</div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 ...">
-  <div>1</div>
-  <div class="**place-self-center** ...">2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 ...">
+  <div>01</div>
+  <div class="**place-self-center** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## End
+### End
 
 Используйте `place-self-end`, чтобы выровнять элемент по обеим осям:
 
-```html purple
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-items-stretch h-48">
-    <div class="rounded-md bg-purple-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">1</div>
-    <div class="place-self-end rounded-md bg-purple-500 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">2</div>
-    <div class="rounded-md bg-purple-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">3</div>
-    <div class="rounded-md bg-purple-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">4</div>
-    <div class="rounded-md bg-purple-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">5</div>
-    <div class="rounded-md bg-purple-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300">01</div>
+    <div class="bg-stripes-pink rounded-lg grid">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg place-self-end">02</div>
+    </div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-pink-300">06</div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 ...">
-  <div>1</div>
-  <div class="**place-self-end** ...">2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 ...">
+  <div>01</div>
+  <div class="**place-self-end** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Stretch
+### Stretch
 
 Используйте `place-self-stretch`, чтобы растянуть элемент по обеим осям:
 
-```html lightBlue
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-items-stretch h-48">
-    <div class="rounded-md bg-light-blue-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">1</div>
-    <div class="place-self-stretch rounded-md bg-light-blue-500 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">2</div>
-    <div class="rounded-md bg-light-blue-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">3</div>
-    <div class="rounded-md bg-light-blue-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">4</div>
-    <div class="rounded-md bg-light-blue-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">5</div>
-    <div class="rounded-md bg-light-blue-300 text-white text-2xl font-extrabold flex items-center justify-center py-3 px-6">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 place-iems-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300">01</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg place-self-stretch">02</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300">03</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300">04</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300">05</div>
+    <div class="p-8 rounded-lg flex items-center justify-center bg-fuchsia-300">06</div>
   </div>
-</template>
-
-<div class="grid grid-cols-3 gap-2 ...">
-  <div>1</div>
-  <div class="**place-self-stretch** ...">2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы поместить элемент в определенную контрольную точку, добавьте префикс `{screen}:` к любой существующей утилите `place-self`. Например, используйте `md:place-self-end`, чтобы применить утилиту `place-self-end` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="place-self-start md:place-self-end">
-  <!-- ... -->
+<div class="grid grid-cols-3 gap-2 ...">
+  <div>01</div>
+  <div class="**place-self-stretch** ...">02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="placeSelf" name="place-self" />
+<HoverFocusAndOtherStates defaultClass="place-self-start" featuredClass="place-self-end" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="placeSelf" name="place-self" />
+<BreakpointsAndMediaQueries defaultClass="place-self-start" featuredClass="place-self-end" />

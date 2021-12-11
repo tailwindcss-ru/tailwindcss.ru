@@ -3,61 +3,61 @@ title: "Автоматические столбцы сетки"
 description: "Утилиты для управления размером неявно созданных столбцов сетки."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/gridAutoColumns'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=gridAutoColumns'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Определение размеров неявно созданных столбцов сетки
 
 Используйте утилиты `auto-cols-{size}` для управления размером неявно создаваемых столбцов сетки.
 
 ```html
 <div class="grid grid-flow-col **auto-cols-max**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять свойством grid-auto-columns в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите grid-auto-columns. Например, используйте `md:auto-cols-min`, чтобы применить утилиту `auto-cols-min` только при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="grid grid-flow-col auto-cols-max **md:auto-cols-min**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="grid grid-flow-col auto-cols-max" featuredClass="auto-cols-min" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-По умолчанию Tailwind включает в себя четыре универсальные утилиты с автоматическими столбцами сетки. Вы можете настроить их в разделе `theme.gridAutoColumns` Вашего файла `tailwind.config.js`.
+<BreakpointsAndMediaQueries defaultClass="grid grid-flow-col auto-cols-max" featuredClass="auto-cols-min" />
 
-```js
-  // tailwind.config.js
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает четыре универсальных `grid-auto-columns`. Вы можете настроить эти значения, отредактировав `theme.gridAutoColumns` или `theme.extend.gridAutoColumns` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        gridAutoColumns: {
-          '2fr': 'minmax(0, 2fr)',
-        }
++       gridAutoColumns: {
++         '2fr': 'minmax(0, 2fr)',
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="gridAutoColumns" name="grid-auto-columns" />
-
-### Отключение
-
-<Disabling plugin="gridAutoColumns" name="grid-auto-columns" />
+<ArbitraryValues property="grid-auto-columns" featuredClass="auto-cols-[minmax(0,_2fr)]" />

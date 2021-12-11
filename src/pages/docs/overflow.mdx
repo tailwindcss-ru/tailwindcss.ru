@@ -1,168 +1,453 @@
 ---
 title: "Переполнение"
 description: "Утилиты для управления тем, как элемент обрабатывает контент, который слишком велик для контейнера."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/overflow'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=overflow'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Видимость
+## Основы использования
+
+### Отображение содержимого, которое выходит за пределы
 
 Используйте `overflow-visible`, чтобы предотвратить обрезку содержимого внутри элемента. Обратите внимание, что любое содержимое, выходящее за границы элемента, будет тогда видимым.
 
-```html lightBlue
-<template preview>
-  <div class="h-32 overflow-hidden">
-    <div class="overflow-visible h-24 px-6 py-2 rounded-md bg-light-blue-200">
-      <p class="md:w-2/3 lg:w-1/2 font-flow leading-5 text-light-blue-700">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae hendrerit lectus volutpat eget
-      </p>
+<Example>
+  <div class="overflow-visible relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6">
+    <img class="absolute -left-6 w-24 h-24 rounded-full shadow-lg" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+    <div class="flex flex-col py-5 pl-24">
+      <strong class="text-gray-900 text-sm font-medium">Andrew Alfred</strong>
+      <span class="text-gray-500 text-sm font-medium">Technical advisor</span>
     </div>
   </div>
-</template>
+</Example>
 
-<div class="**overflow-visible** h-24 ...">Lorem ipsum dolor sit amet...</div>
+```html
+<div class="**overflow-visible** ..."></div>
 ```
 
-## Авто
-
-Используйте `overflow-auto` для добавления полос прокрутки к элементу в случае, если его содержимое выходит за границы этого элемента. В отличие от `.overflow-scroll`, который всегда показывает полосы прокрутки, эта утилита будет показывать их только в том случае, если прокрутка необходима.
-
-```html rose
-<template preview>
-  <div class="overflow-auto h-32 rounded-md bg-rose-200">
-    <p class="font-flow leading-5 text-rose-700 px-6 py-4">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae hendrerit lectus volutpat eget. In porttitor tincidunt egestas. Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt, lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean mattis elit mi, sed ultricies augue consectetur id. Sed id magna malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate, tempor massa eget, malesuada mauris. Quisque fringilla consequat metus, luctus scelerisque leo fringilla vel.
-    </p>
-  </div>
-</template>
-
-<div class="**overflow-auto** h-32 ...">Lorem ipsum dolor sit amet...</div>
-```
-
-## Скрытие
+### Скрытие переполняющегося содержимого
 
 Используйте `overflow-hidden`, чтобы вырезать любое содержимое внутри элемента, выходящее за границы этого элемента.
 
-```html purple
-<template preview>
-  <div class="overflow-hidden h-32 rounded-md bg-purple-200">
-    <p class="font-flow leading-5 text-purple-700 px-6 py-4">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae hendrerit lectus volutpat eget. In porttitor tincidunt egestas. Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt, lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean mattis elit mi, sed ultricies augue consectetur id. Sed id magna malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate, tempor massa eget, malesuada mauris. Quisque fringilla consequat metus, luctus scelerisque leo fringilla vel.
-    </p>
+<Example>
+  <div class="overflow-hidden relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6">
+    <img class="absolute -left-6 w-24 h-24 rounded-full shadow-lg" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+    <div class="flex flex-col py-5 pl-24">
+      <strong class="text-gray-900 text-sm font-medium">Andrew Alfred</strong>
+      <span class="text-gray-500 text-sm font-medium">Technical advisor</span>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="**overflow-hidden** h-32 ...">Lorem ipsum dolor sit amet...</div>
+```html
+<div class="**overflow-hidden** ..."></div>
 ```
 
-## Скролл по горизонтали при необходимости
+### Прокрутка при необходимости
+
+Используйте `overflow-auto` для добавления полос прокрутки к элементу в случае, если его содержимое выходит за границы этого элемента. В отличие от `.overflow-scroll`, который всегда показывает полосы прокрутки, эта утилита будет показывать их только в том случае, если прокрутка необходима.
+
+<Example>
+  <div class="overflow-auto h-72 relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y">
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Andrew Alfred</strong>
+        <span class="text-gray-500 text-sm font-medium">Technical advisor</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Debra Houston</strong>
+        <span class="text-gray-500 text-sm font-medium">Analyst</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Jane White</strong>
+        <span class="text-gray-500 text-sm font-medium">Director, Marketing</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Ray Flint</strong>
+        <span class="text-gray-500 text-sm font-medium">Technical Advisor</span>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**overflow-auto** ..."></div>
+```
+
+### Скролл по горизонтали при необходимости
 
 Используйте `overflow-x-auto`, чтобы разрешить горизонтальную прокрутку, если это необходимо.
 
-```html fuchsia
-<template preview>
-  <div class="overflow-x-auto rounded-md bg-fuchsia-200">
-    <p class="inline-block text-fuchsia-500 font-medium px-6 py-4">
-      QrLmmW69vMQDtCOg48jidqvvWD2FzDt7I7bBoDc98SRP5OwvOScVYbRzFdfp540eF5v1pjogYkyI8NXqu4wY8chgsXIV0LU7XQKWJ98wLaBSHWiBhvkEU1T3sd6KEFo53CLjVjIz8UvZajb8sbsu62xTsF9cRtFdwEvusq6zJHvedymDCUkY6qXHsuL6fOmHo4KKMurZuJZrK3plRPUaI8XVciz8dVq5CEUXjMrTcB76H1w90CnkRER3nYjs3suTa3223xs8aL97m0peQfjlvKbF8HcmQG5mHEitCn1QZnbMZUK3zE9AIjwcVXP7R9V4fw2A93cZD7wj333X6aaiHZdkkTPtst0u05KSob5c0ZuKQi4D3V395NfFKKr8cR27jmpB7dqK2GiWXeOQUFcjmFVwlHWSlH8ZdUoVJpXf1xL6CRUxwZP4EhBbqQZaJm26ijWII6LRxJ5eVU9Y7KKvQsUeX5BawtgeMWRmjeCwQadTLTQG8gLpi2DvGpMtPWCdqHgEglVSB1ZlDrjEEsXYrNx1IOY0053K3pWNaR1ezyz8kahRfNs3byaHcIQu9tWTrcMpBWhZ45DzLjVV1N8Zt96uLnNWK5DvbKW8GgMuwY7fHkZFz85MN4d2gL0j85HmXGx9oPTFRkPWsmMOHUvm5IhB7QqGSAwT1uL7HgBrNX9a1BAWrp9zV1IWAd1q65sKOOCxTZrXJDpxBxYE4rJAGU6pcri9mUf4g49ZiIAwfu9njtZyYimmImCa6TFhk2jQcSmFDHacExxqC2BfYATHFrKSy94dbw6uWT52nM7MSM9JDu4cs9cbfnaf6amt4hTUotCTONg604b8JKPI1sfd4CG36fBNcnErhpllfRlXkY1xFwmwZT7IJV8okPGNQdTKpdPJOBGw3LHMKojPJl1nPiQB5C9bdePFMNLejSXY5DDvO70ehOCJpBtKZY2quoFJJjGfXe8T4DuGYGmM6JYd5DNinWZuUWXGvfIlJRHgf8BQNQvtmEzqGXIeQZitiq9F
-    </p>
+<Example p="none">
+  <div class="max-w-md mx-auto bg-white shadow-xl min-w-0">
+    <div class="overflow-x-auto flex">
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-xs font-medium">Andrew</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-xs font-medium">Emily</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-xs font-medium">Whitney</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-xs font-medium">David</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-xs font-medium">Kristin</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1605405748313-a416a1b84491?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-xs font-medium">Sarah</strong>
+        </div>
+      </div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="**overflow-x-auto** ...">QrLmmW69vMQD...</div>
+```html
+<div class="**overflow-x-auto** ..."></div>
 ```
 
-## Скролл по вертикали при необходимости
+### Скролл по вертикали при необходимости
 
 Используйте `overflow-y-auto`, чтобы разрешить вертикальную прокрутку, если это необходимо.
 
-```html amber
-<template preview>
-  <div class="overflow-y-auto h-32 rounded-md bg-amber-200">
-    <p class="font-flow leading-5 text-amber-700 px-6 py-4">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae hendrerit lectus volutpat eget. In porttitor tincidunt egestas. Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt, lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean mattis elit mi, sed ultricies augue consectetur id. Sed id magna malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate, tempor massa eget, malesuada mauris. Quisque fringilla consequat metus, luctus scelerisque leo fringilla vel.
-    </p>
+<Example>
+  <div class="overflow-y-auto h-72 relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y">
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Andrew Alfred</strong>
+        <span class="text-gray-500 text-sm font-medium">Technical advisor</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Debra Houston</strong>
+        <span class="text-gray-500 text-sm font-medium">Analyst</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Jane White</strong>
+        <span class="text-gray-500 text-sm font-medium">Director, Marketing</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Ray Flint</strong>
+        <span class="text-gray-500 text-sm font-medium">Technical Advisor</span>
+      </div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="**overflow-y-auto** h-32 ...">Lorem ipsum dolor sit amet...</div>
+```html
+<div class="**overflow-y-auto** h-32 ..."></div>
 ```
 
-## Скролл по горизонтали всегда
+### Скролл по горизонтали всегда
 
 Используйте `overflow-x-scroll`, чтобы разрешить горизонтальную прокрутку и всегда показывать полосы прокрутки, если операционная система не отключила всегда видимые полосы прокрутки.
 
-```html emerald
-<template preview>
-  <div class="overflow-x-scroll rounded-md bg-emerald-200">
-    <p class="font-flow text-emerald-500 px-6 py-4">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </p>
+<Example p="none">
+  <div class="max-w-md mx-auto bg-white shadow-xl min-w-0">
+    <div class="overflow-x-scroll flex">
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"/>
+          <strong class="text-gray-900 text-xs font-medium">Andrew</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"/>
+          <strong class="text-gray-900 text-xs font-medium">Emily</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"/>
+          <strong class="text-gray-900 text-xs font-medium">Whitney</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"/>
+          <strong class="text-gray-900 text-xs font-medium">David</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"/>
+          <strong class="text-gray-900 text-xs font-medium">Kristin</strong>
+        </div>
+      </div>
+      <div class="flex-none py-6 px-3 first:pl-6 last:pr-6">
+        <div class="flex flex-col items-center justify-center gap-3">
+          <img class="w-18 h-18 rounded-full" src="https://images.unsplash.com/photo-1605405748313-a416a1b84491?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"/>
+          <strong class="text-gray-900 text-xs font-medium">Sarah</strong>
+        </div>
+      </div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="**overflow-x-scroll** ...">QrLmmW69vMQD...</div>
+```html
+<div class="**overflow-x-scroll** ..."></div>
 ```
 
-## Скролл по вертикали всегда
+### Скролл по вертикали всегда
 
 Используйте `overflow-y-scroll`, чтобы разрешить вертикальную прокрутку и всегда показывать полосы прокрутки, если операционная система не отключила всегда видимые полосы прокрутки.
 
-```html lightBlue
-<template preview>
-  <div class="overflow-y-scroll h-32 rounded-md bg-light-blue-200">
-    <p class="font-flow leading-5 text-light-blue-700 px-6 py-4">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </p>
+<Example>
+  <div class="overflow-y-scroll h-72 relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y">
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Andrew Alfred</strong>
+        <span class="text-gray-500 text-sm font-medium">Technical advisor</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Debra Houston</strong>
+        <span class="text-gray-500 text-sm font-medium">Analyst</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Jane White</strong>
+        <span class="text-gray-500 text-sm font-medium">Director, Marketing</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 p-4">
+      <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+      <div class="flex flex-col">
+        <strong class="text-gray-900 text-sm font-medium">Ray Flint</strong>
+        <span class="text-gray-500 text-sm font-medium">Technical Advisor</span>
+      </div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="**overflow-y-scroll** h-32 ...">Lorem ipsum dolor sit amet...</div>
+```html
+<div class="**overflow-y-scroll** ..."></div>
 ```
 
-
-## Скролл во всех направлениях
+### Скролл во всех направлениях
 
 Используйте `overflow-scroll` для добавления полос прокрутки к элементу. В отличие от `.overflow-auto`, который показывает полосы прокрутки, только если они необходимы, эта утилита всегда показывает их. Обратите внимание, что некоторые операционные системы (например, macOS) скрывают ненужные полосы прокрутки независимо от этого параметра.
 
-```html fuchsia
-<template preview>
-  <div class="overflow-scroll h-32 rounded-md bg-fuchsia-200">
-    <p class="inline-block font-flow leading-5 text-fuchsia-700 px-6 py-4">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. QrLmmW69vMQDtCOg48jidqvvWD2FzDt7I7bBoDc98SRP5OwvOScVYbRzFdfp540eF5v1pjogYkyI8NXqu4wY8chgsXIV0LU7XQKWJ98wLaBSHWiBhvkEU1T3sd6KEFo53CLjVjIz8UvZajb8sbsu62xTsF9cRtFdwEvusq6zJHvedymDCUkY6. Mauris eleifend rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae hendrerit lectus volutpat eget. In porttitor tincidunt egestas. Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt, lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean mattis elit mi, sed ultricies augue consectetur id. Sed id magna malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate, tempor massa eget, malesuada mauris. Quisque fringilla consequat metus, luctus scelerisque leo fringilla vel.
-    </p>
+<Example p="none">
+  <div class="mx-4 bg-white shadow-xl overflow-hidden">
+    <div class="overflow-scroll grid grid-cols-[70px,repeat(7,150px)] grid-rows-[auto,repeat(16,50px)] max-h-[350px]">
+      <!-- Calendar frame -->
+      <div class="row-start-[1] col-start-[1] sticky top-0 z-10 bg-white border-gray-1 text-gray-900 border-b text-sm font-medium py-2"></div>
+      <div class="row-start-[1] col-start-[2] sticky top-0 z-10 bg-white border-gray-1 text-gray-900 border-b text-sm font-medium py-2 text-center">Sun</div>
+      <div class="row-start-[1] col-start-[3] sticky top-0 z-10 bg-white border-gray-1 text-gray-900 border-b text-sm font-medium py-2 text-center">Mon</div>
+      <div class="row-start-[1] col-start-[4] sticky top-0 z-10 bg-white border-gray-1 text-gray-900 border-b text-sm font-medium py-2 text-center">Tue</div>
+      <div class="row-start-[1] col-start-[5] sticky top-0 z-10 bg-white border-gray-1 text-gray-900 border-b text-sm font-medium py-2 text-center">Wed</div>
+      <div class="row-start-[1] col-start-[6] sticky top-0 z-10 bg-white border-gray-1 text-gray-900 border-b text-sm font-medium py-2 text-center">Thu</div>
+      <div class="row-start-[1] col-start-[7] sticky top-0 z-10 bg-white border-gray-1 text-gray-900 border-b text-sm font-medium py-2 text-center">Fri</div>
+      <div class="row-start-[1] col-start-[8] sticky top-0 z-10 bg-white border-gray-1 text-gray-900 border-b text-sm font-medium py-2 text-center">Sat</div>
+      <div class="row-start-[2] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">5 AM</div>
+      <div class="row-start-[2] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[2] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[2] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[2] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[2] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[2] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[2] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[3] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">6 AM</div>
+      <div class="row-start-[3] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[3] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[3] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[3] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[3] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[3] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[3] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[4] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">7 AM</div>
+      <div class="row-start-[4] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[4] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[4] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[4] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[4] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[4] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[4] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[5] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">8 AM</div>
+      <div class="row-start-[5] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[5] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[5] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[5] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[5] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[5] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[5] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[6] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">9 AM</div>
+      <div class="row-start-[6] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[6] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[6] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[6] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[6] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[6] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[6] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[7] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">10 AM</div>
+      <div class="row-start-[7] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[7] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[7] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[7] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[7] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[7] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[7] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[8] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">11 AM</div>
+      <div class="row-start-[8] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[8] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[8] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[8] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[8] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[8] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[8] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[9] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">12 PM</div>
+      <div class="row-start-[9] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[9] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[9] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[9] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[9] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[9] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[9] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[10] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">1 PM</div>
+      <div class="row-start-[10] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[10] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[10] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[10] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[10] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[10] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[10] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[11] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">2 PM</div>
+      <div class="row-start-[11] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[11] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[11] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[11] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[11] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[11] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[11] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[12] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">3 PM</div>
+      <div class="row-start-[12] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[12] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[12] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[12] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[12] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[12] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[12] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[13] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">4 PM</div>
+      <div class="row-start-[13] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[13] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[13] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[13] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[13] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[13] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[13] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[14] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">5 PM</div>
+      <div class="row-start-[14] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[14] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[14] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[14] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[14] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[14] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[14] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[15] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">6 PM</div>
+      <div class="row-start-[15] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[15] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[15] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[15] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[15] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[15] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[15] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[16] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">7 PM</div>
+      <div class="row-start-[16] col-start-[2] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[16] col-start-[3] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[16] col-start-[4] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[16] col-start-[5] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[16] col-start-[6] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[16] col-start-[7] border-gray-100 border-b border-r"></div>
+      <div class="row-start-[16] col-start-[8] border-gray-100 border-b"></div>
+      <div class="row-start-[17] col-start-[1] border-gray-100 border-r text-xs p-1.5 text-right text-gray-400 uppercase sticky left-0 bg-white font-medium">8 PM</div>
+      <div class="row-start-[17] col-start-[2] border-gray-100 border-r"></div>
+      <div class="row-start-[17] col-start-[3] border-gray-100 border-r"></div>
+      <div class="row-start-[17] col-start-[4] border-gray-100 border-r"></div>
+      <div class="row-start-[17] col-start-[5] border-gray-100 border-r"></div>
+      <div class="row-start-[17] col-start-[6] border-gray-100 border-r"></div>
+      <div class="row-start-[17] col-start-[7] border-gray-100 border-r"></div>
+      <div class="row-start-[17] col-start-[8]"></div>
+      <!-- Calendar contents -->
+      <div class="row-start-[2] col-start-3 row-span-4 bg-blue-400/20 border border-blue-700/10 rounded-lg m-1 p-1 flex flex-col">
+        <span class="text-xs text-blue-600">5 AM</span>
+        <span class="text-xs font-medium text-blue-600">Flight to vancouver</span>
+        <span class="text-xs text-blue-600">Toronto YYZ</span>
+      </div>
+      <div class="row-start-[3] col-start-[4] row-span-4 bg-purple-400/20 border border-purple-700/10 rounded-lg m-1 p-1 flex flex-col">
+        <span class="text-xs text-purple-600">6 AM</span>
+        <span class="text-xs font-medium text-purple-600">Breakfast</span>
+        <span class="text-xs text-purple-600">Mel's Diner</span>
+      </div>
+      <div class="row-start-[14] col-start-[7] row-span-3 bg-pink-400/20 border border-pink-700/10 rounded-lg m-1 p-1 flex flex-col">
+        <span class="text-xs text-pink-600">5 PM</span>
+        <span class="text-xs font-medium text-pink-600">🎉 Party party 🎉</span>
+        <span class="text-xs text-pink-600">We like to party!</span>
+      </div>
+    </div>
   </div>
-</template>
-
-<div class="**overflow-scroll** h-32 ...">Lorem ipsum dolor sit amet...</div>
-```
-
-## Адаптивность
-
-Чтобы применить утилиту переполнения только к определенной контрольной точке, добавьте префикс `{screen}:` к существующему имени класса. Например, добавление класса `md:overflow-scroll` к элементу приведет к применению утилиты `overflow-scroll` при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="overflow-auto **md:overflow-scroll** ...">
-  Lorem ipsum dolor sit amet...
-</div>
+<div class="**overflow-scroll** ..."></div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="overflow" />
+<HoverFocusAndOtherStates defaultClass="overflow-auto" featuredClass="overflow-scroll" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="overflow" />
+<BreakpointsAndMediaQueries defaultClass="overflow-auto" featuredClass="overflow-scroll" />

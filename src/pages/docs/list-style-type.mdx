@@ -1,88 +1,88 @@
 ---
 title: "Тип стиля списка"
 description: "Утилиты для управления стилем маркера/номера списка."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/listStyleType'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=listStyleType'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка типа стиля списка
 
 Для создания маркированных или числовых списков используйте утилиты `list-disc` и `list-decimal`.
 
-```html purple
-<template preview>
-  <div class="mb-6 space-y-2">
-    <p class="text-sm text-purple-600">.list-disc</p>
-    <ul class="list-disc list-inside text-purple-800">
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-      <li>Assumenda, quia temporibus eveniet a libero incidunt suscipit</li>
-      <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-    </ul>
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">list-disc</span>
+      <ul class="list-disc list-inside text-normal text-gray-900">
+        <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+        <li>И мне нравится на минутку сесть прямо здесь</li>
+        <li>I'll tell you how I became the prince of a town called Bel-Air</li>
+      </ul>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">list-decimal</span>
+      <ul class="list-decimal list-inside text-normal text-gray-900">
+        <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+        <li>И мне нравится на минутку сесть прямо здесь</li>
+        <li>I'll tell you how I became the prince of a town called Bel-Air</li>
+      </ul>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">list-none</span>
+      <ul class="list-none list-inside text-normal text-gray-900">
+        <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+        <li>И мне нравится на минутку сесть прямо здесь</li>
+        <li>I'll tell you how I became the prince of a town called Bel-Air</li>
+      </ul>
+    </div>
   </div>
-  <div class="mb-6 space-y-2">
-    <p class="text-sm text-purple-600">.list-decimal</p>
-    <ol class="list-decimal list-inside text-purple-800">
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-      <li>Assumenda, quia temporibus eveniet a libero incidunt suscipit</li>
-      <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-    </ol>
-  </div>
-  <div class="space-y-2">
-    <p class="text-sm text-purple-600">.list-none (default)</p>
-    <ul class="default text-purple-800">
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-      <li>Assumenda, quia temporibus eveniet a libero incidunt suscipit</li>
-      <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-    </ul>
-  </p>
-  </div>
-</template>
+</Example>
 
+```html
 <ul class="**list-disc**">
-  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-  ...
+  <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+  <!-- ... -->
 </ul>
 
 <ol class="**list-decimal**">
-  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-  ...
+  <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+  <!-- ... -->
 </ol>
 
-<ul>
-  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-  ...
+<ul class="**list-none**">
+  <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+  <!-- ... -->
 </ul>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять типом стиля списка элемента списка в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите списка. Например, используйте `.md:list-disc`, чтобы применить утилиту `list-disc` только при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<ul class="list-none **md:list-disc**">
-  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-  <li>Assumenda, quia temporibus eveniet a libero incidunt suscipit</li>
-  <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-</ul>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="list-none" featuredClass="list-disc" element="ul" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="list-none" featuredClass="list-disc" element="ul" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind предоставляет три утилиты для наиболее распространенных типов стилей списков. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.listStyleType` Вашей конфигурации Tailwind.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       listStyleType: {
@@ -96,10 +96,8 @@ export const classes = { plugin }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="listStyleType" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="listStyleType" />
+<ArbitraryValues property="list-style-type" featuredClass="list-[upper-roman]" element="ul" />

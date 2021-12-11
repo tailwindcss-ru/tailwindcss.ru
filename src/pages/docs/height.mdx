@@ -1,123 +1,126 @@
 ---
 title: "Высота"
-description: "Утилиты для установки высоты элемента"
+description: "Утилиты для установки высоты элемента."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/height'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=height'
 import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   sort: numbersFirst,
 }
 
-## Авто
+## Основы использования
 
-Используйте `h-auto`, чтобы браузер определял высоту элемента.
-
-```html amber
-<template preview>
-  <div class="h-auto w-40 mx-auto rounded-md bg-amber-500 text-white text-2xl font-extrabold flex items-center justify-center p-6">h-auto</div>
-</template>
-
-<div class="**h-auto** ...">h-auto</div>
-```
-
-## Высота экрана
-
-Используйте `h-screen`, чтобы элемент занимал всю высоту области просмотра.
-
-```html rose
-<template preview>
-  <div class="h-screen mx-auto rounded-md bg-rose-500 text-white text-2xl font-extrabold flex items-center justify-center p-6">h-screen</div>
-</template>
-
-<div class="**h-screen** p-6 ...">h-screen</div>
-```
-
-## Фиксированная высота
+### Фиксированная высота
 
 Используйте `h-{number}` или `h-px`, чтобы установить элемент на фиксированную высоту.
 
-```html indigo
-<template preview>
-    <div class="flex justify-around items-end space-between-3">
-        <div>
-            <div class="h-8 w-8 rounded-md bg-indigo-500 text-white text-2xl font-extrabold"></div>
-            <p class="text-center mt-2 text-sm text-indigo-600">h-8</p>
-        </div>
-        <div>
-            <div class="h-12 w-8 rounded-md bg-indigo-500 text-white text-2xl font-extrabold"></div>
-            <p class="text-center mt-2 text-sm text-indigo-600">h-12</p>
-        </div>
-        <div>
-            <div class="h-16 w-8 rounded-md bg-indigo-500 text-white text-2xl font-extrabold"></div>
-            <p class="text-center mt-2 text-sm text-indigo-600">h-16</p>
-        </div>
-        <div>
-            <div class="h-24 w-8 rounded-md bg-indigo-500 text-white text-2xl font-extrabold"></div>
-            <p class="text-center mt-2 text-sm text-indigo-600">h-24</p>
-        </div>
+<Example>
+  <div class="flex justify-center items-end space-x-4 font-mono font-bold text-xs text-center text-white">
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-96 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-96</div>
+      </div>
     </div>
-</template>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-80 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-80</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-64 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-64</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-48 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-48</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-40 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-40</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-32 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-32</div>
+      </div>
+    </div>
+    <div class="w-8 bg-blue-500 rounded-lg shadow-lg h-24 relative">
+      <div class="absolute w-8 bottom-6">
+        <div class="-rotate-90">h-24</div>
+      </div>
+    </div>
+  </div>
+</Example>
 
-<div>
-    <div class="**h-8** ..."></div>
-    <div class="**h-12** ..."></div>
-    <div class="**h-16** ..."></div>
-    <div class="**h-24** ..."></div>
-</div>
+```html
+<div class="**h-96** ...">h-96</div>
+<div class="**h-80** ...">h-80</div>
+<div class="**h-64** ...">h-64</div>
+<div class="**h-48** ...">h-48</div>
+<div class="**h-40** ...">h-40</div>
+<div class="**h-32** ...">h-32</div>
+<div class="**h-24** ...">h-24</div>
 ```
 
-## Полная высота
+### Полная высота
 
 Используйте `h-full`, чтобы установить высоту элемента равной 100% от его родительского элемента, если родительский элемент имеет определенную высоту.
 
 ```html
-<template preview class="flex justify-around items-end text-sm p-4">
-  <div class="h-48">
-    <div class="h-full w-40 rounded-md bg-indigo-500 text-white text-2xl font-extrabold flex items-center justify-center p-6">h-full</div>
-  </div>
-</template>
-
 <div class="h-48">
-  <div class="**h-full** ...">h-full</div>
+  <div class="**h-full** ...">
+    <!-- This element will have a height of `12rem` (h-48) -->
+  </div>
+</div>
+```
+
+### Viewport height
+
+Use `h-screen` to make an element span the entire height of the viewport.
+
+```html
+<div class="**h-screen**">
+  <!-- ... -->
 </div>
 ```
 
 ---
 
-## Адаптивность
+## <Heading ignore>Применяя условно</Heading>
 
-Чтобы контролировать высоту элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите ширины. Например, добавление класса `md:h-full` к элементу приведет к применению утилиты `h-full` при средних размерах экрана и выше.
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```html
-<div class="h-8 **md:h-full**"></div>
-```
+<HoverFocusAndOtherStates defaultClass="h-8" featuredClass="h-full" />
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="h-8" featuredClass="h-full" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-### Шкала высоты
+### Настройка вашей темы
 
 По умолчанию шкала высоты Tailwind представляет собой комбинацию [шкалы интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), а также некоторых дополнительных значений, специфичных для высот.
 
-Вы можете настроить шкалу интервалов для заполнения, полей, ширины и высоты одновременно в разделе `theme.spacing` Вашего файла `tailwind.config.js`:
+Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      spacing: {
-+       sm: '8px',
-+       md: '16px',
-+       lg: '24px',
-+       xl: '48px',
+      extend: {
++       spacing: {
++         '128': '32rem',
++       }
       }
     }
   }
@@ -125,24 +128,20 @@ export const classes = {
 
 Чтобы настроить высоту отдельно, используйте раздел `theme.height` Вашего файла `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      height: {
-+       sm: '8px',
-+       md: '16px',
-+       lg: '24px',
-+       xl: '48px',
+      extend: {
++       height: {
++         '128': '32rem',
++       }
       }
     }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="height" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="height" />
+<ArbitraryValues property="height" featuredClass="h-[32rem]" />

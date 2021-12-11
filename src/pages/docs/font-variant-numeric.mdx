@@ -3,172 +3,225 @@ title: "Числовой вариант шрифта"
 description: "Утилиты для управления вариантом из чисел."
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-        '.normal-nums': { fontVariantNumeric: 'normal' },
-        '.ordinal': { fontVariantNumeric: 'ordinal' },
-        '.slashed-zero': { fontVariantNumeric: 'slashed-zero' },
-        '.lining-nums': { fontVariantNumeric: 'lining-nums' },
-        '.oldstyle-nums': { fontVariantNumeric: 'oldstyle-nums' },
-        '.proportional-nums': { fontVariantNumeric: 'proportional-nums' },
-        '.tabular-nums': { fontVariantNumeric: 'tabular-nums' },
-        '.diagonal-fractions': { fontVariantNumeric: 'diagonal-fractions' },
-        '.stacked-fractions': { fontVariantNumeric: 'stacked-fractions' },
-      })
-    }
-  }
+  utilities: {
+    '.normal-nums': { 'font-variant-numeric': 'normal' },
+    '.ordinal': { 'font-variant-numeric': 'ordinal' },
+    '.slashed-zero': { 'font-variant-numeric': 'slashed-zero' },
+    '.lining-nums': { 'font-variant-numeric': 'lining-nums' },
+    '.oldstyle-nums': { 'font-variant-numeric': 'oldstyle-nums' },
+    '.proportional-nums': { 'font-variant-numeric': 'proportional-nums' },
+    '.tabular-nums': { 'font-variant-numeric': 'tabular-nums' },
+    '.diagonal-fractions': { 'font-variant-numeric': 'diagonal-fractions' },
+    '.stacked-fractions': { 'font-variant-numeric': 'stacked-fractions' },
+  },
 }
 
-## Применение
+## Основы использования
+
+### Применение числовых вариантов
 
 Используйте утилиты `font-variant-numeric`, чтобы включить дополнительные глифы для чисел, дробей и порядковых маркеров *(в шрифтах, которые их поддерживают)*.
 
 Эти утилиты можно компоновать, поэтому вы можете включить несколько функций `font-variant-numeric`, объединив несколько классов в Вашем HTML:
 
 ```html
-<p class="**ordinal slashed-zero tabular-nums** ...">1234567890</p>
+<p class="**ordinal slashed-zero tabular-nums** ...">
+  1234567890
+</p>
 ```
 
 Обратите внимание, что многие шрифты не поддерживают эти функции *(например, поддержка сложенных дробей особенно редка)*, поэтому некоторые из этих утилит могут не работать в зависимости от семейства шрифтов, которое вы используете.
+
+-- block
 
 ### Порядковый
 
 Используйте утилиту `ordinal`, чтобы включить специальные глифы для порядковых маркеров.
 
-```html emerald
-<template preview>
-  <p class="font-source ordinal text-3xl text-center text-emerald-600">1st</p>
-</template>
+-- column
 
-<p class="**ordinal** ...">1st</p>
+<Example>
+  <p class="font-source ordinal text-center text-gray-700 text-lg">1-й</p>
+</Example>
+
+```html
+<p class="**ordinal** ...">1-й</p>
 ```
 
+-- /block
+
+-- block
 
 ### Разрезанный ноль
 
 Используйте утилиту `slashed-zero`, чтобы установить 0 с косой чертой; это полезно, когда необходимо четкое различие между O и 0.
 
-```html lightBlue
-<template preview>
-  <p class="font-source slashed-zero text-3xl text-center text-light-blue-600">0</p>
-</template>
+-- column
 
+<Example>
+  <p class="font-source slashed-zero text-center text-gray-700 text-lg">0</p>
+</Example>
+
+```html
 <p class="**slashed-zero** ...">0</p>
 ```
 
-### Облицовочные цифры
+-- /block
+
+-- block
+
+### Цифры на подкладке
 
 Используйте утилиту `lining-nums`, чтобы использовать числовые глифы, которые выровнены по своей базовой линии. Это соответствует функции OpenType `lnum`. Это значение по умолчанию для большинства шрифтов.
 
-```html rose
-<template preview>
-  <p class="font-source lining-nums text-3xl text-center text-rose-600">1234567890</p>
-</template>
+-- column
 
-<p class="**lining-nums** ...">1234567890</p>
+<Example>
+  <p class="font-source lining-nums text-center text-gray-700 text-lg">1234567890</p>
+</Example>
+
+```html
+<p class="**lining-nums** ...">
+  1234567890
+</p>
 ```
 
-### Олдстайл цифры
+-- /block
+
+-- block
+
+### Цифры в старинном стиле
 
 Используйте утилиту `oldstyle-nums` для использования числовых глифов там, где у некоторых чисел есть нижние элементы. Это соответствует функции OpenType `onum`.
 
-```html fuchsia
-<template preview>
-  <p class="font-source oldstyle-nums text-3xl text-center text-fuchsia-600">1234567890</p>
-</template>
+-- column
 
-<p class="**oldstyle-nums** ...">1234567890</p>
+<Example>
+  <p class="font-source oldstyle-nums text-center text-gray-700 text-lg">1234567890</p>
+</Example>
+
+```html
+<p class="**oldstyle-nums** ...">
+  1234567890
+</p>
 ```
+
+-- /block
+
+-- block
 
 ### Пропорциональные цифры
 
 Используйте утилиту `proportional-nums`, чтобы использовать числовые глифы с пропорциональной шириной (а не равномерные/табличные). Это соответствует функции OpenType `pnum`.
 
-```html indigo
-<template preview>
-  <div class="max-w-sm text-right">
-    <p class="font-source proportional-nums text-3xl text-indigo-600">12121</p>
-    <p class="font-source proportional-nums text-3xl text-indigo-600">90909</p>
-  </div>
-</template>
+-- column
 
-<p class="**proportional-nums** ...">12121</p>
-<p class="**proportional-nums** ...">90909</p>
+<Example>
+  <div class="max-w-sm text-right">
+    <p class="font-source proportional-nums text-gray-700 text-lg">12121</p>
+    <p class="font-source proportional-nums text-gray-700 text-lg">90909</p>
+  </div>
+</Example>
+
+```html
+<p class="**proportional-nums** ...">
+  12121
+</p>
+<p class="**proportional-nums** ...">
+  90909
+</p>
 ```
+
+-- /block
+
+-- block
 
 ### Табличные цифры
 
 Используйте утилиту `tabular-nums` для использования числовых глифов, которые имеют одинаковую/табличную ширину (а не пропорциональную). Это соответствует функции OpenType `tnum`.
 
-```html amber
-<template preview>
-  <div class="max-w-sm text-right">
-    <p class="font-source tabular-nums text-3xl text-amber-600">12121</p>
-    <p class="font-source tabular-nums text-3xl text-amber-600">90909</p>
-  </div>
-</template>
+-- column
 
-<p class="**tabular-nums** ...">12121</p>
-<p class="**tabular-nums** ...">90909</p>
+<Example>
+  <div class="max-w-sm text-right">
+    <p class="font-source tabular-nums text-gray-700 text-lg">12121</p>
+    <p class="font-source tabular-nums text-gray-700 text-lg">90909</p>
+  </div>
+</Example>
+
+```html
+<p class="**tabular-nums** ...">
+  12121
+</p>
+<p class="**tabular-nums** ...">
+  90909
+</p>
 ```
+
+-- /block
+
+-- block
 
 ### Диагональные дроби
 
 Используйте утилиту `diagonal-fractions`, чтобы заменить числа, разделенные косой чертой, на обычные диагональные дроби. Это соответствует функции OpenType `frac`.
 
-```html emerald
-<template preview>
-  <p class="font-source diagonal-fractions text-3xl text-center text-emerald-600">1/2 3/4 5/6</p>
-</template>
+-- column
 
-<p class="**diagonal-fractions** ...">1/2 3/4 5/6</p>
+<Example>
+  <p class="font-source diagonal-fractions text-center text-gray-700 text-lg">1/2 3/4 5/6</p>
+</Example>
+
+```html
+<p class="**diagonal-fractions** ...">
+  1/2 3/4 5/6
+</p>
 ```
+
+-- /block
+
+-- block
 
 ### Дробные фракции
 
 Используйте утилиту `stacked-fractions` для замены чисел, разделенных косой чертой, на обычные дробные части с накоплением. Это соответствует функции OpenType `frac`. Кажется, очень мало шрифтов поддерживают эту функцию - здесь мы использовали Ubuntu Mono.
 
-```html lightBlue
-<template preview>
-  <p class="font-ubuntu-mono stacked-fractions text-3xl text-center text-light-blue-600">1/2 3/4 5/6</p>
-</template>
+-- column
 
-<p class="**stacked-fractions** ...">1/2 3/4 5/6</p>
+<Example>
+  <p class="font-ubuntu-mono stacked-fractions text-center text-gray-700 text-lg">1/2 3/4 5/6</p>
+</Example>
+
+```html
+<p class="**stacked-fractions** ...">
+  1/2 3/4 5/6
+</p>
 ```
 
+-- /block
 
 ### Сброс вариантов числового шрифта
 
 Используйте свойство `normal-nums` для сброса вариантов числового шрифта. Обычно это полезно для сброса функции шрифта в определенной контрольной точке:
 
 ```html
-<p class="slashed-zero tabular-nums **md:normal-nums** ...">12345</p>
+<p class="slashed-zero tabular-nums **md:normal-nums** ...">
+  12345
+</p>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять свойством `font-variant-numeric` элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите `font-variant-numeric`. Например, используйте `md:tabular-nums` для применения утилиты `tabular-nums` только при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="proportional-nums **md:tabular-nums**">
-  <!-- ... -->
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="proportional-nums" featuredClass="tabular-nums" element="p"  />
 
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-## Кастомизация
-
-### Варианты
-
-<Variants plugin="fontVariantNumeric" />
-
-### Отключение
-
-<Disabling plugin="fontVariantNumeric" />
+<BreakpointsAndMediaQueries defaultClass="proportional-nums" featuredClass="tabular-nums" element="p"  />

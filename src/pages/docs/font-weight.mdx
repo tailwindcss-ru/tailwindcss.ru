@@ -1,94 +1,85 @@
 ---
 title: "Толщина шрифта"
 description: "Утилиты для управления жирностью шрифта элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: true
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/fontWeight'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=fontWeight'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка толщины шрифта
 
 Управляйте толщиной шрифта элемента с помощью утилит `font-{weight}`.
 
-```html lightBlue
-<template preview>
-  <dl class="text-light-blue-600 space-y-6">
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">thin</dt>
-      <dd class="text-xl font-thin">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">font-light</span>
+      <p class="font-light text-lg text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">extralight</dt>
-      <dd class="text-xl font-extralight">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">font-normal</span>
+      <p class="font-normal text-lg text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">light</dt>
-      <dd class="text-xl font-light">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">font-medium</span>
+      <p class="font-medium text-lg text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">normal</dt>
-      <dd class="text-xl font-normal">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">font-semibold</span>
+      <p class="font-semibold text-lg text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">medium</dt>
-      <dd class="text-xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">font-bold</span>
+      <p class="font-bold text-lg text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">semibold</dt>
-      <dd class="text-xl font-semibold">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">bold</dt>
-      <dd class="text-xl font-bold">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">extrabold</dt>
-      <dd class="text-xl font-extrabold">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="flex items-start">
-      <dt class="w-32 text-right pr-6 flex-shrink-0 text-sm text-light-blue-600 text-opacity-50 font-mono leading-7">black</dt>
-      <dd class="text-xl font-black">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-  </dl>
-</template>
-
-<p class="**font-thin** ...">Быстрая коричневая лиса...</p>
-<p class="**font-extralight** ...">Быстрая коричневая лиса...</p>
-<p class="**font-light** ...">Быстрая коричневая лиса...</p>
-<p class="**font-normal** ...">Быстрая коричневая лиса...</p>
-<p class="**font-medium** ...">Быстрая коричневая лиса...</p>
-<p class="**font-semibold** ...">Быстрая коричневая лиса...</p>
-<p class="**font-bold** ...">Быстрая коричневая лиса...</p>
-<p class="**font-extrabold** ...">Быстрая коричневая лиса...</p>
-<p class="**font-black** ...">Быстрая коричневая лиса...</p>
-```
-
-## Адаптивность
-
-Чтобы контролировать вес шрифта элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите веса шрифта. Например, используйте `md:font-bold`, чтобы применить утилиту `font-bold` только при средних размерах экрана и выше.
+  </div>
+</Example>
 
 ```html
-<p class="font-normal **md:font-bold** ...">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+<p class="**font-light** ...">Быстрая коричневая лиса ...</p>
+<p class="**font-normal** ...">Быстрая коричневая лиса ...</p>
+<p class="**font-medium** ...">Быстрая коричневая лиса ...</p>
+<p class="**font-semibold** ...">Быстрая коричневая лиса ...</p>
+<p class="**font-bold** ...">Быстрая коричневая лиса ...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Веса шрифтов
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="font-normal" featuredClass="font-bold" element="p"  />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="font-normal" featuredClass="font-bold" element="p"  />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind предоставляет 10 утилит `font-weight`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.fontWeight` Вашей конфигурации Tailwind.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       fontWeight: {
@@ -108,10 +99,8 @@ export const classes = { plugin }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="fontWeight" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="fontWeight" />
+<ArbitraryValues property="font-weight" featuredClass="font-[1100]" element="p"  />

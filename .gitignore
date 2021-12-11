@@ -12,6 +12,7 @@
 /.next/
 /out/
 /_gh_pages/
+/public/feeds/
 
 # production
 /build

@@ -1,103 +1,83 @@
 ---
 title: "Z-индекс"
 description: "Утилиты для управления порядком стека элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/zIndex'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=zIndex'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка the z-index
 
 Управляйте порядком стека (или трехмерным расположением) элемента в Tailwind, независимо от порядка, в котором он был отображен, с помощью утилит `z-{index}`.
 
-```html fuchsia
-<template preview class="p-4">
-  <div class="flex justify-center relative h-28 text-center transform translate-x-12">
-    <div class="z-40 relative w-20 h-20 bg-fuchsia-500 border-r border-opacity-50 border-fuchsia-600 rounded-md shadow-md flex justify-center items-center text-white text-2xl font-extrabold">5</div>
-    <div class="z-30 relative w-20 h-20 -left-6 top-2 bg-fuchsia-500 border-r border-opacity-50 border-fuchsia-600 rounded-md shadow-md flex justify-center items-center text-white text-2xl font-extrabold">4</div>
-    <div class="z-20 relative w-20 h-20 -left-12 top-4 bg-fuchsia-500 border-r border-opacity-50 border-fuchsia-600 rounded-md shadow-md flex justify-center items-center text-white text-2xl font-extrabold">3</div>
-    <div class="z-10 relative w-20 h-20 -left-18 top-6 bg-fuchsia-500 border-r border-opacity-50 border-fuchsia-600 rounded-md shadow-md flex justify-center items-center text-white text-2xl font-extrabold">2</div>
-    <div class="z-0 relative w-20 h-20 -left-24 top-8 bg-fuchsia-500 rounded-md shadow-md flex justify-center items-center text-white text-2xl font-extrabold">1</div>
+<Example>
+  <div class="flex justify-center -space-x-3 font-mono text-white text-sm font-bold leading-6">
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-40">05</div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-30">04</div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-20">03</div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-10">02</div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center bg-pink-500 shadow-lg ring-2 ring-white z-0">01</div>
   </div>
-</template>
-
-<div class="**z-40** ...">5</div>
-<div class="**z-30** ...">4</div>
-<div class="**z-20** ...">3</div>
-<div class="**z-10** ...">2</div>
-<div class="**z-0** ...">1</div>
-```
-
-## Адаптивность
-
-Чтобы управлять z-индексом элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите z-index. Например, используйте `md:z-50`, чтобы применить утилиту `z-50` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="z-0 **md:z-50** ...">
+<div class="**z-40** ...">05</div>
+<div class="**z-30** ...">04</div>
+<div class="**z-20** ...">03</div>
+<div class="**z-10** ...">02</div>
+<div class="**z-0** ...">01</div>
+```
+
+### Использование отрицательных значений
+
+Чтобы использовать отрицательное значение z-индекса, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
+
+```html
+<div class="**-z-50**">
   <!-- ... -->
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Шкала Z-индекса
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-По умолчанию Tailwind предоставляет шесть числовых утилит `z-index` и утилиту `auto`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.zIndex` Вашей конфигурации Tailwind.
+<HoverFocusAndOtherStates defaultClass="z-0" featuredClass="z-50" />
 
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      zIndex: {
-        '0': 0,
--       '10': 10,
--       '20': 20,
--       '30': 30,
--       '40': 40,
--       '50': 50,
-+       '25': 25,
-+       '50': 50,
-+       '75': 75,
-+       '100': 100,
-        'auto': 'auto',
-      }
-    }
-  }
-```
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-### Отрицательные значения
+<BreakpointsAndMediaQueries defaultClass="z-0" featuredClass="z-50" />
 
-Если вы хотите добавить какие-либо классы с отрицательным z-индексом, которые имеют ту же форму, что и классы Tailwind [отрицательные поля](/docs/margin#negative-margins), поставьте перед ключами в файле конфигурации дефис:
+---
 
-```diff-js
-  // tailwind.config.js
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind предоставляет шесть числовых утилит `z-index` и утилиту `auto`. Вы можете настроить эти значения, отредактировав `theme.zIndex` или `theme.extend.zIndex` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        zIndex: {
-+         '-10': '-10',
-        }
++       zIndex: {
++         '100': '100',
++       }
       }
     }
   }
 ```
 
-Tailwind достаточно умен, чтобы генерировать классы вроде `-z-10`, когда видит начальную черту, а не `z--10`, как вы могли ожидать.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="zIndex" name="z-index" />
-
-### Отключение
-
-<Disabling plugin="zIndex" name="z-index" />
+<ArbitraryValues property="z-index" featuredClass="z-[100]" />

@@ -1,86 +1,83 @@
 ---
 title: "Максимальная высота"
 description: "Утилиты для установки максимальной высоты элемента"
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/maxHeight'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=maxHeight'
 import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   sort: numbersFirst,
 }
 
-## Применение
+## Основы использования
+
+### Установка максимальной высоты
 
 Установите максимальную высоту элемента с помощью утилит `max-h-full` или `max-h-screen`.
 
-```html lightBlue
-<template preview>
-  <div class="h-24 p-6 bg-light-blue-300 rounded-md">
-    <div class="h-48 max-h-full p-6 bg-light-blue-500 flex items-center justify-center rounded font-semibold text-white">
-      <span>.max-h-full</span>
-    </div>
-  </div>
-</template>
-
+```html
 <div class="h-24 ...">
   <div class="h-48 **max-h-full** ...">
-    .max-h-full
+    <!-- ... -->
   </div>
 </div>
 ```
 
 ---
 
-## Адаптивность
+## <Heading ignore>Применяя условно</Heading>
 
-Чтобы контролировать максимальную высоту элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите максимальной высоты.
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```html
-<div class="h-48 max-h-full **md:max-h-screen** ...">
-  <span>Target</span>
-</div>
-```
+<HoverFocusAndOtherStates defaultClass="h-48 max-h-full" featuredClass="max-h-screen" />
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="h-48 max-h-full" featuredClass="max-h-screen" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-### Шкала максимальной высоты
+### Настройка вашей темы
 
-Настройте шкалу максимальной высоты Tailwind по умолчанию в разделе `theme.maxHeight` Вашего файла `tailwind.config.js`.
+По умолчанию шкала максимальной высоты Tailwind использует комбинацию [шкалы интервалов по умолчанию](/docs/customizing-spacing), а также некоторых дополнительных значений, связанных с высотой.
 
-```diff-js
-  // tailwind.config.js
+Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      maxHeight: {
-+       '0': '0',
-+       '1/4': '25%',
-+       '1/2': '50%',
-+       '3/4': '75%',
-+       'full': '100%',
+      extend: {
++       spacing: {
++         '128': '32rem',
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Кроме того, вы можете настроить только масштаб максимальной высоты, отредактировав `theme.maxHeight` или `theme.extend.maxHeight` в вашем файле `tailwind.config.js`.
 
-### Варианты
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       maxHeight: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
 
-<Variants plugin="maxHeight" name="max-height" />
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Отключение
+### Произвольные значения
 
-<Disabling plugin="maxHeight" name="max-height" />
+<ArbitraryValues property="max-height" featuredClass="max-h-[32rem]" />

@@ -1,111 +1,76 @@
 ---
 title: "Оформление текста"
 description: "Утилиты для управления оформлением текста."
-features:
-  responsive: true
-  customizable: false
-  hover: true
-  focus: true
 ---
 
-import plugin from 'tailwindcss/lib/plugins/textDecoration'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=textDecoration'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Подчеркивание
+## Основы использования
 
-Используйте утилиту `underline` для подчеркивания текста.
+### Настройка оформления текста
 
-```html fuchsia
-<template preview>
-  <p class="underline text-xl text-fuchsia-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
+Управляйте оформлением текста с помощью утилит `underline`, `no-underline` и `line-through`.
 
-<p class="**underline** ...">Быстрая коричневая лиса...</p>
-```
-
-## Линия, проходящая через
-
-Используйте утилиту `line-through`, чтобы зачеркнуть текст.
-
-```html rose
-<template preview>
-  <p class="line-through text-xl text-rose-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
-
-<p class="**line-through** ...">Быстрая коричневая лиса...</p>
-```
-
-## Без подчеркивания
-
-Используйте утилиту `no-underline`, чтобы удалить подчеркивание или сквозной стиль.
-
-```html purple
-<template preview>
-  <div class="text-center">
-    <a href="#" class="no-underline text-purple-600 text-xl">Ссылка без подчеркивания</a>
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">underline</span>
+      <p class="underline text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">overline</span>
+      <p class="overline text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">line-through</span>
+      <p class="line-through text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">no-underline</span>
+      <p class="text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
   </div>
-</template>
-
-<a href="#" class="**no-underline** ...">Ссылка без подчеркивания</a>
-```
-
-## Адаптивность
-
-Чтобы управлять оформлением текста элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите оформления текста. Например, используйте `md:underline`, чтобы применить утилиту `underline` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<p class="no-underline **md:underline** ...">
-  Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
-</p>
+<p class="**underline** ...">Быстрая коричневая лиса ...</p>
+<p class="**overline** ...">Быстрая коричневая лиса ...</p>
+<p class="**line-through** ...">Быстрая коричневая лиса ...</p>
+<p class="**no-underline** ...">Быстрая коричневая лиса ...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Наведение
+## <Heading ignore>Применяя условно</Heading>
 
-Чтобы управлять оформлением текста элемента при наведении, добавьте `hover:` к любой существующей утилите оформления текста. Например, используйте `hover:underline`, чтобы применить утилиту `underline` при наведении курсора.
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```html indigo
-<template preview class="text-center p-4">
-  <a href="#hover" class="no-underline hover:underline text-indigo-600 text-xl">Ссылка</a>
-</template>
-<a href="#" class="no-underline **hover:underline** ...">Ссылка</a>
-```
+<HoverFocusAndOtherStates featuredClass="text-center">
 
-Утилиты Наведения также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `hover:`.
-
-```html
-<a href="#" class="... md:no-underline **md:hover:underline** ...">Ссылка</a>
-```
-
-## Фокус
-
-Чтобы управлять оформлением текста элемента в фокусе, добавьте префикс `focus:` к любой существующей утилите оформления текста. Например, используйте `focus:underline`, чтобы применить утилиту `underline` к фокусу.
-
-```html emerald
-<template preview>
-  <div class="max-w-xs w-full mx-auto">
-    <input class="bg-white focus:underline focus:shadow-outline text-emerald-900 appearance-none inline-block w-full border border-emerald-300 rounded py-3 px-4 focus:outline-none" value="Focus me" placeholder="Focus me">
+<Example hint="Try hovering over the text to see the expected behaviour">
+  <div class="text-xl text-center font-medium leading-6 space-y-4">
+    <a href="#" class="no-underline hover:underline text-cyan-600">Link with no underline</a>
   </div>
-</template>
-<input class="**focus:underline** ..." value="Focus me">
-```
-
-Утилиты Фокуса также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
+</Example>
 
 ```html
-<input class="**md:focus:underline** ..." value="Focus me">
+<a href="#" class="no-underline **hover:underline** ...">Link</a>
 ```
 
-## Кастомизация
+</HoverFocusAndOtherStates>
 
-### Варианты
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Variants plugin="textDecoration" />
-
-### Отключение
-
-<Disabling plugin="textDecoration" />
+<BreakpointsAndMediaQueries defaultClass="no-underline" featuredClass="underline" element="p" />

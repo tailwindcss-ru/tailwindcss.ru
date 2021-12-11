@@ -1,160 +1,88 @@
 ---
 title: "Курсор"
 description: "Утилиты для управления стилем курсора при наведении курсора на элемент."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/cursor'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=cursor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = {
+  utilities,
+  rowStyle: ({ css }) => css,
+  preview: (css, { className, utility }) => (
+    <td
+      className={`align-middle ${className}`}
+    >
+      <img className="w-6 h-6 mx-auto drop-shadow" src={`/img/cursors/${utility.substr(1)}.svg`} />
+    </td>
+  ),
+}
 
-## Авто
+## Основы использования
 
-Используйте `cursor-auto`, чтобы позволить браузеру изменять курсор в зависимости от текущего содержимого (например, автоматически менять курсор на `text` при наведении курсора на текст).
+### Установка стиля курсора
 
-```html rose
-<template preview>
-  <div class="cursor-auto max-w-xs p-2 bg-rose-200 mx-auto text-center">
-    Наведите курсор на этот текст
+Используйте `cursor-{style}` для управления тем, какой курсор будет отображаться при наведении курсора на элемент.
+
+<Example hint="Hover over each button to see the cursor change">
+  <div class="flex flex-col sm:flex-row gap-4 sm:gap-0 items-center justify-around">
+    <button type="button" class="w-full sm:w-auto py-2 px-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 text-white text-sm font-semibold rounded-md shadow focus:outline-none cursor-pointer" tabindex="-1">
+      Отправить
+    </button>
+    <button type="button" class="w-full sm:w-auto py-2 px-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 text-white text-sm font-semibold rounded-md shadow focus:outline-none cursor-progress" tabindex="-1">
+      Сохранение...
+    </button>
+    <button type="button" class="w-full sm:w-auto py-2 px-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 text-white text-sm font-semibold rounded-md shadow focus:outline-none cursor-not-allowed" tabindex="-1" disabled>
+      Подтвердитть
+    </button>
   </div>
-</template>
+</Example>
 
-<div class="**cursor-auto** ...">
-  Наведите курсор на этот текст
-</div>
+```html
+<button type="button" class="**cursor-pointer** ...">
+  Отправить
+</button>
+<button type="button" class="**cursor-progress** ...">
+  Сохранение...
+</button>
+<button type="button" disabled class="**cursor-not-allowed** ...">
+  Подтвердитть
+</button>
 ```
 
-## По умолчанию
+## <Heading ignore>Применяя условно</Heading>
 
-Используйте `cursor-default`, чтобы изменить курсор мыши, чтобы всегда использовать курсор по умолчанию, зависящий от платформы (обычно стрелку).
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```html amber
-<template preview>
-  <div class="cursor-default max-w-xs p-2 bg-amber-200 mx-auto text-center">
-    Наведите курсор на этот текст
-  </div>
-</template>
+<HoverFocusAndOtherStates defaultClass="cursor-not-allowed" featuredClass="cursor-auto" variant="focus" />
 
-<div class="**cursor-default** ...">
-  Наведите курсор на этот текст
-</div>
-```
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-## Указатель
+<BreakpointsAndMediaQueries defaultClass="cursor-not-allowed" featuredClass="cursor-auto" />
 
-Используйте `cursor-pointer`, чтобы изменить курсор мыши, чтобы указать интерактивный элемент (обычно указывающую руку).
 
-```html purple
-<template preview>
-  <div class="cursor-pointer max-w-xs p-2 bg-purple-200 mx-auto text-center">
-    Наведи на меня
-  </div>
-</template>
+## Использование пользовательских значений
 
-<div class="**cursor-pointer** ...">
-  Наведи на меня
-</div>
-```
+### Настройка вашей темы
 
-## Ожидание
+По умолчанию Tailwind включает утилиты `cursor` для многих встроенных опций. Вы можете настроить эти значения, отредактировав `theme.cursor` или `theme.extend.cursor` в вашем файле `tailwind.config.js`.
 
-Используйте `cursor-wait`, чтобы изменить курсор мыши, чтобы указать, что что-то происходит в фоновом режиме (обычно это песочные часы или часы).
-
-```html emerald
-<template preview>
-  <div class="cursor-wait max-w-xs p-2 bg-emerald-200 mx-auto text-center">
-    Наведи на меня
-  </div>
-</template>
-
-<div class="**cursor-wait** ...">
-  Наведи на меня
-</div>
-```
-
-## Текст
-
-Используйте `cursor-text`, чтобы изменить курсор мыши, чтобы указать, что текст может быть выбран (обычно двутавровая форма).
-
-```html fuchsia
-<template preview>
-  <div class="cursor-text max-w-xs p-2 bg-fuchsia-200 mx-auto text-center">
-    Наведи на меня
-  </div>
-</template>
-
-<div class="cursor-text ...">
-  Наведи на меня
-</div>
-```
-
-## Перемещение
-
-Используйте `cursor-move`, чтобы изменить курсор мыши, чтобы указать что-то, что можно переместить.
-
-```html indigo
-<template preview>
-  <div class="cursor-move max-w-xs p-2 bg-indigo-200 mx-auto text-center">
-    Наведи на меня
-  </div>
-</template>
-
-<div class="**cursor-move** ...">
-  Наведи на меня
-</div>
-```
-
-## Не разрешено
-
-Используйте `cursor-not-allowed`, чтобы изменить курсор мыши, чтобы указать, что с чем-то нельзя взаимодействовать или щелкать.
-
-```html lightBlue
-<template preview>
-  <div class="cursor-not-allowed max-w-xs p-2 bg-light-blue-200 mx-auto text-center">
-    Наведи на меня
-  </div>
-</template>
-
-<div class="**cursor-not-allowed** ...">
-  Наведи на меня
-</div>
-```
-
-## Кастомизация
-
-### Курсоры
-
-По умолчанию Tailwind предоставляет шесть утилит `cursor`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.cursor` вашей конфигурации Tailwind.
-
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      cursor: {
-        auto: 'auto',
-        default: 'default',
-        pointer: 'pointer',
--       wait: 'wait',
-        text: 'text',
--       move: 'move',
-        'not-allowed': 'not-allowed',
-+       crosshair: 'crosshair',
-+       'zoom-in': 'zoom-in',
+      extend: {
++       cursor: {
++         'fancy': 'url(hand.cur), pointer',
++       }
       }
     }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="cursor" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="cursor" />
+<ArbitraryValues property="cursor" featuredClass={'cursor-' + '[url(hand.cur),_pointer]'} />

@@ -1,78 +1,59 @@
 ---
 title: "Минимальная ширина"
 description: "Утилиты для установки минимальной ширины элемента"
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/minWidth'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=minWidth'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
 
-Установите минимальную ширину элемента с помощью утилит `min-w-0` или `min-w-full`.
+### Установка минимальной ширины
 
-```html indigo
-<template preview>
-  <div class="w-24 min-w-full mx-auto rounded-md bg-indigo-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">
-    min-w-full
-  </div>
-</template>
-
-<div class="w-24 **min-w-full** ...">
-  min-w-full
-</div>
-```
-
----
-
-## Адаптивность
-
-Чтобы управлять минимальной шириной элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите минимальной ширины.
+Установите минимальную ширину элемента с помощью утилит `min-w-{width}`.
 
 ```html
-<div class="w-24 min-w-full **md:min-w-0** ...">
+<span class="**min-w-full** ...">
   <!-- ... -->
-</div>
+</span>
 ```
-
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
 ---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Шкала минимальной ширины
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Настройте шкалу минимальной ширины Tailwind по умолчанию в разделе `theme.minWidth` Вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="w-24 min-w-full" featuredClass="min-w-0" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="w-24 min-w-full" featuredClass="min-w-0" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+Вы можете настроить масштаб `min-width`, отредактировав `theme.minWidth` или `theme.extend.minWidth` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      minWidth: {
-+       '0': '0',
-+       '1/4': '25%',
++     minWidth: {
 +       '1/2': '50%',
-+       '3/4': '75%',
-+       'full': '100%',
-      }
++     }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="minWidth" name="min-width" />
-
-### Отключение
-
-<Disabling plugin="minWidth" name="min-width" />
+<ArbitraryValues property="min-width" featuredClass="min-w-[50%]" />

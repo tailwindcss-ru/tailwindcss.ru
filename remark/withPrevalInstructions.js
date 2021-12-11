@@ -176,7 +176,7 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
 
         ### Настройте Tailwind, чтобы удалить неиспользуемые стили в продакшене
 
-        В вашем файле \`tailwind.config.js\`, настройте опцию \`purge\`, указав пути ко всем вашим ${joinAsSpeech(
+        В вашем файле \`tailwind.config.js\`, настройте опцию \`content\`, указав пути ко всем вашим ${joinAsSpeech(
           types
         )}, чтобы Tailwind мог изменять дерево неиспользуемых стилей в производственных сборках:
 

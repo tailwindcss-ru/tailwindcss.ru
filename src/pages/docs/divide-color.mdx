@@ -3,18 +3,26 @@ title: "Разделение цвета"
 description: "Утилиты для управления цветом границы между элементами."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/divideColor'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { Heading } from '@/components/Heading'
+import utilities from 'utilities?plugin=divideColor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   transformSelector: (selector) => (
     <>
       {selector.split('>').shift().trim().replace(/^\./, '').replace(/\\/g, '')} <span className="ml-1 text-purple-300">> * + *</span>
     </>
   ),
+  transformProperties: ({ selector, properties }) => {
+    delete properties['--tw-divide-opacity']
+    Object.keys(properties).forEach(key => {
+      properties[key] = properties[key].replace(' / var(--tw-divide-opacity)', '')
+    })
+    return properties
+  },
   preview: (css, { className }) => (
     <td className={`relative w-20 p-2 ${className}`}>
       <div className="absolute inset-0 flex flex-col m-2">
@@ -32,92 +40,75 @@ export const classes = {
   ),
 }
 
-## Применение
+## Основы использования
+
+### Установка цвета разделения
 
 Управляйте цветом границы между элементами с помощью утилит `divide-{color}`.
 
-```html fuchsia
-<template preview>
-  <div class="divide-y divide-fuchsia-300">
-    <div class="text-center font-extrabold text-2xl text-fuchsia-600 py-3">1</div>
-    <div class="text-center font-extrabold text-2xl text-fuchsia-600 py-3">2</div>
-    <div class="text-center font-extrabold text-2xl text-fuchsia-600 py-3">3</div>
+<Example p="none">
+  <div class="grid grid-cols-1 divide-y divide-blue-200 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
+    <div class="p-4 text-blue-500 bg-white">01</div>
+    <div class="p-4 text-blue-500 bg-white">02</div>
+    <div class="p-4 text-blue-500 bg-white">03</div>
   </div>
-</template>
+</Example>
 
-<div class="**divide-y divide-fuchsia-300**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+
+```html
+<div class="**divide-y divide-blue-200**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
 ### Изменение непрозрачности
 
-Управляйте непрозрачностью границ между элементами с помощью утилит `divide-opacity-{amount}`.
+Управляйте непрозрачностью цвета разделения с помощью модификатора непрозрачности цвета.
 
-```html lightBlue
-<template preview>
-  <div class="divide-y-4 divide-black divide-opacity-25">
-    <div class="text-center font-extrabold text-2xl text-light-blue-600 py-3">1</div>
-    <div class="text-center font-extrabold text-2xl text-light-blue-600 py-3">2</div>
-    <div class="text-center font-extrabold text-2xl text-light-blue-600 py-3">3</div>
+<Example p="none">
+  <div class="grid grid-cols-1 divide-y-4 divide-gray-400/25 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
+    <div class="p-4 text-gray-400 bg-white">01</div>
+    <div class="p-4 text-gray-400 bg-white">02</div>
+    <div class="p-4 text-gray-400 bg-white">03</div>
   </div>
-</template>
-
-<div class="divide-y-4 **divide-black divide-opacity-25**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
-
-Дополнительные сведения смотрите в [документации по разделению непрозрачности](/docs/divide-opacity).
-
----
-
-## Адаптивность
-
-Чтобы контролировать границы между элементами в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите разделения. Например, добавление класса `md:divide-x-8` к элементу приведет к применению утилиты `divide-x-8` при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="divide-y divide-teal-400 **md:divide-pink-400**">
-  <div class="py-2">1</div>
-  <div class="py-2">2</div>
-  <div class="py-2">3</div>
+<div class="divide-y-4 divide-gray-400**/25** ...">
+  <!-- ... -->
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+Вы можете использовать любое значение, определенное в вашей [шкале непрозрачности](/docs/opacity), или использовать произвольные значения, если вам нужно отклониться от маркеров вашего дизайна.
+
+```html
+<div class="divide-y-4 divide-gray-400**/[.24]** ...">
+  <!-- ... -->
+</div>
+```
 
 ---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Цвета границы
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной для разделения цветов.
+<HoverFocusAndOtherStates defaultClass="divide-y divide-teal-400" featuredClass="divide-pink-400" />
 
-Вы можете [настроить свою цветовую палитру](/docs/colors#customizing), отредактировав раздел `theme.colors` вашего файла `tailwind.config.js`, настроить только границу и разделить цвета вместе с помощью раздела `theme.borderColor` или настроить только цвета разделения с помощью раздела `theme.divideColor`.
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      divideColor: theme => ({
--       ...theme('borderColors'),
-+       'primary': '#3490dc',
-+       'secondary': '#ffed4a',
-+       'danger': '#e3342f',
-      })
-    }
-  }
-```
+<BreakpointsAndMediaQueries defaultClass="divide-y divide-teal-400" featuredClass="divide-pink-400" />
 
-### Варианты
+---
 
-<Variants plugin="divideColor" />
+## Использование пользовательских значений
 
-### Отключение
+### Настройка вашей темы
 
-<Disabling plugin="divideColor" />
+<CustomizePluginColors name="divide" configKey="divideColor" />
+
+### Произвольные значения
+
+<ArbitraryValues property="divide-{color}" featuredClass="divide-[#243c5a]" />

@@ -1,82 +1,115 @@
 ---
 title: "Остановки градиентного цвета"
 description: "Утилиты для управления остановками цвета в фоновых градиентах."
-features:
-  responsive: true
-  customizable: true
-  hover: true
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/gradientColorStops'
-import { Heading } from '@/components/Heading'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=gradientColorStops'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 import { TipGood, TipBad } from '@/components/Tip'
 
 export const classes = {
-  plugin,
-  transformProperties: ({ selector, properties }) => {
-    delete properties['--tw-gradient-color-stops']
-    return properties
+  utilities,
+  preview: (css) => {
+    let color = [
+      css['--tw-gradient-from'],
+      css['--tw-gradient-to'],
+      css['--tw-gradient-stops']
+    ].filter(c => c !== undefined)[0]
+    return (
+      <td
+        className={color === 'transparent' ? 'bg-checkered' : undefined}
+        style={{
+          backgroundColor: color?.match(/(#[a-f0-9]+|currentColor)/i)?.[0],
+        }}
+      >
+        <div className="w-24" />
+      </td>
+    )
   },
-  preview: (css) => (
-    <td
-      className={css['background-color'] === 'transparent' ? 'bg-checkered' : undefined}
-      style={{
-        backgroundColor: ([
-          css['--tw-gradient-from'],
-          css['--tw-gradient-to'],
-          css['--tw-gradient-stops']
-        ]).filter(c => c !== undefined)[0].match(/(#[a-f0-9]+|transparent|currentColor)/i)[0],
-      }}
-    >
-      <div className="w-24" />
-    </td>
-  ),
 }
 
-## Начальный цвет
+## Основы использования
+
+### Начальный цвет
 
 Установите начальный цвет градиента с помощью утилит `from-{color}`.
 
-```html
-<template preview>
-  <div class="h-24 bg-gradient-to-r from-red-500"></div>
-</template>
+<Example>
+  <div class="space-y-2 mx-5">
+    <div class="flex justify-between">
+      <div class="flex flex-col space-y-2 items-center -translate-x-5">
+        <div class="rounded-full h-10 w-10 bg-indigo-500 border-4 border-white shadow-lg"></div>
+        <div class="bg-gray-300 w-0.5 h-4"></div>
+      </div>
+    </div>
+    <div class="p-4 rounded-lg bg-gradient-to-r from-indigo-500">&nbsp;</div>
+  </div>
+</Example>
 
-<div class="bg-gradient-to-r **from-red-500** ..."></div>
+```html
+<div class="bg-gradient-to-r **from-indigo-500** ..."></div>
 ```
 
-## Конечный цвет
+### Конечный цвет
 
 Установите конечный цвет градиента с помощью утилит `to-{color}`.
 
-```html
-<template preview>
-  <div class="h-24 bg-gradient-to-r from-teal-400 to-blue-500"></div>
-</template>
+<Example>
+  <div class="space-y-2 mx-5">
+    <div class="flex justify-between">
+      <div class="flex flex-col space-y-2 items-center -translate-x-5">
+        <div class="rounded-full h-10 w-10 bg-cyan-500 border-4 border-white shadow-lg"></div>
+        <div class="bg-gray-300 w-0.5 h-4"></div>
+      </div>
+      <div class="flex flex-col space-y-2 items-center translate-x-5">
+        <div class="rounded-full h-10 w-10 bg-blue-500 border-4 border-white shadow-lg"></div>
+        <div class="bg-gray-300 w-0.5 h-4"></div>
+      </div>
+    </div>
+    <div class="p-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500">&nbsp;</div>
+  </div>
+</Example>
 
-<div class="bg-gradient-to-r from-green-400 **to-blue-500** ..."></div>
+```html
+<div class="bg-gradient-to-r from-cyan-500 **to-blue-500** ..."></div>
 ```
 
 По умолчанию градиенты **не** становятся прозрачными. Чтобы перейти от прозрачного, измените направление градиента на противоположное и воспользуйтесь утилитой `from-{color}`.
 
-## Средний цвет
+### Средний цвет
 
 Добавьте средний цвет к градиенту с помощью утилит `via-{color}`.
 
-```html
-<template preview>
-  <div class="h-24 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"></div>
-</template>
+<Example>
+  <div class="space-y-2 mx-5">
+    <div class="flex justify-between">
+      <div class="flex flex-col space-y-2 items-center -translate-x-5">
+        <div class="rounded-full h-10 w-10 bg-indigo-500 border-4 border-white shadow-lg"></div>
+        <div class="bg-gray-300 w-0.5 h-4"></div>
+      </div>
+      <div class="flex flex-col space-y-2 items-center">
+        <div class="rounded-full h-10 w-10 bg-purple-500 border-4 border-white shadow-lg"></div>
+        <div class="bg-gray-300 w-0.5 h-4"></div>
+      </div>
+      <div class="flex flex-col space-y-2 items-center translate-x-5">
+        <div class="rounded-full h-10 w-10 bg-pink-500 border-4 border-white shadow-lg"></div>
+        <div class="bg-gray-300 w-0.5 h-4"></div>
+      </div>
+    </div>
+    <div class="p-4 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">&nbsp;</div>
+  </div>
+</Example>
 
-<div class="bg-gradient-to-r from-purple-400 **via-pink-500** to-red-500 ..."></div>
+```html
+<div class="bg-gradient-to-r from-indigo-500 **via-purple-500** to-pink-500 ..."></div>
 ```
 
 Градиенты с `from-{color}` и `via-{color}` по умолчанию станут прозрачными, если нет `to-{color}`.
 
-## Затухание до прозрачного
+### Затухание до прозрачного
 
 По умолчанию градиенты переходят в прозрачные, не требуя явного добавления `to-transparent`. Tailwind интеллектуально вычисляет _правильное_ "прозрачное" значение для использования на основе начального цвета, чтобы избежать [ошибки в Safari](https://bugs.webkit.org/show_bug.cgi?id=150940), которая вызывает исчезновение просто до ключа `transparent`, чтобы исчезнуть через серый, что выглядит ужасно.
 
@@ -96,20 +129,13 @@ export const classes = {
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять ограничениями цвета градиента элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите остановки цвета градиента. Например, используйте `md:from-green-500`, чтобы применить утилиту `from-green-500` только при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="bg-gradient-to-r from-purple-400 **md:from-yellow-500**"></div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
-
-
-## Наведние
-
-Чтобы управлять границами цвета градиента элемента при наведении, добавьте `hover:` к любой существующей утилите остановки цвета градиента. Например, используйте `hover:bg-blue-500`, чтобы применить утилиту `bg-blue-500` при наведении.
+<HoverFocusAndOtherStates featuredClass="from-pink-500">
 
 ```html
 <template preview>
@@ -125,63 +151,20 @@ export const classes = {
 </button>
 ```
 
-Утилиты при наведении курсора также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
+</HoverFocusAndOtherStates>
 
-```html
-<button class="... **md:from-blue-500 md:hover:from-blue-700** ...">Кнопка</button>
-```
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-## Фокус
+<BreakpointsAndMediaQueries defaultClass="bg-gradient-to-r from-purple-400" featuredClass="from-yellow-500" />
 
-Чтобы управлять ограничениями цвета градиента элемента в фокусе, добавьте `focus:` к любой существующей утилите остановки цвета градиента. Например, используйте `focus:bg-blue-500`, чтобы применить утилиту `bg-blue-500` фокуса.
+---
 
-```html
-<template preview>
-  <div class="flex justify-center">
-    <button type="button" class="bg-gradient-to-r from-teal-400 to-blue-500 focus:from-pink-500 focus:to-orange-500 text-white font-semibold px-6 py-3 rounded-md">
-      Сфокусируй меня
-    </button>
-  </div>
-</template>
+## Использование пользовательских значений
 
-<button type="button" class="bg-gradient-to-r from-green-400 to-blue-500 **focus:from-pink-500 focus:to-yellow-500**">
-  Сфокусируй меня
-</button>
-```
+### Настройка вашей темы
 
-Утилиты Focus также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
+<CustomizePluginColors name="gradient" configKey="gradientColorStops" />
 
-```html
-<button class="... md:from-blue-500 md:focus:from-blue-700 ...">Кнопка</button>
-```
+### Произвольные значения
 
-
-## Кастомизация
-
-### Цвета фона
-
-По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной в качестве остановки цвета градиента.
-
-Вы можете [настроить свою цветовую палитру](/docs/colors#customizing), отредактировав переменную `theme.colors` в вашем файле `tailwind.config.js`, или настроить только конечные цвета цвета градиента с помощью `theme.gradientColorStops` раздела вашей конфигурации Tailwind.
-
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      gradientColorStops: theme => ({
--       ...theme('colors'),
-+       'primary': '#3490dc',
-+       'secondary': '#ffed4a',
-+       'danger': '#e3342f',
-      })
-    }
-  }
-```
-
-### Варианты
-
-<Variants plugin="gradientColorStops" />
-
-### Отключение
-
-<Disabling plugin="gradientColorStops" />
+<ArbitraryValues property="from|via|to-{color}" featuredClass="from-[#243c5a]" />

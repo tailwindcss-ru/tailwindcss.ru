@@ -1,70 +1,99 @@
 ---
 title: "Инвертирование"
 description: "Утилиты для применения инвертированных фильтров к элементу."
-featureVersion: 'v2.1+'
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=invert'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-        '.invert-0': { '--tw-invert': 'invert(0)' },
-        '.invert': { '--tw-invert': 'invert(1)' },
-      })
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-invert'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `invert` и `invert-0` вместе с утилитой `filter`, чтобы определить, должен ли элемент отображаться с инвертированными цветами или в обычном режиме.
+### Инвертирование цвета элемента
+
+Используйте утилиты `invert` и `invert-0` для управления тем, должен ли элемент отображаться с инвертированными цветами или в обычном режиме.
+
+<Example p="none">
+  <div class="flex justify-center sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">invert-0</p>
+      <div class="relative invert-0">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">invert</p>
+      <div class="relative invert">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
 
 ```html
-<div class="filter invert ...">
+<div class="**invert-0** ...">
+  <!-- ... -->
+</div>
+<div class="**invert** ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Удаление фильтров
 
-Чтобы управлять фильтром инвертирования элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите инвертирования. Например, используйте `md:invert-0`, чтобы применить утилиту `invert-0` только при средних размерах экрана и выше.
+<RemovingFilters defaultClass="blur-md invert brightness-150" />
 
-```html
-<div class="filter invert **md:invert-0** ...">
-  <!-- ... -->
-</div>
-```
+---
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+## <Heading ignore>Применяя условно</Heading>
 
-## Кастомизация
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Вы можете настроить, какие утилиты `invert` будут генерироваться, используя ключ `invert` в разделе `theme` вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="invert" featuredClass="invert-0" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="invert" featuredClass="invert-0" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `invert`. Вы можете настроить эти значения, отредактировав `theme.invert` или `theme.extend.invert` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       invert: {
 +         25: '.25',
 +         50: '.5',
 +         75: '.75',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="invert" name="invert" />
-
-### Отключение
-
-<Disabling plugin="invert" name="invert" />
+<ArbitraryValues property="invert" featuredClass="invert-[.25]" />

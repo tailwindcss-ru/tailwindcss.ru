@@ -3,134 +3,162 @@ title: "Выравнивание элементов по встроенной о
 description: "Утилиты для управления выравниванием элементов сетки вдоль их встроенной оси."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/justifyItems'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=justifyItems'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Start
+## Основы использования
+
+### Start
 
 Используйте `justify-items-start` для выравнивания элементов сетки относительно начала их встроенной оси:
 
-```html indigo
-<template preview class="p-4">
-  <div class="grid grid-cols-3 gap-4 justify-items-start h-32">
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-indigo-500 flex justify-center items-center w-16">1</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-indigo-500 flex justify-center items-center w-16">2</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-indigo-500 flex justify-center items-center w-16">3</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-indigo-500 flex justify-center items-center w-16">4</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-indigo-500 flex justify-center items-center w-16">5</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-indigo-500 flex justify-center items-center w-16">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">01</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">02</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">03</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">04</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">05</div>
+    </div>
+    <div class="bg-stripes-light-blue grid rounded-lg justify-items-start">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">06</div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid **justify-items-start** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## End
+### End
 
 Используйте `justify-items-end` для выравнивания элементов сетки относительно конца их встроенной оси:
 
-```html lightBlue
-<template preview class="p-4">
-  <div class="grid grid-cols-3 gap-4 justify-items-end h-32">
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-light-blue-500 flex justify-center items-center w-16">1</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-light-blue-500 flex justify-center items-center w-16">2</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-light-blue-500 flex justify-center items-center w-16">3</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-light-blue-500 flex justify-center items-center w-16">4</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-light-blue-500 flex justify-center items-center w-16">5</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-light-blue-500 flex justify-center items-center w-16">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">01</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">02</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">03</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">04</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">05</div>
+    </div>
+    <div class="bg-stripes-cyan grid rounded-lg justify-items-end">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-cyan-500 shadow-lg">06</div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid **justify-items-end** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Center
+### Center
 
 Используйте `justify-items-center`, чтобы выровнять элементы сетки по их встроенной оси:
 
-```html amber
-<template preview class="p-4">
-  <div class="grid grid-cols-3 gap-4 justify-items-center h-32">
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-amber-500 flex justify-center items-center w-16">1</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-amber-500 flex justify-center items-center w-16">2</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-amber-500 flex justify-center items-center w-16">3</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-amber-500 flex justify-center items-center w-16">4</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-amber-500 flex justify-center items-center w-16">5</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-amber-500 flex justify-center items-center w-16">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">04</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">05</div>
+    </div>
+    <div class="bg-stripes-fuchsia grid rounded-lg justify-items-center">
+      <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">06</div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid **justify-items-center** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Stretch
+### Stretch
 
 Используйте `justify-items-stretch`, чтобы растянуть элементы вдоль их встроенной оси:
 
-```html fuchsia
-<template preview class="p-4">
-  <div class="grid grid-cols-3 gap-4 justify-items-stretch h-32">
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-fuchsia-500 flex justify-center items-center">1</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-fuchsia-500 flex justify-center items-center">2</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-fuchsia-500 flex justify-center items-center">3</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-fuchsia-500 flex justify-center items-center">4</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-fuchsia-500 flex justify-center items-center">5</div>
-    <div class="text-white text-2xl font-extrabold rounded-lg bg-fuchsia-500 flex justify-center items-center">6</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 justify-items-stretch font-mono text-white text-sm font-bold leading-6">
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">01</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">02</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">03</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">04</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">05</div>
+    <div class="h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">06</div>
   </div>
-</template>
-
-<div class="grid **justify-items-stretch** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы выровнять флекс-элементы в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему служебному классу. Например, используйте `md:justify-items-center`, чтобы применить утилиту `justify-items-center` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="justify-items-start md:justify-items-center">
-  <!-- ... -->
+<div class="grid **justify-items-stretch** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="justifyItems" name="justify-items" />
+<HoverFocusAndOtherStates defaultClass="justify-items-start" featuredClass="justify-items-center" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="justifyItems" name="justify-items" />
+<BreakpointsAndMediaQueries defaultClass="justify-items-start" featuredClass="justify-items-center" />

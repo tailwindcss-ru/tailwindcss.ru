@@ -3,126 +3,134 @@ title: "Границы вокруг ячеек"
 description: "Утилиты для контроля того, должны ли границы таблицы сворачиваться или разделяться."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/borderCollapse'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=borderCollapse'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Разделить
+## Основы использования
 
-Используйте `border-separate`, чтобы каждая ячейка отображала свои отдельные границы.
-
-```html emerald
-<template preview>
-  <table class="border-separate w-full border-2 border-emerald-800">
-    <thead class="bg-emerald-200">
-      <tr>
-        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">Область</th>
-        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">Город</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Индиана</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Индианаполис</td>
-      </tr>
-      <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Огайо</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Колумбус</td>
-      </tr>
-      <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Мичиган</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Детройт</td>
-      </tr>
-    </tbody>
-  </table>
-</template>
-
-<table class="**border-separate** border border-green-800 ...">
-  <thead>
-    <tr>
-      <th class="border border-green-600 ...">Область</th>
-      <th class="border border-green-600 ...">Город</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="border border-green-600 ...">Индиана</td>
-      <td class="border border-green-600 ...">Индианаполис</td>
-    </tr>
-    <tr>
-      <td class="border border-green-600 ...">Огайо</td>
-      <td class="border border-green-600 ...">Колумбус</td>
-    </tr>
-    <tr>
-      <td class="border border-green-600 ...">Мичиган</td>
-      <td class="border border-green-600 ...">Детройт</td>
-    </tr>
-  </tbody>
-</table>
-```
-
-## Свернуть
+### Свернуть
 
 Используйте `border-collapse`, чтобы объединить границы смежных ячеек в единую границу, когда это возможно. Обратите внимание, что это включает сворачивание границ тега верхнего уровня `<table>`.
 
-```html emerald
-<template preview>
-  <table class="border-collapse w-full border-2 border-emerald-800">
-    <thead class="bg-emerald-200">
-      <tr>
-        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">Область</th>
-        <th class="border-2 border-emerald-600 px-4 py-2 text-emerald-800 text-left font-flow">Город</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Индиана</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Индианаполис</td>
-      </tr>
-      <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Огайо</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Колумбус</td>
-      </tr>
-      <tr>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Мичиган</td>
-        <td class="border-2 border-emerald-600 px-4 py-2 font-flow text-emerald-400">Детройт</td>
-      </tr>
-    </tbody>
-  </table>
-</template>
+<Example p="none">
+  <div class="px-4 py-8 sm:px-8">
+    <table class="border-collapse w-full border border-gray-400 bg-white text-sm shadow-sm">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="w-1/2 border border-gray-300 font-semibold p-4 text-gray-900 text-left">Штат</th>
+          <th class="w-1/2 border border-gray-300 font-semibold p-4 text-gray-900 text-left">Город</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 p-4 text-gray-500">Индиана</td>
+          <td class="border border-gray-300 p-4 text-gray-500">Индианаполис</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-4 text-gray-500">Огайо</td>
+          <td class="border border-gray-300 p-4 text-gray-500">Колумбус</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-4 text-gray-500">Мичиган</td>
+          <td class="border border-gray-300 p-4 text-gray-500">Детройт</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Example>
 
-<table class="**border-collapse** border border-green-800 ...">
+```html
+<table class="**border-collapse** border border-gray-400 ...">
   <thead>
     <tr>
-      <th class="border border-green-600 ...">Область</th>
-      <th class="border border-green-600 ...">Город</th>
+      <th class="border border-gray-300 ...">Штат</th>
+      <th class="border border-gray-300 ...">Город</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="border border-green-600 ...">Индиана</td>
-      <td class="border border-green-600 ...">Индианаполис</td>
+      <td class="border border-gray-300 ...">Индиана</td>
+      <td class="border border-gray-300 ...">Индианаполис</td>
     </tr>
     <tr>
-      <td class="border border-green-600 ...">Огайо</td>
-      <td class="border border-green-600 ...">Колумбус</td>
+      <td class="border border-gray-300 ...">Огайо</td>
+      <td class="border border-gray-300 ...">Колумбус</td>
     </tr>
     <tr>
-      <td class="border border-green-600 ...">Мичиган</td>
-      <td class="border border-green-600 ...">Детройт</td>
+      <td class="border border-gray-300 ...">Мичиган</td>
+      <td class="border border-gray-300 ...">Детройт</td>
     </tr>
   </tbody>
 </table>
 ```
 
-## Кастомизация
+### Разделить
 
-### Варианты
+Используйте `border-separate`, чтобы каждая ячейка отображала свои отдельные границы.
 
-<Variants plugin="borderCollapse" />
+<Example p="none">
+  <div class="px-4 py-8 sm:px-8">
+    <table class="border-separate w-full border border-gray-400 bg-white text-sm shadow-sm">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="w-1/2 border border-gray-300 font-semibold p-4 text-gray-900 text-left">Штат</th>
+          <th class="w-1/2 border border-gray-300 font-semibold p-4 text-gray-900 text-left">Город</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-300 p-4 text-gray-500">Индиана</td>
+          <td class="border border-gray-300 p-4 text-gray-500">Индианаполис</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-4 text-gray-500">Огайо</td>
+          <td class="border border-gray-300 p-4 text-gray-500">Колумбус</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-300 p-4 text-gray-500">Мичиган</td>
+          <td class="border border-gray-300 p-4 text-gray-500">Детройт</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Example>
 
-### Отключение
+```html
+<table class="**border-separate** border border-gray-400 ...">
+  <thead>
+    <tr>
+      <th class="border border-gray-300 ...">Штат</th>
+      <th class="border border-gray-300 ...">Город</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-300 ...">Индиана</td>
+      <td class="border border-gray-300 ...">Индианаполис</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 ...">Огайо</td>
+      <td class="border border-gray-300 ...">Колумбус</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 ...">Мичиган</td>
+      <td class="border border-gray-300 ...">Детройт</td>
+    </tr>
+  </tbody>
+</table>
+```
 
-<Disabling plugin="borderCollapse" />
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates element="table" featuredClass="border-collapse" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries element="table" featuredClass="border-collapse" />

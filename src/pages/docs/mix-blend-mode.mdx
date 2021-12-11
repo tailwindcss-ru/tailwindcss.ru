@@ -1,51 +1,42 @@
 ---
 title: "Режим смешивания"
 description: "Утилиты для управления тем, как элемент должен сливаться с фоном."
-featureVersion: 'v2.1+'
 ---
 
-import plugin from 'tailwindcss/lib/plugins/mixBlendMode'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=mixBlendMode'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка режима наложения элемента
 
 Используйте утилиты `mix-blend-{mode}` для управления тем, как содержимое элемента должно смешиваться с фоном.
 
-```html emerald
-<template preview>
-  <div class="flex justify-center">
-    <div class="flex items-center justify-center rounded-md bg-emerald-300 h-24 w-48">
-      <div class="mix-blend-multiply rounded-md h-32 w-32 bg-amber-300"></div>
-    </div>
+<Example>
+  <div class="flex justify-center -space-x-14">
+    <div class="w-32 h-32 mix-blend-multiply bg-blue-400 rounded-full"></div>
+    <div class="w-32 h-32 mix-blend-multiply bg-pink-400 rounded-full"></div>
   </div>
-</template>
-
-<div class="bg-green-300 ...">
-  <div class="**mix-blend-multiply** bg-amber-300 ..."></div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы управлять свойством `mix-blend-mode` в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите `mix-blend-mode`. Например, используйте `md:mix-blend-overlay`, чтобы применить утилиту `mix-blend-overlay` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="mix-blend-multiply **md:mix-blend-overlay** ...">
-  <!-- ... -->
+<div class="flex justify-center -space-x-14">
+  <div class="**mix-blend-multiply** bg-blue-400 ..."></div>
+  <div class="**mix-blend-multiply** bg-pink-400 ..."></div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="mixBlendMode" name="mix-blend-mode" />
+<HoverFocusAndOtherStates defaultClass="mix-blend-multiply" featuredClass="mix-blend-overlay" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="mixBlendMode" name="mix-blend-mode" />
+<BreakpointsAndMediaQueries defaultClass="mix-blend-multiply" featuredClass="mix-blend-overlay" />

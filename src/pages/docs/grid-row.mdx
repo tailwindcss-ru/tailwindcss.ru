@@ -3,83 +3,90 @@ title: "Начало / конец строки сетки"
 description: "Утилиты для управления размером элементов и их размещением по строкам сетки."
 ---
 
-import gridRowPlugin from 'tailwindcss/lib/plugins/gridRow'
-import gridRowStartPlugin from 'tailwindcss/lib/plugins/gridRowStart'
-import gridRowEndPlugin from 'tailwindcss/lib/plugins/gridRowEnd'
-import { Disabling } from '@/components/Disabling'
+import gridRowUtilities from 'utilities?plugin=gridRow'
+import gridRowStartUtilities from 'utilities?plugin=gridRowStart'
+import gridRowEndUtilities from 'utilities?plugin=gridRowEnd'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin: [gridRowPlugin, gridRowStartPlugin, gridRowEndPlugin]
+  utilities: { ...gridRowUtilities, ...gridRowStartUtilities, ...gridRowEndUtilities }
 }
 
-## Составные строки
+## Основы использования
+
+### Составные строки
 
 Используйте утилиты `row-span-{n}`, чтобы сделать элемент охватывающим _n_ строк.
 
-```html fuchsia
-<template preview>
-  <div class="h-64 grid grid-rows-3 grid-flow-col gap-4">
-    <div class="row-span-3 bg-fuchsia-500 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">1</div>
-    <div class="col-span-2 bg-fuchsia-300 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">2</div>
-    <div class="row-span-2 col-span-2 bg-fuchsia-500 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">3</div>
+<Example>
+  <div class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center row-span-3">01</div>
+    <div class="p-4 rounded-lg bg-fuchsia-300 grid place-content-center col-span-2">02</div>
+    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center row-span-2 col-span-2">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid grid-rows-3 grid-flow-col gap-4">
-  <div class="**row-span-3** ...">1</div>
-  <div class="col-span-2 ...">2</div>
-  <div class="**row-span-2** col-span-2 ...">3</div>
+  <div class="**row-span-3** ...">01</div>
+  <div class="col-span-2 ...">02</div>
+  <div class="**row-span-2** col-span-2 ...">03</div>
 </div>
 ```
 
-## Начало и окончание линии
+### Начало и окончание линии
 
 Используйте утилиты `row-start-{n}` и `row-end-{n}`, чтобы сделать начало или конец элемента на линии сетки _nth_. Их также можно комбинировать с утилитами `row-span-{n}` для охвата определенного количества строк.
 
 Обратите внимание, что линии сетки CSS начинаются с 1, а не с 0, поэтому элемент во всю высоту в трехстрочной сетке будет начинаться со строки 1 и заканчиваться на строке 4.
 
-```html lightBlue
-<template preview>
-  <div class="h-64 grid grid-rows-3 grid-flow-col gap-4">
-    <div class="row-start-2 row-span-2 bg-light-blue-500 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">1</div>
-    <div class="row-end-3 row-span-2 bg-light-blue-500 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">2</div>
-    <div class="row-start-1 row-end-4 bg-light-blue-500 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">3</div>
+<Example>
+  <div class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-light-blue rounded-lg">
+    <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-start-2 row-span-2">01</div>
+    <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-end-3 row-span-2">02</div>
+    <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-start-1 row-end-4">03</div>
   </div>
-</template>
-
-<div class="grid grid-rows-3 grid-flow-col gap-4">
-  <div class="**row-start-2** row-span-2 ...">1</div>
-  <div class="**row-end-3** row-span-2 ...">2</div>
-  <div class="**row-start-1 row-end-4** ...">3</div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы управлять размещением строки элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите grid-row. Например, используйте `md:row-span-3`, чтобы применить утилиту `row-span-3` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="grid grid-rows-3 ...">
-  <div class="row-span-3 **md:row-span-3** ..."></div>
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+  <div class="**row-start-2** row-span-2 ...">01</div>
+  <div class="**row-end-3** row-span-2 ...">02</div>
+  <div class="**row-start-1 row-end-4** ...">03</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-По умолчанию Tailwind включает в себя утилиты для работы с сетками, содержащими до 6 явных строк. Вы можете изменять, добавлять или удалять их, настраивая разделы `gridRow`, `gridRowStart` и `gridRowEnd` в конфигурации Вашей темы Tailwind.
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="row-span-3" featuredClass="row-span-4" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="row-span-3" featuredClass="row-span-4" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя утилиты для работы с сетками, содержащими до 6 явных строк. Вы можете настроить эти значения, отредактировав `theme.gridRow`, `theme.extend.gridRow`, `theme.gridRowStart`, `theme.extend.gridRowStart`, `theme.gridRowEnd`, and `theme.extend.gridRowEnd` в вашем файле `tailwind.config.js`.
 
 Для создания дополнительных утилит `row-{value}`, которые напрямую управляют сокращенным свойством `grid-row`, настройте раздел `gridRow` в конфигурации Вашей темы Tailwind:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        gridRow: {
++       gridRow: {
 +         'span-16': 'span 16 / span 16',
-        }
++       }
       }
     }
   }
@@ -89,19 +96,18 @@ export const classes = {
 
 Чтобы добавить новые утилиты `row-start-{n}`, используйте раздел `gridRowStart` конфигурации Вашей темы Tailwind:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        gridRowStart: {
++       gridRowStart: {
 +         '8': '8',
 +         '9': '9',
 +         '10': '10',
 +         '11': '11',
 +         '12': '12',
 +         '13': '13',
-        }
++       }
       }
     }
   }
@@ -109,46 +115,25 @@ export const classes = {
 
 Чтобы добавить новые утилиты `row-end-{n}`, используйте раздел `gridRowEnd` конфигурации Вашей темы Tailwind:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        gridRowEnd: {
++       gridRowEnd: {
 +         '8': '8',
 +         '9': '9',
 +         '10': '10',
 +         '11': '11',
 +         '12': '12',
 +         '13': '13',
-        }
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-По умолчанию для утилит строки сетки создаются только адаптивные варианты.
-
-Вы можете контролировать, какие варианты создаются для утилит строки сетки, изменяя свойства `gridRow`, `gridRowStart` и `gridRowEnd` в разделе `variants` Вашего файла `tailwind.config.js`.
-
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    variants: {
-      // ...
-+     gridRow: ['responsive', 'hover'],
-+     gridRowStart: ['responsive', 'hover'],
-+     gridRowEnd: ['responsive', 'hover'],
-    }
-  }
-```
-
-Дополнительные сведения о настройке вариантов смотрите в [документации по настройке вариантов](/docs/configuring-variants/).
-
-### Отключение
-
-<Disabling plugin={['gridRow', 'gridRowStart', 'gridRowEnd']} name="grid-row" />
+<ArbitraryValues property="grid-row/grid-row-start/grid-row-end" featuredClass="row-span-[span_16_/_span_16]" />

@@ -1,61 +1,50 @@
 ---
 title: "Сглаживание шрифтов"
 description: "Утилиты для управления сглаживанием шрифта элемента."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/fontSmoothing'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=fontSmoothing'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Сглаживание Subpixel
+## Основы использования
 
-Используйте утилиту `subpixel-antialiased` для рендеринга текста с использованием субпиксельного сглаживания.
+### Применение сглаживания шрифтов
 
-```html lightBlue
-<template preview>
-  <p class="subpixel-antialiased text-lg text-light-blue-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
+Используйте утилиту `subpixel-antialiased` для рендеринга текста с использованием субпиксельного сглаживания и утилиту `antialiased` для рендеринга текста с использованием сглаживания оттенков серого.
 
-<p class="**subpixel-antialiased** ...">Быстрая коричневая лиса...</p>
-```
-
-## Сглаживание Grayscale
-
-Используйте утилиту `antialiased` для рендеринга текста с использованием сглаживания оттенков серого.
-
-```html emerald
-<template preview>
-  <p class="antialiased text-lg text-emerald-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
-
-<p class="**antialiased** ...">Быстрая коричневая лиса...</p>
-```
-
-## Адаптивность
-
-Чтобы управлять сглаживанием шрифта элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите сглаживания шрифтов. Например, используйте `md:antialiased`, чтобы применить утилиту `antialiased` только при средних размерах экрана и выше.
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">subpixel-antialiased</span>
+      <p class="subpixel-antialiased text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">antialiased</span>
+      <p class="antialiased text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+  </div>
+</Example>
 
 ```html
-<p class="antialiased sm:subpixel-antialiased **md:antialiased** ...">
-  Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
-</p>
+<p class="**subpixel-antialiased** ...">Быстрая коричневая лиса ...</p>
+<p class="**antialiased** ...">Быстрая коричневая лиса ...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="fontSmoothing" />
+<HoverFocusAndOtherStates defaultClass="antialiased" featuredClass="subpixel-antialiased" element="p" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="fontSmoothing" />
+<BreakpointsAndMediaQueries defaultClass="antialiased" featuredClass="subpixel-antialiased" element="p" />

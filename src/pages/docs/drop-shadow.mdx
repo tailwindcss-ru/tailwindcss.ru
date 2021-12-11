@@ -3,70 +3,111 @@ title: "Падающая тень"
 description: "Утилиты для применения фильтров падающей тени к элементу."
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=dropShadow'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-      '.drop-shadow-sm': {'--tw-drop-shadow': 'drop-shadow(0 1px 1px rgba(0,0,0,0.05))' },
-      '.drop-shadow': {'--tw-drop-shadow': 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.06))' },
-      '.drop-shadow-md': {'--tw-drop-shadow': 'drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06))' },
-      '.drop-shadow-lg': {'--tw-drop-shadow': 'drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1))' },
-      '.drop-shadow-xl': {'--tw-drop-shadow': 'drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08))' },
-      '.drop-shadow-2xl': {'--tw-drop-shadow': 'drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15))' },
-      '.drop-shadow-none': {'--tw-drop-shadow': 'drop-shadow(0 0 #0000)' },
-      })
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-drop-shadow'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `drop-shadow-{amount}` вместе с утилитой `filter`, чтобы добавить тень к элементу.
+### Добавление тени
+
+Используйте утилиты `drop-shadow-{amount}`, чтобы добавить тень к элементу.
+
+<Example p="none">
+  <div class="flex justify-start sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">drop-shadow-md</p>
+      <div class="drop-shadow-md">
+        <div class="w-24 h-24 bg-white rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">drop-shadow-lg</p>
+      <div class="drop-shadow-lg">
+        <div class="w-24 h-24 bg-white rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">drop-shadow-xl</p>
+      <div class="drop-shadow-xl">
+        <div class="w-24 h-24 bg-white rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">drop-shadow-2xl</p>
+      <div class="drop-shadow-2xl">
+        <div class="w-24 h-24 bg-white rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
 
 ```html
-<div class="filter drop-shadow-lg ...">
+<div class="**drop-shadow-md** ...">
+  <!-- ... -->
+</div>
+<div class="**drop-shadow-lg** ...">
+  <!-- ... -->
+</div>
+<div class="**drop-shadow-xl** ...">
+  <!-- ... -->
+</div>
+<div class="**drop-shadow-2xl** ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Удаление фильтров
 
-Чтобы управлять падающей тенью элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите `drop-shadow`. Например, используйте `md:drop-shadow-xl`, чтобы применить утилиту `drop-shadow-xl` только при средних размерах экрана и выше.
+<RemovingFilters defaultClass="blur-md invert drop-shadow-xl" />
 
-```html
-<div class="filter drop-shadow-md **md:drop-shadow-xl** ...">
-  <!-- ... -->
-</div>
-```
+---
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+## <Heading ignore>Применяя условно</Heading>
 
-## Кастомизация
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Вы можете настроить, какие утилиты `drop-shadow` будут генерироваться, используя ключ `dropShadow` в разделе `theme` вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="drop-shadow-md" featuredClass="drop-shadow-xl" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="drop-shadow-md" featuredClass="drop-shadow-xl" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `dropShadow`. Вы можете настроить эти значения, отредактировав `theme.dropShadow` или `theme.extend.dropShadow` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       dropShadow: {
 +         '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="dropShadow" name="drop-shadow" />
-
-### Отключение
-
-<Disabling plugin="dropShadow" name="drop-shadow" />
+<ArbitraryValues property="drop-shadow" featuredClass="drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]" />

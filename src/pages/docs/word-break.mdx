@@ -3,72 +3,76 @@ title: "Разрыв слов"
 description: "Утилиты для управления разрывами слов в элементе."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/wordBreak'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=wordBreak'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Normal
+## Основы использования
+
+### Normal
 
 Используйте `break-normal` только для добавления разрывов строк в обычные точки разрыва слова.
 
-```html lightBlue
-<template preview>
-  <p class="break-normal max-w-xs px-6 py-4 mx-auto bg-light-blue-200 text-light-blue-500 font-medium rounded-lg">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiisitaquequodpraesentiumexplicaboincidunt? Dolores beatae nam at sed dolorum ratione dolorem nisi velit cum.
-  </p>
-</template>
+<Example p="none">
+  <div class="overflow-x-scroll sm:overflow-x-visible px-4">
+    <div class="mx-auto max-w-sm bg-white shadow-xl p-8 text-gray-500">
+      <p class="break-normal">The longest word in any of the major English language dictionaries is
+      <span class="text-gray-900 font-medium">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+      a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.</p>
+    </div>
+  </div>
+</Example>
 
+```html
 <p class="**break-normal** ...">...</p>
 ```
 
-## Break Words
+### Break Words
 
 Используйте `break-words` для добавления разрывов строки в середине слова, если это необходимо.
 
-```html amber
-<template preview>
-  <p class="break-words max-w-xs px-6 py-4 mx-auto bg-amber-200 text-amber-500 font-medium rounded-lg">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiisitaquequodpraesentiumexplicaboincidunt? Dolores beatae nam at sed dolorum ratione dolorem nisi velit cum.
-  </p>
-</template>
+<Example p="none">
+  <div class="px-4">
+    <div class="mx-auto max-w-sm bg-white shadow-xl p-8 text-gray-500">
+      <p class="break-words">The longest word in any of the major English language dictionaries is
+      <span class="text-gray-900 font-medium">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+      a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.</p>
+    </div>
+  </div>
+</Example>
 
+```html
 <p class="**break-words** ...">...</p>
 ```
 
-## Break All
+### Break All
 
 Используйте `break-all` , чтобы при необходимости добавлять разрывы строк, не пытаясь сохранить целые слова.
 
-```html emerald
-<template preview>
-  <p class="break-all max-w-xs px-6 py-4 mx-auto bg-emerald-200 text-emerald-500 font-medium rounded-lg">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiisitaquequodpraesentiumexplicaboincidunt? Dolores beatae nam at sed dolorum ratione dolorem nisi velit cum.
-  </p>
-</template>
+<Example p="none">
+  <div class="px-4">
+    <div class="mx-auto max-w-sm bg-white shadow-xl p-8 text-gray-500">
+      <p class="break-all">The longest word in any of the major English language dictionaries is
+      <span class="text-gray-900 font-medium">pneumonoultramicroscopicsilicovolcanoconiosis,</span>
+      a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.</p>
+    </div>
+  </div>
+</Example>
 
+```html
 <p class="**break-all** ...">...</p>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять разрывами слов в элементе только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите разрыва слов. Например, добавление класса `md:break-all` к элементу приведет к применению утилиты `break-all` при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<p class="break-normal **md:break-all** ...">
-  <!-- ... -->
-</p>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="break-normal" featuredClass="break-all" element="p" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-### Варианты
-
-<Variants plugin="wordBreak" />
-
-### Отключение
-
-<Disabling plugin="wordBreak" />
+<BreakpointsAndMediaQueries defaultClass="break-normal" featuredClass="break-all" element="p" />

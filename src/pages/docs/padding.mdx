@@ -1,169 +1,168 @@
 ---
 title: "Поля"
 description: "Утилиты для управления отступом элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/padding'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { numbersFirstByPrefix } from '@/utils/sortClasses'
+import utilities from 'utilities?plugin=padding'
+import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+
 
 export const classes = {
-  plugin,
-  sort: numbersFirstByPrefix,
+  utilities,
+  sort: (classes) => numbersFirst(classes),
 }
 
-## Добавить поле с одной стороны
+## Основы использования
+
+### Добавить отступы с одной стороны
 
 Управляйте полями c одной сторонs элемента с помощью утилит `p{t|r|b|l}-{size}`.
 
 Например, `pt-6` добавит `1.5rem` отступ к верху элемента, `pr-4` добавит `1rem` отступ элементу справа, `pb-8` добавит `2rem` отступ к низу элемента, и `pl-2` добавит `0.5rem` отступ элементу слева.
 
-```html rose
-<template preview>
-  <div class="flex flex-wrap items-start justify-center text-white font-mono -mx-5">
-    <div class="mx-5 bg-rose-500 bg-stripes bg-stripes-white rounded-md overflow-hidden pt-6">
-      <div class="bg-rose-500 flex items-center justify-center py-3 px-4">
-        pt-6
+<Example>
+  <div class="flex flex-wrap items-start justify-center font-mono text-white text-sm font-bold leading-6 -mx-5">
+    <div class="flex items-start">
+      <div class="flex-none px-5">
+        <div class="bg-purple-500 shadow-lg rounded-lg overflow-hidden">
+          <div class="h-6 bg-stripes-white rounded-t-lg"></div>
+          <div class="p-4">pt-6</div>
+        </div>
+      </div>
+      <div class="flex-none px-5 pt-6">
+        <div class="flex bg-purple-500 shadow-lg rounded-lg overflow-hidden">
+          <div class="flex-none p-4">pr-4</div>
+          <div class="flex-none w-4 bg-stripes-white"></div>
+        </div>
       </div>
     </div>
-    <div class="mx-5 bg-rose-500 bg-stripes bg-stripes-white rounded-md overflow-hidden pr-4 mt-6">
-      <div class="bg-rose-500 flex items-center justify-center py-3 px-4">
-        pr-4
+    <div class="flex items-start">
+      <div class="flex-none px-5 pt-6">
+        <div class="bg-purple-500 shadow-lg rounded-lg overflow-hidden">
+          <div class="p-4">pb-8</div>
+          <div class="h-8 bg-stripes-white"></div>
+        </div>
       </div>
-    </div>
-    <div class="mx-5 bg-rose-500 bg-stripes bg-stripes-white rounded-md overflow-hidden pb-8 mt-6">
-      <div class="bg-rose-500 flex items-center justify-center py-3 px-4">
-        pb-8
-      </div>
-    </div>
-    <div class="mx-5 bg-rose-500 bg-stripes bg-stripes-white rounded-md overflow-hidden pl-2 mt-6">
-      <div class="bg-rose-500 flex items-center justify-center py-3 px-4">
-        pl-2
+      <div class="flex-none flex px-5 pt-6">
+        <div class="flex bg-purple-500 shadow-lg rounded-lg overflow-hidden">
+          <div class="flex-none w-2 bg-stripes-white"></div>
+          <div class="flex-none p-4">pl-2</div>
+        </div>
       </div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**pt-6** ...">pt-6</div>
 <div class="**pr-4** ...">pr-4</div>
 <div class="**pb-8** ...">pb-8</div>
 <div class="**pl-2** ...">pl-2</div>
 ```
 
-## Добавить поля по горизонтали
+### Добавить поля по горизонтали
 
 Управляйте полями элемента по горизонтали с помощью утилит `px-{size}`.
 
-```html emerald
-<template preview>
-  <div class="flex justify-center text-white font-mono">
-    <div class="bg-emerald-500 bg-stripes bg-stripes-white rounded-md overflow-hidden px-8">
-      <div class="bg-emerald-500 py-3 px-4">px-8</div>
+<Example>
+  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-indigo-500 rounded-lg shadow-lg overflow-hidden flex">
+      <div class="w-8 bg-stripes-white"></div>
+      <div class="p-4">px-8</div>
+      <div class="w-8 bg-stripes-white"></div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**px-8** ...">px-8</div>
 ```
 
-## Добавить поля по вертикали
+### Добавить поля по вертикали
 
 Управляйте вертикальными полями элемента с помощью утилит `py-{size}`.
 
-```html indigo
-<template preview>
-  <div class="flex justify-center text-white font-mono">
-    <div class="bg-indigo-500 bg-stripes bg-stripes-white rounded-md overflow-hidden py-8">
-      <div class="bg-indigo-500 py-3 px-4">py-8</div>
+<Example>
+  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-pink-500 rounded-lg shadow-lg">
+      <div class="h-8 bg-stripes-white"></div>
+      <div class="p-4">py-8</div>
+      <div class="h-8 bg-stripes-white"></div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**py-8** ...">py-8</div>
 ```
 
-## Добавить поля со всех сторон
+### Добавить поля со всех сторон
 
 Управляйте полями со всех сторон элемента с помощью утилит `p-{size}`.
 
-```html fuchsia
-<template preview>
-  <div class="flex justify-center text-white font-mono">
-    <div class="bg-fuchsia-500 bg-stripes bg-stripes-white rounded-md overflow-hidden p-8">
-      <div class="bg-fuchsia-500 py-3 px-4">p-8</div>
+<Example>
+  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-violet-500 bg-stripes-white rounded-lg shadow-lg p-8">
+      <div class="bg-violet-500 p-4">p-8</div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**p-8** ...">p-8</div>
 ```
 
 ---
 
-## Адаптивность
+## <Heading ignore>Применяя условно</Heading>
 
-Чтобы управлять заполнением элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите заполнения. Например, добавление класса `md:py-8` к элементу приведет к применению утилиты `py-8` при средних размерах экрана и выше.
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```html
-<div class="**md:py-8** ...">
-  <!-- ... -->
-</div>
-```
+<HoverFocusAndOtherStates defaultClass="py-4" featuredClass="py-8" />
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="py-4" featuredClass="py-8" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-### Шкала полей
+### Настройка вашей темы
 
-По умолчанию Tailwind предоставляет 19 фиксированных утилит заполнения для каждой стороны и оси.
+По умолчанию для шкалы отступов Tailwind используется [шкала интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-Если вы хотите настроить эти значения для заполнения, полей, ширины и высоты одновременно, используйте раздел `theme.spacing` Вашего файла `tailwind.config.js`.
-
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      spacing: {
-+       sm: '8px',
-+       md: '16px',
-+       lg: '24px',
-+       xl: '48px',
+      extend: {
++       spacing: {
++         '5px': '5px',
++       }
       }
     }
   }
 ```
 
-Чтобы настроить только значения заполнения, используйте раздел `theme.padding` Вашего файла `tailwind.config.js`.
+Кроме того, вы можете настроить только масштаб заполнения, отредактировав `theme.padding` или `theme.extend.padding` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      padding: {
-+       sm: '8px',
-+       md: '16px',
-+       lg: '24px',
-+       xl: '48px',
+      extend: {
++       padding: {
++         '5px': '5px',
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="padding" />
-
-### Отключение
-
-<Disabling plugin="padding" />
+<ArbitraryValues property="padding" featuredClass="p-[5px]" />

@@ -11,64 +11,58 @@ import { Heading } from '@/components/Heading'
 
 Чтобы максимально упростить эту задачу, Tailwind включает в себя `dark` вариант, который позволяет вам стилизовать ваш сайт по-разному, когда включен темный режим:
 
+<Example p="none">
+  <div class="grid grid-cols-1 sm:grid-cols-2">
+    <div class="p-8 pt-7">
+      <p class="mb-2 text-sm font-medium text-gray-500">Light mode</p>
+      <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+        <div>
+          <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </span>
+        </div>
+        <h3 class="mt-5 text-base font-medium text-gray-900 tracking-tight">Пишет вверх ногами</h3>
+        <p class="mt-2 text-sm text-gray-500">
+          Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Он работает даже в космосе.
+        </p>
+      </div>
+    </div>
+    <div class="bg-gray-900 p-8 pt-7">
+      <p class="mb-2 text-sm font-medium text-gray-400">Dark mode</p>
+      <div class="bg-gray-800 rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+        <div>
+          <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </span>
+        </div>
+        <h3 class="mt-5 text-base font-medium text-white tracking-tight">Пишет вверх ногами</h3>
+        <p class="mt-2 text-sm text-gray-400">
+          Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Он работает даже в космосе.
+        </p>
+      </div>
+    </div>
+  </div>
+</Example>
+
 ```html
-<div class="bg-white **dark:bg-gray-800**">
-  <h1 class="text-gray-900 **dark:text-white**">Темный режим здесь!</h1>
-  <p class="text-gray-600 **dark:text-gray-300**">
-    Lorem ipsum...
+<div class="bg-white **dark:bg-gray-900** rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+  <div>
+    <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+      <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
+    </span>
+  </div>
+  <h3 class="text-gray-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">Пишет вверх ногами</h3>
+  <p class="text-gray-500 **dark:text-gray-400** mt-2 text-sm">
+    Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Он работает даже в космосе.
   </p>
 </div>
 ```
 
-Важно отметить, что из-за соображений размера файла **вариант темного режима не включен в Tailwind по умолчанию**.
-
-Чтобы включить его, установите параметр `darkMode` в Вашем файле `tailwind.config.js` на `media`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  darkMode: 'media',
-  // ...
-}
-```
-
-Теперь всякий раз, когда в операционной системе пользователя включен темный режим, классы `dark:{class}` будут иметь приоритет над классами без префикса. Стратегия `media` использует под капотом мультимедийную функцию `prefers-color-scheme` , но если вы хотите поддерживать переключение темного режима вручную, вы также можете [использовать стратегию 'class'](#pereklyuchenie-temnogo-rezhima-vruchnuyu) для большего контроля.
-
-По умолчанию, когда включен `darkMode`, варианты `dark` генерируются только для классов, связанных с цветом, которые включают цвет текста, цвет фона, цвет границы, градиенты и цвет заполнителя.
-
----
-
-## Укладка с другими вариантами
-
-Вариант `dark` можно комбинировать как с [адаптивными](https://tailwindcss.com/docs/responsive-design) вариантами, так и с [вариантами состояния](https://tailwindcss.com/docs/hover-focus-and-other-states) (например, наведение и фокус):
-
-```html
-<button class="lg:dark:hover:bg-white ...">
-  <!-- ... -->
-</button>
-```
-
-Сначала должен быть адаптивный вариант, затем `dark`, а затем вариант состояния, чтобы это работало.
-
----
-
-## Включение для других утилит
-
-Чтобы включить вариант `dark` для других утилит, добавьте `dark` в список вариантов для той утилиты, для которой вы хотите включить его:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      textOpacity: ['dark']
-    }
-  }
-}
-```
-
-По умолчанию вариант `dark` включен для `backgroundColor`, `borderColor`, `gradientColorStops`, `placeholderColor` и `textColor`.
+По умолчанию здесь используется мультимедийная функция CSS `prefers-color-scheme`, но вы также можете создавать сайты, которые поддерживают переключение темного режима вручную, используя стратегию ['class' strategy](#toggling-dark-mode-manually).
 
 ---
 
@@ -76,8 +70,7 @@ module.exports = {
 
 Если вы хотите поддерживать переключение темного режима вручную вместо того, чтобы полагаться на предпочтения операционной системы, используйте стратегию `class` вместо стратегии `media`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   darkMode: 'class',
   // ...
@@ -131,25 +124,3 @@ localStorage.removeItem('theme')
 ```
 
 Опять же, вы можете управлять этим, как хотите, даже сохраняя предпочтения на стороне сервера в базе данных и отображая класс на сервере - это полностью зависит от вас.
-
-### Соображения специфичности
-
-При использовании стратегии `class` специфичность утилит темного режима будет выше, чем у обычных утилит, потому что селектор содержит дополнительный класс. Это означает, что в определенных ситуациях поведение некоторой комбинации утилит может немного отличаться в режиме `class` от режима `media`.
-
-Например, рассмотрим этот HTML:
-
-```html
-<div class="text-black text-opacity-50 dark:text-white">
-  <!-- ... -->
-</div>
-```
-
-При использовании стратегии `media`, `dark:text-white` имеет ту же специфичность, что и `text-black` и `text-opacity-50`. Поскольку `text-opacity-50` определяется позже в сгенерированном CSS, чем `dark:text-white`, белый текст будет иметь 50% непрозрачности.
-
-При использовании стратегии `class`, `dark:text-white` имеет _высокую_ специфичность, поэтому, даже если он определен раньше, он фактически переопределит `text-opacity-50` и сбросит непрозрачность обратно на 1. Так что при использовании стратегию `class` вам нужно повторно указать непрозрачность в темном режиме:
-
-```html
-<div class="text-black text-opacity-50 dark:text-white dark:text-opacity-50">
-  <!-- ... -->
-</div>
-```

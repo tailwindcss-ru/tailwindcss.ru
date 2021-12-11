@@ -1,78 +1,121 @@
 ---
 title: "Вращение оттенка фона"
 description: "Утилиты для применения фильтров изменения цвета фона к элементу."
-featureVersion: 'v2.1+'
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=backdropHueRotate'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingBackdropFilters } from '@/components/RemovingBackdropFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-      '.-backdrop-hue-rotate-180': { '--tw-backdrop-hue-rotate':  'hue-rotate(-180deg)' },
-      '.-backdrop-hue-rotate-90': { '--tw-backdrop-hue-rotate':  'hue-rotate(-90deg)' },
-      '.-backdrop-hue-rotate-60': { '--tw-backdrop-hue-rotate':  'hue-rotate(-60deg)' },
-      '.-backdrop-hue-rotate-30': { '--tw-backdrop-hue-rotate':  'hue-rotate(-30deg)' },
-      '.-backdrop-hue-rotate-15': { '--tw-backdrop-hue-rotate':  'hue-rotate(-15deg)' },
-      '.backdrop-hue-rotate-0': { '--tw-backdrop-hue-rotate': 'hue-rotate(0deg)' },
-      '.backdrop-hue-rotate-15': { '--tw-backdrop-hue-rotate': 'hue-rotate(15deg)' },
-      '.backdrop-hue-rotate-30': { '--tw-backdrop-hue-rotate': 'hue-rotate(30deg)' },
-      '.backdrop-hue-rotate-60': { '--tw-backdrop-hue-rotate': 'hue-rotate(60deg)' },
-      '.backdrop-hue-rotate-90': { '--tw-backdrop-hue-rotate': 'hue-rotate(90deg)' },
-      '.backdrop-hue-rotate-180': { '--tw-backdrop-hue-rotate': 'hue-rotate(180deg)' },
-      })
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      'backdrop-filter': properties['--tw-backdrop-hue-rotate'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `backdrop-hue-rotate-{amount}` вместе с утилитой `backdrop-filter` для поворота оттенка фона элемента.
+### Изменение оттенка фона
+
+Используйте утилиты `backdrop-hue-rotate-{amount}` для поворота оттенка фона элемента.
+
+<Example p="none">
+  <div class="flex justify-start sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">backdrop-hue-rotate-90</p>
+      <div class="relative">
+        <div class="absolute inset-6 backdrop-hue-rotate-90 h-20 w-20 bg-white/30"></div>
+        <img class="w-32 h-32 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">backdrop-hue-rotate-180</p>
+      <div class="relative">
+        <div class="absolute inset-6 backdrop-hue-rotate-180 h-20 w-20 bg-white/30"></div>
+        <img class="w-32 h-32 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">-backdrop-hue-rotate-60</p>
+      <div class="relative">
+        <div class="absolute inset-6 -backdrop-hue-rotate-60 h-20 w-20 bg-white/30"></div>
+        <img class="w-32 h-32 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
 
 ```html
-<div class="backdrop-filter backdrop-hue-rotate-15 ...">
+<div class="**backdrop-hue-rotate-90** bg-white/30 ...">
+  <!-- ... -->
+</div>
+<div class="**backdrop-hue-rotate-180** bg-white/30 ...">
+  <!-- ... -->
+</div>
+<div class="**-backdrop-hue-rotate-60** bg-white/30 ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Использование отрицательных значений
 
-Чтобы управлять вращением оттенка фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите фона `hue-rotate`. Например, используйте `md:backdrop-hue-rotate-60`, чтобы применить утилиту `backdrop-hue-rotate-60` только при средних размерах экрана и выше.
+Чтобы использовать отрицательное значение поворота оттенка фона, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
 ```html
-<div class="backdrop-filter backdrop-hue-rotate-15 **md:backdrop-hue-rotate-60** ...">
+<div class="**-backdrop-hue-rotate-60**">
   <!-- ... -->
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### Удаление фильтров фона
 
-## Кастомизация
+<RemovingBackdropFilters defaultClass="backdrop-blur-md backdrop-hue-rotate-180" />
 
-Вы можете настроить, какие утилиты `backdrop-hue-rotate` будут генерироваться, используя ключ `backdropHueRotate` в разделе `theme` вашего файла `tailwind.config.js`.
+---
 
-```diff-js
-  // tailwind.config.js
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="backdrop-hue-rotate-15" featuredClass="backdrop-hue-rotate-60" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="backdrop-hue-rotate-15" featuredClass="backdrop-hue-rotate-60" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `backdrop-hue-rotate`. Вы можете настроить эти значения, отредактировав `theme.backdropHueRotate` или `theme.extend.backdropHueRotate` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       backdropHueRotate: {
 +         '-270': '-270deg',
 +         270: '270deg',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="backdropHueRotate" name="backdrop hue-rotate" />
-
-### Отключение
-
-<Disabling plugin="backdropHueRotate" name="backdrop hue-rotate" />
+<ArbitraryValues property="backdrop-hue-rotate" featuredClass="backdrop-hue-rotate-[270deg]" />

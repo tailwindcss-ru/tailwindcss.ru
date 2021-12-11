@@ -1,69 +1,98 @@
 ---
 title: "Сепия"
 description: "Утилиты для применения фильтров сепии к элементу."
-featureVersion: 'v2.1+'
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=sepia'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-        '.sepia-0': { '--tw-sepia': 'sepia(0)' },
-        '.sepia': { '--tw-sepia': 'sepia(1)' },
-      })
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-sepia'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `sepia` и `sepia-0` вместе с утилитой `filter`, чтобы определить, должен ли элемент отображаться как сепия или в полном цвете.
+### Добавление фильтров сепии
+
+Используйте утилиты `sepia` и `sepia-0` для управления тем, должен ли элемент отображаться как сепия или в полном цвете.
+
+<Example p="none">
+  <div class="flex justify-center sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">sepia-0</p>
+      <div class="relative sepia-0">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">sepia</p>
+      <div class="relative sepia">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
 
 ```html
-<div class="filter sepia ...">
+<div class="**sepia-0** ...">
+  <!-- ... -->
+</div>
+<div class="**sepia** ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Удаление фильтров
 
-Чтобы управлять фильтром сепия элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите сепия. Например, используйте `md:sepia-0`, чтобы применить утилиту `sepia-0` только при средних размерах экрана и выше.
+<RemovingFilters defaultClass="blur-md invert sepia" />
 
-```html
-<div class="filter sepia **md:sepia-0** ...">
-  <!-- ... -->
-</div>
-```
+---
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+## <Heading ignore>Применяя условно</Heading>
 
-## Кастомизация
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Вы можете настроить, какие утилиты `sepia` будут генерироваться, используя ключ `sepia` в разделе `theme` вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="sepia" featuredClass="sepia-0" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="sepia" featuredClass="sepia-0" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `sepia`. Вы можете настроить эти значения, отредактировав `theme.sepia` или `theme.extend.sepia` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       sepia: {
 +         25: '.25',
 +         75: '.75',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="sepia" name="sepia" />
-
-### Отключение
-
-<Disabling plugin="sepia" name="sepia" />
+<ArbitraryValues property="sepia" featuredClass="sepia-[.25]" />

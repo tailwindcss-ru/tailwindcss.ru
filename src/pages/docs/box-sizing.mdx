@@ -3,13 +3,15 @@ title: "Размеры элемента"
 description: "Утилиты для управления тем, как браузер должен вычислять общий размер элемента."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/boxSizing'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=boxSizing'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Включите границы и отступы
+## Основы использования
+
+### Включая границы и отступы
 
 Используйте `box-border`, чтобы установить для элемента `box-sizing` значение `border-box`, указав браузеру включать границы и отступы элемента, когда вы задаете ему высоту или ширину.
 
@@ -17,58 +19,132 @@ export const classes = { plugin }
 
 Tailwind делает это значение по умолчанию для всех элементов в наших [базовых стилях предварительной проверки](/docs/preflight).
 
-```html lightBlue
-<template preview>
-  <div class="flex items-center justify-around">
-    <div class="box-border h-32 w-32 p-4 border-4 border-light-blue-400 bg-light-blue-200 rounded-md">
-      <div class="h-full w-full bg-light-blue-400 bg-stripes bg-stripes-white"></div>
+<Example p="none">
+  <div class="relative grid grid-cols-[1fr,1fr,1fr] grid-rows-[1fr,3fr,1fr] gap-px bg-gray-700/10 font-mono text-sm font-bold leading-6 bg-white max-w-sm mx-auto w-full shadow-xl">
+    <div class="bg-white col-start-1 row-start-1"></div>
+    <div class="relative bg-white col-start-2 row-start-1">
+      <!-- w-measure indicator -->
+      <div class="absolute flex bottom-2 left-0 right-0">
+        <!-- Horizontal line -->
+        <div class="bg-sky-400 h-px absolute left-0 top-1/2 -translate-y-px right-0"></div>
+        <!-- Left chip -->
+        <div class="w-full">
+          <div class="rounded-full h-2 bg-sky-400 w-px absolute left-0 top-1/2 -translate-x-px -translate-y-1"></div>
+        </div>
+        <!-- Badge -->
+        <div class="relative flex-auto font-mono font-bold w-full bg-white text-sky-600 text-xs px-1.5 flex items-center justify-center leading-none">128px</div>
+        <!-- Right chip -->
+        <div class="w-full">
+          <div class="rounded-full h-2 bg-sky-400 w-px absolute right-0 top-1/2 translate-x-px -translate-y-1"></div>
+        </div>
+      </div>
     </div>
+    <div class="bg-white col-start-3 row-start-1"></div>
+    <div class="relative bg-white col-start-1 row-start-2">
+      <!-- h-measure indicator -->
+      <div class="absolute flex top-0 bottom-0 right-2 w-3">
+        <!-- Vertical line -->
+        <div class="bg-sky-400 w-px absolute top-0 left-1/2 -translate-x-[0.5px] bottom-0"></div>
+        <!-- Top chip -->
+        <div class="w-full">
+          <div class="rounded-full w-2 bg-sky-400 h-px absolute top-0 left-1/2 -translate-y-px -translate-x-1"></div>
+        </div>
+        <!-- Badge -->
+        <div class="relative -rotate-90 -translate-x-[1.15rem] translate-y-14 h-3 flex flex-auto font-mono font-bold bg-white text-sky-600 text-xs px-1.5 items-center justify-center leading-none">128px</div>
+        <!-- Bottom chip -->
+        <div class="w-full">
+          <div class="rounded-full w-2 bg-sky-400 h-px absolute bottom-0 left-1/2 translate-y-px -translate-x-1"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white col-start-2 row-start-2 w-32 h-32 ring-1 ring-sky-300">
+      <div class="box-border relative bg-stripes-sky w-32 h-32 p-5 ring ring-sky-300 ring-inset">
+        <div class="w-full h-full bg-sky-500 ring-1 ring-sky-500"></div>
+      </div>
+    </div>
+    <div class="bg-white col-start-3 row-start-2"></div>
+    <div class="bg-white col-start-1 row-start-3"></div>
+    <div class="bg-white col-start-2 row-start-3"></div>
+    <div class="bg-white col-start-3 row-start-3"></div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**box-border** h-32 w-32 p-4 border-4 ...">
   <!-- ... -->
 </div>
 ```
 
-## Исключить границы и отступы
+### Исключение границ и отступов
 
 Используйте `box-content`, чтобы установить для элемента `box-sizing` значение `content-box`, указав браузеру добавить границы и отступы поверх указанной ширины или высоты элемента.
 
 Это означает, что 100px &times; Элемент 100px с границей 2px и отступом 4px со всех сторон будет отображаться как 112px &times; 112px, с внутренней областью содержимого 100px &times; 100px.
 
-```html emerald
-<template preview>
-  <div class="flex items-center justify-around">
-    <div class="box-content h-32 w-32 p-4 border-4 border-emerald-400 bg-emerald-200 rounded-md">
-      <div class="h-full w-full bg-emerald-400 bg-stripes bg-stripes-white"></div>
+<Example p="none">
+  <div class="relative grid grid-cols-[1fr,1fr,1fr] grid-rows-[1fr,2fr,1fr] gap-px bg-gray-700/10 font-mono text-sm font-bold leading-6 bg-white max-w-sm mx-auto w-full shadow-xl">
+    <div class="bg-white col-start-1 row-start-1"></div>
+    <div class="relative bg-white col-start-2 row-start-1">
+      <!-- w-measure indicator -->
+      <div class="absolute flex bottom-2 left-0 right-0 -translate-y-5">
+        <!-- Horizontal line -->
+        <div class="bg-blue-400 h-px absolute left-0 top-1/2 -translate-y-px right-0"></div>
+        <!-- Left chip -->
+        <div class="w-full">
+          <div class="rounded-full h-2 bg-blue-400 w-px absolute left-0 top-1/2 -translate-x-px -translate-y-1"></div>
+        </div>
+        <!-- Badge -->
+        <div class="relative flex-auto font-mono font-bold w-full bg-white text-blue-600 text-xs px-1.5 flex items-center justify-center leading-none">128px</div>
+        <!-- Right chip -->
+        <div class="w-full">
+          <div class="rounded-full h-2 bg-blue-400 w-px absolute right-0 top-1/2 translate-x-px -translate-y-1"></div>
+        </div>
+      </div>
     </div>
+    <div class="bg-white col-start-3 row-start-1"></div>
+    <div class="relative bg-white col-start-1 row-start-2">
+      <!-- h-measure indicator -->
+      <div class="absolute flex top-0 bottom-0 right-2 w-3 -translate-x-5">
+        <!-- Vertical line -->
+        <div class="bg-blue-400 w-px absolute top-0 left-1/2 -translate-x-[0.5px] bottom-0"></div>
+        <!-- Top chip -->
+        <div class="w-full">
+          <div class="rounded-full w-2 bg-blue-400 h-px absolute top-0 left-1/2 -translate-y-px -translate-x-1"></div>
+        </div>
+        <!-- Badge -->
+        <div class="relative -rotate-90 -translate-x-[1.15rem] translate-y-14 h-3 flex flex-auto font-mono font-bold bg-white text-blue-600 text-xs px-1.5 items-center justify-center leading-none">128px</div>
+        <!-- Bottom chip -->
+        <div class="w-full">
+          <div class="rounded-full w-2 bg-blue-400 h-px absolute bottom-0 left-1/2 translate-y-px -translate-x-1"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white col-start-2 row-start-2 w-32 h-32">
+      <div class="box-content -translate-x-5 -translate-y-5 relative bg-stripes-blue w-32 h-32 p-5 ring-4 ring-blue-300 ring-inset">
+        <div class="w-full h-full bg-blue-500 ring-1 ring-blue-500"></div>
+      </div>
+    </div>
+    <div class="bg-white col-start-3 row-start-2"></div>
+    <div class="bg-white col-start-1 row-start-3"></div>
+    <div class="bg-white col-start-2 row-start-3"></div>
+    <div class="bg-white col-start-3 row-start-3"></div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**box-content** h-32 w-32 p-4 border-4 ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы контролировать размер блока в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите изменения размера блока. Например, используйте `md:box-content`, чтобы применить утилиту `box-content` только при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="box-border **md:box-content** ...">
-  <!-- ... -->
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="box-border" featuredClass="box-content" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-### Варианты
-
-<Variants plugin="boxSizing" name="box-sizing" />
-
-### Отключение
-
-<Disabling plugin="boxSizing" name="box-sizing" />
+<BreakpointsAndMediaQueries defaultClass="box-border" featuredClass="box-content" />

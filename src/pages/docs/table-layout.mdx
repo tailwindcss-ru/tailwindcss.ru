@@ -1,151 +1,154 @@
 ---
 title: "Макет таблицы"
 description: "Утилиты для управления алгоритмом макета таблицы."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/tableLayout'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=tableLayout'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Авто
+## Основы использования
+
+### Авто
 
 Используйте `table-auto`, чтобы разрешить таблице автоматически изменять размер столбцов в соответствии с содержимым ячейки.
 
-```html emerald
-<template preview>
-  <table class="table-auto">
-    <thead>
-      <tr>
-        <th class="px-4 py-2 text-emerald-600">Заголовок</th>
-        <th class="px-4 py-2 text-emerald-600">Автор</th>
-        <th class="px-4 py-2 text-emerald-600">Просмотры</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Введение в CSS</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Адам</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">858</td>
-      </tr>
-      <tr class="bg-emerald-200">
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Длинный и извилистый тур по истории UI-фреймворков и инструментов и их влияния на дизайн</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Адам</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">112</td>
-      </tr>
-      <tr>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Введение в JavaScript</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">Крис</td>
-        <td class="border border-emerald-500 px-4 py-2 text-emerald-600 font-medium">1,280</td>
-      </tr>
-    </tbody>
-  </table>
-</template>
+<Example p="none">
+  <div class="shadow-sm overflow-hidden my-8">
+    <table class="border-collapse table-auto w-full text-sm">
+      <thead>
+        <tr>
+          <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-gray-400 text-left">Песня</th>
+          <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Артист</th>
+          <th class="border-b font-medium p-4 pr-8 pt-0 pb-3 text-gray-400 text-left">Год</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr>
+          <td class="border-b border-gray-100 p-4 pl-8 text-gray-500">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+          <td class="border-b border-gray-100 p-4 text-gray-500">Malcolm Lockyer</td>
+          <td class="border-b border-gray-100 p-4 pr-8 text-gray-500">1961</td>
+        </tr>
+        <tr>
+          <td class="border-b border-gray-100 p-4 pl-8 text-gray-500">Witchy Woman</td>
+          <td class="border-b border-gray-100 p-4 text-gray-500">The Eagles</td>
+          <td class="border-b border-gray-100 p-4 pr-8 text-gray-500">1972</td>
+        </tr>
+        <tr>
+          <td class="border-b border-gray-200 p-4 pl-8 text-gray-500">Shining Star</td>
+          <td class="border-b border-gray-200 p-4 text-gray-500">Earth, Wind, and Fire</td>
+          <td class="border-b border-gray-200 p-4 pr-8 text-gray-500">1975</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Example>
 
+```html
 <table class="**table-auto**">
   <thead>
     <tr>
-      <th>Заголовок</th>
-      <th>Автор</th>
-      <th>Просмотры</th>
+      <th>Песня</th>
+      <th>Артист</th>
+      <th>Год</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Введение в CSS</td>
-      <td>Адам</td>
-      <td>858</td>
-    </tr>
-    <tr class="bg-emerald-200">
-      <td>Длинный и извилистый тур по истории UI-фреймворков и инструментов и их влияния на дизайн</td>
-      <td>Адам</td>
-      <td>112</td>
+      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+      <td>Malcolm Lockyer</td>
+      <td>1961</td>
     </tr>
     <tr>
-      <td>Введение в JavaScript</td>
-      <td>Крис</td>
-      <td>1,280</td>
+      <td>Witchy Woman</td>
+      <td>The Eagles</td>
+      <td>1972</td>
+    </tr>
+    <tr>
+      <td>Shining Star</td>
+      <td>Earth, Wind, and Fire</td>
+      <td>1975</td>
     </tr>
   </tbody>
 </table>
 ```
 
-## Фиксированный
+### Фиксированный
 
 Используйте `table-fixed`, чтобы таблица игнорировала содержимое и использовала фиксированную ширину для столбцов. Ширина первой строки задает ширину столбца для всей таблицы.
 
 Вы можете вручную установить ширину для некоторых столбцов, а остальная доступная ширина будет равномерно разделена между столбцами без явной ширины.
 
-```html lightBlue
-<template preview>
-  <table class="table-fixed">
-    <thead>
-      <tr>
-        <th class="w-1/2 px-4 py-2 text-light-blue-600">Заголовок</th>
-        <th class="w-1/4 px-4 py-2 text-light-blue-600">Автор</th>
-        <th class="w-1/4 px-4 py-2 text-light-blue-600">Просмотры</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Введение в CSS</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Адам</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">858</td>
-      </tr>
-      <tr class="bg-light-blue-200">
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Длинный и извилистый тур по истории UI-фреймворков и инструментов и их влияния на дизайн</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Адам</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">112</td>
-      </tr>
-      <tr>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Введение в JavaScript</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">Крис</td>
-        <td class="border border-light-blue-500 px-4 py-2 text-light-blue-600 font-medium">1,280</td>
-      </tr>
-    </tbody>
-  </table>
-</template>
+<Example p="none">
+  <div class="shadow-sm overflow-hidden my-8">
+    <table class="border-collapse table-fixed w-full text-sm">
+      <thead>
+        <tr>
+          <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-gray-400 text-left">Песня</th>
+          <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Артист</th>
+          <th class="border-b font-medium p-4 pr-8 pt-0 pb-3 text-gray-400 text-left">Год</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr>
+          <td class="border-b border-gray-100 p-4 pl-8 text-gray-500">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+          <td class="border-b border-gray-100 p-4 text-gray-500">Malcolm Lockyer</td>
+          <td class="border-b border-gray-100 p-4 pr-8 text-gray-500">1961</td>
+        </tr>
+        <tr>
+          <td class="border-b border-gray-100 p-4 pl-8 text-gray-500">Witchy Woman</td>
+          <td class="border-b border-gray-100 p-4 text-gray-500">The Eagles</td>
+          <td class="border-b border-gray-100 p-4 pr-8 text-gray-500">1972</td>
+        </tr>
+        <tr>
+          <td class="border-b border-gray-200 p-4 pl-8 text-gray-500">Shining Star</td>
+          <td class="border-b border-gray-200 p-4 text-gray-500">Earth, Wind, and Fire</td>
+          <td class="border-b border-gray-200 p-4 pr-8 text-gray-500">1975</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Example>
 
+```html
 <table class="**table-fixed**">
   <thead>
     <tr>
-      <th class="w-1/2 ...">Заголовок</th>
-      <th class="w-1/4 ...">Автор</th>
-      <th class="w-1/4 ...">Просмотры</th>
+      <th>Песня</th>
+      <th>Артист</th>
+      <th>Год</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Введение в CSS</td>
-      <td>Адам</td>
-      <td>858</td>
-    </tr>
-    <tr class="bg-blue-200">
-      <td>Длинный и извилистый тур по истории UI-фреймворков и инструментов и их влияния на дизайн</td>
-      <td>Адам</td>
-      <td>112</td>
+      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+      <td>Malcolm Lockyer</td>
+      <td>1961</td>
     </tr>
     <tr>
-      <td>Введение в JavaScript</td>
-      <td>Крис</td>
-      <td>1,280</td>
+      <td>Witchy Woman</td>
+      <td>The Eagles</td>
+      <td>1972</td>
+    </tr>
+    <tr>
+      <td>Shining Star</td>
+      <td>Earth, Wind, and Fire</td>
+      <td>1975</td>
     </tr>
   </tbody>
 </table>
 ```
 
-## Кастомизация
+---
 
-### Варианты
+## <Heading ignore>Применяя условно</Heading>
 
-<Variants plugin="tableLayout" />
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-### Отключение
+<HoverFocusAndOtherStates element="table" featuredClass="table-fixed" />
 
-<Disabling plugin="tableLayout" />
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries element="table" featuredClass="table-fixed" />

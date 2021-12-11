@@ -1,228 +1,167 @@
 ---
 title: "Flex-элементы"
 description: "Утилиты для управления увеличением и уменьшением flex-элементов."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/flex'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=flex'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Исходный
+## Основы использования
 
-Используйте `flex-initial`, чтобы позволить flex-элементу сжиматься, но не увеличиваться, учитывая его начальный размер:
+### Исходный
 
-```html indigo
-<template preview>
-  <p class="text-sm text-indigo-600">Элементы не расширяются, когда есть лишнее место</p>
-  <div class="mt-2 flex space-x-4">
-    <div class="flex-initial rounded-md bg-indigo-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Короткий
-    </div>
-    <div class="flex-initial rounded-md bg-indigo-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Средняя длина
-    </div>
+Используйте `flex-initial`, чтобы позволить гибкому элементу сжиматься, но не увеличиваться, учитывая его начальный размер:
+
+<Example resizable>
+  <div class="mt-2 flex gap-4 text-white text-sm font-bold font-mono leading-6 bg-stripes-blue rounded-lg">
+    <div class="p-4 flex-none w-14 h-14 rounded-lg flex items-center justify-center bg-blue-300">01</div>
+    <div class="p-4 flex-initial w-24 sm:w-64 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">02</div>
+    <div class="p-4 flex-initial w-14 sm:w-32 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">03</div>
   </div>
+</Example>
 
-  <p class="mt-8 text-sm text-indigo-600">При необходимости элементы сжимаются, если это возможно</p>
-  <div class="mt-2 flex space-x-4">
-    <div class="flex-initial rounded-md bg-indigo-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Короткий
-    </div>
-    <div class="flex-initial rounded-md bg-indigo-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Средняя длина
-    </div>
-    <div class="flex-initial rounded-md bg-indigo-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad labore ipsam, aut rem quo repellat esse tempore id, quidem
-    </div>
-  </div>
-</template>
-
+```html
 <div class="flex">
-  <div class="**flex-initial** ...">
-    <!-- Не будет расширяться, но при необходимости сожмется -->
+  <div class="flex-none w-14 h-14">
+    01
   </div>
-  <div class="**flex-initial** ...">
-    <!-- Не будет расширяться, но при необходимости сожмется -->
+  <div class="**flex-initial** w-64 ...">
+    02
   </div>
-  <div class="**flex-initial** ...">
-    <!-- Не будет расширяться, но при необходимости сожмется -->
+  <div class="**flex-initial** w-32 ...">
+    03
   </div>
 </div>
 ```
 
-## Гибкий 1
+### Гибкий 1
 
 Используйте `flex-1`, чтобы позволить flex-элементу увеличиваться и уменьшаться по мере необходимости, игнорируя его начальный размер:
 
-```html fuchsia
-<template preview>
-  <p class="text-sm text-fuchsia-600">Поведение по умолчанию</p>
-  <div class="mt-2 flex space-x-4">
-    <div class="rounded-md bg-fuchsia-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Короткий
-    </div>
-    <div class="rounded-md bg-fuchsia-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Средняя длина
-    </div>
-    <div class="rounded-md bg-fuchsia-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Значительно больший объем контента
-    </div>
+<Example resizable>
+  <div class="mt-2 flex gap-4 text-white text-sm font-bold font-mono leading-6 bg-stripes-pink rounded-lg">
+    <div class="p-4 flex-none w-14 h-14 rounded-lg flex items-center justify-center bg-pink-300">01</div>
+    <div class="p-4 flex-1 w-64 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">02</div>
+    <div class="p-4 flex-1 w-32 rounded-lg flex items-center justify-center bg-pink-500 shadow-lg">03</div>
   </div>
+</Example>
 
-  <p class="mt-8 text-sm text-fuchsia-600">С <code>.flex-1</code></p>
-  <div class="mt-2 flex space-x-4">
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Короткий
-    </div>
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Средняя длина
-    </div>
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Значительно больший объем контента
-    </div>
-  </div>
-</template>
-
+```html
 <div class="flex">
-  <div class="**flex-1** ...">
-    <!-- Будет увеличиваться и уменьшаться по мере необходимости без учета первоначального размера -->
+  <div class="flex-none ...">
+    01
   </div>
-  <div class="**flex-1** ...">
-    <!-- Будет увеличиваться и уменьшаться по мере необходимости без учета первоначального размера -->
+  <div class="**flex-1** w-64 ...">
+    02
   </div>
-  <div class="**flex-1** ...">
-    <!-- Будет увеличиваться и уменьшаться по мере необходимости без учета первоначального размера -->
+  <div class="**flex-1** w-32 ...">
+    03
   </div>
 </div>
 ```
 
-## Авто
+### Авто
 
 Используйте `flex-auto`, чтобы позволить flex-элементу увеличиваться и уменьшаться с учетом его первоначального размера:
 
-```html lightBlue
-<template preview>
-  <p class="text-sm text-light-blue-600">Поведение по умолчанию</p>
-  <div class="mt-2 flex space-x-4">
-    <div class="rounded-md bg-light-blue-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Короткий
-    </div>
-    <div class="rounded-md bg-light-blue-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Средняя длина
-    </div>
-    <div class="rounded-md bg-light-blue-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Значительно больший объем контента
-    </div>
+<Example resizable>
+  <div class="mt-2 flex gap-4 text-white text-sm font-bold font-mono leading-6 bg-stripes-violet rounded-lg">
+    <div class="p-4 flex-none w-14 h-14 rounded-lg flex items-center justify-center bg-violet-300">01</div>
+    <div class="p-4 flex-auto w-64 rounded-lg flex items-center justify-center bg-violet-500 shadow-lg">02</div>
+    <div class="p-4 flex-auto w-32 rounded-lg flex items-center justify-center bg-violet-500 shadow-lg">03</div>
   </div>
-
-  <p class="mt-8 text-sm text-light-blue-600">С <code>.flex-auto</code></p>
-  <div class="mt-2 flex space-x-4">
-    <div class="flex-auto rounded-md bg-light-blue-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Короткий
-    </div>
-    <div class="flex-auto rounded-md bg-light-blue-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Средняя длина
-    </div>
-    <div class="flex-auto rounded-md bg-light-blue-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Значительно больший объем контента
-    </div>
-  </div>
-</template>
-
-<div class="flex ...">
-  <div class="**flex-auto** ...">
-    <!-- Будет увеличиваться и уменьшаться по мере необходимости с учетом первоначального размера -->
-  </div>
-  <div class="**flex-auto** ...">
-    <!-- Будет увеличиваться и уменьшаться по мере необходимости с учетом первоначального размера -->
-  </div>
-  <div class="**flex-auto** ...">
-    <!-- Будет увеличиваться и уменьшаться по мере необходимости с учетом первоначального размера -->
-  </div>
-</div>
-```
-
-## Ничего
-
-Используйте `flex-none`, чтобы предотвратить расширение или сжатие гибкого элемента:
-
-```html emerald
-<template preview>
-  <div class="flex space-x-4">
-    <div class="flex-1 rounded-md bg-emerald-300 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Элемент, который при необходимости может увеличиваться или уменьшаться
-    </div>
-    <div class="flex-none rounded-md bg-emerald-500 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Элемент, который не может увеличиваться или уменьшаться
-    </div>
-    <div class="flex-1 rounded-md bg-emerald-300 text-white font-semibold flex items-center justify-center py-3 px-6">
-      Элемент, который при необходимости может увеличиваться или уменьшаться
-    </div>
-  </div>
-</template>
-
-<div class="flex ...">
-  <div class="flex-1 ...">
-    <!-- Будет расширяться и уменьшаться по мере необходимости -->
-  </div>
-  <div class="**flex-none** ...">
-    <!-- Не будет расширяться и сжиматься -->
-  </div>
-  <div class="flex-1 ...">
-    <!-- Будет расширяться и уменьшаться по мере необходимости -->
-  </div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы контролировать увеличение и уменьшение flex-элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любому существующему классу утилиты. Например, используйте `md:flex-1`, чтобы применить утилиту `flex-1` только при средних размерах экрана и выше.
+</Example>
 
 ```html
 <div class="flex ...">
-  <!-- ... -->
-  <div class="flex-none **md:flex-1** ...">
-    Адаптивный гибкий элемент
+  <div class="flex-none ...">
+    01
   </div>
-  <!-- ... -->
+  <div class="**flex-auto** w-64 ...">
+    02
+  </div>
+  <div class="**flex-auto** w-32 ...">
+    03
+  </div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### Ничего
 
-## Кастомизация
+Используйте `flex-none`, чтобы предотвратить расширение или сжатие гибкого элемента:
 
-### Гибкие значения
+<Example resizable>
+  <div class="flex gap-4 text-white text-sm font-bold font-mono leading-6 bg-stripes-indigo rounded-lg">
+    <div class="flex-none last:pr-8 sm:last:pr-0">
+      <div class="p-4 w-14 h-14 rounded-lg flex items-center justify-center bg-indigo-300">
+        01
+      </div>
+    </div>
+    <div class="flex-none last:pr-8 sm:last:pr-0">
+      <div class="p-4 w-72 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">
+        02
+      </div>
+    </div>
+    <div class="flex-none flex-1 last:pr-8 sm:last:pr-0">
+      <div class="p-4 rounded-lg flex items-center justify-center bg-indigo-300">
+        03
+      </div>
+    </div>
+  </div>
+</Example>
 
-По умолчанию Tailwind предоставляет четыре `flex` утилиты. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.flex` Вашей конфигурации Tailwind.
+```html
+<div class="flex ...">
+  <div class="flex-none w-14 h-14 ...">
+    01
+  </div>
+  <div class="**flex-none** ...">
+    02
+  </div>
+  <div class="flex-1 ...">
+    03
+  </div>
+</div>
+```
 
-```diff-js
-  // tailwind.config.js
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="flex-none" featuredClass="flex-1" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="flex-none" featuredClass="flex-1" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind предоставляет четыре `flex`. Вы можете настроить эти значения, отредактировав `theme.flex` или `theme.extend.flex` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      flex: {
-        '1': '1 1 0%',
-        auto: '1 1 auto',
--       initial: '0 1 auto',
-+       inherit: 'inherit',
-        none: 'none',
-+       '2': '2 2 0%',
+      extend: {
++       flex: {
++         '2': '2 2 0%'
++       }
       }
     }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="flex" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="flex" />
+<ArbitraryValues property="flex" featuredClass="flex-[2_2_0%]" />

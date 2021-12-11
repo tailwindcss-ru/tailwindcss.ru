@@ -1,18 +1,19 @@
 ---
 title: "Режим фонового смешивания"
 description: "Утилиты для управления тем, как фоновое изображение элемента должно сливаться с его цветом фона."
-featureVersion: 'v2.1+'
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundBlendMode'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=backgroundBlendMode'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `bg-blend-{mode}` для управления тем, как фоновое изображение элемента должно смешиваться с цветом фона.
+### Установка режима наложения фона
+
+Используйте утилиты `bg-blend-{mode}` для управления тем, как фоновые изображения элемента должны смешиваться с его цветом фона.
 
 ```html
 <div class="bg-blend-multiply ...">
@@ -20,24 +21,14 @@ export const classes = { plugin }
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять свойством `background-blend-mode` в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите `background-blend-mode`. Например, используйте `md:bg-blend-darken`, чтобы применить утилиту `bg-blend-darken` только на средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="bg-blend-lighten **md:bg-blend-darken** ...">
-  <!-- ... -->
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="bg-blend-lighten" featuredClass="bg-blend-darken" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-### Варианты
-
-<Variants plugin="backgroundBlendMode" name="background-blend-mode" />
-
-### Отключение
-
-<Disabling plugin="backgroundBlendMode" name="background-blend-mode" />
+<BreakpointsAndMediaQueries defaultClass="bg-blend-lighten" featuredClass="bg-blend-darken" />

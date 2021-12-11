@@ -1,72 +1,118 @@
 ---
 title: "Насыщенность"
 description: "Утилиты для применения фильтров насыщенности к элементу."
-featureVersion: 'v2.1+'
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=saturate'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-        '.saturate-0': { '--tw-saturate': 'saturate(0)' },
-        '.saturate-50': { '--tw-saturate': 'saturate(.5)' },
-        '.saturate-100': { '--tw-saturate': 'saturate(1)' },
-        '.saturate-150': { '--tw-saturate': 'saturate(1.5)' },
-        '.saturate-200': { '--tw-saturate': 'saturate(2)' },
-      })
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-saturate'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `saturate-{amount}` вместе с утилитой `filter` для управления насыщенностью элемента.
+### Изменение насыщенности элемента
+
+Используйте утилиты `saturate-{amount}` для управления насыщенностью элемента.
+
+<Example p="none">
+  <div class="flex justify-start sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">saturate-50</p>
+      <div class="relative saturate-50">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">saturate-100</p>
+      <div class="relative saturate-100">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">saturate-150</p>
+      <div class="relative saturate-150">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">saturate-200</p>
+      <div class="relative saturate-200">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
 
 ```html
-<div class="filter saturate-150 ...">
+<div class="**saturate-50** ...">
+  <!-- ... -->
+</div>
+<div class="**saturate-100** ...">
+  <!-- ... -->
+</div>
+<div class="**saturate-150** ...">
+  <!-- ... -->
+</div>
+<div class="**saturate-200** ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Удаление фильтров
 
-Чтобы управлять насыщенностью элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите насыщенности. Например, используйте `md:saturate-150`, чтобы применить утилиту `saturate-150` только при средних размерах экрана и выше.
+<RemovingFilters defaultClass="blur-md invert saturate-150" />
 
-```html
-<div class="filter saturate-50 **md:saturate-150** ...">
-  <!-- ... -->
-</div>
-```
+---
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+## <Heading ignore>Применяя условно</Heading>
 
-## Кастомизация
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Вы можете настроить, какие утилиты `saturate` будут генерироваться, используя ключ `saturate` в разделе `theme` вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="saturate-50" featuredClass="saturate-150" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="saturate-50" featuredClass="saturate-150" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `saturate`. Вы можете настроить эти значения, отредактировав `theme.saturate` или `theme.extend.saturate` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       saturate: {
 +         25: '.25',
 +         75: '.75',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="saturate" name="saturate" />
-
-### Отключение
-
-<Disabling plugin="saturate" name="saturate" />
+<ArbitraryValues property="saturate" featuredClass="saturate-[.25]" />

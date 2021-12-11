@@ -1,97 +1,90 @@
 ---
 title: "Перенос flex-элементов"
 description: "Утилиты для управления переносом flex-элементов."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/flexWrap'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=flexWrap'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Не переносить
+## Основы использования
+
+### Не переносить
 
 Используйте `flex-nowrap`, чтобы предотвратить перенос flex-элементов, в результате чего flex-элементы при необходимости переполняют контейнер:
 
-```html emerald
-<template preview>
-  <div class="flex flex-nowrap space-x-4">
-    <div class="h-12 w-2/5 rounded-md text-white flex-none bg-emerald-500 flex items-center justify-center text-2xl font-semibold ">1</div>
-    <div class="h-12 w-2/5 rounded-md text-white flex-none bg-emerald-500 flex items-center justify-center text-2xl font-semibold ">2</div>
-    <div class="h-12 w-2/5 rounded-md text-white flex-none bg-emerald-500 flex items-center justify-center text-2xl font-semibold ">3</div>
+<Example>
+  <div class="flex flex-nowrap gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-light-blue rounded-lg">
+    <div class="w-2/5 flex-none last:pr-8">
+      <div class="p-4 w-full rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">01</div>
+    </div>
+    <div class="w-2/5 flex-none last:pr-8">
+      <div class="p-4 w-full rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">02</div>
+    </div>
+    <div class="w-2/5 flex-none last:pr-8">
+      <div class="p-4 w-full rounded-lg flex items-center justify-center bg-light-blue-500 shadow-lg">03</div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **flex-nowrap**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Переносить нормально
+### Обычный перенос
 
 Используйте `flex-wrap`, чтобы позволить flex-элементам перенос:
 
-```html lightBlue
-<template preview>
-  <div class="flex flex-wrap -m-2">
-    <div class="h-12 m-2 w-2/5 rounded-md text-white bg-light-blue-500 flex items-center justify-center text-2xl font-semibold ">1</div>
-    <div class="h-12 m-2 w-2/5 rounded-md text-white bg-light-blue-500 flex items-center justify-center text-2xl font-semibold ">2</div>
-    <div class="h-12 m-2 w-2/5 rounded-md text-white bg-light-blue-500 flex items-center justify-center text-2xl font-semibold ">3</div>
+<Example>
+  <div class="flex flex-wrap gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-indigo rounded-lg">
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">01</div>
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">02</div>
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **flex-wrap**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Обратный перенос
+### Реверсивный перенос
 
 Используйте `flex-wrap-reverse`, чтобы переносить flex-элементы в обратном направлении:
 
-```html purple
-<template preview>
-  <div class="flex flex-wrap-reverse -m-2">
-    <div class="h-12 m-2 w-2/5 rounded-md text-white bg-purple-500 flex items-center justify-center text-2xl font-semibold ">1</div>
-    <div class="h-12 m-2 w-2/5 rounded-md text-white bg-purple-500 flex items-center justify-center text-2xl font-semibold ">2</div>
-    <div class="h-12 m-2 w-2/5 rounded-md text-white bg-purple-500 flex items-center justify-center text-2xl font-semibold ">3</div>
+<Example>
+  <div class="flex flex-wrap-reverse gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    <div class="p-4 w-2/5 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
   </div>
-</template>
-
-<div class="flex **flex-wrap-reverse**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы управлять переносом flex-элементов в определенную контрольную точку, добавьте префикс `{screen}:` к любому существующему классу утилиты. Например, используйте `md:flex-wrap-reverse`, чтобы применить утилиту `flex-wrap-reverse` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="flex flex-wrap **md:flex-wrap-reverse** ...">
-  <!-- ... -->
+<div class="flex **flex-wrap-reverse**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="flexWrap" name="flex-wrap" />
+<HoverFocusAndOtherStates defaultClass="flex flex-wrap" featuredClass="flex-wrap-reverse" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="flexWrap" name="flex-wrap" />
+<BreakpointsAndMediaQueries defaultClass="flex flex-wrap" featuredClass="flex-wrap-reverse" />

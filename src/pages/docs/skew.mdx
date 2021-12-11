@@ -3,76 +3,144 @@ title: "Наклон"
 description: "Утилиты для наклона элементов с трансформацией."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/skew'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=skew'
+import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HardwareAcceleration } from '@/components/HardwareAcceleration'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingTransforms } from '@/components/RemovingTransforms'
 
-export const classes = { plugin }
+export const classes = {
+  utilities,
+  sort: (classes) => numbersFirst(classes),
+  transformProperties: ({ properties }) => {
+    let x = properties['--tw-skew-x']
+    let y = properties['--tw-skew-y']
+    return {
+      transform: `skew${x ? 'X' : 'Y'}(${x || y})`
+    }
+  },
+}
 
-## Применение
+## Основы использования
 
-Наклоните элемент, сначала включив преобразования с помощью утилиты `transform`, а затем указав угол наклона с помощью утилит `skew-x-{amount}` и `skew-y-{amount}`.
+### Наклон элемента
 
-```html indigo
-<template preview>
-  <div class="flex flex-col justify-around space-y-12 md:flex-row md:space-y-0 md:space-x-12">
-    <div class="w-16 h-16 bg-indigo-400 bg-stripes bg-stripes-white">
-      <img class="h-16 w-16 skew-y-0 transform" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+Используйте утилиты `skew-x-{amount}` и `skew-y-{amount}`, чтобы наклонить элемент.
+
+<Example p="none">
+  <div class="flex sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-12 sm:gap-4 font-mono font-bold p-8 shrink-0">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-9">skew-y-0</p>
+      <div class="relative">
+        <div class="absolute inset-0">
+          <img class="w-24 h-24 object-cover rounded-lg opacity-25" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        </div>
+        <div class="relative z-10 skew-y-0">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
     </div>
-    <div class="w-16 h-16 bg-indigo-400 bg-stripes bg-stripes-white">
-      <img class="h-16 w-16 skew-y-3 transform" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-9">skew-y-3</p>
+      <div class="relative">
+        <div class="absolute inset-0">
+          <img class="w-24 h-24 object-cover rounded-lg opacity-25" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        </div>
+        <div class="relative z-10 skew-y-3">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
     </div>
-    <div class="w-16 h-16 bg-indigo-400 bg-stripes bg-stripes-white">
-      <img class="h-16 w-16 skew-y-6 transform" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-9">skew-y-6</p>
+      <div class="relative">
+        <div class="absolute inset-0">
+          <img class="w-24 h-24 object-cover rounded-lg opacity-25" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        </div>
+        <div class="relative z-10 skew-y-6">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
     </div>
-    <div class="w-16 h-16 bg-indigo-400 bg-stripes bg-stripes-white">
-      <img class="h-16 w-16 skew-y-12 transform" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-9">skew-y-12</p>
+      <div class="relative">
+        <div class="absolute inset-0">
+          <img class="w-24 h-24 object-cover rounded-lg opacity-25" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        </div>
+        <div class="relative z-10 skew-y-12">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
     </div>
   </div>
-</template>
-
-<img class="transform skew-y-0 ...">
-<img class="transform skew-y-3 ...">
-<img class="transform skew-y-6 ...">
-<img class="transform skew-y-12 ...">
-```
-
-## Адаптивность
-
-Чтобы управлять перекосом элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите наклона. Например, используйте `md:skew-6`, чтобы применить утилиту `skew-6` только при средних размерах экрана и выше.
+  </div>
+</Example>
 
 ```html
-<div class="transform **md:skew-6** ..."></div>
+<img class="**skew-y-0** ...">
+<img class="**skew-y-3** ...">
+<img class="**skew-y-6** ...">
+<img class="**skew-y-12** ...">
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### Использование отрицательных значений
 
-## Кастомизация
+Чтобы использовать отрицательное значение перекоса, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
-### Шкала наклона
+```html
+<img class="**-skew-y-6** ...">
+```
 
-По умолчанию Tailwind предоставляет семь универсальных утилит для перекоса. Вы изменяете, добавляете или удаляете их, настраивая раздел `skew` в конфигурации вашей темы Tailwind.
+### Удаление преобразований
 
-```diff-js
-  // tailwind.config.js
+<RemovingTransforms defaultClass="scale-75 translate-x-4 skew-y-3" />
+
+### Аппаратное ускорение
+
+<HardwareAcceleration defaultClass="skew-y-6" />
+
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates featuredClass="skew-y-12" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries featuredClass="skew-y-12" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `skew`. Вы можете настроить эти значения, отредактировав `theme.skew` или `theme.extend.skew` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        skew: {
-+         '25': '25deg',
-+         '60': '60deg',
-        }
++       skew: {
++         '17': '17deg',
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="skew" />
-
-### Отключение
-
-<Disabling plugin="skew" />
+<ArbitraryValues property="skew" featuredClass="skew-y-[17deg]" />

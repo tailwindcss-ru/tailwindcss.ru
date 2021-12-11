@@ -1,4 +1,4 @@
-import { defaultConfig } from '@/utils/defaultConfig'
+import defaultConfig from 'defaultConfig'
 
 const descriptions = {
   screens: "Адаптивные контрольные точки Вашего проекта",
@@ -6,14 +6,52 @@ const descriptions = {
   spacing: "Шкала интервалов вашего проекта",
   container: 'Конфигурация плагина `container`',
   inset: 'Значения свойств `top`, `right`, `bottom` и `left`',
-  placeholderColor: 'Значения для плагина `placeholderColor`',
-  placeholderOpacity: 'Значения для плагина `placeholderOpacity`',
-  rotate: 'Значения для плагина `rotate`',
-  scale: 'Значения для плагина `scale`',
-  skew: 'Значения для плагина `skew`',
-  space: 'Значения для плагина `space`',
-  textOpacity: 'Значения для плагина `textOpacity`',
-  translate: 'Значения для плагина `translate`',
+  keyframes: 'Значения ключевых кадров, используемые в плагине `animation` plugin',
+  ...Object.fromEntries(
+    [
+      'placeholderColor',
+      'placeholderOpacity',
+      'rotate',
+      'scale',
+      'space',
+      'textOpacity',
+      'translate',
+      'backdropBlur',
+      'backdropBrightness',
+      'backdropContrast',
+      'backdropGrayscale',
+      'backdropHueRotate',
+      'backdropInvert',
+      'backdropOpacity',
+      'backdropSaturate',
+      'backdropSepia',
+      'blur',
+      'brightness',
+      'borderOpacity',
+      'borderWidth',
+      'boxShadowColor',
+      'contrast',
+      'divideColor',
+      'divideOpacity',
+      'divideWidth',
+      'dropShadow',
+      'fill',
+      'grayscale',
+      'hueRotate',
+      'invert',
+      'gradientColorStops',
+      'ringColor',
+      'ringOffsetColor',
+      'ringOffsetWidth',
+      'ringOpacity',
+      'ringWidth',
+      'rotate',
+      'saturate',
+      'scale',
+      'sepia',
+      'skew',
+    ].map((pluginName) => [pluginName, `Значения для плагина \`${pluginName}\``])
+  ),
 }
 
 export function ThemeReference() {
@@ -22,8 +60,8 @@ export function ThemeReference() {
       <table>
         <thead>
           <tr>
-            <th>Key</th>
-            <th>Description</th>
+            <th>Ключ</th>
+            <th>Описание</th>
           </tr>
         </thead>
         <tbody>

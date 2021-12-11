@@ -1,68 +1,97 @@
 ---
 title: "Оттенки серого"
 description: "Утилиты для применения фильтров оттенков серого к элементу."
-featureVersion: 'v2.1+'
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=grayscale'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-        '.grayscale-0': { '--tw-grayscale': 'grayscale(0)' },
-        '.grayscale': { '--tw-grayscale': 'grayscale(1)' },
-      })
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-grayscale'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `grayscale` и `grayscale-0` вместе с утилитой `filter`, чтобы определить, должен ли элемент отображаться в оттенках серого или в полноцветном.
+### Создание элемента в оттенках серого
+
+Используйте утилиты `grayscale` и `grayscale-0`, чтобы указать, должен ли элемент отображаться в оттенках серого или в полноцветном.
+
+<Example p="none">
+  <div class="flex justify-center sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">grayscale-0</p>
+      <div class="relative grayscale-0">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">grayscale</p>
+      <div class="relative grayscale">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
 
 ```html
-<div class="filter grayscale ...">
+<div class="**grayscale-0** ...">
+  <!-- ... -->
+</div>
+<div class="**grayscale** ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Удаление фильтров
 
-Чтобы управлять фильтром оттенки серого элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите оттенков серого. Например, используйте `md:grayscale-0`, чтобы применить утилиту `grayscale-0` только при средних размерах экрана и выше.
+<RemovingFilters defaultClass="blur-md invert grayscale" />
 
-```html
-<div class="filter grayscale **md:grayscale-0** ...">
-  <!-- ... -->
-</div>
-```
+---
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+## <Heading ignore>Применяя условно</Heading>
 
-## Кастомизация
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Вы можете настроить, какие утилиты `grayscale` будут генерироваться, используя ключ `grayscale` в разделе `theme` вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="grayscale" featuredClass="grayscale-0" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="grayscale" featuredClass="grayscale-0" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `grayscale`. Вы можете настроить эти значения, отредактировав `theme.grayscale` или `theme.extend.grayscale` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       grayscale: {
 +         50: '50%',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="grayscale" name="grayscale" />
-
-### Отключение
-
-<Disabling plugin="grayscale" name="grayscale" />
+<ArbitraryValues property="grayscale" featuredClass="grayscale-[50%]" />

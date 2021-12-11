@@ -1,126 +1,103 @@
 ---
 title: "Высота строки"
 description: "Утилиты для управления интерлиньяжем (высотой строки) элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/lineHeight'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { Heading } from '@/components/Heading'
+import utilities from 'utilities?plugin=lineHeight'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Относительная высота строк
+## Основы использования
+
+### Относительные высоты линий
 
 Чтобы задать относительную высоту строки для элемента, используйте утилиты `leading-none`, `leading-tight`, `leading-snug`, `leading-normal`, `leading-relaxed` и `leading-loose` и его текущий размер шрифта.
 
-```html purple
-<template preview>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-purple-600">.leading-none</p>
-    <p class="leading-none text-purple-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">leading-normal</span>
+      <p class="leading-normal text-normal text-gray-900">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">leading-relaxed</span>
+      <p class="leading-relaxed text-normal text-gray-900">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">leading-loose</span>
+      <p class="leading-loose text-normal text-gray-900">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
   </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-purple-600">.leading-tight</p>
-    <p class="leading-tight text-purple-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-purple-600">.leading-snug</p>
-    <p class="leading-snug text-purple-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-purple-600">.leading-normal</p>
-    <p class="leading-normal text-purple-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-purple-600">.leading-relaxed</p>
-    <p class="leading-relaxed text-purple-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div>
-    <p class="text-sm text-purple-600">.leading-loose</p>
-    <p class="leading-loose text-purple-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-</template>
+</Example>
 
-<p class="**leading-none** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-tight** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-snug** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-normal** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-relaxed** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-loose** ...">Lorem ipsum dolor sit amet ...</p>
+```html
+<p class="**leading-6** ...">Итак, я пошел в воду...</p>
+<p class="**leading-7** ...">Итак, я пошел в воду...</p>
+<p class="**leading-8** ...">Итак, я пошел в воду...</p>
 ```
 
-## Фиксированная высота строки
+### Фиксированная высота строки
 
 Используйте утилиты `leading-{size}`, чтобы задать элементу фиксированную высоту строки, независимо от текущего размера шрифта. Это полезно, когда вам нужен очень точный контроль над окончательным размером элемента.
 
-```html emerald
-<template preview>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-emerald-600">.leading-3</p>
-    <p class="leading-3 text-emerald-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">leading-6</span>
+      <p class="leading-6 text-normal text-gray-900">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">leading-7</span>
+      <p class="leading-7 text-normal text-gray-900">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">leading-8</span>
+      <p class="leading-8 text-normal text-gray-900">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
   </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-emerald-600">.leading-4</p>
-    <p class="leading-4 text-emerald-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-emerald-600">.leading-5</p>
-    <p class="leading-5 text-emerald-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-emerald-600">.leading-6</p>
-    <p class="leading-6 text-emerald-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-emerald-600">.leading-7</p>
-    <p class="leading-7 text-emerald-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-emerald-600">.leading-8</p>
-    <p class="leading-8 text-emerald-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-emerald-600">.leading-9</p>
-    <p class="leading-9 text-emerald-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-  <div>
-    <p class="mb-1 text-sm text-emerald-600">.leading-10</p>
-    <p class="leading-10 text-emerald-800">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum.</p>
-  </div>
-</template>
-
-<p class="**leading-3** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-4** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-5** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-6** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-7** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-8** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-9** ...">Lorem ipsum dolor sit amet ...</p>
-<p class="**leading-10** ...">Lorem ipsum dolor sit amet ...</p>
-```
-
-## Адаптивность
-
-Чтобы контролировать высоту строки элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите высоты строки. Например, используйте `md:leading-loose`, чтобы применить утилиту `leading-loose` только на экранах среднего размера и выше.
+</Example>
 
 ```html
-<p class="leading-none **md:leading-loose** ...">Lorem ipsum dolor sit amet ...</p>
+<p class="**leading-6** ...">Итак, я пошел в воду...</p>
+<p class="**leading-7** ...">Итак, я пошел в воду...</p>
+<p class="**leading-8** ...">Итак, я пошел в воду...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="leading-none" featuredClass="leading-loose" element="p"  />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="leading-none" featuredClass="leading-loose" element="p"  />
+
+### Переопределение высоты линии по умолчанию
 
 Важно отметить, что по умолчанию каждая утилита Tailwind [font-size](/docs/font-size) устанавливает собственную высоту строки по умолчанию. Это означает, что каждый раз, когда вы используете адаптивную утилиту размера шрифта, такую как `sm:text-xl`, любая явная высота строки, которую вы установили для меньшей контрольной точки, будет отменена.
 
 ```html
 <!-- Класс `leading-loose` будет переопределен в контрольной точке `md` breakpoint -->
 <p class="text-lg leading-loose md:text-xl">
-  Lorem ipsum dolor sit amet ...
+  Может быть, мы сможем жить без библиотек...
 </p>
 ```
 
@@ -129,34 +106,35 @@ export const classes = { plugin }
 ```html
 <!-- Класс `leading-loose` будет переопределен в контрольной точке `md` breakpoint -->
 <p class="text-lg leading-loose md:text-xl md:leading-loose">
-  Lorem ipsum dolor sit amet ...
+  Может быть, мы сможем жить без библиотек...
 </p>
 ```
 
 Использование одинаковой высоты строки для разных размеров шрифта, как правило, не дает хороших типографских результатов. Высота строки обычно должна уменьшаться по мере увеличения размера шрифта, поэтому поведение по умолчанию здесь обычно экономит вам массу работы. Если вы обнаружите, что боретесь с этим, вы всегда можете [настроить масштаб размера шрифта](https://tailwindcss.com/docs/font-size#customizing), чтобы не включать высоту строк по умолчанию.
 
-## Кастомизация
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind предоставляет шесть относительных и восемь фиксированных утилит `line-height`. Вы изменяете, добавляете или удаляете их, настраивая раздел `lineHeight` в конфигурации Вашей темы Tailwind.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        lineHeight: {
++       lineHeight: {
 +         'extra-loose': '2.5',
 +         '12': '3rem',
-        }
++       }
       }
     }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="lineHeight" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="lineHeight" />
+<ArbitraryValues property="line-height" featuredClass="leading-[3rem]" element="p" />

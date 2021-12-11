@@ -3,158 +3,172 @@ title: "Верх / Право / Низ / Лево"
 description: "Утилиты для управления размещением позиционируемых элементов."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/inset'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=inset'
 import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
-  sort: numbersFirst,
+  utilities,
+  sort: (classes) => numbersFirst(classes),
 }
 
-## Применение
+## Основы использования
+
+### Размещение позиционированного элемента
 
 Используйте утилиты `{top|right|bottom|left|inset}-0` для привязки абсолютно позиционированных элементов к любому из краев ближайшего расположенного родителя.
 
 В сочетании с утилитами заполнения и поля Tailwind Вы, вероятно, обнаружите, что это все, что вам нужно для точного управления абсолютно позиционированными элементами.
 
-```html emerald
-<template preview>
-  <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute inset-x-0 top-0 h-16 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">1</div>
+<Example>
+  <div class="grid grid-cols-3 grid-rows-3 place-items-center gap-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 h-14 absolute left-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">01</div>
     </div>
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute inset-y-0 right-0 w-16 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">2</div>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 absolute inset-x-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">02</div>
     </div>
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute inset-x-0 bottom-0 h-16 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">3</div>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 h-14 absolute right-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">03</div>
     </div>
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute inset-y-0 left-0 w-16 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">4</div>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 absolute inset-y-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">04</div>
     </div>
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute inset-0 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">5</div>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 absolute inset-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">05</div>
     </div>
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute left-0 top-0 h-16 w-16 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">6</div>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 absolute inset-y-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">06</div>
     </div>
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute top-0 right-0 h-16 w-16 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">7</div>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 h-14 absolute left-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">07</div>
     </div>
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute right-0 bottom-0 h-16 w-16 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">8</div>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 absolute inset-x-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">08</div>
     </div>
-    <div class="relative p-2 h-32 w-32 bg-emerald-300 bg-stripes bg-stripes-white rounded-md">
-      <div class="absolute bottom-0 left-0 h-16 w-16 bg-emerald-500 text-white font-extrabold text-2xl flex items-center justify-center rounded-md">9</div>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 h-14 absolute right-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">09</div>
     </div>
   </div>
-</template>
+</Example>
 
-<!-- Притянут к верхнему краю -->
+```html
+<!-- Закрепить в верхнем левом углу -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **inset-x-0 top-0** h-16 ...">1</div>
+  <div class="absolute **left-0 top-0** h-16 w-16 ...">01</div>
 </div>
 
-<!-- Притянут к правому краю -->
+<!-- Верхний край пролета -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **inset-y-0 right-0** w-16 ...">2</div>
+  <div class="absolute **inset-x-0 top-0** h-16 ...">02</div>
 </div>
 
-<!-- Притянут к нижнему краю -->
+<!-- Закрепить в правом верхнем углу -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **inset-x-0 bottom-0** h-16 ...">3</div>
+  <div class="absolute **top-0 right-0** h-16 w-16 ...">03</div>
 </div>
 
 <!-- Притянут к левому краю -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **inset-y-0 left-0** w-16 ...">4</div>
+  <div class="absolute **inset-y-0 left-0** w-16 ...">04</div>
 </div>
 
 <!-- Заполнить весь родитель -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **inset-0** ...">5</div>
+  <div class="absolute **inset-0** ...">05</div>
 </div>
 
-<!-- Закрепить в верхнем левом углу -->
+<!-- Праввый край пролета -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **left-0 top-0** h-16 w-16 ...">6</div>
+  <div class="absolute **inset-y-0 right-0** w-16 ...">06</div>
 </div>
 
-<!-- Закрепить в верхнем правом углу -->
+<!-- Закрепить в левом нижнем углу -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **top-0 right-0** h-16 w-16 ...">7</div>
+  <div class="absolute **bottom-0 left-0** h-16 w-16 ...">07</div>
 </div>
 
-<!-- Закрепить в нижнем правом углу -->
+<!-- Нижний край пролета -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **bottom-0 right-0** h-16 w-16 ...">8</div>
+  <div class="absolute **inset-x-0 bottom-0** h-16 ...">08</div>
 </div>
 
-<!-- Закрепить в нижнем левом углу -->
+<!-- Закрепить в правом нижнем углу -->
 <div class="relative h-32 w-32 ...">
-  <div class="absolute **bottom-0 left-0** h-16 w-16 ...">9</div>
+  <div class="absolute **bottom-0 right-0** h-16 w-16 ...">09</div>
 </div>
 ```
 
-## Адаптивность
+### Использование отрицательных значений
 
-Чтобы разместить элемент только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите позиционирования. Например, добавление класса `md:inset-y-0` к элементу приведет к применению утилиты `inset-y-0` при средних размерах экрана и выше.
+Чтобы использовать отрицательное значение top/right/bottom/left, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
+
+<Example>
+  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 h-14 absolute -left-4 -top-4 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
+    </div>
+  </div>
+</Example>
 
 ```html
-<div class="relative h-32 ...">
-  <div class="absolute inset-0 **md:inset-y-0** ..."></div>
+<div class="relative h-32 w-32 ...">
+  <div class="absolute h-14 w-14 **-left-4 -top-4** ..."></div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Шкала Top / Right / Bottom / Left
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="top-4" featuredClass="top-6" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="top-4" featuredClass="top-6" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind предоставляет утилиты top/right/bottom/left/inset для комбинации [шкалы интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), `auto`, `full`, а также некоторые дополнительные значения дроби.
 
-Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.inset` в файле `tailwind.config.js`.
+Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      inset: {
-        '0': 0,
-        // ...
--       '64': '16rem',
-+       '1/5': '20%',
-      }
-    }
-  }
-```
-
-### Отрицательные значения
-
-Если вы хотите добавить какие-либо отрицательные классы top/right/bottom/left, которые принимают ту же форму, что и классы Tailwind [отрицательные поля](/docs/margin#negative-margins), поставьте перед ключами в файле конфигурации дефис:
-
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        inset: {
-+         '-16': '-4rem',
-        }
++       spacing: {
++         '3px': '3px',
++       }
       }
     }
   }
 ```
 
-Tailwind достаточно умен, чтобы генерировать классы вроде `-top-16`, когда видит начальное тире, а не `top--16`, как вы могли ожидать.
+Кроме того, вы можете настроить только top/right/bottom/left/inset scale, отредактировав `theme.inset` или `theme.extend.inset` в вашем файле `tailwind.config.js`.
 
-### Варианты
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       inset: {
++         '3px': '3px',
++       }
+      }
+    }
+  }
+```
 
-<Variants plugin="inset" name="top, right, bottom, left, and inset" />
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Отключение
+### Произвольные значения
 
-<Disabling plugin="inset" name="top, right, bottom, left, and inset" />
+<ArbitraryValues property="top/right/bottom/left" featuredClass="top-[3px]" />

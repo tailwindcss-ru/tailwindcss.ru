@@ -4,36 +4,38 @@ description: "Утилиты для анимации элементов с по�
 ---
 
 import redent from 'redent'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = (
-  <div className="overflow-y-auto scrollbar-w-2 scrollbar-track-gray-lighter scrollbar-thumb-rounded scrollbar-thumb-gray scrolling-touch lg:max-h-sm">
+export const classes = {
+  scroll: true,
+  custom: (
     <table className="w-full text-left border-collapse">
       <thead>
         <tr>
-          <th className="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
-            <div className="pb-2 border-b border-gray-200">Класс</div>
+          <th className="sticky top-0 bg-white text-sm leading-6 font-semibold text-gray-700 p-0">
+            <div className="py-2 pr-2 border-b border-gray-200">Класс</div>
           </th>
-          <th className="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
-            <div className="pb-2 border-b border-gray-200">Свойства</div>
+          <th className="sticky top-0 bg-white text-sm leading-6 font-semibold text-gray-700 p-0">
+            <div className="py-2 pl-2 border-b border-gray-200">Свойства</div>
           </th>
         </tr>
       </thead>
       <tbody className="align-baseline">
         <tr>
-          <td translate="no" className="py-2 font-mono text-xs text-violet-600 whitespace-nowrap">
+          <td translate="no" className="py-2 pr-2 font-mono font-bold text-xs leading-6 text-sky-500 whitespace-nowrap">
             animate-none
           </td>
-          <td translate="no" className="py-2 font-mono text-xs text-light-blue-600 whitespace-pre">
+          <td translate="no" className="py-2 pl-2 font-mono text-xs leading-6 text-indigo-600 whitespace-pre">
             animation: none;
           </td>
         </tr>
         <tr>
-          <td translate="no" className="py-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">
+          <td translate="no" className="py-2 pr-2 font-mono font-bold text-xs leading-6 text-sky-500 whitespace-nowrap border-t border-gray-100">
             animate-spin
           </td>
-          <td translate="no" className="py-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">
+          <td translate="no" className="py-2 pl-2 font-mono text-xs leading-6 text-indigo-600 whitespace-pre border-t border-gray-100">
             {redent(`
               animation: spin 1s linear infinite;\n
               @keyframes spin {
@@ -48,10 +50,10 @@ export const classes = (
           </td>
         </tr>
         <tr>
-          <td translate="no" className="py-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">
+          <td translate="no" className="py-2 pr-2 font-mono font-bold text-xs leading-6 text-sky-500 whitespace-nowrap border-t border-gray-100">
             animate-ping
           </td>
-          <td translate="no" className="py-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">
+          <td translate="no" className="py-2 pl-2 font-mono text-xs leading-6 text-indigo-600 whitespace-pre border-t border-gray-100">
             {redent(`
               animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;\n
               @keyframes ping {
@@ -64,10 +66,10 @@ export const classes = (
           </td>
         </tr>
         <tr>
-          <td translate="no" className="py-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">
+          <td translate="no" className="py-2 pr-2 font-mono font-bold text-xs leading-6 text-sky-500 whitespace-nowrap border-t border-gray-100">
             animate-pulse
           </td>
-          <td translate="no" className="py-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">
+          <td translate="no" className="py-2 pl-2 font-mono text-xs leading-6 text-indigo-600 whitespace-pre border-t border-gray-100">
             {redent(`
               animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;\n
               @keyframes pulse {
@@ -82,10 +84,10 @@ export const classes = (
           </td>
         </tr>
         <tr>
-          <td translate="no" className="py-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t border-gray-200">
+          <td translate="no" className="py-2 pr-2 font-mono font-bold text-xs leading-6 text-sky-500 whitespace-nowrap border-t border-gray-100">
             animate-bounce
           </td>
-          <td translate="no" className="py-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t border-gray-200">
+          <td translate="no" className="py-2 pl-2 font-mono text-xs leading-6 text-indigo-600 whitespace-pre border-t border-gray-100">
             {redent(`
               animation: bounce 1s infinite;\n
               @keyframes bounce {
@@ -103,116 +105,126 @@ export const classes = (
         </tr>
       </tbody>
     </table>
-  </div>
-)
+  ),
+}
 
-## Вращение
+## Основы использования
+
+### Вращение
 
 Добавьте утилиту `animate-spin`, чтобы добавить анимацию линейного вращения к таким элементам, как индикаторы загрузки.
 
-```html rose
-<template preview>
-  <div class="flex justify-around">
-    <span class="inline-flex rounded-md shadow-sm">
-      <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-rose-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed" disabled>
-        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-        Обработка
-      </button>
-    </span>
+<Example>
+  <div class="flex items-center justify-center">
+    <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed" disabled>
+      <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      Обработка...
+    </button>
   </div>
-</template>
+</Example>
 
-<button type="button" class="bg-rose-600 ..." disabled>
+```html
+<button type="button" class="bg-indigo-500 ..." disabled>
   <svg class="**animate-spin** h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
     <!-- ... -->
   </svg>
-  Обработка
+  Обработка...
 </button>
 ```
 
-## Пинг
+### Ping
 
 Добавьте утилиту `animate-ping`, чтобы масштабировать элемент и исчезать, как пинг радара или рябь воды - полезно для таких вещей, как значки уведомлений.
 
-```html purple
-<template preview>
-  <div class="flex justify-around">
-    <span class="relative inline-flex rounded-md shadow-sm">
-      <button type="button" class="inline-flex items-center px-4 py-2 border border-purple-400 text-base leading-6 font-medium rounded-md text-purple-800 bg-white hover:text-purple-700 focus:border-purple-300 transition ease-in-out duration-150">
+<Example>
+  <div class="flex items-center justify-center">
+    <span class="relative inline-flex">
+      <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-sky-500 bg-white transition ease-in-out duration-150 cursor-not-allowed ring-1 ring-gray-900/10" disabled>
         Транзакции
       </button>
       <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
       </span>
     </span>
   </div>
-</template>
+</Example>
 
+```html
 <span class="flex h-3 w-3">
-  <span class="**animate-ping** absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-  <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+  <span class="**animate-ping** absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+  <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
 </span>
 ```
 
-## Пульс
+### Пульс
 
 Добавьте утилиту `animate-pulse`, чтобы элемент плавно появлялся и исчезал - полезно для таких вещей, как загрузчики скелетов.
 
-```html lightBlue
-<template preview>
-  <div class="border border-light-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-    <div class="flex space-x-4 animate-pulse">
-      <div class="rounded-full bg-light-blue-400 h-12 w-12"></div>
-      <div class="flex-1 space-y-4 py-1">
-        <div class="h-4 bg-light-blue-400 rounded w-3/4"></div>
-        <div class="space-y-2">
-          <div class="h-4 bg-light-blue-400 rounded"></div>
-          <div class="h-4 bg-light-blue-400 rounded w-5/6"></div>
+<Example>
+  <div class="flex items-center justify-center">
+    <div class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg max-w-xs w-full h-28">
+      <div class="flex space-x-4 animate-pulse">
+        <div class="rounded-full bg-gray-200 h-10 w-10"></div>
+        <div class="flex-1 space-y-6 py-1">
+          <div class="h-2 bg-gray-200 rounded"></div>
+          <div class="space-y-3">
+            <div class="grid grid-cols-3 gap-4">
+              <div class="h-2 bg-gray-200 rounded col-span-2"></div>
+              <div class="h-2 bg-gray-200 rounded col-span-1"></div>
+            </div>
+            <div class="h-2 bg-gray-200 rounded"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
   <div class="**animate-pulse** flex space-x-4">
-    <div class="rounded-full bg-blue-400 h-12 w-12"></div>
-    <div class="flex-1 space-y-4 py-1">
-      <div class="h-4 bg-blue-400 rounded w-3/4"></div>
-      <div class="space-y-2">
-        <div class="h-4 bg-blue-400 rounded"></div>
-        <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+    <div class="rounded-full bg-gray-100 h-10 w-10"></div>
+    <div class="flex-1 space-y-6 py-1">
+      <div class="h-2 bg-gray-100 rounded"></div>
+      <div class="space-y-3">
+        <div class="grid grid-cols-3 gap-4">
+          <div class="h-2 bg-gray-100 rounded col-span-2"></div>
+          <div class="h-2 bg-gray-100 rounded col-span-1"></div>
+        </div>
+        <div class="h-2 bg-gray-100 rounded"></div>
       </div>
     </div>
   </div>
 </div>
 ```
 
-## Прыжок
+### Прыжок
 
 Добавьте утилиту `animate-bounce`, чтобы элемент подпрыгивал вверх и вниз - полезно для таких вещей, как индикаторы "прокрутки вниз".
 
-```html amber
-<template preview>
+<Example>
   <div class="flex justify-center">
-    <svg class="animate-bounce w-6 h-6 text-amber-900" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-      <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-    </svg>
+    <div class="animate-bounce bg-white p-2 w-10 h-10 ring-1 ring-gray-900/5 shadow-lg rounded-full flex items-center justify-center">
+      <svg class="w-6 h-6 text-violet-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <svg class="**animate-bounce** w-6 h-6 ...">
   <!-- ... -->
 </svg>
 ```
 
-## Предпочтительно ограниченное движение
+### Предпочитает ограниченное движение
 
-Вы можете условно применять анимацию и переходы, используя варианты `motion-safe` и `motion-reduce`:
+Для ситуаций, когда пользователь указал, что он предпочитает уменьшенное движение, вы можете условно применить анимацию и переходы, используя варианты `motion-safe` и `motion-reduce`:
 
 ```html
 <button type="button" class="bg-indigo-600 ..." disabled>
@@ -223,46 +235,35 @@ export const classes = (
 </button>
 ```
 
-**Эти варианты не включены по умолчанию**, но вы можете включить их в разделе `variants` вашего файла `tailwind.config.js`:
+---
 
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    animation: ['responsive', 'motion-safe', 'motion-reduce']
-  }
-}
-```
+## <Heading ignore>Применяя условно</Heading>
 
-Подробнее читайте в [документации состояния вариантов](/docs/hover-focus-and-other-states#motion-safe).
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-## Адаптивность
+<HoverFocusAndOtherStates featuredClass="animate-spin" />
 
-Чтобы изменить или отключить анимацию в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите анимации. Например, используйте `md:animate-none`, чтобы применить утилиту `animate-none` только при средних размерах экрана и выше.
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-```html
-<div class="animate-spin **md:animate-none** ...">
-  <!-- ... -->
-</div>
-```
+<BreakpointsAndMediaQueries featuredClass="animate-spin" />
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 Анимация по самой своей природе, как правило, очень привязана к проекту. **Анимации, которые мы включаем по умолчанию, лучше всего рассматривать как полезные примеры**, и вам предлагается настроить анимацию в соответствии с вашими потребностями.
 
-По умолчанию Tailwind предоставляет утилиты для четырех различных примеров анимации, а также утилиту `animate-none`. Вы изменяете, добавляете или удаляете их, настраивая раздел `animation` в конфигурации вашей темы.
+По умолчанию Tailwind предоставляет утилиты для четырех различных примеров анимации, а также утилиту `animate-none`. Вы можете настроить эти значения, отредактировав `theme.animation` или `theme.extend.animation` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        animation: {
++       animation: {
 +         'spin-slow': 'spin 3s linear infinite',
-        }
++       }
       }
     }
   }
@@ -270,17 +271,16 @@ module.exports = {
 
 Чтобы добавить новую анимацию `@keyframes`, используйте раздел `keyframes` конфигурации вашей темы:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        keyframes: {
++       keyframes: {
 +         wiggle: {
 +           '0%, 100%': { transform: 'rotate(-3deg)' },
 +           '50%': { transform: 'rotate(3deg)' },
 +         }
-        }
++       }
       }
     }
   }
@@ -288,25 +288,20 @@ module.exports = {
 
 Затем вы можете ссылаться на эти ключевые кадры по имени в разделе `animation` конфигурации вашей темы:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        animation: {
++       animation: {
 +         wiggle: 'wiggle 1s ease-in-out infinite',
-        }
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="animation" />
-
-### Отключение
-
-<Disabling plugin="animation" />
+<ArbitraryValues property="animation" featuredClass="animate-[wiggle_1s_ease-in-out_infinite]" />

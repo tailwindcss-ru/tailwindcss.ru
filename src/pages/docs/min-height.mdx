@@ -1,84 +1,61 @@
 ---
 title: "Минимальная высота"
 description: "Утилиты для установки минимальной высоты элемента"
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/minHeight'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=minHeight'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка минимальной высоты
 
 Установите минимальную высоту элемента с помощью утилит `min-h-0`, `min-h-full` или `min-h-screen`.
 
-```html purple
-<template preview>
-  <div class="h-48 p-6 bg-purple-300 rounded-md">
-    <div class="h-24 min-h-full p-6 bg-purple-500 flex items-center justify-center rounded text-white font-semibold">
-      <span>.min-h-full</span>
-    </div>
-  </div>
-</template>
-
-<div class="h-48 ...">
-  <div class="h-24 **min-h-full** ...">
-    .min-h-full
-  </div>
-</div>
-```
-
----
-
-## Адаптивность
-
-Чтобы управлять минимальной высотой элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите минимальной высоты.
-
 ```html
-<div class="h-48 ...">
-  <div class="h-24 min-h-0 **md:min-h-full** ...">
+<div class="h-48">
+  <div class="h-24 **min-h-full**">
     <!-- ... -->
   </div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="h-24 min-h-0" featuredClass="min-h-full" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="h-24 min-h-0" featuredClass="min-h-full" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-### Шкала минимальной высоты
+### Настройка вашей темы
 
-Настройте шкалу минимальной высоты по умолчанию для Tailwind в разделе `theme.minHeight` Вашего файла `tailwind.config.js`.
+Вы можете настроить масштаб `min-height`, отредактировав `theme.minHeight` или `theme.extend.minHeight` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      minHeight: {
-+       '0': '0',
-+       '1/4': '25%',
++     minHeight: {
 +       '1/2': '50%',
-+       '3/4': '75%',
-+       'full': '100%',
-      }
++     }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="minHeight" name="min-height" />
-
-### Отключение
-
-<Disabling plugin="minHeight" name="min-height" />
+<ArbitraryValues property="min-height" featuredClass="min-h-[50%]" />

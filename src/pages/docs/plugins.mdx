@@ -12,8 +12,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 Чтобы начать работу с Вашим первым плагином, импортируйте функцию Tailwind `plugin` из `tailwindcss/plugin`. Затем внутри Вашего массива `plugins` и вызовите его с анонимной функцией в качестве первого аргумента.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -28,15 +27,15 @@ module.exports = {
 Функции плагина получают один аргумент объекта, который может быть [деструктурирован](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) в несколько вспомогательных функций:
 
 - `addUtilities()`, для регистрации новых утилит стилей
+- `matchUtilities()`, для регистрации новых динамических стилей утилит
 - `addComponents()`, для регистрации новых компонентов стилей
+- `matchComponents()`, для регистрации новых стилей динамических компонентов
 - `addBase()`, для регистрации новых базовых стилей
 - `addVariant()`, для регистрации пользовательских вариантов
-- `e()`, для экранирования строк, предназначенных для использования в именах классов
-- `prefix()`, для ручного применения настроенного пользователем префикса к частям селектора
 - `theme()`, для поиска значений в конфигурации темы пользователя
-- `variants()`, для поиска значений в конфигурации вариантов пользователя
 - `config()`, для поиска значений в пользовательской конфигурации Tailwind
-- `postcss`, для выполнения напрямую низкоуровневых манипуляций с [PostCSS](https://api.postcss.org/postcss.html)
+- `corePlugins()`, для проверки, включен ли основной плагин
+- `e()`, для экранирования строк, предназначенных для использования в именах классов
 
 ---
 
@@ -46,8 +45,7 @@ module.exports = {
 
 Плагины могут быть добавлены в ваш проект, установив их через npm, а затем добавив их в ваш файл `tailwind.config.js`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   // ...
   plugins: [
@@ -125,42 +123,84 @@ module.exports = {
 
 ## Добавление утилит
 
-Функция `addUtilities` позволяет вам регистрировать новые стили в слое `utilities` Tailwind.
+Функции `addUtilities` и `matchUtilities` позволяют вам регистрировать новые стили в макете утилит Tailwind `utilities`.
 
-Утилиты плагинов выводятся в порядке их регистрации, *после* встроенных утилит, поэтому, если плагин нацелен на любое из тех же свойств, что и встроенная утилита, утилита плагина будет иметь приоритет.
+Как и в случае с утилитами, которые Tailwind включает по умолчанию, утилиты, добавленные плагином, будут включены в сгенерированный CSS, только если они действительно используются в проекте.
 
-Чтобы добавить новые утилиты из плагина, вызовите `addUtilities`, передав свои стили, используя [синтаксис CSS-in-JS](#css-in-js-syntax):
+### Статические утилиты
 
-```js
-// tailwind.config.js
+Используйте функцию `addUtilities` для регистрации простых статических утилит, не поддерживающих значения, заданные пользователем:
+
+```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   plugins: [
     plugin(function({ addUtilities }) {
-      const newUtilities = {
-        '.skew-10deg': {
-          transform: 'skewY(-10deg)',
+      addUtilities({
+        '.content-auto': {
+          'content-visibility': 'auto',
         },
-        '.skew-15deg': {
-          transform: 'skewY(-15deg)',
+        '.content-hidden': {
+          'content-visibility': 'hidden',
         },
-      }
-
-      addUtilities(newUtilities)
+        '.content-visible': {
+          'content-visibility': 'visible',
+        },
+      })
     })
   ]
 }
 ```
 
-### Префикс и важные настройки
+Узнайте больше о представлении ваших стилей в JavaScript в справочнике [синтаксис CSS-in-JS](#css-in-js-syntax).
 
-По умолчанию утилиты плагинов автоматически учитывают предпочтения пользователя [`prefix`](/docs/configuration/#prefix) и [`important`](/docs/configuration/#important).
+### Динамические утилиты
+
+Используйте функцию `matchUtilities` для регистрации утилит, которые сопоставляются со значениями, определенными в конфигурации пользователя `theme`:
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  theme: {
+    tabSize: {
+      1: '1',
+      2: '2',
+      4: '4',
+      8: '8',
+    }
+  },
+  plugins: [
+    plugin(function({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          tab: (value) => ({
+            tabSize: value
+          }),
+        },
+        { values: theme('tabSize') }
+      )
+    })
+  ]
+}
+```
+
+Утилиты, определенные таким образом, также поддерживают [произвольные значения](/docs/adding-custom-styles#using-arbitrary-values), что означает, что вы можете использовать значения, отсутствующие в теме, используя запись с квадратными скобками:
+
+```html
+<div class="**tab-[13]**">
+  <!-- ... -->
+</div>
+```
+
+### Приставка и важно
+
+По умолчанию утилиты плагина автоматически учитывают предпочтения пользователя [`prefix`](/docs/configuration/#prefix) и [`important`](/docs/configuration/#important).
 
 Это означает, что с учетом данной конфигурации Tailwind:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   prefix: 'tw-',
   important: true,
@@ -171,99 +211,28 @@ module.exports = {
 ...приведенный выше пример плагина сгенерирует следующий CSS:
 
 ```css
-.tw-skew-10deg {
-  transform: skewY(-10deg) !important;
+.tw-content-auto {
+  content-visibility: auto !important;
 }
-.tw-skew-15deg {
-  transform: skewY(-15deg) !important;
+.tw-content-hidden {
+  content-visibility: hidden !important;
 }
-```
-
-При необходимости вы можете отказаться от этого поведения, передав объект параметров в качестве второго параметра в `addUtilities`:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addUtilities }) {
-      const newUtilities = {
-        // ...
-      }
-
-      addUtilities(newUtilities, {
-        respectPrefix: false,
-        respectImportant: false,
-      })
-    })
-  ]
+.tw-content-visible {
+  content-visibility: visible !important;
 }
 ```
 
-### Варианты
+### Использование с модификаторами
 
-Чтобы сгенерировать адаптивный, наведение, фокус, активный или другие варианты Ваших стилей, укажите варианты, которые вы хотите сгенерировать, используя опцию `variants`:
+Любые пользовательские утилиты, добавленные с помощью `addUtilities`, могут автоматически использоваться с модификаторами:
 
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addUtilities }) {
-      const newUtilities = {
-        // ...
-      }
-
-      addUtilities(newUtilities, {
-        variants: ['responsive', 'hover'],
-      })
-    })
-  ]
-}
+```html
+<div class="content-auto lg:content-visible">
+  <!-- ... -->
+</div>
 ```
 
-Если вам нужно только указать варианты и не нужно отказываться от префикса по умолчанию или важных параметров, вы также можете напрямую передать массив вариантов в качестве второго параметра:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addUtilities }) {
-      const newUtilities = {
-        // ...
-      }
-
-      addUtilities(newUtilities, ['responsive', 'hover'])
-    })
-  ]
-}
-```
-
-Если вы хотите, чтобы пользователь предоставил сами варианты в разделе `variants` в своем файле `tailwind.config.js`, вы можете использовать функцию `variants()`, чтобы получить варианты, которые они настроили:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  variants: {
-    customPlugin: ['responsive', 'hover'],
-  },
-  plugins: [
-    plugin(function({ addUtilities, variants }) {
-      const newUtilities = {
-        // ...
-      }
-
-      addUtilities(newUtilities, variants('customPlugin'))
-    })
-  ]
-}
-```
+Дополнительные сведения смотрите в документации [Наведение, фокус и другие состояния](/docs/hover-focus-and-other-states).
 
 ---
 
@@ -275,14 +244,13 @@ module.exports = {
 
 Чтобы добавить новые стили компонентов из плагина, вызовите `addComponents`, передав свои стили, используя [синтаксис CSS-in-JS](#css-in-js-syntax):
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   plugins: [
     plugin(function({ addComponents }) {
-      const buttons = {
+      addComponents({
         '.btn': {
           padding: '.5rem 1rem',
           borderRadius: '.25rem',
@@ -302,22 +270,21 @@ module.exports = {
             backgroundColor: '#cc1f1a'
           },
         },
-      }
-
-      addComponents(buttons)
+      })
     })
   ]
 }
 ```
 
-### Префикс и важные настройки
+Как и в случае с другими классами компонентов в Tailwind, классы компонентов, добавленные плагином, будут включены в сгенерированный CSS, только если они действительно используются в проекте.
 
-По умолчанию классы компонентов автоматически учитывают предпочтения пользователя `prefix`, но **на них не влияет** предпочтение пользователя `important`.
+### Префикс и important
+
+По умолчанию классы компонентов автоматически учитывают предпочтения пользователя `prefix`, но _они не зависят_ от предпочтений пользователя `important`.
 
 Это означает, что с учетом данной конфигурации Tailwind:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   prefix: 'tw-',
   important: true,
@@ -351,23 +318,20 @@ module.exports = {
 
 Хотя редко есть веские причины делать объявления компонентов важными, если вам это действительно нужно, вы всегда можете добавить вручную `!important`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   plugins: [
     plugin(function({ addComponents }) {
-      const buttons = {
+      addComponents({
         '.btn': {
           padding: '.5rem 1rem !important',
           borderRadius: '.25rem !important',
           fontWeight: '600 !important',
         },
         // ...
-      }
-
-      addComponents(buttons)
+      })
     })
   ]
 }
@@ -375,8 +339,7 @@ module.exports = {
 
 Все классы в селекторе по умолчанию будут иметь префикс, поэтому, если вы добавите более сложный стиль, например:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -404,104 +367,27 @@ module.exports = {
 }
 ```
 
-Чтобы отказаться от префикса, передайте объект параметров в качестве второго параметра в `addComponents`:
+### Использование с модификаторами
 
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
+Любые классы компонентов, добавленные с помощью `addComponents`, могут автоматически использоваться с модификаторами:
 
-module.exports = {
-  prefix: 'tw-',
-  plugins: [
-    plugin(function({ addComponents }) {
-      const components = {
-        // ...
-      }
-
-      addComponents(components, {
-        respectPrefix: false
-      })
-    })
-  ]
-}
+```html
+<div class="btn md:btn-lg">
+  <!-- ... -->
+</div>
 ```
 
-### Варианты
-
-Чтобы сгенерировать отзывчивые, наведение, фокус, активные или другие варианты ваших компонентов, укажите варианты, которые вы хотите сгенерировать, используя опцию `variants`:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addComponents }) {
-      const newComponents = {
-        // ...
-      }
-
-      addComponents(newComponents, {
-        variants: ['responsive', 'hover'],
-      })
-    })
-  ]
-}
-```
-
-Если вам нужно только указать варианты и не нужно отказываться от префикса по умолчанию или важных параметров, вы также можете напрямую передать массив вариантов в качестве второго параметра:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addComponents }) {
-      const newComponents = {
-        // ...
-      }
-
-      addComponents(newComponents, ['responsive', 'hover'])
-    })
-  ]
-}
-```
-
-Если вы хотите, чтобы пользователь предоставил сами варианты в разделе `variants` в своем файле `tailwind.config.js`, вы можете использовать функцию `variants()`, чтобы получить варианты, которые они настроили:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  variants: {
-    customPlugin: ['responsive', 'hover'],
-  },
-  plugins: [
-    plugin(function({ addComponents, variants }) {
-      const newComponents = {
-        // ...
-      }
-
-      addComponents(newComponents, variants('customPlugin'))
-    })
-  ]
-}
-```
+Дополнительные сведения смотрите в документации [Наведение, фокус и другие состояния](/docs/hover-focus-and-other-states).
 
 ---
 
 ## Добавление базовых стилей
 
-Функция `addBase` позволяет вам регистрировать новые стили в слое `base` Tailwind.
-
-Используйте его, чтобы добавить такие вещи, как базовые стили типографики, самоуверенные глобальные сбросы или правила `@font-face`.
+Функция `addBase` позволяет вам регистрировать новые стили в базовом слое Tailwind `base`. Используйте его для добавления таких вещей, как базовые стили типографики, самоуверенные глобальные сбросы или правила `@font-face`.
 
 Чтобы добавить новые базовые стили из плагина, вызовите `addBase`, передав свои стили, используя [синтаксис CSS-in-JS](#css-in-js-syntax):
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -517,320 +403,82 @@ module.exports = {
 }
 ```
 
-Поскольку базовые стили предназначены для простых селекторов, таких как `div`, `h1` и т. д., они не принимают во внимание пользовательскую конфигурацию `prefix` или `important`.
+Поскольку базовые стили предназначены для простых селекторов, таких как `div` или `h1`, они не принимают во внимание пользовательскую конфигурацию `prefix` или `important`.
 
 ---
 
-## Экранирование имен классов
+## Добавление вариантов
 
-Если ваш плагин генерирует классы, содержащие строки, предоставленные пользователем, вы можете использовать функцию `e` для экранирования этих имен классов, чтобы убедиться, что нестандартные символы обрабатываются должным образом автоматически.
+Функция `addVariant` позволяет вам зарегистрировать свои собственные [модификаторы](/docs/hover-focus-and-other-states), которые можно использовать так же, как встроенные варианты hover, focus, active и т. д.
 
-Например, этот плагин генерирует набор утилит `.rotate-{angle}`, где `{angle}` - строка, предоставленная пользователем. Функция `e` используется для экранирования имени конкатенированного класса, чтобы убедиться, что такие классы, как `.rotate-1/4`, работают должным образом:
+Чтобы добавить новый вариант, вызовите функцию `addVariant`, передав имя вашего настраиваемого варианта и строку формата, которая представляет, как следует изменить селектор.
 
-
-```js
-// tailwind.config.js
-const _ = require('lodash')
+```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  theme: {
-    rotate: {
-      '1/4': '90deg',
-      '1/2': '180deg',
-      '3/4': '270deg',
-    }
-  },
+  // ...
   plugins: [
-    plugin(function({ addUtilities, theme, e }) {
-      const rotateUtilities = _.map(theme('rotate'), (value, key) => {
-        return {
-          [`.${e(`rotate-${key}`)}`]: {
-            transform: `rotate(${value})`
-          }
-        }
-      })
-
-      addUtilities(rotateUtilities)
+    plugin(function({ addVariant }) {
+      addVariant('optional', '&:optional')
+      addVariant('hocus', ['&:hover', '&:focus'])
+      addVariant('supports-grid', '@supports (display: grid)')
     })
   ]
 }
 ```
 
-Этот плагин генерирует следующий CSS:
+Первый аргумент - это имя модификатора, которое пользователи будут использовать в своем HTML, поэтому в приведенном выше примере можно было бы написать такие классы:
 
-```css
-.rotate-1\/4 {
-  transform: rotate(90deg);
-}
-.rotate-1\/2 {
-  transform: rotate(180deg);
-}
-.rotate-3\/4 {
-  transform: rotate(270deg);
-}
-```
-
-Будьте осторожны, избегайте только содержимого, от которого вы действительно хотите избавиться; не передавайте начальный `.` в имени класса или псевдоклассы `:` в начале, такие как `:hover` или `:focus`, иначе эти символы будут экранированы.
-
-Кроме того, поскольку в CSS есть правила относительно символов, с которых имя класса может *начинаться* (класс не может начинаться с числа, но может содержать его), рекомендуется экранировать полное имя класса (а не только имя пользователя -предусмотренная часть), или вы можете получить ненужные escape-последовательности:
-
-```js
-// Будет без надобности экранировать `1`
-`.rotate-${e('1/4')}`
-// => '.rotate-\31 \/4'
-
-// Не будет экранировать `1`, потому что это не первый символ
-`.${e('rotate-1/4')}`
-// => '.rotate-1\/4'
-```
-
----
-
-## Селекторы с префиксом вручную
-
-Если вы пишете что-то сложное, где вы хотите добавить префикс только к определенным классам, вы можете использовать функцию `prefix`, чтобы иметь детальный контроль над тем, когда применяется настроенный пользователем префикс.
-
-Например, если вы создаете подключаемый модуль для повторного использования в наборе внутренних проектов, который включает существующие классы в своих селекторах, вам может потребоваться только префикс для новых классов:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  prefix: 'tw-',
-  plugins: [
-    plugin(function({ addComponents, prefix }) {
-      addComponents({
-        [`.existing-class > ${prefix('.new-class')}`]: {
-          backgroundColor: '#fff',
-        }
-      })
-    })
-  ]
-}
-```
-
-Это сгенерирует следующий CSS:
-
-```css
-.existing-class > .tw-new-class {
-  background-color: #fff;
-}
-```
-
-Функция `prefix` будет префиксом всех классов в селекторе и игнорировать неклассы, поэтому совершенно безопасно передавать сложные селекторы, подобные этому:
-
-```js
-prefix('.btn-blue .w-1\/4 > h1.text-xl + a .bar')
-// => '.tw-btn-blue .tw-w-1\/4 > h1.tw-text-xl + a .tw-bar'
-```
-
----
-
-## Ссылка на конфигурацию пользователя
-
-Функции `config`, `theme` и `variants` позволяют вам запрашивать значение из пользовательской конфигурации Tailwind, используя точечную нотацию, предоставляя значение по умолчанию, если этот путь не существует.
-
-Например, эта упрощенная версия встроенного плагина [контейнер](/docs/container) использует функцию `theme` для получения настроенных пользователем контрольных точек:
-
-```js
-// tailwind.config.js
-const _ = require('lodash')
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addComponents, theme }) {
-      const screens = theme('screens', {})
-
-      const mediaQueries = _.map(screens, width => {
-        return {
-          [`@media (min-width: ${width})`]: {
-            '.container': {
-              'max-width': width,
-            },
-          },
-        }
-      })
-
-      addComponents([
-        { '.container': { width: '100%' } },
-        ...mediaQueries,
-      ])
-    })
-  ]
-}
-```
-
-Если вы хотите сослаться на конфигурацию `variants` пользователя, рекомендуется использовать функцию `variants()` вместо функции `config`.
-
-<TipBad>Не используйте функцию конфигурации для поиска вариантов</TipBad>
-
-```js
-addUtilities(newUtilities, config('variants.customPlugin'))
-```
-
-<TipGood>Вместо этого используйте функцию вариантов</TipGood>
-
-```js
-addUtilities(newUtilities, variants('customPlugin'))
-```
-
-Поскольку `variants` могут быть просто глобальным списком вариантов для настройки для каждого плагина во всем проекте, использование функции `variants()` позволяет вам легко учитывать конфигурацию пользователя, не переопределяя эту логику самостоятельно.
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  variants: ['responsive', 'hover', 'focus'],
-  plugins: [
-    plugin(function ({ config, variants }) {
-      config('variants.customPlugin')
-      // => undefined
-
-      variants('customPlugin')
-      // => ['responsive', 'hover', 'focus']
-    })
-  ]
-}
+```html
+<form class="flex **supports-grid:grid** ...">
+  <input class="**optional:border-gray-300** ..." />
+  <button class="bg-blue-500 **hocus:bg-blue-600**">...</button>
+</form>
 ```
 
 ---
 
 ## Варианты экспонирования
 
-Для плагина часто имеет смысл предоставлять свои собственные параметры, которые пользователь может настроить для настройки поведения плагина.
-
-Наилучший способ добиться этого - заявить свой собственный ключ в пользовательской конфигурации `theme` и `variants` и попросить их предоставить там любые параметры, чтобы вы могли получить к ним доступ с помощью функций `theme` и `variants`.
-
-Например, вот плагин *(извлеченный в свой собственный модуль)* для создания простых утилит градиента, который принимает градиенты и варианты для создания в качестве параметров:
-
-```js
-// ./plugins/gradients.js
-const _ = require('lodash')
-const plugin = require('tailwindcss/plugin')
-
-module.exports = plugin(function({ addUtilities, e, theme, variants }) {
-  const gradients = theme('gradients', {})
-  const gradientVariants = variants('gradients', [])
-
-  const utilities = _.map(gradients, ([start, end], name) => ({
-    [`.${e(`bg-gradient-${name}`)}`]: {
-      backgroundImage: `linear-gradient(to right, ${start}, ${end})`
-    }
-  }))
-
-  addUtilities(utilities, gradientVariants)
-})
-```
-
-Чтобы использовать его, вам нужно указать `require` в списке плагинов, указав свою конфигурацию с помощью ключа `gradients` как в `theme` и `variants`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    gradients: theme => ({
-      'blue-green': [theme('colors.blue.500'), theme('colors.green.500')],
-      'purple-blue': [theme('colors.purple.500'), theme('colors.blue.500')],
-      // ...
-    })
-  },
-  variants: {
-    gradients: ['responsive', 'hover'],
-  },
-  plugins: [
-    require('./plugins/gradients')
-  ],
-}
-```
-
-### Предоставление параметров по умолчанию
-
-Чтобы предоставить параметры `theme` и `variants` по умолчанию для Вашего плагина, передайте второй аргумент функции `plugin` Tailwind, который включает Ваши значения по умолчанию:
-
-```js
-// ./plugins/gradients.js
-const _ = require('lodash')
-const plugin = require('tailwindcss/plugin')
-
-module.exports = plugin(function({ addUtilities, e, theme, variants }) {
-  // ...
-}, {
-  theme: {
-    gradients: theme => ({
-      'blue-green': [theme('colors.blue.500'), theme('colors.green.500')],
-      'purple-blue': [theme('colors.purple.500'), theme('colors.blue.500')],
-      // ...
-    })
-  },
-  variants: {
-    gradients: ['responsive', 'hover'],
-  }
-})
-```
-
-Этот объект является просто еще одним [объектом конфигурации Tailwind](/docs/configuration) и имеет все те же свойства и возможности, что и объект конфигурации, с которым вы привыкли работать в `tailwind.config.js`.
-
-Указав таким образом настройки по умолчанию, конечные пользователи смогут [переопределить](/docs/theme#overriding-the-default-theme) и [расширить](/docs/theme#extending-the-default-theme) Ваши значения по умолчанию так же, как и со встроенными стилями Tailwind.
-
-### Предоставление расширенных параметров конфигурации
-
-Иногда имеет смысл настраивать плагин таким образом, который на самом деле не относится к `theme` или `variants`, например, возможно, вы хотите, чтобы пользователи могли настраивать имя класса, которое использует ваш плагин.
+Иногда имеет смысл настраивать плагин таким образом, который на самом деле не относится к `theme`, например, возможно, вы хотите, чтобы пользователи могли настраивать имя класса, которое использует ваш плагин.
 
 В таких случаях вы можете использовать `plugin.withOptions` для определения подключаемого модуля, который может быть вызван с помощью объекта конфигурации. Этот API похож на обычный API `plugin`, за исключением того, что каждый аргумент должен быть функцией, которая принимает `options` пользователя и возвращает значение, которое вы обычно передали бы с помощью обычного API:
 
-```js
-// ./plugins/gradients.js
-const _ = require('lodash')
+```js ./plugins/markdown.js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin.withOptions(function (options) {
-  return function({ addUtilities, e, theme, variants }) {
-    const classPrefix = options.classPrefix ?? 'bg-gradient'
-    const gradients = theme('gradients', {})
-    const gradientVariants = variants('gradients', [])
+  return function({ addComponents }) {
+    const className = options.className ?? 'markdown'
 
-    const utilities = _.map(gradients, ([start, end], name) => ({
-      [`.${e(`${classPrefix}-${name}`)}`]: {
-        backgroundImage: `linear-gradient(to right, ${start}, ${end})`
+    addComponents({
+      [`.${className}`]: {
+        // ...
       }
-    }))
-
-    addUtilities(utilities, gradientVariants)
+    })
   }
 }, function (options) {
   return {
     theme: {
-      gradients: theme => ({
-        'blue-green': [theme('colors.blue.500'), theme('colors.green.500')],
-        'purple-blue': [theme('colors.purple.500'), theme('colors.blue.500')],
+      markdown: {
         // ...
-      })
+      }
     },
-    variants: {
-      gradients: ['responsive', 'hover'],
-    }
   }
 })
 ```
 
 Пользователь будет вызывать ваш плагин, передавая свои параметры при регистрации его в своей конфигурации `plugins`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     // ...
   },
-  variants: {
-    // ...
-  },
   plugins: [
-    require('./plugins/gradients')({
-      classPrefix: 'bg-grad'
+    require('./plugins/markdown.js')({
+      className: 'wysiwyg'
     })
   ],
 }
@@ -838,17 +486,13 @@ module.exports = {
 
 Пользователь также может зарегистрировать плагины, созданные таким образом, обычно, не вызывая их, если им не нужно передавать какие-либо настраиваемые параметры:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     // ...
   },
-  variants: {
-    // ...
-  },
   plugins: [
-    require('./plugins/gradients')
+    require('./plugins/markdown.js')
   ],
 }
 ```
@@ -857,7 +501,7 @@ module.exports = {
 
 ## Синтаксис CSS-in-JS
 
-Каждый из `addUtilities`, `addComponents` и `addBase` ожидает правила CSS, написанные как объекты JavaScript. Tailwind использует тот же синтаксис, который вы можете узнать из библиотек CSS-in-JS, таких как [Emotion](https://emotion.sh/docs/object-styles), и работает на [postcss-js](https://github.com/postcss/postcss-js) под капотом.
+Система плагинов Tailwind ожидает правила CSS, написанные как объекты JavaScript, с использованием того же синтаксиса, который вы можете распознать в библиотеках CSS-in-JS, таких как [Emotion](https://emotion.sh/docs/object-styles), на платформе [postcss-js](https://github.com/postcss/postcss-js) под капотом.
 
 Рассмотрим это простое правило CSS:
 
@@ -957,141 +601,4 @@ addComponents([
     }
   },
 ])
-```
-
----
-
-## Добавление вариантов
-
-Функция `addVariant` позволяет вам зарегистрировать свои собственные [варианты](/docs/hover-focus-and-other-states), которые можно использовать так же, как встроенные варианты hover, focus, active и т. д.
-
-Чтобы добавить новый вариант, вызовите функцию `addVariant`, передав имя Вашего настраиваемого варианта и обратный вызов, который при необходимости изменяет затронутые правила CSS.
-
-```js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addVariant, e }) {
-      addVariant('disabled', ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.${e(`disabled${separator}${className}`)}:disabled`
-        })
-      })
-    })
-  ]
-}
-```
-
-Обратный вызов получает объект, который можно разложить на следующие части:
-
-- `modifySelectors`, вспомогательная функция для упрощения добавления основных вариантов
-- `separator`, настроенный пользователем [строка-разделитель](/docs/configuration#separator)
-- `container`, [PostCSS Container](http://api.postcss.org/Container.html), содержащий все правила, к которым применяется вариант, для создания сложных вариантов.
-
-### Простые варианты
-
-Если вы хотите добавить простой вариант, в котором нужно только изменить селектор, используйте помощник `modifySelectors`.
-
-Хелпер `modifySelectors` принимает функцию, которая получает объект, который можно деструктурировать на следующие части:
-
-- `selector`, полный немодифицированный селектор для текущего правила
-- `className`, имя класса текущего правила *с удаленной начальной точкой*
-
-Функция, которую вы передаете в `modifySelectors`, должна просто возвращать измененный селектор.
-
-Например, плагин варианта `first-child` может быть написан так:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addVariant, e }) {
-      addVariant('first-child', ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.${e(`first-child${separator}${className}`)}:first-child`
-        })
-      })
-    })
-  ]
-}
-```
-
-### Сложные варианты
-
-Если вам нужно сделать что-либо помимо простого изменения селекторов (например, изменить фактическое объявление правил или заключить правила в другое at-правило), вам нужно будет использовать экземпляр `container`.
-
-Используя экземпляр `container`, вы можете просматривать все правила в данном модуле или блоке `@variants` и манипулировать ими, как вам нравится, используя стандартный PostCSS API.
-
-Например, этот плагин создает `important` версию каждой затронутой утилиты, добавляя к классу восклицательный знак и изменяя каждое объявление как `important`:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addVariant }) {
-      addVariant('important', ({ container }) => {
-        container.walkRules(rule => {
-          rule.selector = `.\\!${rule.selector.slice(1)}`
-          rule.walkDecls(decl => {
-            decl.important = true
-          })
-        })
-      })
-    })
-  ]
-}
-```
-
-Этот плагин принимает все правила внутри контейнера, помещает их в at-правило `@supports (display: grid)` и добавляет к каждому правилу префикс `supports-grid`:
-
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function({ addVariant, e, postcss }) {
-      addVariant('supports-grid', ({ container, separator }) => {
-        const supportsRule = postcss.atRule({ name: 'supports', params: '(display: grid)' })
-        supportsRule.append(container.nodes)
-        container.append(supportsRule)
-        supportsRule.walkRules(rule => {
-          rule.selector = `.${e(`supports-grid${separator}`)}${rule.selector.slice(1)}`
-        })
-      })
-    })
-  ]
-}
-```
-
-Чтобы узнать больше о работе с PostCSS напрямую, ознакомьтесь с [документацией PostCSS API](http://api.postcss.org/Container.html).
-
-### Использование пользовательских вариантов
-
-Использование пользовательских вариантов ничем не отличается от использования встроенных вариантов Tailwind.
-
-Чтобы использовать пользовательские варианты с основными плагинами Tailwind, добавьте их в раздел `variants` Вашего файла конфигурации:
-
-```js
-// tailwind.config.js
-modules.exports = {
-  variants: {
-    borderWidths: ['responsive', 'hover', 'focus', 'first-child', 'disabled'],
-  }
-}
-```
-
-Чтобы использовать настраиваемые варианты с настраиваемыми утилитами в собственном CSS, используйте правило [variants at-rule](/docs/functions-and-directives#variants):
-
-```css
-@variants hover, first-child {
-  .bg-cover-image {
-    background-image: url('/path/to/image.jpg');
-  }
-}
 ```

@@ -1,74 +1,87 @@
 ---
 title: "Размер фона"
 description: "Утилиты для управления размером фона фонового изображения элемента."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundSize'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=backgroundSize'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Авто
+## Основы использования
+
+### Авто
 
 Используйте `bg-auto` для отображения фонового изображения с размером по умолчанию.
 
-```html amber
-<template preview>
-  <div class="w-full bg-amber-200 h-48 bg-auto bg-no-repeat bg-center" style="background-image:url('/img/placeholder-amber.svg');">
+<Example>
+  <div class="relative flex items-center justify-center h-48 rounded-lg w-56 sm:w-96 mx-auto overflow-hidden">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <div class="relative z-10 w-full h-full bg-auto bg-no-repeat bg-center bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=160&q=80)]">
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**bg-auto** bg-no-repeat bg-center ..." style="background-image: url(...)"></div>
 ```
 
-## Заполнить
+### Заполнить
 
 Используйте `bg-cover`, чтобы масштабировать фоновое изображение до тех пор, пока оно не заполнит фоновый слой.
 
-```html emerald
-<template preview>
-  <div class="w-full mx-auto bg-emerald-200 h-96 bg-center bg-cover" style="background-image:url('/img/placeholder-emerald.svg');">
+<Example>
+  <div class="relative flex items-center justify-center rounded-lg overflow-hidden w-56 sm:w-96 mx-auto">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <div class="relative z-10 w-full h-48 bg-cover bg-no-repeat bg-center bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&h=640&q=80)]">
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="bg-cover bg-center ..." style="background-image: url(...)"></div>
+```html
+<div class="**bg-cover** bg-center ..." style="background-image: url(...)"></div>
 ```
 
-## Вместить
+### Вместить
 
 Используйте `bg-contain`, чтобы масштабировать фоновое изображение до внешних краев без обрезки или растяжения.
 
-```html indigo
-<template preview>
-  <div class="w-full bg-indigo-300 h-48 bg-center bg-no-repeat bg-contain" style="background-image:url('/img/placeholder-indigo.svg');">
+<Example>
+  <div class="relative flex items-center justify-center rounded-lg overflow-hidden w-56 sm:w-96 mx-auto">
+    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+    <div class="relative z-10 w-full h-48 bg-contain bg-no-repeat bg-center sm:bg-top bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&h=640&q=80)]">
+    </div>
   </div>
-</template>
-
-<div class="bg-contain bg-center ..." style="background-image: url(...)"></div>
-```
-
-## Адаптивность
-
-Чтобы контролировать размер фонового изображения элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите размера фона. Например, добавление класса `md:bg-contain` к элементу приведет к применению утилиты `bg-contain` при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="bg-auto **md:bg-contain** ..."></div>
+<div class="**bg-contain** bg-center ..." style="background-image: url(...)"></div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="bg-auto" featuredClass="bg-contain" />
+
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="bg-auto" featuredClass="bg-contain" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind предоставляет утилиты для размеров фона `auto`, `cover` и `contain`. Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.backgroundSize` в вашей конфигурации.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       backgroundSize: {
@@ -82,10 +95,8 @@ export const classes = { plugin }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="backgroundSize" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="backgroundSize" />
+<ArbitraryValues property="background-size" featuredClass="bg-[length:200px_100px]" />

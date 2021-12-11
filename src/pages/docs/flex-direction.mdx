@@ -1,118 +1,104 @@
 ---
 title: "Направление flex-элементов"
 description: "Утилиты для управления направлением flex-элементов."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/flexDirection'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=flexDirection'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Строка
+## Основы использования
+
+### Строка
 
 Используйте `flex-row` для размещения flex-элементов по горизонтали в том же направлении, что и текст:
 
-```html amber
-<template preview class="p-4">
-  <div class="flex flex-row space-x-4">
-    <div class="w-16 h-16 rounded-md bg-amber-500 text-white flex items-center justify-center text-2xl font-extrabold">1</div>
-    <div class="w-16 h-16 rounded-md bg-amber-500 text-white flex items-center justify-center text-2xl font-extrabold">2</div>
-    <div class="w-16 h-16 rounded-md bg-amber-500 text-white flex items-center justify-center text-2xl font-extrabold">3</div>
+<Example>
+  <div class="flex flex-row space-x-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-fuchsia-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **flex-row** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Реверсивная строка
+### Реверсивная строка
 
 Используйте `flex-row-reverse` для позиционирования flex-элементов по горизонтали в противоположном направлении:
 
-```html lightBlue
-<template preview class="p-4">
-  <div class="flex flex-row-reverse space-x-reverse space-x-4">
-    <div class="w-16 h-16 rounded-md bg-light-blue-500 text-white flex items-center justify-center text-2xl font-extrabold">1</div>
-    <div class="w-16 h-16 rounded-md bg-light-blue-500 text-white flex items-center justify-center text-2xl font-extrabold">2</div>
-    <div class="w-16 h-16 rounded-md bg-light-blue-500 text-white flex items-center justify-center text-2xl font-extrabold">3</div>
+<Example>
+  <div class="flex flex-row-reverse space-x-reverse space-x-4 font-mono text-white text-sm font-bold leading-6">
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">01</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">02</div>
+    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-blue-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **flex-row-reverse** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Столбец
+### Столбец
 
 Используйте `flex-col` для вертикального расположения flex-элементов:
 
-```html emerald
-<template preview class="p-4">
-  <div class="flex flex-col space-y-4">
-    <div class="h-16 rounded-md bg-emerald-500 text-white flex items-center justify-center text-2xl font-extrabold">1</div>
-    <div class="h-16 rounded-md bg-emerald-500 text-white flex items-center justify-center text-2xl font-extrabold">2</div>
-    <div class="h-16 rounded-md bg-emerald-500 text-white flex items-center justify-center text-2xl font-extrabold">3</div>
+<Example>
+  <div class="flex flex-col mx-auto space-y-4 font-mono text-white text-sm font-bold leading-6 max-w-xs">
+    <div class="p-4 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">01</div>
+    <div class="p-4 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">02</div>
+    <div class="p-4 rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **flex-col** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Реверсивный столбец
+### Реверсивный столбец
 
 Используйте `flex-col-reverse` для размещения flex-элементов по вертикали в противоположном направлении:
 
-```html rose
-<template preview class="p-4">
-  <div class="flex flex-col-reverse space-y-reverse space-y-4">
-    <div class="h-16 rounded-md bg-rose-500 text-white flex items-center justify-center text-2xl font-extrabold">1</div>
-    <div class="h-16 rounded-md bg-rose-500 text-white flex items-center justify-center text-2xl font-extrabold">2</div>
-    <div class="h-16 rounded-md bg-rose-500 text-white flex items-center justify-center text-2xl font-extrabold">3</div>
+<Example>
+  <div class="flex flex-col-reverse mx-auto space-y-reverse space-y-4 font-mono text-white text-sm font-bold leading-6 max-w-xs">
+    <div class="p-4 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">01</div>
+    <div class="p-4 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">02</div>
+    <div class="p-4 rounded-lg flex items-center justify-center bg-purple-500 shadow-lg">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **flex-col-reverse** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы применить утилиту направления flex-элементов только в определенной контрольной точке, добавьте префикс `{screen}:` к существующему имени класса. Например, добавление класса `md:flex-row` к элементу приведет к применению утилиты `flex-row` при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
+<HoverFocusAndOtherStates defaultClass="flex flex-col" featuredClass="flex-row" />
 
-```html
-  <div class="flex flex-col **md:flex-row** ...">
-    <!-- ... -->
-  </div>
-```
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-## Кастомизация
-
-### Варианты
-
-<Variants plugin="flexDirection" name="flex-direction" />
-
-### Отключение
-
-<Disabling plugin="flexDirection" name="flex-direction" />
+<BreakpointsAndMediaQueries defaultClass="flex flex-col" featuredClass="flex-row" />

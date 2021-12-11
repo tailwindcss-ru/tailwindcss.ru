@@ -9,17 +9,20 @@ import { CorePluginReference } from '@/components/CorePluginReference'
 
 По умолчанию Tailwind будет искать необязательный файл `tailwind.config.js` в корне Вашего проекта, где вы можете определить любые настройки.
 
-```js
-// Пример файла `tailwind.config.js`
-const colors = require('tailwindcss/colors')
-
+```js tailwind.config.js
 module.exports = {
+  content: ['./src/**/*.{html,js}'],
   theme: {
     colors: {
-      gray: colors.coolGray,
-      blue: colors.lightBlue,
-      red: colors.rose,
-      pink: colors.fuchsia,
+      'blue': '#1fb6ff',
+      'purple': '#7e5bef',
+      'pink': '#ff49db',
+      'orange': '#ff7849',
+      'green': '#13ce66',
+      'yellow': '#ffc82c',
+      'gray-dark': '#273444',
+      'gray': '#8492a6',
+      'gray-light': '#d3dce6',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -27,26 +30,22 @@ module.exports = {
     },
     extend: {
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        '8xl': '96rem',
+        '9xl': '128rem',
       },
       borderRadius: {
         '4xl': '2rem',
       }
     }
   },
-  variants: {
-    extend: {
-      borderColor: ['focus-visible'],
-      opacity: ['disabled'],
-    }
-  }
 }
 ```
 
 Каждый раздел файла конфигурации является необязательным, поэтому вам нужно только указать, что вы хотите изменить. Любые недостающие разделы будут возвращены к [конфигурации по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js).
 
-## Создание Вашего файла конфигурации
+---
+
+## Создание вашего файла конфигурации
 
 Создайте файл конфигурации Tailwind для своего проекта с помощью утилиты Tailwind CLI, включенной после установки пакета npm `tailwindcss`:
 
@@ -56,15 +55,10 @@ npx tailwindcss init
 
 Это создаст минимальный файл `tailwind.config.js` в корне Вашего проекта:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
-  purge: [],
-  darkMode: false, // или 'media' или 'class'
+  content: [],
   theme: {
-    extend: {},
-  },
-  variants: {
     extend: {},
   },
   plugins: [],
@@ -79,10 +73,15 @@ module.exports = {
 npx tailwindcss init tailwindcss-config.js
 ```
 
-Если вы используете собственное имя файла, вам нужно будет указать его при включении Tailwind в качестве плагина в Вашу конфигурацию PostCSS:
+Когда вы используете собственное имя файла, вам нужно будет указать его в качестве аргумента командной строки при компиляции CSS с помощью инструмента Tailwind CLI:
 
-```js
-// postcss.config.js
+```shell
+npx tailwindcss -c ./tailwindcss-config.js -i input.css -o output.css
+```
+
+Если вы используете Tailwind в качестве плагина PostCSS, вам нужно будет указать собственный путь конфигурации в конфигурации PostCSS:
+
+```js postcss.config.js
 module.exports = {
   plugins: {
     tailwindcss: { config: './tailwindcss-config.js' },
@@ -100,7 +99,7 @@ npx tailwindcss init -p
 
 Это сгенерирует в Вашем проекте файл `postcss.config.js`, который выглядит следующим образом:
 
-```js
+```js postcss.config.js
 module.exports = {
   plugins: {
     tailwindcss: {},
@@ -121,19 +120,44 @@ npx tailwindcss init --full
 
 Вы получите файл, соответствующий [файлу конфигурации по умолчанию](https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js), который Tailwind использует для внутренних целей.
 
-## Тема
+---
+
+## Варианты конфигурации
+
+### Содержимое
+
+В разделе `content` вы настраиваете пути ко всем вашим HTML-шаблонам, компонентам JS и любым другим файлам, которые содержат имена классов Tailwind.
+
+```js tailwind.config.js
+module.exports = {
+  content: [
+    './pages/**/*.{html,js}'
+    './components/**/*.{html,js}'
+  ],
+  // ...
+}
+```
+
+Дополнительные сведения о настройке источников контента смотрите в документации [Конфигурация содержимого](/docs/content-configuration).
+
+### Тема
 
 В разделе `theme` вы определяете свою цветовую палитру, шрифты, масштаб шрифта, размеры границ, контрольные точки - все, что связано с визуальным дизайном Вашего сайта.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
+  // ...
   theme: {
     colors: {
-      gray: colors.coolGray,
-      blue: colors.lightBlue,
-      red: colors.rose,
-      pink: colors.fuchsia,
+      'blue': '#1fb6ff',
+      'purple': '#7e5bef',
+      'pink': '#ff49db',
+      'orange': '#ff7849',
+      'green': '#13ce66',
+      'yellow': '#ffc82c',
+      'gray-dark': '#273444',
+      'gray': '#8492a6',
+      'gray-light': '#d3dce6',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -141,8 +165,8 @@ module.exports = {
     },
     extend: {
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        '8xl': '96rem',
+        '9xl': '128rem',
       },
       borderRadius: {
         '4xl': '2rem',
@@ -154,32 +178,13 @@ module.exports = {
 
 Узнайте больше о теме по умолчанию и о том, как ее настроить, в [руководстве по настройке темы](/docs/theme).
 
-## Варианты
-
-Раздел `variants` позволяет вам контролировать, какие [варианты](/docs/hover-focus-and-other-states) генерируются для каждого основного подключаемого модуля.
-
-```js
-// tailwind.config.js
-module.exports = {
-  variants: {
-    fill: [],
-    extend: {
-      borderColor: ['focus-visible'],
-      opacity: ['disabled'],
-    }
-  },
-}
-```
-
-Дополнительные сведения смотрите в [руководстве по настройке вариантов](/docs/configuring-variants).
-
-## Плагины
+### Плагины
 
 Раздел `plugins` позволяет вам регистрировать плагины в Tailwind, которые можно использовать для создания дополнительных утилит, компонентов, базовых стилей или пользовательских вариантов.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
+  // ...
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
@@ -191,13 +196,13 @@ module.exports = {
 
 Узнайте больше о написании собственных плагинов в [руководстве по созданию плагинов](/docs/plugins).
 
-## Пресеты
+### Пресеты
 
 Раздел `presets` позволяет вам указать Вашу собственную базовую конфигурацию вместо использования базовой конфигурации Tailwind по умолчанию.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
+  // ...
   presets: [
     require('@acmecorp/base-tailwind-config')
   ],
@@ -206,20 +211,18 @@ module.exports = {
   theme: {
     //...
   },
-  // ...
 }
 ```
 
 Узнайте больше о предустановках в [документации о пресетах](/docs/presets).
 
-## Префикс
+### Префикс
 
 Опция `prefix` позволяет вам добавить собственный префикс ко всем сгенерированным Tailwind служебным классам. Это может быть действительно полезно при наложении Tailwind поверх существующего CSS, где могут возникнуть конфликты имен.
 
 Например, вы можете добавить префикс `tw-`, установив опцию `prefix` следующим образом:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   prefix: 'tw-',
 }
@@ -240,7 +243,7 @@ module.exports = {
 /* и так далее */
 ```
 
-Важно понимать, что этот префикс добавляется _после_ любых вариантных префиксов. Это означает, что классы с адаптивным префиксом или префиксом состояния, например `sm:` или `hover:`, по-прежнему будут иметь префикс ответа или состояния * first *, а ваш настраиваемый префикс появится после двоеточия:
+Важно понимать, что этот префикс добавляется _после_ любых модификаторов вариантов. Это означает, что классы с адаптивными модификаторами или модификаторами состояния, такими как `sm:` или `hover:`, по-прежнему будут иметь модификатор ответа или состояния *первого*, с вашим настраиваемым префиксом, появляющимся после двоеточия:
 
 ```html
 <div class="tw-text-lg md:tw-text-xl tw-bg-red-500 **hover:tw-bg-blue-500**">
@@ -250,15 +253,15 @@ module.exports = {
 
 Префиксы добавляются только к классам, созданным Tailwind; **никакие префиксы не будут добавлены к Вашим собственным классам.**
 
-Это означает, что если вы добавите собственную адаптивную утилиту, например:
+Это означает, что если вы добавите свою собственную утилиту, например:
 
 ```css
-@variants hover {
+@layer utilities {
   .bg-brand-gradient { /* ... */ }
 }
 ```
 
-...у сгенерированных отзывчивых классов не будет Вашего настроенного префикса:
+...у сгенерированных вариантов не будет вашего настроенного префикса:
 
 ```css
 .bg-brand-gradient { /* ... */ }
@@ -268,19 +271,18 @@ module.exports = {
 Если вы хотите добавить префикс к своим собственным утилитам, просто добавьте префикс в определение класса:
 
 ```css
-@variants hover {
+@layer utilities {
   .tw-bg-brand-gradient { /* ... */ }
 }
 ```
 
-## Important
+### Важно
 
 Опция `important` позволяет вам контролировать, должны ли утилиты Tailwind помечаться `!important`. Это может быть действительно полезно при использовании Tailwind с существующим CSS, который имеет селекторы высокой специфичности.
 
 Чтобы сгенерировать утилиты как `!important`, установите ключ `important` в параметрах конфигурации на `true`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   important: true,
 }
@@ -306,22 +308,22 @@ module.exports = {
 Если вы хотите создать свои собственные утилиты `!important`, просто добавьте `!important` в конец каждого объявления самостоятельно:
 
 ```css
-@responsive {
+@layer utilities {
   .bg-brand-gradient {
     background-image: linear-gradient(#3490dc, #6574cd) !important;
   }
 }
 ```
 
-### Стратегия селектора
+#### Стратегия селектора
 
 Установка для `important` значения `true` может вызвать некоторые проблемы при включении сторонних JS-библиотек, которые добавляют встроенные стили к Вашим элементам. В таких случаях утилиты Tailwind `!important` побеждают встроенные стили, которые могут нарушить ваш намеченный дизайн.
 
 Чтобы обойти это, вы можете вместо этого установить `important` в селектор идентификаторов, например `#app`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
+  // ...
   important: '#app',
 }
 ```
@@ -354,68 +356,28 @@ module.exports = {
 </html>
 ```
 
-При использовании стратегии выбора убедитесь, что файл шаблона, который включает ваш корневой селектор, включен в вашу [конфигурацию очистки](/docs/optimizing-for-production#basic-usage), в противном случае весь ваш CSS будет удален при сборке для производства.
+При использовании стратегии выбора убедитесь, что файл шаблона, который включает ваш корневой селектор, включен в вашу [конфигурацию содержимого](/docs/optimizing-for-production#basic-usage), в противном случае весь ваш CSS будет удален при сборке для производства.
 
 
-## Разделитель
+### Разделитель
 
-Опция `separator` позволяет вам настроить, какой символ или строку следует использовать для разделения префиксов вариантов (размеры экрана, `hover`, `focus`, и т.д.) от имен утилит (`text-center`, `items-end`, и т.д.).
+Опция `separator` позволяет вам настроить, какой символ должен использоваться для отделения модификаторов (размеры экрана, `hover`, `focus` и т. д.) от названий утилит (`text-center`, `items-end` и т. д.).
 
 По умолчанию мы используем двоеточие (`:`), но это может быть полезно изменить, если вы используете язык шаблонов, например [Pug](https://pugjs.org), который не поддерживает специальные символы в имени класса.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   separator: '_',
 }
 ```
 
-## Варианты порядка
-
-Если вы используете функцию `extend` для включения дополнительных вариантов, эти варианты автоматически сортируются в соответствии с разумным порядком вариантов по умолчанию.
-
-При необходимости вы можете настроить это с помощью ключа `variantOrder`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variantOrder: [
-    'first',
-    'last',
-    'odd',
-    'even',
-    'visited',
-    'checked',
-    'group-hover',
-    'group-focus',
-    'focus-within',
-    'hover',
-    'focus',
-    'focus-visible',
-    'active',
-    'disabled',
-  ]
-}
-```
-
-## Основные плагины
+### Основные плагины
 
 Раздел `corePlugins` позволяет полностью отключить классы, которые Tailwind обычно генерирует по умолчанию, если они вам не нужны для Вашего проекта.
 
-Если вы не укажете конфигурацию `corePlugins`, все основные плагины будут включены по умолчанию:
+Чтобы отключить определенные основные плагины, предоставьте объект для `corePlugins`, который устанавливает для этих плагинов значение `false`:
 
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-}
-```
-
-Если вы хотите отключить определенные плагины ядра, укажите объект для `corePlugins`, который устанавливает для этих плагинов значение `false`:
-
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   corePlugins: {
     float: false,
@@ -427,8 +389,7 @@ module.exports = {
 
 Если вы хотите внести в список надежных отправителей, какие основные плагины должны быть включены, предоставьте массив, который включает список основных плагинов, которые вы хотите использовать:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   corePlugins: [
     'margin',
@@ -441,8 +402,7 @@ module.exports = {
 
 Если вы хотите отключить все основные плагины Tailwind и просто использовать Tailwind как инструмент для обработки Ваших собственных плагинов, предоставьте пустой массив:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   corePlugins: []
 }
@@ -452,6 +412,8 @@ module.exports = {
 Вот список всех основных плагинов для справки:
 
 <CorePluginReference />
+
+---
 
 ## Ссылки в JavaScript
 

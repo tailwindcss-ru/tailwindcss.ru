@@ -1,38 +1,36 @@
 ---
 title: "Позиция"
 description: "Утилиты для управления расположением элемента в DOM."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/position'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { TipCompat } from '@/components/Tip'
+import utilities from 'utilities?plugin=position'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Static
+## Основы использования
+
+### Статическое позиционирование элементов
 
 Используйте `static` для позиционирования элемента в соответствии с обычным потоком документа.
 
 Любые смещения будут игнорироваться, и элемент не будет действовать как ссылка на позицию для абсолютно позиционированных дочерних элементов.
 
-```html fuchsia
-<template preview>
-  <div class="relative bg-fuchsia-200 p-6">
-    <div class="static h-32 bg-fuchsia-300 p-4 text-fuchsia-600 font-medium">
-      <p>Статический родитель</p>
-      <div class="absolute bottom-0 left-0 bg-fuchsia-500 p-4 text-fuchsia-50">
-        <p>Абсолютный ребенок</p>
+<Example>
+  <div class="relative text-sm font-medium leading-6">
+    <div class="bg-purple-400/20 border border-purple-700/10 rounded-lg p-4">
+      <div class="static bg-purple-400/20 border border-purple-700/10 p-4 h-32">
+        <p class="text-purple-700">Статический родитель</p>
+        <div class="absolute bottom-0 left-0 bg-purple-500 shadow-lg rounded-lg p-4 text-white">
+          <p>Абсолютный ребенок</p>
+        </div>
       </div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**static** ...">
   <p>Статический родитель</p>
   <div class="absolute bottom-0 left-0 ...">
@@ -41,24 +39,26 @@ export const classes = { plugin }
 </div>
 ```
 
-## Relative
+### Relatively positioning elements
 
 Используйте `relative`, чтобы позиционировать элемент в соответствии с нормальным потоком документа.
 
 Смещения рассчитываются относительно нормального положения элемента, и элемент *будет* действовать как ссылка на позицию для абсолютно позиционированных дочерних элементов.
 
-```html rose
-<template preview>
-  <div class="relative bg-rose-200 p-6">
-    <div class="relative h-32 bg-rose-300 p-4 text-rose-600 font-medium">
-      <p>Относительный родитель</p>
-      <div class="absolute bottom-0 left-0 bg-rose-500 p-4 text-rose-50">
-        <p>Абсолютный ребенок</p>
+<Example>
+  <div class="relative text-sm font-medium leading-6">
+    <div class="bg-sky-400/20 border border-sky-700/10 rounded-lg p-4">
+      <div class="relative bg-sky-400/20 border border-sky-700/10 p-4 h-32">
+        <p class="text-sky-700">Относительный родитель</p>
+        <div class="absolute bottom-0 left-0 bg-sky-500 shadow-lg rounded-lg p-4 text-white">
+          <p>Абсолютный ребенок</p>
+        </div>
       </div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**relative** ...">
   <p>Относительный родитель</p>
   <div class="absolute bottom-0 left-0 ...">
@@ -67,49 +67,56 @@ export const classes = { plugin }
 </div>
 ```
 
-## Absolute
+### Абсолютно позиционирующие элементы
 
 Используйте `absolute` для позиционирования элемента *вне* обычного потока документа, заставляя соседние элементы действовать так, как будто этот элемент не существует.
 
 Смещения вычисляются относительно ближайшего родителя, у которого позиционирование, отличное от `static`, и элемент *будет* действовать как ссылка на позицию для других абсолютно позиционированных дочерних элементов.
 
-```html indigo
-<template preview>
-  <div class="space-y-6">
+<Example>
+  <div class="space-y-8">
     <div>
-      <p class="text-sm text-indigo-900 mb-2">Со статическим позиционированием</p>
-      <div class="relative bg-indigo-200 px-6 pt-2 pb-6 font-medium">
-        <p class="mb-2 text-indigo-600">Родитель с позиционированием relative</p>
-        <div class="static bg-indigo-300 p-4 text-indigo-700">
-          <p class="mb-2">Статический родитель</p>
-          <div class="static bottom-0 left-0 bg-indigo-500 p-4 text-indigo-50 inline-block">
-            <p>Статический ребенок</p>
-          </div>
-          <div class="bg-indigo-200 p-4 text-indigo-600 inline-block">
-            <p>Статический брат</p>
+      <p class="text-sm text-gray-500 font-medium mb-4">Со статическим позиционированием</p>
+      <div class="relative text-sm font-medium leading-6">
+        <div class="relative bg-indigo-400/20 border border-indigo-700/10 rounded-lg p-4">
+          <p class="text-indigo-700 -mt-2 mb-2">Относительный родитель</p>
+          <div class="static bg-indigo-400/20 border border-indigo-700/10 p-4 h-32 flex flex-col justify-between">
+            <p class="text-indigo-700">Статический родитель</p>
+            <div class="flex gap-4">
+              <div class=" bottom-0 left-0 bg-indigo-500 shadow-lg rounded-lg p-4 text-white">
+                <p>Статический ребенок</p>
+              </div>
+              <div class="bg-indigo-100 shadow-lg rounded-lg p-4 text-indigo-600">
+                <p>Статический брат</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <div>
-      <p class="text-sm text-indigo-900 mb-2">С абсолютным позиционированием</p>
-      <div class="relative bg-indigo-200 px-6 pt-2 pb-6 font-medium">
-        <p class="mb-2 text-indigo-600">Родитель с позиционированием relative</p>
-        <div class="static bg-indigo-300 p-4 text-indigo-700">
-          <p class="mb-2">Статический родитель</p>
-          <div class="absolute top-0 right-0 bg-indigo-500 p-4 text-indigo-50 inline-block">
-            <p>Абсолютный ребенок</p>
-          </div>
-          <div class="bg-indigo-200 p-4 text-indigo-600 inline-block">
-            <p>Статический брат</p>
+      <p class="text-sm text-gray-500 font-medium mb-4">С абсолютным позиционированием</p>
+      <div class="relative text-sm font-medium leading-6">
+        <div class="relative bg-indigo-400/20 border border-indigo-700/10 rounded-lg p-4">
+          <p class="text-indigo-700 -mt-2 mb-2">Относительный родитель</p>
+          <div class="static bg-indigo-400/20 border border-indigo-700/10 p-4 h-32 flex flex-col justify-between">
+            <p class="text-indigo-700">Статический родитель</p>
+            <div class="flex gap-4">
+              <div class="absolute top-0 right-0 bg-indigo-500 shadow-lg rounded-lg p-4 text-white">
+                <p>Абсолютный ребенок</p>
+              </div>
+              <div class="bg-indigo-100 shadow-lg rounded-lg p-4 text-indigo-600">
+                <p>Статический брат</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="static ...">
   <!-- Статический родитель -->
   <div class="static ..."><p>Статический ребенок</p></div>
@@ -118,128 +125,179 @@ export const classes = { plugin }
   <div class="**absolute** ..."><p>Абсолютный ребенок</p></div>
   <div class="inline-block ..."><p>Статический брат</p></div>
 </div>
-
 ```
 
-## Fixed
+### Fixed positioning elements
 
 Используйте `fixed` для позиционирования элемента относительно окна браузера.
 
 Смещения вычисляются относительно области просмотра, и элемент *будет* действовать как ссылка на позицию для абсолютно позиционированных дочерних элементов.
 
-```html amber
-<template preview>
-  <div class="overflow-hidden max-w-md mx-auto mt-4 mb-4 ring-4 ring-amber-300 rounded-xl">
-    <div class="rounded-t-xl bg-amber-200 flex px-4 py-3">
-      <div class="mr-6">
-        <span class="inline-block rounded-full bg-amber-400 h-3 w-3 mr-1"></span>
-        <span class="inline-block rounded-full bg-amber-400 h-3 w-3 mr-1"></span>
-        <span class="inline-block rounded-full bg-amber-400 h-3 w-3"></span>
-      </div>
-      <div class="flex-1 bg-amber-100 rounded mr-4"></div>
-    </div>
-    <div class="relative bg-amber-100 text-amber-600 h-64 font-medium">
-
-      <!-- Привет, ботаник! Да, мы используем абсолютную позицию вместо фиксированной позиции в демонстрации; это лучший способ, который мы могли придумать, чтобы продемонстрировать, как работает фиксированная позиция, без полного искажения макета всего сайта документации. Простите нас! 😄 -->
-
-      <div class="absolute left-0 right-0 top-0 bg-amber-300 text-amber-700 z-10 px-4 py-3">
-        Фиксированный ребенок
-      </div>
-      <div class="absolute inset-0 overflow-auto pt-16 px-6 pb-4 space-y-4 font-flow">
-        <p class="font-sans">Прокрутите меня!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. </p>
-        <p>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
-        <p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. </p>
-        <p>Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. </p>
-        <p>Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. </p>
-        <p>Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. </p>
-        <p>Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. </p>
-        <p>Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. </p>
+<Example p="none">
+  <div class="px-3">
+    <div class="relative max-w-md mx-auto bg-white shadow-lg h-80 overflow-hidden ring-1 ring-gray-900/5">
+      <div class="absolute top-0 left-0 right-0 px-4 py-3 flex items-center font-semibold text-sm text-gray-900 bg-gray-50/90 backdrop-blur-sm ring-1 ring-gray-900/10">Contacts</div>
+      <div class="overflow-auto flex flex-col divide-y h-80">
+        <div class="flex items-center gap-4 p-4">
+          <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-sm font-medium">Andrew Alfred</strong>
+        </div>
+        <div class="flex items-center gap-4 p-4">
+          <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-sm font-medium">Debra Houston</strong>
+        </div>
+        <div class="flex items-center gap-4 p-4">
+          <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-sm font-medium">Jane White</strong>
+        </div>
+        <div class="flex items-center gap-4 p-4">
+          <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-sm font-medium">Ray Flint</strong>
+        </div>
+        <div class="flex items-center gap-4 p-4">
+          <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-sm font-medium">Mindy Albrect</strong>
+        </div>
+        <div class="flex items-center gap-4 p-4">
+          <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+          <strong class="text-gray-900 text-sm font-medium">David Arnold</strong>
+        </div>
       </div>
     </div>
   </div>
-</template>
+</Example>
 
-<div>
-  <div class="**fixed** ...">
-    Фиксированный ребенок
+```html
+<div class="relative">
+  <div class="**fixed** top-0 left-0 right-0">Конаткты</div>
+  <div>
+    <div>
+      <img src="..." />
+      <strong>Andrew Alfred</strong>
+    </div>
+    <div>
+      <img src="..." />
+      <strong>Debra Houston</strong>
+    </div>
+    <!-- ... -->
   </div>
-
-  Прокрутите меня!
-
-  Lorem ipsum...
 </div>
 ```
 
-## Sticky
+### Закрепленные элементы позиционирования
 
 Используйте `sticky`, чтобы позиционировать элемент как `relative` до тех пор, пока он не пересечет указанный порог, а затем рассматривать его как фиксированный, пока его родительский элемент не выйдет за пределы экрана.
 
 Смещения рассчитываются относительно нормального положения элемента, и элемент *будет* действовать как ссылка на позицию для абсолютно позиционированных дочерних элементов.
 
-```html emerald
-<template preview>
-  <div class="h-64 overflow-auto">
-    <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 1</div>
-      <p class="py-4 font-medium text-emerald-500">Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. </p>
-    </div>
-    <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 2</div>
-      <p class="py-4 font-medium text-emerald-500">Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. </p>
-    </div>
-    <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 3</div>
-      <p class="py-4 font-medium text-emerald-500">Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. </p>
-    </div>
-    <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 4</div>
-      <p class="py-4 font-medium text-emerald-500">Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. </p>
-    </div>
-    <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 5</div>
-      <p class="py-4 font-medium text-emerald-500">Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. </p>
-    </div>
-    <div>
-      <div class="sticky top-0 bg-emerald-200 px-2 py-1 font-semibold text-emerald-600 rounded-md">Прикрепленный заголовок 6</div>
-      <p class="py-4 font-medium text-emerald-500">Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. </p>
+<Example p="none">
+  <div class="px-3">
+    <div class="relative max-w-md mx-auto bg-white shadow-lg h-80 overflow-auto ring-1 ring-gray-900/5 -my-px">
+      <div class="relative">
+        <div class="sticky top-0 px-4 py-3 flex items-center font-semibold text-sm text-gray-900 bg-gray-50/90 backdrop-blur-sm ring-1 ring-gray-900/10">A</div>
+        <div class="divide-y">
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Andrew Alfred</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Aisha Houston</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Anna White</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Andy Flint</strong>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="sticky top-0 px-4 py-3 flex items-center font-semibold text-sm text-gray-900 bg-gray-50/90 backdrop-blur-sm ring-1 ring-gray-900/10">B</div>
+        <div class="divide-y">
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Bob Alfred</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Bianca Houston</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Brianna White</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Bert Flint</strong>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="sticky top-0 px-4 py-3 flex items-center font-semibold text-sm text-gray-900 bg-gray-50/90 backdrop-blur-sm ring-1 ring-gray-900/10">C</div>
+        <div class="divide-y">
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Colton Alfred</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Cynthia Houston</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Cheyenne White</strong>
+          </div>
+          <div class="flex items-center gap-4 p-4">
+            <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+            <strong class="text-gray-900 text-sm font-medium">Charlie Flint</strong>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</template>
-
-<div>
-  <div class="sticky top-0 ...">Прикрепленный заголовок 1</div>
-  <p class="py-4">Quisque cursus...</p>
-</div>
-<div>
-  <div class="sticky top-0 ...">Прикрепленный заголовок 2</div>
-  <p class="py-4">Integer lacinia...</p>
-</div>
-<div>
-  <div class="sticky top-0 ...">Прикрепленный заголовок 3</div>
-  <p class="py-4">Nullam mauris...</p>
-</div>
-<!-- и т.д. -->
-```
-
-## Адаптивность
-
-Чтобы изменить расположение элемента только в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите позиции. Например, добавление класса `md:absolute` к элементу применит утилиту `absolute` при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="relative h-32 ...">
-  <div class="inset-x-0 bottom-0 relative **md:absolute**"></div>
+<div>
+  <div>
+    <div class="**sticky top-0** ...">A</div>
+    <div>
+      <div>
+        <img src="..." />
+        <strong>Andrew Alfred</strong>
+      </div>
+      <div>
+        <img src="..." />
+        <strong>Aisha Houston</strong>
+      </div>
+      <!-- ... -->
+    </div>
+  </div>
+  <div>
+    <div class="**sticky top-0**">B</div>
+    <div>
+      <div>
+        <img src="..." />
+        <strong>Bob Alfred</strong>
+      </div>
+      <!-- ... -->
+    </div>
+  </div>
+  <!-- ... -->
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="position" />
+<HoverFocusAndOtherStates defaultClass="relative" featuredClass="absolute" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="position" />
+<BreakpointsAndMediaQueries defaultClass="relative" featuredClass="absolute" />

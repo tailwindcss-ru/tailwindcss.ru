@@ -3,52 +3,66 @@ title: "Фоновое изображение"
 description: "Утилиты для управления фоновым изображением элемента."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundImage'
-import { Heading } from '@/components/Heading'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=backgroundImage'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Линейные градиенты
+## Основы использования
+
+### Линейные градиенты
 
 Чтобы придать элементу фон с линейным градиентом, используйте одну из утилит `bg-gradient-{direction}` в сочетании с утилитами [остановки градиентного цвета](/docs/gradient-color-stops).
 
-```html
-<template preview>
-  <div class="h-24 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500"></div>
-</template>
-
-<div class="**bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500** ..."></div>
-```
-
-## Адаптивность
-
-Чтобы управлять фоновым изображением элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите фонового изображения. Например, используйте `md:bg-gradient-to-r`, чтобы применить утилиту `bg-gradient-to-r` только при средних размерах экрана и выше.
+<Example>
+  <div class="space-y-4">
+    <div class="h-14 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+    <div class="h-14 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+    <div class="h-14 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+    <div class="h-14 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500"></div>
+  </div>
+</Example>
 
 ```html
-<div class="bg-gradient-to-l **md:bg-gradient-to-r** ..."></div>
+<div class="h-14 **bg-gradient-to-r from-cyan-500 to-blue-500**"></div>
+<div class="h-14 **bg-gradient-to-r from-sky-500 to-indigo-500**"></div>
+<div class="h-14 **bg-gradient-to-r from-violet-500 to-fuchsia-500**"></div>
+<div class="h-14 **bg-gradient-to-r from-purple-500 to-pink-500**"></div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Фоновые изображения
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="bg-gradient-to-l" featuredClass="bg-gradient-to-r" />
+
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="bg-gradient-to-l" featuredClass="bg-gradient-to-r" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind включает в себя утилиты фоновых изображений для создания фонов с линейным градиентом в восьми направлениях.
 
 Вы можете добавить свои собственные фоновые изображения, отредактировав раздел `theme.backgroundImage` вашего файла `tailwind.config.js`:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        backgroundImage: {
++       backgroundImage: {
 +         'hero-pattern': "url('/img/hero-pattern.svg')",
 +         'footer-texture': "url('/img/footer-texture.png')",
-        }
++       }
       }
     }
   }
@@ -56,12 +70,8 @@ export const classes = { plugin }
 
 Это не обязательно должны быть градиенты - это могут быть любые фоновые изображения, которые вам нужны.
 
-Эти классы будут иметь форму `bg-{key}`, поэтому, например, `hero-pattern` превратится в `bg-hero-pattern`.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="backgroundImage" />
-
-### Отключение
-
-<Disabling plugin="backgroundImage" />
+<ArbitraryValues property="background-image" featuredClass="bg-[url('/img/hero-pattern.svg')]" />

@@ -3,58 +3,64 @@ title: "Строки шаблона сетки"
 description: "Утилиты для указания строк в макете сетки."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/gridTemplateRows'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=gridTemplateRows'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Указание строк в сетке
 
 Используйте утилиты `grid-rows-{n}` для создания сеток с _n_ строками одинакового размера.
 
-```html lightBlue
-<template preview class="bg-white p-8">
-  <div class="h-64 grid grid-rows-3 grid-flow-col gap-4">
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">1</div>
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">2</div>
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">3</div>
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">4</div>
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">5</div>
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">6</div>
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">7</div>
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">8</div>
-    <div class="bg-light-blue-500 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">9</div>
+<Example>
+  <div class="grid grid-rows-4 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">01</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">02</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">04</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">05</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">06</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">07</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">08</div>
+    <div class="p-4 rounded-lg shadow-lg bg-pink-500">09</div>
   </div>
-</template>
-
-<div class="h-64 grid **grid-rows-3** grid-flow-col gap-4">
-  <div>1</div>
-  <!-- ... -->
-  <div>9</div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы управлять строками сетки в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите existing grid-template-rows. Например, используйте `md:grid-rows-6`, чтобы применить утилиту `grid-rows-6` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="grid grid-rows-2 **md:grid-rows-6** ...">
+<div class="grid **grid-rows-4** grid-flow-col gap-4">
+  <div>01</div>
   <!-- ... -->
+  <div>09</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-По умолчанию Tailwind включает в себя утилиты grid-template-row для создания базовых сеток, содержащих до 6 строк одинаковой ширины. Вы изменяете, добавляете или удаляете их, настраивая раздел `gridTemplateRows` в конфигурации Вашей темы Tailwind.
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="grid grid-rows-2" featuredClass="grid-rows-6" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="grid grid-rows-2" featuredClass="grid-rows-6" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя утилиты `grid-template-row` для создания базовых сеток, содержащих до 6 строк одинаковой ширины.. Вы можете настроить эти значения, отредактировав `theme.gridTemplateRows` или `theme.extend.gridTemplateRows` в вашем файле `tailwind.config.js`.
 
 Здесь у вас есть прямой доступ к CSS-свойству `grid-template-rows`, так что вы можете сделать свои пользовательские значения строк как общими, так и сложными и специфичными для сайта, как вам нравится.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
@@ -70,12 +76,8 @@ export const classes = { plugin }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="gridTemplateRows" name="grid-template-rows" />
-
-### Отключение
-
-<Disabling plugin="gridTemplateRows" name="grid-template-rows" />
+<ArbitraryValues property="grid-template-rows" featuredClass="grid-rows-[200px_minmax(900px,_1fr)_100px]" />

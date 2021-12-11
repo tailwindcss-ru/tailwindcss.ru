@@ -1,74 +1,63 @@
 ---
 title: "Положение стиля списка"
 description: "Утилиты для управления положением маркеров/цифр в списках."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/listStylePosition'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=listStylePosition'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка позиции стиля списка
 
 Управляйте положением маркеров и отступом текста в списке с помощью утилит `list-inside` и `list-outside`.
 
-```html lightBlue
-<template preview class="p-4 px-8">
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-light-blue-600">.list-inside</p>
-    <ul class="list-disc list-inside bg-light-blue-200 bg-stripes bg-stripes-white text-light-blue-600 py-2 rounded-md">
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-      <li>Assumenda, quia temporibus eveniet a libero incidunt suscipit</li>
-      <li>Quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-    </ul>
-  </p>
+<Example>
+  <div class="flex flex-col sm:flex-row gap-8">
+    <div class="relative">
+      <div class="absolute left-8 -top-8 -bottom-8 w-px bg-pink-400/40"></div>
+      <p class="font-medium text-sm text-gray-500 font-mono mb-3 ml-8">list-inside</p>
+      <ul class="list-disc list-inside text-normal text-gray-700 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 p-4 pl-8">
+        <li>5 чашек нарезанных белых грибов</li>
+        <li>1/2 стакана оливкового масла</li>
+        <li>3 фунта сельдерея</li>
+      </ul>
+    </div>
+    <div class="relative">
+      <div class="absolute left-8 -top-0 sm:-top-8 -bottom-8 w-px bg-pink-400/40"></div>
+      <p class="font-medium text-sm text-gray-500 font-mono mb-3 ml-8">list-outside</p>
+      <ul class="list-disc list-outside text-normal text-gray-700 bg-white rounded-xl shadow-lg ring-1 ring-gray-900/5 p-4 pl-8">
+        <li>5 чашек нарезанных белых грибов</li>
+        <li>1/2 стакана оливкового масла</li>
+        <li>3 фунта сельдерея</li>
+      </ul>
+    </div>
   </div>
-  <div class="mb-6">
-    <p class="mb-1 text-sm text-light-blue-600">.list-outside</p>
-    <ul class="list-disc list-outside bg-light-blue-200 bg-stripes bg-stripes-white text-light-blue-600 py-2 rounded-md">
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-      <li>Assumenda, quia temporibus eveniet a libero incidunt suscipit</li>
-      <li>Quia temporibus eveniet a libero incidunt suscipit laborum, rerum accusantium modi quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-    </ul>
-  </div>
-</template>
-
-<ul class="list-inside bg-rose-200 ...">
-  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-  ...
-</ul>
-
-<ul class="list-outside bg-rose-200 ...">
-  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-  ...
-</ul>
-```
-
-## Адаптивность
-
-Чтобы управлять позицией стиля списка элемента списка в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите списка. Например, используйте `.md:list-inside`, чтобы применить утилиту `list-inside` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<ul class="list-outside **md:list-inside**">
-  <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+<ul class="list-inside ...">
+  <li>5 чашек нарезанных белых грибов</li>
+  <!-- ... -->
+</ul>
+
+<ul class="list-outside ...">
+  <li>5 чашек нарезанных белых грибов</li>
   <!-- ... -->
 </ul>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="listStylePosition" />
+<HoverFocusAndOtherStates defaultClass="list-outside" featuredClass="list-inside" element="ul" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="listStylePosition" />
+<BreakpointsAndMediaQueries defaultClass="list-outside" featuredClass="list-inside" element="ul" />

@@ -1,89 +1,97 @@
 ---
 title: "Выделение текста"
 description: "Утилиты для управления возможностью выделения пользователем текста в элементе."
-features:
- responsive: true
- customizable: false
- hover: false
- focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/userSelect'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=userSelect'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Отключить выделение текста
+## Основы использования
+
+### Отключение выделения текста
 
 Используйте `select-none`, чтобы предотвратить выделение текста в элементе и его дочерних элементах.
 
-```html amber
-<template preview>
-  <div class="mx-auto max-w-sm bg-amber-200 p-2 select-none text-center">
-    Этот текст нельзя выбрать
+<Example hint="Try selecting the text to see the expected behaviour">
+  <div class="flex justify-center">
+    <div class="select-none inline-flex text-center bg-white text-gray-900 font-semibold font-sans text-sm shadow-lg rounded-lg ring-1 ring-gray-900/5 px-4 py-3">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**select-none** ...">
-  Этот текст нельзя выбрать
+  Быстрая коричневая лиса прыгает через ленивую собаку.
 </div>
 ```
 
-## Разрешить выделение текста
+### Разрешение выделения текста
 
 Используйте `select-text`, чтобы разрешить выделение текста в элементе и его дочерних элементах.
 
-```html emerald
-<template preview>
-  <div class="mx-auto max-w-sm bg-emerald-200 p-2 select-text text-center">
-    Этот текст можно выбрать
+<Example hint="Try selecting the text to see the expected behaviour">
+  <div class="flex justify-center">
+    <div class="select-text inline-flex text-center bg-white text-gray-900 font-semibold font-sans text-sm shadow-lg rounded-lg ring-1 ring-gray-900/5 px-4 py-3">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**select-text** ...">
-  Этот текст можно выбрать
+  Быстрая коричневая лиса прыгает через ленивую собаку.
 </div>
 ```
 
-## Выделите весь текст одним щелчком мыши
+### Выделение всего текста одним щелчком мыши
 
 Используйте `select-all`, чтобы автоматически выделять весь текст в элементе, когда пользователь щелкает мышью.
 
-```html fuchsia
-<template preview>
-  <div class="mx-auto max-w-sm bg-fuchsia-200 p-2 select-all text-center">
-    Щелкните в любом месте этого текста, чтобы выделить все
+<Example hint="Try selecting the text to see the expected behaviour">
+  <div class="flex justify-center">
+    <div class="select-all inline-flex text-center bg-white text-gray-900 font-semibold font-sans text-sm shadow-lg rounded-lg ring-1 ring-gray-900/5 px-4 py-3">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**select-all** ...">
-  Щелкните в любом месте этого текста, чтобы выделить все
+  Быстрая коричневая лиса прыгает через ленивую собаку.
 </div>
 ```
 
-## Авто
+### Использование автоматического выбора поведения
 
 Используйте `select-auto`, чтобы использовать поведение браузера по умолчанию для выделения текста. Полезно для отмены других классов, таких как `.select-none`, в разных контрольных точках.
 
-```html lightBlue
-<template preview>
-  <div class="mx-auto max-w-sm bg-light-blue-200 p-2 select-auto text-center">
-    Этот текст можно выбрать
+<Example hint="Попробуйте выделить текст, чтобы увидеть ожидаемое поведение">
+  <div class="flex justify-center">
+    <div class="select-auto inline-flex text-center bg-white text-gray-900 font-semibold font-sans text-sm shadow-lg rounded-lg ring-1 ring-gray-900/5 px-4 py-3">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**select-auto** ...">
-  Этот текст можно выбрать
+  Быстрая коричневая лиса прыгает через ленивую собаку.
 </div>
 ```
 
-## Кастомизация
+---
 
-### Варианты
+## <Heading ignore>Применяя условно</Heading>
 
-<Variants plugin="userSelect" name="user-select" />
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-### Отключение
+<HoverFocusAndOtherStates featuredClass="select-all" />
 
-<Disabling plugin="userSelect" name="user-select" />
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries featuredClass="select-all" />

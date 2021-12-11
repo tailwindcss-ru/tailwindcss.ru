@@ -3,12 +3,13 @@ title: "Толщина кольца"
 description: "Утилиты для создания контуров колец с тенями."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/ringWidth'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=ringWidth'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   filterRules: ([selector]) => {
     return selector.startsWith('.')
   },
@@ -38,30 +39,33 @@ export const classes = {
 }
 
 
-## Применение
+## Основы использования
+
+### Добавление кольца
 
 Используйте утилиты `ring-{width}`, чтобы применить сплошную тень блока определенной толщины к элементу. По умолчанию кольца имеют полупрозрачный синий цвет, аналогичный стилю кольца фокусировки по умолчанию во многих системах.
 
-```html lightBlue
-<template preview class="grid grid-cols-1 sm:grid-cols-4 gap-6 justify-items-center p-8">
-  <button tabindex="-1" class="focus:outline-none text-sm w-24 py-3 rounded-md font-semibold text-white bg-blue-500 ring-0">
-    ring-0
-  </button>
-  <button tabindex="-1" class="focus:outline-none text-sm w-24 py-3 rounded-md font-semibold text-white bg-blue-500 ring-2">
-    ring-2
-  </button>
-  <button tabindex="-1" class="focus:outline-none text-sm w-24 py-3 rounded-md font-semibold text-white bg-blue-500 ring">
-    ring
-  </button>
-  <button tabindex="-1" class="focus:outline-none text-sm w-24 py-3 rounded-md font-semibold text-white bg-blue-500 ring-4">
-    ring-4
-  </button>
-</template>
+<Example>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-center font-bold leading-6 text-white">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">ring-2</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-white text-gray-700 border border-gray-300 rounded-md shadow-sm ring-2 ring-offset-2 ring-offset-gray-50 ring-blue-300">Button A</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">ring</p>
+        <button class="px-4 py-2 font-semibold text-sm bg-white text-gray-700 border border-gray-300 rounded-md shadow-sm ring ring-offset-2 ring-offset-gray-50 ring-blue-300">Button B</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">ring-4</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-white text-gray-700 border border-gray-300 rounded-md shadow-sm ring-4 ring-offset-2 ring-offset-gray-50 ring-blue-300">Button C</button>
+    </div>
+  </div>
+</Example>
 
-<button class="... **ring-0**">ring-0</button>
-<button class="... **ring-2**">ring-2</button>
-<button class="... **ring**">ring</button>
-<button class="... **ring-4**">ring-4</button>
+```html
+<button class="... ring-offset-2 **ring-2**">Кнопка A</button>
+<button class="... ring-offset-2 **ring**">Кнопка B</button>
+<button class="... ring-offset-2 **ring-4**">Кнопка C</button>
 ```
 
 Кольцевые утилиты красиво сочетаются с обычными утилитами `shadow-{size}` и могут быть объединены в одном элементе.
@@ -70,21 +74,16 @@ export const classes = {
 
 ### Фокус колец
 
-Вариант `focus` включен для утилит `ring-{width}` по умолчанию, что упрощает их использование для пользовательских стилей фокуса, добавляя `focus:` в начало любой утилиты `ring-{width}`.
+Утилиты ширины кольца упрощают использование настраиваемых колец фокусировки, добавляя `focus:` в начало любой утилиты `ring-{width}` utility.
 
-```html emerald
-<template preview class="flex space-x-6 justify-center p-8">
-  <button tabindex="-1" class="focus:outline-none w-32 py-2 rounded-md font-semibold text-white bg-emerald-500 focus:outline-none">
-    Несфокусированный
-  </button>
-  <button tabindex="-1" class="focus:outline-none w-32 py-2 rounded-md font-semibold text-white bg-emerald-500 ring-4 ring-emerald-500 ring-opacity-50 focus:outline-none">
-    Сфокусированный
-  </button>
-</template>
+<Example hint="Focus this button to see the ring appear">
+  <div class="flex justify-center max-w-md mx-auto gap-4 text-white text-sm text-center font-bold leading-6 text-white">
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-gray-700 border border-gray-300 rounded-md shadow-sm ring-violet-300 ring-offset-2 ring-offset-gray-50 focus:outline-none focus:ring-2">Сохранить изменения</button>
+  </div>
+</Example>
 
-<button class="... focus:outline-none **focus:ring-4** focus:ring-green-500 focus:ring-opacity-50">
-  Кнопка
-</button>
+```html
+<button class="... **focus:ring-2**">Сохранить изменения</button>
 ```
 
 Вариант `focus` включен по умолчанию для утилит [ringColor](/docs/ring-color), [ringOpacity](/docs/ring-opacity), [ringOffsetWidth](/docs/ring-offset-width) и [ringOffsetColor](/docs/ring-offset-color) также.
@@ -93,67 +92,52 @@ export const classes = {
 
 Используйте утилиту `ring-inset`, чтобы кольцо отображалось внутри элемента, а не снаружи. Это может быть полезно для элементов на краю экрана, где часть кольца не была бы видна.
 
-```html fuchsia
-<template preview class="flex space-x-6 justify-center p-8">
-  <button tabindex="-1" class="focus:outline-none w-32 py-2 rounded-md font-semibold text-white bg-pink-500 ring-4 ring-pink-300">
-    По умолчанию
-  </button>
-  <button tabindex="-1" class="focus:outline-none w-32 py-2 rounded-md font-semibold text-white bg-pink-500 ring-4 ring-pink-300 ring-inset">
-    Встроенно
-  </button>
-</template>
-
-<button class="... ring-4 ring-pink-300">
-  По умолчанию
-</button>
-
-<button class="... ring-4 ring-pink-300 **ring-inset**">
-  Встроенно
-</button>
-```
-
----
-
-
-## Адаптивность
-
-Чтобы контролировать ширину кольца в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите ширины кольца. Например, используйте `md:ring-4`, чтобы применить утилиту `ring-4` только при средних размерах экрана и выше.
+<Example>
+  <div class="flex justify-center max-w-md mx-auto gap-4 text-white text-sm text-center font-bold leading-6 text-white">
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-gray-700 rounded-md shadow-sm ring-pink-300 ring-2 ring-inset">Сохранить изменения</button>
+  </div>
+</Example>
 
 ```html
-<button class="ring-2 **md:ring-4**">
-  <!-- ... -->
+<button class="... ring-2 ring-pink-300 **ring-inset**">
+  Сохранить изменения
 </button>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="ring-2" featuredClass="ring-4" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="ring-2" featuredClass="ring-4" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-Чтобы настроить, какие утилиты ширины кольца будут генерироваться, добавьте свои собственные значения под ключом `ringWidth` в разделе `theme` вашего файла `tailwind.config.js`. Вы можете использовать клавишу `DEFAULT`, чтобы указать, какая ширина используется для простой утилиты `ring`.
+### Настройка вашей темы
 
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      ringWidth: {
-        'DEFAULT': '2px',
-        '6': '6px',
-        '10': '10px',
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `ring-width`. Вы можете настроить эти значения, отредактировав `theme.ringWidth` или `theme.extend.ringWidth` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       ringWidth: {
++         '10': '10px',
++       }
       }
     }
   }
-}
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="ringWidth" />
-
-### Отключение
-
-<Disabling plugin="ringWidth" />
+<ArbitraryValues property="ring" featuredClass="ring-[10px]" />

@@ -3,84 +3,113 @@ title: "Пространство между"
 description: "Утилиты для управления пространством между дочерними элементами."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/space'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { numbersFirstByPrefix } from '@/utils/sortClasses'
+import utilities from 'utilities?plugin=space'
+import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
-  sort: numbersFirstByPrefix,
+  utilities,
+  sort: (classes) => numbersFirst(classes),
   transformSelector: (selector) => (
     <>
       {selector.split('>').shift().trim().replace(/^\./, '').replace(/\\/g, '')} <span className="ml-1 text-purple-300">> * + *</span>
     </>
   ),
+  transformProperties: ({ properties }) => {
+    for (let prop in properties) {
+      if (prop.startsWith('--')) {
+        if (Object.keys(properties).length > 1) {
+          delete properties[prop]
+        }
+      } else {
+        properties[prop] = properties[prop].match(/([\d.]+[a-z]+) /)?.[1] || properties[prop]
+      }
+    }
+    // `right` and `bottom` margins are only used when
+    // "reverse" is enabled
+    delete properties['margin-right']
+    delete properties['margin-bottom']
+    return properties
+  },
 }
 
-## Добавьте горизонтальное пространство между дочерними элементами
+## Основы использования
+
+### Добавьте горизонтальное пространство между детьми
 
 Контролируйте расстояние между элементами по горизонтали с помощью утилит `space-x-{amount}`.
 
-```html fuchsia
-<template preview>
-  <div class="flex justify-start">
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500">1</div>
-    <div class="w-4 h-16 rounded-md bg-fuchsia-300 bg-stripes bg-stripes-white"></div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500">2</div>
-    <div class="w-4 h-16 rounded-md bg-fuchsia-300 bg-stripes bg-stripes-white"></div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500">3</div>
+<Example>
+  <div class="flex justify-start font-mono text-white text-sm font-bold leading-6">
+    <div class="flex space-x-4 bg-stripes-fuchsia rounded-lg">
+      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">01</div>
+      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">02</div>
+      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">03</div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex **space-x-4** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Добавьте вертикальное пространство между дочерними элементами
+### Добавьте вертикальное пространство между дочерними элементами
 
 Контролируйте расстояние между элементами по вертикали с помощью утилит `space-y-{amount}`.
 
-```html lightBlue
-<template preview>
-  <div>
-    <div class="h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-blue-500">1</div>
-    <div class="h-6 rounded-md bg-blue-300 bg-stripes bg-stripes-white"></div>
-    <div class="h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-blue-500">2</div>
-    <div class="h-6 rounded-md bg-blue-300 bg-stripes bg-stripes-white"></div>
-    <div class="h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-blue-500">3</div>
+<Example>
+  <div class="flex flex-col justify-center text-center w-full font-mono text-white text-sm font-bold leading-6">
+    <div class="flex flex-col space-y-4 bg-stripes-indigo rounded-lg">
+      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">01</div>
+      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">02</div>
+      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">03</div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="**space-y-6** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+```html
+<div class="flex flex-col **space-y-4** ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Изменение порядка дочерних элементов
+### Изменение порядка дочерних элементов
 
 Если Ваши элементы расположены в обратном порядке (например, `flex-row-reverse` или `flex-col-reverse`), используйте утилиты `space-x-reverse` или `space-y-reverse`, чтобы обеспечить свободное пространство, добавив к правильной стороне каждого элемента.
 
-```html
-<template preview>
-  <div class="flex flex-row-reverse justify-start">
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500">1</div>
-    <div class="w-4 h-16 rounded-md bg-fuchsia-300 bg-stripes bg-stripes-white"></div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500">2</div>
-    <div class="w-4 h-16 rounded-md bg-fuchsia-300 bg-stripes bg-stripes-white"></div>
-    <div class="w-16 h-16 text-white text-2xl font-extrabold rounded-md flex items-center justify-center bg-fuchsia-500">3</div>
+<Example>
+  <div class="flex justify-end font-mono text-white text-sm font-bold leading-6">
+    <div class="flex flex-row-reverse space-x-4 space-x-reverse bg-stripes-cyan rounded-lg">
+      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">01</div>
+      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">02</div>
+      <div class="w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">03</div>
+    </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="flex flex-row-reverse **space-x-4 space-x-reverse** ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+### Использование отрицательных значений
+
+To use a negative space value, prefix the class name with a dash to convert it to a negative value.
+
+```html
+<div class="flex **-space-x-4** ...">
+  <!-- ... -->
 </div>
 ```
 
@@ -106,64 +135,52 @@ export const classes = {
 
 ---
 
-## Адаптивность
+## <Heading ignore>Применяя условно</Heading>
 
-Чтобы контролировать расстояние между элементами в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите интервалов. Например, добавление класса `md:space-x-8` к элементу приведет к применению утилиты `space-x-8` при средних размерах экрана и выше.
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```html
-<div class="flex space-x-2 **md:space-x-8**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
+<HoverFocusAndOtherStates defaultClass="flex space-x-2" featuredClass="space-x-8" />
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="flex space-x-2" featuredClass="space-x-8" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-### Шкала интервалов
+### Настройка вашей темы
 
-Если вы хотите одновременно настроить значения расстояния между ними, отступов, полей, ширины и высоты, используйте раздел `theme.spacing` Вашего файла `tailwind.config.js`.
+По умолчанию в шкале Tailwind используется [шкала интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      spacing: {
-+       sm: '8px',
-+       md: '16px',
-+       lg: '24px',
-+       xl: '48px',
+      extend: {
++       spacing: {
++         '5px': '5px',
++       }
       }
     }
   }
 ```
 
-Чтобы настроить только расстояние между значениями, используйте раздел `theme.space` Вашего файла `tailwind.config.js`.
+Кроме того, вы можете настроить только масштаб пространства, отредактировав `theme.space` или `theme.extend.space` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      space: {
-+       sm: '8px',
-+       md: '16px',
-+       lg: '24px',
-+       xl: '48px',
+      extend: {
++       space: {
++         '5px': '5px',
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="space" />
-
-### Отключение
-
-<Disabling plugin="space" />
+<ArbitraryValues property="space-{x|y}" featuredClass="space-y-[5px]" />

@@ -3,82 +3,69 @@ title: "Ширина штриха"
 description: "Утилиты для стилизации ширины штриха элементов SVG."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/strokeWidth'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=strokeWidth'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка ширины штриха
 
 Используйте утилиты `stroke-{width}`, чтобы установить ширину штриха SVG.
 
-Полезно для стилизации наборов иконок, таких как [Heroicons](http://heroicons.com/), которые полностью нарисованы штрихами.
-
-```html emerald
-<template preview>
-  <div class="text-center">
-    <svg class="stroke-current stroke-1 text-emerald-600 inline-block h-24 w-24" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="14.31" y1="8" x2="20.05" y2="17.94" />
-      <line x1="9.69" y1="8" x2="21.17" y2="8" />
-      <line x1="7.38" y1="12" x2="13.12" y2="2.06" />
-      <line x1="9.69" y1="16" x2="3.95" y2="6.06" />
-      <line x1="14.31" y1="16" x2="2.83" y2="16" />
-      <line x1="16.62" y1="12" x2="10.88" y2="21.94" />
-    </svg>
-    <svg class="stroke-current stroke-2 text-emerald-600 inline-block h-24 w-24" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="14.31" y1="8" x2="20.05" y2="17.94" />
-      <line x1="9.69" y1="8" x2="21.17" y2="8" />
-      <line x1="7.38" y1="12" x2="13.12" y2="2.06" />
-      <line x1="9.69" y1="16" x2="3.95" y2="6.06" />
-      <line x1="14.31" y1="16" x2="2.83" y2="16" />
-      <line x1="16.62" y1="12" x2="10.88" y2="21.94" />
-    </svg>
+<Example>
+  <div class="flex items-center justify-center space-x-8">
+    <svg class="stroke-indigo-500 stroke-1" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="24" cy="24" r="23" stroke-linejoin="round"/> <path d="M23 1C23 1 15 10.4901 15 24C15 37.5099 23 47 23 47" stroke-linejoin="round"/> <path d="M25 1C25 1 33 10.4901 33 24C33 37.5099 25 47 25 47" stroke-linejoin="round"/> <path d="M1 24H47"/> </svg>
+    <svg class="stroke-indigo-500 stroke-2" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"> <circle cx="24" cy="24" r="23" stroke-linejoin="round"/> <path d="M23 1C23 1 15 10.4901 15 24C15 37.5099 23 47 23 47" stroke-linejoin="round"/> <path d="M25 1C25 1 33 10.4901 33 24C33 37.5099 25 47 25 47" stroke-linejoin="round"/> <path d="M1 24H47"/> </svg>
   </div>
-</template>
-
-<svg class="stroke-current **stroke-1** text-green-600 ..."></svg>
-<svg class="stroke-current **stroke-2** text-green-600 ..."></svg>
-```
-
-## Адаптивность
-
-Чтобы управлять шириной штриха элемента SVG в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите ширины. Например, добавление класса `md:stroke-2` к элементу приведет к применению утилиты `stroke-2` при средних размерах экрана и выше.
+</Example>
 
 ```html
-<svg class="stroke-1 **md:stroke-2** ...">
-  <!-- ... -->
-</svg>
+<svg class="**stroke-1** ..."></svg>
+<svg class="**stroke-2** ..."></svg>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+Это может быть полезно для стилизации наборов значков, таких как [Heroicons](https://heroicons.com).
 
-## Кастомизация
+---
 
-Управляйте тем, какие утилиты ширины штриха генерирует Tailwind, настраивая раздел `theme.strokeWidth` в вашем файле `tailwind.config.js`:
+## <Heading ignore>Применяя условно</Heading>
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="stroke-1" featuredClass="stroke-2" element="svg" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="stroke-1" featuredClass="stroke-2" element="svg" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя утилиты `stroke-width` для создания базовых сеток, содержащих до 6 строк одинаковой ширины. Вы можете настроить эти значения, отредактировав `theme.strokeWidth` или `theme.extend.strokeWidth` в вашем файле `tailwind.config.js`.
+
+Здесь у вас есть прямой доступ к свойству CSS `stroke-width`, так что вы можете сделать свои пользовательские значения строк как общими, так и сложными и специфичными для сайта, как вам нравится.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        strokeWidth: {
-+         '3': '3',
-+         '4': '4',
-        }
++       strokeWidth: {
++         '2': '2px',
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="strokeWidth" name="stroke-width" />
-
-### Отключение
-
-<Disabling plugin="strokeWidth" name="stroke-width" />
+<ArbitraryValues property="stroke-width" featuredClass="stroke-[2px]" element="svg" />

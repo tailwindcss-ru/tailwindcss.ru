@@ -3,105 +3,115 @@ title: "Разделение ширины"
 description: "Утилиты для управления шириной границы между элементами."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/divideWidth'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=divideWidth'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   transformSelector: (selector) => (
     <>
       {selector.split('>').shift().trim().replace(/^\./, '').replace(/\\/g, '')} <span className="ml-1 text-purple-300">> * + *</span>
     </>
   ),
+  transformProperties: ({ selector, properties }) => {
+    if (!selector.includes('reverse')) {
+      delete properties['--tw-divide-y-reverse']
+      delete properties['--tw-divide-x-reverse']
+    }
+    Object.keys(properties).forEach(key => {
+      // TODO: This is iffy. Clean it up.
+      properties[key] = properties[key].replace(/calc\((\d+px) \* var\(.*\)\)/, "$1")
+      properties[key] = properties[key].replace(/calc\((\d+px) \* calc\(.*\)\)/, "0px")
+    })
+    return properties
+  },
 }
 
-## Добавить границы между горизонтальными дочерними элементами
+## Основы использования
 
-Добавьте границы между горизонтальными элементами с помощью утилит `divide-x-{amount}`.
+### Добавить границы между горизонтальными дочерними элементами
 
-```html emerald
-<template preview>
-  <div class="grid grid-cols-3 divide-x divide-emerald-500">
-    <div class="text-center font-extrabold text-2xl text-emerald-600 px-6">1</div>
-    <div class="text-center font-extrabold text-2xl text-emerald-600 px-6">2</div>
-    <div class="text-center font-extrabold text-2xl text-emerald-600 px-6">3</div>
+Добавьте границы между горизонтальными элементами с помощью утилит `divide-x-{width}`.
+
+<Example>
+  <div class="grid grid-cols-3 divide-x divide-gray-200 font-mono text-white text-sm text-center font-bold leading-6 rounded-lg shadow-lg overflow-hidden">
+    <div class="p-4 text-gray-400 bg-white">01</div>
+    <div class="p-4 text-gray-400 bg-white">02</div>
+    <div class="p-4 text-gray-400 bg-white">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid grid-cols-3 **divide-x** divide-green-500">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Добавить границы между сложенными дочерними элементами
+### Добавить границы между сложенными дочерними элементами
 
-Добавьте границы между составными элементами с помощью утилит `divide-y-{amount}`.
+Добавьте границы между составными элементами с помощью утилит `divide-y-{width}`.
 
-```html amber
-<template preview>
-  <div class="grid grid-cols-1 divide-y divide-amber-500">
-    <div class="text-center font-extrabold text-2xl text-amber-600 py-3">1</div>
-    <div class="text-center font-extrabold text-2xl text-amber-600 py-3">2</div>
-    <div class="text-center font-extrabold text-2xl text-amber-600 py-3">3</div>
+<Example p="none">
+  <div class="grid grid-cols-1 divide-y divide-gray-200 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
+    <div class="p-4 text-gray-400 bg-white">01</div>
+    <div class="p-4 text-gray-400 bg-white">02</div>
+    <div class="p-4 text-gray-400 bg-white">03</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid grid-cols-1 **divide-y** divide-yellow-500">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-## Изменение порядка дочерних элементов
+### Изменение порядка детей
 
 Если ваши элементы расположены в обратном порядке (например, `flex-row-reverse` или `flex-col-reverse`), используйте утилиты `divide-x-reverse` или `divide-y-reverse`, чтобы убедиться, что граница добавлен к правильной стороне каждого элемента.
 
-```html rose
-<template preview>
-  <div class="flex flex-col-reverse divide-y divide-y-reverse divide-rose-400">
-    <div class="text-center font-extrabold text-2xl text-rose-600 py-3">1</div>
-    <div class="text-center font-extrabold text-2xl text-rose-600 py-3">2</div>
-    <div class="text-center font-extrabold text-2xl text-rose-600 py-3">3</div>
+<Example p="none">
+  <div class="flex flex-col-reverse divide-y divide-y-reverse divide-gray-200 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
+    <div class="p-4 text-gray-400 bg-white">01</div>
+    <div class="p-4 text-gray-400 bg-white">02</div>
+    <div class="p-4 text-gray-400 bg-white">03</div>
   </div>
-</template>
-
-<div class="flex **flex-col-reverse divide-y divide-y-reverse** divide-rose-400">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
-
----
-
-## Адаптивность
-
-Чтобы контролировать границы между элементами в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите разделения. Например, добавление к элементу класса `md:divide-y-8` приведет к применению утилиты `divide-y-8` при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="divide-y divide-gray-400 **md:divide-y-8**">
-  <div class="py-2">1</div>
-  <div class="py-2">2</div>
-  <div class="py-2">3</div>
+<div class="flex **flex-col-reverse divide-y divide-y-reverse** divide-rose-400">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="divide-y divide-gray-400" featuredClass="divide-y-8" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="divide-y divide-gray-400" featuredClass="divide-y-8" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-### Шкала разделения ширины
+### Настройка вашей темы
 
 Шкала ширины разделения по умолчанию наследует свои значения из шкалы `borderWidth`, поэтому, если вы хотите настроить свои значения как для ширины границы, так и для ширины разделения, используйте раздел `theme.borderWidth` в файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       borderWidth: {
@@ -119,8 +129,7 @@ export const classes = {
 
 Чтобы настроить только значения ширины разделения, используйте раздел `theme.divideWidth` вашего файла `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       divideWidth: {
@@ -136,12 +145,8 @@ export const classes = {
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="divideWidth" />
-
-### Отключение
-
-<Disabling plugin="divideWidth" />
+<ArbitraryValues property="divide-{x|y}-{width}" featuredClass="divide-x-[3px]" />

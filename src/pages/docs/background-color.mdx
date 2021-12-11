@@ -1,20 +1,23 @@
 ---
 title: "Цвет фона"
 description: "Утилиты для управления цветом фона элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: true
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundColor'
-import { Heading } from '@/components/Heading'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=backgroundColor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
+  transformProperties: ({ selector, properties }) => {
+    delete properties['--tw-bg-opacity']
+    Object.keys(properties).forEach(key => {
+      properties[key] = properties[key].replace(' / var(--tw-bg-opacity)', '')
+    })
+    return properties
+  },
   preview: (css) => (
     <td
       className={css['background-color'] === 'transparent' ? 'bg-checkered' : undefined}
@@ -29,124 +32,100 @@ export const classes = {
   ),
 }
 
-## Применение
+## Основы использования
+
+### Установка цвета фона
 
 Управляйте цветом фона элемента с помощью утилит `bg-{color}`.
 
-```html emerald
-<template preview>
+<Example>
   <div class="text-center">
-    <button type="button" class="py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md focus:outline-none" tabindex="-1">
-      Нажми на меня
+    <button type="button" class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow focus:outline-none" tabindex="-1">
+      Сохранить изменения
     </button>
   </div>
-</template>
+</Example>
 
-<button class="**bg-green-500** ...">Кнопка</button>
+```html
+<button class="**bg-indigo-500** ...">
+  Сохранить изменения
+</button>
 ```
 
 ### Изменение непрозрачности
 
-Управляйте непрозрачностью цвета фона элемента с помощью утилит `bg-opacity-{amount}`.
+Управляйте непрозрачностью цвета фона элемента с помощью модификатора непрозрачности цвета.
 
-```html purple
-<template preview>
-  <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md bg-opacity-100 bg-purple-600 font-extrabold text-white flex justify-center items-center">100%</div>
-    <div class="h-16 rounded-md bg-opacity-75 bg-purple-600 font-extrabold text-white flex justify-center items-center">75%</div>
-    <div class="h-16 rounded-md bg-opacity-50 bg-purple-600 font-extrabold text-white flex justify-center items-center">50%</div>
-    <div class="h-16 rounded-md bg-opacity-25 bg-purple-600 font-extrabold text-white flex justify-center items-center">25%</div>
-    <div class="h-16 rounded-md bg-opacity-0 bg-purple-600 font-extrabold text-white flex justify-center items-center">0%</div>
+<Example>
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 text-sm text-white">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">bg-sky-500</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-sky-500 text-white rounded-md shadow-sm opacity-100">Кнопка A</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">bg-sky-500/75</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-sky-500/75 text-white rounded-md shadow-sm opacity-100">Кнопка B</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">bg-sky-500/50</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-sky-500/50 text-white rounded-md shadow-sm opacity-100">Кнопка C</button>
+    </div>
   </div>
-</template>
-
-<div class="bg-purple-600 **bg-opacity-100** ..."></div>
-<div class="bg-purple-600 **bg-opacity-75** ..."></div>
-<div class="bg-purple-600 **bg-opacity-50** ..."></div>
-<div class="bg-purple-600 **bg-opacity-25** ..."></div>
-<div class="bg-purple-600 **bg-opacity-0** ..."></div>
-```
-
-Дополнительные сведения смотрите в [документации по прозрачности фона](/docs/background-opacity).
-
-## Адаптивность
-
-Чтобы управлять цветом фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите цвета фона. Например, используйте `md:bg-green-500`, чтобы применить утилиту `bg-green-500` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<button class="bg-blue-500 **md:bg-green-500** ...">Кнопка</button>
+<button class="bg-sky-500**/100** ..."></button>
+<button class="bg-sky-500**/75** ..."></button>
+<button class="bg-sky-500**/50** ..."></button>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+Вы можете использовать любое значение, определенное в вашей [шкале непрозрачности](/docs/opacity), или использовать произвольные значения, если вам нужно отклониться от маркеров вашего дизайна.
 
-## Наведение
+```html
+<div class="bg-sky-500**/[.06]** ..."></div>
+```
 
-Чтобы управлять цветом фона элемента при наведении, добавьте префикс `hover:` к любой существующей утилите цвета фона. Например, используйте `hover:bg-red-700`, чтобы применить утилиту `bg-red-700` при наведении курсора.
+---
 
-```html rose
-<template preview>
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates featuredClass="bg-cyan-600">
+
+<Example hint="Try hovering over the button to see the background color change">
   <div class="text-center">
-    <button type="button" class="py-2 px-4 bg-rose-500 text-white font-semibold rounded-lg shadow-md hover:bg-rose-700 focus:outline-none" tabindex="-1">
-      Нажми на меня
+    <button type="button" class="py-2 px-3 bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-semibold rounded-md shadow focus:outline-none" tabindex="-1">
+      Подписаться
     </button>
   </div>
-</template>
-
-<button class="bg-red-500 **hover:bg-red-700** ...">Кнопка</button>
-```
-
-Утилиты Hover также можно комбинировать с адаптивными утилитами, добавив префикс `{screen}:` *перед* префиксом `hover:`.
+</Example>
 
 ```html
-<button class="... md:bg-blue-500 **md:hover:bg-blue-700** ...">Кнопка</button>
+<button class="bg-cyan-500 **hover:bg-cyan-600** ...">Подписаться</button>
 ```
 
-## Фокус
+</HoverFocusAndOtherStates>
 
-Чтобы управлять цветом фона элемента в фокусе, добавьте префикс `focus:` к любой существующей утилите цвета фона. Например, используйте `focus:bg-blue-500`, чтобы применить утилиту `bg-blue-500` к фокусу.
 
-```html amber
-<template preview>
-  <div class="max-w-xs w-full mx-auto">
-    <input class="border border-gray-400 bg-gray-200 focus:bg-white text-gray-900 appearance-none inline-block w-full border rounded py-3 px-4 focus:outline-none" placeholder="Focus me">
-  </div>
-</template>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<input class="bg-gray-200 **focus:bg-white** ...">
-```
-
-Утилиты Focus также можно комбинировать с адаптивными утилитами, добавляя префикс `{screen}:` *перед* префиксом `focus:`.
+<BreakpointsAndMediaQueries featuredClass="bg-green-500">
 
 ```html
-<input class="... md:bg-gray-200 **md:focus:bg-white** ...">
+<button class="bg-blue-500 **md:bg-green-500** ...">Подписаться</button>
 ```
 
-## Кастомизация
+</BreakpointsAndMediaQueries>
 
-### Цвета фона
+---
 
-По умолчанию Tailwind делает всю [цветовую палитру по умолчанию](/docs/customizing-colors#default-color-palette) доступной в качестве цветов фона.
+## Использование пользовательских значений
 
-Вы можете [настроить свою цветовую палитру](/docs/colors#customizing), отредактировав переменную `theme.colors` в вашем файле `tailwind.config.js`, или настроить только цвета фона, используя раздел `theme.backgroundColor` вашей конфигурации Tailwind.
+### Настройка вашей темы
 
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      backgroundColor: theme => ({
--       ...theme('colors'),
-+       'primary': '#3490dc',
-+       'secondary': '#ffed4a',
-+       'danger': '#e3342f',
-      })
-    }
-  }
-```
+<CustomizePluginColors name="background" configKey="backgroundColor" />
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="backgroundColor" />
-
-### Отключение
-
-<Disabling plugin="backgroundColor" />
+<ArbitraryValues property="color" featuredClass="text-[#50d71e]" element="p" />

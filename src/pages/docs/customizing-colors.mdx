@@ -7,354 +7,18 @@ import { Heading } from '@/components/Heading'
 import { ColorPaletteReference } from '@/components/ColorPaletteReference'
 import { TipGood, TipBad } from '@/components/Tip'
 
-## <Heading hidden>Обзор</Heading>
+## <Heading hidden>Цветовая палитра по умолчанию</Heading>
 
 Tailwind включает в себя профессионально созданную цветовую палитру по умолчанию, которая является отличной отправной точкой, если вы не имеете в виду свой собственный брендинг.
 
 <div className="mt-10"></div>
 
 <ColorPaletteReference colors={[
-  ['Gray', 'coolGray'],
-  'red',
-  ['Yellow', 'amber'],
-  ['Green', 'emerald'],
-  'blue',
-  'indigo',
-  ['Purple', 'violet'],
-  'pink',
-]} />
-
-<div className="mt-10"></div>
-
-Но когда вам действительно нужно настроить свою палитру, вы можете настроить свои цвета с помощью ключей `colors` в разделе `theme` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    colors: {
-      // Настройте свою цветовую палитру здесь
-    }
-  }
-}
-```
-
-Когда дело доходит до создания собственной цветовой палитры, вы можете либо [настроить свои цвета](#izmenenie-czvetov) из нашей обширной включенной цветовой палитры, либо [настроить свои собственные цвета](#polzovatelskie-czveta), добавив свой определенный цвет ценности напрямую.
-
----
-
-## Изменение цветов
-
-Если у вас нет набора полностью настраиваемых цветов для Вашего проекта, вы можете выбрать свои цвета из нашей полной цветовой палитры, импортировав `'tailwindcss/colors'` в свой файл конфигурации и выбрав цвета, которые вам нравятся.
-
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
-
-module.exports = {
-  theme: {
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      black: colors.black,
-      white: colors.white,
-      gray: colors.trueGray,
-      indigo: colors.indigo,
-      red: colors.rose,
-      yellow: colors.amber,
-    }
-  }
-}
-```
-
-Не забудьте включить `transparent` и `current`, если вы хотите, чтобы они были доступны в Вашем проекте.
-
-Несмотря на то, что у каждого цвета есть определенное имя, вам рекомендуется использовать в своих проектах псевдонимы, как вам нравится. Мы даже делаем это в конфигурации по умолчанию, заменяя `coolGray` на `gray`, `violet` на `purple`, `amber` на `yellow` и `emerald` на `green`.
-
-Смотрите наш [полный справочник по цветовой палитре](#color-palette-reference), чтобы увидеть цвета, доступные для выбора по умолчанию.
-
----
-
-## Пользовательские цвета
-
-Вы можете создать полностью настраиваемую палитру, добавив свои собственные значения цвета с нуля:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      blue: {
-        light: '#85d7ff',
-        DEFAULT: '#1fb6ff',
-        dark: '#009eeb',
-      },
-      pink: {
-        light: '#ff7ce5',
-        DEFAULT: '#ff49db',
-        dark: '#ff16d1',
-      },
-      gray: {
-        darkest: '#1f2d3d',
-        dark: '#3c4858',
-        DEFAULT: '#c0ccda',
-        light: '#e0e6ed',
-        lightest: '#f9fafc',
-      }
-    }
-  }
-}
-```
-
-По умолчанию эти цвета автоматически используются всеми цветовыми утилитами, такими как `textColor`, `backgroundColor`, `borderColor` и другими.
-
----
-
-## Синтаксис цветового объекта
-
-Вы можете видеть выше, что мы определили наши цвета, используя нотацию вложенных объектов, где вложенные ключи добавляются к имени основного цвета в качестве модификаторов:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    colors: {
-      indigo: {
-        light: '#b3bcf5',
-        DEFAULT: '#5c6ac4',
-        dark: '#202e78',
-      }
-    }
-  }
-}
-```
-
-Различные сегменты имени цвета объединяются в имена классов, такие как `bg-indigo-light`.
-
-Как и во многих других местах в Tailwind, ключ `DEFAULT` является специальной и означает «без модификатора», поэтому эта конфигурация будет генерировать такие классы, как `text-indigo` и `bg-indigo`, а не `text-indigo-DEFAULT` или `bg-indigo-DEFAULT`.
-
-Вы также можете определить свои цвета как простые строки вместо объектов:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    colors: {
-      'indigo-lighter': '#b3bcf5',
-      'indigo': '#5c6ac4',
-      'indigo-dark': '#202e78',
-    }
-  }
-}
-```
-
-Обратите внимание, что при доступе к цветам с помощью функции `theme()` вам необходимо использовать ту же нотацию, которую вы использовали для их определения.
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    colors: {
-      indigo: {
-        // theme('colors.indigo.light')
-        light: '#b3bcf5',
-
-        // theme('colors.indigo.DEFAULT')
-        DEFAULT: '#5c6ac4',
-      },
-
-      // theme('colors.indigo-dark')
-      'indigo-dark': '#202e78',
-    }
-  }
-}
-```
-
----
-
-## Расширение значений по умолчанию
-
-Как описано в [документации темы](/docs/theme#extending-the-default-theme), если вы хотите расширить цветовую палитру по умолчанию, а не переопределять ее, вы можете сделать это с помощью файла `theme.extend.colors` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        'regal-blue': '#243c5a',
-      }
-    }
-  }
-}
-```
-
-Это создаст классы вроде `bg-regal-blue` в дополнение ко всем цветам Tailwind по умолчанию.
-
-Эти расширения глубоко объединены, поэтому, если вы хотите добавить дополнительный оттенок к одному из цветов Tailwind по умолчанию, вы можете сделать это следующим образом:
-
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        blue: {
-          450: '#5F99F7'
-        },
-      }
-    }
-  }
-}
-```
-
-Это добавит такие классы, как `bg-blue-450`, без потери существующих классов, таких как `bg-blue-400` или `bg-blue-500`.
-
----
-
-## Отключение цвета по умолчанию
-
-Если вы хотите отключить цвет по умолчанию, потому что вы не используете его в своем проекте, самый простой способ - просто создать новую цветовую палитру, которая не включает цвет, который вы хотите отключить.
-
-Например, этот файл `tailwind.config.js` исключает бирюзовый, оранжевый и розовый, но включает остальные цвета по умолчанию:
-
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
-
-module.exports = {
-  theme: {
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      black: colors.black,
-      white: colors.white,
-      gray: colors.coolGray,
-      red: colors.red,
-      yellow: colors.amber,
-      blue: colors.blue
-    }
-  }
-}
-```
-
-В качестве альтернативы вы можете оставить цветовую палитру нетронутой и полагаться на [потрясающие неиспользуемые стили](/docs/optimizing-for-production), чтобы удалить цвета, которые вы не используете.
-
----
-
-## Именование Ваших цветов
-
-По умолчанию Tailwind использует буквальные названия цветов _(например, красный, зеленый и т. д.)_ и числовую шкалу _(где 50 - светлый, а 900 - темный)_. Это оказывается довольно практичным для большинства проектов, но есть веские причины использовать и другие соглашения об именах.
-
-Например, если вы работаете над проектом, который должен поддерживать несколько тем, возможно, имеет смысл использовать более абстрактные имена, такие как `primary` и `secondary`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    colors: {
-      primary: '#5c6ac4',
-      secondary: '#ecc94b',
-      // ...
-    }
-  }
-}
-```
-
-Вы можете настроить эти цвета явно, как мы сделали выше, или вы можете выбрать цвета из нашей полной цветовой палитры и присвоить им псевдоним:
-
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
-
-module.exports = {
-  theme: {
-    colors: {
-      primary: colors.indigo,
-      secondary: colors.yellow,
-      neutral: colors.gray,
-    }
-  }
-}
-```
-
-Вы даже можете определить эти цвета, используя настраиваемые свойства (переменные) CSS, чтобы упростить переключение тем на клиенте:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    colors: {
-      primary: 'var(--color-primary)',
-      secondary: 'var(--color-secondary)',
-      // ...
-    }
-  }
-}
-```
-
-```css
-/* In your CSS */
-:root {
-  --color-primary: #5c6ac4;
-  --color-secondary: #ecc94b;
-  /* ... */
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-*Обратите внимание, что цвета, определенные с помощью настраиваемых свойств, не будут работать с такими утилитами непрозрачности цвета, как `bg-opacity-50`, без дополнительной настройки. Смотрите [этот пример репозитория](https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo) для получения дополнительной информации о том, как это сделать.*
-
-
----
-
-## Создание цветов
-
-Часто задают вопрос: «Как мне создать 50–900 оттенков моих собственных цветов?».
-
-Плохие новости, цвет - это сложно, и, несмотря на то, что мы испробовали десятки различных инструментов, мы еще не нашли тот, который хорошо справлялся бы с созданием таких цветовых палитр. Мы вручную выбрали все стандартные цвета Tailwind, тщательно сбалансировав их на глаз и протестировав их в реальных проектах, чтобы убедиться, что они нам нравятся.
-
----
-
-## Справка по цветовой палитре
-
-Это список всех цветов, доступных при импорте `tailwindcss/colors` в ваш файл `tailwind.config.js`.
-
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
-
-module.exports = {
-  theme: {
-    colors: {
-      // Build your palette here
-      transparent: 'transparent',
-      current: 'currentColor',
-      gray: colors.trueGray,
-      red: colors.red,
-      blue: colors.sky,
-      yellow: colors.amber,
-    }
-  }
-}
-```
-
-Несмотря на то, что у каждого цвета есть определенное имя, вам рекомендуется использовать в своих проектах псевдонимы, как вам нравится.
-
-<div className="mt-10"></div>
-
-<ColorPaletteReference colors={[
-  'blueGray',
-  'coolGray',
+  'slate',
   'gray',
-  'trueGray',
-  'warmGray',
+  'zinc',
+  'neutral',
+  'stone',
   'red',
   'orange',
   'amber',
@@ -373,3 +37,327 @@ module.exports = {
   'pink',
   'rose',
 ]} />
+
+<div className="mt-10"></div>
+
+Но когда вам действительно нужно настроить свою палитру, вы можете настроить свои цвета с помощью ключей `colors` в разделе `theme` Вашего файла `tailwind.config.js`:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      // Настройте свою цветовую палитру здесь
+    }
+  }
+}
+```
+
+Когда дело доходит до создания собственной цветовой палитры, вы можете либо [настроить свои собственные цвета](#using-custom-colors) с нуля, если вы точно знаете, что хотите, либо [выбрать свои цвета](#using-the-default-colors) из нашей обширной включенной цветовой палитры, если вам нужна фору.
+
+---
+
+## Использование собственных цветов
+
+Если вы хотите полностью заменить цветовую палитру по умолчанию на свои собственные цвета, добавьте свои цвета непосредственно в раздел `theme.colors` вашего файла конфигурации:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'purple': '#3f3cbb',
+      'midnight': '#121063',
+      'metal': '#565584',
+      'tahiti': '#3ab7bf',
+      'silver': '#evebff',
+      'bubble-gum': '#ff77e9',
+      'bermuda': '#78dcca',
+    },
+  },
+}
+```
+
+По умолчанию эти цвета будут доступны везде в среде, где вы используете цвета, например, утилиты [цвет текста](/docs/text-color), утилиты [цвет границы](/docs/border-color), утилиты [цвет фона](/docs/text-color) и многое другое.
+
+```html
+<div class="**bg-midnight** **text-tahiti**">
+  <!-- ... -->
+</div>
+```
+
+Не забудьте включить такие значения, как `transparent` и `currentColor`, если вы хотите использовать их в своем проекте.
+
+### Синтаксис цветового объекта
+
+Когда ваша палитра включает несколько оттенков одного цвета, может быть удобно сгруппировать их вместе, используя наш синтаксис вложенного цветового объекта:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'tahiti': {
+        100: '#cffafe',
+        200: '#a5f3fc',
+        300: '#67e8f9',
+        400: '#22d3ee',
+        500: '#06b6d4',
+        600: '#0891b2',
+        700: '#0e7490',
+        800: '#155e75',
+        900: '#164e63',
+      },
+      // ...
+    },
+  },
+}
+```
+
+Вложенные ключи будут объединены с родительским ключом, чтобы сформировать имена классов, такие как `bg-tahiti-400`.
+
+### Произвольные значения
+
+Если вам нужен одноразовый пользовательский цвет в вашем проекте, рассмотрите возможность использования произвольной нотации значений Tailwind для создания класса для этого цвета по запросу вместо добавления его в свою тему:
+
+<Example>
+  <div class="grid place-items-center">
+    <button type="button" class="bg-[#1da1f2] text-white inline-flex pl-3.5 pr-4 py-3 font-medium rounded-md items-center text-sm space-x-3">
+      <svg width="20" height="20" fill="currentColor"><path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"></path></svg>
+      <span>Поделиться в Твиттере</span>
+    </button>
+  </div>
+</Example>
+
+```html
+<button class="bg-[#1da1f2] text-white ...">
+  <svg><!-- ... --></svg>
+  Поделиться в Твиттере
+</button>
+```
+
+Дополнительные сведения смотрите в документации [использование произвольных значений](/docs/adding-custom-styles#using-arbitrary-values).
+
+### Создание цветов
+
+Если вам интересно, как автоматически генерировать 50–900 оттенков ваших собственных цветов, плохие новости - цвет сложен, и, несмотря на использование десятков различных инструментов, нам еще предстоит найти тот, который хорошо справлялся бы с созданием цветовых палитр, таких как это автоматически.
+
+Мы вручную выбрали все стандартные цвета Tailwind, тщательно сбалансировали их на глаз и протестировали на реальных проектах, чтобы убедиться, что они нам нравятся.
+
+Мы _можем_ рекомендовать два полезных инструмента: [Palettte](https://palettte.app/) и [ColorBox](https://colorbox.io/) — они не сделают за вас работу, но их интерфейсы хороши - предназначен для выполнения такой работы.
+
+---
+
+## Использование цветов по умолчанию
+
+Если у вас нет набора полностью настраиваемых цветов для вашего проекта, вы можете настроить свои цвета из нашей палитры по умолчанию, импортировав `tailwindcss/colors` в свой файл конфигурации и выбрав цвета, которые вы хотите использовать:
+
+```js tailwind.config.js
+const colors = require('tailwindcss/colors')
+
+module.exports = {
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.gray,
+      emerald: colors.emerald,
+      indigo: colors.indigo,
+      yellow: colors.yellow,
+    },
+  },
+}
+```
+
+Это может быть полезно, если вы хотите намеренно ограничить цветовую палитру и уменьшить количество имен классов, предлагаемых [IntelliSense](/docs/editor-setup#intelli-sense-for-vs-code).
+
+### Наложение названий цветов
+
+Вы также можете использовать псевдонимы цветов в нашей палитре по умолчанию, чтобы имена были проще и легче запоминались:
+
+```js tailwind.config.js
+  const colors = require('tailwindcss/colors')
+
+  module.exports = {
+    theme: {
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        black: colors.black,
+        white: colors.white,
+>       gray: colors.slate,
+>       green: colors.emerald,
+>       purple: colors.violet,
+>       yellow: colors.amber,
+>       pink: colors.fuchsia,
+      },
+    },
+  }
+```
+
+Это особенно характерно для серых оттенков, поскольку вы обычно используете только один набор в любом конкретном проекте, и приятно иметь возможность набирать, например, `bg-gray-300` вместо `bg-neutral-300`.
+
+### Добавление дополнительных цветов
+
+Если вы хотите добавить новый цвет к палитре по умолчанию, добавьте его в раздел `theme.extend.colors` вашего файла конфигурации:
+
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        brown: {
+          50: '#fdf8f6',
+          100: '#f2e8e5',
+          200: '#eaddd7',
+          300: '#e0cec7',
+          400: '#d2bab0',
+          500: '#bfa094',
+          600: '#a18072',
+          700: '#977669',
+          800: '#846358',
+          900: '#43302b',
+        },
+      }
+    },
+  },
+}
+```
+
+Вы также можете использовать `theme.extend.colors` для добавления дополнительных оттенков к существующему цвету, если это необходимо для вашего дизайна:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        blue: {
+          950: '#17275c',
+        },
+      }
+    },
+  },
+}
+```
+
+### Отключение цвета по умолчанию
+
+Если вы хотите отключить любой из цветов по умолчанию, лучший подход - переопределить цветовую палитру по умолчанию и просто включить цвета, которые вы хотите _делать_:
+
+```js tailwind.config.js
+const colors = require('tailwindcss/colors')
+
+module.exports = {
+  theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.gray,
+      emerald: colors.emerald,
+      indigo: colors.indigo,
+      yellow: colors.yellow,
+    },
+  },
+}
+```
+
+---
+
+## Именование Ваших цветов
+
+По умолчанию Tailwind использует буквальные названия цветов _(например, красный, зеленый и т. д.)_ И числовую шкалу _(где 50 - светлый, а 900 - темный)_. Мы думаем, что это лучший выбор для большинства проектов, и мы обнаружили, что его легче поддерживать, чем использовать абстрактные имена, такие как `primary` или `danger`.
+
+Тем не менее, вы можете называть свои цвета в Tailwind как хотите, и если вы работаете над проектом, который, например, должен поддерживать несколько тем, может иметь смысл использовать более абстрактные имена:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      primary: '#5c6ac4',
+      secondary: '#ecc94b',
+      // ...
+    }
+  }
+}
+```
+
+Вы можете настроить эти цвета явно, как мы сделали выше, или вы можете выбрать цвета из нашей цветовой палитры по умолчанию и присвоить им псевдоним:
+
+```js tailwind.config.js
+const colors = require('tailwindcss/colors')
+
+module.exports = {
+  theme: {
+    colors: {
+      primary: colors.indigo,
+      secondary: colors.yellow,
+      neutral: colors.gray,
+    }
+  }
+}
+```
+
+Опять же, мы рекомендуем придерживаться соглашения об именах по умолчанию для большинства проектов и использовать абстрактные имена только в том случае, если у вас есть действительно веская причина.
+
+### Использование переменных CSS
+
+Если вы используете абстрактные названия цветов, потому что хотите поддерживать несколько тем в своем проекте, есть большая вероятность, что вы также захотите использовать переменные CSS для определения своих цветов.
+
+Лучший способ сделать это - определить ваши переменные CSS как только цвет _каналов_, без включения фактической функции цвета:
+
+```css main.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.theme-startup {
+  --color-primary: 255 115 179;
+  --color-secondary: 111 114 185;
+  /* ... */
+}
+
+.theme-boring {
+  --color-primary: 2 82 204;
+  --color-secondary: 255 196 2;
+  /* ... */
+}
+
+.theme-elegant {
+  --color-primary: 192 178 131;
+  --color-secondary: 220 208 192;
+  /* ... */
+}
+```
+
+Затем определите свои цвета в файле конфигурации как _функции_ и примените `opacityValue`, если он определен:
+
+```js tailwind.config.js
+function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `rgb(var(${variable}))`
+    }
+    return `rgb(var(${variable}) / ${opacityValue})`
+  }
+}
+
+module.exports = {
+  theme: {
+    colors: {
+      primary: withOpacityValue('--color-primary'),
+      secondary: withOpacityValue('--color-secondary'),
+      // ...
+    }
+  }
+}
+```
+
+Это позволяет использовать модификаторы непрозрачности цвета Tailwind для таких вещей, как `bg-primary/75`, даже когда вы используете переменные CSS для определения ваших цветов.

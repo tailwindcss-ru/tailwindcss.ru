@@ -1,78 +1,118 @@
 ---
 title: "Яркость"
 description: "Утилиты для применения фильтров яркости к элементу."
-featureVersion: 'v2.1+'
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=brightness'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-        '.brightness-0': { '--tw-brightness': 'brightness(0)' },
-        '.brightness-50': { '--tw-brightness': 'brightness(.5)' },
-        '.brightness-75': { '--tw-brightness': 'brightness(.75)' },
-        '.brightness-90': { '--tw-brightness': 'brightness(.9)' },
-        '.brightness-95': { '--tw-brightness': 'brightness(.95)' },
-        '.brightness-100': { '--tw-brightness': 'brightness(1)' },
-        '.brightness-105': { '--tw-brightness': 'brightness(1.05)' },
-        '.brightness-110': { '--tw-brightness': 'brightness(1.1)' },
-        '.brightness-125': { '--tw-brightness': 'brightness(1.25)' },
-        '.brightness-150': { '--tw-brightness': 'brightness(1.5)' },
-        '.brightness-200': { '--tw-brightness': 'brightness(2)' },
-      })
+  utilities,
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-brightness'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `brightness-{amount?}` вместе с утилитой `filter`, чтобы управлять яркостью.
+### Изменение яркости элемента
+
+Используйте утилиты `brightness-{amount?}` для управления яркостью элемента.
+
+<Example p="none">
+  <div class="flex justify-start sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-6 sm:gap-4 font-mono font-bold shrink-0 p-8">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">brightness-50</p>
+      <div class="relative brightness-50">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">brightness-100</p>
+      <div class="relative brightness-100">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">brightness-125</p>
+      <div class="relative brightness-125">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">brightness-200</p>
+      <div class="relative brightness-200">
+        <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</Example>
 
 ```html
-<div class="filter brightness-125 ...">
+<div class="**brightness-50** ...">
+  <!-- ... -->
+</div>
+<div class="**brightness-100** ...">
+  <!-- ... -->
+</div>
+<div class="**brightness-125** ...">
+  <!-- ... -->
+</div>
+<div class="**brightness-200** ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Удаление фильтров
 
-Чтобы управлять яркостью элемента в определенной контрольной  точке, добавьте префикс `{screen}:` к любой существующей утилите яркости. Например, используйте `md:brightness-150`, чтобы применить утилиту `brightness-150` только при средних размерах экрана и выше.
+<RemovingFilters defaultClass="blur-md invert brightness-150" />
 
-```html
-<div class="filter brightness-110 **md:brightness-150** ...">
-  <!-- ... -->
-</div>
-```
+---
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+## <Heading ignore>Применяя условно</Heading>
 
-## Кастомизация
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Вы можете настроить, какие утилиты `brightness` будут генерироваться, используя ключ `brightness` в разделе `theme` вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="brightness-110" featuredClass="brightness-150" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="brightness-110" featuredClass="brightness-150" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `brightness`. Вы можете настроить эти значения, отредактировав `theme.brightness` или `theme.extend.brightness` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       brightness: {
 +         25: '.25',
 +         175: '1.75',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="brightness" name="brightness" />
-
-### Отключение
-
-<Disabling plugin="brightness" name="brightness" />
+<ArbitraryValues property="brightness" featuredClass="brightness-[1.75]" />

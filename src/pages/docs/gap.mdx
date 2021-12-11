@@ -3,37 +3,38 @@ title: "Промежутки"
 description: "Утилиты для управления промежутками между элементами сетки и flexbox."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/gap'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=gap'
 import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   sort: numbersFirst,
 }
 
-## Применение
+## Основы использования
+
+### Установка промежутка между элементами
 
 Используйте `gap-{size}`, чтобы изменить промежутки между строками и столбцами в макетах сетки и флексбокса.
 
-```html indigo
-<template preview class="p-6">
-  <div>
-    <div class="grid grid-cols-2 gap-4">
-      <div class="h-16 rounded-md text-center bg-indigo-500"></div>
-      <div class="h-16 rounded-md text-center bg-indigo-500"></div>
-      <div class="h-16 rounded-md text-center bg-indigo-500"></div>
-      <div class="h-16 rounded-md text-center bg-indigo-500"></div>
-    </div>
+<Example>
+  <div class="grid grid-cols-2 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-violet rounded-lg">
+    <div class="p-4 rounded-lg shadow-lg bg-violet-500">01</div>
+    <div class="p-4 rounded-lg shadow-lg bg-violet-500">02</div>
+    <div class="p-4 rounded-lg shadow-lg bg-violet-500">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-violet-500">04</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid **gap-4** grid-cols-2">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
 </div>
 ```
 
@@ -41,89 +42,76 @@ export const classes = {
 
 Используйте `gap-x-{size}` и `gap-y-{size}` для независимого изменения зазора между строками и столбцами.
 
-```html rose
-<template preview class="p-6">
-  <div>
-    <div class="grid grid-cols-3 gap-x-8 gap-y-4">
-      <div class="h-16 rounded-md text-center bg-rose-500"></div>
-      <div class="h-16 rounded-md text-center bg-rose-500"></div>
-      <div class="h-16 rounded-md text-center bg-rose-500"></div>
-      <div class="h-16 rounded-md text-center bg-rose-500"></div>
-      <div class="h-16 rounded-md text-center bg-rose-500"></div>
-      <div class="h-16 rounded-md text-center bg-rose-500"></div>
-    </div>
+<Example>
+  <div class="grid grid-cols-3 gap-x-8 gap-y-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-light-blue rounded-lg">
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500">01</div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500">02</div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500">04</div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500">05</div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500">06</div>
   </div>
-</template>
-
-<div class="grid **gap-x-8** **gap-y-4** grid-cols-3">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
-</div>
-```
-
----
-
-## Адаптивность
-
-Чтобы контролировать зазоры в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите промежутка. Например, используйте `md:gap-6`, чтобы применить утилиту `gap-6` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="grid gap-4 **md:gap-6** ...">
-  <!-- ... -->
+<div class="grid **gap-x-8** **gap-y-4** grid-cols-3">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="grid gap-4" featuredClass="gap-6" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="grid gap-4" featuredClass="gap-6" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-По умолчанию шкала промежутка Tailwind соответствует настроенной Вами [шкале интервалов](/docs/customizing-spacing).
+### Настройка вашей темы
 
-Вы можете настроить глобальную шкалу интервалов в разделах `theme.spacing` или `theme.extend.spacing` Вашего файла `tailwind.config.js`:
+По умолчанию для шкалы промежутков Tailwind используется [шкала интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        spacing: {
-+         '72': '18rem',
-+         '84': '21rem',
-+         '96': '24rem',
-        }
-      }
-    }
-  }
-```
-
-Чтобы настроить масштаб промежутка отдельно, используйте раздел `gap` в конфигурации Вашей темы Tailwind.
-
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      extend: {
-        gap: {
++       spacing: {
 +         '11': '2.75rem',
-+         '13': '3.25rem',
-        }
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Кроме того, вы можете настроить только масштаб промежутка, отредактировав `theme.gap` или `theme.extend.gap` в вашем файле `tailwind.config.js`.
 
-### Варианты
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       gap: {
++         '11': '2.75rem',
++       }
+      }
+    }
+  }
+```
 
-<Variants plugin="gap" />
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Отключение
+### Произвольные значения
 
-<Disabling plugin="gap" />
+<ArbitraryValues property="gap" featuredClass="gap-[2.75rem]" />

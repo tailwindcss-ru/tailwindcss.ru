@@ -3,111 +3,81 @@ title: "Цвет кольца"
 description: "Утилиты для настройки цвета контуров колец."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/ringColor'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=ringColor'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { CustomizePluginColors } from '@/components/CustomizePluginColors'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   transformProperties: ({ selector, properties }) => {
     delete properties['--tw-ring-opacity']
+    Object.keys(properties).forEach(key => {
+      properties[key] = properties[key].replace(' / var(--tw-ring-opacity)', '')
+    })
     return properties
   }
 }
 
+## Основы использования
 
-## Применение
+### Установка цвета кольца
 
 Используйте утилиты `ring-{color}` для установки цвета [контура кольца](/docs/ring-width).
 
-```html indigo
-<template preview class="flex justify-center p-8">
-  <button tabindex="-1" class="focus:outline-none w-32 py-2 rounded-md font-semibold text-white bg-indigo-500 ring-4 ring-indigo-300">
-    Кнопка
-  </button>
-</template>
+<Example>
+  <div class="flex justify-center max-w-md mx-auto gap-4 text-white text-sm text-center font-bold leading-6 text-white">
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-gray-700 border border-gray-300 rounded-md shadow-sm ring-2 ring-offset-2 ring-offset-gray-50 ring-blue-500">Создать аккаунт</button>
+  </div>
+</Example>
 
-<button class="... ring-4 **ring-indigo-300**">
-  Кнопка
+```html
+<button class="... ring-2 **ring-blue-500**">
+  Создать аккаунт
 </button>
 ```
 
 ### Изменение непрозрачности
 
-Вы можете контролировать непрозрачность колец с помощью утилит `ring-opacity-{amount}`:
+Управляйте непрозрачностью цвета фона элемента с помощью модификатора непрозрачности цвета.
 
-```html amber
-<template preview class="flex justify-center p-8">
-  <button tabindex="-1" class="focus:outline-none w-32 py-2 rounded-md font-semibold text-white bg-amber-500 ring-4 ring-amber-500 ring-opacity-50">
-    Кнопка
-  </button>
-</template>
-
-<button class="... ring-4 **ring-yellow-500** **ring-opacity-50**">
-  Кнопка
-</button>
-```
-
-Дополнительную информацию смотрите в [документации ringOpacity](/docs/ring-opacity).
-
----
-
-## Адаптивность
-
-Чтобы управлять цветом кольца в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите цвета кольца. Например, используйте `md:ring-blue-500`, чтобы применить утилиту `ring-blue-500` только при средних размерах экрана и выше.
+<Example>
+  <div class="flex justify-center max-w-md mx-auto gap-4 text-white text-sm text-center font-bold leading-6 text-white">
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-gray-700 border border-gray-300 rounded-md shadow-sm ring-2 ring-offset-2 ring-offset-gray-50 ring-blue-500/50">Создать аккаунт</button>
+  </div>
+</Example>
 
 ```html
-<button class="ring-2 ring-blue-300 **md:ring-blue-500**">
-  <!-- ... -->
-</button>
+<button class="... ring-2 ring-blue-500**/50**">Подписаться</button>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+Вы можете использовать любое значение, определенное в вашей [шкале непрозрачности](/docs/opacity), или использовать произвольные значения, если вам нужно отклониться от маркеров вашего дизайна.
+
+```html
+<button class="... ring-2 ring-blue-500**/[.55]**">Подписаться</button>
+```
 
 ---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-Вы можете настроить, какие утилиты цвета кольца будут генерироваться, настроив вашу цветовую палитру с помощью ключей `colors` в разделе `theme` вашего файла `tailwind.config.js`:
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
+<HoverFocusAndOtherStates defaultClass="ring ring-blue-300" featuredClass="ring-blue-500" />
 
-module.exports = {
-  theme: {
-    colors: {
-      gray: colors.blueGray,
-      indigo: colors.indigo,
-      red: colors.rose,
-      yellow: colors.yellow,
-    }
-  }
-}
-```
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-Если вы хотите настроить только утилиты цвета кольца, не затрагивая вашу глобальную цветовую палитру, используйте вместо этого ключ `ringColor`:
+<BreakpointsAndMediaQueries defaultClass="ring ring-blue-300" featuredClass="ring-blue-500" />
 
-```js
-// tailwind.config.js
-const colors = require('tailwindcss/colors')
+---
 
-module.exports = {
-  theme: {
-    ringColor: {
-      white: colors.white,
-      pink: colors.fuchsia,
-    }
-  }
-}
-```
+## Использование пользовательских значений
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+### Настройка вашей темы
 
-### Варианты
+<CustomizePluginColors name="ring" configKey="ringColor" />
 
-<Variants plugin="ringColor" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="ringColor" />
+<ArbitraryValues property="ring-{color}" featuredClass="ring-[#50d71e]" />

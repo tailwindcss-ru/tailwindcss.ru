@@ -1,71 +1,84 @@
 ---
 title: "Выравнивание текста"
 description: "Утилиты для управления выравниванием текста."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/textAlign'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=textAlign'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Настройка выравнивания текста
 
 Управляйте выравниванием текста элемента с помощью утилит `.text-left`, `.text-center`, `.text-right` и `.text-justify`.
 
-```html purple
-<template preview>
-  <p class="text-left font-flow leading-5 text-3xl text-purple-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis fugit, enim molestiae praesentium eveniet, recusandae et error beatae facilis ex harum consequuntur, quia pariatur non. Doloribus illo, ullam blanditiis ab.</p>
-</template>
-
-<p class="**text-left** ...">Lorem ipsum dolor sit amet ...</p>
-```
-
-```html rose
-<template preview>
-  <p class="text-center font-flow leading-5 text-3xl text-rose-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis fugit, enim molestiae praesentium eveniet, recusandae et error beatae facilis ex harum consequuntur, quia pariatur non. Doloribus illo, ullam blanditiis ab.</p>
-</template>
-
-<p class="**text-center** ...">Lorem ipsum dolor sit amet ...</p>
-```
-
-```html emerald
-<template preview>
-  <p class="text-right font-flow leading-5 text-3xl text-emerald-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis fugit, enim molestiae praesentium eveniet, recusandae et error beatae facilis ex harum consequuntur, quia pariatur non. Doloribus illo, ullam blanditiis ab.</p>
-</template>
-
-<p class="**text-right** ...">Lorem ipsum dolor sit amet ...</p>
-```
-
-```html amber
-<template preview>
-  <p class="text-justify font-flow leading-5 text-3xl text-amber-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis fugit, enim molestiae praesentium eveniet, recusandae et error beatae facilis ex harum consequuntur, quia pariatur non. Doloribus illo, ullam blanditiis ab.</p>
-</template>
-
-<p class="**text-justify** ...">Lorem ipsum dolor sit amet ...</p>
-```
-
-## Адаптивность
-
-Чтобы управлять выравниванием текста элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите выравнивания текста. Например, используйте `md:text-center`, чтобы применить утилиту `text-center` только при средних размерах экрана и выше..
+<Example p="none">
+  <div class="px-4 sm:px-0">
+    <div class="mx-auto max-w-xl bg-white shadow-xl p-8 text-gray-700 text-sm leading-6 sm:text-base sm:leading-7">
+      <p class="text-left">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+  </div>
+</Example>
 
 ```html
-<p class="text-left **md:text-center** ...">Lorem ipsum dolor sit amet ...</p>
+<p class="**text-left** ...">Итак, я пошел в воду...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<Example p="none">
+  <div class="px-4 sm:px-0">
+    <div class="mx-auto max-w-xl bg-white shadow-xl p-8 text-gray-700 text-sm leading-6 sm:text-base sm:leading-7">
+      <p class="text-center">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+  </div>
+</Example>
 
-## Кастомизация
+```html
+<p class="**text-center** ...">Итак, я пошел в воду...</p>
+```
 
-### Варианты
+<Example p="none">
+  <div class="px-4 sm:px-0">
+    <div class="mx-auto max-w-xl bg-white shadow-xl p-8 text-gray-700 text-sm leading-6 sm:text-base sm:leading-7">
+      <p class="text-right">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+  </div>
+</Example>
 
-<Variants plugin="textAlign" name="text alignment" />
+```html
+<p class="**text-right** ...">Итак, я пошел в воду...</p>
+```
 
-### Отключение
+<Example p="none">
+  <div class="px-4 sm:px-0">
+    <div class="mx-auto max-w-xl bg-white shadow-xl p-8 text-gray-700 text-sm leading-6 sm:text-base sm:leading-7">
+      <p class="text-justify">
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+  </div>
+</Example>
 
-<Disabling plugin="textAlign" name="text alignment" />
+```html
+<p class="**text-justify** ...">Итак, я пошел в воду...</p>
+```
+
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="text-left" featuredClass="text-center" element="p" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="text-left" featuredClass="text-center" element="p" />

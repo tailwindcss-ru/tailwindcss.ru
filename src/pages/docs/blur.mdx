@@ -1,74 +1,118 @@
 ---
 title: "Размытие"
 description: "Утилиты для применения фильтров размытия к элементу."
-featureVersion: 'v2.1+'
 ---
 
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=blur'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingFilters } from '@/components/RemovingFilters'
 
 export const classes = {
-  plugin: function () {
-    return function ({ addUtilities }) {
-      addUtilities({
-        '.blur-none': { '--tw-blur': 'blur(0)' },
-        '.blur-sm': { '--tw-blur': 'blur(4px)' },
-        '.blur': { '--tw-blur': 'blur(8px)' },
-        '.blur-md': { '--tw-blur': 'blur(12px)' },
-        '.blur-lg': { '--tw-blur': 'blur(16px)' },
-        '.blur-xl': { '--tw-blur': 'blur(24px)' },
-        '.blur-2xl': { '--tw-blur': 'blur(40px)' },
-        '.blur-3xl': { '--tw-blur': 'blur(64px)' },
-      })
+  utilities,
+  filterRules: ([utility]) => utility !== '.blur-0',
+  transformProperties: ({ properties }) => {
+    return {
+      filter: properties['--tw-blur'],
     }
-  }
+  },
 }
 
-## Применение
+## Основы использования
 
-Используйте утилиты `blur-{amount?}` вместе с утилитой `filter`, чтобы размыть элемент.
+### Размытые элементы
+
+Используйте утилиты `blur-{amount?}` для размытия элемента.
+
+<Example p="none">
+  <div class="flex sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+    <div class="flex items-center justify-around gap-12 sm:gap-4 font-mono font-bold shrink-0 p-8">
+      <div class="flex flex-col items-center shrink-0">
+        <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">blur-none</p>
+        <div class="relative blur-none">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center shrink-0">
+        <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">blur-sm</p>
+        <div class="relative blur-sm">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center shrink-0">
+        <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">blur-lg</p>
+        <div class="relative blur-lg">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center shrink-0">
+        <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">blur-2xl</p>
+        <div class="relative blur-2xl">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
 
 ```html
-<div class="filter blur-lg ...">
+<div class="**blur-none** ...">
+  <!-- ... -->
+</div>
+<div class="**blur-sm** ...">
+  <!-- ... -->
+</div>
+<div class="**blur-lg** ...">
+  <!-- ... -->
+</div>
+<div class="**blur-2xl** ...">
   <!-- ... -->
 </div>
 ```
 
-## Адаптивность
+### Удаление фильтров
 
-Чтобы управлять размытием элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите размытия. Например, используйте `md:blur-lg`, чтобы применить утилиту `blur-lg` только при средних размерах экрана и выше.
+<RemovingFilters defaultClass="blur-md invert brightness-150" />
 
-```html
-<div class="filter blur-sm **md:blur-lg** ...">
-  <!-- ... -->
-</div>
-```
+---
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+## <Heading ignore>Применяя условно</Heading>
 
-## Кастомизация
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Вы можете настроить, какие утилиты `blur` будут генерироваться, используя ключ `blur` в разделе `theme` вашего файла `tailwind.config.js`.
+<HoverFocusAndOtherStates defaultClass="blur" featuredClass="blur-lg" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="blur" featuredClass="blur-lg" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind включает в себя несколько утилит общего назначения `blur`. Вы можете настроить эти значения, отредактировав `theme.blur` или `theme.extend.blur` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     extend: {
+      extend: {
 +       blur: {
 +         xs: '2px',
 +       }
-+     }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="blur" name="blur" />
-
-### Отключение
-
-<Disabling plugin="blur" name="blur" />
+<ArbitraryValues property="blur" featuredClass="blur-[2px]" />

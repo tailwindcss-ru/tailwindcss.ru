@@ -4,212 +4,204 @@ description: "Утилиты для одновременного управле�
 
 ---
 
-import plugin from 'tailwindcss/lib/plugins/placeContent'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=placeContent'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Center
+## Основы использования
+
+### Center
 
 Используйте `place-content-center`, чтобы упаковать элементы в центре оси блока:
 
-```html lightBlue
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-content-center h-48">
-    <div class="flex-1 rounded-md bg-light-blue-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">1</div>
-    <div class="flex-1 rounded-md bg-light-blue-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">2</div>
-    <div class="flex-1 rounded-md bg-light-blue-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">3</div>
-    <div class="flex-1 rounded-md bg-light-blue-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">4</div>
-    <div class="flex-1 rounded-md bg-light-blue-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">5</div>
-    <div class="flex-1 rounded-md bg-light-blue-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">6</div>
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6 bg-stripes-light-blue rounded-lg">
+    <div class="grid grid-cols-[repeat(2,56px)] place-content-center h-56 gap-4">
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-light-blue-500">01</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-light-blue-500">02</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-light-blue-500">03</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-light-blue-500">04</div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 **place-content-center** h-48 ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 **place-content-center** h-48 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Start
+### Start
 
 Используйте `place-content-start`, чтобы упаковать элементы напротив начала оси блока:
 
-```html purple
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-content-start h-48">
-    <div class="flex-1 rounded-md bg-purple-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">1</div>
-    <div class="flex-1 rounded-md bg-purple-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">2</div>
-    <div class="flex-1 rounded-md bg-purple-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">3</div>
-    <div class="flex-1 rounded-md bg-purple-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">4</div>
-    <div class="flex-1 rounded-md bg-purple-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">5</div>
-    <div class="flex-1 rounded-md bg-purple-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">6</div>
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+    <div class="grid grid-cols-[repeat(2,56px)] place-content-start h-56 gap-4">
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">01</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">02</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">03</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-fuchsia-500">04</div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 **place-content-start** h-48 ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 **place-content-start** h-48 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## End
+### End
 
 Используйте `place-content-end`, чтобы упаковать элементы до конца оси блока:
 
-```html rose
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-content-end h-48">
-    <div class="flex-1 rounded-md bg-rose-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">1</div>
-    <div class="flex-1 rounded-md bg-rose-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">2</div>
-    <div class="flex-1 rounded-md bg-rose-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">3</div>
-    <div class="flex-1 rounded-md bg-rose-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">4</div>
-    <div class="flex-1 rounded-md bg-rose-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">5</div>
-    <div class="flex-1 rounded-md bg-rose-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">6</div>
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6 bg-stripes-indigo rounded-lg">
+    <div class="grid grid-cols-[repeat(2,56px)] place-content-end h-56 gap-4">
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">01</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">02</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">03</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-indigo-500">04</div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 **place-content-end** h-48 ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 **place-content-end** h-48 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Space between
+### Space between
 
 Используйте `place-content-between` для распределения элементов сетки по оси блока так, чтобы между каждой строкой на оси блока оставалось равное пространство.
 
-```html amber
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-content-between h-48">
-    <div class="flex-1 rounded-md bg-amber-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">1</div>
-    <div class="flex-1 rounded-md bg-amber-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">2</div>
-    <div class="flex-1 rounded-md bg-amber-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">3</div>
-    <div class="flex-1 rounded-md bg-amber-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">4</div>
-    <div class="flex-1 rounded-md bg-amber-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">5</div>
-    <div class="flex-1 rounded-md bg-amber-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">6</div>
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6 bg-stripes-purple rounded-lg">
+    <div class="grid grid-cols-[repeat(2,56px)] place-content-between h-56 gap-4">
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-purple-500">01</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-purple-500">02</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-purple-500">03</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-purple-500">04</div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 **place-content-between** h-48 ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 **place-content-between** h-48 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Space around
+### Space around
 
 Используйте `place-content-around`, чтобы распределить элементы сетки так, чтобы вокруг каждой строки на оси блока было одинаковое пространство:
 
-```html fuchsia
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-content-around h-48">
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">1</div>
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">2</div>
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">3</div>
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">4</div>
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">5</div>
-    <div class="flex-1 rounded-md bg-fuchsia-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">6</div>
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6 bg-stripes-cyan rounded-lg">
+    <div class="grid grid-cols-[repeat(2,56px)] place-content-around h-56 gap-x-4">
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">01</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">02</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">03</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">04</div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 **place-content-around** h-48 ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 **place-content-around** h-48 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Space evenly
+### Space evenly
 
 Используйте `place-content-evenly` для распределения элементов сетки так, чтобы они были равномерно распределены по оси блока:
 
-```html emerald
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-content-evenly h-48">
-    <div class="flex-1 rounded-md bg-emerald-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">1</div>
-    <div class="flex-1 rounded-md bg-emerald-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">2</div>
-    <div class="flex-1 rounded-md bg-emerald-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">3</div>
-    <div class="flex-1 rounded-md bg-emerald-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">4</div>
-    <div class="flex-1 rounded-md bg-emerald-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">5</div>
-    <div class="flex-1 rounded-md bg-emerald-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">6</div>
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6 bg-stripes-violet rounded-lg">
+    <div class="grid grid-cols-[repeat(2,56px)] place-content-evenly h-56">
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">01</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">02</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">03</div>
+      <div class="p-4 w-14 h-14 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">04</div>
+    </div>
   </div>
-</template>
+</Example>
 
-<div class="grid grid-cols-3 gap-2 **place-content-evenly** h-48 ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
+```html
+<div class="grid grid-cols-3 gap-4 **place-content-evenly** h-48 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-## Stretch
+### Stretch
 
 Используйте `place-content-stretch`, чтобы растянуть элементы сетки по их областям сетки на оси блока:
 
-```html indigo
-<template preview>
-  <div class="grid grid-cols-3 gap-2 place-content-stretch h-48">
-    <div class="flex-1 rounded-md bg-indigo-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">1</div>
-    <div class="flex-1 rounded-md bg-indigo-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">2</div>
-    <div class="flex-1 rounded-md bg-indigo-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">3</div>
-    <div class="flex-1 rounded-md bg-indigo-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">4</div>
-    <div class="flex-1 rounded-md bg-indigo-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">5</div>
-    <div class="flex-1 rounded-md bg-indigo-500 text-white text-2xl font-extrabold flex items-center justify-center py-3">6</div>
+<Example>
+  <div class="font-mono text-white text-sm font-bold leading-6 bg-stripes-pink rounded-lg">
+    <div class="grid grid-cols-2 place-content-stretch h-56 gap-4">
+      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">01</div>
+      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">02</div>
+      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">03</div>
+      <div class="p-4 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">04</div>
+    </div>
   </div>
-</template>
-
-<div class="grid grid-cols-3 gap-2 **place-content-stretch** h-48 ...">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы поместить контент в определенную контрольную точку, добавьте префикс `{screen}:` к любой существующей утилите `place-content`. Например, используйте `md:place-content-center`, чтобы применить утилиту `place-content-center` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="place-content-start md:place-content-center">
-  <!-- ... -->
+<div class="grid grid-cols-3 gap-4 **place-content-stretch** h-48 ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="placeContent" name="place-content" />
+<HoverFocusAndOtherStates defaultClass="place-content-start" featuredClass="place-content-center" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="placeContent" name="place-content" />
+<BreakpointsAndMediaQueries defaultClass="place-content-start" featuredClass="place-content-center" />

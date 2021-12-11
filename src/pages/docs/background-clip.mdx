@@ -3,75 +3,69 @@ title: "Обрезка фона"
 description: "Утилиты для управления рамкой фона элемента."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/backgroundClip'
-import { ConfigSample } from '@/components/ConfigSample'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=backgroundClip'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка фонового клипа
 
 Используйте утилиты `bg-clip-{keyword}` для управления ограничивающей рамкой фона элемента.
 
-```html indigo
-<template preview>
-  <div class="grid grid-cols-1 gap-2 lg:grid-cols-3">
-    <div class="bg-clip-border p-6 rounded-md bg-indigo-600 border-4 border-indigo-300 border-dashed font-extrabold text-white flex justify-center items-center">
-      <span class="py-2">.bg-clip-border</span>
+<Example>
+  <div class="flex flex-col sm:flex-row items-center justify-center space-y-10 sm:space-y-0 sm:space-x-10">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">bg-clip-border</p>
+      <div class="w-24 h-24 bg-clip-border p-3 rounded-lg shadow-lg bg-indigo-500 border-4 border-white/50 border-dashed font-mono font-extrabold text-sm text-white flex justify-center items-center"></div>
     </div>
-    <div class="bg-clip-padding p-6 rounded-md bg-indigo-600 border-4 border-indigo-300 border-dashed font-extrabold text-white flex justify-center items-center">
-      <span class="py-2">.bg-clip-padding</span>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">bg-clip-padding</p>
+      <div class="w-24 h-24 bg-clip-padding p-3 rounded-lg shadow-lg bg-indigo-500 border-4 border-indigo-500/50 border-dashed font-mono font-extrabold text-sm text-white flex justify-center items-center"></div>
     </div>
-    <div class="bg-clip-content p-6 rounded-md bg-indigo-600 border-4 border-indigo-300 border-dashed font-extrabold text-white flex justify-center items-center">
-      <span class="py-2">.bg-clip-content</span>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">bg-clip-content</p>
+      <div class="w-24 h-24 bg-clip-content p-3 rounded-lg bg-indigo-500 border-4 border-indigo-500/50 border-dashed font-mono font-extrabold text-sm text-white flex justify-center items-center"></div>
     </div>
   </div>
-</template>
+</Example>
 
-<div class="**bg-clip-border** p-6 bg-indigo-600 border-4 border-indigo-300 border-dashed"></div>
-<div class="**bg-clip-padding** p-6 bg-indigo-600 border-4 border-indigo-300 border-dashed"></div>
-<div class="**bg-clip-content** p-6 bg-indigo-600 border-4 border-indigo-300 border-dashed"></div>
+```html
+<div class="**bg-clip-border** p-6 bg-violet-600 border-4 border-violet-300 border-dashed"></div>
+<div class="**bg-clip-padding** p-6 bg-violet-600 border-4 border-violet-300 border-dashed"></div>
+<div class="**bg-clip-content** p-6 bg-violet-600 border-4 border-violet-300 border-dashed"></div>
 ```
 
-## Обрезка текста
+### Обрезка текста
 
 Используйте `bg-clip-text`, чтобы обрезать фон элемента, чтобы он соответствовал форме текста. Полезно для эффектов, когда вы хотите, чтобы фоновое изображение было видно сквозь текст.
 
-```html emerald
-<template preview>
-  <div class="text-center text-5xl font-extrabold leading-none tracking-tight">
-    <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+<Example>
+  <div class="text-4xl sm:text-5xl font-extrabold leading-none tracking-tight text-center">
+    <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
       Привет мир
     </span>
   </div>
-</template>
+</Example>
 
+```html
 <div class="text-5xl font-extrabold ...">
-  <span class="**bg-clip-text** text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+  <span class="**bg-clip-text** text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
     Привет мир
   </span>
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять ограничивающей рамкой фона элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите вырезания фона. Например, добавление класса `md:bg-clip-padding` к элементу приведет к применению утилиты `bg-clip-padding` при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-<div class="bg-clip-border **md:bg-clip-padding**">
-  <!-- ... -->
-</div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="bg-clip-border" featuredClass="bg-clip-padding" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-### Варианты
-
-<Variants plugin="backgroundClip" />
-
-### Отключение
-
-<Disabling plugin="backgroundClip" />
+<BreakpointsAndMediaQueries defaultClass="bg-clip-border" featuredClass="bg-clip-padding" />

@@ -3,99 +3,145 @@ title: "Перевод"
 description: "Утилиты для перевода элементов с трансформацией."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/translate'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { numbersFirstByPrefix } from '@/utils/sortClasses'
+import utilities from 'utilities?plugin=translate'
+import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HardwareAcceleration } from '@/components/HardwareAcceleration'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { RemovingTransforms } from '@/components/RemovingTransforms'
 
 export const classes = {
-  plugin,
-  sort: numbersFirstByPrefix,
+  utilities,
+  sort: (classes) => numbersFirst(classes),
+  transformProperties: ({ properties }) => {
+    let x = properties['--tw-translate-x']
+    let y = properties['--tw-translate-y']
+    return {
+      transform: `translate${x ? 'X' : 'Y'}(${x || y})`
+    }
+  },
 }
 
-## Применение
+## Основы использования
 
-Переведите элемент, включив сначала преобразования с помощью утилиты `transform`, а затем указав направление перевода и расстояние с помощью утилит `translate-x-{amount}` и `translate-y-{amount}`.
+### Перевод элемента
 
-```html purple
-<template preview>
-  <div class="flex flex-col justify-around space-y-12 md:flex-row md:space-y-0 md:space-x-12">
-    <div class="w-16 h-16 bg-purple-400 bg-stripes bg-stripes-white">
-      <img class="h-16 w-16 transform translate-y-6" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+Используйте утилиты `translate-x-{amount}` и `translate-y-{amount}` для перевода элемента.
+
+<Example p="none">
+  <div class="flex sm:block overflow-scroll sm:overflow-visible scroll-p-8">
+  <div class="flex items-center justify-around gap-4 font-mono font-bold p-8 pb-12 shrink-0">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-9">translate-y-6</p>
+      <div class="relative">
+        <div class="absolute inset-0">
+          <img class="w-24 h-24 object-cover rounded-lg opacity-25" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        </div>
+        <div class="relative z-10 translate-y-6">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
     </div>
-    <div class="w-16 h-16 bg-purple-400 bg-stripes bg-stripes-white">
-      <img class="h-16 w-16 transform -translate-y-6" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-9">-translate-y-6</p>
+      <div class="relative">
+        <div class="absolute inset-0">
+          <img class="w-24 h-24 object-cover rounded-lg opacity-25" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        </div>
+        <div class="relative z-10 -translate-y-6">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
     </div>
-    <div class="w-16 h-16 bg-purple-400 bg-stripes bg-stripes-white">
-      <img class="h-16 w-16 transform translate-y-0" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-9">translate-x-6</p>
+      <div class="relative">
+        <div class="absolute inset-0">
+          <img class="w-24 h-24 object-cover rounded-lg opacity-25" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+        </div>
+        <div class="relative z-10 translate-x-6">
+          <img class="w-24 h-24 object-cover rounded-lg shadow-xl" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=320&h=320&q=80" />
+          <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+        </div>
+      </div>
     </div>
   </div>
-</template>
-
-<img class="transform **translate-y-6** ...">
-<img class="transform **-translate-y-6** ...">
-<img class="transform **translate-y-0** ...">
-```
-
-## Адаптивность
-
-Чтобы контролировать перевод элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите перевода. Например, используйте `md:translate-x-8`, чтобы применить утилиту `translate-x-8` только при средних размерах экрана и выше.
+  </div>
+</Example>
 
 ```html
-<img class="transform translate-x-2 **md:translate-x-8** ...">
+<img class="**translate-y-6** ...">
+<img class="**-translate-y-6** ...">
+<img class="**translate-x-6** ...">
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### Использование отрицательных значений
 
-## Кастомизация
+Чтобы использовать отрицательное значение перевода, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
-### Шкала перевода
+```html
+<img class="**-translate-y-6** ...">
+```
 
-По умолчанию Tailwind предоставляет утилиты перевода с фиксированным значением, которые соответствуют нашему [шкале интервалов](/docs/customizing-spacing), а также 50% и 100% вариации для перевода относительно размера элемента.
+### Удаление преобразований
 
-Вы можете настроить глобальную шкалу интервалов в разделах `theme.spacing` или `theme.extend.spacing` вашего файла `tailwind.config.js`:
+<RemovingTransforms defaultClass="scale-75 translate-x-4 skew-y-3" />
 
-```diff-js
-  // tailwind.config.js
+### Аппаратное ускорение
+
+<HardwareAcceleration defaultClass="translate-y-6" />
+
+---
+
+## <Heading ignore>Применяя условно</Heading>
+
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates featuredClass="translate-y-12" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries featuredClass="translate-y-12" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind предоставляет утилиты `translate` с фиксированным значением, которые соответствуют [шкале интервалов по умолчанию](/docs/customizing-spacing), а также 50% и 100% вариации для перевода относительно размера элемента.. Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        spacing: {
-+         '72': '18rem',
-+         '84': '21rem',
-+         '96': '24rem',
-        }
++       spacing: {
++         '4.25': '17rem',
++       }
       }
     }
   }
 ```
 
-Чтобы настроить масштаб перевода отдельно, используйте раздел `theme.translate` вашего файла `tailwind.config.js`.
+Кроме того, вы можете настроить только масштаб перевода, отредактировав `theme.translate` или `theme.extend.translate` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        translate: {
-+         '1/7': '14.2857143%',
-+         '2/7': '28.5714286%',
-+         '3/7': '42.8571429%',
-+         '4/7': '57.1428571%',
-+         '5/7': '71.4285714%',
-+         '6/7': '85.7142857%',
-        }
++       translate: {
++         '4.25': '17rem',
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="translate" />
-
-### Отключение
-
-<Disabling plugin="translate" />
+<ArbitraryValues property="translate" featuredClass="translate-y-[17rem]" />

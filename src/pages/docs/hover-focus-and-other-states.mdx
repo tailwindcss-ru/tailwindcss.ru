@@ -1,294 +1,623 @@
 ---
-title: "Наведение, фокус и другие состояния"
-description: "Использование утилит для стилизации элементов при наведении, фокусе и т. д."
+title: Обработка наведения, фокусировки и других состояний
+shortTitle: Наведение, фокус и другие состояния
+description: Использование утилит для стилизации элементов при наведении, фокусе и т. д.
 ---
 
-import { Heading } from '@/components/Heading'
-import { TipCompat } from '@/components/Tip'
-import { DefaultVariantsConfig } from '@/components/DefaultVariantsConfig'
-import { VariantEnabledList } from '@/components/VariantEnabledList'
+import { TipGood, TipBad, TipInfo } from '@/components/Tip'
 
-## <Heading hidden>Обзор</Heading>
+Каждый служебный класс в Tailwind может применяться _условно_ путем добавления модификатора в начало имени класса, описывающего условие, которое вы хотите настроить.
 
-Подобно тому, как Tailwind обрабатывает [адаптивный дизайн](/docs/responsive-design), стилизация элементов при наведении курсора, фокусе и т. д. может выполняться с помощью префикса утилит с соответствующим вариантом состояния.
+Например, чтобы применить класс `bg-sky-700` при наведении курсора, используйте класс `hover:bg-sky-700`:
 
-```html purple
-<template preview>
-  <form class="flex w-full max-w-sm mx-auto space-x-3">
-    <input class="flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="email" placeholder="Ваша эл. почта">
-    <button class="flex-shrink-0 bg-purple-600 text-white text-base font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200" type="button">
-      Зарегистрироваться
-    </button>
-  </form>
-</template>
-
-<form>
-  <input class="border border-transparent **focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent** ...">
-  <button class="bg-purple-600 **hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50** ...">
-    Зарегистрироваться
-  </button>
-</form>
-```
-
-**Не все варианты состояния включены для всех утилит по умолчанию из-за соображений размера файла**, но мы постарались сделать все возможное, чтобы включить наиболее часто используемые комбинации из коробки.
-
-Полный список вариантов, включенных по умолчанию, смотрите в [справочной таблице](#spravochnik-variantov-po-umolchaniyu) в конце этой страницы.
-
-Если вам нужно настроить таргетинг на состояние, которое Tailwind не поддерживает, вы можете расширить поддерживаемые варианты, [написав вариант плагина](#sozdanie-sobstvennyh-variantov).
-
----
-
-## Hover
-
-Добавьте префикс `hover:` чтобы использовать утилиту только при наведении курсора.
-
-```html rose
-<template preview>
-  <div class="text-center">
-    <button type="button" class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none" tabindex="-1">
-      Наведите на меня
+<Example hint="Наведите указатель мыши на эту кнопку, чтобы увидеть изменение цвета фона">
+  <div class="grid place-items-center">
+    <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+      Сохранить изменения
     </button>
   </div>
-</template>
+</Example>
 
-<button class="bg-red-500 **hover:bg-red-700** ...">
-  Наведите на меня
+```html
+<button class="bg-sky-600 **hover:bg-sky-700** ...">
+  Сохранить изменения
 </button>
 ```
 
-<div>
-  <VariantEnabledList variant="hover"/>
-</div>
+<details className="-mt-2 mb-10 rounded-xl border px-6 py-3 prose open:pb-5">
+  <summary className="font-medium cursor-default select-none text-gray-900">Как это соотносится с традиционным CSS?</summary>
 
-Вы можете контролировать, включены ли варианты `hover` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
+При написании CSS традиционным способом одно имя класса будет делать разные вещи в зависимости от текущего состояния.
 
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      padding: ['hover'],
-    }
-  },
+<TipBad>Традиционно одно и то же имя класса применяет разные стили при наведении курсора</TipBad>
+
+```css
+.btn-primary {
+  background-color: #0ea5e9;
+}
+.btn-primary:hover {
+  background-color: #0369a1;
 }
 ```
 
----
+В Tailwind вместо добавления стилей для состояния наведения к существующему классу вы добавляете еще один класс к элементу, который _только_ что-то делает при наведении курсора.
 
-## Focus
+<TipGood>В Tailwind отдельные классы используются для состояния по умолчанию и состояния наведения</TipGood>
 
-Добавьте префикс `focus:`, чтобы применить утилиту только к фокусу.
-
-```html lightBlue
-<template preview>
-  <div class="max-w-xs w-full mx-auto">
-    <input class="py-3 px-4 bg-white rounded-lg placeholder-gray-400 text-gray-900 appearance-none inline-block w-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Фокус на мне">
-  </div>
-</template>
-
-<input class="**focus:ring-2 focus:ring-blue-600** ...">
-```
-
-<div>
-  <VariantEnabledList variant="focus"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `focus` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      maxHeight: ['focus'],
-    }
-  },
+```css
+.bg-sky-500 {
+  background-color: #0ea5e9;
+}
+.hover\:bg-sky-700:hover {
+  background-color: #0369a1;
 }
 ```
 
----
+Обратите внимание, как `hover:bg-sky-700` _только_ определяет стили для состояния `:hover`? По умолчанию он ничего не делает, но как только вы наводите курсор на элемент с этим классом, цвет фона изменится на `sky-700`.
 
-## Active
+Это то, что мы имеем в виду, когда говорим, что служебный класс может применяться _условно_ — с помощью модификаторов вы можете точно контролировать поведение вашего дизайна в различных состояниях, не покидая HTML-кода.
 
-Добавьте префикс `active:`, чтобы применить утилиту только тогда, когда элемент активен.
+</details>
 
-```html emerald
-<template preview>
-  <div class="text-center">
-    <button type="button" class="py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md active:bg-emerald-700 focus:outline-none" tabindex="-1">
-      Кликните на меня
-    </button>
-  </div>
-</template>
+Tailwind включает в себя модификаторы практически для всего, что вам когда-либо понадобится, в том числе:
 
-<button class="bg-green-500 **active:bg-green-700** ...">
-  Кликните на меня
+- [Псевдоклассы](#pseudo-classes), такие как `:hover`, `:focus`, `:first-child`, и `:required`
+- [Псевдоэлементы](#pseudo-elements), такие как `::before`, `::after`, `::placeholder`, и `::selection`
+- [Медиа-запросы](#media-queries), такие как отзывчивые контрольные точки, темный режим и `prefers-reduced-motion`
+- [Селекторы атрибутов](#attribute-selectors), такие как `[dir="rtl"]` и `[open]`
+
+Эти модификаторы могут быть даже [сложены](#ordering-stacked-modifiers) для более конкретных ситуаций, например, изменение цвета фона в темном режиме, в средней точке останова, при наведении курсора:
+
+```html
+<button class="**dark:md:hover:bg-fuchsia-600** ...">
+  Сохранить изменения
 </button>
 ```
 
-<div>
-  <VariantEnabledList variant="active"/>
-</div>
-
-Вы можете контролировать, включены ли `active` варианты для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      backgroundColor: ['active'],
-    }
-  },
-}
-```
+В этом руководстве вы узнаете обо всех модификаторах, доступных во фреймворке, о том, как использовать их с вашими собственными пользовательскими классами и даже о том, как создавать свои собственные.
 
 ---
 
-## Group-hover
+## Псевдоклассы
 
-Если вам нужно стилизовать дочерний элемент при наведении курсора на определенный родительский элемент, добавьте класс `group` к родительскому элементу и добавьте префикс `group-hover:` к утилите на дочернем элементе.
+### Наведение, фокус и активность
 
-```html indigo
-<template preview>
-  <div class="group px-6 py-5 max-w-full mx-auto w-72 border border-indigo-500 border-opacity-25 cursor-pointer rounded-lg select-none overflow-hidden space-y-1 hover:bg-white hover:shadow-lg hover:border-transparent">
-    <p class="font-semibold text-lg text-indigo-600 group-hover:text-gray-900">Новый проект</p>
-    <p class="text-indigo-500 group-hover:text-gray-500">Создайте новый проект из множества начальных шаблонов.</p>
-  </div>
-</template>
+Стилизуйте элементы при наведении, фокусе и активном с помощью модификаторов `hover`, `focus` и `active`:
 
-<div class="**group** border-indigo-500 hover:bg-white hover:shadow-lg hover:border-transparent ...">
-  <p class="text-indigo-600 **group-hover:text-gray-900** ...">Новый проект</p>
-  <p class="text-indigo-500 **group-hover:text-gray-500** ...">Создайте новый проект из множества начальных шаблонов.</p>
-</div>
-```
-
-<div>
-  <VariantEnabledList variant="group-hover"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `group-hover` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      divideColor: ['group-hover'],
-    }
-  },
-}
-```
-
----
-
-## Group-focus
-
-Вариант `group-focus` работает так же, как [`group-hover`](#group-hover) за исключением фокуса:
-
-```html amber
-<template preview>
-  <div class="text-center">
-    <button type="button" class="group inline-flex items-center py-2 px-4 bg-amber-500 text-white font-semibold rounded-lg shadow-md focus:bg-amber-600 focus:outline-none">
-      <svg fill="currentColor" viewBox="0 0 20 20" class="-ml-1 mr-3 w-5 h-5 text-white group-focus:text-amber-300"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"></path></svg>
-      Закладка
+<Example hint="Попробуйте взаимодействовать с этой кнопкой, чтобы увидеть наведение, фокус и активное состояние">
+  <div class="grid place-items-center">
+    <button type="button" class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+      Сохранить изменения
     </button>
   </div>
-</template>
+</Example>
 
-<button class="**group** bg-yellow-500 focus:bg-yellow-600 ...">
-  <svg class="text-white **group-focus:text-yellow-300** ..."></svg>
-  Закладка
+```html
+<button class="bg-violet-500 **hover:bg-violet-400** **active:bg-violet-600** **focus:outline-none focus:ring focus:ring-violet-300** ...">
+  Сохранить изменения
 </button>
 ```
 
-<div>
-  <VariantEnabledList variant="group-focus"/>
-</div>
+Tailwind также включает модификаторы для других интерактивных состояний, таких как `:visited`, `:focus-within`, `:focus-visible` и другие.
 
-Вы можете контролировать, включены ли варианты `group-focus` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
+Смотрите [справку на псевдокласс](#pseudo-class-reference) для получения полного списка доступных модификаторов псевдокласса.
 
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      backgroundColor: ['group-focus'],
-    }
-  },
-}
-```
+### Первый, последний, нечетный и четный
 
----
+Стилизуйте элемент, когда он является первым или последним дочерним элементом, используя модификаторы `first` и `last`:
 
-## Focus-within
+<Example p="none">
+  <div class="px-4">
+    <div class="max-w-md mx-auto bg-white shadow">
+      <ul role="list" class="p-6 divide-y divide-gray-200">
+        <li class="py-4 flex first:pt-0 last:pb-0">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-gray-900">Kristen Ramos</p>
+            <p class="text-sm text-gray-500 truncate">kristen.ramos@example.com</p>
+          </div>
+        </li>
+        <li class="py-4 flex first:pt-0 last:pb-0">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-gray-900">Floyd Miles</p>
+            <p class="text-sm text-gray-500 truncate">floyd.miles@example.com</p>
+          </div>
+        </li>
+        <li class="py-4 flex first:pt-0 last:pb-0">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-gray-900">Courtney Henry</p>
+            <p class="text-sm text-gray-500 truncate">courtney.henry@example.com</p>
+          </div>
+        </li>
+        <li class="py-4 flex first:pt-0 last:pb-0">
+          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <div class="ml-3 overflow-hidden">
+            <p class="text-sm font-medium text-gray-900">Ted Fox</p>
+            <p class="text-sm text-gray-500 truncate">ted.fox@example.com</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</Example>
 
-Добавьте префикс `focus-within:`, чтобы применять утилиту только тогда, когда этот элемент или любой из его потомков имеет фокус.
-
-```html purple
-<template preview>
-  <form class="w-full max-w-sm mx-auto">
-    <div class="relative text-gray-400 focus-within:text-gray-600">
-      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+```html
+<ul role="list" class="p-6 divide-y divide-gray-200">
+  {#each people as person}
+    <!-- Удалите верхнюю / нижнюю прокладку, когда первый / последний ребенок -->
+    <li class="flex py-4 **first:pt-0** **last:pb-0**">
+      <img class="h-10 w-10 rounded-full" src="{person.imageUrl}" alt="" />
+      <div class="ml-3 overflow-hidden">
+        <p class="text-sm font-medium text-gray-900">{person.name}</p>
+        <p class="text-sm text-gray-500 truncate">{person.email}</p>
       </div>
-      <input id="email" class="py-3 px-4 bg-white placeholder-gray-400 text-gray-900 rounded-lg shadow-md appearance-none w-full block pl-12 focus:outline-none" placeholder="you@example.com">
-    </div>
-  </form>
-</template>
+    </li>
+  {/each}
+</ul>
+```
 
-<form>
-  <div class="text-gray-400 **focus-within:text-gray-600** ...">
-    <div class="...">
-      <svg fill="currentColor"></svg>
+Вы также можете стилизовать элемент, если он является четным или нечетным, используя модификаторы `odd` и `even`:
+
+<Example p="none">
+  <div class="px-0 sm:px-6">
+    <div class="bg-white shadow">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full">
+              <thead class="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
+                    Имя
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
+                    Заголовок
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
+                    Эл. почта
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="odd:bg-white even:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    Jane Cooper
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    Regional Paradigm Technician
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    jane.cooper@example.com
+                  </td>
+                </tr>
+                <tr class="odd:bg-white even:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    Cody Fisher
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    Product Directives Officer
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    cody.fisher@example.com
+                  </td>
+                </tr>
+                <tr class="odd:bg-white even:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    Leonard Krasner
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    Senior Designer
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    leonard.krasner@example.com
+                  </td>
+                </tr>
+                <tr class="odd:bg-white even:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    Emily Selman
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    VP, Hardware Engineering
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    emily.selman@example.com
+                  </td>
+                </tr>
+                <tr class="odd:bg-white even:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    Anna Roberts
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    Chief Strategy Officer
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    anna.roberts@example.com
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    <input class="focus:ring-2 focus:ring-gray-300 ...">
   </div>
+</Example>
+
+```html
+<table>
+  <!-- ... -->
+  <tbody>
+    {#each people as person}
+      <!-- Use a white background for odd rows, and gray-100 for even rows -->
+      <tr class="**odd:bg-white** **even:bg-gray-100**">
+        <td>{person.name}</td>
+        <td>{person.title}</td>
+        <td>{person.email}</td>
+      </tr>
+    {/each}
+  </tbody>
+</table>
+```
+
+Tailwind также включает модификаторы для других структурных псевдоклассов, таких как `:only-child`, `:first-of-type`, `:empty`, и другие.
+
+Смотрите [справку на псевдокласс](#pseudo-class-reference) для получения полного списка доступных модификаторов псевдокласса.
+
+### Состояния формы
+
+Стилизуйте элементы формы в разных состояниях с помощью таких модификаторов, как `required`, `invalid` и `disabled`:
+
+<Example hint="Попробуйте сделать адрес электронной почты действительным, чтобы увидеть, как меняются стили" p="none">
+  <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
+    <form>
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-700">Имя пользователя</label>
+        <div class="mt-1">
+          <input type="text" name="username" id="username" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
+        </div>
+      </div>
+      <div class="mt-6">
+        <label for="email" class="block text-sm font-medium text-gray-700">Эл. почта</label>
+        <div class="mt-1">
+          <input type="email" name="email" id="email" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
+        </div>
+      </div>
+      <div class="mt-6">
+        <label for="password" class="block text-sm font-medium text-gray-700">Пароль</label>
+        <div class="mt-1">
+          <input type="password" name="password" id="password" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
+        </div>
+      </div>
+      <div class="mt-6 text-right">
+        <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
+          Сохранить изменения
+        </button>
+      </div>
+    </form>
+  </div>
+</Example>
+
+```html
+<form>
+  <label class="block">
+    <span class="block text-sm font-medium text-gray-700">Имя пользователя</span>
+    <!-- Используя модификаторы состояния формы, классы могут быть идентичными для каждого ввода -->
+    <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+      **disabled:bg-gray-50** **disabled:text-gray-500** **disabled:border-gray-200** **disabled:shadow-none**
+      **invalid:border-pink-500** **invalid:text-pink-600**
+      **focus:invalid:border-pink-500** **focus:invalid:ring-pink-500**
+    "/>
+  </label>
+  <!-- ... -->
 </form>
 ```
 
-<div>
-  <VariantEnabledList variant="focus-within"/>
-</div>
+Использование модификаторов для такого рода вещей может уменьшить количество условной логики в ваших шаблонах, позволяя вам использовать один и тот же набор классов независимо от того, в каком состоянии находится ввод, и позволяя браузеру применять правильные стили для вас.
 
-Вы можете контролировать, включены ли варианты `focus-within` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
+Tailwind также включает модификаторы для других состояний формы, таких как `:read-only`, `:indeterminate`, `:checked` и другие.
 
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      scale: ['focus-within'],
-    }
-  },
-}
+Смотрите [справку на псевдокласс](#disabled) для получения полного списка доступных модификаторов псевдокласса.
+
+### Стиль на основе родительского состояния <small>(group-{'{modifier}'})</small>
+
+Когда вам нужно стилизовать элемент на основе состояния некоторого _родительского_ элемента, пометьте родителя классом `group` и используйте модификаторы `group-*`, такие как `group-hover`, для стилизации целевого элемента:
+
+<Example hint="Наведите указатель мыши на карточку, чтобы увидеть, как оба текстовых элемента меняют цвет">
+  <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-gray-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+    <div class="flex items-center space-x-3">
+      <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M11 19H6.931A1.922 1.922 0 015 17.087V8h12.069C18.135 8 19 8.857 19 9.913V11" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4" />
+      </svg>
+      <h3 class="text-sm text-gray-900 font-semibold group-hover:text-white">Новый проект</h3>
+    </div>
+    <p class="text-sm text-gray-500 group-hover:text-white">Создайте новый проект из множества начальных шаблонов.</p>
+  </a>
+</Example>
+
+```html
+<a href="#" class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-gray-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+  <div class="flex items-center space-x-3">
+    <svg class="h-6 w-6 stroke-sky-500 **group-hover:stroke-white**" fill="none" viewBox="0 0 24 24"><!-- ... --></svg>
+    <h3 class="text-gray-900 **group-hover:text-white** text-sm font-semibold">Новый проект</h3>
+  </div>
+  <p class="text-gray-500 **group-hover:text-white** text-sm">Создайте новый проект из множества начальных шаблонов.</p>
+</a>
 ```
+
+Этот шаблон работает со всеми модификаторами псевдокласса, например, `group-focus`, `group-active` или даже `group-odd`.
+
+
+### Стиль на основе родственного состояния <small>(peer-{'{modifier}'})</small>
+
+Когда вам нужно стилизовать элемент на основе состояния элемента _sibling_, пометьте его с помощью класса `peer` и используйте модификаторы `peer-*`, такие как `peer-invalid`, для стилизации целевого элемента:
+
+<Example hint="Попробуйте сделать адрес электронной почты действительным, чтобы предупреждение исчезло" p="none">
+  <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
+    <form>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Эл. почта</label>
+        <div class="mt-1">
+          <input type="email" name="email" id="email" class="peer px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
+          <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">Пожалуйста, укажите действующий адрес электронной почты.</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</Example>
+
+```html
+<form>
+  <label class="block">
+    <span class="block text-sm font-medium text-gray-700">Имя пользователя</span>
+    <input type="email" class="**peer** ..."/>
+    <p class="mt-2 invisible **peer-invalid:visible** text-pink-600 text-sm">
+      Пожалуйста, укажите действующий адрес электронной почты.
+    </p>
+  </label>
+</form>
+```
+
+Это позволяет выполнять всевозможные изящные трюки, например [плавающие метки](https://www.youtube.com/watch?v=nJzKi6oIvBA), например, без какого-либо JS.
+
+Этот шаблон работает со всеми модификаторами псевдокласса, например, `peer-focus`, `peer-required` и `peer-disabled`.
 
 ---
 
-## Focus-visible
+## Псевдоэлементы
 
-<TipCompat>Обратите внимание, что focus-visible в настоящее время требует полифиллов JS и PostCSS для достаточной поддержки браузером.</TipCompat>
+### До и после
 
-Добавьте префикс `focus-visible:`, чтобы применить утилиту только тогда, когда элемент имеет фокус, но только если пользователь использует клавиатуру.
+Стилизуйте псевдоэлементы `::before` и `::after`, используя модификаторы `before` и `after`:
 
-```html rose
-<template preview>
-  <div class="flex justify-center space-x-8">
-    <button type="button" class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:bg-red-500 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-opacity-75">
-      Кольцо в фокусе
-    </button>
-    <button type="button" class="py-2 px-4 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:bg-red-500 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-opacity-75">
-      Кольцо в видимом фокусе
-    </button>
+<Example p="none">
+  <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
+    <form>
+      <label class="block">
+        <span class="block text-sm font-medium text-gray-700 after:content-['*'] after:ml-0.5 after:text-red-500">Эл. почта</span>
+        <input type="email" name="email" id="email" class="mt-1 px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+      </label>
+    </form>
   </div>
-</template>
+</Example>
+
+```html
+<label class="block">
+  <span class="**after:content-['*']** **after:ml-0.5** **after:text-red-500** block text-sm font-medium text-gray-700">
+    Эл. почта
+  </span>
+  <input type="email" name="email" class="mt-1 px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+</label>
+```
+
+При использовании этих модификаторов Tailwind по умолчанию автоматически добавит `content: ''`, поэтому вам не нужно указывать его, если вы не хотите другое значение:
+
+
+<Example p="none">
+  <div class="px-6">
+    <div class="max-w-lg mx-auto bg-white shadow py-8 px-6">
+      <blockquote class="text-2xl font-semibold italic text-center text-gray-900">
+        Когда вы все время выглядите <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500"><span class="relative text-white">раздраженным</span>,</span> люди думают, что вы заняты.
+      </blockquote>
+    </div>
+  </div>
+</Example>
+
+```html
+<blockquote class="text-2xl font-semibold italic text-center text-gray-900">
+  Когда вы все время выглядите
+  <span class="**before:block** **before:absolute** **before:-inset-1** **before:-skew-y-3** **before:bg-pink-500** relative inline-block">
+    <span class="relative text-white">раздраженным</span>,
+  </span>
+  люди думают, что вы заняты.
+</blockquote>
+```
+
+Стоит отметить, что вам действительно не нужны псевдоэлементы `::before` и `::after` для большинства вещей в проектах Tailwind - обычно проще просто использовать настоящий HTML-элемент.
+
+Например, вот тот же дизайн сверху, но с использованием псевдоэлемента `<span>` вместо псевдоэлемента `::before`, который немного легче читать и на самом деле содержит меньше кода:
+
+```html
+  <blockquote class="text-2xl font-semibold italic text-center text-gray-900">
+    Когда вы все время выглядите
+    <span class="relative">
+>     <span class="block absolute -inset-1 -skew-y-3 bg-pink-500" aria-hidden="true"></span>
+      <span class="relative text-white">раздраженным</span>,
+    </span>
+    люди думают, что вы заняты.
+  </blockquote>
+```
+
+Сохраните `before` и `after` для ситуаций, когда важно, чтобы содержимое псевдоэлемента фактически не находилось в DOM и не могло быть выбрано пользователем.
+
+### Текст-заполнитель
+
+Стилизуйте текст заполнителя любого ввода или текстового поля, используя модификатор `placeholder`:
+
+<Example>
+  <div class="max-w-sm mx-auto">
+    <form>
+      <label class="relative block">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+          <svg class="h-5 w-5 fill-gray-300" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span class="sr-only">Поиск</span>
+        <input type="text" name="search" class="block w-full border border-gray-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Искать что угодно..."
+        />
+      </label>
+    </form>
+  </div>
+</Example>
+
+```html
+<label class="relative block">
+  <span class="sr-only">Поиск</span>
+  <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+    <svg class="h-5 w-5 fill-gray-300" viewBox="0 0 20 20"><!-- ... --></svg>
+  </span>
+  <input class="**placeholder:italic** **placeholder:text-gray-400** block w-full border border-gray-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Искать что угодно..." type="text" name="search"/>
+</label>
+```
+
+### File input buttons
+
+Style the button in file inputs using the `file` modifier:
+
+<Example p="none">
+  <div class="px-6">
+    <div class="max-w-sm mx-auto bg-white shadow py-8 px-6">
+      <form class="flex items-center space-x-6">
+        <div class="shrink-0">
+          <img class="h-16 w-16 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Текущее фото профиля" />
+        </div>
+        <label class="block">
+          <span class="sr-only">Выберите фото профиля</span>
+          <input type="file" class="block w-full text-sm text-gray-500 file:text-sm file:font-semibold file:py-2 file:px-4 file:bg-violet-50 file:text-violet-700 file:rounded-full file:border-0 file:mr-4 hover:file:bg-violet-100"
+          />
+        </label>
+      </form>
+    </div>
+  </div>
+</Example>
+
+```html
+<form class="flex items-center space-x-6">
+  <div class="shrink-0">
+    <img class="h-16 w-16 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Текущее фото профиля" />
+  </div>
+  <label class="block">
+    <span class="sr-only">Выберите фото профиля</span>
+    <input type="file" class="block w-full text-sm text-gray-500
+      **file:mr-4** **file:py-2** **file:px-4**
+      **file:rounded-full** **file:border-0**
+      **file:text-sm** **file:font-semibold**
+      **file:bg-violet-50** **file:text-violet-700**
+      **hover:file:bg-violet-100**
+    "/>
+  </label>
+</form>
+```
+
+Обратите внимание, что Tailwind [сброс границы](/docs/preflight#border-styles-are-reset-globally) не применяется к кнопкам ввода файлов. Это означает, что для добавления границы к кнопке ввода файла вам необходимо явно установить [border-style](/docs/border-style), используя такой класс, как `file:border-solid`, рядом с любым [border-width](/docs/border-width):
+
+```html
+<input type="file" class="file:border **file:border-solid** ..." />
+```
+
+### Маркеры списка
+
+Примените стиль к счетчикам или маркерам в списках с помощью модификатора `marker`:
+
+<Example p="none">
+  <div class="px-6">
+    <div class="max-w-sm mx-auto bg-white shadow py-8 px-8">
+      <h2 class="text-base font-semibold text-gray-900">Ingredients</h2>
+      <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-gray-500 marker:text-sky-400">
+        <li>5 чашек нарезанных белых грибов</li>
+        <li>1/2 стакана оливкового масла</li>
+        <li>3 фунта сельдерея</li>
+      </ul>
+    </div>
+  </div>
+</Example>
+
+```html
+<ul role="list" class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-gray-500">
+  <li>5 чашек нарезанных белых грибов</li>
+  <li>1/2 стакана оливкового масла</li>
+  <li>3 фунта сельдерея</li>
+</ul>
+```
+
+Мы разработали модификатор `marker` как наследуемый, поэтому, хотя вы можете использовать его непосредственно в элементе `<li>`, вы также можете использовать его для родительского элемента, чтобы не повторяться.
+
+### Выделенный текст
+
+Стилизуйте активное выделение текста с помощью модификатора `selection`:
+
+<Example p="none" hint="Попробуйте выделить часть этого текста с помощью мыши">
+  <div class="px-6">
+    <div class="max-w-lg mx-auto bg-white shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900">
+      <p>
+        Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
+      </p>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="**selection:bg-fuchsia-300** **selection:text-fuchsia-900**">
+  <p>
+    Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. 
+    Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. 
+    Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, 
+    Джерри, в тот момент я <em>был</em> морским биологом.
+  </p>
+</div>
+```
+
+Мы разработали модификатор `selection` как наследуемый, поэтому вы можете добавить его в любом месте дерева, и он будет применяться ко всем дочерним элементам.
+
+Это упрощает настройку цвета выбора в соответствии с вашим брендом на всем сайте:
+
+```html
+<html>
+<head>
+  <!-- ... -->
+</head>
+<body class="**selection:bg-pink-300**">
+  <!-- ... -->
+</body>
+</html>
+```
+
+### Первая строка и первая буква
+
+Стилизуйте первую строку в блоке содержимого с помощью модификатора `first-line`, а первую букву - с помощью модификатора `first-letter`:
+
+<Example p="none">
+  <div class="px-6">
+    <div class="max-w-lg mx-auto bg-white shadow py-8 px-6 font-serif">
+      <p class="first-line:uppercase first-line:tracking-widest first-letter:text-gray-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3">
+        Что ж, позволь мне кое-что сказать, веселый мальчик. Вы знаете эту маленькую марку, на которой написано «Публичная библиотека Нью-Йорка»? Что ж, это может ничего не значить для вас, но для меня это много значит. Чертовски много.
+      </p>
+      <p class="mt-6">
+        Конечно, смейтесь, если хотите. Я видел ваш типаж раньше: яркий, создающий сцену, щеголяющий условностями. Да, я знаю, о чем ты думаешь. Что этот парень так сильно портит старые библиотечные книги? Что ж, позвольте мне дать вам подсказку, младший.
+      </p>
+    </div>
+  </div>
+</Example>
 
 <button class="**focus:ring-2 focus:ring-red-500** ...">
   Кольцо в focus
@@ -300,501 +629,695 @@ module.exports = {
 
 Обратите внимание, что в настоящее время только [Chrome, Edge и Firefox](https://caniuse.com/?search=focus-visible) нативно поддерживают `focus-visible`, поэтому для достаточной поддержки браузера вы должны установить и настроить оба параметра [JS полифил focus-visible](https://github.com/WICG/focus-visible) и [PostCSS полифил focus-visible](https://github.com/csstools/postcss-focus-visible). Обязательно включите плагин PostCSS _после_ Tailwind в свой список плагинов PostCSS:
 
-```js
-// postcss.config.js
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    'postcss-focus-visible': {},
-    autoprefixer: {}
+## Медиа-запросы
+
+### Отзывчивые контрольные точки
+
+Чтобы стилизовать элемент в определенной точке останова, используйте адаптивные модификаторы, такие как `md` и `lg`.
+
+Например, это будет отображать сетку из 3 столбцов на мобильных устройствах, сетку из 4 столбцов на экранах средней ширины и сетку из 6 столбцов на экранах большой ширины:
+
+```html
+<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+  <!-- ... -->
+</div>
+```
+
+Ознакомьтесь с документацией [Отзывчивый дизайн](/docs/responsive-design), чтобы подробно изучить, как работают эти функции.
+
+### Предпочитает цветовую схему
+
+Медиа-запрос `prefers-color-scheme` сообщает вам, предпочитает ли пользователь светлую или темную тему, и обычно настраивается на уровне операционной системы.
+
+Используйте утилиты без модификатора для выбора светлого режима и используйте модификатор `dark` для переопределения темного режима:
+
+<Example p="none">
+  <div class="grid grid-cols-1 sm:grid-cols-2">
+    <div class="p-8 pt-7">
+      <p class="mb-2 text-sm font-medium text-gray-500">Светлйы режим</p>
+      <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+        <div>
+          <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </span>
+        </div>
+        <h3 class="mt-5 text-base font-medium text-gray-900 tracking-tight">Пишет вверх ногами</h3>
+        <p class="mt-2 text-sm text-gray-500">
+          Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Работает даже в космосе.
+        </p>
+      </div>
+    </div>
+    <div class="bg-gray-900 p-8 pt-7">
+      <p class="mb-2 text-sm font-medium text-gray-400">Темный режим</p>
+      <div class="bg-gray-800 rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+        <div>
+          <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </span>
+        </div>
+        <h3 class="mt-5 text-base font-medium text-white tracking-tight">Пишет вверх ногами</h3>
+        <p class="mt-2 text-sm text-gray-400">
+          Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Работает даже в космосе.
+        </p>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div class="bg-white **dark:bg-gray-900** rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+  <div>
+    <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+      <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
+    </span>
+  </div>
+  <h3 class="text-gray-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">Пишет вверх ногами</h3>
+  <p class="text-gray-500 **dark:text-gray-400** mt-2 text-sm">
+    Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Работает даже в космосе.
+  </p>
+</div>
+```
+
+Ознакомьтесь с документацией [Темного Режима](/docs/dark-mode), чтобы подробно изучить, как работает эта функция.
+
+### Предпочитает ограниченные движения
+
+Медиа-запрос `prefers-reduced-motion` сообщает вам, попросил ли пользователь минимизировать несущественное движение.
+
+Используйте модификатор `motion-reduce` для условного добавления стилей, когда пользователь запросил уменьшение движения:
+
+<Example hint="Попробуйте эмулировать `prefers-reduced-motion: reduce` в ваших инструментах разработчика, чтобы скрыть счетчик">
+  <div class="flex items-center justify-center">
+    <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500" disabled>
+      <svg class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      Обработка...
+    </button>
+  </div>
+</Example>
+
+```html
+<button type="button" class="bg-indigo-500 ..." disabled>
+  <svg class="**motion-reduce:hidden** animate-spin ..." viewBox="0 0 24 24"><!-- ... --></svg>
+  Обработка...
+</button>
+```
+
+Tailwind также включает модификатор `motion-safe`, который добавляет стили только тогда, когда пользователь _не_ запросил уменьшение движения. Это может быть полезно, когда использование помощника `motion-reduce` означало бы «отменить» множество стилей:
+
+```html
+<!-- Использование `motion-reduce` может означать множество «отменяющих» стилей. -->
+<button class="hover:-translate-y-0.5 transition **motion-reduce:hover:translate-y-0** **motion-reduce:transition-none** ...">
+  Сохранить изменения
+</button>
+
+<!-- Использование `motion-safe` - меньше кода в этих ситуациях -->
+<button class="**motion-safe:hover:-translate-x-0.5** **motion-safe:transition** ...">
+  Сохранить изменения
+</button>
+```
+
+### Ориентация области просмотра
+
+Используйте модификаторы `portrait` и `landscape` для условного добавления стилей, когда область просмотра находится в определенной ориентации:
+
+```html
+<div>
+  <div class="portrait:hidden">
+    <!-- ... -->
+  </div>
+  <div class="landscape:hidden">
+    <p>
+      Этот опыт предназначен для просмотра в ландшафте. Пожалуйста, поверните ваше устройство, чтобы просмотреть сайт.
+    </p>
+  </div>
+</div>
+```
+
+### Стили печати
+
+Используйте модификатор `print` для условного добавления стилей, которые применяются только при печати документа:
+
+```html
+<div>
+  <article class="**print:hidden**">
+    <h1>Мой секретный рецепт пиццы</h1>
+    <p>Этот рецепт является секретным, и его нельзя никому передавать</p>
+    <!-- ... -->
+  </article>
+  <div class="hidden **print:block**">
+    Вы серьезно пытаетесь это напечатать? Это секрет!
+  </div>
+</div>
+```
+
+---
+
+## Селекторы атрибутов
+
+### Поддержка RTL
+
+_Поддержка письма справа налево является экспериментальной, и детали ее работы могут измениться. Поделитесь своими отзывами в [сообществе](https://github.com/tailwindlabs/tailwindcss/discussions), чтобы помочь нам подготовить его к работе в прайм-тайм._
+
+Используйте модификаторы `rtl` и `ltr` для условного добавления стилей в режимах справа налево и слева направо соответственно при создании разнонаправленных макетов:
+
+<Example>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
+    <div dir="ltr">
+      <p class="mb-4 text-sm font-medium text-gray-500">Left-to-right</p>
+      <div class="group flex items-center">
+        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 rtl:ml-0 rtl:mr-3">
+          <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Tom Cook</p>
+          <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">Director of Operations</p>
+        </div>
+      </div>
+    </div>
+    <div dir="rtl">
+      <p class="mb-4 text-sm font-medium text-gray-500">Right-to-left</p>
+      <div class="group flex items-center">
+        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <div class="ml-3 rtl:ml-0 rtl:mr-3">
+          <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">تامر كرم</p>
+          <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">الرئيس التنفيذي</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+  <div class="group flex items-center">
+    <img class="shrink-0 h-12 w-12 rounded-full" src="..." alt="" />
+>   <div class="ltr:ml-3 rtl:mr-3">
+      <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">...</p>
+      <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">...</p>
+    </div>
+  </div>
+```
+
+Обратите внимание, что модификатор `ltr` не вступит в силу, если для атрибута `dir` явно не установлено значение `ltr`, поэтому, если вы создаете разнонаправленный сайт, обязательно всегда задавайте направление, а не только в режиме `rtl`.
+
+<TipInfo>Всегда задавайте направление, даже если по умолчанию слева направо</TipInfo>
+
+```html
+<html dir="ltr">
+  <!-- ... -->
+</html>
+```
+
+Помните, что эти модификаторы полезны только в том случае, если вы создаете сайт, который должен поддерживать макеты как слева направо, так и справа налево. Если вы создаете сайт, который должен поддерживать только одно направление, вам не нужны эти модификаторы - просто примените стили, которые имеют смысл для вашего контента.
+
+
+### Открытое / закрытое состояние
+
+Используйте модификатор `open` для условного добавления стилей, когда элемент `<details>` или `<dialog>` находится в открытом состоянии:
+
+<Example hint="Попробуйте переключить раскрытие, чтобы увидеть, как меняются стили">
+  <div class="max-w-lg mx-auto">
+    <details class="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg" open>
+      <summary class="text-sm leading-6 text-gray-900 font-semibold select-none">
+        Почему они называют его Овальтином?
+      </summary>
+      <div class="mt-3 text-sm leading-6 text-gray-600">
+        <p>Кружка круглая. Баночка круглая. Они должны называть это Roundtine.</p>
+      </div>
+    </details>
+  </div>
+</Example>
+
+
+```html
+  <div class="max-w-lg mx-auto p-8">
+>   <details class="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg" open>
+      <summary class="text-sm leading-6 text-gray-900 font-semibold select-none">
+        Почему они называют его Овальтином?
+      </summary>
+      <div class="mt-3 text-sm leading-6 text-gray-600">
+        <p>Кружка круглая. Баночка круглая. Они должны называть это Roundtine.</p>
+      </div>
+    </details>
+  </div>
+```
+
+
+---
+
+## Дополнительные темы
+
+### Использование с вашими собственными классами
+
+Все модификаторы Tailwind доступны для использования с вашими собственными пользовательскими классами, если вы определили их в одном из [макетов](/docs/adding-custom-styles#using-css-and-layer) Tailwind или добавили их с помощью a [плагин](/docs/adding-custom-styles#writing-plugins):
+
+```css main.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
   }
 }
 ```
 
-<div>
-  <VariantEnabledList variant="focus-visible"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `focus-visible` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      textDecoration: ['focus-visible'],
-    }
-  },
-}
-```
-
----
-
-## Motion-safe
-
-Добавьте префикс `motion-safe:`, чтобы применить утилиту только тогда, когда мультимедийная функция `prefers-reduced-motion` совпадает с `no-preference`.
-
-Например, эта кнопка будет анимироваться только при наведении курсора, если пользователь не включил «Уменьшить движение» в своей системе.
-
-```html lightBlue
-<template preview>
-  <div class="text-center">
-    <button type="button" class="py-2 px-4 bg-light-blue-500 text-white font-semibold rounded-lg shadow-md transform transition motion-safe:hover:scale-110 duration-500 focus:outline-none" tabindex="-1">
-      Наведите на меня
-    </button>
-  </div>
-</template>
-
-<button class="transform **motion-safe:hover:scale-110** ...">
-  Наведите на меня
-</button>
-```
-
-Обратите внимание, что в отличие от большинства других вариантов, `motion-safe` можно комбинировать как с адаптивными вариантами, _так и_ с другими вариантами, такими как `hover`, складывая их в следующем порядке:
-
-```html
-<div class="**sm:motion-safe:hover:animate-spin**">
+```html HTML
+<div class="**lg:content-auto**">
   <!-- ... -->
 </div>
 ```
 
-<div>
-  <VariantEnabledList variant="motion-safe"/>
-</div>
+### Порядок сложенных модификаторов
 
-Вы можете контролировать, включены ли варианты `motion-safe` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
+При наложении модификаторов они применяются изнутри, как вызовы вложенных функций:
 
 ```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      animation: ['motion-safe'],
-    }
-  },
-}
+// Эти модификаторы:
+'dark:group-hover:focus:opacity-100'
+
+// ...применяются так:
+dark(groupHover(focus('opacity-100')))
 ```
 
----
+По большей части это на самом деле не имеет значения, но есть несколько ситуаций, когда порядок, который вы используете, на самом деле генерирует значимо другой CSS.
 
-## Motion-reduce
-
-Добавьте префикс `motion-reduce:`, чтобы применить утилиту только тогда, когда мультимедийная функция `prefers-reduced-motion` совпадает с `reduce`.
-
-Например, эта кнопка по умолчанию будет анимировать при наведении курсора, но анимация будет отключена, если пользователь включил «Уменьшить движение» в своей системе.
-
-```html fuchsia
-<template preview>
-  <div class="text-center">
-    <button type="button" class="py-2 px-4 bg-fuchsia-500 text-white font-semibold rounded-lg shadow-md transform transition motion-reduce:transform-none hover:scale-110 duration-500 focus:outline-none" tabindex="-1">
-      Наведите на меня
-    </button>
-  </div>
-</template>
-
-<button class="transform hover:scale-110 **motion-reduce:transform-none** ...">
-  Наведите на меня
-</button>
-```
-
-Обратите внимание, что в отличие от большинства других вариантов, `motion-reduce` можно комбинировать как с адаптивными вариантами, _так и_ с другими вариантами, такими как `hover`, складывая их в следующем порядке:
-
-```html
-<div class="**sm:motion-reduce:hover:animate-none**">
-  <!-- ... -->
-</div>
-```
-
-<div>
-  <VariantEnabledList variant="motion-reduce"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `motion-reduce` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      animation: ['motion-reduce'],
-    }
-  },
-}
-```
-
----
-
-## Disabled
-
-Добавьте префикс `disabled:`,  чтобы применять утилиту только тогда, когда элемент отключен.
-
-```html emerald
-<template preview>
-  <div class="text-center space-x-8">
-    <button type="button" class="py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md hover:bg-emerald-700 focus:outline-none disabled:opacity-50" tabindex="-1">
-      Отправить
-    </button>
-    <button type="button" class="py-2 px-4 bg-emerald-500 text-white font-semibold rounded-lg shadow-md disabled:opacity-50" disabled tabindex="-1">
-      Отправить
-    </button>
-  </div>
-</template>
-
-<button class="**disabled:opacity-50** ...">
-  Отправить
-</button>
-<button class="**disabled:opacity-50** ..." disabled>
-  Отправить
-</button>
-```
-
-<div>
-  <VariantEnabledList variant="disabled"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `disabled` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      opacity: ['disabled'],
-    }
-  },
-}
-```
-
----
-
-## Visited
-
-Добавьте префикс `visited:`, чтобы применять утилиту только при посещении ссылки.
-
-```html indigo
-<template preview>
-  <div class="text-center space-x-16">
-    <a href="#" class="font-semibold text-blue-600 ">Непосещенная ссылка</a>
-    <a href="#" class="font-semibold text-purple-600 ">Посещенная ссылка</a>
-  </div>
-</template>
-
-<a href="#" class="text-blue-600 **visited:text-purple-600** ...">Ссылка</a>
-```
-
-<div>
-  <VariantEnabledList variant="visited"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `visited` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      textColor: ['visited'],
-    }
-  },
-}
-```
-
----
-
-## Checked
-
-Добавьте префикс `checked:`, чтобы применять утилиту только тогда, когда в данный момент установлен переключатель или флажок.
-
-```html lightBlue
-<template preview>
-  <div class="p-4 max-w-xs mx-auto bg-white rounded-xl shadow-md">
-    <label class="flex items-center space-x-3">
-      <input type="checkbox" name="checked-demo" value="1" class="form-tick appearance-none h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-600 checked:border-transparent focus:outline-none">
-      <span class="text-gray-900 font-medium">Опция 1</span>
-    </label>
-  </div>
-</template>
-
-<input type="checkbox" class="appearance-none **checked:bg-blue-600 checked:border-transparent** ...">
-```
-
-<div>
-  <VariantEnabledList variant="checked"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `checked` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      backgroundColor: ['checked'],
-      borderColor: ['checked'],
-    }
-  },
-}
-```
-
----
-
-## First-child
-
-Добавьте префикс `first:`, чтобы применять утилиту только тогда, когда она является первым потомком своего родителя. Это в основном полезно, когда элементы создаются в каком-то цикле.
-
-```html indigo
-<template preview>
-  <div class="flex justify-around">
-    <div class="bg-indigo-500 rounded-md p-8 transform first:rotate-45"></div>
-    <div class="bg-indigo-500 rounded-md p-8 transform first:rotate-45"></div>
-    <div class="bg-indigo-500 rounded-md p-8 transform first:rotate-45"></div>
-    <div class="bg-indigo-500 rounded-md p-8 transform first:rotate-45"></div>
-  </div>
-</template>
-
-<div class="...">
-  <div v-for="item in items" class="transform **first:rotate-45** ...">
-    {{ item }}
-  </div>
-</div>
-```
-
-Важно отметить, что вы должны добавлять любые утилиты `first:` к дочернему элементу, а не к родительскому элементу.
-
-<div>
-  <VariantEnabledList variant="first-child"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `first` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      borderWidth: ['first'],
-    }
-  },
-}
-```
-
----
-
-## Last-child
-
-Добавьте префикс `last:`, чтобы применять утилиту только тогда, когда она является последним потомком своего родителя. Это в основном полезно, когда элементы создаются в каком-то цикле.
-
-```html amber
-<template preview>
-  <div class="flex justify-around">
-    <div class="bg-amber-500 rounded-md p-8 transform last:rotate-45"></div>
-    <div class="bg-amber-500 rounded-md p-8 transform last:rotate-45"></div>
-    <div class="bg-amber-500 rounded-md p-8 transform last:rotate-45"></div>
-    <div class="bg-amber-500 rounded-md p-8 transform last:rotate-45"></div>
-  </div>
-</template>
-
-<div class="...">
-  <div v-for="item in items" class="transform **last:rotate-45** ...">
-    {{ item }}
-  </div>
-</div>
-```
-
-Важно отметить, что вы должны добавлять любые утилиты `last:` к дочернему элементу, а не к родительскому элементу.
-
-<div>
-  <VariantEnabledList variant="last-child"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `last` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      borderWidth: ['last'],
-    }
-  },
-}
-```
-
----
-
-## Odd-child
-
-Добавьте префикс `odd:`, чтобы использовать утилиту, только если она является нечетным потомком своего родителя. Это в основном полезно, когда элементы создаются в каком-то цикле.
-
-```html rose
-<template preview>
-  <div class="flex justify-around">
-    <div class="bg-rose-500 rounded-md p-8 transform odd:rotate-45"></div>
-    <div class="bg-rose-500 rounded-md p-8 transform odd:rotate-45"></div>
-    <div class="bg-rose-500 rounded-md p-8 transform odd:rotate-45"></div>
-    <div class="bg-rose-500 rounded-md p-8 transform odd:rotate-45"></div>
-  </div>
-</template>
-
-<div class="...">
-  <div v-for="item in items" class="transform **odd:rotate-45** ...">
-    {{ item }}
-  </div>
-</div>
-```
-
-Важно отметить, что вы должны добавлять любые утилиты `odd:` к дочернему элементу, а не к родительскому элементу.
-
-<div>
-  <VariantEnabledList variant="odd-child"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `odd` для плагина в разделе `variants` файла `tailwind.config.js` file:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      backgroundColor: ['odd'],
-    }
-  },
-}
-```
-
----
-
-## Even-child
-
-Добавьте префикс `even:`, чтобы применять утилиту только тогда, когда она является четным потомком своего родителя. Это в основном полезно, когда элементы создаются в каком-то цикле.
-
-```html fuchsia
-<template preview>
-  <div class="flex justify-around">
-    <div class="bg-fuchsia-500 rounded-md p-8 transform even:rotate-45"></div>
-    <div class="bg-fuchsia-500 rounded-md p-8 transform even:rotate-45"></div>
-    <div class="bg-fuchsia-500 rounded-md p-8 transform even:rotate-45"></div>
-    <div class="bg-fuchsia-500 rounded-md p-8 transform even:rotate-45"></div>
-  </div>
-</template>
-
-<div class="...">
-  <div v-for="item in items" class="transform **even:rotate-45** ...">
-    {{ item }}
-  </div>
-</div>
-```
-
-Важно отметить, что вы должны добавлять любые утилиты `even:` к дочернему элементу, а не к родительскому элементу.
-
-<div>
-  <VariantEnabledList variant="even-child"/>
-</div>
-
-Вы можете контролировать, включены ли варианты `even` для плагина в разделе `variants` Вашего файла `tailwind.config.js`:
-
-```js
-// tailwind.config.js
-module.exports = {
-  // ...
-  variants: {
-    extend: {
-      backgroundColor: ['even'],
-    }
-  },
-}
-```
-
----
-
-## Комбинирование с адаптивными префиксами
-
-Варианты состояния также являются адаптивными, что означает, что вы можете делать такие вещи, как, например, изменять стиль наведения элемента в разных контрольных точках.
-
-Чтобы применить вариант состояния к определенной контрольной точке, сначала добавьте префикс ответа перед префиксом состояния:
-
-```html
-<button class="... hover:bg-green-500 **sm:hover:bg-blue-500**">
-  <!-- ... -->
-</button>
-```
-
----
-
-## Создание вариантов для пользовательских утилит
-
-Вы можете сгенерировать варианты состояния для Ваших собственных пользовательских классов CSS, заключив их в директиву `@variants`:
+Например, если у вас настроен `darkMode` на `class`, сочетание модификаторов `dark` и `group-hover` дает разные результаты в зависимости от того, в каком порядке вы используете:
 
 ```css
-/* Ввод: */
-@variants group-hover, hover, focus {
-  .banana {
-    color: yellow;
-  }
+/* dark:group-hover:opacity-100 */
+.dark .group:hover .dark\:group-hover\:opacity-100 {
+  opacity: 1;
 }
 
-/* Вывод: */
-.banana {
-  color: yellow;
+/* group-hover:dark:opacity-100 */
+.group:hover .dark .group-hover\:dark\:opacity-100 {
+  opacity: 1;
 }
-.group:hover .group-hover\:banana {
-  color: yellow;
-}
-.hover\:banana:hover {
-  color: yellow;
-}
-.focus\:banana:focus {
-  color: yellow;
-}
-
 ```
 
-Дополнительные сведения смотрите в [документации директивы @variants](/docs/functions-and-directives#variants).
+В первом примере элемент `dark` должен быть родительским элементом элемента `group`, но во втором примере он перевернут.
 
----
+Еще одно место, где это важно, - это использование модификаторов, таких как `prose-headings`, которые включены в официальный плагин типографики:
 
-## Создание собственных вариантов
+```css
+/* prose-headings:hover:underline */
+.prose-headings\:hover\:underline:hover :is(:where(h1, h2, h3, h4, th)) {
+  text-decoration: underline;
+}
 
-Вы можете создавать свои собственные варианты для любых состояний, которые Tailwind не поддерживает по умолчанию, написав собственный вариант плагина.
+/* hover:prose-headings:underline */
+.hover\:prose-headings\:underline :is(:where(h1, h2, h3, h4, th)):hover {
+  text-decoration: underline;
+}
+```
 
-Например, этот простой плагин добавляет поддержку варианта псевдокласса `required`:
+В первом примере каждый заголовок подчеркивается при наведении курсора на саму статью, тогда как во втором примере каждый заголовок подчеркивается только при наведении курсора на этот заголовок.
 
-```js
-// tailwind.config.js
-const plugin = require('tailwindcss/plugin')
+
+### Создание собственных модификаторов
+
+Вы можете добавить свои собственные модификаторы в Tailwind, создав плагин, который использует API `addVariant`:
+
+```js tailwind.config.js
+let plugin = require('tailwindcss/plugin')
 
 module.exports = {
+  // ...
   plugins: [
-    plugin(function({ addVariant, e }) {
-      addVariant('required', ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.${e(`required${separator}${className}`)}:required`
-        })
-      })
+    plugin(function ({ addVariant }) {
+      // Добавьте `third` вариант, т.е. `third:pb-0`
+      addVariant('third', '&:nth-child(3)')
     })
   ]
 }
 ```
 
-Узнайте больше о написании альтернативных плагинов в [документации по вариантам плагинов](/docs/plugins#adding-variants).
+Дополнительные сведения смотрите в документации [Плагины](/docs/plugins#adding-variants).
 
 ---
 
-## Справочник вариантов по умолчанию
+## Приложение
 
-Из-за соображений размера файла Tailwind по умолчанию не включает все варианты для всех утилит.
+### Краткий справочник
 
-Чтобы настроить, какие варианты включены для Вашего проекта, смотрите [документацию по настройке вариантов](/docs/configuring-variants).
+Краткая справочная таблица по каждому модификатору, включенному в Tailwind по умолчанию.
 
-<div>
-  <DefaultVariantsConfig />
+<div class="overflow-scroll max-w-screen">
+
+| Modifier | CSS |
+| --- | --- |
+| <a href="#hover" className="whitespace-nowrap">hover</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:hover</code> |
+| <a href="#focus" className="whitespace-nowrap">focus</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:focus</code> |
+| <a href="#focus-within" className="whitespace-nowrap">focus-within</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:focus-within</code> |
+| <a href="#focus-visible" className="whitespace-nowrap">focus-visible</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:focus-visible</code> |
+| <a href="#active" className="whitespace-nowrap">active</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:active</code> |
+| <a href="#visited" className="whitespace-nowrap">visited</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:visited</code> |
+| <a href="#target" className="whitespace-nowrap">target</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:target</code> |
+| <a href="#first" className="whitespace-nowrap">first</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:first-child</code> |
+| <a href="#last" className="whitespace-nowrap">last</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:last-child</code> |
+| <a href="#only" className="whitespace-nowrap">only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:only-child</code> |
+| <a href="#odd" className="whitespace-nowrap">odd</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:nth-child(odd)</code> |
+| <a href="#even" className="whitespace-nowrap">even</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:nth-child(even)</code> |
+| <a href="#first-of-type" className="whitespace-nowrap">first-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:first-of-type</code> |
+| <a href="#last-of-type" className="whitespace-nowrap">last-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:last-of-type</code> |
+| <a href="#only-of-type" className="whitespace-nowrap">only-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:only-of-type</code> |
+| <a href="#empty" className="whitespace-nowrap">empty</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:empty</code> |
+| <a href="#disabled" className="whitespace-nowrap">disabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:disabled</code> |
+| <a href="#checked" className="whitespace-nowrap">checked</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:checked</code> |
+| <a href="#indeterminate" className="whitespace-nowrap">indeterminate</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:indeterminate</code> |
+| <a href="#default" className="whitespace-nowrap">default</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:default</code> |
+| <a href="#required" className="whitespace-nowrap">required</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:required</code> |
+| <a href="#valid" className="whitespace-nowrap">valid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:valid</code> |
+| <a href="#invalid" className="whitespace-nowrap">invalid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:invalid</code> |
+| <a href="#in-range" className="whitespace-nowrap">in-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:in-range</code> |
+| <a href="#out-of-range" className="whitespace-nowrap">out-of-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:out-of-range</code> |
+| <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:placeholder-shown</code> |
+| <a href="#autofill" className="whitespace-nowrap">autofill</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:autofill</code> |
+| <a href="#read-only" className="whitespace-nowrap">read-only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:read-only</code> |
+| <a href="#open" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>[open]</code> |
+| <a href="#before-and-after" className="whitespace-nowrap">before</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::before</code> |
+| <a href="#before-and-after" className="whitespace-nowrap">after</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::after</code> |
+| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::first-letter</code> |
+| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::first-line</code> |
+| <a href="#highlighted-text" className="whitespace-nowrap">marker</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::marker</code> |
+| <a href="#selection" className="whitespace-nowrap">selection</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::selection</code> |
+| <a href="#file" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::file-selector-button</code> |
+| <a href="#placeholder" className="whitespace-nowrap">placeholder</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::placeholder</code> |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">sm</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 640px)</code> |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">md</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 768px)</code> |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">lg</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1024px)</code> |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">xl</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1280px)</code> |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">2xl</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1536px)</code> |
+| <a href="#prefers-color-scheme" className="whitespace-nowrap">dark</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-color-scheme: dark)</code> |
+| <a href="#viewport-orientation" className="whitespace-nowrap">portrait</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: portrait)</code> |
+| <a href="#viewport-orientation" className="whitespace-nowrap">landscape</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: landscape)</code> |
+| <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-safe</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: no-preference)</code> |
+| <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-reduce</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: reduce)</code> |
+| <a href="#print-styles" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
+| <a href="#rtl-support" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-gray-400">&</span></code> |
+| <a href="#rtl-support" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-gray-400">&</span></code> |
+
 </div>
+
+### Справочник псевдоклассов
+
+Это исчерпывающий список примеров для всех модификаторов псевдоклассов, включенных в Tailwind в дополнение к [документации псевдоклассов](/docs/hover-focus-and-other-states#pseudo-classes) в начале этого руководства.
+
+#### hover <small>(:hover)</small>
+
+Стилизуйте элемент, когда пользователь наводит на него курсор мыши, используя модификатор `hover`:
+
+```html
+<div class="bg-black **hover:bg-white** ...">
+  <!-- ... -->
+</div>
+```
+
+#### focus <small>(:focus)</small>
+
+Стилизуйте элемент, когда он находится в фокусе модификатора `focus`:
+
+```html
+<input class="border-gray-300 **focus:border-blue-400** ..." />
+```
+
+#### focus-within <small>(:focus-within)</small>
+
+Стилизуйте элемент, когда он или один из его потомков имеет фокус, используя модификатор `focus-within`:
+
+```html
+<div class="**focus-within:shadow-lg** ...">
+  <input type="text" />
+</div>
+```
+
+#### focus-visible <small>(:focus-visible)</small>
+
+Стилизуйте элемент, когда он был сфокусирован с помощью клавиатуры, используя модификатор `focus-visible`:
+
+```html
+<button class="focus:outline-none **focus-visible:ring** ...">
+  Отправить
+</button>
+```
+
+#### active <small>(:active)</small>
+
+Стилизуйте элемент при нажатии с помощью модификатора `active`:
+
+```html
+<button class="bg-blue-500 **active:bg-blue-600** ...">
+  Отправить
+</button>
+```
+
+#### visited <small>(:visited)</small>
+
+Создайте стиль для ссылки, когда она уже была посещена, с помощью модификатора `visited`:
+
+```html
+<a href="https://seinfeldquotes.com" class="text-blue-600 **visited:text-purple-600** ...">
+  Вдохновение
+</a>
+```
+
+#### target <small>(:target)</small>
+
+Примените стиль к элементу, если его идентификатор совпадает с текущим фрагментом URL-адреса, используя модификатор `target`:
+
+```html
+<div id="about" class="**target:shadow-lg** ...">
+  <!-- ... -->
+</div>
+```
+
+#### first <small>(:first-child)</small>
+
+Стилизуйте элемент, если это первый дочерний элемент, с помощью модификатора `first`:
+
+```html
+<ul>
+  {#each people as person}
+    <li class="py-4 **first:pt-0** ...">
+      <!-- ... -->
+    </li>
+  {/each}
+</ul>
+```
+
+#### last <small>(:last-child)</small>
+
+Стилизуйте элемент, если это последний дочерний элемент, используя модификатор `last`:
+
+```html
+<ul>
+  {#each people as person}
+    <li class="py-4 **last:pb-0** ...">
+      <!-- ... -->
+    </li>
+  {/each}
+</ul>
+```
+
+#### only <small>(:only-child)</small>
+
+Стилизуйте элемент, если это единственный дочерний элемент, использующий модификатор `only`:
+
+```html
+<ul>
+  {#each people as person}
+    <li class="py-4 **only:py-0** ...">
+      <!-- ... -->
+    </li>
+  {/each}
+</ul>
+```
+
+#### odd <small>(:nth-child(odd))</small>
+
+Создайте стиль для элемента, если это дочерний элемент со странным номером, используя модификатор `odd`:
+
+```html
+<table>
+  {#each people as person}
+    <tr class="bg-white **odd:bg-gray-100** ...">
+      <!-- ... -->
+    </tr>
+  {/each}
+</table>
+```
+
+#### even <small>(:nth-child(even))</small>
+
+Примените стиль к элементу, если он является дочерним элементом с четным номером, используя модификатор `even`:
+
+```html
+<table>
+  {#each people as person}
+    <tr class="bg-white **even:bg-gray-100** ...">
+      <!-- ... -->
+    </tr>
+  {/each}
+</table>
+```
+
+#### first-of-type <small>(:first-of-type)</small>
+
+Стилизуйте элемент, если это первый дочерний элемент своего типа, используя модификатор `first-of-type`:
+
+```html
+<nav>
+  <img src="/logo.svg" alt="Vandelay Industries" />
+  {#each links as link}
+    <a href="#" class="ml-2 **first-of-type:ml-6** ...">
+      <!-- ... -->
+    </a>
+  {/each}
+</table>
+```
+
+#### last-of-type <small>(:last-of-type)</small>
+
+Стилизуйте элемент, если это последний дочерний элемент своего типа, используя модификатор `last-of-type`:
+
+```html
+<nav>
+  <img src="/logo.svg" alt="Vandelay Industries" />
+  {#each links as link}
+    <a href="#" class="mr-2 **last-of-type:mr-6** ...">
+      <!-- ... -->
+    </a>
+  {/each}
+  <button>Больше</button>
+</table>
+```
+
+#### only-of-type <small>(:only-of-type)</small>
+
+Стилизуйте элемент, если это единственный дочерний элемент своего типа, используя модификатор `only-of-type`:
+
+```html
+<nav>
+  <img src="/logo.svg" alt="Vandelay Industries" />
+  {#each links as link}
+    <a href="#" class="mx-2 **only-of-type:mx-6** ...">
+      <!-- ... -->
+    </a>
+  {/each}
+  <button>Больше</button>
+</table>
+```
+
+#### empty <small>(:empty)</small>
+
+Примените стиль к элементу, если у него нет содержимого, используя модификатор `empty`:
+
+```html
+<ul>
+  {#each people as person}
+    <li class="**empty:hidden** ...">{person.hobby}</li>
+  {/each}
+</ul>
+```
+
+#### disabled <small>(:disabled)</small>
+
+Стиль ввода, когда он отключен, с помощью модификатора `disabled`:
+
+```html
+<input class="**disabled:opacity-75** ..." />
+```
+
+#### checked <small>(:checked)</small>
+
+Создайте стиль для флажка или переключателя, когда он установлен, с помощью модификатора `checked`:
+
+```html
+<input type="checkbox" class="appearance-none **checked:bg-blue-500** ..." />
+```
+
+#### indeterminate <small>(:indeterminate)</small>
+
+Установите флажок или переключатель в неопределенное состояние с помощью модификатора `indeterminate`:
+
+```html
+<input type="checkbox" class="appearance-none **indeterminate:bg-gray-300** ..." />
+```
+
+#### default <small>(:default)</small>
+
+Создайте стиль для параметра, флажка или переключателя, который был значением по умолчанию при первоначальной загрузке страницы с использованием модификатора `default`:
+
+```html
+<input type="checkbox" class="**default:ring-2** ..." />
+```
+
+#### required <small>(:required)</small>
+
+Стиль ввода, когда это необходимо, с помощью модификатора `required`:
+
+```html
+<input class="**required:border-red-500** ..." />
+```
+
+#### valid <small>(:valid)</small>
+
+Создайте стиль для ввода, если он допустим, используя модификатор `valid`:
+
+```html
+<input class="**valid:border-green-500** ..." />
+```
+
+#### invalid <small>(:invalid)</small>
+
+Стиль ввода, если он недействителен, с помощью модификатора `invalid`:
+
+```html
+<input class="**invalid:border-red-500** ..." />
+```
+
+#### in-range <small>(:in-range)</small>
+
+Стиль ввода, когда его значение находится в пределах указанного диапазона, с помощью модификатора `in-range`:
+
+```html
+<input min="1" max="5" class="**in-range:border-green-500** ..." />
+```
+
+#### out-of-range <small>(:out-of-range)</small>
+
+Стиль ввода, когда его значение выходит за пределы указанного диапазона, с помощью модификатора `out-of-range`:
+
+```html
+<input min="1" max="5" class="**out-of-range:border-red-500** ..." />
+```
+
+#### placeholder-shown <small>(:placeholder-shown)</small>
+
+Стиль ввода, когда заполнитель отображается, с помощью модификатора `placeholder-shown`:
+
+```html
+<input class="**placeholder-shown:border-gray-500** ..." placeholder="you@example.com" />
+```
+
+#### autofill <small>(:autofill)</small>
+
+Стиль ввода, когда он был автоматически заполнен браузером, с помощью модификатора `autofill`:
+
+```html
+<input class="**autofill:bg-yellow-200** ..." />
+```
+
+#### read-only <small>(:read-only)</small>
+
+Стиль ввода, когда он доступен только для чтения, с помощью модификатора `read-only`:
+
+```html
+<input class="**read-only:bg-gray-100** ..." />
+```

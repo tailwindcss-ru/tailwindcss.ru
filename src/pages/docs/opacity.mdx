@@ -1,87 +1,83 @@
 ---
 title: "Непрозрачность"
 description: "Утилиты для управления непрозрачностью элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/opacity'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=opacity'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Изменение прозрачности элемента
 
 Управляйте непрозрачностью элемента с помощью утилит `opacity-{amount}`.
 
-```html lightBlue
-<template preview>
-  <div class="grid grid-cols-2 gap-2 sm:grid-cols-5">
-    <div class="h-16 rounded-md opacity-100 bg-light-blue-600 font-extrabold text-white flex justify-center items-center">100%</div>
-    <div class="h-16 rounded-md opacity-75 bg-light-blue-600 font-extrabold text-white flex justify-center items-center">75%</div>
-    <div class="h-16 rounded-md opacity-50 bg-light-blue-600 font-extrabold text-white flex justify-center items-center">50%</div>
-    <div class="h-16 rounded-md opacity-25 bg-light-blue-600 font-extrabold text-white flex justify-center items-center">25%</div>
-    <div class="h-16 rounded-md opacity-0 bg-light-blue-600 font-extrabold text-white flex justify-center items-center">0%</div>
+<Example>
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 text-white text-sm font-bold leading-6">
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">opacity-100</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-100">Button A</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">opacity-75</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-75">Button B</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">opacity-50</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-50">Button C</button>
+    </div>
+    <div class="flex flex-col items-center shrink-0">
+      <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">opacity-25</p>
+      <button class="px-4 py-2 font-semibold text-sm bg-indigo-500 text-white rounded-md shadow-sm opacity-25">Button D</button>
+    </div>
   </div>
-</template>
-
-<div class="bg-light-blue-600 **opacity-100** ..."></div>
-<div class="bg-light-blue-600 **opacity-75** ..."></div>
-<div class="bg-light-blue-600 **opacity-50** ..."></div>
-<div class="bg-light-blue-600 **opacity-25** ..."></div>
-<div class="bg-light-blue-600 **opacity-0** ..."></div>
-```
-
-## Адаптивность
-
-Чтобы контролировать непрозрачность элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите непрозрачности. Например, используйте `md:opacity-50`, чтобы применить утилиту `opacity-50` только при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="opacity-100 **md:opacity-50** ...">
-  <!-- ... -->
-</div>
+<button class="bg-indigo-500 **opacity-100** ..."></button>
+<button class="bg-indigo-500 **opacity-75** ..."></button>
+<button class="bg-indigo-500 **opacity-50** ..."></button>
+<button class="bg-indigo-500 **opacity-25** ..."></button>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Шкала непрозрачности
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-По умолчанию Tailwind предоставляет пять утилит непрозрачности на основе простой числовой шкалы. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.opacity` вашей конфигурации Tailwind.
+<HoverFocusAndOtherStates defaultClass="opacity-50" featuredClass="opacity-100" />
 
-```diff-js
-  // tailwind.config.js
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="opacity-50" featuredClass="opacity-100" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
+
+По умолчанию Tailwind предоставляет несколько утилит непрозрачности для общего использования. Вы можете настроить эти значения, отредактировав `theme.opacity` или `theme.extend.opacity` в вашем файле `tailwind.config.js`.
+
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      opacity: {
-        '0': '0',
--       '25': '.25',
--       '50': '.5',
--       '75': '.75',
-+       '10': '.1',
-+       '20': '.2',
-+       '30': '.3',
-+       '40': '.4',
-+       '50': '.5',
-+       '60': '.6',
-+       '70': '.7',
-+       '80': '.8',
-+       '90': '.9',
-        '100': '1',
+      extend: {
++       opacity: {
++         '67': '.67',
++       }
       }
     }
   }
 ```
 
-### Варианты
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-<Variants plugin="opacity" />
+### Произвольные значения
 
-### Отключение
-
-<Disabling plugin="opacity" />
+<ArbitraryValues property="opacity" featuredClass="opacity-[.67]" />

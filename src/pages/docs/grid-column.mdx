@@ -3,95 +3,104 @@ title: "Начало / конец столбца сетки"
 description: "Утилиты для управления размером элементов и их размещением по столбцам сетки."
 ---
 
-import gridColumnPlugin from 'tailwindcss/lib/plugins/gridColumn'
-import gridColumnStartPlugin from 'tailwindcss/lib/plugins/gridColumnStart'
-import gridColumnEndPlugin from 'tailwindcss/lib/plugins/gridColumnEnd'
-import { Disabling } from '@/components/Disabling'
+import gridColumnUtilities from 'utilities?plugin=gridColumn'
+import gridColumnStartUtilities from 'utilities?plugin=gridColumnStart'
+import gridColumnEndUtilities from 'utilities?plugin=gridColumnEnd'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin: [gridColumnPlugin, gridColumnStartPlugin, gridColumnEndPlugin]
+  utilities: { ...gridColumnUtilities, ...gridColumnStartUtilities, ...gridColumnEndUtilities },
 }
 
-## Связующие столбцы
+## Основы использования
+
+### Связующие столбцы
 
 Используйте утилиты `col-span-{n}`, чтобы сделать элемент охватывающим _n_ столбцов.
 
-```html purple
-<template preview class="bg-white p-8">
-  <div class="grid grid-cols-3 gap-4">
-    <div class="bg-purple-300 h-12 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">1</div>
-    <div class="bg-purple-300 h-12 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">2</div>
-    <div class="bg-purple-300 h-12 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">3</div>
-    <div class="col-span-2 bg-purple-500 h-12 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">4</div>
-    <div class=" bg-purple-300 h-12 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">5</div>
-    <div class=" bg-purple-300 h-12 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">6</div>
-    <div class="col-span-2 bg-purple-500 h-12 rounded-md flex justify-center items-center text-white text-2xl font-extrabold">7</div>
+<Example>
+  <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
+    <div class="p-4 rounded-lg bg-indigo-300">01</div>
+    <div class="p-4 rounded-lg bg-indigo-300">02</div>
+    <div class="p-4 rounded-lg bg-indigo-300">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-indigo-500 col-span-2">04</div>
+    <div class="p-4 rounded-lg bg-indigo-300">05</div>
+    <div class="p-4 rounded-lg bg-indigo-300">06</div>
+    <div class="p-4 rounded-lg shadow-lg bg-indigo-500 col-span-2">07</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid grid-cols-3 gap-4">
-  <div class="...">1</div>
-  <div class="...">2</div>
-  <div class="...">3</div>
-  <div class="**col-span-2** ...">4</div>
-  <div class="...">5</div>
-  <div class="...">6</div>
-  <div class="**col-span-2** ...">7</div>
+  <div class="...">01</div>
+  <div class="...">02</div>
+  <div class="...">03</div>
+  <div class="**col-span-2** ...">04</div>
+  <div class="...">05</div>
+  <div class="...">06</div>
+  <div class="**col-span-2** ...">07</div>
 </div>
 ```
 
-## Начальная и конечная линии
+### Начальная и конечная линии
 
 Используйте утилиты `col-start-{n}` и `col-end-{n}`, чтобы сделать начало или конец элемента на линии сетки _nth_. Их также можно комбинировать с утилитами `col-span-{n}`, чтобы охватить определенное количество столбцов.
 
 Обратите внимание, что линии сетки CSS начинаются с 1, а не с 0, поэтому элемент полной ширины в сетке из 6 столбцов будет начинаться со строки 1 и заканчиваться на строке 7.
 
-```html lightBlue
-<template preview class="bg-white p-8">
-  <div class="grid grid-cols-6 gap-4">
-    <div class="bg-stripes bg-stripes-light-blue-500 bg-light-blue-300 bg-opacity-25 h-12 rounded-md flex items-center justify-center text-white text-2xl font-extrabold"></div>
-    <div class="col-start-2 col-span-4 bg-light-blue-500 h-12 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">1</div>
-    <div class="bg-stripes bg-stripes-light-blue-500 bg-light-blue-300 bg-opacity-25 h-12 rounded-md flex items-center justify-center text-white text-2xl font-extrabold"></div>
-    <div class="col-start-1 col-end-3 bg-light-blue-500 h-12 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">2</div>
-    <div class="bg-stripes bg-stripes-light-blue-500 bg-light-blue-300 bg-opacity-25 h-12 rounded-md flex items-center justify-center text-white text-2xl font-extrabold"></div>
-    <div class="bg-stripes bg-stripes-light-blue-500 bg-light-blue-300 bg-opacity-25 h-12 rounded-md flex items-center justify-center text-white text-2xl font-extrabold"></div>
-    <div class="col-end-7 col-span-2 bg-light-blue-500 h-12 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">3</div>
-    <div class="col-start-1 col-end-7 bg-light-blue-500 h-12 rounded-md flex items-center justify-center text-white text-2xl font-extrabold">4</div>
+<Example>
+  <div class="grid grid-cols-6 gap-4 font-mono text-white text-sm text-center font-bold leading-6">
+    <div class="p-4 rounded-lg bg-stripes-light-blue"></div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500 col-start-2 col-span-4">01</div>
+    <div class="p-4 rounded-lg bg-stripes-light-blue"></div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500 col-start-1 col-end-3">02</div>
+    <div class="p-4 rounded-lg bg-stripes-light-blue"></div>
+    <div class="p-4 rounded-lg bg-stripes-light-blue"></div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500 col-end-7 col-span-2">03</div>
+    <div class="p-4 rounded-lg shadow-lg bg-light-blue-500 col-start-1 col-end-7">04</div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="grid grid-cols-6 gap-4">
-  <div class="**col-start-2** col-span-4 ...">1</div>
-  <div class="**col-start-1 col-end-3** ...">2</div>
-  <div class="**col-end-7 col-span-2** ...">3</div>
-  <div class="**col-start-1 col-end-7** ...">4</div>
+  <div class="**col-start-2** col-span-4 ...">01</div>
+  <div class="**col-start-1 col-end-3** ...">02</div>
+  <div class="**col-end-7 col-span-2** ...">03</div>
+  <div class="**col-start-1 col-end-7** ...">04</div>
 </div>
 ```
 
-## Адаптивность
+---
 
-Чтобы управлять размещением столбца элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите столбца сетки. Например, используйте `md:col-span-6`, чтобы применить утилиту `col-span-6` только при средних размерах экрана и выше.
+## <Heading ignore>Применяя условно</Heading>
 
-```html
-  <div class="col-span-2 **md:col-span-6**"></div>
-```
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+<HoverFocusAndOtherStates defaultClass="col-span-2" featuredClass="col-span-6" />
 
-## Кастомизация
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="col-span-2" featuredClass="col-span-6" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind включает в себя утилиты для работы с сетками, содержащими до 12 столбцов. Вы изменяете, добавляете или удаляете их, настраивая разделы `gridColumn`, `gridColumnStart` и `gridColumnEnd` в конфигурации Вашей темы Tailwind.
 
 Для создания дополнительных утилит `col-{value}`, которые напрямую управляют сокращенным свойством `grid-column`, настройте раздел `gridColumn` в конфигурации Вашей темы Tailwind:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        gridColumn: {
++       gridColumn: {
 +         'span-16': 'span 16 / span 16',
-        }
++       }
       }
     }
   }
@@ -101,18 +110,17 @@ export const classes = {
 
 Чтобы добавить новые утилиты `col-start-{n}`, используйте раздел `gridColumnStart` конфигурации Вашей темы Tailwind:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        gridColumnStart: {
++       gridColumnStart: {
 +         '13': '13',
 +         '14': '14',
 +         '15': '15',
 +         '16': '16',
 +         '17': '17',
-        }
++       }
       }
     }
   }
@@ -120,45 +128,24 @@ export const classes = {
 
 Чтобы добавить новые утилиты `col-end-{n}`, используйте раздел `gridColumnEnd` конфигурации Вашей темы Tailwind:
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        gridColumnEnd: {
++       gridColumnEnd: {
 +         '13': '13',
 +         '14': '14',
 +         '15': '15',
 +         '16': '16',
 +         '17': '17',
-        }
++       }
       }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Варианты
+### Произвольные значения
 
-По умолчанию для утилит с столбцами сетки создаются только адаптивные варианты.
-
-Вы можете контролировать, какие вариантысоздаются для утилит grid-column, изменяя свойства `gridColumn`, `gridColumnStart` и `gridColumnEnd` в разделе `variants` файла `tailwind.config.js`.
-
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    variants: {
-      // ...
-+     gridColumn: ['responsive', 'hover'],
-+     gridColumnStart: ['responsive', 'hover'],
-+     gridColumnEnd: ['responsive', 'hover'],
-    }
-  }
-```
-
-Дополнительные сведения о настройке вариантов смотрите в [документации по настройке вариантов](/docs/configuring-variants/).
-
-### Отключение
-
-<Disabling plugin={['gridColumn', 'gridColumnStart', 'gridColumnEnd']} name="grid-column" />
+<ArbitraryValues property="grid-column/grid-column-start/grid-column-end" featuredClass="col-span-[span_16_/_span 16]" />

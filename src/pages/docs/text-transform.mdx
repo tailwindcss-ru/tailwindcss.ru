@@ -1,85 +1,64 @@
 ---
 title: "Преобразование текста"
 description: "Утилиты для управления преобразованием текста."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/textTransform'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=textTransform'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Нормальный регистр
+## Основы использования
 
-Используйте утилиту `normal-case`, чтобы сохранить исходный корпус. Обычно это используется для сброса заглавных букв в разных контрольных точках.
+### Преобразование текста
 
-```html emerald
-<template preview>
-  <p class="normal-case text-xl text-emerald-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
+`uppercase` и `lowercase` преобразуют текст в верхний и нижний регистр соответственно, тогда как утилита `capitalize` преобразует текст в регистр заголовка. Утилиту `normal-case` можно использовать для сохранения исходного регистра - обычно для сброса заглавных букв в разных контрольных точках.
 
-<p class="**normal-case** ...">Быстрая коричневая лиса...</p>
-```
-
-## Верхний регистр
-
-Используйте утилиту `uppercase` для текста в верхнем регистре.
-
-```html purple
-<template preview>
-  <p class="uppercase text-xl text-purple-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
-
-<p class="**uppercase** ...">Быстрая коричневая лиса...</p>
-```
-
-## Строчные буквы
-
-Используйте утилиту `lowercase` для текста в нижнем регистре.
-
-```html rose
-<template preview>
-  <p class="lowercase text-xl text-rose-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
-
-<p class="**lowercase** ...">Быстрая коричневая лиса...</p>
-```
-
-## Заглавные буквы
-
-Используйте утилиту `capitalize` для написания текста с заглавной буквы.
-
-```html fuchsia
-<template preview>
-  <p class="capitalize text-xl text-fuchsia-600">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
-
-<p class="**capitalize** ...">Быстрая коричневая лиса...</p>
-```
-
-## Адаптивность
-
-Чтобы управлять преобразованием текста элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите преобразования текста. Например, используйте `md:uppercase`, чтобы применить утилиту `uppercase` только при средних размерах экрана и выше.
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">normal-case</span>
+      <p class="normal-case text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">uppercase</span>
+      <p class="uppercase text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">lowercase</span>
+      <p class="lowercase text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">capitalize</span>
+      <p class="capitalize text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+  </div>
+</Example>
 
 ```html
-<p class="capitalize **md:uppercase** ...">
-  Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
-</p>
+<p class="**normal-case** ...">Быстрая коричневая лиса ...</p>
+<p class="**uppercase** ...">Быстрая коричневая лиса ...</p>
+<p class="**lowercase** ...">Быстрая коричневая лиса ...</p>
+<p class="**capitalize** ...">Быстрая коричневая лиса ...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="textTransform" name="text transformation" />
+<HoverFocusAndOtherStates defaultClass="capitalize" featuredClass="uppercase" element="p" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="textTransform" name="text transformation" />
+<BreakpointsAndMediaQueries defaultClass="capitalize" featuredClass="uppercase" element="p" />

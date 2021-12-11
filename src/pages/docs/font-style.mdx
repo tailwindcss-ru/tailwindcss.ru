@@ -1,61 +1,50 @@
 ---
 title: "Стиль шрифта"
 description: "Утилиты для управления стилем текста."
-features:
-  responsive: true
-  customizable: false
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/fontStyle'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=fontStyle'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Курсив
+## Основы использования
 
-Используйте утилиту `italic`, чтобы сделать текст курсивом.
+### Выделение текста курсивом
 
-```html emerald
-<template preview>
-  <p class="italic text-xl text-emerald-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
+Утилиту `italic` можно использовать для выделения текста курсивом. Точно так же утилиту `not-italic` можно использовать для обычного отображения текста - обычно для сброса курсивного текста в разных контрольных точках.
 
-<p class="**italic** ...">Быстрая коричневая лиса...</p>
-```
-
-## Отменить курсив
-
-Используйте утилиту `not-italic` для обычного отображения текста. Обычно это используется для сброса курсивного текста в разных контрольных точках.
-
-```html amber
-<template preview>
-  <p class="not-italic text-xl text-amber-800">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
-</template>
-
-<p class="**not-italic** ...">Быстрая коричневая лиса...</p>
-```
-
-## Адаптивность
-
-Чтобы управлять стилем шрифта элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите стилей шрифтов. Например, используйте `md:not-italic`, чтобы применить утилиту `not-italic` только при средних размерах экрана и выше.
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">italic</span>
+      <p class="italic text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">not-italic</span>
+      <p class="not-italic text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
+    </div>
+  </div>
+</Example>
 
 ```html
-<p class="italic **md:not-italic** ...">
-  Быстрая, коричневая лиса, перепрыгнула через ленивого пса.
-</p>
+<p class="**italic** ...">Быстрая коричневая лиса ...</p>
+<p class="**not-italic** ...">Быстрая коричневая лиса ...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="fontStyle" />
+<HoverFocusAndOtherStates defaultClass="italic" featuredClass="not-italic" element="p" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="fontStyle" />
+<BreakpointsAndMediaQueries defaultClass="italic" featuredClass="not-italic" element="p" />

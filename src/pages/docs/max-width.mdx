@@ -1,65 +1,85 @@
 ---
 title: "Максимальная ширина"
-description: "Утилиты для установки максимальной ширины элемента"
+description: "Утилиты для установки максимальной ширины элемента."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/maxWidth'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
+import utilities from 'utilities?plugin=maxWidth'
 import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   sort: numbersFirst,
 }
 
-## Применение
+## Основы использования
+
+### Установка максимальной ширины
 
 Установите максимальную ширину элемента с помощью утилит `max-w-{size}`.
 
-```html emerald resizable
-<template preview>
-  <div class="max-w-md mx-auto rounded-md h-16 bg-emerald-500 select-none"></div>
-</template>
+<Example resizable>
+  <div class="overflow-hidden relative max-w-md mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6">
+    <img class="absolute -left-6 w-28 h-28 rounded-full shadow-lg" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80" />
+    <div class="min-w-0 py-5 pl-28 pr-5">
+      <div class="text-gray-900 font-medium text-sm sm:text-base truncate">Andrew Alfred</div>
+      <div class="text-gray-500 font-medium text-sm sm:text-base leading-tight truncate">Assistant to the Traveling Secretary</div>
+    </div>
+  </div>
+</Example>
 
-<div class="**max-w-md** mx-auto ...">
+```html
+<div class="**max-w-md** ...">
   <!-- ... -->
 </div>
 ```
 
-## Ширина чтения
+### Ширина чтения
 
 Утилита `max-w-prose` дает элементу максимальную ширину, оптимизированную для удобочитаемости, и адаптируется в зависимости от размера шрифта.
 
-```html purple
-<template preview>
-  <div class="max-w-prose text-sm text-purple-700 p-6">
-    <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+<Example>
+  <div class="space-y-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">text-sm</span>
+      <div class="max-w-prose text-sm font-medium text-gray-900">
+        <p>О, да. Это лучшая часть. Он хрустящий, взрывной, здесь кекс вырывается из сковороды и делает свое дело. Я вам скажу. Это идея на миллион долларов. Просто продай топы.</p>
+      </div>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">text-base</span>
+      <div class="max-w-prose text-base font-medium text-gray-900">
+        <p>О, да. Это лучшая часть. Он хрустящий, взрывной, здесь кекс вырывается из сковороды и делает свое дело. Я вам скажу. Это идея на миллион долларов. Просто продай топы.</p>
+      </div>
+    </div>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">text-xl</span>
+      <div class="max-w-prose text-xl font-medium text-gray-900">
+        <p>О, да. Это лучшая часть. Он хрустящий, взрывной, здесь кекс вырывается из сковороды и делает свое дело. Я вам скажу. Это идея на миллион долларов. Просто продай топы.</p>
+      </div>
+    </div>
   </div>
-  <div class="max-w-prose text-base text-purple-700 p-6">
-    <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
-  </div>
-  <div class="max-w-prose text-xl text-purple-700 p-6">
-    <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
-  </div>
-</template>
+</Example>
 
+```html
 <div class="text-sm **max-w-prose** ...">
-  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+  <p>О, да. Это лучшая часть. Он хрустящий, взрывной, здесь кекс вырывается из сковороды и делает свое дело. Я вам скажу. Это идея на миллион долларов. Просто продай топы.</p>
 </div>
 
 <div class="text-base **max-w-prose** ...">
-  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+  <p>О, да. Это лучшая часть. Он хрустящий, взрывной, здесь кекс вырывается из сковороды и делает свое дело. Я вам скажу. Это идея на миллион долларов. Просто продай топы.</p>
 </div>
 
 <div class="text-xl **max-w-prose** ...">
-  <p>Dolore iste eaque molestias. Eius iure ut eaque accusantium. Voluptas repellendus nobis. Saepe nam accusantium magni veniam qui enim mollitia excepturi sapiente.</p>
+  <p>О, да. Это лучшая часть. Он хрустящий, взрывной, здесь кекс вырывается из сковороды и делает свое дело. Я вам скажу. Это идея на миллион долларов. Просто продай топы.</p>
 </div>
 ```
 
-## Ограничение ваших контрольных точек
+### Ограничение ваших контрольных точек
 
-Классы `max-w-screen-{breakpoint}` могут использоваться, чтобы дать элементу максимальную ширину, соответствующую определенной точке останова. Эти значения автоматически берутся из [раздела `theme.screens`](/docs/theme#screens) вашего файла `tailwind.config.js`.
+Классы `max-w-screen-{breakpoint}` могут использоваться, чтобы дать элементу максимальную ширину, соответствующую определенной контрольной точке. Эти значения автоматически берутся из [раздела `theme.screens`](/docs/theme#screens) вашего файла `tailwind.config.js`.
 
 ```html
 <div class="max-w-screen-2xl">
@@ -69,47 +89,36 @@ export const classes = {
 
 ---
 
-## Адаптивность
+## <Heading ignore>Применяя условно</Heading>
 
-Чтобы контролировать максимальную ширину элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите максимальной ширины.
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-```html
-<div class="max-w-sm **md:max-w-lg** ...">
-  <!-- ... -->
-</div>
-```
+<HoverFocusAndOtherStates defaultClass="max-w-sm" featuredClass="max-w-lg" />
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="max-w-sm" featuredClass="max-w-lg" />
 
 ---
 
-## Кастомизация
+## Использование пользовательских значений
 
-### Шкала максимальной ширины
+### Настройка вашей темы
 
-Настройте шкалу максимальной ширины Tailwind по умолчанию для классов `max-w-*` в разделе `theme.maxWidth` вашего файла `tailwind.config.js`.
+Вы можете настроить масштаб `max-width`, отредактировав `theme.maxWidth` или `theme.extend.maxWidth` в вашем файле `tailwind.config.js`.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      maxWidth: {
-+       '1/4': '25%',
++     maxWidth: {
 +       '1/2': '50%',
-+       '3/4': '75%',
-      }
++     }
     }
   }
 ```
 
-Классы `max-w-screen-*` происходят из [раздела `theme.screens`](/docs/theme#screens) вашего файла `tailwind.config.js`.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+### Произвольные значения
 
-### Варианты
-
-<Variants plugin="maxWidth" name="max-width" />
-
-### Отключение
-
-<Disabling plugin="maxWidth" name="max-width" />
+<ArbitraryValues property="max-width" featuredClass="max-w-[50%]" />

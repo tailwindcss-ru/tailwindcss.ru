@@ -3,13 +3,12 @@ title: "Разделение стиля"
 description: "Утилиты для управления стилем границы между элементами."
 ---
 
-import plugin from 'tailwindcss/lib/plugins/divideStyle'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { Heading } from '@/components/Heading'
+import utilities from 'utilities?plugin=divideStyle'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
+  utilities,
   transformSelector: (selector) => (
     <>
       {selector.split('>').shift().trim().replace(/^\./, '').replace(/\\/g, '')} <span className="ml-1 text-purple-300">> * + *</span>
@@ -17,44 +16,36 @@ export const classes = {
   ),
 }
 
-## Применение
+## Основы использования
+
+### Установите стиль разделения
 
 Управляйте стилем границы между элементами с помощью утилит `divide-{style}`.
 
-```html amber
-<template preview>
-  <div class="divide-y-4 divide-amber-600 divide-dashed">
-    <div class="text-center font-extrabold text-2xl text-amber-600 py-3">1</div>
-    <div class="text-center font-extrabold text-2xl text-amber-600 py-3">2</div>
-    <div class="text-center font-extrabold text-2xl text-amber-600 py-3">3</div>
+<Example p="none">
+  <div class="grid grid-cols-1 divide-dashed divide-y font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
+    <div class="p-4 text-gray-400 bg-white">01</div>
+    <div class="p-4 text-gray-400 bg-white">02</div>
+    <div class="p-4 text-gray-400 bg-white">03</div>
   </div>
-</template>
-
-<div class="divide-y-4 divide-yellow-600 **divide-dashed**">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>
-```
-
-## Адаптивность
-
-Чтобы управлять стилем границы между элементами в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите стиля разделения. Например, используйте `md:divide-dashed`, чтобы применить утилиту `divide-dashed` только для средних размеров экрана и выше.
+</Example>
 
 ```html
-<div class="divide-y-2 divide-dashed **md:divide-solid**">
-  <!-- ... -->
+<div class="divide-y **divide-dashed**">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
 </div>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Варианты
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-<Variants plugin="divideStyle" />
+<HoverFocusAndOtherStates defaultClass="divide-y divide-dashed" featuredClass="divide-solid" />
 
-### Отключение
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-<Disabling plugin="divideStyle" />
+<BreakpointsAndMediaQueries defaultClass="divide-y divide-dashed" featuredClass="divide-solid" />

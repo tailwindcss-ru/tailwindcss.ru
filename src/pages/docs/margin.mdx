@@ -1,21 +1,17 @@
 ---
 title: "Отступы"
 description: "Утилиты для управления отступами элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/margin'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { numbersFirstByPrefix } from '@/utils/sortClasses'
+import utilities from 'utilities?plugin=margin'
+import { numbersFirst } from '@/utils/sortClasses'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = {
-  plugin,
-  sort: numbersFirstByPrefix,
+  utilities,
+  sort: (classes) => numbersFirst(classes),
 }
 
 ## Добавить отступ с одной стороны
@@ -24,181 +20,152 @@ export const classes = {
 
 Например, `mt-6` добавит `1.5rem` отступ элементу сверху, `mr-4` добавит `1rem` отступ элементу справа, `mb-8` добавит `2rem` отступ элементу снизу, и `ml-2` добавит `0.5rem` отступ элементу слева.
 
-```html rose
-<template preview>
-  <div class="flex flex-wrap justify-around items-center text-white font-mono">
-
-    <div class="bg-stripes bg-stripes-rose-500 overflow-hidden m-2 sm:m-0">
-      <div class="mt-8 bg-rose-500 flex rounded-md items-center justify-center py-3 px-4">mt-8</div>
+<Example p="none">
+  <div class="relative font-mono text-white text-sm font-bold leading-6 h-56">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 md:-ml-24">
+      <div class="flow-root bg-stripes-purple rounded-b-lg">
+        <div class="bg-purple-500 rounded-lg shadow-lg p-4 mt-6">mt-6</div>
+      </div>
     </div>
-
-    <div class="bg-stripes bg-stripes-rose-500 overflow-hidden m-2 sm:m-0">
-      <div class="mr-8 bg-rose-500 flex rounded-md items-center justify-center py-3 px-4">mr-8</div>
+    <div class="absolute right-0 top-1/2 -translate-y-1/2">
+      <div class="flow-root bg-stripes-purple rounded-l-lg">
+        <div class="flex-none bg-purple-500 rounded-lg shadow-lg p-4 mr-4">mr-4</div>
+      </div>
     </div>
-
-    <div class="bg-stripes bg-stripes-rose-500 overflow-hidden m-2 sm:m-0">
-      <div class="mb-8 bg-rose-500 flex rounded-md items-center justify-center py-3 px-4">mb-8</div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 md:ml-24">
+      <div class="flow-root bg-stripes-purple rounded-t-lg">
+        <div class="bg-purple-500 rounded-lg shadow-lg p-4 mb-8">mb-8</div>
+      </div>
     </div>
-
-    <div class="bg-stripes bg-stripes-rose-500 overflow-hidden m-2 sm:m-0">
-      <div class="ml-8 bg-rose-500 flex rounded-md items-center justify-center py-3 px-4">ml-8</div>
+    <div class="absolute left-0 top-1/2 -translate-y-1/2">
+      <div class="flow-root bg-stripes-purple rounded-r-lg">
+        <div class="flex-none bg-purple-500 rounded-lg shadow-lg p-4 ml-2">ml-2</div>
+      </div>
     </div>
   </div>
-</template>
+</Example>
 
-<div class="**mt-8** ...">mt-8</div>
-<div class="**mr-8** ...">mr-8</div>
+```html
+<div class="**mt-6** ...">mt-6</div>
+<div class="**mr-4** ...">mr-4</div>
 <div class="**mb-8** ...">mb-8</div>
-<div class="**ml-8** ...">ml-8</div>
+<div class="**ml-2** ...">ml-2</div>
 ```
 
 ## Добавить горизонтальный отступ
 
 Управляйте горизонтальным отступом элемента с помощью утилит `mx-{size}`.
 
-```html purple
-<template preview>
-  <div class="flex justify-around items-center text-white font-mono">
-    <div class="bg-stripes bg-stripes-purple-500">
-      <div class="mx-8 bg-purple-500 rounded-md flex items-center justify-center py-3 px-4">mx-8</div>
+<Example>
+  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+    <div class="bg-stripes-indigo rounded-lg">
+      <div class="bg-indigo-500 rounded-lg shadow-lg p-4 mx-8">mx-8</div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**mx-8** ...">mx-8</div>
 ```
 
-## Добавить вертикальный отступ
+### Добавить вертикальный отступ
 
 Управляйте вертикальным отступом элемента с помощью утилит `my-{size}`.
 
-```html emerald
-<template preview>
-  <div class="flex justify-around items-center text-white font-mono">
-    <div class="bg-stripes bg-stripes-emerald-500">
-      <div class="my-8 bg-emerald-500 rounded-md flex items-center justify-center py-3 px-4">my-8</div>
+<Example>
+  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+    <div class="flow-root bg-stripes-pink rounded-lg">
+      <div class="bg-pink-500 rounded-lg shadow-lg p-4 my-8">my-8</div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**my-8** ...">my-8</div>
 ```
 
-## Добавить отступ для всех сторон
+### Добавить отступ для всех сторон
 
 Контролируйте отступы со всех сторон элемента с помощью утилит `m-{size}`.
 
-```html lightBlue
-<template preview>
-  <div class="flex justify-around items-center text-white font-mono">
-    <div class="bg-stripes bg-stripes-light-blue-500">
-      <div class="m-8 bg-light-blue-500 rounded-md flex items-center justify-center py-3 px-4">m-8</div>
+<Example>
+  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+    <div class="flow-root bg-stripes-blue rounded-lg">
+      <div class="bg-blue-500 rounded-lg shadow-lg p-4 m-8">m-8</div>
     </div>
   </div>
-</template>
+</Example>
 
+```html
 <div class="**m-8** ...">m-8</div>
 ```
 
-## Отрицательные отступы
+### Использование отрицательных значений
 
-Управляйте отрицательным отступом элемента с помощью утилит `-m{side?}-{size}`.
+Чтобы использовать отрицательное значение маржи, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
-```html fuchsia
-<template preview>
-  <div class="flex justify-around items-center text-white font-mono">
+<Example>
+  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
     <div class="flex flex-col items-center">
-      <div class="relative w-32 h-16 bg-fuchsia-300 rounded-md overflow-hidden">
-        <div class="absolute bottom-0 w-full h-8 bg-stripes bg-stripes-red-900"></div>
-      </div>
-      <div class="relative -mt-8 bg-fuchsia-500 rounded-md flex items-center justify-center py-3 px-4">-mt-8</div>
+      <div class="relative w-36 h-16 bg-light-blue-400/20 border border-light-blue-700/10 rounded-md overflow-hidden"></div>
+      <div class="relative -mt-8 bg-light-blue-500 rounded-md flex items-center justify-center p-4 shadow-lg">-mt-8</div>
     </div>
   </div>
-</template>
-
-<div class="w-32 h-16 bg-fuchsia-300 ..."></div>
-<div class="**-mt-8** bg-fuchsia-500 ...">-mt-8</div>
-```
-
----
-
-## Адаптивность
-
-Чтобы управлять отступом элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите отступа. Например, добавление класса `md:my-8` к элементу приведет к применению утилиты `my-8` при средних размерах экрана и выше.
+</Example>
 
 ```html
-<div class="mt-8 **md:my-8**">
-    <!-- ... -->
-</div>
+<div class="w-36 h-16 bg-light-blue-400 opacity-20 ..."></div>
+<div class="**-mt-8** bg-light-blue-300 ...">-mt-8</div>
 ```
-
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
 
 ---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Шкала отступов
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
-По умолчанию Tailwind предоставляет 20 утилит отступов для каждой стороны и оси.
+<HoverFocusAndOtherStates defaultClass="mt-4" featuredClass="mt-8" />
 
-Если вы хотите настроить эти значения для заполнения, полей, ширины и высоты одновременно, используйте раздел `theme.spacing` Вашего файла `tailwind.config.js`.
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      spacing: {
-+       sm: '8px',
-+       md: '16px',
-+       lg: '24px',
-+       xl: '48px',
-      }
-    }
-  }
-```
+<BreakpointsAndMediaQueries defaultClass="mt-4" featuredClass="mt-8" />
 
-Чтобы настроить только значения отступов, используйте раздел `theme.margin` Вашего файла `tailwind.config.js`.
+---
 
-```diff-js
-  // tailwind.config.js
-  module.exports = {
-    theme: {
-      margin: {
-+       sm: '8px',
-+       md: '16px',
-+       lg: '24px',
-+       xl: '48px',
-      }
-    }
-  }
-```
+## Использование пользовательских значений
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в [документации по настройке темы](/docs/theme#customizing-the-default-theme).
+### Настройка вашей темы
 
-### Отрицательные значения
+По умолчанию для шкалы полей Tailwind используется [шкала интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-Если вы хотите добавить дополнительные классы отрицательных отступов (принимающие форму `-m{side?}-{size}`), поставьте перед ключами в Вашем файле конфигурации дефис:
-
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       extend: {
-        margin: {
-+         '-72': '-18rem',
-        }
++       spacing: {
++         '5px': '5px',
++       }
       }
     }
   }
 ```
 
-Tailwind достаточно умен, чтобы сгенерировать такие классы, как `-mx-72`, когда видит тире, а не `mx--72`, как вы могли ожидать.
+Кроме того, вы можете настроить только масштаб полей, отредактировав `theme.margin` или `theme.extend.margin` в вашем файле `tailwind.config.js`.
 
-### Варианты
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      extend: {
++       margin: {
++         '5px': '5px',
++       }
+      }
+    }
+  }
+```
 
-<Variants plugin="margin" />
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Отключение
+### Произвольные значения
 
-<Disabling plugin="margin" />
+<ArbitraryValues property="margin" featuredClass="m-[5px]" />

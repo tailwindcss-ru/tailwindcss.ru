@@ -1,115 +1,85 @@
 ---
 title: "Размер шрифта"
 description: "Утилиты для управления размером шрифта элемента."
-features:
-  responsive: true
-  customizable: true
-  hover: false
-  focus: false
 ---
 
-import plugin from 'tailwindcss/lib/plugins/fontSize'
-import { Variants } from '@/components/Variants'
-import { Disabling } from '@/components/Disabling'
-import { Heading } from '@/components/Heading'
+import utilities from 'utilities?plugin=fontSize'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
+import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
+import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-export const classes = { plugin }
+export const classes = { utilities }
 
-## Применение
+## Основы использования
+
+### Установка размера шрифта
 
 Управляйте размером шрифта элемента с помощью утилит `text-{size}`.
 
-```html purple
-<template preview>
-  <dl class="text-violet-600">
-    <div class="flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-3">xs</dt>
-      <dd class="truncate text-xs font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+<Example>
+  <div class="flex flex-col gap-8">
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">text-sm</span>
+      <p class="text-sm font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="mt-6 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-4">sm</dt>
-      <dd class="truncate text-sm font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">text-base</span>
+      <p class="text-base font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="mt-6 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-5">base</dt>
-      <dd class="truncate text-base font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">text-lg</span>
+      <p class="text-lg font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="mt-6 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-6">lg</dt>
-      <dd class="truncate text-lg font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">text-xl</span>
+      <p class="text-xl font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="mt-6 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-6">xl</dt>
-      <dd class="truncate text-xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
+    <div>
+      <span class="font-medium text-sm text-gray-500 font-mono mb-3">text-2xl</span>
+      <p class="text-2xl font-medium text-gray-900">
+        Быстрая коричневая лиса прыгает через ленивую собаку.
+      </p>
     </div>
-    <div class="mt-8 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-6">2xl</dt>
-      <dd class="truncate text-2xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="mt-10 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-6">3xl</dt>
-      <dd class="truncate text-3xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="mt-10 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-6">4xl</dt>
-      <dd class="truncate text-4xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="mt-10 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-7">5xl</dt>
-      <dd class="truncate text-5xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="mt-10 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-8">6xl</dt>
-      <dd class="truncate text-6xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="mt-10 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-10">7xl</dt>
-      <dd class="truncate text-7xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="mt-10 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-10">8xl</dt>
-      <dd class="truncate text-8xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-    <div class="mt-8 flex items-start">
-      <dt class="w-16 flex-shrink-0 text-sm text-violet-600 text-opacity-50 font-mono leading-10">9xl</dt>
-      <dd class="truncate text-9xl font-medium">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</dd>
-    </div>
-  </dl>
-</template>
-
-<p class="**text-xs** ...">Быстрая коричневая лиса...</p>
-<p class="**text-sm** ...">Быстрая коричневая лиса...</p>
-<p class="**text-base** ...">Быстрая коричневая лиса...</p>
-<p class="**text-lg** ...">Быстрая коричневая лиса...</p>
-<p class="**text-xl** ...">Быстрая коричневая лиса...</p>
-<p class="**text-2xl** ...">Быстрая коричневая лиса...</p>
-<p class="**text-3xl** ...">Быстрая коричневая лиса...</p>
-<p class="**text-4xl** ...">Быстрая коричневая лиса...</p>
-<p class="**text-5xl** ...">Быстрая коричневая лиса...</p>
-<p class="**text-6xl** ...">Быстрая коричневая лиса...</p>
-<p class="**text-7xl** ...">Быстрая коричневая лиса...</p>
-<p class="**text-8xl** ...">Быстрая коричневая лиса...</p>
-<p class="**text-9xl** ...">Быстрая коричневая лиса...</p>
-```
-
-## Адаптивность
-
-Чтобы контролировать размер шрифта элемента в определенной контрольной точке, добавьте префикс `{screen}:` к любой существующей утилите размера шрифта. Например, используйте `md:text-lg`, чтобы применить утилиту `text-lg` только при средних размерах экрана и выше.
+  </div>
+</Example>
 
 ```html
-<p class="text-base **md:text-lg** ...">Быстрая, коричневая лиса, перепрыгнула через ленивого пса.</p>
+<p class="**text-sm** ...">Быстрая коричневая лиса ...</p>
+<p class="**text-base** ...">Быстрая коричневая лиса ...</p>
+<p class="**text-lg** ...">Быстрая коричневая лиса ...</p>
+<p class="**text-xl** ...">Быстрая коричневая лиса ...</p>
+<p class="**text-2xl** ...">Быстрая коричневая лиса ...</p>
 ```
 
-Для получения дополнительной информации о функциях адаптивного дизайна Tailwind ознакомьтесь с документацией [Адаптивного дизайна](/docs/responsive-design).
+---
 
-## Кастомизация
+## <Heading ignore>Применяя условно</Heading>
 
-### Размеры шрифта
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
+
+<HoverFocusAndOtherStates defaultClass="text-sm" featuredClass="text-base" element="p" />
+
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
+
+<BreakpointsAndMediaQueries defaultClass="text-sm" featuredClass="text-base" element="p" />
+
+---
+
+## Использование пользовательских значений
+
+### Настройка вашей темы
 
 По умолчанию Tailwind предоставляет 10 утилит `font-size`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.fontSize` Вашей конфигурации Tailwind.
 
-```diff-js
-  // tailwind.config.js
+```diff-js tailwind.config.js
   module.exports = {
     theme: {
       fontSize: {
@@ -130,12 +100,13 @@ export const classes = { plugin }
   }
 ```
 
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
+
 ### Предоставление высоты строки по умолчанию
 
 Вы можете указать высоту строки по умолчанию для каждого размера шрифта, используя кортеж вида `[fontSize, lineHeight]` в Вашем файле `tailwind.config.js`.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     fontSize: {
@@ -150,8 +121,7 @@ module.exports = {
 
 Вы также можете указать высоту строки по умолчанию, используя синтаксис объекта:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     fontSize: {
@@ -169,8 +139,7 @@ module.exports = {
 
 Если вы также хотите указать значение межбуквенного интервала по умолчанию для размера шрифта, вы можете сделать это, используя кортеж вида `[fontSize, { letterSpacing, lineHeight }]` в Вашем файле `tailwind.config.js`.
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     fontSize: {
@@ -187,10 +156,6 @@ module.exports = {
 }
 ```
 
-### Варианты
+### Произвольные значения
 
-<Variants plugin="fontSize" name="text sizing" />
-
-### Отключение
-
-<Disabling plugin="fontSize" name="text sizing" />
+<ArbitraryValues property="font-size" featuredClass="text-[14px]" element="p" />
