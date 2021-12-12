@@ -1,6 +1,6 @@
 ---
-title: "Aspect Ratio"
-description: "Utilities for controlling the aspect ratio of an element."
+title: "Соотношение сторон"
+description: "Утилиты для управления соотношением сторон элемента."
 ---
 
 import utilities from 'utilities?plugin=aspectRatio'
@@ -10,11 +10,11 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
-### Setting the aspect ratio
+### Установка соотношения сторон
 
-Use the `aspect-{ratio}` utilities to set the desired aspect ratio of an element.
+Используйте утилиты `aspect-{ratio}`, чтобы установить желаемое соотношение сторон элемента.
 
 <Example resizable>
   <iframe class="w-full aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -24,17 +24,17 @@ Use the `aspect-{ratio}` utilities to set the desired aspect ratio of an element
 <iframe class="w-full **aspect-video** ..." src="https://www.youtube.com/..."></iframe>
 ```
 
-Tailwind doesn't include a large set of aspect ratio values out of the box since it's easier to just use arbitrary values. See the [arbitrary values](#arbitrary-values) section for more information.
+Tailwind не включает в себя большой набор значений соотношения сторон по умолчанию, так как проще использовать произвольные значения. См. Раздел [произвольные значения](#arbitrary-values) для получения дополнительной информации.
 
-### Browser support
+### Поддержка браузера
 
-The `aspect-{ratio}` utilities use the native `aspect-ratio` CSS property, which was not supported in Safari until version 15. Until Safari 15 is popularized, Tailwind's [aspect-ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio) plugin is a good alternative.
+Утилиты `aspect-{ratio}` используют собственное свойство CSS `aspect-ratio`, которое не поддерживалось в Safari до версии 15. До тех пор, пока не станет популярным Safari 15, плагин Tailwind [соотношение сторон](https://github.com/tailwindlabs/tailwindcss-aspect-ratio) является хорошей альтернативой.
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates featuredClass="aspect-square">
 
@@ -44,7 +44,7 @@ The `aspect-{ratio}` utilities use the native `aspect-ratio` CSS property, which
 
 </HoverFocusAndOtherStates>
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries featuredClass="aspect-square">
 
@@ -56,11 +56,11 @@ The `aspect-{ratio}` utilities use the native `aspect-ratio` CSS property, which
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind provides a minimal set of `aspect-ratio` utilities. You can customize these values by editing `theme.aspectRatio` or `theme.extend.aspectRatio` in your `tailwind.config.js` file.
+По умолчанию Tailwind предоставляет минимальный набор `aspect-ratio`. Вы можете настроить эти значения, отредактировав `theme.aspectRatio` или `theme.extend.aspectRatio` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -74,9 +74,9 @@ By default, Tailwind provides a minimal set of `aspect-ratio` utilities. You can
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="aspect-ratio">
 

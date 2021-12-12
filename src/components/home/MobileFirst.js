@@ -261,7 +261,7 @@ export function MobileFirst() {
           </p>
         </Paragraph>
         <Link href="/docs/responsive-design" color="indigo">
-          Подробнее о<span className="sr-only"> адаптивном дизайне</span>
+          Подробнее<span className="sr-only">, об адаптивном дизайне</span>
         </Link>
       </div>
       <div className="hidden mt-16 mb-12 border-b border-gray-100 xl:mb-0 demo-sm:block">

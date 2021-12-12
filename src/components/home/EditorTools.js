@@ -312,7 +312,7 @@ export function EditorTools() {
         <IconContainer>
           <img src={iconUrl} alt="" />
         </IconContainer>
-        <Caption className="text-sky-500">Editor tools</Caption>
+        <Caption className="text-sky-500">Инструменты редактора</Caption>
         <BigText>Интеграция IDE мирового класса.</BigText>
         <Paragraph as="div">
           <p>

@@ -329,14 +329,14 @@ function AtApplySection() {
   return (
     <div className="mt-20 relative max-w-7xl mx-auto px-4 sm:mt-32 sm:px-6 md:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:grid-rows-1">
       <div className="lg:col-span-7 xl:col-span-6 lg:row-end-1">
-        <h3 className="text-3xl text-gray-900 font-extrabold">Not into component frameworks?</h3>
+        <h3 className="text-3xl text-gray-900 font-extrabold">Не любите компонентные фреймворки?</h3>
         <Paragraph>
-          If you like to keep it old school use Tailwind's <InlineCode>@apply</InlineCode> directive
-          to extract repeated utility patterns into custom CSS classes just by copying and pasting
-          the list of class names.
+          Если вы хотите, чтобы это была старая школа, используйте директиву Tailwind
+          <InlineCode>@apply</InlineCode> для извлечения повторяющихся утилит шаблонов
+          в пользовательские классы CSS, просто скопировав и вставив список имен классов.
         </Paragraph>
         <Link href="/docs/reusing-styles" color="sky">
-          Learn more<span className="sr-only">, reusing styles</span>
+          Подробнее<span className="sr-only">, о повторном использовании стилей</span>
         </Link>
       </div>
 
@@ -543,7 +543,7 @@ export function ComponentDriven() {
           так что вы можете вносить изменения в одном месте.
         </Paragraph>
         <Link href="/docs/reusing-styles" color="sky">
-          Learn more<span className="sr-only">, reusing styles</span>
+          Подробнее<span className="sr-only">, о повторном использовании стилей</span>
         </Link>
         <div className="mt-10">
           <Tabs

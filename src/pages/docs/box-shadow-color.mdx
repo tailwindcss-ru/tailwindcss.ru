@@ -1,6 +1,6 @@
 ---
-title: "Box Shadow Color"
-description: "Utilities for controlling the color of a box shadow."
+title: "Цвет тени коробки"
+description: "Утилиты для управления цветом тени блока."
 ---
 
 import utilities from 'utilities?plugin=boxShadowColor'
@@ -14,80 +14,80 @@ export const classes = {
   filterProperties: (property) => property !== '--tw-shadow',
 }
 
-## Basic usage
+## Основы использования
 
-### Setting the box shadow color
+### Установка цвета тени блока
 
-Use the `shadow-{color}` utilities to change the color of an existing box shadow. By default colored shadows have an opacity of 100%, but you can adjust this using the opacity modifier.
+Используйте утилиты `shadow-{color}` для изменения цвета существующей тени блока. По умолчанию цветные тени имеют непрозрачность 100%, но вы можете настроить это с помощью модификатора непрозрачности.
 
 <Example>
   <div class="flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
     <div class="flex flex-col items-center shrink-0">
       <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">shadow-cyan-500/50</p>
-      <button class="py-2 px-3 bg-cyan-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-cyan-500/50 focus:outline-none">Subscribe</button>
+      <button class="py-2 px-3 bg-cyan-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-cyan-500/50 focus:outline-none">Подписаться</button>
     </div>
     <div class="flex flex-col items-center shrink-0">
       <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">shadow-blue-500/50</p>
-      <button class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none">Subscribe</button>
+      <button class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none">Подписаться</button>
     </div>
     <div class="flex flex-col items-center shrink-0">
       <p class="font-medium text-sm text-gray-500 font-mono text-center mb-3">shadow-indigo-500/50</p>
-      <button class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/50 focus:outline-none">Subscribe</button>
+      <button class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/50 focus:outline-none">Подписаться</button>
     </div>
   </div>
 </Example>
 
 ```html
-<button class="bg-cyan-500 **shadow-lg shadow-cyan-500/50** ...">Subscribe</button>
-<button class="bg-blue-500 **shadow-lg shadow-blue-500/50** ...">Subscribe</button>
-<button class="bg-indigo-500 **shadow-lg shadow-indigo-500/50** ...">Subscribe</button>
+<button class="bg-cyan-500 **shadow-lg shadow-cyan-500/50** ...">Подписаться</button>
+<button class="bg-blue-500 **shadow-lg shadow-blue-500/50** ...">Подписаться</button>
+<button class="bg-indigo-500 **shadow-lg shadow-indigo-500/50** ...">Подписаться</button>
 ```
 
-### Using shadows on colored backgrounds
+### Использование теней на цветном фоне
 
-When using shadows on a colored background, colored shadows can often look more natural than the default black-based shadows, which tend to appear gray and washed-out.
+При использовании теней на цветном фоне цветные тени часто могут выглядеть более естественными, чем тени по умолчанию на основе черного, которые, как правило, выглядят серыми и размытыми.
 
 <Example p="none">
   <div class="flex justify-around bg-indigo-300 px-8 pt-10 pb-12 space-x-6">
     <div class="flex flex-col items-center">
       <p class="mb-3 text-sm font-medium text-indigo-900">Default shadow</p>
-      <button class="py-2 px-3 bg-white text-indigo-600 text-sm font-semibold rounded-md shadow-lg focus:outline-none">Subscribe</button>
+      <button class="py-2 px-3 bg-white text-indigo-600 text-sm font-semibold rounded-md shadow-lg focus:outline-none">Подписаться</button>
     </div>
     <div class="flex flex-col items-center">
       <p class="mb-3 text-sm font-medium text-indigo-900">Colored shadow</p>
-      <button class="py-2 px-3 bg-white text-indigo-600 text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/40 focus:outline-none">Subscribe</button>
+      <button class="py-2 px-3 bg-white text-indigo-600 text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/40 focus:outline-none">Подписаться</button>
     </div>
   </div>
 </Example>
 
 ```html
 <!-- Default shadow-->
-<button class="shadow-lg">Subscribe</button>
+<button class="shadow-lg">Подписаться</button>
 
 <!-- Colored shadow-->
-<button class="shadow-lg **shadow-indigo-500/40** ...">Subscribe</button>
+<button class="shadow-lg **shadow-indigo-500/40** ...">Подписаться</button>
 ```
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="shadow shadow-blue-500/40" featuredClass="shadow-indigo-500/40" element="button" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="shadow shadow-blue-500/40" featuredClass="shadow-indigo-500/40" element="button" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
 <CustomizePluginColors name="box shadow" configKey="boxShadowColor" />
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="box-shadow" featuredClass="shadow-[#50d71e]" element="button" />

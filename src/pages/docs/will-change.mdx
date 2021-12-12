@@ -1,6 +1,6 @@
 ---
-title: "Will Change"
-description: "Utilities for optimizing upcoming animations of elements that are expected to change."
+title: "Изменяться"
+description: "Утилиты для оптимизации предстоящей анимации элементов, которые должны измениться."
 ---
 
 import utilities from 'utilities?plugin=willChange'
@@ -10,11 +10,11 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
-### Optimizing with will change
+### Оптимизация с помощью изменится
 
-Use `will-change-scroll`, `will-change-contents` and `will-change-transform` to optimize an element that's expected to change in the near future by instructing the browser to prepare the necessary animation before it actually begins.
+Используйте `will-change-scroll`, `will-change-contents` и `will-change-transform`, чтобы оптимизировать элемент, который, как ожидается, изменится в ближайшем будущем, указав браузеру подготовить необходимую анимацию до того, как она действительно начнется.
 
 ```html
 <div class="overflow-auto **will-change-scroll**">
@@ -22,29 +22,29 @@ Use `will-change-scroll`, `will-change-contents` and `will-change-transform` to 
 </div>
 ```
 
-It's recommended that you apply these utilities just before an element changes, and then remove it shortly after it finishes using `will-change-auto`.
+Рекомендуется применять эти утилиты непосредственно перед изменением элемента, а затем удалять его вскоре после завершения с помощью `will-change-auto`.
 
-The will-change property is intended to be used as a last resort when dealing with **known performance problems**. Avoid using these utilities too much, or simply in anticipation of performance issues, as it could actually cause the page to be less performant.
+Свойство will-change предназначено для использования в качестве последнего средства при работе с **известными проблемами производительности**. Избегайте слишком частого использования этих утилит или просто из-за проблем с производительностью, так как это может привести к снижению производительности страницы.
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="will-change-auto" featuredClass="will-change-scroll" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="will-change-auto" featuredClass="will-change-scroll" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind provides four `will-change` utilities. You can customize these values by editing `theme.willChange` or `theme.extend.willChange` in your `tailwind.config.js` file.
+По умолчанию Tailwind предоставляет четыре `will-change`. Вы можете настроить эти значения, отредактировав `theme.willChange` или `theme.extend.willChange` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -58,8 +58,8 @@ By default, Tailwind provides four `will-change` utilities. You can customize th
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="will-change" featuredClass="will-change-[top,left]" />

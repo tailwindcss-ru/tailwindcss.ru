@@ -106,7 +106,7 @@ export function StateVariants() {
           такие как <InlineCode>group-hover</InlineCode>.
         </Paragraph>
         <Link href="/docs/hover-focus-and-other-states" color="blue">
-          Подробнее об<span className="sr-only"> управлении наведением, фокусом и другими состояниями</span>
+          Подробнее<span className="sr-only">, об управлении наведением, фокусом и другими состояниями</span>
         </Link>
       </div>
       <GridLockup
@@ -117,7 +117,7 @@ export function StateVariants() {
             <section>
               <header className="bg-white space-y-4 p-4 sm:px-8 sm:py-6 lg:p-4 xl:px-8 xl:py-6">
                 <div className="flex items-center justify-between">
-                  <h2 className="font-semibold text-gray-900">Projects</h2>
+                  <h2 className="font-semibold text-gray-900">Проекты</h2>
                   <div
                     className="group flex items-center rounded-md bg-blue-500 text-white text-sm font-medium pl-2 pr-3 py-2 cursor-pointer shadow-sm hover:bg-blue-400"
                     onMouseEnter={() => {
@@ -130,7 +130,7 @@ export function StateVariants() {
                     <svg width="20" height="20" fill="currentColor" className="mr-2">
                       <path d="M10 5a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H6a1 1 0 1 1 0-2h3V6a1 1 0 0 1 1-1Z" />
                     </svg>
-                    New
+                    Новый
                   </div>
                 </div>
                 <form className="group relative">
@@ -155,8 +155,8 @@ export function StateVariants() {
                       // resetScroll()
                     }}
                     type="text"
-                    aria-label="Filter projects"
-                    placeholder="Filter projects..."
+                    aria-label="Фильтр проектов"
+                    placeholder="Фильтр проектов..."
                     className="w-full text-sm leading-6 text-gray-900 placeholder-gray-400 rounded-md py-2 pl-10 ring-1 ring-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </form>

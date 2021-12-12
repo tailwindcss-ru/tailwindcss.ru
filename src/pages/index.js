@@ -68,20 +68,19 @@ function Header() {
         </div>
         <div className="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
           <h1 className="text-gray-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center">
-            Rapidly build modern websites without ever leaving your HTML.
+            Быстро создавайте современные веб-сайты, не покидая своего HTML-кода.
           </h1>
           <p className="mt-6 text-lg text-gray-600 text-center max-w-3xl mx-auto">
-            A utility-first CSS framework packed with classes like{' '}
+            CSS-фреймворк в первую очередь утилит, упакованный такими классами, как{' '}
             <code className="font-mono font-medium text-sky-500">flex</code>,{' '}
             <code className="font-mono font-medium text-sky-500">pt-4</code>,{' '}
-            <code className="font-mono font-medium text-sky-500">text-center</code> and{' '}
-            <code className="font-mono font-medium text-sky-500">rotate-90</code> that can be
-            composed to build any design, directly in your markup.
+            <code className="font-mono font-medium text-sky-500">text-center</code> и{' '}
+            <code className="font-mono font-medium text-sky-500">rotate-90</code>, которые можно скомпоновать для создания любого дизайна прямо в вашей разметке.
           </p>
           <div className="mt-6 sm:mt-10 flex justify-center space-x-6 text-sm">
             <NextLink href="/docs/installation">
               <a className="bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto">
-                Get started
+                Начать
               </a>
             </NextLink>
             <SearchButton className="hidden sm:flex items-center w-72 text-left space-x-3 px-4 h-12 bg-white ring-1 ring-gray-900/10 hover:ring-gray-300 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm rounded-lg text-gray-400">
@@ -101,7 +100,7 @@ function Header() {
                     <path d="m19 19-3.5-3.5" />
                     <circle cx="11" cy="11" r="6" />
                   </svg>
-                  <span className="flex-auto">Quick search...</span>
+                  <span className="flex-auto">Быстрый поиск...</span>
                   {actionKey && (
                     <kbd className="font-sans font-semibold">
                       <abbr title={actionKey[1]} className="no-underline text-gray-300">
@@ -141,22 +140,23 @@ export default function Home() {
         <Header />
         <section className="text-center px-8">
           <h2 className="text-gray-900 text-4xl tracking-tight font-extrabold sm:text-5xl">
-            “Best practices” don’t actually work.
+            «Лучшие практики» на самом деле не работают.
           </h2>
           <figure>
             <blockquote>
               <p className="mt-6 max-w-3xl mx-auto text-lg">
-                I’ve written{' '}
+                Я написал{' '}
                 <a
                   href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/"
                   className="text-sky-500 font-semibold"
                 >
                   несколько тысяч слов
                 </a>{' '}
-                on why traditional “semantic class names” are the reason CSS is hard to maintain,
-                but the truth is you’re never going to believe me until you actually try it. If you
-                can suppress the urge to retch long enough to give it a chance, I really think
-                you’ll wonder how you ever worked with CSS any other way.
+                о том, почему традиционные «семантические имена классов» являются причиной того,
+                почему CSS трудно поддерживать, но правда в том, что вы никогда не поверите мне,
+                пока не попробуете это на самом деле. Если вы сможете подавить желание позываться
+                на достаточно долгое время, чтобы дать ему шанс, я действительно думаю,
+                вы удивитесь, как вы когда-либо работали с CSS каким-либо другим способом.
               </p>
             </blockquote>
             <figcaption className="mt-6 flex items-center justify-center space-x-4 text-left">
@@ -167,8 +167,8 @@ export default function Home() {
                 loading="lazy"
               />
               <div>
-                <div className="text-gray-900 font-semibold">Adam Wathan</div>
-                <div className="mt-0.5 text-sm leading-6">Creator of Tailwind CSS</div>
+                <div className="text-gray-900 font-semibold">Адам Уотан</div>
+                <div className="mt-0.5 text-sm leading-6">Создатель Tailwind CSS</div>
               </div>
             </figcaption>
           </figure>

@@ -246,7 +246,7 @@ export function BuildAnything() {
         <IconContainer>
           <img src={iconUrl} alt="" />
         </IconContainer>
-        <Caption className="text-pink-500">Build anything</Caption>
+        <Caption className="text-pink-500">Строить что угодно</Caption>
         <BigText>
           <Widont>Создавайте все, что хотите, серьезно.</Widont>
         </BigText>

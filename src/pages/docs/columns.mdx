@@ -1,6 +1,6 @@
 ---
-title: "Columns"
-description: "Utilities for controlling the number of columns within an element."
+title: "Колонки"
+description: "Утилиты для управления количеством столбцов в элементе."
 ---
 
 import utilities from 'utilities?plugin=columns'
@@ -10,11 +10,11 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
-### Adding based on column count
+### Добавление на основе количества столбцов
 
-Use the `columns-{count}` utilities to set the number of columns that should be created for the content within an element. The column width will be automatically adjusted to accommodate that number.
+Используйте утилиты `columns-{count}`, чтобы установить количество столбцов, которые должны быть созданы для содержимого внутри элемента. Ширина столбца будет автоматически скорректирована в соответствии с этим числом.
 
 <Example>
   <div class="relative">
@@ -72,11 +72,11 @@ Use the `columns-{count}` utilities to set the number of columns that should be 
 </div>
 ```
 
-### Adding based on column width
+### Добавление на основе ширины столбца
 
-Use the `columns-{width}` utilities to set the ideal column width for the content within an element, with the number of columns (the count) automatically adjusting to accommodate that value.
+Используйте утилиты `columns-{width}` для установки идеальной ширины столбца для содержимого внутри элемента, при этом количество столбцов (счетчик) автоматически регулируется в соответствии с этим значением.
 
-This "t-shirt" scale is the same as the [max-width](/docs/max-width) scale, with the addition of `2xs` and `3xs`, since smaller columns may be desirable.
+Этот масштаб "t-shirt" такой же, как и масштаб [max-width](/docs/max-width), с добавлением `2xs` и `3xs`, поскольку могут быть желательны меньшие столбцы.
 
 <Example resizable className="max-h-[800px]" hint="Resize the example to see the expected behaviour">
   <div class="relative">
@@ -109,9 +109,9 @@ This "t-shirt" scale is the same as the [max-width](/docs/max-width) scale, with
 </div>
 ```
 
-### Setting the column gap
+### Установка зазора колонны
 
-To specify the width between columns, you can use the [gap-x](/docs/gap) utilities:
+Чтобы указать ширину между столбцами, вы можете использовать утилиты [gap-x](/docs/gap):
 
 <Example>
   <div class="relative">
@@ -173,23 +173,23 @@ To specify the width between columns, you can use the [gap-x](/docs/gap) utiliti
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="columns-2" featuredClass="columns-3" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="columns-2" featuredClass="columns-3" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind provides a column count scale from `1-12` as well as a column t-shirt scale from `3xs-7xl`. You can customize these values by editing `theme.columns` or `theme.extend.columns` in your `tailwind.config.js` file.
+По умолчанию Tailwind предоставляет шкалу подсчета столбцов `1-12`, а также шкалу t-shirt от `3xs-7xl`. Вы можете настроить эти значения, отредактировав `theme.columns` или `theme.extend.columns` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -203,8 +203,8 @@ By default, Tailwind provides a column count scale from `1-12` as well as a colu
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="columns" featuredClass="columns-[10rem]" />

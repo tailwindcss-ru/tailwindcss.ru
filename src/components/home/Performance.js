@@ -138,7 +138,7 @@ export function Performance() {
           Фактически, большинство проектов Tailwind отправляют клиенту менее 10 КБ CSS.
         </Paragraph>
         <Link href="/docs/optimizing-for-production" color="sky">
-          Подробнее об<span className="sr-only"> оптимизации для производственной среды</span>
+          Подробнее<span className="sr-only">, об оптимизации для производственной среды</span>
         </Link>
       </div>
       <GridLockup

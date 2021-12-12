@@ -1,6 +1,6 @@
 ---
-title: "Scroll Margin"
-description: "Utilities for controlling the scroll offset around items in a snap container."
+title: "Поля прокрутки"
+description: "Утилиты для управления смещением прокрутки вокруг элементов в контейнере привязки."
 ---
 
 import utilities from 'utilities?plugin=scrollMargin'
@@ -14,13 +14,13 @@ export const classes = {
   sort: (classes) => numbersFirst(classes),
 }
 
-## Basic usage
+## Основы использования
 
-### Setting the scroll margin
+### Установка поля прокрутки
 
-Use the `scroll-m{side}-{size}` utilities to set the scroll offset around items within a snap container.
+Используйте утилиты `scroll-m{side}-{size}` для установки смещения прокрутки вокруг элементов в контейнере привязки.
 
-<Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
+<Example p="none" hint="Прокрутите сетку изображений, чтобы увидеть ожидаемое поведение">
   <div class="w-full flex gap-12 snap-x overflow-x-auto py-14">
     <div class="snap-start scroll-ml-6 shrink-0 relative first:pl-6 last:pr-[calc(100%-21.5rem)]">
       <div class="bg-stripes-pink w-6 absolute top-0 left-0 bottom-0"></div>
@@ -65,9 +65,9 @@ Use the `scroll-m{side}-{size}` utilities to set the scroll offset around items 
 </div>
 ```
 
-### Using negative values
+### Использование отрицательных значений
 
-To use a negative scroll margin value, prefix the class name with a dash to convert it to a negative value.
+Чтобы использовать отрицательное значение поля прокрутки, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
 ```html
 <div class="**-scroll-ml-6** snap-start ...">
@@ -77,23 +77,23 @@ To use a negative scroll margin value, prefix the class name with a dash to conv
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="scroll-m-8" featuredClass="scroll-m-0" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="scroll-m-8" featuredClass="scroll-m-0" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind's scroll margin scale uses the [default spacing scale](/docs/customizing-spacing). You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+По умолчанию для шкалы полей прокрутки Tailwind используется [шкала интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -107,7 +107,7 @@ By default, Tailwind's scroll margin scale uses the [default spacing scale](/doc
   }
 ```
 
-Alternatively, you can customize just the scroll margin scale by editing `theme.scrollMargin` or `theme.extend.scrollMargin` in your `tailwind.config.js` file.
+Кроме того, вы можете настроить только масштаб поля прокрутки, отредактировав `theme.scrollMargin` или `theme.extend.scrollMargin` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -121,8 +121,8 @@ Alternatively, you can customize just the scroll margin scale by editing `theme.
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="scroll-margin" featuredClass="scroll-m-[24rem]" />

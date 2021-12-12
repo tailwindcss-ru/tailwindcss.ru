@@ -2,6 +2,7 @@ import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { Button } from '@/components/Button'
 import clsx from 'clsx'
 import { BasicLayout } from '@/layouts/BasicLayout'
+import { ReactComponent as TelegramIcon } from '@/img/icons/telegram.svg'
 import { ReactComponent as DiscordIcon } from '@/img/icons/discord.svg'
 import { ReactComponent as GitHubIcon } from '@/img/icons/github.svg'
 
@@ -62,26 +63,25 @@ export default function Resources() {
   return (
     <BasicLayout>
       <header className="mb-20 max-w-xl">
-        <p className="mb-4 text-sm leading-6 font-semibold text-sky-500">Resources</p>
+        <p className="mb-4 text-sm leading-6 font-semibold text-sky-500">Ресурсы</p>
         <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-gray-900">
-          Everything else you need to build awesome Tailwind CSS websites
+          Все остальное, что вам нужно для создания потрясающих веб-сайтов Tailwind CSS
         </h1>
         <p className="text-lg text-gray-700">
-          We think Tailwind is an amazing CSS framework, but you need more than just a CSS framework
-          to produce visually awesome work.
+          Мы думаем, что Tailwind - великолепный фреймворк CSS, но для создания визуально
+          потрясающей работы вам нужно нечто большее, чем просто фреймворк CSS.
         </p>
       </header>
 
       <div className="space-y-16">
         <section>
           <h2 className="mb-2 text-2xl leading-7 tracking-tight text-gray-900 font-bold">
-            Design resources
+            Ресурсы для дизайна
           </h2>
           <div className="mb-10 prose text-gray-600 max-w-3xl">
             <p>
-              Design is hard so we made a few resources to help you with it. These resources are a
-              great way to help you with your designs and a great way to support the development of
-              the framework.
+              Дизайн - это сложно, поэтому мы сделали несколько ресурсов, чтобы помочь вам в этом.
+              Эти ресурсы - отличный способ помочь вам с вашими проектами и отличный способ поддержать разработку фреймворка.
             </p>
           </div>
 
@@ -89,7 +89,7 @@ export default function Resources() {
             {[
               {
                 title: 'Refactoring UI',
-                description: 'Learn UI Design',
+                description: 'Изучите дизайн пользовательского интерфейса',
                 images: [
                   require('@/img/resources/refactoringui-small@75.jpg').default,
                   require('@/img/resources/refactoringui@75.jpg').default,
@@ -99,20 +99,20 @@ export default function Resources() {
                 body: (
                   <>
                     <p>
-                      Refactoring UI is a design-for-developers book + video series put together by
-                      Adam Wathan and Steve Schoger. It covers literally everything we know about
-                      making things look awesome.
+                      Refactoring UI - это серия книг и видеороликов для разработчиков,
+                      составленная Адамом Уотаном и Стивом Шогером. Он охватывает буквально все,
+                      что мы знаем о том, как заставить вещи выглядеть потрясающе.
                     </p>
                     <p>
-                      Almost 10,000 people have picked it up so far and have all sorts of awesome
-                      things to say about how it helped them improve their work.
+                      На данный момент почти 10 000 человек подхватили его и могут сказать
+                      множество замечательных вещей о том, как это помогло им улучшить свою работу.
                     </p>
                   </>
                 ),
               },
               {
                 title: 'Tailwind UI',
-                description: 'Beautiful UI components, crafted by the creators of Tailwind CSS',
+                description: 'Красивые компоненты пользовательского интерфейса, созданные создателями Tailwind CSS.',
                 images: [
                   require('@/img/resources/tailwindui-small@75.jpg').default,
                   require('@/img/resources/tailwindui@75.jpg').default,
@@ -122,13 +122,13 @@ export default function Resources() {
                 body: (
                   <>
                     <p>
-                      Tailwind UI is a collection of professionally designed, pre-built, fully
-                      responsive HTML snippets you can drop into your Tailwind projects.
+                      Пользовательский интерфейс Tailwind - это набор профессионально разработанных готовых
+                      полностью адаптивных фрагментов HTML, которые вы можете добавить в свои проекты Tailwind.
                     </p>
                     <p>
-                      There are currently over 550 components available in three different
-                      categories (Marketing, Application UI and E-commerce) and we’re always adding
-                      more.
+                      В настоящее время доступно более 550 компонентов в трех различных категориях
+                      (маркетинг, пользовательский интерфейс приложений и электронная коммерция),
+                      и мы постоянно добавляем новые.
                     </p>
                   </>
                 ),
@@ -151,7 +151,7 @@ export default function Resources() {
                       'text-gray-300 group-hover:text-gray-200',
                     ]}
                   >
-                    Learn more<span className="sr-only">, {title}</span>
+                    Подробнее<span className="sr-only">, {title}</span>
                   </Button>
                 </div>
                 <div className="w-full flex-none mb-10 xl:mb-0 xl:ml-8 xl:w-[29rem]">
@@ -169,12 +169,12 @@ export default function Resources() {
 
         <section>
           <h2 className="mb-2 text-2xl leading-7 tracking-tight text-gray-900 font-bold">
-            Additional resources
+            Дополнительные ресурсы
           </h2>
           <div className="mb-10 prose text-gray-600 max-w-3xl">
             <p>
-              Tailwind isn’t the only open-source project we maintain. We’ve made a few other
-              resources to help you with your design and development workflow.
+              Tailwind - не единственный проект с открытым исходным кодом, который мы поддерживаем.
+              Мы создали несколько других ресурсов, которые помогут вам в процессе проектирования и разработки.
             </p>
           </div>
 
@@ -182,11 +182,11 @@ export default function Resources() {
             {[
               {
                 superTitle: 'Headless UI',
-                title: 'Completely unstyled, fully accessible UI components',
+                title: 'Полностью не стилизованные, полностью доступные компоненты пользовательского интерфейса',
                 body: (
                   <p>
-                    Completely unstyled, fully accessible UI components, designed to integrate
-                    beautifully with Tailwind CSS.
+                    Полностью не стилизованные, полностью доступные компоненты пользовательского интерфейса,
+                    разработанные для красивой интеграции с Tailwind CSS.
                   </p>
                 ),
                 href: 'https://headlessui.dev',
@@ -195,11 +195,11 @@ export default function Resources() {
               },
               {
                 superTitle: 'Heroicons',
-                title: 'Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.',
+                title: 'Красивые SVG-иконки, созданные вручную создателями Tailwind CSS.',
                 body: (
                   <p>
-                    A set of 450+ free MIT-licensed SVG icons. Available as basic SVG icons and via
-                    first-party React and Vue libraries.
+                    Набор из 450+ бесплатных иконок SVG под лицензией MIT.
+                    Доступно в виде основных значков SVG и через собственные библиотеки React и Vue.
                   </p>
                 ),
                 href: 'https://heroicons.com',
@@ -208,11 +208,10 @@ export default function Resources() {
               },
               {
                 superTitle: 'Hero Patterns',
-                title: 'Seamless SVG background patterns by the makers of Tailwind CSS.',
+                title: 'Бесшовные фоновые узоры SVG от создателей Tailwind CSS.',
                 body: (
                   <p>
-                    A collection of over 100 free MIT-licensed high-quality SVG patterns for you to
-                    use in your web projects.
+                    Коллекция из более чем 100 бесплатных высококачественных шаблонов SVG с лицензией MIT, которые вы можете использовать в своих веб-проектах.
                   </p>
                 ),
                 href: 'https://heropatterns.com',
@@ -224,7 +223,7 @@ export default function Resources() {
                 key={card.title}
                 button={
                   <>
-                    Learn more<span className="sr-only">, {card.title}</span>
+                    Подробнее<span className="sr-only">, {card.title}</span>
                   </>
                 }
                 {...card}
@@ -234,23 +233,23 @@ export default function Resources() {
         </section>
 
         <section className="border-t border-gray-100 pt-16">
-          <h2 className="mb-2 text-xl tracking-tight text-gray-900 font-bold">Screencasts</h2>
+          <h2 className="mb-2 text-xl tracking-tight text-gray-900 font-bold">Скринкасты</h2>
           <div className="mb-10 prose text-gray-600 max-w-3xl">
             <p>
-              Head over to our official YouTube channel and dive into dozens of videos that will
-              teach you everything from Tailwind basics to advanced concepts.
+              Перейдите на наш официальный канал на YouTube и погрузитесь в десятки видеороликов,
+              которые научат вас всему, от основ Tailwind до продвинутых концепций.
             </p>
           </div>
 
           <CardGroup className="mb-10">
             {[
               {
-                superTitle: 'Fundamentals',
-                title: 'Translating a Custom Design System to Tailwind CSS',
+                superTitle: 'Основы',
+                title: 'Перевод системы индивидуального дизайна на Tailwind CSS',
                 body: (
                   <p>
-                    Learn how to configure Tailwind to create your own utility framework tuned
-                    specifically for your project.
+                    Узнайте, как настроить Tailwind для создания собственной служебной инфраструктуры,
+                    настроенной специально для вашего проекта.
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=cZc4Jn5nK3k',
@@ -258,12 +257,12 @@ export default function Resources() {
                 color: 'text-sky-500',
               },
               {
-                superTitle: 'Fundamentals',
-                title: 'Adding Tailwind CSS to an Existing Project',
+                superTitle: 'Основы',
+                title: 'Добавление Tailwind CSS в существующий проект',
                 body: (
                   <p>
-                    Learn how to add Tailwind CSS to an existing project without running into naming
-                    collisions or specificity issues.
+                    Узнайте, как добавить Tailwind CSS в существующий проект,
+                    не сталкиваясь с конфликтами имен или проблемами специфичности.
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=oG6XPy1t1KA',
@@ -271,13 +270,12 @@ export default function Resources() {
                 color: 'text-pink-500',
               },
               {
-                superTitle: 'How we’d build it',
+                superTitle: 'Как мы это построили',
                 title:
-                  'Building a Headless Ecommerce Store with Tailwind CSS, Shopify, and Next.js',
+                  'Создание интернет-магазина без головы с помощью Tailwind CSS, Shopify и Next.js',
                 body: (
                   <p>
-                    Fetch products from a Shopify store using the GraphQL API and assemble the pages
-                    using Tailwind UI.
+                    Выбирайте продукты из магазина Shopify с помощью GraphQL API и собирайте страницы с помощью Tailwind UI.
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=xNMYz74zNHM',
@@ -289,28 +287,39 @@ export default function Resources() {
             ))}
           </CardGroup>
 
-          <Button href="https://www.youtube.com/tailwindlabs">See all our screencasts</Button>
+          <Button href="https://www.youtube.com/tailwindlabs">Смотрите все наши скринкасты</Button>
         </section>
 
         <section className="border-t border-gray-100 pt-16">
           <h2 className="mb-2 text-xl tracking-tight text-gray-900 font-bold">
-            Connect and contribute
+            Подключайтесь и вносите свой вклад
           </h2>
           <div className="mb-10 prose text-gray-600 max-w-3xl">
             <p>
-              Whether you're a beginner or an advanced user, getting involved in the Tailwind
-              community is a great way to connect with like-minded folks who are building awesome
-              things with the framework.
+              Независимо от того, являетесь ли вы новичком или опытным пользователем,
+              участие в сообществе Tailwind - отличный способ связаться с единомышленниками,
+              которые создают потрясающие вещи с помощью фреймворка.
             </p>
           </div>
 
           <ul className="grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2">
             {[
               {
+                title: 'Телеграм',
+                href: 'https://t.me/tailwindcss_rus',
+                description:
+                  'Присоединяйтесь к чату в Telegram, чтобы поговорить о Tailwind и других связанных с ним темах.',
+                icon: (
+                  <Icon className="bg-sky-100">
+                    <TelegramIcon className="w-6 h-auto" />
+                  </Icon>
+                ),
+              },
+              {
                 title: 'Discord',
                 href: '/discord',
                 description:
-                  'Join over 10,000 members on the Discord group to chat about Tailwind and other related topics.',
+                  'Присоединяйтесь к более чем 10 000 участников в группе Discord, чтобы поговорить о Tailwind и других связанных темах.',
                 icon: (
                   <Icon className="bg-[#838CF1]/[0.15]">
                     <DiscordIcon className="w-6 h-auto" />
@@ -321,7 +330,7 @@ export default function Resources() {
                 title: 'GitHub Discussions',
                 href: 'https://github.com/tailwindlabs/tailwindcss/discussions',
                 description:
-                  'Have an issue with your project? Connect with other members of the Tailwind community to get some assistance.',
+                  'Возникли проблемы с вашим проектом? Свяжитесь с другими членами сообщества Tailwind, чтобы получить некоторую помощь.',
                 icon: (
                   <Icon className="bg-gray-100">
                     <GitHubIcon className="w-7 h-auto" />
@@ -352,7 +361,7 @@ export default function Resources() {
 
 Resources.layoutProps = {
   meta: {
-    title: 'Resources',
+    title: 'Ресурсы',
   },
   Layout: DocumentationLayout,
 }

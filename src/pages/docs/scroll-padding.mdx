@@ -1,6 +1,6 @@
 ---
-title: "Scroll Padding"
-description: "Utilities for controlling an element's scroll offset within a snap container."
+title: "Отступы прокрутки"
+description: "Утилиты для управления смещением прокрутки элемента в контейнере привязки."
 ---
 
 import utilities from 'utilities?plugin=scrollPadding'
@@ -14,13 +14,13 @@ export const classes = {
   sort: (classes) => numbersFirst(classes),
 }
 
-## Basic usage
+## Основы использования
 
-### Setting the scroll padding
+### Установка отступа прокрутки
 
-Use the `scroll-p{side}-{size}` utilities to set the scroll offset of an element within a snap container.
+Используйте утилиты `scroll-p{side}-{size}` для установки смещения прокрутки элемента в контейнере привязки.
 
-<Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
+<Example p="none" hint="Прокрутите сетку изображений, чтобы увидеть ожидаемое поведение">
   <div class="bg-stripes-pink w-6 absolute left-0 top-0 bottom-0 rounded-l-lg"></div>
   <div class="w-full flex gap-8 snap-x scroll-pl-6 overflow-x-auto py-14">
     <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
@@ -63,23 +63,23 @@ Use the `scroll-p{side}-{size}` utilities to set the scroll offset of an element
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="scroll-p-8" featuredClass="scroll-p-0" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="scroll-p-8" featuredClass="scroll-p-0" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind's scroll padding scale uses the [default spacing scale](/docs/customizing-spacing). You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+По умолчанию шкала прокрутки Tailwind использует [шкалу интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -93,7 +93,7 @@ By default, Tailwind's scroll padding scale uses the [default spacing scale](/do
   }
 ```
 
-Alternatively, you can customize just the scroll padding scale by editing `theme.scrollPadding` or `theme.extend.scrollPadding` in your `tailwind.config.js` file.
+Кроме того, вы можете настроить только масштаб прокрутки, отредактировав `theme.scrollPadding` или `theme.extend.scrollPadding` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -107,8 +107,8 @@ Alternatively, you can customize just the scroll padding scale by editing `theme
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="scroll-padding" featuredClass="scroll-p-[24rem]" />

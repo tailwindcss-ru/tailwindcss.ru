@@ -11,7 +11,7 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
 ### Setting the outline color
 
@@ -40,7 +40,7 @@ Use the `outline-{color}` utilities to change the color of an element's outline.
 <button class="outline outline-offset-2 **outline-pink-500** ...">Button C</button>
 ```
 
-### Changing the opacity
+### Изменение непрозрачности
 
 Control the opacity of an element's outline color using the color opacity modifier.
 
@@ -65,24 +65,24 @@ You can use any value defined in your [opacity scale](/docs/opacity), or use arb
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="outline" featuredClass="outline-blue-400" element="button" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="outline" featuredClass="outline-blue-400" element="button" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
 <CustomizePluginColors name="outline" configKey="outlineColor" />
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="outline-color" featuredClass="outline-[#243c5a]" element="button" />

@@ -55,7 +55,7 @@ export function ReadyMadeComponents() {
           вам найти идеальную отправную точку для того, что вы хотите создать.
         </Paragraph>
         <Link href="https://tailwindui.com/" color="indigo">
-          Learn more
+          Подробнее
         </Link>
       </div>
       <GridLockup

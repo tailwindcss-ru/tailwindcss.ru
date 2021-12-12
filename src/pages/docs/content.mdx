@@ -1,6 +1,6 @@
 ---
-title: "Content"
-description: "Utilities for controlling the content of the before and after pseudo-elements."
+title: "Содержимое"
+description: "Утилиты для управления содержимым псевдоэлементов до и после."
 ---
 
 import { ArbitraryValues } from '@/components/ArbitraryValues'
@@ -13,34 +13,34 @@ export const classes = {
   }
 }
 
-## Basic usage
+## Основы использования
 
-### Setting a pseudo-element's content
+### Установка содержимого псевдоэлемента
 
-Use the `content-{value}` utilities along with the `before` and `after` variant modifiers to set the contents of the `::before` and `::after` pseudo-elements.
+Используйте утилиты `content-{value}` вместе с модификаторами `before` и `after` для установки содержимого псевдоэлементов `::before` и `::after`.
 
-Out of the box, `content-none` is the only available preconfigured content utility. And while you can add additional utilities by [customizing your theme](#customizing-your-theme), it generally makes more sense to just use an arbitrary value.
+По умолчанию, `content-none` единственная доступная утилита с предварительно сконфигурированным содержимым. И хотя вы можете добавить дополнительные утилиты, [настроив свою тему](#customizing-your-theme), обычно имеет смысл просто использовать произвольное значение.
 
-Use the square bracket notation to define any arbitrary content value on the fly.
+Используйте обозначение квадратных скобок, чтобы определять любое произвольное значение содержимого на лету.
 
 <Example p="none">
   <div class="px-4 sm:px-0">
     <div class="p-8 w-full max-w-xl mx-auto bg-white shadow-lg text-gray-500">
-      Higher resolution means more than just a better-quality image. With a Retina 6K display, <a href="https://www.apple.com/pro-display-xdr/" class="text-blue-600 font-medium after:content-['_↗'] after:text-sm after:font-bold" target="_blank">Pro Display XDR</a> gives you nearly 40 percent more screen real estate than a 5K display.
+      Более высокое разрешение означает больше, чем просто изображение лучшего качества. Благодаря дисплею Retina 6K, <a href="https://www.apple.com/pro-display-xdr/" class="text-blue-600 font-medium after:content-['_↗'] after:text-sm after:font-bold" target="_blank">Pro Display XDR</a> дает вам почти на 40 процентов больше площади экрана, чем дисплей 5K.
     </div>
   </div>
 </Example>
 
 ```html
-Higher resolution means more than just a better-quality image. With a Retina
-6K display, <a class="text-red-600 **after:content-['_↗']** ..." href="https://www.
-apple.com/pro-display-xdr/" target="_blank">Pro Display XDR</a> gives you
-nearly 40 percent more screen real estate than a 5K display.
+Более высокое разрешение означает больше, чем просто изображение лучшего качества. Благодаря дисплею 
+Retina 6K, <a class="text-red-600 **after:content-['_↗']** ..." href="https://www.
+apple.com/pro-display-xdr/" target="_blank">Pro Display XDR</a> дает вам
+почти на 40 процентов больше площади экрана, чем дисплей 5K
 ```
 
-### Referencing an attribute value
+### Ссылка на значение атрибута
 
-These content utilities even support CSS features like the `attr()` function, which you can use to reference a value stored in an attribute:
+Эти утилиты контента даже поддерживают функции CSS, такие как функция `attr()`, которую вы можете использовать для ссылки на значение, хранящееся в атрибуте:
 
 <Example p="none">
   <div class="px-4 sm:px-0">
@@ -56,9 +56,9 @@ These content utilities even support CSS features like the `attr()` function, wh
 </div>
 ```
 
-### Using spaces and underscores
+### Использование пробелов и подчеркиваний
 
-Since whitespace denotes the end of a class in HTML, replace any spaces in an arbitrary value with an underscore:
+Поскольку пробел обозначает конец класса в HTML, замените любые пробелы в произвольном значении подчеркиванием:
 
 <Example p="none">
   <div class="px-4 sm:px-0">
@@ -74,7 +74,7 @@ Since whitespace denotes the end of a class in HTML, replace any spaces in an ar
 </div>
 ```
 
-If you need to include an actual underscore, you can do this by escaping it with a backslash:
+Если вам нужно включить фактический символ подчеркивания, вы можете сделать это, экранировав его с помощью обратной косой черты:
 
 <Example p="none">
   <div class="px-4 sm:px-0">
@@ -92,23 +92,23 @@ If you need to include an actual underscore, you can do this by escaping it with
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="before:content-['Not_Hovering']" featuredClass="before:content-['Hovering']" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="before:content-['Mobile']" featuredClass="before:content-['Desktop']" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind only provides the `content-none` utility. You can customize these values by editing `theme.content` or `theme.extend.content` in your `tailwind.config.js` file.
+По умолчанию Tailwind предоставляет только утилиту `content-none`. Вы можете настроить эти значения, отредактировав `theme.content` или `theme.extend.content` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -122,8 +122,8 @@ By default, Tailwind only provides the `content-none` utility. You can customize
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="content" featuredClass="before:content-['Hello_World']" />

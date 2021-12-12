@@ -14,7 +14,7 @@ export const classes = {
   sort: (classes) => numbersFirst(classes),
 }
 
-## Basic usage
+## Основы использования
 
 ### Adding a text indent
 
@@ -23,7 +23,7 @@ Use the `indent-{width}` utilities to set the amount of empty space (indentation
 <Example p="none">
   <div class="bg-white p-8 shadow-xl text-gray-700 max-w-md mx-auto overflow-auto leading-6">
     <p class="indent-8">
-      So I started to walk into the water. I won't lie to you boys, I was
+      Итак, я пошел в воду. I won't lie to you boys, I was
       terrified. But I pressed on, and as I made my way past the breakers
       a strange calm came over me. I don't know if it was divine intervention
       or the kinship of all living things but I tell you Jerry at that moment,
@@ -34,7 +34,7 @@ Use the `indent-{width}` utilities to set the amount of empty space (indentation
 
 ```html
 <p class="**indent-8**">
-  So I started to walk into the water. I won't lie to you boys, I was
+  Итак, я пошел в воду. I won't lie to you boys, I was
   terrified. But I pressed on, and as I made my way past the breakers
   a strange calm came over me. I don't know if it was divine intervention
   or the kinship of all living things but I tell you Jerry at that moment,
@@ -42,35 +42,35 @@ Use the `indent-{width}` utilities to set the amount of empty space (indentation
 </p>
 ```
 
-### Using negative values
+### Использование отрицательных значений
 
 To use a negative text indent value, prefix the class name with a dash to convert it to a negative value.
 
 ```html
 <div class="**-indent-8**">
-  So I started to walk into the water. I won't lie to...
+  Итак, я пошел в воду. I won't lie to...
 </div>
 ```
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяя условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="indent-4" featuredClass="indent-8" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="indent-4" featuredClass="indent-8" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-The default text indent scale is based on the [default spacing scale](/docs/customizing-spacing#default-spacing-scale). You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+The default text indent scale is based on the [default spacing scale](/docs/customizing-spacing#default-spacing-scale). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -84,7 +84,7 @@ The default text indent scale is based on the [default spacing scale](/docs/cust
   }
 ```
 
-Alternatively, you can customize just the text indent scale by editing `theme.textIndent` or `theme.extend.textIndent` in your `tailwind.config.js` file.
+Alternatively, you can customize just the text indent scale by editing `theme.textIndent` или `theme.extend.textIndent` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -98,8 +98,8 @@ Alternatively, you can customize just the text indent scale by editing `theme.te
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="text-indent" featuredClass="indent-[50%]" />

@@ -124,7 +124,7 @@ export function ModernFeatures() {
           </p>
         </Paragraph>
         <Link href="/docs/grid-template-columns" color="indigo">
-          Подробнее о<span className="sr-only">, столбцах шаблона сетки</span>
+          Подробнее<span className="sr-only">, о столбцах шаблона сетки</span>
         </Link>
         <div className="mt-10">
           <Tabs

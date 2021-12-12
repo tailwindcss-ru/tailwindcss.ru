@@ -162,16 +162,16 @@ export function MultiCursorDemo() {
           <div className="bg-white px-6 py-4 shadow">
             <nav className="flex justify-center space-x-4">
               <Link href="#/dashboard" className={linkClassName}>
-                Home
+                Главная
               </Link>
               <Link href="#/team" className={linkClassName}>
-                Team
+                Команда
               </Link>
               <Link href="#/projects" className={linkClassName}>
-                Projects
+                Проекты
               </Link>
               <Link href="#/reports" className={linkClassName}>
-                Reports
+                Отчеты
               </Link>
             </nav>
           </div>
