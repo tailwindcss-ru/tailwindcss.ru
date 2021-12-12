@@ -7,9 +7,9 @@ import { DocSearchModal } from '@docsearch/react'
 import clsx from 'clsx'
 import { useActionKey } from '@/hooks/useActionKey'
 
-const INDEX_NAME = 'tailwindcss'
-const API_KEY = '5fc87cef58bb80203d2207578309fab6'
-const APP_ID = 'KNPXZI5B0M'
+const INDEX_NAME = 'tailwindcss-ru'
+const API_KEY = 'c0d1f595d0aed76e370f464bea26636c'
+const APP_ID = 'TMR40MKEZK'
 
 const SearchContext = createContext()
 
