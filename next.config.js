@@ -27,6 +27,7 @@ const fallbackDefaultExports = {
 }
 
 module.exports = withBundleAnalyzer({
+  exportTrailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   images: {
     disableStaticImages: true,

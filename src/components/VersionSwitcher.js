@@ -7,8 +7,8 @@ export function VersionSwitcher({ className }) {
 
   function submit(e) {
     e.preventDefault()
-    if (selectRef.current.value === 'v1') {
-      window.location = 'https://v1.tailwindcss.ru/'
+    if (selectRef.current.value === 'v3') {
+      window.location = 'https://tailwindcss.ru/'
     }
   }
 
@@ -22,7 +22,7 @@ export function VersionSwitcher({ className }) {
           onChange={submit}
         >
           <option value="v2">v{tailwindVersion}</option>
-          {/* <option value="v1">v1.9.6</option> */}
+          <option value="v3">v3.x</option>
         </select>
       </label>
       <svg
