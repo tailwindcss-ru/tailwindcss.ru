@@ -5,11 +5,10 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установка Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> via npm, and create your <code>tailwind.config.js</code>{' '}
-        file.
+        Установите <code>tailwindcss</code> через npm и создайте файл <code>tailwind.config.js</code>{' '}.
       </p>
     ),
     code: {
@@ -19,10 +18,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблонам',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем вашим файлам шаблонов в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -38,11 +37,10 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your main CSS
-        file.
+        Добавьте директивы <code>@tailwind</code> для каждого макета Tailwind в свой основной файл CSS.
       </p>
     ),
     code: {
@@ -52,8 +50,8 @@ let steps = [
     },
   },
   {
-    title: 'Start the Tailwind CLI build process',
-    body: () => <p>Run the CLI tool to scan your template files for classes and build your CSS.</p>,
+    title: 'Запустите процесс сборки Tailwind CLI',
+    body: () => <p>Запустите инструмент CLI, чтобы просканировать файлы шаблонов на предмет классов и создать свой CSS.</p>,
     code: {
       name: 'Terminal',
       lang: 'terminal',
@@ -61,11 +59,10 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your HTML',
+    title: 'Начните использовать Tailwind в своем HTML',
     body: () => (
       <p>
-        Add your compiled CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility
-        classes to style your content.
+        Добавьте свой скомпилированный файл CSS в <code>{'<head>'}</code> и начните использовать классы утилиты Tailwind для стилизации вашего контента.
       </p>
     ),
     code: {
@@ -80,7 +77,7 @@ let steps = [
   </head>
   <body>
 >   <h1 class="text-3xl font-bold underline">
->     Hello world!
+>     Привет мир!
 >   </h1>
   </body>
   </html>`,
@@ -93,8 +90,7 @@ export default function TailwindCli({ code }) {
     <InstallationLayout>
       <div className="relative z-10 prose mb-16 max-w-3xl">
         <p>
-          The simplest and fastest way to get up and running with Tailwind CSS from scratch is with
-          the Tailwind CLI tool.
+          Самый простой и быстрый способ начать работу с Tailwind CSS с нуля - использовать инструмент Tailwind CLI.
         </p>
       </div>
       <Steps steps={steps} code={code} />
@@ -105,9 +101,9 @@ export default function TailwindCli({ code }) {
           description={
             <>
               <strong className="text-gray-900 font-semibold">
-                This is only the beginning of what’s possible with the Tailwind CLI.
+                Это только начало возможностей Tailwind CLI.
               </strong>{' '}
-              To learn more about everything it can do, check out the Tailwind CLI documentation.
+              Чтобы узнать больше обо всех его возможностях, ознакомьтесь с документацией Tailwind CLI.
             </>
           }
         />
@@ -138,7 +134,7 @@ export function getStaticProps() {
 
 TailwindCli.layoutProps = {
   meta: {
-    title: 'Installation: Tailwind CLI',
+    title: 'Установка: Tailwind CLI',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

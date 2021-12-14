@@ -5,11 +5,10 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установка Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and create your{' '}
-        <code>tailwind.config.js</code> file.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm и создайте файл{' '} <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -19,11 +18,10 @@ let steps = [
     },
   },
   {
-    title: 'Add Tailwind to your PostCSS configuration',
+    title: 'Добавьте Tailwind в конфигурацию PostCSS',
     body: () => (
       <p>
-        Add <code>tailwindcss</code> and <code>autoprefixer</code> to your{' '}
-        <code>postcss.config.js</code> file.
+        Добавьте <code>tailwindcss</code> и <code>autoprefixer</code> в свой файл{' '} <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -38,10 +36,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблонам',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем вашим файлам шаблонов в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -57,11 +55,10 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your main CSS
-        file.
+        Добавьте директивы <code>@tailwind</code> для каждого макета Tailwind в свой основной файл CSS.
       </p>
     ),
     code: {
@@ -71,11 +68,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code> or whatever command is configured
-        in your <code>package.json</code> file.
+        Запустите процесс сборки с помощью <code>npm run dev</code> или любой другой команды, настроенной в вашем файле <code>package.json</code>.
       </p>
     ),
     code: {
@@ -85,12 +81,10 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your HTML',
+    title: 'Начните использовать Tailwind в своем HTML',
     body: () => (
       <p>
-        Make sure your compiled CSS is included in the <code>{'<head>'}</code>{' '}
-        <em>(your framework might handle this for you)</em>, then start using Tailwind’s utility
-        classes to style your content.
+        Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>{' '} <em>(ваш фреймворк может справиться с этим за вас)</em>, затем начните использовать служебные классы Tailwind для стилизации вашего контента.
       </p>
     ),
     code: {
@@ -105,7 +99,7 @@ let steps = [
   </head>
   <body>
 >   <h1 class="text-3xl font-bold underline">
->     Hello world!
+>     Привет мир!
 >   </h1>
   </body>
   </html>`,
@@ -118,19 +112,16 @@ export default function UsingPostCss({ code }) {
     <InstallationLayout>
       <div className="relative z-10 prose mb-16 max-w-3xl">
         <p>
-          Installing Tailwind CSS as a PostCSS plugin is the most seamless way to integrate it with
-          build tools like webpack, Rollup, Vite, and Parcel.
+          Установка Tailwind CSS в качестве плагина PostCSS - самый простой способ интегрировать его с такими инструментами сборки, как webpack, Rollup, Vite и Parcel.
         </p>
       </div>
       <Steps steps={steps} code={code} />
       <Cta
-        label="Explore our framework guides"
+        label="Изучите наши руководства по фреймворкам"
         href="/docs/installation/framework-guides"
         description={
           <>
-            <strong className="text-gray-900 font-semibold">Are you stuck?</strong> Setting up
-            Tailwind with PostCSS can be a bit different across different build tools. Check our
-            framework guides to see if we have more specific instructions for your particular setup.
+            <strong className="text-gray-900 font-semibold">Вы застряли?</strong> Настройка Tailwind с помощью PostCSS может немного отличаться для разных инструментов сборки. Ознакомьтесь с нашими руководствами по фреймворкам, чтобы узнать, есть ли у нас более конкретные инструкции для вашей конкретной настройки.
           </>
         }
       />
@@ -160,8 +151,8 @@ export function getStaticProps() {
 
 UsingPostCss.layoutProps = {
   meta: {
-    title: 'Installation: Using PostCSS',
-    section: 'Getting Started',
+    title: 'Установка: Использование PostCSS',
+    section: 'Начало работы',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

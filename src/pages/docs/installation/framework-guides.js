@@ -14,8 +14,7 @@ export default function FrameworkGuides() {
     <InstallationLayout>
       <div className="prose mb-16 max-w-3xl">
         <p>
-          Framework-specific guides that cover our recommended approach to installing Tailwind CSS
-          in a number of popular environments.
+          Руководства для конкретных платформ, в которых описывается рекомендуемый нами подход к установке Tailwind CSS в ряде популярных сред.
         </p>
       </div>
       <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -23,37 +22,37 @@ export default function FrameworkGuides() {
           {
             name: 'Next.js',
             slug: 'nextjs',
-            description: 'Full-featured React framework with great developer experience.',
+            description: 'Полнофункциональный фреймворк React с большим опытом разработки.',
             logo: NextJsLogo,
           },
           {
             name: 'Laravel',
             slug: 'laravel',
-            description: 'PHP web application framework with expressive, elegant syntax.',
+            description: 'Фреймворк веб-приложений PHP с выразительным элегантным синтаксисом.',
             logo: LaravelLogo,
           },
           {
             name: 'Vite',
             slug: 'vite',
-            description: 'Fast and modern development server and build tool.',
+            description: 'Быстрый и современный сервер разработки и инструмент сборки.',
             logo: ViteLogo,
           },
           {
             name: 'Nuxt.js',
             slug: 'nuxtjs',
-            description: 'Intuitive Vue framework for building universal applications.',
+            description: 'Интуитивно понятный фреймворк Vue для создания универсальных приложений.',
             logo: NuxtJsLogo,
           },
           {
             name: 'Gatsby',
             slug: 'gatsby',
-            description: 'Framework for building static sites with React and GraphQL.',
+            description: 'Фреймворк для создания статических сайтов с React и GraphQL.',
             logo: GatsbyLogo,
           },
           {
             name: 'Create React App',
             slug: 'create-react-app',
-            description: 'CLI tool for scaffolding a new single-page React application.',
+            description: 'Инструмент командной строки для создания нового одностраничного приложения React.',
             logo: CraLogo,
           },
         ].map(({ name, description, logo: Logo, slug }) => (
@@ -74,15 +73,14 @@ export default function FrameworkGuides() {
       </ul>
       <div className="mt-16 prose max-w-3xl">
         <p>
-          Don't see your framework of choice? Try using{' '}
+          Не видите выбранную вами схему? Вместо этого попробуйте использовать{' '}
           <Link href="/docs/installation">
             <a>Tailwind CLI</a>
           </Link>{' '}
-          or installing Tailwind{' '}
+          или установить Tailwind{' '}
           <Link href="/docs/installation/using-postcss">
-            <a>as a PostCSS plugin</a>
-          </Link>{' '}
-          instead.
+            <a>как плагин PostCSS</a>
+          </Link>{' '}.
         </p>
       </div>
     </InstallationLayout>
@@ -91,8 +89,8 @@ export default function FrameworkGuides() {
 
 FrameworkGuides.layoutProps = {
   meta: {
-    title: 'Installation: Framework Guides',
-    section: 'Getting Started',
+    title: 'Установка: Руководства по фреймворкам',
+    section: 'Начало работы',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

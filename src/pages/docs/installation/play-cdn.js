@@ -7,11 +7,10 @@ import { theme } from 'tailwind.config'
 
 let steps = [
   {
-    title: 'Add the Play CDN script to your HTML',
+    title: 'Добавьте сценарий Play CDN в свой HTML-код',
     body: () => (
       <p>
-        Add the Play CDN script tag to the <code>&lt;head&gt;</code> of your HTML file, and start
-        using Tailwind’s utility classes to style your content.
+        Добавьте тег сценария Play CDN <code>&lt;head&gt;</code> вашего HTML-файла и начните использовать классы утилит Tailwind для стилизации вашего контента.
       </p>
     ),
     code: {
@@ -26,7 +25,7 @@ let steps = [
   </head>
   <body>
 >   <h1 class="text-3xl font-bold underline">
->     Hello world!
+>     Привет мир!
 >   </h1>
   </body>
   </html>`,
@@ -36,11 +35,11 @@ let steps = [
     title: 'Try customizing your config',
     body: () => (
       <p>
-        Edit the <code>tailwind.config</code> object to{' '}
+        Отредактируйте объект <code>tailwind.config</code>, чтобы{' '}
         <NextLink href="/docs/configuration">
-          <a>customize your configuration</a>
+          <a>настроить конфигурацию</a>
         </NextLink>{' '}
-        with your own design tokens.
+        с помощью собственных токенов дизайна.
       </p>
     ),
     code: {
@@ -66,7 +65,7 @@ let steps = [
   </head>
   <body>
     <h1 class="text-3xl font-bold underline **text-clifford**">
-      Hello world!
+      Привет мир!
     </h1>
   </body>
   </html>`,
@@ -76,8 +75,7 @@ let steps = [
     title: 'Try adding some custom CSS',
     body: () => (
       <p>
-        Use <code>type="text/tailwindcss"</code> to add custom CSS that supports all of Tailwind's
-        CSS features.
+        Используйте <code>type="text/tailwindcss"</code>, чтобы добавить собственный CSS, который поддерживает все функции CSS Tailwinds.
       </p>
     ),
     code: {
@@ -113,8 +111,7 @@ export default function PlayCdn({ code }) {
     <InstallationLayout>
       <div className="relative z-10 prose mb-16 max-w-3xl">
         <p>
-          Use the Play CDN to try Tailwind right in the browser without any build step. The Play CDN
-          is designed for development purposes only, and is not the best choice for production.
+          Воспользуйтесь Play CDN, чтобы попробовать Tailwind прямо в браузере без каких-либо шагов сборки. Play CDN предназначен только для целей разработки и не является лучшим выбором для производства.
         </p>
       </div>
       <Steps steps={steps} code={code} />
@@ -144,8 +141,8 @@ export function getStaticProps() {
 
 PlayCdn.layoutProps = {
   meta: {
-    title: 'Installation: Play CDN',
-    section: 'Getting Started',
+    title: 'Установка: Play CDN',
+    section: 'Начало работы',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,
