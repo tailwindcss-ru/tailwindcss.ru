@@ -8,7 +8,7 @@ let tabs = {
   'Tailwind CLI': '/docs/installation',
   'Использование PostCSS': '/docs/installation/using-postcss',
   'Руководства по фреймворкам': '/docs/installation/framework-guides',
-  'Воспроизвести CDN': '/docs/installation/play-cdn',
+  'Play CDN': '/docs/installation/play-cdn',
 }
 
 let readNext = [

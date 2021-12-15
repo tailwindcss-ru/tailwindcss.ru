@@ -1,31 +1,31 @@
 ---
-title: "Upgrade Guide"
-description: "Upgrading your Tailwind CSS projects from v2 to v3."
+title: "Руководство по обновлению"
+description: "Обновление ваших проектов Tailwind CSS с v2 до v3."
 ---
 
-Tailwind CSS v3.0 is a major update to the framework with a brand new internal engine and as such includes a small number of breaking changes.
+Tailwind CSS v3.0 - это крупное обновление фреймворка с совершенно новым внутренним движком и, как таковое, включает небольшое количество критических изменений.
 
-We take stability very seriously and have worked hard to make any breaking changes as painless as possible. For most projects, upgrading to Tailwind CSS v3.0 should take less than 30 minutes.
+Мы очень серьезно относимся к стабильности и приложили все усилия, чтобы любые критические изменения были максимально безболезненными. Для большинства проектов обновление до Tailwind CSS v3.0 должно занять менее 30 минут.
 
-To learn more about what's new in Tailwind CSS v3.0, read the [Tailwind CSS v3.0 announcement](/blog/tailwindcss-v3) on our blog.
+Чтобы узнать больше о том, что нового в Tailwind CSS v3.0, прочтите [Анонс Tailwind CSS v3.0](/blog/tailwindcss-v3) в нашем блоге.
 
 ---
 
-## Upgrade packages
+## Обновление пакетов
 
-Update Tailwind, as well as PostCSS and autoprefixer, using npm:
+Обновите Tailwind, а также PostCSS и autoprefixer, используя npm:
 
 ```shell
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 ```
 
-Note that Tailwind CSS v3.0 requires PostCSS 8, and no longer supports PostCSS 7. If you can't upgrade to PostCSS 8, we recommend using [Tailwind CLI](/docs/installation) instead of installing Tailwind as a PostCSS plugin.
+Обратите внимание, что Tailwind CSS v3.0 требует PostCSS 8 и больше не поддерживает PostCSS 7. Если вы не можете выполнить обновление до PostCSS 8, мы рекомендуем использовать [Tailwind CLI](/docs/installation) вместо установки Tailwind в качестве плагина PostCSS.
 
-### Official plugins
+### Официальные плагины
 
-All of our first-party plugins have been updated for compatibility with v3.0.
+Все наши собственные плагины были обновлены для совместимости с v3.0.
 
-If you're using any of our plugins, make sure to update them all to the latest version at the same time to avoid version constraint errors.
+Если вы используете какой-либо из наших подключаемых модулей, не забудьте обновить их все до последней версии одновременно, чтобы избежать ошибок ограничения версии.
 
 ```html
 npm install -D tailwindcss@latest \
@@ -39,9 +39,9 @@ npm install -D tailwindcss@latest \
 
 ### Play CDN
 
-For Tailwind CSS v3.0, the CSS-based CDN build we've offered in the past has been replaced by the new [Play CDN](/docs/installation/play-cdn), which gives you the full power of the new engine right in the browser with no build step.
+Для Tailwind CSS v3.0 построенная нами ранее CDN на основе CSS была заменена новой [Play CDN](/docs/installation/play-cdn), которая дает вам полную мощность нового движок прямо в браузере без этапа сборки.
 
-To try it out, throw this `<script>` tag in your `<head>`:
+Чтобы попробовать, добавьте этот тег `<script>` в свой `<head>`:
 
 ```diff-html
   <!DOCTYPE html>
@@ -58,17 +58,17 @@ To try it out, throw this `<script>` tag in your `<head>`:
   </html>
 ```
 
-The Play CDN is designed for development purposes only — compiling your own static CSS build is a much better choice in production.
+Play CDN предназначен только для целей разработки - компиляция собственной статической сборки CSS - гораздо лучший выбор для продакшена.
 
 ---
 
-## Migrating to the JIT engine
+## Переход на JIT-движок
 
-The new [Just-in-Time engine](/blog/just-in-time-the-next-generation-of-tailwind-css) we announced in March has replaced the classic engine in Tailwind CSS v3.0.
+Новый [движок Just-in-Time](/blog/just-in-time-the-next-generation-of-tailwind-css), о котором мы объявили в марте, заменил классический движок в Tailwind CSS v3.0.
 
-The new engine generates the styles you need for your project on-demand, and might necessitate some small changes to your project depending on how you have Tailwind configured.
+Новый движок генерирует стили, необходимые для вашего проекта, по запросу, и может потребовать некоторых небольших изменений в вашем проекте в зависимости от того, как вы настроили Tailwind.
 
-If you were already opting in to `mode: 'jit'` in Tailwind CSS v2.x, you can safely remove that from your configuration in v3.0:
+Если вы уже выбрали `mode: 'jit'` в Tailwind CSS v2.x, вы можете безопасно удалить это из своей конфигурации в v3.0:
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -77,9 +77,9 @@ If you were already opting in to `mode: 'jit'` in Tailwind CSS v2.x, you can saf
   }
 ```
 
-### Configure content sources
+### Настроить источники контента
 
-Since Tailwind no longer uses PurgeCSS under the hood, we've renamed the `purge` option to `content` to better reflect what it's for:
+Поскольку Tailwind больше не использует PurgeCSS под капотом, мы переименовали параметр `purge` в `content`, чтобы лучше отразить его назначение:
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -96,13 +96,13 @@ Since Tailwind no longer uses PurgeCSS under the hood, we've renamed the `purge`
   }
 ```
 
-If you weren't already using the `purge` option in your project, it's crucial that you configure your template paths now or your compiled CSS will be empty.
+Если вы еще не использовали опцию `purge` в своем проекте, очень важно настроить пути к шаблонам сейчас, иначе ваш скомпилированный CSS будет пуст.
 
-Since we're not using PurgeCSS under the hood anymore, some of the advanced purge options have changed. See the new [content configuration](/docs/content-configuration) documentation for more information on advanced options.
+Поскольку мы больше не используем PurgeCSS под капотом, некоторые из расширенных параметров очистки были изменены. Дополнительную информацию о дополнительных параметрах смотрите в новой документации [конфигурации содержимого](/docs/content-configuration).
 
-### Remove dark mode configuration
+### Удалить конфигурацию темного режима
 
-The dark mode feature is now enabled using the `media` strategy by default, so you can remove this key entirely from your `tailwind.config.js` file, *unless* you're using the `class` strategy.
+Функция темного режима теперь включена с использованием стратегии `media` по умолчанию, поэтому вы можете полностью удалить этот ключ из файла `tailwind.config.js`, *если* вы не используете стратегию `class`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -111,7 +111,7 @@ The dark mode feature is now enabled using the `media` strategy by default, so y
   }
 ```
 
-You can also safely remove this key if it's currently set to `false`:
+Вы также можете безопасно удалить этот ключ, если он в настоящее время установлен на `false`:
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -120,9 +120,9 @@ You can also safely remove this key if it's currently set to `false`:
   }
 ```
 
-### Remove variant configuration
+### Удалить вариант конфигурации
 
-In Tailwind CSS v3.0, every variant is automatically available for every utility by default, so you can remove the `variants` section from your `tailwind.config.js` file:
+В Tailwind CSS v3.0 каждый вариант автоматически доступен для каждой утилиты по умолчанию, поэтому вы можете удалить раздел `variants` из файла `tailwind.config.js`:
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -135,11 +135,11 @@ In Tailwind CSS v3.0, every variant is automatically available for every utility
   }
 ```
 
-### Replace @variants with @layer
+### Замените @variants на @layer
 
-Since all variants are now enabled by default, you no longer need to explicity enable these for custom CSS using the `@variants` or `@responsive` directives.
+Поскольку все варианты теперь включены по умолчанию, вам больше не нужно явно включать их для настраиваемого CSS с помощью директив `@variants` или `@responsive`.
 
-Instead, add any custom CSS to appropriate "layer" using the `@layer` directive:
+Вместо этого добавьте любой собственный CSS к соответствующему «макету» с помощью директивы `@layer`:
 
 ```diff-css
 -  @variants hover, focus {
@@ -150,40 +150,40 @@ Instead, add any custom CSS to appropriate "layer" using the `@layer` directive:
    }
 ```
 
-Any custom CSS added to one of Tailwind's layers will automatically support variants.
+Любой пользовательский CSS, добавленный к одному из слоев Tailwind, автоматически поддерживает варианты.
 
-See the documentation on [adding custom styles using CSS and @layer](/docs/adding-custom-styles#using-css-and-layer) for more information.
+Смотрите документацию по [добавлению пользовательских стилей с помощью CSS и @layer](/docs/adding-custom-styles#using-css-and-layer) для получения дополнительной информации.
 
-### Automatic transforms and filters
+### Автоматические преобразования и фильтры
 
-In Tailwind CSS v3.0, transform and filter utilities like `scale-50` and `brightness-75` will automatically take effect without needing to add the `transform`, `filter`, or `backdrop-filter` classes:
+В Tailwind CSS v3.0 утилиты преобразования и фильтрации, такие как `scale-50` и `brightness-75`, вступят в силу автоматически без необходимости добавления классов `transform`, `filter` или `backdrop-filter`:
 
 ```diff-html
 - <div class="transform scale-50 filter grayscale backdrop-filter backdrop-blur-sm">
 + <div class="scale-50 grayscale backdrop-blur-sm">
 ```
 
-While there's no harm in leaving them in your HTML, they can safely be removed.
+Хотя оставить их в HTML-коде нет ничего страшного, их можно безопасно удалить.
 
 ---
 
-## Color palette changes
+## Изменения цветовой палитры
 
-Tailwind CSS v3.0 now includes every color from the extended color palette by default, including previously disabled colors like cyan, rose, fuchsia, and lime, and all five variations of gray.
+Tailwind CSS v3.0 теперь по умолчанию включает все цвета из расширенной цветовой палитры, включая ранее отключенные цвета, такие как голубой, розовый, фуксия и салатовый, а также все пять вариантов серого.
 
-### Removed color aliases
+### Удалены цветовые псевдонимы
 
-In v2.0, several of the default colors were actually aliases for the extended colors:
+В версии 2.0 несколько цветов по умолчанию были псевдонимами расширенных цветов:
 
-| v2 Default | v2 Extended |
+| v2 по умолчанию | v2 Расширенная |
 | --- | --- |
 | `green` | `emerald` |
 | `yellow` | `amber` |
 | `purple` | `violet` |
 
-In v3.0, these colors use their extended names by default, so what was previously `bg-green-500` is now `bg-emerald-500`, and `bg-green-500` now refers to the green from the extended palette.
+В версии 3.0 эти цвета используют свои расширенные имена по умолчанию, поэтому то, что раньше называлось `bg-green-500`, теперь называется `bg-emerald-500` и `bg-green-500` теперь относится к зеленому цвету из расширенная палитра.
 
-If you're using these colors in your project, the simplest way to upgrade is to alias them back to their previous names in your `tailwind.config.js` file:
+Если вы используете эти цвета в своем проекте, самый простой способ обновления - вернуть им их предыдущие имена в файле `tailwind.config.js`:
 
 ```diff-js tailwind.config.js
   const colors = require('tailwindcss/colors')
@@ -202,21 +202,21 @@ If you're using these colors in your project, the simplest way to upgrade is to 
   }
 ```
 
-If you are already using a custom color palette, this change doesn't impact you at all.
+Если вы уже используете индивидуальную цветовую палитру, это изменение на вас никак не повлияет.
 
-### Renamed gray scales
+### Переименованы серые шкалы
 
-As part of enabling all of the extended colors by default, we've given the different gray shades shorter single-word names to make them more practical to use and make it less awkward for them to co-exist at the same time.
+В рамках включения всех расширенных цветов по умолчанию мы дали различным оттенкам серого более короткие однословные имена, чтобы сделать их более практичными в использовании и сделать их одновременное сосуществование менее неудобным.
 
-| v2 Default | v2 Extended | v3 Unified |
+| v2 По умолчанию | v2 Расширенные | v3 Унифицированные |
 | --- | --- | --- |
-| N/A | `blueGray` | `slate` |
+| Нет данных | `blueGray` | `slate` |
 | `gray` | `coolGray` | `gray` |
-| N/A | `gray` | `zinc` |
-| N/A | `trueGray` | `neutral` |
-| N/A | `warmGray` | `stone` |
+| Нет данных | `gray` | `zinc` |
+| Нет данных | `trueGray` | `neutral` |
+| Нет данных | `warmGray` | `stone` |
 
-If you were referencing any of the extended grays, you should update your references to the new names, for example:
+Если вы ссылались на какой-либо из расширенных серых цветов, вам следует обновить свои ссылки на новые имена, например:
 
 ```diff-js tailwind.config.js
   const colors = require('tailwindcss/colors')
@@ -234,48 +234,48 @@ If you were referencing any of the extended grays, you should update your refere
   }
 ```
 
-If you weren't referencing any of the grays from the extended color palette, this change doesn't impact you at all.
+Если вы не ссылались ни на один из оттенков серого из расширенной цветовой палитры, это изменение не повлияет на вас вообще.
 
 
 ---
 
-## Class name changes
+## Изменения названия класса
 
-Some class names in Tailwind CSS v3.0 have changed to avoid naming collisions, improve the developer experience, or make it possible to support new features.
+Некоторые имена классов в Tailwind CSS v3.0 были изменены, чтобы избежать конфликтов имен, улучшить взаимодействие с разработчиками или сделать возможным поддержку новых функций.
 
-Wherever possible we have preserved the old name as well so many of these changes are non-breaking, but you're encouraged to update to the new class names.
+Везде, где это возможно, мы сохранили старое имя, поэтому многие из этих изменений не являются критическими, но вам рекомендуется обновить имена классов.
 
 ### overflow-clip/ellipsis
 
-Those damn browser developers added a real `overflow: clip` property, so using `overflow-clip` for `text-overflow: clip` is a really bad idea now.
+Эти проклятые разработчики браузеров добавили реальное свойство `overflow: clip`, поэтому использование `overflow-clip` для `text-overflow: clip` сейчас действительно плохая идея.
 
-We've renamed `overflow-clip` to `text-clip`, and renamed `overflow-ellipsis` to `text-ellipsis` to avoid the naming collision:
+Мы переименовали `overflow-clip` в `text-clip` и переименовали `overflow-ellipsis` в `text-ellipsis`, чтобы избежать коллизии имен:
 
 ```diff-html
 - <div class="overflow-clip overflow-ellipsis">
 + <div class="text-clip text-ellipsis">
 ```
 
-This is extremely unlikely to affect anyone, as there are very few use-cases for `text-clip` and it's only really included for the sake of completion.
+Крайне маловероятно, что это кого-то коснется, так как существует очень мало вариантов использования для `text-clip`, и он действительно включен только для завершения.
 
 ### flex-grow/shrink
 
-We've added `grow-*` and `shrink-*` as aliases for `flex-grow-*` and `flex-shrink-*`:
+Мы добавили `grow-*` и `shrink-*` как псевдонимы для `flex-grow-*` и `flex-shrink-*`:
 
 ```diff-html
 - <div class="flex-grow-0 flex-shrink">
 + <div class="grow-0 shrink">
 ```
 
-The old class names will always work but you're encouraged to update to the new ones.
+Старые имена классов всегда будут работать, но вам рекомендуется обновить их до новых.
 
 ### outline-black/white
 
-Since browsers are finally starting to respect border radius when rendering outlines, we've added separate utilities for the `outline-style`, `outline-color`, `outline-width` and `outline-offset` properties.
+Поскольку браузеры, наконец, начинают учитывать радиус границы при рендеринге контуров, мы добавили отдельные утилиты для свойств `outline-style`, `outline-color`, `outline-width` и `outline-offset`.
 
-This means that `outline-white` and `outline-black` now only set the outline _color_, whereas in v2 they set the color, width, style, and offset.
+Это означает, что `outline-white` и `outline-black` теперь устанавливают только контур _цвета_, тогда как в v2 они устанавливают цвет, ширину, стиль и смещение.
 
-If you are using `outline-white` or `outline-black` in your project, you can bring back the old styles by adding the following custom CSS to your project:
+Если вы используете в своем проекте `outline-white` или `outline-black`, вы можете вернуть старые стили, добавив в свой проект следующий настраиваемый CSS:
 
 ```css
 @layer utilities {
@@ -291,7 +291,7 @@ If you are using `outline-white` or `outline-black` in your project, you can bri
 }
 ```
 
-Alternatively, you can update any usage of them in your CSS with the following classes:
+Кроме того, вы можете обновить любое их использование в своем CSS с помощью следующих классов:
 
 ```diff-html
 - <div class="outline-black">
@@ -304,7 +304,7 @@ Alternatively, you can update any usage of them in your CSS with the following c
 
 ### decoration-clone/slice
 
-We've added `box-decoration-clone` and `box-decoration-slice` as aliases for `decoration-clone` and `decoration-slice` to avoid confusion with all of the new `text-decoration` utilities that use the `decoration-` namespace:
+Мы добавили `box-decoration-clone` и `box-decoration-slice` в качестве псевдонимов для `decoration-clone` и `decoration-slice`, чтобы избежать путаницы со всеми новыми утилитами `text-decoration`, которые используют пространство имен `decoration-`:
 
 ```diff-html
 - <div class="decoration-clone"></div>
@@ -314,19 +314,19 @@ We've added `box-decoration-clone` and `box-decoration-slice` as aliases for `de
 + <div class="box-decoration-slice"></div>
 ```
 
-The old class names will always work but you're encouraged to update to the new ones.
+Старые имена классов всегда будут работать, но вам рекомендуется обновить их до новых.
 
 ---
 
-## Other minor changes
+## Прочие мелкие изменения
 
-Tailwind CSS v3.0 necessitates a couple of other small breaking changes that are unlikely to affect many people, but have been captured here.
+Tailwind CSS v3.0 требует нескольких других небольших критических изменений, которые вряд ли коснутся многих людей, но были здесь зафиксированы.
 
-### Separator cannot be a dash
+### Разделитель не может быть тире
 
-The dash (`-`) character cannot be used as a custom separator in v3.0 because of a parsing ambiguity it introduces in the engine.
+Символ тире (`-`) не может использоваться в качестве настраиваемого разделителя в версии 3.0 из-за неоднозначности синтаксического анализа, которую он вносит в движок.
 
-You'll have to switch to another character like `_` instead:
+Вместо этого вам придется переключиться на другой символ, например `_`:
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -337,9 +337,9 @@ You'll have to switch to another character like `_` instead:
 ```
 
 
-### Prefix cannot be a function
+### Префикс не может быть функцией
 
-Prior to Tailwind CSS v3.0, it was possible to define your class prefix as a function:
+До Tailwind CSS v3.0 можно было определить префикс класса как функцию:
 
 ```js tailwind.config.js
 module.exports = {
@@ -350,9 +350,9 @@ module.exports = {
 }
 ```
 
-This isn't possible in the new engine and we've had to remove support for this feature.
+Это невозможно в новом движке, и нам пришлось удалить поддержку этой функции.
 
-Instead, use a static prefix that is the same for every class Tailwind generates:
+Вместо этого используйте статический префикс, который одинаков для каждого класса, который генерирует Tailwind:
 
 ```js tailwind.config.js
 module.exports = {
@@ -362,22 +362,22 @@ module.exports = {
 ```
 
 
-### File modifier order reversed
+### Обратный порядок модификаторов файлов
 
-Super minor change since v3.0.0-alpha.2 where the `file` modifier was introduced — if you were combining it with other modifiers like `hover` or `focus`, you'll need to flip the modifier order:
+Незначительное изменение с версии v3.0.0-alpha.2, где был введен модификатор `file` - если вы комбинируете его с другими модификаторами, такими как `hover` или `focus`, вам нужно будет изменить порядок модификаторов:
 
 ```diff-html
 - <input class="file:hover:bg-blue-600 ...">
 + <input class="hover:file:bg-blue-600 ...">
 ```
 
-Learn more in the [ordering stacked modifiers](/docs/hover-focus-and-other-states#ordering-stacked-modifiers) documentation.
+Дополнительные сведения смотрите в документации [упорядочивание модификаторов в стеке](/docs/hover-focus-and-other-states#ordering-stacked-modifiers).
 
-### Base layer must be present
+### Базовый слой должен присутствовать
 
-In Tailwind CSS v3.0, the `@tailwind base` directive must be present for utilities like transforms, filters, and shadows to work as expected.
+В Tailwind CSS v3.0 директива `@tailwind base` должна присутствовать для того, чтобы такие утилиты, как преобразования, фильтры и тени, работали должным образом.
 
-If you were previously disabling Tailwind's base styles by not including this directive, you should add it back and disable `preflight` in your `corePlugins` configuration instead:
+Если вы ранее отключили базовые стили Tailwind, не включив эту директиву, вам следует добавить их обратно и вместо этого отключить `preflight` в конфигурации `corePlugins`:
 
 ```diff-css main.css
 +  @tailwind base;
@@ -394,11 +394,11 @@ If you were previously disabling Tailwind's base styles by not including this di
   }
 ```
 
-This will disable Tailwind's global base styles without affecting utilities that rely on adding their own base styles to function correctly.
+Это отключит глобальные базовые стили Tailwind, не затрагивая утилиты, которые для правильной работы полагаются на добавление собственных базовых стилей.
 
-### Screens layer has been renamed
+### Был переименован слой Screens
 
-The `@tailwind screens` layer has been renamed to `@tailwind variants`:
+Слой `@tailwind screens` был переименован в `@tailwind variants`:
 
 ```diff-css main.css
    /* ... */
@@ -406,4 +406,4 @@ The `@tailwind screens` layer has been renamed to `@tailwind variants`:
 +  @tailwind variants;
 ```
 
-I think you are more likely to be attacked by a shark while working at your desk than you are to be affected by this change.
+Я думаю, что вы с большей вероятностью подвергнетесь нападению акулы во время работы за своим столом, чем это изменение повлияет на вас.
