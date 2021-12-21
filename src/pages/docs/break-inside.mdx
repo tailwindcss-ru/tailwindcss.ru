@@ -1,6 +1,6 @@
 ---
-title: "Break Inside"
-description: "Utilities for controlling how a column or page should break within an element."
+title: "Разрыв внутри"
+description: "Утилиты для управления разрывом столбца или страницы внутри элемента."
 ---
 
 import utilities from 'utilities?plugin=breakInside'
@@ -11,16 +11,16 @@ export const classes = { utilities }
 
 ## Основы использования
 
-### Setting the break-inside behavior
+### Настройка поведения прерывания внутри
 
-Use the `break-inside-{value}` utilities to control how a column or page break should behave within an element. For example, use the `break-inside-avoid-column` utility to avoid a column break within an element.
+Используйте утилиты `break-inside-{value}` для управления поведением столбца или разрыва страницы внутри элемента. Например, используйте служебную программу `break-inside-avoid-column`, чтобы избежать разрыва столбца внутри элемента.
 
 ```html
 <div class="columns-2">
   <p>Что ж, позволь мне кое-что тебе сказать, ...</p>
-  <p class="**break-inside-avoid-column**">Sure, go ahead, laugh...</p>
-  <p>Maybe we can live without...</p>
-  <p>Look. If you think this is...</p>
+  <p class="**break-inside-avoid-column**">Конечно, смейтесь...</p>
+  <p>Может быть, мы сможем жить без...</p>
+  <p>Смотреть. Если вы думаете, что это...</p>
 </div>
 ```
 
