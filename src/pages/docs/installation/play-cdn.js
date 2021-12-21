@@ -32,7 +32,7 @@ let steps = [
     },
   },
   {
-    title: 'Try customizing your config',
+    title: 'Попробуйте настроить свою конфигурацию',
     body: () => (
       <p>
         Отредактируйте объект <code>tailwind.config</code>, чтобы{' '}

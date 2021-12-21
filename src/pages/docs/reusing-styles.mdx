@@ -1,21 +1,22 @@
 ---
-title: Reusing Styles
-description: Managing duplication and creating reusable abstractions.
+title: Повторное использование стилей
+shotTitile: Переиспользование стилей
+description: Управление дублированием и создание многоразовых абстракций.
 ---
 
 import { TipGood, TipBad, TipInfo } from '@/components/Tip'
 import { MultiCursorDemo } from '@/components/MultiCursorDemo'
 
-Tailwind encourages a [utility-first](/docs/utility-first) workflow, where designs are implemented using only low-level utility classes. This is a powerful way to avoid premature abstraction and the pain points that come with it.
+Tailwind поощряет рабочий процесс [сначала утилиты](/docs/utility-first), когда проекты реализуются с использованием только низкоуровневых служебных классов. Это мощный способ избежать преждевременной абстракции и связанных с ней болевых точек.
 
-But of course as a project grows, you'll inevitably find yourself repeating common utility combinations to recreate the same design in many different places.
+Но, конечно, по мере роста проекта вы неизбежно будете повторять стандартные комбинации утилит для воссоздания одного и того же дизайна во многих разных местах.
 
-For example, in the template below you can see the utility classes for each avatar image are repeated six separate times:
+Например, в шаблоне ниже вы можете увидеть, что служебные классы для каждого изображения аватара повторяются шесть отдельных раз:
 
 <Example p="none">
   <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
     <div class="flex text-base items-center space-x-2">
-      <h4 class="text-base font-semibold text-gray-900">Contributors</h4>
+      <h4 class="text-base font-semibold text-gray-900">Контрибьюторы</h4>
       <span class="text-xs rounded-full px-2 py-1 bg-gray-100 font-semibold text-gray-700">204</span>
     </div>
     <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -26,7 +27,7 @@ For example, in the template below you can see the utility classes for each avat
       <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
     </div>
     <div class="mt-3 text-sm font-medium">
-      <a href="#" class="text-blue-500">+ 198 others</a>
+      <a href="#" class="text-blue-500">+ 198 других</a>
     </div>
   </div>
 </Example>
@@ -34,7 +35,7 @@ For example, in the template below you can see the utility classes for each avat
 ```html
 <div>
   <div class="flex items-center space-x-2 text-base">
-    <h4 class="font-semibold text-gray-900">Contributors</h4>
+    <h4 class="font-semibold text-gray-900">Контрибьюторы</h4>
     <span class="rounded-full bg-gray-100 px-2 py-1 text-xs font-semibold text-gray-700">204</span>
   </div>
   <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -45,41 +46,41 @@ For example, in the template below you can see the utility classes for each avat
     <img class="**inline-block h-12 w-12 rounded-full ring-2 ring-white**" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
   </div>
   <div class="mt-3 text-sm font-medium">
-    <a href="#" class="text-blue-500">+ 198 others</a>
+    <a href="#" class="text-blue-500">+ 198 других</a>
   </div>
 </div>
 ```
 
-Don't panic! In this guide, you'll learn about different strategies for reusing styles in your project, as well as best practices for when to employ each one.
+Не паникуйте! В этом руководстве вы узнаете о различных стратегиях повторного использования стилей в вашем проекте, а также о лучших практиках, когда использовать каждый из них.
 
 ---
 
-## Using editor and language features
+## Использование редактора и языковых функций
 
-A lot of the time duplication like this isn't even a real problem because it's all together in one place, or doesn't even actually exist because you're iterating over an array of items and only writing the markup once.
+Такое дублирование в большинстве случаев даже не является реальной проблемой, потому что оно все собрано в одном месте, или даже не существует на самом деле, потому что вы выполняете итерацию по массиву элементов и пишете разметку только один раз.
 
-If the styles you need to reuse only need to be reused within a single file, multi-cursor editing and loops are the simplest way to manage any duplication.
+Если стили, которые вам нужно повторно использовать, нужно повторно использовать только в одном файле, редактирование с несколькими курсорами и циклы - самый простой способ справиться с любым дублированием.
 
-### Multi-cursor editing
+### Редактирование с несколькими курсорами
 
-When duplication is localized to a group of elements in a single file, the easiest way to deal with it to use [multi-cursor editing](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor) to quickly select and edit the class list for each element at once:
+Когда дублирование локализовано для группы элементов в одном файле, самый простой способ справиться с этим - использовать [редактирование с несколькими курсорами](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor) для быстрого выбора и редактирования списка классов для каждого элемента сразу:
 
 <MultiCursorDemo />
 
-You'd be surprised at how often this ends up being the best solution. If you can quickly edit all of the duplicated class lists simultaneously, there's no benefit to introducing any additional abstraction.
+Вы будете удивлены, узнав, как часто это оказывается лучшим решением. Если вы можете быстро редактировать все дублированные списки классов одновременно, нет никакой пользы от введения какой-либо дополнительной абстракции.
 
-### Loops
+### Циклы
 
-Before you assume you're going to need to extract a component or create a custom class for something, make sure you're _actually_ using it more than once in your template.
+Прежде чем вы предположите, что вам нужно будет извлечь компонент или создать собственный класс для чего-либо, убедитесь, что вы _фактически_ используете его более одного раза в своем шаблоне.
 
-A lot of the time a design element that shows up more than once in the rendered page is only actually authored once because the actual markup is rendered in a loop.
+Часто элемент дизайна, который появляется более одного раза на отображаемой странице, фактически создается только один раз, потому что фактическая разметка отображается в цикле.
 
-For example, the duplicate avatars at the beginning of this guide would almost certainly be rendered in a loop in a real project:
+Например, дубликаты аватаров в начале этого руководства почти наверняка будут отрисованы в цикле в реальном проекте:
 
 <Example p="none">
   <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
     <div class="flex text-base items-center space-x-2">
-      <h4 class="text-base font-semibold text-gray-900">Contributors</h4>
+      <h4 class="text-base font-semibold text-gray-900">Контрибьюторы</h4>
       <span class="text-xs rounded-full px-2 py-1 bg-gray-100 font-semibold text-gray-700">204</span>
     </div>
     <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -90,7 +91,7 @@ For example, the duplicate avatars at the beginning of this guide would almost c
       <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
     </div>
     <div class="mt-3 text-sm font-medium">
-      <a href="#" class="text-blue-500">+ 198 others</a>
+      <a href="#" class="text-blue-500">+ 198 других</a>
     </div>
   </div>
 </Example>
@@ -98,7 +99,7 @@ For example, the duplicate avatars at the beginning of this guide would almost c
 ```html
 <div>
   <div class="flex items-center space-x-2 text-base">
-    <h4 class="font-semibold text-gray-900">Contributors</h4>
+    <h4 class="font-semibold text-gray-900">Контрибьюторы</h4>
     <span class="rounded-full bg-gray-100 px-2 py-1 text-xs font-semibold text-gray-700">204</span>
   </div>
   <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -107,12 +108,12 @@ For example, the duplicate avatars at the beginning of this guide would almost c
 **    {/each}**
   </div>
   <div class="mt-3 text-sm font-medium">
-    <a href="#" class="text-blue-500">+ 198 others</a>
+    <a href="#" class="text-blue-500">+ 198 других</a>
   </div>
 </div>
 ```
 
-You could even rewrite the navigation example using a loop or `map` if you preferred as well:
+Вы можете даже переписать пример навигации, используя `loop` или `map`, если хотите:
 
 <Example p="none">
   <div class="sm:px-8 flex sm:justify-center">
@@ -140,25 +141,25 @@ You could even rewrite the navigation example using a loop or `map` if you prefe
 </nav>
 ```
 
-When elements are rendered in a loop like this, the actual class list is only written once so there's no actual duplication problem to solve.
+Когда элементы отображаются в цикле, подобном этому, фактический список классов записывается только один раз, поэтому проблема дублирования отсутствует.
 
 ---
 
-## Extracting components and partials
+## Извлечение компонентов и партиалов
 
-If you need to reuse some styles across multiple files, the best strategy is to create a _component_ if you're using a front-end framework like React, Svelte, or Vue, or a _template partial_ if you're using a templating language like Blade, ERB, Twig, or Nunjucks.
+Если вам нужно повторно использовать некоторые стили в нескольких файлах, лучшая стратегия - создать _компонент_, если вы используете интерфейсную структуру, такую как React, Svelte или Vue, или _частичный шаблон_, если вы используете язык шаблонов, например Blade, ERB, Twig или Nunjucks.
 
 <Example p="none">
   <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
     <div>
-      <img class="rounded" src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&q=80" width="512" height="341" alt="Beach" />
+      <img class="rounded" src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&q=80" width="512" height="341" alt="Пляж" />
       <div class="mt-2">
         <div>
-          <div class="text-xs text-gray-600 uppercase font-bold tracking-wider">Private Villa</div>
+          <div class="text-xs text-gray-600 uppercase font-bold tracking-wider">Частная вилла</div>
           <div class="font-bold text-gray-700 leading-snug">
-            <a href="#" class="hover:underline">Relaxing All-Inclusive Resort in Cancun</a>
+            <a href="#" class="hover:underline">Расслабляющий курорт "все включено" в Канкуне</a>
           </div>
-          <div class="mt-2 text-sm text-gray-600">$299 USD per night</div>
+          <div class="mt-2 text-sm text-gray-600">$299 долларов за ночь</div>
         </div>
       </div>
     </div>
@@ -188,13 +189,13 @@ If you need to reuse some styles across multiple files, the best strategy is to 
 </script>
 ```
 
-Now you can use this component in as many places as you like, while still having a single source of truth for the styles so they can easily be updated together in one place.
+Теперь вы можете использовать этот компонент в любом количестве мест, сохраняя при этом единый источник достоверной информации о стилях, чтобы их можно было легко обновлять вместе в одном месте.
 
-### Compared to CSS abstractions
+### По сравнению с абстракциями CSS
 
-Unless a component is a single HTML element, the information needed to define it can't be captured in CSS alone. For anything even remotely complex, the HTML structure is just as important as the CSS.
+Если компонент не является одним элементом HTML, информация, необходимая для его определения, не может быть записана только в CSS. Для всего, даже отдаленно сложного, структура HTML так же важна, как и CSS.
 
-<TipBad>Don't rely on CSS classes to extract complex components</TipBad>
+<TipBad>Не полагайтесь на классы CSS для извлечения сложных компонентов</TipBad>
 
 <Example p="none">
   <div class="px-6 py-12">
@@ -204,21 +205,21 @@ Unless a component is a single HTML element, the information needed to define it
       </div>
       <div>
         <div class="text-base sm:text-xl font-medium text-black">ChitChat</div>
-        <p class="text-sm sm:text-base text-gray-500">You have a new message!</p>
+        <p class="text-sm sm:text-base text-gray-500">У вас есть новое сообщение!</p>
       </div>
     </div>
   </div>
 </Example>
 
 ```html
-<!-- Even with custom CSS, you still need to duplicate this HTML structure -->
+<!-- Даже с настраиваемым CSS вам все равно нужно дублировать эту HTML-структуру -->
 <div class="chat-notification">
   <div class="chat-notification-logo-wrapper">
     <img class="chat-notification-logo" src="/img/logo.svg" alt="ChitChat Logo">
   </div>
   <div class="chat-notification-content">
     <h4 class="chat-notification-title">ChitChat</h4>
-    <p class="chat-notification-message">You have a new message!</p>
+    <p class="chat-notification-message">У вас есть новое сообщение!</p>
   </div>
 </div>
 
@@ -232,11 +233,11 @@ Unless a component is a single HTML element, the information needed to define it
 </style>
 ```
 
-Even if you create classes for the different elements in a component like this, _you still have to duplicate the HTML every time you want to use this component_. Sure you can update the font-size for every instance in a single place, but what if you need to turn the title into a link?
+Даже если вы создаете классы для различных элементов в таком компоненте, _вам все равно придется дублировать HTML каждый раз, когда вы хотите использовать этот компонент_. Конечно, вы можете обновить размер шрифта для каждого экземпляра в одном месте, но что, если вам нужно превратить заголовок в ссылку?
 
-Components and template partials solve this problem much better than CSS-only abstractions because a component can encapsulate the HTML _and_ the styles. Changing the font-size for every instance is just as easy as it is with CSS, but now you can turn all of the titles into links in a single place too.
+Компоненты и части шаблона решают эту проблему намного лучше, чем абстракции только с помощью CSS, потому что компонент может инкапсулировать HTML _и_ стили. Изменить размер шрифта для каждого экземпляра так же просто, как и с помощью CSS, но теперь вы также можете превратить все заголовки в ссылки в одном месте.
 
-<TipGood>Create a template partial or JavaScript component</TipGood>
+<TipGood>Создайте частичный шаблон или компонент JavaScript</TipGood>
 
 <Example p="none">
   <div class="px-6 py-12">
@@ -246,7 +247,7 @@ Components and template partials solve this problem much better than CSS-only ab
       </div>
       <div>
         <div class="text-base sm:text-xl font-medium text-black">ChitChat</div>
-        <p class="text-sm sm:text-base text-gray-500">You have a new message!</p>
+        <p class="text-sm sm:text-base text-gray-500">У вас есть новое сообщение!</p>
       </div>
     </div>
   </div>
@@ -268,35 +269,35 @@ function Notification({ imageUrl, imageAlt, title, message }) {
 }
 ```
 
-When you create components and template partials like this, there's no reason to use anything other than utility classes because you already have a single source of truth for the styles.
+Когда вы создаете компоненты и части шаблона, подобные этому, нет причин использовать что-либо, кроме служебных классов, потому что у вас уже есть единственный источник истинности для стилей.
 
 ---
 
-## Extracting classes with @apply
+## Извлечение классов с помощью @apply
 
-If you're using a traditional templating language like ERB or Twig, creating a template partial for something as small as a button can feel like overkill compared to a simple CSS class like `btn`.
+Если вы используете традиционный язык шаблонов, такой как ERB или Twig, создание партиала шаблона для чего-то такого маленького, как кнопка, может показаться излишним по сравнению с простым классом CSS, таким как `btn`.
 
-While it's highly recommended that you create proper template partials for more complex components, you can use Tailwind's `@apply` directive to extract repeated utility patterns to custom CSS classes when a template partial feels heavy-handed.
+Хотя настоятельно рекомендуется создавать правильные части шаблона для более сложных компонентов, вы можете использовать директиву Tailwind `@apply` для извлечения повторяющихся служебных шаблонов в пользовательские классы CSS, когда часть шаблона кажется неуклюжей.
 
-Here's what a `btn-primary` class might look like using `@apply` to compose it from existing utilities:
+Вот как может выглядеть класс `btn-primary` при использовании `@apply` для его составления из существующих утилит:
 
 <Example>
   <div class="text-center">
     <button type="button" class="py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
-      Save changes
+      Сохранить изменения
     </button>
   </div>
 </Example>
 
 ```html HTML
-<!-- Before extracting a custom class -->
+<!-- Перед извлечением настраиваемого класса -->
 <button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-  Save changes
+  Сохранить изменения
 </button>
 
-<!-- After extracting a custom class -->
+<!-- После извлечения настраиваемого класса -->
 <button class="**btn-primary**">
-  Save changes
+  Сохранить изменения
 </button>
 ```
 
@@ -314,18 +315,18 @@ Here's what a `btn-primary` class might look like using `@apply` to compose it f
 }
 ```
 
-Learn more about `@apply` and `@layer` in the [Functions & Directives](/docs/functions-and-directives#layer) documentation.
+Узнайте больше о `@apply` и `@layer` в документации [Функции и директивы](/docs/functions-and-directives#layer).
 
 
-### Avoiding premature abstraction
+### Как избежать преждевременного абстрагирования
 
-Whatever you do, **don't use <code className="font-semibold text-gray-900">@apply</code> just to make things look "cleaner"**. Yes, HTML templates littered with Tailwind classes are kind of ugly. Making changes in a project that has tons of custom CSS is worse.
+Что бы вы ни делали, **не используйте <code className="font-semibold text-gray-900">@apply</code> только для того, чтобы все выглядело «чище»**. Да, HTML-шаблоны, заваленные классами Tailwind, некрасивы. Вносить изменения в проект, в котором много кастомных CSS, хуже.
 
-If you start using `@apply` for everything, you are basically just writing CSS again and throwing away all of the workflow and maintainability advantages Tailwind gives you, for example:
+Если вы начнете использовать `@apply` для всего, вы просто снова напишете CSS и отбросите все преимущества рабочего процесса и удобства обслуживания, которые дает Tailwind, например:
 
-- **You have to think up class names all the time** — nothing will slow you down or drain your energy like coming up with a class name for something that doesn't deserve to be named.
-- **You have to jump between multiple files to make changes** — which is a way bigger workflow killer than you'd think before co-locating everything together.
-- **Changing styles is scarier** — CSS is global, are you _sure_ you can change the min-width value in that class without breaking something in another part of the site?
-- **Your CSS bundle will be bigger** — oof.
+- **Вы должны постоянно придумывать названия классов** — ничто не замедлит вас и не истощит вашу энергию, как придумывание имени класса для чего-то, что не заслуживает названия.
+- **Вам нужно переключаться между несколькими файлами, чтобы вносить изменения** — это намного больше убивает рабочий процесс, чем вы могли подумать, прежде чем собирать все вместе.
+- **Смена стилей страшнее** — CSS глобален, _уверены_ ли вы, что можете изменить значение минимальной ширины в этом классе, не нарушая чего-либо в другой части сайта?
+- **Ваш пакет CSS будет больше** — уф.
 
-If you're going to use `@apply`, use it for very small, highly reusable things like buttons and form controls — and even then only if you're not using a framework like React where a component would be a better choice.
+Если вы собираетесь использовать `@apply`, используйте его для очень маленьких, многоразовых вещей, таких как кнопки и элементы управления формы - и даже тогда, только если вы не используете фреймворк, такой как React, где компонент был бы лучшим выбором.

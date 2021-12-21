@@ -1,16 +1,16 @@
 ---
-title: Customizing Screens
-shortTitle: Screens
-description: Customizing the default breakpoints for your project.
+title: Настройка экранов
+shortTitle: Экраны
+description: Настройка контрольных точек по умолчанию для вашего проекта.
 ---
 
 import { Heading } from '@/components/Heading'
 
-## <Heading hidden>Configuring custom screens</Heading>
+## <Heading hidden>Настройка пользовательских экранов</Heading>
 
-You define your project's breakpoints in the `theme.screens` section of your `tailwind.config.js` file. The keys become your [responsive modifiers](/docs/responsive-design) (like `md:text-center`), and the values are the `min-width` where that breakpoint should start.
+Вы определяете контрольные точки вашего проекта в разделе `theme.screens` вашего файла `tailwind.config.js`. Ключи становятся вашими [адаптивными модификаторами](/docs/responsive-design) (например, `md:text-center`), а значения - это `min-width`, с которой должна начинаться контрольная точка.
 
-The default breakpoints are inspired by common device resolutions:
+Контрольные точки по умолчанию основаны на общих разрешениях устройств:
 
 ```js tailwind.config.js
 module.exports = {
@@ -35,11 +35,11 @@ module.exports = {
 }
 ```
 
-Feel free to have as few or as many screens as you want, naming them in whatever way you'd prefer for your project.
+Не стесняйтесь иметь столько экранов, сколько хотите, называя их так, как вы предпочитаете для своего проекта.
 
-### Overriding the defaults
+### Отмена настроек по умолчанию
 
-To completely replace the default breakpoints, add your custom `screens` configuration directly under the `theme` key:
+Чтобы полностью заменить точки останова по умолчанию, добавьте свою настраиваемую конфигурацию `screens` непосредственно под ключом `theme`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -58,11 +58,11 @@ module.exports = {
 }
 ```
 
-Any default screens you haven't overridden (such as `xl` using the above example) will be removed and will not be available as screen modifiers.
+Все экраны по умолчанию, которые вы не переопределили (например, `xl` в приведенном выше примере), будут удалены и не будут доступны в качестве модификаторов экрана.
 
-### Overriding a single screen
+### Переопределение одного экрана
 
-To override a single screen size (like `lg`), add your custom `screens` value under the `theme.extend` key:
+Чтобы переопределить один размер экрана (например, `lg`), добавьте ваше собственное значение `screens` под ключом `theme.extend`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -77,11 +77,11 @@ module.exports = {
 }
 ```
 
-This will replace the default `screens` value with the same name, without changing the order of your breakpoints.
+Это заменит значение по умолчанию `screens` с тем же именем, без изменения порядка ваших контрольных точек.
 
-### Adding larger breakpoints
+### Добавление больших контрольных точек
 
-The easiest way to add an additional larger breakpoint is using the `extend` key:
+Самый простой способ добавить дополнительную контрольную точку большего размера - использовать ключ `extend`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -97,13 +97,13 @@ module.exports = {
 }
 ```
 
-This will add your custom screen to the end of the default breakpoint list.
+Это добавит ваш настраиваемый экран в конец списка контрольных точек по умолчанию.
 
-### Adding smaller breakpoints
+### Добавление меньших контрольных точек
 
-If you want to add an additional small breakpoint, you can't use `extend` because the small breakpoint would be added to the end of the breakpoint list, and breakpoints need to be sorted from smallest to largest in order to work as expected with a min-width breakpoint system.
+Если вы хотите добавить дополнительную небольшую контрольную точку, вы не можете использовать `extend` , потому что маленькая контрольная точка будет добавлена в конец списка контрольных точек, а контрольные точки должны быть отсортированы от наименьшего к наибольшему, чтобы работать должным образом с система контрольных точек минимальной ширины.
 
-Instead, override the entire `screens` key, re-specifying the default breakpoints:
+Вместо этого переопределите ключ `screens`, повторно указав контрольные точки по умолчанию:
 
 ```js tailwind.config.js
 const defaultTheme = require('tailwindcss/defaultTheme')
@@ -120,11 +120,11 @@ module.exports = {
 }
 ```
 
-We expose the default theme at `tailwindcss/defaultTheme` so you don't have to maintain the list of default breakpoints yourself.
+Мы предоставляем тему по умолчанию в `tailwindcss/defaultTheme`, поэтому вам не нужно самостоятельно поддерживать список контрольных точек по умолчанию.
 
-### Using custom screen names
+### Использование пользовательских экранных имен
 
-You can name your custom screens whatever you like, and are not limited to following the `sm`/`md`/`lg`/`xl`/`2xl`  convention that Tailwind uses by default.
+Вы можете называть свои пользовательские экраны как хотите, и не ограничиваться соглашением `sm`/`md`/`lg`/`xl`/`2xl`, которое Tailwind использует по умолчанию.
 
 ```js tailwind.config.js
 module.exports = {
@@ -143,7 +143,7 @@ module.exports = {
 }
 ```
 
-Your responsive modifiers will reflect these custom screen names, so using them in your HTML would now look like this:
+Ваши адаптивные модификаторы будут отражать эти пользовательские имена экрана, поэтому их использование в HTML теперь будет выглядеть следующим образом:
 
 ```html
 <div class="grid grid-cols-1 **tablet**:grid-cols-2 **laptop**:grid-cols-3 **desktop**:grid-cols-4">
@@ -153,13 +153,13 @@ Your responsive modifiers will reflect these custom screen names, so using them 
 
 ---
 
-## Advanced configuration
+## Расширенная конфигурация
 
-By default, breakpoints are min-width to encourage a [mobile-first](/docs/responsive-design#mobile-first) workflow. If you need more control over your media queries, you can also define them using an object syntax that lets you specify explicit min-width and max-width values.
+По умолчанию контрольные точки имеют минимальную ширину, чтобы стимулировать рабочий процесс [mobile-first](/docs/responsive-design#mobile-first). Если вам нужен больший контроль над вашими медиа-запросами, вы также можете определить их, используя синтаксис объекта, который позволяет вам явно указывать значения min-width и max-width.
 
-### Max-width breakpoints
+### Контрольные точки максимальной ширины
 
-If you want to work with max-width breakpoints instead of min-width, you can specify your screens as objects with a `max` key:
+Если вы хотите работать с контрольными точками максимальной ширины вместо минимальной ширины, вы можете указать свои экраны как объекты с помощью ключа `max`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -184,11 +184,11 @@ module.exports = {
 }
 ```
 
-Make sure to list max-width breakpoints in descending order so that they override each other as expected.
+Обязательно укажите контрольные точки максимальной ширины в порядке убывания, чтобы они переопределяли друг друга, как и ожидалось.
 
-### Fixed-range breakpoints
+### Контрольные точки с фиксированным диапазоном
 
-If you want your breakpoints to specify both a `min-width` and a `max-width`, use the `min` and `max` keys together:
+Если вы хотите, чтобы в ваших контрольных точках указывались как `min-width`, так и `max-width`, используйте вместе клчюи `min` и `max`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -213,20 +213,20 @@ module.exports = {
 }
 ```
 
-Unlike regular min-width or max-width breakpoints, breakpoints defined this way will only take effect when the viewport size is explicitly within the defined range.
+В отличие от обычных контрольных точек минимальной или максимальной ширины, контрольные точки, определенные таким образом, вступят в силу только тогда, когда размер области просмотра явно находится в пределах определенного диапазона.
 
 ```html
 <div class="md:text-center">
-  This text will be centered on medium screens, but revert back
-  to the default (left-aligned) at all other screen sizes.
+  Этот текст будет центрирован на средних экранах, но вернется к значениям 
+  по умолчанию (выравнивание по левому краю) для всех других размеров экрана.
 </div>
 ```
 
-### Multi-range breakpoints
+### Контрольные точки с несколькими диапазонами
 
-Sometimes it can be useful to have a single breakpoint definition apply in multiple ranges.
+Иногда может быть полезно применить одно определение контрольной точки в нескольких диапазонах.
 
-For example, say you have a sidebar and want your breakpoints to be based on the content-area width rather than the entire viewport. You can simulate this by having one of your breakpoints fall back to a smaller breakpoint when the sidebar becomes visible and shrinks the content area:
+Например, предположим, что у вас есть боковая панель и вы хотите, чтобы контрольные точки основывались на ширине области содержимого, а не на всем окне просмотра. Вы можете смоделировать это, переключив одну из ваших контрольных точек на меньшую контрольную точку, когда боковая панель станет видимой и сузит область содержимого:
 
 ```js tailwind.config.js
 module.exports = {
@@ -247,9 +247,9 @@ module.exports = {
 }
 ```
 
-### Custom media queries
+### Пользовательские медиа-запросы
 
-If you want full control over the generated media query, use the `raw` key:
+Если вам нужен полный контроль над сгенерированным медиа-запросом, используйте ключ `raw`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -264,4 +264,4 @@ module.exports = {
 }
 ```
 
-Media queries defined using the `raw` key will be output as-is, and the `min` and `max` keys will be ignored.
+Медиа-запросы, определенные с помощью ключа `raw`, будут выводиться как есть, а ключи `min` и `max` будут проигнорированы.

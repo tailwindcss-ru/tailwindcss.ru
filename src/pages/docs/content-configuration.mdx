@@ -1,14 +1,14 @@
 ---
-title: Content Configuration
-shortTitle: Content
-description: Configuring the content sources for your project.
+title: Конфигурация содержимого
+shortTitle: Контент
+description: Настройка источников контента для вашего проекта.
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 import { SnippetGroup } from '@/components/SnippetGroup'
 import { ThemeReference } from '@/components/ThemeReference'
 
-The `content` section of your `tailwind.config.js` file is where you configure the paths to all of your HTML templates, JavaScript components, and any other source files that contain Tailwind class names.
+В разделе `content` вашего файла `tailwind.config.js` вы настраиваете пути ко всем вашим HTML-шаблонам, компонентам JavaScript и любым другим исходным файлам, которые содержат имена классов Tailwind.
 
 ```js tailwind.config.js
 module.exports = {
@@ -20,17 +20,17 @@ module.exports = {
 }
 ```
 
-This guide covers everything you need to know to make sure Tailwind generates all of the CSS needed for your project.
+Это руководство охватывает все, что вам нужно знать, чтобы убедиться, что Tailwind генерирует весь CSS, необходимый для вашего проекта.
 
 ---
 
-## Configuring source paths
+## Настройка исходных путей
 
-Tailwind CSS works by scanning all of your HTML, JavaScript components, and any other template files for class names, then generating all of the corresponding CSS for those styles.
+Tailwind CSS работает, сканируя все ваши компоненты HTML, JavaScript и любые другие файлы шаблонов на предмет имен классов, а затем генерируя все соответствующие CSS для этих стилей.
 
-In order for Tailwind to generate all of the CSS you need, it needs to know about every single file in your project that contains any Tailwind class names.
+Чтобы Tailwind мог сгенерировать весь необходимый вам CSS, он должен знать о каждом отдельном файле в вашем проекте, который содержит любые имена классов Tailwind.
 
-Configure the paths to all of your content files in the `content` section of your configuration file:
+Сконфигурируйте пути ко всем вашим файлам содержимого в разделе `content` вашего файла конфигурации:
 
 ```js tailwind.config.js
 module.exports = {
@@ -42,21 +42,21 @@ module.exports = {
 }
 ```
 
-Paths are configured as [glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)), making it easy to match all of the content files in your project without a ton of configuration:
+Пути настроены как [glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)), что упрощает сопоставление всех файлов содержимого в вашем проекте без тонкой настройки:
 
-- Use `*` to match anything except slashes and hidden files
-- Use `**` to match zero or more directories
-- Use comma separate values between `{}` to match against a list of options
+- Используйте `*` для соответствия чему угодно, кроме косой черты и скрытых файлов
+- Используйте `**`, чтобы сопоставить ноль или более каталогов
+- Используйте разделенные запятыми значения между `{}` для сопоставления со списком параметров
 
-Tailwind uses the [fast-glob](https://github.com/mrmlnc/fast-glob) library under-the-hood — check out their documentation other supported pattern features.
+Tailwind использует внутреннюю библиотеку [fast-glob](https://github.com/mrmlnc/fast-glob) - ознакомьтесь с их документацией и другими поддерживаемыми функциями шаблонов.
 
-### Pattern recommendations
+### Рекомендации по шаблону
 
-For the best performance and to avoid false positives, be as specific as possible with your content configuration.
+Для наилучшей производительности и во избежание ложных срабатываний будьте как можно более конкретными в конфигурации вашего контента.
 
-If you use a really broad pattern like this one, Tailwind will even scan `node_modules` for content which is probably not what you want:
+Если вы используете действительно широкий шаблон, подобный этому, Tailwind даже просканирует `node_modules` на предмет содержимого, которое, вероятно, не то, что вам нужно:
 
-<TipBad>Don't use extremely broad patterns</TipBad>
+<TipBad>Не используйте слишком широкие шаблоны</TipBad>
 
 ```js tailwind.config.js
 module.exports = {
@@ -67,9 +67,9 @@ module.exports = {
 }
 ```
 
-If you have any files you need to scan that are at the root of your project (often an `index.html` file), list that file independently so your other patterns can be more specific:
+Если у вас есть какие-либо файлы, которые вам нужно просканировать, которые находятся в корне вашего проекта (часто это файл `index.html`), перечислите этот файл отдельно, чтобы другие ваши шаблоны могли быть более конкретными:
 
-<TipGood>Be specific with your content patterns</TipGood>
+<TipGood>Будьте конкретны с вашими шаблонами контента</TipGood>
 
 ```js tailwind.config.js
 module.exports = {
@@ -82,9 +82,9 @@ module.exports = {
 }
 ```
 
-Some frameworks hide their main HTML entry point in a different place than the rest of your templates (often `public/index.html`), so if you are adding Tailwind classes to that file make sure it's included in your configuration as well:
+Некоторые фреймворки скрывают свою основную точку входа HTML в другом месте, чем остальные ваши шаблоны (часто `public/index.html`), поэтому, если вы добавляете классы Tailwind в этот файл, убедитесь, что он также включен в вашу конфигурацию:
 
-<TipGood>Don't forget your HTML entry point if applicable</TipGood>
+<TipGood>Не забудьте свою точку входа HTML, если применимо</TipGood>
 
 ```js tailwind.config.js
   module.exports = {
@@ -96,7 +96,7 @@ Some frameworks hide their main HTML entry point in a different place than the r
   }
 ```
 
-If you have any JavaScript files that manipulate your HTML to add classes, make sure you include those as well:
+Если у вас есть какие-либо файлы JavaScript, которые манипулируют вашим HTML для добавления классов, убедитесь, что вы также включили их:
 
 ```js tailwind.config.js
 module.exports = {
@@ -118,9 +118,9 @@ menuButton.addEventListener('click', function () {
 // ...
 ```
 
-It's also important that you don't scan any CSS files — configure Tailwind to scan your _templates_ where your class names are being used, never the CSS file that Tailwind is generating.
+Также важно, чтобы вы не сканировали никакие файлы CSS - настройте Tailwind для сканирования ваших _шаблонах_, где используются имена ваших классов, а не файла CSS, который генерирует Tailwind.
 
-<TipBad>Never include CSS files in your content configuration</TipBad>
+<TipBad>Никогда не включайте файлы CSS в конфигурацию вашего контента</TipBad>
 
 ```js tailwind.config.js
 module.exports = {
@@ -131,11 +131,11 @@ module.exports = {
 }
 ```
 
-### Class detection in-depth
+### Детальное определение класса
 
-The way Tailwind scans your source code for classes is intentionally very simple — we don't actually parse or execute any of your code in the language it's written in, we just use regular expressions to extract every string that could possibly be a class name.
+Способ, которым Tailwind сканирует ваш исходный код на предмет классов, намеренно очень прост - на самом деле мы не анализируем и не выполняем какой-либо ваш код на языке, на котором он написан, мы просто используем регулярные выражения для извлечения каждой строки, которая может быть именем класса.
 
-For example, here's some HTML with every potential class name string individually highlighted:
+Например, вот некоторый HTML-код, в котором каждая строка потенциального имени класса отдельно выделена:
 
 ```html
 <**div** **class**="**md:flex**">
@@ -157,7 +157,7 @@ For example, here's some HTML with every potential class name string individuall
 </**div**>
 ```
 
-We don't just limit our search to `class="..."` attributes because you could be using classes anywhere, like in some JavaScript for toggling a menu:
+Мы не ограничиваем наш поиск только атрибутами `class="..."`, потому что вы можете использовать классы где угодно, например, в некотором JavaScript для переключения меню:
 
 ```html spaghetti.js
 <script>
@@ -169,7 +169,7 @@ We don't just limit our search to `class="..."` attributes because you could be 
 </script>
 ```
 
-By using this very simple approach, Tailwind works extremely reliably with any programming language, like JSX for example:
+Используя этот очень простой подход, Tailwind чрезвычайно надежно работает с любым языком программирования, например, с JSX:
 
 ```jsx Button.jsx
 const sizes = {
@@ -194,32 +194,31 @@ export default function Button({ color, size, children }) {
 }
 ```
 
-The most important implication of how Tailwind extracts class names is that it will only find classes that exist _as complete unbroken strings_ in your source files.
+Наиболее важным следствием того, как Tailwind извлекает имена классов, является то, что он найдет только те классы, которые существуют _в виде полных непрерывных строк_ в ваших исходных файлах.
 
-If you use string interpolation or concatenate partial class names together, Tailwind will not find them and therefore will not generate the corresponding CSS:
+Если вы используете строковую интерполяцию или объедините имена частичных классов вместе, Tailwind не найдет их и, следовательно, не сгенерирует соответствующий CSS:
 
-<TipBad>Don't construct class names dynamically</TipBad>
+<TipBad>Не создавайте имена классов динамически</TipBad>
 
 ```html
 <div class="text-{{ error ? 'red' : 'green' }}-600"></div>
 ```
 
-In the example above, the strings `text-red-600` and `text-green-600` do not exist, so Tailwind will not generate those classes.
+В приведенном выше примере строки `text-red-600` и `text-green-600` не существуют, поэтому Tailwind не будет генерировать эти классы.
 
-Instead, make sure any class names you're using exist in full:
+Вместо этого убедитесь, что все имена классов, которые вы используете, существуют полностью:
 
-<TipGood>Always use complete class names</TipGood>
+<TipGood>Всегда используйте полные имена классов</TipGood>
 
 ```html
 <div class="{{ error ? 'text-red-600' : 'text-green-600' }}"></div>
 ```
 
-As long as you always use complete class names in your code, Tailwind will generate all of your CSS perfectly every time.
+Пока вы всегда используете полные имена классов в своем коде, Tailwind каждый раз будет идеально генерировать весь ваш CSS.
 
+### Работа со сторонними библиотеками
 
-### Working with third-party libraries
-
-If you're working with any third-party libraries (for example [Select2](https://select2.org/)) and styling that library with your own custom CSS, we recommend writing those styles _without_ using Tailwind's `@layer` feature:
+Если вы работаете с любыми сторонними библиотеками (например, [Select2](https://select2.org/)) и стилизуете эту библиотеку своим собственным CSS, мы рекомендуем писать эти стили _без_ использования Tailwind `@layer`:
 
 ```css main.css
 @tailwind base;
@@ -239,9 +238,9 @@ If you're working with any third-party libraries (for example [Select2](https://
 @tailwind utilities;
 ```
 
-This will ensure that Tailwind _always_ includes those styles in your CSS, which is a lot easier than configuring Tailwind to scan the source code of a third-party library.
+Это гарантирует, что Tailwind _всегда_ включает эти стили в ваш CSS, что намного проще, чем настроить Tailwind для сканирования исходного кода сторонней библиотеки.
 
-If you've created your own reusable set of components that are styled with Tailwind and are importing them in multiple projects, make sure to configure Tailwind to scan those components for class names:
+Если вы создали свой собственный многоразовый набор компонентов, стилизованных под Tailwind, и импортируете их в несколько проектов, обязательно сконфигурируйте Tailwind для сканирования этих компонентов на предмет имен классов:
 
 ```js tailwind.config.js
   module.exports = {
@@ -254,11 +253,11 @@ If you've created your own reusable set of components that are styled with Tailw
   }
 ```
 
-This will make sure Tailwind generates all of the CSS needed for those components as well.
+Это гарантирует, что Tailwind также сгенерирует весь CSS, необходимый для этих компонентов.
 
-### Configuring raw content
+### Настройка необработанного контента
 
-If for whatever reason you need to configure Tailwind to scan some raw content rather than the contents of a file, use an object with a `raw` key instead of a path:
+Если по какой-либо причине вам нужно настроить Tailwind на сканирование необработанного содержимого, а не содержимого файла, используйте объект с ключом `raw` вместо пути:
 
 ```js tailwind.config.js
 module.exports = {
@@ -271,17 +270,17 @@ module.exports = {
 }
 ```
 
-There aren't many valid use-cases for this — [safelisting](#safelisting-classes) is usually what you really want instead.
+Для этого не так много подходящих вариантов использования - обычно вы действительно хотите использовать [список надежных отправителей](#safelisting-classes).
 
 ---
 
-## Safelisting classes
+## Классы безопасных списков
 
-For the smallest file size and best development experience, we highly recommend relying on your `content` configuration to tell Tailwind which classes to generate as much as possible.
+Для наименьшего размера файла и наилучшего опыта разработки мы настоятельно рекомендуем полагаться на вашу конфигурацию `content`, чтобы сообщить Tailwind, какие классы генерировать как можно больше.
 
-Safelisting is a last-resort, and should only be used in situations where it's impossible to scan certain content for class names. These situations are rare, and you should almost never need this feature.
+Список надежных отправителей - это последнее средство, и его следует использовать только в тех случаях, когда невозможно сканировать определенный контент на предмет имен классов. Такие ситуации редки, и вам почти никогда не понадобится эта функция.
 
-If you need to make sure Tailwind generates certain class names that don't exist in your content files, use the `safelist` option:
+Если вам нужно убедиться, что Tailwind генерирует определенные имена классов, которых нет в ваших файлах содержимого, используйте опцию `safelist`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -298,11 +297,11 @@ module.exports = {
 }
 ```
 
-One example of where this can be useful is if your site displays user-generated content and you want users to be able to use a constrained set of Tailwind classes in their content that might not exist in your own site's source files.
+Одним из примеров того, где это может быть полезно, является то, что ваш сайт отображает контент, созданный пользователями, и вы хотите, чтобы пользователи могли использовать ограниченный набор классов Tailwind в своем контенте, который может не существовать в исходных файлах вашего собственного сайта.
 
-### Using regular expressions
+### Использование регулярных выражений
 
-Tailwind supports pattern-based safelisting for situations where you need to safelist a lot of classes:
+Tailwind поддерживает списки надежных отправителей на основе шаблонов для ситуаций, когда вам нужно добавить в список надежных отправителей большое количество классов:
 
 ```js tailwind.config.js
 module.exports = {
@@ -321,9 +320,9 @@ module.exports = {
 }
 ```
 
-Patterns can only match against base utility names like `/bg-red-.+/`, and won't match if the pattern includes a variant modifier like `/hover:bg-red-.+/`.
+Шаблоны могут совпадать только с базовыми именами утилит, такими как `/bg-red-.+/`, и не будут совпадать, если шаблон включает модификатор варианта, такой как `/hover:bg-red-.+/`.
 
-If you want to force Tailwind to generate variants for any matched classes, include them using the `variants` option:
+Если вы хотите заставить Tailwind генерировать варианты для любых совпадающих классов, включите их, используя опцию `variants`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -345,11 +344,11 @@ module.exports = {
 
 ---
 
-## Transforming source files
+## Преобразование исходных файлов
 
-If you're authoring content in a format that _compiles_ to HTML (like Markdown), it often makes sense to compile that content to HTML _before_ scanning it for class names.
+Если вы создаете контент в формате, который _компилируется_ в HTML (например, Markdown), часто имеет смысл скомпилировать этот контент в HTML _перед_ сканированием его на предмет имен классов.
 
-Use the `content.transform` option to transform any content matching a specific file extension before extracting classes:
+Используйте опцию `content.transform` для преобразования любого контента, соответствующего определенному расширению файла, перед извлечением классов:
 
 ```js tailwind.config.js
 const remark = require('remark')
@@ -367,13 +366,13 @@ module.exports = {
 }
 ```
 
-When using `content.transform`, you'll need to provide your source paths using `content.files` instead of as a top-level array under `content`.
+При использовании `content.transform`, вам необходимо указать исходные пути, используя `content.files` вместо массива верхнего уровня в разделе `content`.
 
 ---
 
-## Customizing extraction logic
+## Настройка логики извлечения
 
-Use the `extract` option to override the logic Tailwind uses to detect class names for specific file extensions:
+Используйте опцию `extract`, чтобы переопределить логику, которую Tailwind использует для определения имен классов для определенных расширений файлов:
 
 ```js tailwind.config.js
 module.exports = {
@@ -389,19 +388,19 @@ module.exports = {
 }
 ```
 
-This is an advanced feature and most users won't need it — the default extraction logic in Tailwind works extremely well for almost all projects.
+Это расширенная функция, и большинству пользователей она не понадобится - логика извлечения по умолчанию в Tailwind работает очень хорошо почти для всех проектов.
 
-As with transforming, when using `content.extract`, you'll need to provide your source paths using `content.files` instead of as a top-level array under `content`.
+Как и при преобразовании, при использовании `content.extract`, вам необходимо указать исходные пути, используя `content.files` вместо массива верхнего уровня в разделе `content`.
 
 ---
 
-## Troubleshooting
+## Устранение неполадок
 
-### Classes aren't generated
+### Классы не генерируются
 
-If Tailwind isn't generating classes, make sure your `content` configuration is correct and matches all of the right source files.
+Если Tailwind не генерирует классы, убедитесь, что ваша конфигурация `content` верна и соответствует всем правильным исходным файлам.
 
-A common mistake is missing a file extension, for example if you're using `jsx` instead of `js` for your React components:
+Распространенной ошибкой является отсутствие расширения файла, например, если вы используете `jsx` вместо `js` для ваших компонентов React:
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -413,7 +412,7 @@ A common mistake is missing a file extension, for example if you're using `jsx` 
   }
 ```
 
-Or creating a new folder mid-project that wasn't covered originally and forgetting to add it to your configuration:
+Или создать новую папку в середине проекта, которая изначально не была охвачена, и забыть добавить ее в свою конфигурацию:
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -426,48 +425,48 @@ Or creating a new folder mid-project that wasn't covered originally and forgetti
   }
 ```
 
-### Dynamic class names
+### Имена динамических классов
 
-As outlined in [Class detection in-depth](#class-detection-in-depth), Tailwind doesn't actually run your source code and won't detect dynamically constructed class names.
+Как указано в [Подробное определение класса](#class-detection-in-depth), Tailwind на самом деле не запускает ваш исходный код и не обнаруживает динамически создаваемые имена классов.
 
-<TipBad>Don't construct class names dynamically</TipBad>
+<TipBad>Не создавайте имена классов динамически</TipBad>
 
 ```html
 <div class="text-{{ error ? 'red' : 'green' }}-600"></div>
 ```
 
-Make sure you always use complete class names in your code:
+Убедитесь, что вы всегда используете полные имена классов в своем коде:
 
-<TipGood>Always use complete class names</TipGood>
+<TipGood>Всегда используйте полные имена классов</TipGood>
 
 ```html
 <div class="{{ error ? 'text-red-600' : 'text-green-600' }}"></div>
 ```
 
-### Styles rebuild in an infinite loop
+### Стили перестраиваются в бесконечном цикле
 
-If your CSS seems to be rebuilding in an infinite loop, there's a good chance it's because your build tool doesn't support the `glob` option when [registering PostCSS dependencies](https://github.com/postcss/postcss/blob/main/docs/guidelines/runner.md#31-rebuild-when-dependencies-change).
+Если кажется, что ваш CSS перестраивается в бесконечном цикле, есть большая вероятность, что ваш инструмент сборки не поддерживает параметр `glob` при [регистрации зависимостей PostCSS](https://github.com/postcss/postcss/blob/main/docs/guidelines/runner.md#31-rebuild-when-dependencies-change).
 
-Many build tools (such as webpack) don't support this option, and as a result we can only tell them to watch specific files or _entire directories_. We can't tell webpack to _only_ watch `*.html` files in a directory for example.
+Многие инструменты сборки (например, webpack) не поддерживают эту опцию, и в результате мы можем сказать им только смотреть определенные файлы или _все каталоги_. Например, мы не можем указать webpack _только_ смотреть файлы `*.html` в каталоге.
 
-That means that if building your CSS causes _any_ files in those directories to change, a rebuild will be triggered, even if the changed file doesn't match the extension in your glob.
+Это означает, что если создание вашего CSS приводит к изменению _любых_ файлов в этих каталогах, будет запущена перестройка, даже если измененный файл не соответствует расширению в вашем glob.
 
 ```js tailwind.config.js
 module.exports = {
   content: [
-    // With some build tools, your CSS will rebuild
-    // any time *any* file in `src` changes.
+    // С некоторыми инструментами сборки ваш CSS будет перестраиваться 
+    // каждый раз, когда *любой* файл в `src` изменяется.
     './src/**/*.{html,js}',
   ],
   // ...
 }
 ```
 
-So if you are watching `src/**/*.html` for changes, but you are writing your CSS output file to `src/css/styles.css`, you will get an infinite rebuild loop using some tools.
+Итак, если вы следите за изменениями в `src/**/*.html`, но записываете выходной файл CSS в `src/css/styles.css`, вы получите бесконечный цикл перестройки с использованием некоторых инструментов.
 
-Ideally we could warn you about this in the console, but many tools support it perfectly fine (including our own CLI tool), and we have no reliable way to detect what build tool you are using.
+В идеале мы могли бы предупредить вас об этом в консоли, но многие инструменты прекрасно это поддерживают (включая наш собственный инструмент CLI), и у нас нет надежного способа определить, какой инструмент сборки вы используете.
 
-To solve this problem, use more specific paths in your `content` config, making sure to only include directories that won't change when your CSS builds:
+Чтобы решить эту проблему, используйте более конкретные пути в вашей конфигурации `content`, не забудьте включить только те каталоги, которые не изменятся при сборке CSS:
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -482,17 +481,17 @@ To solve this problem, use more specific paths in your `content` config, making 
   }
 ```
 
-If necessary, adjust your actual project directory structure to make sure you can target your template files without accidentally catching your CSS file or other build artifacts like manifest files.
+При необходимости отрегулируйте фактическую структуру каталогов проекта, чтобы убедиться, что вы можете настроить таргетинг на файлы шаблонов, не перехватывая случайно файл CSS или другие артефакты сборки, такие как файлы манифеста.
 
-If you absolutely can't change your content config or directory structure, your best bet is to compile your CSS separately with a tool that has complete glob support. We recommend using [Tailwind CLI](/docs/installation), which is a fast, simple, purpose-built tool for compiling your CSS with Tailwind.
+Если вы абсолютно не можете изменить конфигурацию содержимого или структуру каталогов, лучше всего скомпилировать CSS отдельно с помощью инструмента, который имеет полную поддержку glob. Мы рекомендуем использовать [Tailwind CLI](/docs/installation), который представляет собой быстрый, простой, специально созданный инструмент для компиляции вашего CSS с помощью Tailwind.
 
-### It just isn't working properly
+### Это просто не работает должным образом
 
-If you are experiencing weird, hard to describe issues with the output, or things just don't seem like they are working at all, there's a good chance it's due to your build tool not supporting PostCSS dependency messages properly _(or at all)_. One known example of this currently is [Stencil](https://github.com/ionic-team/stencil-postcss/issues/38).
+Если у вас возникли странные, трудно описываемые проблемы с выходными данными или что-то просто не кажется, что они вообще работают, есть большая вероятность, что это связано с тем, что ваш инструмент сборки не поддерживает сообщения о зависимостях PostCSS должным образом _(или вообще)_. Одним из известных примеров этого в настоящее время является [Stencil](https://github.com/ionic-team/stencil-postcss/issues/38).
 
-When you are having these sorts of issues, we recommend using [Tailwind CLI](/docs/installation) to compile your CSS separately instead of trying to integrate Tailwind into your existing tooling.
+Когда у вас возникают такие проблемы, мы рекомендуем использовать [Tailwind CLI](/docs/installation) для отдельной компиляции CSS вместо того, чтобы пытаться интегрировать Tailwind в существующие инструменты.
 
-You can use packages like `npm-run-all` or `concurrently` to compile your CSS alongside your usual development command by adding some scripts to your project like this:
+Вы можете использовать такие пакеты, как `npm-run-all` или `concurrently`, чтобы скомпилировать ваш CSS вместе с вашей обычной командой разработки, добавив несколько скриптов в ваш проект, например:
 
 ```js
 // package.json
@@ -506,5 +505,4 @@ You can use packages like `npm-run-all` or `concurrently` to compile your CSS al
   },
 }
 ```
-
-Either way, please be sure to [check for an existing issue](https://github.com/tailwindlabs/tailwindcss/issues) or [open a new one](https://github.com/tailwindlabs/tailwindcss/issues/new/choose) so we can figure out the problem and try to improve compatibility with whatever tool you are using.
+В любом случае обязательно [проверьте наличие существующей проблемы way, please be sure to [check for an existing issue](https://github.com/tailwindlabs/tailwindcss/issues) или [откройте новую](https://github.com/tailwindlabs/tailwindcss/issues/new/choose), чтобы мы могли выяснить проблему и попытаться улучшить совместимость с любым инструментом, который вы используете.

@@ -1,19 +1,20 @@
 ---
-title: Adding Custom Styles
-description: Best practices for adding your own custom styles to Tailwind.
+title: Добавление пользовательских стилей
+shotTitile: Кастомные стили
+description: Рекомендации по добавлению собственных стилей в Tailwind.
 ---
 
 import { TipGood, TipBad, TipCompat, TipInfo } from '@/components/Tip'
 
-Often the biggest challenge when working with a framework is figuring out what you're supposed to do when there's something you need that the framework doesn't handle for you.
+Часто самая большая проблема при работе с фреймворком - это выяснить, что вы должны делать, когда вам нужно что-то, что фреймворк не обрабатывает за вас.
 
-Tailwind has been designed from the ground up to be extensible and customizable, so that no matter what you're building you never feel like you're fighting the framework.
+Tailwind изначально разрабатывался как расширяемый и настраиваемый, поэтому независимо от того, что вы создаете, вы никогда не почувствуете, что боретесь с фреймворком.
 
-This guide covers topics like customizing your design tokens, how to break out of those constraints when necessary, adding your own custom CSS, and extending the framework with plugins.
+В этом руководстве рассматриваются такие темы, как настройка токенов дизайна, способы выхода из этих ограничений при необходимости, добавление собственного CSS и расширение фреймворка с помощью плагинов.
 
-## Customizing your theme
+## Настройка вашей темы
 
-If you want to change things like your color palette, spacing scale, typography scale, or breakpoints, add your customizations to the `theme` section of your `tailwind.config.js` file:
+Если вы хотите изменить такие вещи, как цветовую палитру, шкалу интервалов, масштаб типографики или точки останова, добавьте свои настройки в раздел `theme` файла `tailwind.config.js`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -50,15 +51,15 @@ module.exports = {
 }
 ```
 
-Learn more about customizing your theme in the [Theme Configuration](/docs/theme) documentation.
+Дополнительные сведения о настройке темы см. В документации [Конфигурация темы](/docs/theme).
 
 ---
 
-## Using arbitrary values
+## Использование произвольных значений
 
-While you can usually build the bulk of a well-crafted design using a constrained set of design tokens, once in a while you need to break out of those constraints to get things pixel-perfect.
+Хотя обычно вы можете построить основную часть хорошо продуманного дизайна, используя ограниченный набор токенов дизайна, время от времени вам нужно вырваться из этих ограничений, чтобы добиться идеального пикселя.
 
-When you find yourself really needing something like `top: 117px` to get a background image in just the right spot, use Tailwind's square bracket notation to generate a class on the fly with any arbitrary value:
+Когда вам действительно нужно что-то вроде `top: 117px`, чтобы получить фоновое изображение именно в нужном месте, используйте квадратную скобку Tailwind, чтобы сгенерировать класс на лету с любым произвольным значением:
 
 ```html
 <div class="top-[117px]">
@@ -66,7 +67,7 @@ When you find yourself really needing something like `top: 117px` to get a backg
 </div>
 ```
 
-This is basically like inline styles, with the major benefit that you can combine it with interactive modifiers like `hover` and responsive modifiers like `lg`:
+Это в основном похоже на встроенные стили, с основным преимуществом, которое вы можете комбинировать с интерактивными модификаторами, такими как `hover`, и адаптивными модификаторами, такими как `lg`:
 
 ```html
 <div class="top-[117px] lg:top-[344px]">
@@ -74,7 +75,7 @@ This is basically like inline styles, with the major benefit that you can combin
 </div>
 ```
 
-This works for everything in the framework, including things like background colors, font sizes, pseudo-element content, and more:
+Это работает для всего в фреймворке, включая такие вещи, как цвета фона, размеры шрифтов, содержимое псевдоэлементов и многое другое:
 
 ```html
 <div class="bg-[#bada55] text-[22px] before:content-['Festivus']">
@@ -82,9 +83,9 @@ This works for everything in the framework, including things like background col
 </div>
 ```
 
-### Arbitrary properties
+### Произвольные свойства
 
-If you ever need to use a CSS property that Tailwind doesn't include a utility for out of the box, you can also use square bracket notation to write completely arbitrary CSS:
+Если вам когда-нибудь понадобится использовать свойство CSS, для которого Tailwind не входит в стандартную утилиту, вы также можете использовать обозначение квадратных скобок для написания полностью произвольного CSS:
 
 ```html
 <div class="[mask-type:luminance]">
@@ -92,7 +93,7 @@ If you ever need to use a CSS property that Tailwind doesn't include a utility f
 </div>
 ```
 
-This is _really_ like inline styles, but again with the benefit that you can use modifiers:
+Это _действительно_ похоже на встроенные стили, но опять же с тем преимуществом, что вы можете использовать модификаторы:
 
 ```html
 <div class="[mask-type:luminance] hover:[mask-type:alpha]">
@@ -100,7 +101,7 @@ This is _really_ like inline styles, but again with the benefit that you can use
 </div>
 ```
 
-This can be useful for things like CSS variables as well, especially when they need to change under different conditions:
+Это может быть полезно и для таких вещей, как переменные CSS, особенно когда их нужно изменить в разных условиях:
 
 ```html
 <div class="[--scroll-offset:56px] lg:[--scroll-offset:44px]">
@@ -108,9 +109,9 @@ This can be useful for things like CSS variables as well, especially when they n
 </div>
 ```
 
-### Handling whitespace
+### Обработка пробелов
 
-When an arbitrary value needs to contain a space, use an underscore (`_`) instead and Tailwind will automatically convert it to a space at build-time:
+Когда произвольное значение должно содержать пробел, используйте вместо него символ подчеркивания (`_`), и Tailwind автоматически преобразует его в пробел во время сборки:
 
 ```html
 <div class="grid **grid-cols-[1fr_500px_2fr]**">
@@ -118,7 +119,7 @@ When an arbitrary value needs to contain a space, use an underscore (`_`) instea
 </div>
 ```
 
-In situations where underscores are common but spaces are invalid, Tailwind will preserve the underscore instead of converting it to a space, for example in URLs:
+В ситуациях, когда подчеркивание является обычным явлением, но пробелы недопустимы, Tailwind сохранит подчеркивание вместо преобразования его в пробел, например, в URL-адресах:
 
 ```html
 <div class="bg-[url('/what_a_rush.png')]">
@@ -126,7 +127,7 @@ In situations where underscores are common but spaces are invalid, Tailwind will
 </div>
 ```
 
-In the rare case that you actually need to use an underscore but it's ambiguous because a space is valid as well, escape the underscore with a backslash and Tailwind won't convert it to a space:
+В редком случае, когда вам действительно нужно использовать подчеркивание, но это неоднозначно, потому что пробел также действителен, избегайте подчеркивания с помощью обратной косой черты, и Tailwind не преобразует его в пробел:
 
 ```html
 <div class="before:content-['hello\_world']">
@@ -134,41 +135,41 @@ In the rare case that you actually need to use an underscore but it's ambiguous 
 </div>
 ```
 
-### Resolving ambiguities
+### Разрешение двусмысленностей
 
-Many utilities in Tailwind share a common namespace but map to different CSS properties. For example `text-lg` and `text-black` both share the `text-` namespace, but one is for `font-size` and the other is for `color`.
+Многие утилиты в Tailwind имеют общее пространство имен, но соответствуют различным свойствам CSS. Например, `text-lg` и `text-black` имеют общее пространство имен `text-`, но одно для `font-size`, а другое для `color`.
 
-When using arbitrary values, Tailwind can generally handle this ambiguity automatically based on the value you pass in:
+При использовании произвольных значений Tailwind обычно может автоматически обрабатывать эту неоднозначность в зависимости от значения, которое вы передаете:
 
 ```html
-<!-- Will generate a font-size utility -->
+<!-- Сгенерирует утилиту размера шрифта -->
 <div class="text-[22px]">...</div>
 
-<!-- Will generate a color utility -->
+<!-- Сгенерирует цветовую утилиту -->
 <div class="text-[#bada55]">...</div>
 ```
 
-Sometimes it really is ambiguous though, for example when using CSS variables:
+Иногда это действительно неоднозначно, например, при использовании переменных CSS:
 
 ```html
 <div class="text-[var(--my-var)]">...</div>
 ```
 
-In these situations, you can "hint" the underlying type to Tailwind by adding a [CSS data type](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types) before the value:
+В этих ситуациях вы можете «намекнуть» на базовый тип Tailwind, добавив перед значением [тип данных CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types):
 
 ```html
-<!-- Will generate a font-size utility -->
+<!-- Сгенерирует утилиту размера шрифта -->
 <div class="text-[length:var(--my-var)]">...</div>
 
-<!-- Will generate a color utility -->
+<!-- Сгенерирует цветовую утилиту -->
 <div class="text-[color:var(--my-var)]">...</div>
 ```
 
 ---
 
-## Using CSS and @layer
+## Использование CSS и @layer
 
-When you need to add truly custom CSS rules to a Tailwind project, the easiest approach is to just add the custom CSS to your stylesheet:
+Когда вам нужно добавить действительно настраиваемые правила CSS в проект Tailwind, самый простой подход - просто добавить настраиваемый CSS в свою таблицу стилей:
 
 ```css main.css
 @tailwind base;
@@ -180,7 +181,7 @@ When you need to add truly custom CSS rules to a Tailwind project, the easiest a
 }
 ```
 
-For more power, you can also use the `@layer` directive to add styles to Tailwind's `base`, `components`, and `utilities` layers:
+Для большей мощности вы также можете использовать директиву `@layer` для добавления стилей к слоям Tailwind `base`, `components`, и `utilities`:
 
 ```css main.css
 @tailwind base;
@@ -196,9 +197,9 @@ For more power, you can also use the `@layer` directive to add styles to Tailwin
 
 
 <details className="-mt-0 mb-6 rounded-xl border px-6 py-3 prose open:pb-5">
-  <summary className="font-medium cursor-default select-none text-gray-900">Why does Tailwind group styles into "layers"?</summary>
+  <summary className="font-medium cursor-default select-none text-gray-900">Почему Tailwind группирует стили в "layers"?</summary>
 
-In CSS, the order of the rules in your stylesheet decides which declaration wins when two selectors have the same specificity:
+В CSS порядок правил в вашей таблице стилей определяет, какое объявление будет лучше, если два селектора имеют одинаковую специфичность:
 
 ```css
 .btn {
@@ -211,28 +212,28 @@ In CSS, the order of the rules in your stylesheet decides which declaration wins
 }
 ```
 
-Here, both buttons will be black since `.bg-black` comes after `.btn` in the CSS:
+Здесь обе кнопки будут черными, поскольку `.bg-black` стоит после `.btn` в CSS:
 
 ```html
 <button class="btn bg-black">...</button>
 <button class="bg-black btn">...</button>
 ```
 
-To manage this, Tailwind organizes the styles it generates into three different "layers" — a concept popularized by [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/#what-is-itcss).
+Чтобы справиться с этим, Tailwind объединяет генерируемые стили в три разных "layers" — концепция, популяризированная [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/#what-is-itcss).
 
-- The `base` layer is for things like reset rules or default styles applied to plain HTML elements.
-- The `components` layer is for class-based styles that you want to be able to override with utilities.
-- The `utilities` layer is for small, single-purpose classes that should always take precedence over any other styles.
+- `base` слой предназначен для таких вещей, как правила сброса или стили по умолчанию, применяемые к простым элементам HTML.
+- `components` слой предназначен для стилей на основе классов, которые вы хотите переопределить с помощью утилит.
+- `utilities` слой предназначен для небольших одноцелевых классов, которые всегда должны иметь приоритет над любыми другими стилями.
 
-Being explicit about this makes it easier to understand how your styles will interact with each other, and using the `@layer` directive lets you control the final declaration order while still organizing your actual code in whatever way you like.
+Явное указание на это упрощает понимание того, как ваши стили будут взаимодействовать друг с другом, а использование директивы `@layer` позволяет вам контролировать окончательный порядок объявления, сохраняя при этом организацию вашего фактического кода так, как вам нравится.
 
 </details>
 
-The `@layer` directive helps you control declaration order by automatically relocating your styles to the corresponding `@tailwind` directive, and also enables features like [modifiers](#using-modifiers-with-custom-css) and [tree-shaking](#removing-unused-custom-css) for your own custom CSS.
+Директива `@layer` помогает вам контролировать порядок объявления, автоматически перемещая ваши стили в соответствующую директиву `@tailwind`, а также включает такие функции, как [modifiers](#using-modifiers-with-custom-css) и [tree-shaking](#removing-unused-custom-css) для вашего собственного CSS.
 
-### Adding base styles
+### Добавление базовых стилей
 
-If you just want to set some defaults for the page (like the text color, background color, or font family), the easiest option is just adding some classes to the `html` or `body` elements:
+Если вы просто хотите установить некоторые значения по умолчанию для страницы (например, цвет текста, цвет фона или семейство шрифтов), самый простой вариант - просто добавить несколько классов к элементам `html` или `body`:
 
 ```html
 <!doctype html>
@@ -241,9 +242,9 @@ If you just want to set some defaults for the page (like the text color, backgro
 </html>
 ```
 
-This keeps your base styling decisions in your markup alongside all of your other styles, instead of hiding them in a separate file.
+Это сохраняет ваши базовые решения по стилю в вашей разметке вместе со всеми вашими другими стилями, вместо того, чтобы скрывать их в отдельном файле.
 
-If you want to add your own default base styles for specific HTML elements, use the `@layer` directive to add those styles to Tailwind's `base` layer:
+Если вы хотите добавить свои собственные базовые стили по умолчанию для определенных элементов HTML, используйте директиву `@layer`, чтобы добавить эти стили к базовому слою `base` Tailwind:
 
 ```css main.css
 @tailwind base;
@@ -261,13 +262,13 @@ If you want to add your own default base styles for specific HTML elements, use 
 }
 ```
 
-Use the [`theme`](/docs/functions-and-directives#theme) function or [`@apply`](/docs/functions-and-directives#apply) directive when adding custom base styles if you want to refer to any of the values defined in your [theme](/docs/theme).
+Используйте функцию [`theme`](/docs/functions-and-directives#theme) или [`@apply`](/docs/functions-and-directives#apply) при добавлении пользовательских базовых стилей, если вы хотите сослаться на к любому из значений, определенных в вашей [теме](/docs/theme).
 
-### Adding component classes
+### Добавление классов компонентов
 
-Use the `components` layer for any more complicated classes you want to add to your project that you'd still like to be able to override with utility classes.
+Используйте слой `components` для любых более сложных классов, которые вы хотите добавить в свой проект, которые вы все равно хотели бы переопределить с помощью классов утилит.
 
-Traditionally these would be classes like `card`, `btn`, `badge` — that kind of thing.
+Традиционно это были классы вроде `card`, `btn`, `badge` — и т. д.
 
 ```css main.css
 @tailwind base;
@@ -285,18 +286,18 @@ Traditionally these would be classes like `card`, `btn`, `badge` — that kind 
 }
 ```
 
-By defining component classes in the `components` layer, you can still user utility classes to override them when necessary:
+Определяя классы компонентов на уровне `components`, вы можете по-прежнему использовать классы утилит пользователя, чтобы при необходимости их переопределить:
 
 ```html
-<!-- Will look like a card, but with square corners -->
+<!-- Будет похоже на открытку, но с квадратными углами -->
 <div class="card rounded-none">
   <!-- ... -->
 </div>
 ```
 
-Using Tailwind you probably don't need these types of classes as often as you think. Read our guide on [Reusing Styles](/docs/reusing-styles) for our recommendations.
+Используя Tailwind, вы, вероятно, не так часто нуждаетесь в этих типах классов, как вы думаете. Прочтите наше руководство по [Повторное использование стилей](/docs/reusing-styles), чтобы получить наши рекомендации.
 
-The `components` layer is also a good place to put custom styles for any third-party components you're using:
+Слой `components` также является хорошим местом для размещения пользовательских стилей для любых сторонних компонентов, которые вы используете:
 
 ```css main.css
 @tailwind base;
@@ -317,11 +318,11 @@ The `components` layer is also a good place to put custom styles for any third-p
 }
 ```
 
-Use the [`theme`](/docs/functions-and-directives#theme) function or [`@apply`](/docs/functions-and-directives#apply) directive when adding custom component styles if you want to refer to any of the values defined in your [theme](/docs/theme).
+Используйте функцию [`theme`](/docs/functions-and-directives#theme) или [`@apply`](/docs/functions-and-directives#apply) при добавлении стилей пользовательских компонентов, если вы хотите сослаться на к любому из значений, определенных в вашей [теме](/docs/theme).
 
-### Adding custom utilities
+### Добавление пользовательских утилит
 
-Add any of your own custom utility classes to Tailwind's `utilities` layer:
+Добавьте любой из ваших собственных пользовательских служебных классов в слой `utilities` Tailwind:
 
 ```css main.css
 @tailwind base;
@@ -335,11 +336,11 @@ Add any of your own custom utility classes to Tailwind's `utilities` layer:
 }
 ```
 
-This can be useful when there's a CSS feature you'd like to use in your project that Tailwind doesn't include utilities for out of the box.
+Это может быть полезно, когда есть функция CSS, которую вы хотели бы использовать в своем проекте, для которой Tailwind не включает стандартные утилиты.
 
-### Using modifiers with custom CSS
+### Использование модификаторов с настраиваемым CSS
 
-Any custom styles you add to Tailwind with `@layer` will automatically support Tailwind's modifier syntax for handling things like hover states, responsive breakpoints, dark mode, and more.
+Любые пользовательские стили, которые вы добавляете в Tailwind с помощью `@layer`, будут автоматически поддерживать синтаксис модификатора Tailwind для обработки таких вещей, как состояния наведения, отзывчивые точки останова, темный режим и многое другое.
 
 ```css CSS
 @tailwind base;
@@ -359,11 +360,11 @@ Any custom styles you add to Tailwind with `@layer` will automatically support T
 </div>
 ```
 
-Learn more about how these modifiers work in the [Hover, Focus, and Other States](/docs/hover-focus-and-other-states) documentation.
+Узнайте больше о том, как работают эти модификаторы, в документации [Hover, Focus, and Other States](/docs/hover-focus-and-other-states).
 
-### Removing unused custom CSS
+### Удаление неиспользуемого пользовательского CSS
 
-Any custom styles you add to the `base`, `components`, or `utilities` layers will only be included in your compiled CSS if those styles are actually used in your HTML.
+Любые пользовательские стили, которые вы добавляете к слоям `base`, `components` или `utilities`, будут включены в ваш скомпилированный CSS только в том случае, если эти стили действительно используются в вашем HTML.
 
 ```css main.css
 @tailwind base;
@@ -371,20 +372,20 @@ Any custom styles you add to the `base`, `components`, or `utilities` layers wil
 @tailwind utilities;
 
 @layer components {
-  /* This won't be included in your compiled CSS unless you actually use it */
+  /* Это не будет включено в ваш скомпилированный CSS, если вы его не используете */
   .card {
     /* ... */
   }
 }
 ```
 
-If you want to add some custom CSS that should always be included, add it to your stylesheet without using the `@layer` directive:
+Если вы хотите добавить собственный CSS, который всегда должен быть включен, добавьте его в свою таблицу стилей без использования директивы `@layer`:
 
 ```css main.css
 @tailwind base;
 @tailwind components;
 
-/* This will always be included in your compiled CSS */
+/* Это всегда будет включено в ваш скомпилированный CSS */
 .card {
   /* ... */
 }
@@ -392,13 +393,13 @@ If you want to add some custom CSS that should always be included, add it to you
 @tailwind utilities;
 ```
 
-Make sure to put your custom styles where they need to go to get the precedence behavior you want. In the example above, we've added the `.card` class before `@tailwind utilities` to make sure utilities can still override it.
+Убедитесь, что вы разместили свои пользовательские стили там, где они должны быть, чтобы получить желаемое поведение приоритета. В приведенном выше примере мы добавили класс `.card` перед `@tailwind utilities`, чтобы убедиться, что утилиты все еще могут его переопределить.
 
-### Using multiple CSS files
+### Использование нескольких файлов CSS
 
-If you are writing a lot of CSS and organizing it into multiple files, make sure those files are combined into a single stylesheet before processing them with Tailwind, or you'll see errors about using `@layer` without the corresponding `@tailwind` directive.
+Если вы пишете много CSS и организуете его в несколько файлов, убедитесь, что эти файлы объединены в одну таблицу стилей, прежде чем обрабатывать их с помощью Tailwind, иначе вы увидите ошибки при использовании `@layer` без соответствующей директивы `@tailwind`.
 
-The easiest way to do this is using the [postcss-import](https://github.com/postcss/postcss-import) plugin:
+Самый простой способ сделать это - использовать плагин [postcss-import](https://github.com/postcss/postcss-import):
 
 ```diff-js postcss.config.js
   module.exports = {
@@ -410,15 +411,15 @@ The easiest way to do this is using the [postcss-import](https://github.com/post
   }
 ```
 
-Learn more in our [build-time imports](/docs/using-with-preprocessors#build-time-imports) documentation.
+Дополнительные сведения смотрите в нашей документации [build-time imports](/docs/using-with-preprocessors#build-time-imports).
 
-### Layers and per-component CSS
+### Слои и покомпонентный CSS
 
-Component frameworks like Vue and Svelte support adding per-component styles within a `<style>` block that lives in each component file.
+Компонентные инфраструктуры, такие как Vue и Svelte, поддерживают добавление стилей для каждого компонента в блоке `<style>`, который находится в каждом файле компонента.
 
-While you can use features like `@apply` and `theme` inside component styles like this, the `@layer` directive will not work and you'll see an error about `@layer` being used without a matching `@tailwind` directive:
+Хотя вы можете использовать такие функции, как `@apply` и `theme` внутри таких стилей компонентов, как этот, директива `@layer` не будет работать, и вы увидите ошибку о том, что `@layer` используется без соответствующей директивы `@tailwind`:
 
-<TipBad>Don't use `@layer` in component styles</TipBad>
+<TipBad>Не используйте `@layer` в стилях компонентов</TipBad>
 
 ```html Card.svelte
 <div>
@@ -426,7 +427,7 @@ While you can use features like `@apply` and `theme` inside component styles lik
 </div>
 
 <style>
-  /* Won't work because this file is processed in isolation */
+  /* Не будет работать, потому что этот файл обрабатывается изолированно */
   @layer components {
     div {
       background-color: theme('colors.white');
@@ -438,13 +439,13 @@ While you can use features like `@apply` and `theme` inside component styles lik
 </style>
 ```
 
-This is because under-the-hood, frameworks like Vue and Svelte are processing every single `<style>` block independently, and running your PostCSS plugin chain against each one in isolation.
+Это связано с тем, что внутренние фреймворки, такие как Vue и Svelte, обрабатывают каждый блок `<style>` независимо и запускают цепочку плагинов PostCSS для каждого из них изолированно.
 
-That means if you have 10 components that each have a `<style>` block, Tailwind is being run 10 separate times, and each run has zero knowledge about the other runs. Because of this, Tailwind can't take the styles you define in a `@layer` and move them to the corresponding `@tailwind` directive, because as far as Tailwind can tell there is no `@tailwind` directive to move it to.
+Это означает, что если у вас есть 10 компонентов, каждый из которых имеет блок `<style>`, Tailwind запускается 10 отдельных раз, и каждый запуск не имеет сведений о других запусках. Из-за этого Tailwind не может взять стили, которые вы определяете в `@layer`, и переместить их в соответствующую директиву `@tailwind`, потому что, насколько Tailwind может сказать, нет директивы `@tailwind`, чтобы переместить его.
 
-One solution to this is to simply _not_ use `@layer` inside your component styles:
+Одно из решений - просто _не_ использовать `@layer` внутри стилей ваших компонентов:
 
-<TipGood>Add your styles without using `@layer`</TipGood>
+<TipGood>Добавьте свои стили без использования `@layer`</TipGood>
 
 ```html Card.svelte
 <div>
@@ -461,11 +462,11 @@ One solution to this is to simply _not_ use `@layer` inside your component style
 </style>
 ```
 
-You lose the ability to control the precedence of your styles, but unfortunately that's totally out of our control because of how these tools work.
+Вы теряете возможность контролировать приоритет ваших стилей, но, к сожалению, это полностью вне нашего контроля из-за того, как работают эти инструменты.
 
-Our recommendation is that you just don't use component styles like this at all and instead use Tailwind the way it's intended to be used — as a single global stylesheet where you use the classes directly in your HTML:
+Мы рекомендуем вам вообще не использовать такие стили компонентов, а вместо этого использовать Tailwind так, как он предназначен для использования - как единую глобальную таблицу стилей, в которой вы используете классы непосредственно в своем HTML:
 
-<TipGood>Use Tailwind's utilities instead of component styles</TipGood>
+<TipGood>Используйте утилиты Tailwind вместо стилей компонентов</TipGood>
 
 ```html Card.svelte
 <div class="bg-white rounded-lg p-6 shadow-xl">
@@ -476,9 +477,9 @@ Our recommendation is that you just don't use component styles like this at all 
 
 ---
 
-## Writing plugins
+## Написание плагинов
 
-You can also add custom styles to your project using Tailwind's plugin system instead of using a CSS file:
+Вы также можете добавить собственные стили в свой проект, используя систему плагинов Tailwind вместо использования файла CSS:
 
 ```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
@@ -514,4 +515,4 @@ module.exports = {
 }
 ```
 
-Learn more about writing your own plugins in the [Plugins](/docs/plugins) documentation.
+Узнайте больше о написании собственных плагинов в документации [Плагины](/docs/plugins).
