@@ -13,7 +13,7 @@ import { ThemeReference } from '@/components/ThemeReference'
 ```js tailwind.config.js
 module.exports = {
   content: [
-    './pages/**/*.{html,js}'
+    './pages/**/*.{html,js}',
     './components/**/*.{html,js}',
   ],
   // ...
@@ -35,7 +35,7 @@ Tailwind CSS работает, сканируя все ваши компонен
 ```js tailwind.config.js
 module.exports = {
   content: [
-    './pages/**/*.{html,js}'
+    './pages/**/*.{html,js}',
     './components/**/*.{html,js}'
   ],
   // ...
@@ -306,7 +306,7 @@ Tailwind поддерживает списки надежных отправит
 ```js tailwind.config.js
 module.exports = {
   content: [
-    './pages/**/*.{html,js}'
+    './pages/**/*.{html,js}',
     './components/**/*.{html,js}',
   ],
   safelist: [
@@ -327,7 +327,7 @@ module.exports = {
 ```js tailwind.config.js
 module.exports = {
   content: [
-    './pages/**/*.{html,js}'
+    './pages/**/*.{html,js}',
     './components/**/*.{html,js}',
   ],
   safelist: [
@@ -335,7 +335,7 @@ module.exports = {
     'text-3xl',
     {
       pattern: /bg-(red|green|blue)-(100|200|300)/,
-      variants: ['hover', 'focus'],
+      variants: ['lg', 'hover', 'focus', 'lg:hover'],
     },
   ],
   // ...
@@ -405,7 +405,7 @@ module.exports = {
 ```diff-js tailwind.config.js
   module.exports = {
     content: [
--     './src/**/*.{html,js}'
+-     './src/**/*.{html,js}',
 +     './src/**/*.{html,js,jsx}'
     ],
     // ...

@@ -10,7 +10,6 @@ import {
   InlineCode,
 } from '@/components/home/common'
 import { CodeWindow } from '@/components/CodeWindow'
-import iconUrl from '@/img/icons/home/dark-mode.png'
 import { addClassTokens } from '@/utils/addClassTokens'
 import { Token } from '@/components/Code'
 import clsx from 'clsx'
@@ -62,7 +61,7 @@ function DarkModeSwitch({ enabled, onChange }) {
       className={clsx(
         'relative inline-flex items-center py-1.5 px-2 rounded-full transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus:outline-none',
         enabled
-          ? 'bg-gray-700 text-gray-400 focus-visible:ring-gray-500'
+          ? 'bg-slate-700 text-slate-400 focus-visible:ring-slate-500'
           : 'bg-cyan-500 text-cyan-200 focus-visible:ring-cyan-600'
       )}
     >
@@ -93,7 +92,7 @@ function DarkModeSwitch({ enabled, onChange }) {
         />
         <Moon
           className={clsx(
-            'flex-none -ml-6 transition duration-500 transform text-gray-700',
+            'flex-none -ml-6 transition duration-500 transform text-slate-700',
             enabled ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
           )}
         />
@@ -108,10 +107,12 @@ export function DarkMode() {
   return (
     <section id="dark-mode">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <IconContainer>
-          <img src={iconUrl} alt="" />
-        </IconContainer>
-        <Caption className="text-gray-500">Темный режим</Caption>
+        <IconContainer
+          className="dark:bg-slate-600 dark:highlight-white/20"
+          light={require('@/img/icons/home/dark-mode.png').default}
+          dark={require('@/img/icons/home/dark/dark-mode.png').default}
+        />
+        <Caption className="text-slate-500">Темный режим</Caption>
         <BigText>
           <Widont>Теперь с темным режимом.</Widont>
         </BigText>
@@ -135,12 +136,12 @@ export function DarkMode() {
             <DarkModeSwitch enabled={enabled} onChange={setEnabled} />
             <div
               className={clsx('mt-6 sm:mt-10 relative z-10 rounded-xl shadow-xl', {
-                dark: enabled,
+                'demo-dark': enabled,
               })}
               dangerouslySetInnerHTML={{
                 __html: code
                   .replace(/\(light\)/g, '')
-                  .replace(/dark:/g, 'transition-all duration-500 dark:')
+                  .replace(/demo-dark:/g, 'transition-all duration-500 demo-dark:')
                   .replace(
                     'src="/full-stack-radio.png"',
                     `src="${require('@/img/full-stack-radio.png').default}" loading="lazy"`
@@ -168,14 +169,14 @@ export function DarkMode() {
 
 function DarkModeToken({ token, parentTypes, enabled, children }) {
   if (token[0] === 'class') {
-    if (token[1].startsWith('dark:')) {
+    if (token[1].startsWith('demo-dark:')) {
       return (
         <span
           className={clsx('code-highlight transition-colors duration-500', {
             'bg-code-highlight': enabled,
           })}
         >
-          {children}
+          {token[1].replace(/^demo-dark:/, 'dark:')}
         </span>
       )
     }

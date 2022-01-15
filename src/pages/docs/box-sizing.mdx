@@ -20,9 +20,9 @@ export const classes = { utilities }
 Tailwind делает это значение по умолчанию для всех элементов в наших [базовых стилях предварительной проверки](/docs/preflight).
 
 <Example p="none">
-  <div class="relative grid grid-cols-[1fr,1fr,1fr] grid-rows-[1fr,3fr,1fr] gap-px bg-gray-700/10 font-mono text-sm font-bold leading-6 bg-white max-w-sm mx-auto w-full shadow-xl">
-    <div class="bg-white col-start-1 row-start-1"></div>
-    <div class="relative bg-white col-start-2 row-start-1">
+  <div class="relative grid grid-cols-[1fr,1fr,1fr] grid-rows-[1fr,3fr,1fr] gap-px bg-slate-700/10 font-mono text-sm font-bold leading-6 max-w-sm mx-auto w-full shadow-xl dark:bg-slate-700">
+    <div class="bg-white col-start-1 row-start-1 dark:bg-slate-800"></div>
+    <div class="relative bg-white col-start-2 row-start-1 dark:bg-slate-800">
       <!-- w-measure indicator -->
       <div class="absolute flex bottom-2 left-0 right-0">
         <!-- Horizontal line -->
@@ -32,15 +32,15 @@ Tailwind делает это значение по умолчанию для в�
           <div class="rounded-full h-2 bg-sky-400 w-px absolute left-0 top-1/2 -translate-x-px -translate-y-1"></div>
         </div>
         <!-- Badge -->
-        <div class="relative flex-auto font-mono font-bold w-full bg-white text-sky-600 text-xs px-1.5 flex items-center justify-center leading-none">128px</div>
+        <div class="relative flex-auto font-mono font-bold w-full bg-white text-sky-600 text-xs px-1.5 flex items-center justify-center leading-none dark:bg-slate-800 dark:text-sky-400">128px</div>
         <!-- Right chip -->
         <div class="w-full">
           <div class="rounded-full h-2 bg-sky-400 w-px absolute right-0 top-1/2 translate-x-px -translate-y-1"></div>
         </div>
       </div>
     </div>
-    <div class="bg-white col-start-3 row-start-1"></div>
-    <div class="relative bg-white col-start-1 row-start-2">
+    <div class="bg-white col-start-3 row-start-1 dark:bg-slate-800"></div>
+    <div class="relative bg-white col-start-1 row-start-2 dark:bg-slate-800">
       <!-- h-measure indicator -->
       <div class="absolute flex top-0 bottom-0 right-2 w-3">
         <!-- Vertical line -->
@@ -50,22 +50,22 @@ Tailwind делает это значение по умолчанию для в�
           <div class="rounded-full w-2 bg-sky-400 h-px absolute top-0 left-1/2 -translate-y-px -translate-x-1"></div>
         </div>
         <!-- Badge -->
-        <div class="relative -rotate-90 -translate-x-[1.15rem] translate-y-14 h-3 flex flex-auto font-mono font-bold bg-white text-sky-600 text-xs px-1.5 items-center justify-center leading-none">128px</div>
+        <div class="relative -rotate-90 -translate-x-[1.15rem] translate-y-14 h-3 flex flex-auto font-mono font-bold bg-white text-sky-600 text-xs px-1.5 items-center justify-center leading-none dark:bg-slate-800 dark:text-sky-400">128px</div>
         <!-- Bottom chip -->
         <div class="w-full">
           <div class="rounded-full w-2 bg-sky-400 h-px absolute bottom-0 left-1/2 translate-y-px -translate-x-1"></div>
         </div>
       </div>
     </div>
-    <div class="bg-white col-start-2 row-start-2 w-32 h-32 ring-1 ring-sky-300">
+    <div class="bg-white col-start-2 row-start-2 w-32 h-32 ring-1 ring-sky-300 dark:bg-slate-800 dark:ring-sky-400">
       <div class="box-border relative bg-stripes-sky w-32 h-32 p-5 ring ring-sky-300 ring-inset">
         <div class="w-full h-full bg-sky-500 ring-1 ring-sky-500"></div>
       </div>
     </div>
-    <div class="bg-white col-start-3 row-start-2"></div>
-    <div class="bg-white col-start-1 row-start-3"></div>
-    <div class="bg-white col-start-2 row-start-3"></div>
-    <div class="bg-white col-start-3 row-start-3"></div>
+    <div class="bg-white col-start-3 row-start-2 dark:bg-slate-800"></div>
+    <div class="bg-white col-start-1 row-start-3 dark:bg-slate-800"></div>
+    <div class="bg-white col-start-2 row-start-3 dark:bg-slate-800"></div>
+    <div class="bg-white col-start-3 row-start-3 dark:bg-slate-800"></div>
   </div>
 </Example>
 
@@ -82,9 +82,9 @@ Tailwind делает это значение по умолчанию для в�
 Это означает, что 100px &times; Элемент 100px с границей 2px и отступом 4px со всех сторон будет отображаться как 112px &times; 112px, с внутренней областью содержимого 100px &times; 100px.
 
 <Example p="none">
-  <div class="relative grid grid-cols-[1fr,1fr,1fr] grid-rows-[1fr,2fr,1fr] gap-px bg-gray-700/10 font-mono text-sm font-bold leading-6 bg-white max-w-sm mx-auto w-full shadow-xl">
-    <div class="bg-white col-start-1 row-start-1"></div>
-    <div class="relative bg-white col-start-2 row-start-1">
+  <div class="relative grid grid-cols-[1fr,1fr,1fr] grid-rows-[1fr,2fr,1fr] gap-px bg-slate-700/10 font-mono text-sm font-bold leading-6 max-w-sm mx-auto w-full shadow-xl dark:bg-slate-700">
+    <div class="bg-white col-start-1 row-start-1 dark:bg-slate-800"></div>
+    <div class="relative bg-white col-start-2 row-start-1 dark:bg-slate-800">
       <!-- w-measure indicator -->
       <div class="absolute flex bottom-2 left-0 right-0 -translate-y-5">
         <!-- Horizontal line -->
@@ -94,15 +94,15 @@ Tailwind делает это значение по умолчанию для в�
           <div class="rounded-full h-2 bg-blue-400 w-px absolute left-0 top-1/2 -translate-x-px -translate-y-1"></div>
         </div>
         <!-- Badge -->
-        <div class="relative flex-auto font-mono font-bold w-full bg-white text-blue-600 text-xs px-1.5 flex items-center justify-center leading-none">128px</div>
+        <div class="relative flex-auto font-mono font-bold w-full bg-white text-blue-600 text-xs px-1.5 flex items-center justify-center leading-none dark:bg-slate-800 dark:text-blue-400">128px</div>
         <!-- Right chip -->
         <div class="w-full">
           <div class="rounded-full h-2 bg-blue-400 w-px absolute right-0 top-1/2 translate-x-px -translate-y-1"></div>
         </div>
       </div>
     </div>
-    <div class="bg-white col-start-3 row-start-1"></div>
-    <div class="relative bg-white col-start-1 row-start-2">
+    <div class="bg-white col-start-3 row-start-1 dark:bg-slate-800"></div>
+    <div class="relative bg-white col-start-1 row-start-2 dark:bg-slate-800">
       <!-- h-measure indicator -->
       <div class="absolute flex top-0 bottom-0 right-2 w-3 -translate-x-5">
         <!-- Vertical line -->
@@ -112,7 +112,7 @@ Tailwind делает это значение по умолчанию для в�
           <div class="rounded-full w-2 bg-blue-400 h-px absolute top-0 left-1/2 -translate-y-px -translate-x-1"></div>
         </div>
         <!-- Badge -->
-        <div class="relative -rotate-90 -translate-x-[1.15rem] translate-y-14 h-3 flex flex-auto font-mono font-bold bg-white text-blue-600 text-xs px-1.5 items-center justify-center leading-none">128px</div>
+        <div class="relative -rotate-90 -translate-x-[1.15rem] translate-y-14 h-3 flex flex-auto font-mono font-bold bg-white text-blue-600 text-xs px-1.5 items-center justify-center leading-none dark:bg-slate-800 dark:text-blue-400">128px</div>
         <!-- Bottom chip -->
         <div class="w-full">
           <div class="rounded-full w-2 bg-blue-400 h-px absolute bottom-0 left-1/2 translate-y-px -translate-x-1"></div>
@@ -120,14 +120,14 @@ Tailwind делает это значение по умолчанию для в�
       </div>
     </div>
     <div class="bg-white col-start-2 row-start-2 w-32 h-32">
-      <div class="box-content -translate-x-5 -translate-y-5 relative bg-stripes-blue w-32 h-32 p-5 ring-4 ring-blue-300 ring-inset">
+      <div class="box-content -translate-x-5 -translate-y-5 relative bg-stripes-blue w-32 h-32 p-5 ring-4 ring-blue-300 ring-inset dark:ring-blue-500">
         <div class="w-full h-full bg-blue-500 ring-1 ring-blue-500"></div>
       </div>
     </div>
-    <div class="bg-white col-start-3 row-start-2"></div>
-    <div class="bg-white col-start-1 row-start-3"></div>
-    <div class="bg-white col-start-2 row-start-3"></div>
-    <div class="bg-white col-start-3 row-start-3"></div>
+    <div class="bg-white col-start-3 row-start-2 dark:bg-slate-800"></div>
+    <div class="bg-white col-start-1 row-start-3 dark:bg-slate-800"></div>
+    <div class="bg-white col-start-2 row-start-3 dark:bg-slate-800"></div>
+    <div class="bg-white col-start-3 row-start-3 dark:bg-slate-800"></div>
   </div>
 </Example>
 

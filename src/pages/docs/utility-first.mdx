@@ -22,7 +22,7 @@ import { CodeSample } from '@/components/CodeSample'
     </div>
     <div>
       <div class="text-xl font-medium text-black">ChitChat</div>
-      <p class="text-gray-500">У вас новое сообщение!</p>
+      <p class="text-slate-500">У вас новое сообщение!</p>
     </div>
   </div>
 </Example>
@@ -83,7 +83,7 @@ import { CodeSample } from '@/components/CodeSample'
     </div>
     <div>
       <div class="text-xl font-medium text-black">ChitChat</div>
-      <p class="text-gray-500">У вас новое сообщение!</p>
+      <p class="text-slate-500">У вас новое сообщение!</p>
     </div>
   </div>
 </Example>
@@ -95,7 +95,7 @@ import { CodeSample } from '@/components/CodeSample'
   </div>
   <div>
     <div class="text-xl font-medium text-black">ChitChat</div>
-    <p class="text-gray-500">У вас новое сообщение!</p>
+    <p class="text-slate-500">У вас новое сообщение!</p>
   </div>
 </div>
 ```
@@ -143,7 +143,7 @@ import { CodeSample } from '@/components/CodeSample'
         <p class="text-lg text-black font-semibold">
           Эрин Линдфорд
         </p>
-        <p class="text-gray-500 font-medium">
+        <p class="text-slate-500 font-medium">
           Инженер по продукту
         </p>
       </div>
@@ -160,7 +160,7 @@ import { CodeSample } from '@/components/CodeSample'
       <p class="text-lg text-black font-semibold">
         Эрин Линдфорд
       </p>
-      <p class="text-gray-500 font-medium">
+      <p class="text-slate-500 font-medium">
         Инженер по продукту
       </p>
     </div>
@@ -175,7 +175,7 @@ import { CodeSample } from '@/components/CodeSample'
 
 Самая большая проблема с обслуживанием при использовании подхода, ориентированного на полезность, - это управление часто повторяющимися комбинациями утилит.
 
-Это легко решается [извлечением компонентов](/docs/reusing-styles), обычно в виде частей шаблона или компонентов.
+Это легко решается путем [извлечения компонентов и фрагментов](/docs/reusing-styles#extracting-components-and-partials) и использования [функций редактора и языка](/docs/reusing-styles#using-editor-and-language-features), такие как редактирование с несколькими курсорами и простые циклы.
 
 ```html
 <!-- PrimaryButton.vue -->
@@ -186,38 +186,7 @@ import { CodeSample } from '@/components/CodeSample'
 </template>
 ```
 
-Вы также можете использовать функцию Tailwind `@apply` для создания абстракций CSS вокруг общих служебных шаблонов.
-
-<Example>
-  <div class="text-center">
-    <button type="button" class="py-2 px-4 bg-sky-500 text-white font-semibold rounded-lg shadow-md hover:bg-sky-700 focus:outline-none" tabindex="-1">
-      Сохранить изменения
-    </button>
-  </div>
-</Example>
-
-```html
-<!-- Using utilities -->
-<button class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-sky-500 hover:bg-sky-700">
-  Сохранить изменения
-</button>
-
-<!-- Extracting classes using @apply -->
-<button class="**btn btn-sky**">
-  Button
-</button>
-
-<style>
-  **.btn** {
-    @apply py-2 px-4 font-semibold rounded-lg shadow-lg;
-  }
-  **.btn-sky** {
-    @apply text-white bg-sky-500 hover:bg-sky-700;
-  }
-</style>
-```
-
-Кроме того, поддержка проекта CSS, ориентированного на служебные программы, оказывается намного проще, чем поддержка большой базы кода CSS, просто потому, что HTML намного проще поддерживать, чем CSS. Такие крупные компании, как GitHub, Netflix, Heroku, Kickstarter, Twitch, Segment и другие, с большим успехом используют этот подход.
+Кроме того, поддержка CSS-проекта, ориентированного на полезность, оказывается намного проще, чем поддержка большой кодовой базы CSS, просто потому, что HTML гораздо проще поддерживать, чем CSS. Крупные компании, такие как GitHub, Netflix, Heroku, Kickstarter, Twitch, Segment и другие, с большим успехом используют этот подход.
 
 Если вы хотите узнать об опыте других, использующих этот подход, ознакомьтесь со следующими ресурсами:
 

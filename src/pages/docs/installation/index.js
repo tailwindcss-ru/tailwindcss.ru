@@ -88,19 +88,20 @@ let steps = [
 export default function TailwindCli({ code }) {
   return (
     <InstallationLayout>
-      <div className="relative z-10 prose mb-16 max-w-3xl">
+      <div id="content" className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
+        <h3 className="sr-only">Installing Tailwind CLI</h3>
         <p>
           Самый простой и быстрый способ начать работу с Tailwind CSS с нуля - использовать инструмент Tailwind CLI.
         </p>
       </div>
-      <Steps steps={steps} code={code} />
+      <Steps level={4} steps={steps} code={code} />
       {/*
         <Cta
           label="Read the documentation"
           href="/docs/tailwind-cli"
           description={
             <>
-              <strong className="text-gray-900 font-semibold">
+              <strong className="text-slate-900 font-semibold">
                 Это только начало возможностей Tailwind CLI.
               </strong>{' '}
               Чтобы узнать больше обо всех его возможностях, ознакомьтесь с документацией Tailwind CLI.

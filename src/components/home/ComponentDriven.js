@@ -11,7 +11,6 @@ import { GridLockup } from '@/components/GridLockup'
 import { CodeWindow, getClassNameForToken } from '@/components/CodeWindow'
 import { Fragment, useEffect, useState } from 'react'
 import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
-import iconUrl from '@/img/icons/home/component-driven.png'
 import { Tabs } from '@/components/Tabs'
 import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
@@ -167,14 +166,14 @@ function ComponentExample({ framework }) {
           className="flex-none overflow-auto whitespace-nowrap flex"
         >
           <div className="relative flex-none min-w-full px-1">
-            <ul className="flex text-sm leading-6 text-gray-400">
+            <ul className="flex text-sm leading-6 text-slate-400">
               {Object.keys(tabs[framework]).map((tab, tabIndex) => (
                 <li key={tab} className="flex-none">
                   <button
                     type="button"
                     className={clsx(
                       'relative py-2 px-3',
-                      tabIndex === activeTab ? 'text-sky-300' : 'hover:text-gray-300'
+                      tabIndex === activeTab ? 'text-sky-300' : 'hover:text-slate-300'
                     )}
                     onClick={() => setActiveTab(tabIndex)}
                   >
@@ -186,7 +185,7 @@ function ComponentExample({ framework }) {
                 </li>
               ))}
             </ul>
-            <div className="absolute bottom-0 inset-x-0 h-px bg-gray-500/30" />
+            <div className="absolute bottom-0 inset-x-0 h-px bg-slate-500/30" />
           </div>
         </motion.div>
       </AnimatePresence>
@@ -267,7 +266,7 @@ function ComponentExample({ framework }) {
 function ApplyExample({ inView }) {
   return (
     <CodeWindow className="!h-auto !max-h-[none]" border={false}>
-      <h3 className="pl-4 flex text-sm leading-6 text-sky-300 border-b border-gray-500/30">
+      <h3 className="pl-4 flex text-sm leading-6 text-sky-300 border-b border-slate-500/30">
         <span className="-mb-px py-2 border-b border-b-current">styles.css</span>
       </h3>
       <div className="flex-none">
@@ -292,7 +291,7 @@ function ApplyExample({ inView }) {
           ))}
         </CodeWindow.Code2>
       </div>
-      <h3 className="pl-4 flex text-sm leading-6 text-sky-300 border-b border-gray-500/30">
+      <h3 className="pl-4 flex text-sm leading-6 text-sky-300 border-b border-slate-500/30">
         <span className="-mb-px py-2 border-b border-b-current">index.html</span>
       </h3>
       <div className="overflow-hidden">
@@ -324,18 +323,21 @@ function ApplyExample({ inView }) {
 }
 
 function AtApplySection() {
-  const { inView, ref } = useInView({ threshold: 0.5, triggerOnce: true })
+  let { inView, ref } = useInView({ threshold: 0.5, triggerOnce: true })
+  let fade = ['transition-opacity duration-1500 delay-500', { 'opacity-25': inView }]
 
   return (
     <div className="mt-20 relative max-w-7xl mx-auto px-4 sm:mt-32 sm:px-6 md:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:grid-rows-1">
       <div className="lg:col-span-7 xl:col-span-6 lg:row-end-1">
-        <h3 className="text-3xl text-gray-900 font-extrabold">Не любите компонентные фреймворки?</h3>
+        <h3 className="text-3xl text-slate-900 font-extrabold dark:text-slate-200">
+          Не любите компонентные фреймворки?
+        </h3>
         <Paragraph>
           Если вы хотите, чтобы это была старая школа, используйте директиву Tailwind
           <InlineCode>@apply</InlineCode> для извлечения повторяющихся утилит шаблонов
           в пользовательские классы CSS, просто скопировав и вставив список имен классов.
         </Paragraph>
-        <Link href="/docs/reusing-styles" color="sky">
+        <Link href="/docs/reusing-styles" color="sky" darkColor="gray">
           Подробнее<span className="sr-only">, о повторном использовании стилей</span>
         </Link>
       </div>
@@ -343,26 +345,21 @@ function AtApplySection() {
       <div className="pt-10 lg:col-span-5 xl:col-span-6 lg:row-start-1 lg:row-end-2">
         <div
           ref={ref}
-          className="relative z-10 bg-white rounded-xl shadow-xl ring-1 ring-gray-900/5"
+          className="relative z-10 bg-white rounded-xl shadow-xl ring-1 ring-slate-900/5 dark:bg-slate-800 dark:highlight-white/10"
         >
           <article>
             <h2
               className={clsx(
-                'transition-opacity duration-1500 delay-500 text-lg font-semibold text-gray-900 pt-4 pb-2 px-4 sm:px-6 lg:px-4 xl:px-6',
-                { 'opacity-25': inView }
+                'text-lg font-semibold text-slate-900 pt-4 pb-2 px-4 sm:px-6 lg:px-4 xl:px-6 dark:text-slate-100',
+                ...fade
               )}
             >
               Еженедельно один на один
             </h2>
-            <dl
-              className={clsx(
-                'transition-opacity duration-1500 delay-500 flex flex-wrap divide-y divide-gray-200 border-b border-gray-200 text-sm sm:text-base lg:text-sm xl:text-base',
-                { 'opacity-25': inView }
-              )}
-            >
+            <dl className="flex flex-wrap divide-y divide-slate-200 border-b border-slate-200 text-sm sm:text-base lg:text-sm xl:text-base dark:divide-slate-200/5 dark:border-slate-200/5">
               <div className="px-4 sm:px-6 lg:px-4 xl:px-6 pb-4">
                 <dt className="sr-only">Дата и время</dt>
-                <dd>
+                <dd className={clsx(...fade)}>
                   <time dateTime="2020-11-15T10:00:00-05:00">Чт 15 ноя 2020, 10:00</time> -{' '}
                   <time dateTime="2020-11-15T11:00:00-05:00">
                     11:00<span className="sr-only sm:not-sr-only"> стандартное восточное время</span>
@@ -370,27 +367,53 @@ function AtApplySection() {
                 </dd>
               </div>
               <div className="w-full flex-none flex items-center p-4 sm:p-6 lg:p-4 xl:p-6">
-                <dt className="w-2/5 sm:w-1/4 flex-none text-gray-900 font-medium">Место расположения</dt>
-                <dd>
+                <dt
+                  className={clsx(
+                    'w-2/5 sm:w-1/4 flex-none text-slate-900 font-medium dark:text-slate-300',
+                    ...fade
+                  )}
+                >
+                  Место расположения
+                </dt>
+                <dd className={clsx(...fade)}>
                   Китченер, <abbr title="Ontario">ВКЛ</abbr>
                 </dd>
               </div>
               <div className="w-full flex-none flex items-center p-4 sm:p-6 lg:p-4 xl:p-6">
-                <dt className="w-2/5 sm:w-1/4 flex-none text-gray-900 font-medium">Описание</dt>
-                <dd className="italic">Нет описания встречи</dd>
+                <dt
+                  className={clsx(
+                    'w-2/5 sm:w-1/4 flex-none text-slate-900 font-medium dark:text-slate-300',
+                    ...fade
+                  )}
+                >
+                  Описание
+                </dt>
+                <dd className={clsx('italic', ...fade)}>Нет описания встречи</dd>
               </div>
               <div className="w-full flex-none flex items-center p-4 sm:py-5 sm:px-6 lg:p-4 xl:py-5 xl:px-6">
-                <dt className="w-2/5 sm:w-1/4 flex-none text-gray-900 font-medium">Участники</dt>
-                <dd className="text-sm font-medium text-gray-700 bg-gray-100 rounded-full py-1 px-3">
+                <dt
+                  className={clsx(
+                    'w-2/5 sm:w-1/4 flex-none text-slate-900 font-medium dark:text-slate-300',
+                    ...fade
+                  )}
+                >
+                  Участники
+                </dt>
+                <dd
+                  className={clsx(
+                    'text-sm font-medium text-slate-700 bg-slate-100 rounded-full py-1 px-3 dark:bg-slate-700 dark:text-slate-300',
+                    ...fade
+                  )}
+                >
                   Эндрю Макдональд
                 </dd>
               </div>
             </dl>
             <div className="grid grid-cols-2 gap-x-4 sm:gap-x-6 lg:gap-x-4 xl:gap-x-6 p-4 sm:px-6 sm:py-5 lg:p-4 xl:px-6 xl:py-5">
-              <div className="text-base font-medium rounded-lg bg-gray-100 text-gray-900 py-3 text-center cursor-pointer">
+              <div className="text-base font-medium rounded-lg bg-slate-100 text-slate-900 py-3 text-center cursor-pointer dark:bg-slate-600 dark:text-slate-400 dark:highlight-white/10">
                 Отклонить
               </div>
-              <div className="text-base font-medium rounded-lg bg-sky-500 text-white py-3 text-center cursor-pointer">
+              <div className="text-base font-medium rounded-lg bg-sky-500 text-white py-3 text-center cursor-pointer dark:highlight-white/20">
                 Принять
               </div>
             </div>
@@ -530,9 +553,11 @@ export function ComponentDriven() {
   return (
     <section id="component-driven">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <IconContainer>
-          <img src={iconUrl} alt="" />
-        </IconContainer>
+        <IconContainer
+          className="dark:bg-sky-500 dark:highlight-white/20"
+          light={require('@/img/icons/home/component-driven.png').default}
+          dark={require('@/img/icons/home/dark/component-driven.png').default}
+        />
         <Caption className="text-sky-500">Компонентно-управляемый</Caption>
         <BigText>
           <Widont>Беспокоитесь о дублировании? Не будет.</Widont>
@@ -542,7 +567,7 @@ export function ComponentDriven() {
           это извлечь их в компонент или часть шаблона и бум - у вас есть единственный источник правды,
           так что вы можете вносить изменения в одном месте.
         </Paragraph>
-        <Link href="/docs/reusing-styles" color="sky">
+        <Link href="/docs/reusing-styles" color="sky" darkColor="gray">
           Подробнее<span className="sr-only">, о повторном использовании стилей</span>
         </Link>
         <div className="mt-10">
@@ -560,7 +585,7 @@ export function ComponentDriven() {
       <GridLockup.Container className="mt-10 xl:mt-2" beams={8}>
         <GridLockup.Grid
           left={
-            <div className="relative z-10 bg-white rounded-xl shadow-xl ring-1 ring-gray-900/5 divide-y divide-gray-100 my-auto xl:mt-18">
+            <div className="relative z-10 bg-white rounded-xl shadow-xl ring-1 ring-slate-900/5 divide-y divide-slate-100 my-auto xl:mt-18 dark:bg-slate-800 dark:divide-slate-200/5 dark:highlight-white/10">
               <nav className="py-4 px-4 sm:px-6 lg:px-4 xl:px-6 text-sm font-medium">
                 <ul className="flex space-x-3">
                   <li>
@@ -569,12 +594,12 @@ export function ComponentDriven() {
                     </div>
                   </li>
                   <li>
-                    <div className="px-3 py-2 rounded-md bg-gray-50 cursor-pointer">
+                    <div className="px-3 py-2 rounded-md bg-slate-50 cursor-pointer dark:bg-transparent dark:text-slate-300 dark:ring-1 dark:ring-slate-700">
                       Топ<span className="hidden sm:inline"> Оценок</span>
                     </div>
                   </li>
                   <li>
-                    <div className="px-3 py-2 rounded-md bg-gray-50 cursor-pointer">
+                    <div className="px-3 py-2 rounded-md bg-slate-50 cursor-pointer dark:bg-transparent dark:text-slate-300 dark:ring-1 dark:ring-slate-700">
                       Выбор Винсента
                     </div>
                   </li>
@@ -594,12 +619,14 @@ export function ComponentDriven() {
                     alt=""
                     width="60"
                     height="88"
-                    className="flex-none rounded-md bg-gray-100"
+                    className="flex-none rounded-md bg-slate-100"
                   />
                   <div className="min-w-0 relative flex-auto">
-                    <h2 className="font-semibold text-gray-900 truncate sm:pr-20">{title}</h2>
+                    <h2 className="font-semibold text-slate-900 truncate sm:pr-20 dark:text-slate-100">
+                      {title}
+                    </h2>
                     <dl className="mt-2 flex flex-wrap text-sm leading-6 font-medium">
-                      <div className="hidden absolute top-0 right-0 sm:flex items-center space-x-1">
+                      <div className="hidden absolute top-0 right-0 sm:flex items-center space-x-1 dark:text-slate-100">
                         <dt className="text-sky-500">
                           <span className="sr-only">Звездный рейтинг</span>
                           <svg width="16" height="20" fill="currentColor">
@@ -608,9 +635,11 @@ export function ComponentDriven() {
                         </dt>
                         <dd>{starRating}</dd>
                       </div>
-                      <div>
+                      <div className="dark:text-slate-200">
                         <dt className="sr-only">Rating</dt>
-                        <dd className="px-1.5 ring-1 ring-gray-200 rounded">{rating}</dd>
+                        <dd className="px-1.5 ring-1 ring-slate-200 rounded dark:ring-slate-600">
+                          {rating}
+                        </dd>
                       </div>
                       <div className="ml-2">
                         <dt className="sr-only">Year</dt>
@@ -623,7 +652,7 @@ export function ComponentDriven() {
                             width="2"
                             height="2"
                             fill="currentColor"
-                            className="mx-2 text-gray-300"
+                            className="mx-2 text-slate-300"
                             aria-hidden="true"
                           >
                             <circle cx="1" cy="1" r="1" />
@@ -638,7 +667,7 @@ export function ComponentDriven() {
                             width="2"
                             height="2"
                             fill="currentColor"
-                            className="mx-2 text-gray-300"
+                            className="mx-2 text-slate-300"
                             aria-hidden="true"
                           >
                             <circle cx="1" cy="1" r="1" />
@@ -648,7 +677,7 @@ export function ComponentDriven() {
                       </div>
                       <div className="flex-none w-full mt-2 font-normal">
                         <dt className="sr-only">Cast</dt>
-                        <dd className="text-gray-400">{cast}</dd>
+                        <dd className="text-slate-400">{cast}</dd>
                       </div>
                     </dl>
                   </div>

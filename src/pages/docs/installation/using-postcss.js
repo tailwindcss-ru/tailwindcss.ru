@@ -21,7 +21,8 @@ let steps = [
     title: 'Добавьте Tailwind в конфигурацию PostCSS',
     body: () => (
       <p>
-        Добавьте <code>tailwindcss</code> и <code>autoprefixer</code> в свой файл{' '} <code>postcss.config.js</code>.
+        Добавьте <code>tailwindcss</code> и <code>autoprefixer</code> в свой файл{' '}
+        <code>postcss.config.js</code> или везде, где PostCSS настроен в вашем проекте.
       </p>
     ),
     code: {
@@ -110,18 +111,23 @@ let steps = [
 export default function UsingPostCss({ code }) {
   return (
     <InstallationLayout>
-      <div className="relative z-10 prose mb-16 max-w-3xl">
+      <div id="content" className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
+        <h3 className="sr-only">Installing Tailwind CSS as a PostCSS plugin</h3>
         <p>
           Установка Tailwind CSS в качестве плагина PostCSS - самый простой способ интегрировать его с такими инструментами сборки, как webpack, Rollup, Vite и Parcel.
         </p>
       </div>
-      <Steps steps={steps} code={code} />
+      <Steps level={4} steps={steps} code={code} />
       <Cta
         label="Изучите наши руководства по фреймворкам"
         href="/docs/installation/framework-guides"
         description={
           <>
-            <strong className="text-gray-900 font-semibold">Вы застряли?</strong> Настройка Tailwind с помощью PostCSS может немного отличаться для разных инструментов сборки. Ознакомьтесь с нашими руководствами по фреймворкам, чтобы узнать, есть ли у нас более конкретные инструкции для вашей конкретной настройки.
+            <strong className="text-slate-900 font-semibold dark:text-slate-200">
+              Вы зашли в тупик?
+            </strong>{' '}
+            Настройка Tailwind с помощью PostCSS может немного отличаться в разных инструментах сборки.
+            Ознакомьтесь с нашими руководствами по фреймворку, чтобы узнать, есть ли у нас более конкретные инструкции для вашей конкретной настройки.
           </>
         }
       />

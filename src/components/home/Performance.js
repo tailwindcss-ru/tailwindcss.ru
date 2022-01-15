@@ -1,7 +1,6 @@
 import { IconContainer, Caption, BigText, Paragraph, Link } from '@/components/home/common'
 import { CodeWindow, getClassNameForToken } from '@/components/CodeWindow'
 import { TabBar } from '@/components/TabBar'
-import iconUrl from '@/img/icons/home/performance.png'
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { GridLockup } from '../GridLockup'
@@ -127,9 +126,11 @@ export function Performance() {
   return (
     <section id="performance">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <IconContainer>
-          <img src={iconUrl} alt="" />
-        </IconContainer>
+        <IconContainer
+          className="dark:bg-sky-500 dark:highlight-white/20"
+          light={require('@/img/icons/home/performance.png').default}
+          dark={require('@/img/icons/home/dark/performance.png').default}
+        />
         <Caption className="text-sky-500">Производительность</Caption>
         <BigText>Он крошечный - никогда больше не отправляйте неиспользуемый CSS.</BigText>
         <Paragraph>
@@ -137,7 +138,7 @@ export function Performance() {
           что означает, что ваш окончательный набор CSS является наименьшим из возможных.
           Фактически, большинство проектов Tailwind отправляют клиенту менее 10 КБ CSS.
         </Paragraph>
-        <Link href="/docs/optimizing-for-production" color="sky">
+        <Link href="/docs/optimizing-for-production" color="sky" darkColor="gray">
           Подробнее<span className="sr-only">, об оптимизации для производственной среды</span>
         </Link>
       </div>
@@ -148,11 +149,12 @@ export function Performance() {
           <div className="relative">
             <div
               ref={containerRef}
-              className="relative bg-gray-800 shadow-xl pt-2 overflow-hidden sm:rounded-xl lg:grid lg:grid-cols-2 lg:grid-rows-1"
+              className="relative bg-slate-800 shadow-xl pt-2 overflow-hidden sm:rounded-xl lg:grid lg:grid-cols-2 lg:grid-rows-1 dark:bg-slate-900/70 dark:backdrop-blur dark:ring-1 dark:ring-inset dark:ring-white/10"
             >
               <div className="row-end-1">
                 <TabBar
                   side="left"
+                  translucent={true}
                   primary={{ name: 'index.html', saved }}
                   secondary={[
                     { name: 'tailwind.config.js' },
@@ -175,11 +177,11 @@ export function Performance() {
                   wrap={true}
                   showLineNumbers={false}
                   overflow={false}
-                  className="border-r border-gray-500/30 h-[20.8125rem] overflow-hidden p-4 md:pl-0"
+                  className="border-r border-slate-500/30 h-[20.8125rem] overflow-hidden p-4 md:pl-0"
                 >
                   {html.map((tokens, lineIndex) => (
                     <div key={lineIndex} className="flex">
-                      <div className="hidden md:block text-gray-600 flex-none pr-4 text-right select-none w-[3.125rem] mr-4">
+                      <div className="hidden md:block text-slate-600 flex-none pr-4 text-right select-none w-[3.125rem] mr-4">
                         {lineIndex + 1}
                       </div>
                       <div>
@@ -214,8 +216,12 @@ export function Performance() {
                   ))}
                 </CodeWindow.Code2>
               </div>
-              <div className="row-span-2 border-t border-gray-500/30 pt-1.5 lg:border-0 lg:pt-0">
-                <TabBar side="right" primary={{ name: 'build.css', saved: true }}>
+              <div className="row-span-2 border-t border-slate-500/30 pt-1.5 lg:border-0 lg:pt-0">
+                <TabBar
+                  side="right"
+                  translucent={true}
+                  primary={{ name: 'build.css', saved: true }}
+                >
                   <svg width="12" height="2" fill="currentColor">
                     <circle cx="1" cy="1" r="1" />
                     <circle cx="6" cy="1" r="1" />
@@ -227,7 +233,7 @@ export function Performance() {
                   language="css"
                   overflow={false}
                   lines={Math.max(1, rules.flat().length)}
-                  className="border-r border-gray-500/30 h-[20.8125rem] lg:h-[31.6875rem] scroll-smooth overflow-hidden"
+                  className="h-[20.8125rem] lg:h-[31.6875rem] scroll-smooth overflow-hidden"
                 >
                   {rules.map((rule) => (
                     <Rule
@@ -238,9 +244,14 @@ export function Performance() {
                   ))}
                 </CodeWindow.Code2>
               </div>
-              <div className="row-start-1 row-end-2 border-t border-gray-500/30">
-                <div className="h-1.5 border-r border-gray-500/30" />
-                <TabBar side="right" primary={{ name: 'Terminal' }} showTabMarkers={false}>
+              <div className="row-start-1 row-end-2 border-t border-slate-500/30">
+                <div className="h-1.5 border-r border-slate-500/30" />
+                <TabBar
+                  side="right"
+                  translucent={true}
+                  primary={{ name: 'Terminal' }}
+                  showTabMarkers={false}
+                >
                   <svg width="12" height="2" fill="currentColor">
                     <circle cx="1" cy="1" r="1" />
                     <circle cx="6" cy="1" r="1" />
@@ -275,7 +286,7 @@ function Terminal({ rules }) {
   return (
     <div
       ref={scrollRef}
-      className="flex-auto border-r border-gray-500/30 text-gray-400 font-mono p-4 pb-0 h-[8.75rem] overflow-hidden scroll-smooth flex"
+      className="flex-auto border-r border-slate-500/30 text-slate-400 font-mono p-4 pb-0 h-[8.75rem] overflow-hidden scroll-smooth flex"
     >
       <svg viewBox="0 -9 3 24" className="flex-none overflow-visible text-pink-400 w-auto h-6 mr-3">
         <path
@@ -295,7 +306,7 @@ function Terminal({ rules }) {
             <span className="xl:hidden">-w</span> <span className="hidden xl:inline">--watch</span>
           </div>
           {rules.map((_rule, index) => (
-            <div key={index} className={index === rules.length - 1 ? 'text-gray-200' : undefined}>
+            <div key={index} className={index === rules.length - 1 ? 'text-slate-200' : undefined}>
               <span className="code-highlight animate-flash-code-slow">
                 Rebuilding... Done in {[5, 6, 5, 7, 4, 5][index % 6]}ms.
               </span>

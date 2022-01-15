@@ -2,7 +2,6 @@ import { IconContainer, Caption, BigText, Paragraph, Link } from '@/components/h
 import { CodeWindow, getClassNameForToken } from '@/components/CodeWindow'
 import { motion } from 'framer-motion'
 import { Fragment, useEffect, useState } from 'react'
-import iconUrl from '@/img/icons/home/editor-tools.png'
 import { useInView } from 'react-intersection-observer'
 import colors from 'tailwindcss/colors'
 import dlv from 'dlv'
@@ -237,7 +236,7 @@ function Completion({ inView }) {
       {typed && (
         <span className="relative z-10">
           <div className="absolute top-full left-full m-0.5 -ml-16 sm:ml-0.5 rounded-lg shadow-xl">
-            <div className="relative w-96 bg-gray-700 overflow-hidden rounded-lg">
+            <div className="relative w-96 bg-slate-700 overflow-hidden rounded-lg">
               <ul className="relative leading-5 text-white py-3">
                 {completions
                   .filter((completion) => completion[0].startsWith(typed.trim()))
@@ -246,19 +245,19 @@ function Completion({ inView }) {
                     <li
                       key={completion[0]}
                       className={clsx('px-3 flex items-center space-x-2', {
-                        'bg-gray-600': i === selectedCompletionIndex,
+                        'bg-slate-600': i === selectedCompletionIndex,
                       })}
                     >
                       <span className="w-5 flex-none flex justify-center">
                         {completion[2] ? (
                           <span
-                            className="flex-none w-3 h-3 rounded ring-1 ring-gray-900/30"
+                            className="flex-none w-3 h-3 rounded ring-1 ring-slate-900/30"
                             style={{ background: completion[2] }}
                           />
                         ) : (
                           <svg className="w-5 h-5">
                             <path
-                              className="!text-gray-400"
+                              className="!text-slate-400"
                               fill="currentColor"
                               fillRule="evenodd"
                               clipRule="evenodd"
@@ -267,7 +266,7 @@ function Completion({ inView }) {
                           </svg>
                         )}
                       </span>
-                      <span className="flex-none !text-gray-50">
+                      <span className="flex-none !text-slate-50">
                         {completion[0].split(new RegExp(`(^${typed.trim()})`)).map((part, j) =>
                           part ? (
                             j % 2 === 0 ? (
@@ -281,7 +280,7 @@ function Completion({ inView }) {
                         )}
                       </span>
                       {i === selectedCompletionIndex && completion[1] ? (
-                        <span className="hidden sm:block flex-auto text-right !text-gray-400 truncate pl-4">
+                        <span className="hidden sm:block flex-auto text-right !text-slate-400 truncate pl-4">
                           {completion[1]}
                         </span>
                       ) : null}
@@ -299,7 +298,7 @@ function Completion({ inView }) {
 function ColorDecorator({ color }) {
   return (
     <span
-      className="inline-flex w-3 h-3 rounded ring-1 ring-gray-900/30 relative top-px mr-1"
+      className="inline-flex w-3 h-3 rounded ring-1 ring-slate-900/30 relative top-px mr-1"
       style={{ background: color }}
     />
   )
@@ -309,9 +308,11 @@ export function EditorTools() {
   return (
     <section id="editor-tools">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <IconContainer>
-          <img src={iconUrl} alt="" />
-        </IconContainer>
+        <IconContainer
+          className="dark:bg-sky-500 dark:highlight-white/20"
+          light={require('@/img/icons/home/editor-tools.png').default}
+          dark={require('@/img/icons/home/dark/editor-tools.png').default}
+        />
         <Caption className="text-sky-500">Инструменты редактора</Caption>
         <BigText>Интеграция IDE мирового класса.</BigText>
         <Paragraph as="div">
@@ -322,7 +323,7 @@ export function EditorTools() {
             Получайте интеллектуальные предложения автозаполнения, линтинг, определения классов и многое другое в Вашем редакторе и без необходимости настройки.
           </p>
         </Paragraph>
-        <Link href="/docs/intellisense" color="sky">
+        <Link href="/docs/intellisense" color="sky" darkColor="gray">
           Подробнее<span className="sr-only">, настройка редактора</span>
         </Link>
       </div>
@@ -334,11 +335,11 @@ export function EditorTools() {
             <img
               src={require('@/img/beams/overlay.webp').default}
               alt=""
-              className="absolute z-10 bottom-0 -left-80 w-[45.0625rem] pointer-events-none"
+              className="absolute z-10 bottom-0 -left-80 w-[45.0625rem] pointer-events-none dark:hidden"
             />
             <CodeWindow className="!h-[39.0625rem]">
               <div className="flex-auto flex min-h-0">
-                <div className="hidden sm:flex flex-none w-14 border-r border-gray-500/30 flex-col items-center justify-between pt-3.5 pb-4">
+                <div className="hidden sm:flex flex-none w-14 border-r border-slate-500/30 flex-col items-center justify-between pt-3.5 pb-4">
                   <svg width="24" height="216" fill="none">
                     <path
                       d="M3 69l6-6m-2-5a7 7 0 1014 0 7 7 0 00-14 0z"
@@ -381,9 +382,9 @@ export function EditorTools() {
                 </div>
                 <div className="flex-auto flex flex-col min-w-0">
                   <CompletionDemo />
-                  <div className="border-t border-gray-500/30 font-mono text-xs leading-6 text-gray-200 p-4 space-y-2">
+                  <div className="border-t border-slate-500/30 font-mono text-xs leading-6 text-slate-200 p-4 space-y-2">
                     <h3>Problems</h3>
-                    <ul className="space-y-1 text-gray-300">
+                    <ul className="space-y-1 text-slate-300">
                       {problems.map((problem, i) => (
                         <li key={i} className="flex min-w-0">
                           <svg
@@ -405,7 +406,7 @@ export function EditorTools() {
                             />
                           </svg>
                           <p className="truncate ml-1">{problem[0]}</p>
-                          <p className="hidden sm:block flex-none text-gray-500">
+                          <p className="hidden sm:block flex-none text-slate-500">
                             &nbsp;{problem[1]}
                           </p>
                         </li>

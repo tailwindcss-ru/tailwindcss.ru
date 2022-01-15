@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
 const FAVICON_VERSION = 3
@@ -14,12 +15,7 @@ export default class Document extends NextDocument {
 
   render() {
     return (
-      <Html
-        lang="ru"
-        className={`text-gray-500 antialiased [--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem] ${
-          this.props.dangerousAsPath.startsWith('/examples/') ? '' : 'bg-white'
-        }`}
-      >
+      <Html lang="ru" className="dark [--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem]">
         <Head>
           <link rel="apple-touch-icon" sizes="180x180" href={v('/favicons/apple-touch-icon.png')} />
           <link rel="icon" type="image/png" sizes="32x32" href={v('/favicons/favicon-32x32.png')} />
@@ -32,11 +28,28 @@ export default class Document extends NextDocument {
           <meta name="msapplication-TileColor" content="#38bdf8" />
           <meta name="msapplication-config" content={v('/favicons/browserconfig.xml')} />
           <meta name="theme-color" content="#ffffff" />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                try {
+                  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark')
+                  } else {
+                    document.documentElement.classList.remove('dark')
+                  }
+                } catch (_) {}
+              `,
+            }}
+          />
           {/* Google Tag Manager */}
           <script dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MB9DQ39');`, }}></script>
           {/* End Google Tag Manager */}
         </Head>
-        <body>
+        <body
+          className={clsx('antialiased text-slate-500 dark:text-slate-400', {
+            'bg-white dark:bg-slate-900': !this.props.dangerousAsPath.startsWith('/examples/'),
+          })}
+        >
           <Main />
           <NextScript />
           <script> </script>

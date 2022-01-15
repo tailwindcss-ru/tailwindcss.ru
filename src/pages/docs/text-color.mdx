@@ -38,12 +38,12 @@ export const classes = {
 
 <Example>
   <div class="relative text-xl text-center font-medium leading-6">
-    <p class="text-blue-600">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-blue-600 dark:text-sky-400">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
   </div>
 </Example>
 
 ```html
-<p class="**text-blue-600**">Быстрая коричневая лиса...</p>
+<p class="**text-blue-600**" dark-class="**text-sky-400**">Быстрая коричневая лиса...</p>
 ```
 
 ### Изменение непрозрачности
@@ -52,19 +52,19 @@ export const classes = {
 
 <Example>
   <div class="text-xl font-medium leading-6 space-y-4">
-    <p class="text-blue-600/100">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
-    <p class="text-blue-600/75">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
-    <p class="text-blue-600/50">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
-    <p class="text-blue-600/25">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-blue-600/100 dark:text-sky-400/100">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-blue-600/75 dark:text-sky-400/75">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-blue-600/50 dark:text-sky-400/50">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-blue-600/25 dark:text-sky-400/25">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
   </div>
 </Example>
 
 ```html
-<p class="text-blue-600**/100**">Быстрая коричневая лиса...</p>
-<p class="text-blue-600**/75**">Быстрая коричневая лиса...</p>
-<p class="text-blue-600**/50**">Быстрая коричневая лиса...</p>
-<p class="text-blue-600**/25**">Быстрая коричневая лиса...</p>
-<p class="text-blue-600**/0**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/100**" dark-class="text-sky-400**/100**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/75**" dark-class="text-sky-400**/75**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/50**" dark-class="text-sky-400**/50**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/25**" dark-class="text-sky-400**/25**">Быстрая коричневая лиса...</p>
+<p class="text-blue-600**/0**" dark-class="text-sky-400**/0**">Быстрая коричневая лиса...</p>
 ```
 
 Вы можете использовать любое значение, определенное в вашей [шкале непрозрачности](/docs/opacity), или использовать произвольные значения, если вам нужно отклониться от маркеров вашего дизайна.
@@ -83,12 +83,12 @@ export const classes = {
 
 <Example hint="Попробуйте навести курсор мыши на текст, чтобы увидеть ожидаемое поведение">
   <div class="relative text-xl text-center font-medium leading-6">
-    <p class="text-gray-500 hover:text-blue-600">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+    <p class="text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-sky-400">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
   </div>
 </Example>
 
 ```html
-<p class="text-gray-500 **hover:text-blue-600**">Быстрая коричневая лиса...</p>
+<p class="text-slate-500 **hover:text-blue-600**" dark-class="text-slate-400 **hover:text-sky-400**">Быстрая коричневая лиса...</p>
 ```
 
 </HoverFocusAndOtherStates>

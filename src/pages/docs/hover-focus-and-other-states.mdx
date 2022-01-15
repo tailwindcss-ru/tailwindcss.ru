@@ -24,8 +24,8 @@ import { TipGood, TipBad, TipInfo } from '@/components/Tip'
 </button>
 ```
 
-<details className="-mt-2 mb-10 rounded-xl border px-6 py-3 prose open:pb-5">
-  <summary className="font-medium cursor-default select-none text-gray-900">Как это соотносится с традиционным CSS?</summary>
+<details className="-mt-2 mb-10 rounded-xl border px-6 py-3 prose prose-slate open:pb-5 dark:prose-dark dark:border-slate-800">
+  <summary className="font-medium cursor-default select-none text-slate-900 dark:text-slate-200">Как это соотносится с традиционным CSS?</summary>
 
 При написании CSS традиционным способом одно имя класса будет делать разные вещи в зависимости от текущего состояния.
 
@@ -74,7 +74,7 @@ Tailwind включает в себя модификаторы практиче�
 </button>
 ```
 
-В этом руководстве вы узнаете обо всех модификаторах, доступных во фреймворке, о том, как использовать их с вашими собственными пользовательскими классами и даже о том, как создавать свои собственные.
+В этом руководстве вы узнаете о каждом модификаторе, доступном в фреймворке, о том, как использовать их с вашими собственными пользовательскими классами и даже о том, как создавать свои собственные.
 
 ---
 
@@ -109,33 +109,33 @@ Tailwind также включает модификаторы для други�
 <Example p="none">
   <div class="px-4">
     <div class="max-w-md mx-auto bg-white shadow">
-      <ul role="list" class="p-6 divide-y divide-gray-200">
+      <ul role="list" class="p-6 divide-y divide-slate-200">
         <li class="py-4 flex first:pt-0 last:pb-0">
           <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
           <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-gray-900">Kristen Ramos</p>
-            <p class="text-sm text-gray-500 truncate">kristen.ramos@example.com</p>
+            <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
+            <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
           </div>
         </li>
         <li class="py-4 flex first:pt-0 last:pb-0">
           <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
           <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-gray-900">Floyd Miles</p>
-            <p class="text-sm text-gray-500 truncate">floyd.miles@example.com</p>
+            <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
+            <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
           </div>
         </li>
         <li class="py-4 flex first:pt-0 last:pb-0">
           <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
           <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-gray-900">Courtney Henry</p>
-            <p class="text-sm text-gray-500 truncate">courtney.henry@example.com</p>
+            <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
+            <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
           </div>
         </li>
         <li class="py-4 flex first:pt-0 last:pb-0">
           <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
           <div class="ml-3 overflow-hidden">
-            <p class="text-sm font-medium text-gray-900">Ted Fox</p>
-            <p class="text-sm text-gray-500 truncate">ted.fox@example.com</p>
+            <p class="text-sm font-medium text-slate-900">Ted Fox</p>
+            <p class="text-sm text-slate-500 truncate">ted.fox@example.com</p>
           </div>
         </li>
       </ul>
@@ -144,14 +144,14 @@ Tailwind также включает модификаторы для други�
 </Example>
 
 ```html
-<ul role="list" class="p-6 divide-y divide-gray-200">
+<ul role="list" class="p-6 divide-y divide-slate-200">
   {#each people as person}
     <!-- Удалите верхнюю / нижнюю прокладку, когда первый / последний ребенок -->
     <li class="flex py-4 **first:pt-0** **last:pb-0**">
       <img class="h-10 w-10 rounded-full" src="{person.imageUrl}" alt="" />
       <div class="ml-3 overflow-hidden">
-        <p class="text-sm font-medium text-gray-900">{person.name}</p>
-        <p class="text-sm text-gray-500 truncate">{person.email}</p>
+        <p class="text-sm font-medium text-slate-900">{person.name}</p>
+        <p class="text-sm text-slate-500 truncate">{person.email}</p>
       </div>
     </li>
   {/each}
@@ -167,72 +167,72 @@ Tailwind также включает модификаторы для други�
         <div class="align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div class="overflow-hidden">
             <table class="min-w-full">
-              <thead class="bg-gray-50 border-b border-gray-200">
+              <thead class="bg-slate-50 border-b border-slate-200">
                 <tr>
-                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
+                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
                     Имя
                   </th>
-                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
+                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
                     Заголовок
                   </th>
-                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
+                  <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
                     Эл. почта
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr class="odd:bg-white even:bg-slate-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
                     Jane Cooper
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     Regional Paradigm Technician
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     jane.cooper@example.com
                   </td>
                 </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr class="odd:bg-white even:bg-slate-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
                     Cody Fisher
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     Product Directives Officer
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     cody.fisher@example.com
                   </td>
                 </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr class="odd:bg-white even:bg-slate-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
                     Leonard Krasner
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     Senior Designer
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     leonard.krasner@example.com
                   </td>
                 </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr class="odd:bg-white even:bg-slate-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
                     Emily Selman
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     VP, Hardware Engineering
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     emily.selman@example.com
                   </td>
                 </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr class="odd:bg-white even:bg-slate-50">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">
                     Anna Roberts
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     Chief Strategy Officer
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                     anna.roberts@example.com
                   </td>
                 </tr>
@@ -250,8 +250,8 @@ Tailwind также включает модификаторы для други�
   <!-- ... -->
   <tbody>
     {#each people as person}
-      <!-- Use a white background for odd rows, and gray-100 for even rows -->
-      <tr class="**odd:bg-white** **even:bg-gray-100**">
+      <!-- Use a white background for odd rows, and slate-100 for even rows -->
+      <tr class="**odd:bg-white** **even:bg-slate-100**">
         <td>{person.name}</td>
         <td>{person.title}</td>
         <td>{person.email}</td>
@@ -273,21 +273,21 @@ Tailwind также включает модификаторы для други�
   <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
     <form>
       <div>
-        <label for="username" class="block text-sm font-medium text-gray-700">Имя пользователя</label>
+        <label for="username" class="block text-sm font-medium text-slate-700">Имя пользователя</label>
         <div class="mt-1">
-          <input type="text" name="username" id="username" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
+          <input type="text" name="username" id="username" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
         </div>
       </div>
       <div class="mt-6">
-        <label for="email" class="block text-sm font-medium text-gray-700">Эл. почта</label>
+        <label for="email" class="block text-sm font-medium text-slate-700">Эл. почта</label>
         <div class="mt-1">
-          <input type="email" name="email" id="email" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
+          <input type="email" name="email" id="email" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
         </div>
       </div>
       <div class="mt-6">
-        <label for="password" class="block text-sm font-medium text-gray-700">Пароль</label>
+        <label for="password" class="block text-sm font-medium text-slate-700">Пароль</label>
         <div class="mt-1">
-          <input type="password" name="password" id="password" class="px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
+          <input type="password" name="password" id="password" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
         </div>
       </div>
       <div class="mt-6 text-right">
@@ -302,11 +302,11 @@ Tailwind также включает модификаторы для други�
 ```html
 <form>
   <label class="block">
-    <span class="block text-sm font-medium text-gray-700">Имя пользователя</span>
-    <!-- Используя модификаторы состояния формы, классы могут быть идентичными для каждого ввода -->
-    <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+    <span class="block text-sm font-medium text-slate-700">Имя пользователя</span>
+    <!-- Using form state modifers, the classes can be identical for every input -->
+    <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      **disabled:bg-gray-50** **disabled:text-gray-500** **disabled:border-gray-200** **disabled:shadow-none**
+      **disabled:bg-slate-50** **disabled:text-slate-500** **disabled:border-slate-200** **disabled:shadow-none**
       **invalid:border-pink-500** **invalid:text-pink-600**
       **focus:invalid:border-pink-500** **focus:invalid:ring-pink-500**
     "/>
@@ -326,7 +326,7 @@ Tailwind также включает модификаторы для други�
 Когда вам нужно стилизовать элемент на основе состояния некоторого _родительского_ элемента, пометьте родителя классом `group` и используйте модификаторы `group-*`, такие как `group-hover`, для стилизации целевого элемента:
 
 <Example hint="Наведите указатель мыши на карточку, чтобы увидеть, как оба текстовых элемента меняют цвет">
-  <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-gray-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+  <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
     <div class="flex items-center space-x-3">
       <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -334,19 +334,19 @@ Tailwind также включает модификаторы для други�
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4" />
       </svg>
-      <h3 class="text-sm text-gray-900 font-semibold group-hover:text-white">Новый проект</h3>
+      <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">Новый проект</h3>
     </div>
-    <p class="text-sm text-gray-500 group-hover:text-white">Создайте новый проект из множества начальных шаблонов.</p>
+    <p class="text-sm text-slate-500 group-hover:text-white">Создайте новый проект из множества начальных шаблонов.</p>
   </a>
 </Example>
 
 ```html
-<a href="#" class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-gray-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+<a href="#" class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
   <div class="flex items-center space-x-3">
     <svg class="h-6 w-6 stroke-sky-500 **group-hover:stroke-white**" fill="none" viewBox="0 0 24 24"><!-- ... --></svg>
-    <h3 class="text-gray-900 **group-hover:text-white** text-sm font-semibold">Новый проект</h3>
+    <h3 class="text-slate-900 **group-hover:text-white** text-sm font-semibold">Новый проект</h3>
   </div>
-  <p class="text-gray-500 **group-hover:text-white** text-sm">Создайте новый проект из множества начальных шаблонов.</p>
+  <p class="text-slate-500 **group-hover:text-white** text-sm">Создайте новый проект из множества начальных шаблонов.</p>
 </a>
 ```
 
@@ -361,9 +361,9 @@ Tailwind также включает модификаторы для други�
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
     <form>
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-700">Эл. почта</label>
+        <label for="email" class="block text-sm font-medium text-slate-700">Эл. почта</label>
         <div class="mt-1">
-          <input type="email" name="email" id="email" class="peer px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400  disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
+          <input type="email" name="email" id="email" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
           <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">Пожалуйста, укажите действующий адрес электронной почты.</p>
         </div>
       </div>
@@ -374,7 +374,7 @@ Tailwind также включает модификаторы для други�
 ```html
 <form>
   <label class="block">
-    <span class="block text-sm font-medium text-gray-700">Имя пользователя</span>
+    <span class="block text-sm font-medium text-slate-700">Эл. почта</span>
     <input type="email" class="**peer** ..."/>
     <p class="mt-2 invisible **peer-invalid:visible** text-pink-600 text-sm">
       Пожалуйста, укажите действующий адрес электронной почты.
@@ -399,8 +399,8 @@ Tailwind также включает модификаторы для други�
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
     <form>
       <label class="block">
-        <span class="block text-sm font-medium text-gray-700 after:content-['*'] after:ml-0.5 after:text-red-500">Эл. почта</span>
-        <input type="email" name="email" id="email" class="mt-1 px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+        <span class="block text-sm font-medium text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500">Эл. почта</span>
+        <input type="email" name="email" id="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
       </label>
     </form>
   </div>
@@ -408,10 +408,10 @@ Tailwind также включает модификаторы для други�
 
 ```html
 <label class="block">
-  <span class="**after:content-['*']** **after:ml-0.5** **after:text-red-500** block text-sm font-medium text-gray-700">
+  <span class="**after:content-['*']** **after:ml-0.5** **after:text-red-500** block text-sm font-medium text-slate-700">
     Эл. почта
   </span>
-  <input type="email" name="email" class="mt-1 px-3 py-2 border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+  <input type="email" name="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
 </label>
 ```
 
@@ -421,15 +421,15 @@ Tailwind также включает модификаторы для други�
 <Example p="none">
   <div class="px-6">
     <div class="max-w-lg mx-auto bg-white shadow py-8 px-6">
-      <blockquote class="text-2xl font-semibold italic text-center text-gray-900">
-        Когда вы все время выглядите <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500"><span class="relative text-white">раздраженным</span>,</span> люди думают, что вы заняты.
+      <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
+        Когда вы все время выглядите <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500"><span class="relative text-white">раздраженным</span></span> люди думают, что вы заняты.
       </blockquote>
     </div>
   </div>
 </Example>
 
 ```html
-<blockquote class="text-2xl font-semibold italic text-center text-gray-900">
+<blockquote class="text-2xl font-semibold italic text-center text-slate-900">
   Когда вы все время выглядите
   <span class="**before:block** **before:absolute** **before:-inset-1** **before:-skew-y-3** **before:bg-pink-500** relative inline-block">
     <span class="relative text-white">раздраженным</span>,
@@ -443,7 +443,7 @@ Tailwind также включает модификаторы для други�
 Например, вот тот же дизайн сверху, но с использованием псевдоэлемента `<span>` вместо псевдоэлемента `::before`, который немного легче читать и на самом деле содержит меньше кода:
 
 ```html
-  <blockquote class="text-2xl font-semibold italic text-center text-gray-900">
+  <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
     Когда вы все время выглядите
     <span class="relative">
 >     <span class="block absolute -inset-1 -skew-y-3 bg-pink-500" aria-hidden="true"></span>
@@ -455,6 +455,16 @@ Tailwind также включает модификаторы для други�
 
 Сохраните `before` и `after` для ситуаций, когда важно, чтобы содержимое псевдоэлемента фактически не находилось в DOM и не могло быть выбрано пользователем.
 
+Обратите внимание, что если вы отключили наши [базовые стили предварительной проверки](/docs/preflight), свойство содержимого не будет установлено на пустую строку по умолчанию, и вам нужно будет включать `content-['']` в любое время. вы используете модификаторы `before` и `after`.
+
+<TipInfo>Если вы отключили предварительную проверку, обязательно установите содержимое вручную</TipInfo>
+
+```html
+<div class="**before:content-['']** before:block ...">
+  <!-- ... -->
+</div>
+```
+
 ### Текст-заполнитель
 
 Стилизуйте текст заполнителя любого ввода или текстового поля, используя модификатор `placeholder`:
@@ -464,7 +474,7 @@ Tailwind также включает модификаторы для други�
     <form>
       <label class="relative block">
         <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-          <svg class="h-5 w-5 fill-gray-300" viewBox="0 0 20 20">
+          <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20">
             <path
               fill-rule="evenodd"
               d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -473,7 +483,7 @@ Tailwind также включает модификаторы для други�
           </svg>
         </span>
         <span class="sr-only">Поиск</span>
-        <input type="text" name="search" class="block w-full border border-gray-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Искать что угодно..."
+        <input type="text" name="search" class="block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Искать что угодно..."
         />
       </label>
     </form>
@@ -484,9 +494,9 @@ Tailwind также включает модификаторы для други�
 <label class="relative block">
   <span class="sr-only">Поиск</span>
   <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-    <svg class="h-5 w-5 fill-gray-300" viewBox="0 0 20 20"><!-- ... --></svg>
+    <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"><!-- ... --></svg>
   </span>
-  <input class="**placeholder:italic** **placeholder:text-gray-400** block w-full border border-gray-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Искать что угодно..." type="text" name="search"/>
+  <input class="**placeholder:italic** **placeholder:text-slate-400** block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Искать что угодно..." type="text" name="search"/>
 </label>
 ```
 
@@ -503,7 +513,7 @@ Tailwind также включает модификаторы для други�
         </div>
         <label class="block">
           <span class="sr-only">Выберите фото профиля</span>
-          <input type="file" class="block w-full text-sm text-gray-500 file:text-sm file:font-semibold file:py-2 file:px-4 file:bg-violet-50 file:text-violet-700 file:rounded-full file:border-0 file:mr-4 hover:file:bg-violet-100"
+          <input type="file" class="block w-full text-sm text-slate-500 file:text-sm file:font-semibold file:py-2 file:px-4 file:bg-violet-50 file:text-violet-700 file:rounded-full file:border-0 file:mr-4 hover:file:bg-violet-100"
           />
         </label>
       </form>
@@ -518,7 +528,7 @@ Tailwind также включает модификаторы для други�
   </div>
   <label class="block">
     <span class="sr-only">Выберите фото профиля</span>
-    <input type="file" class="block w-full text-sm text-gray-500
+    <input type="file" class="block w-full text-sm text-slate-500
       **file:mr-4** **file:py-2** **file:px-4**
       **file:rounded-full** **file:border-0**
       **file:text-sm** **file:font-semibold**
@@ -541,9 +551,9 @@ Tailwind также включает модификаторы для други�
 
 <Example p="none">
   <div class="px-6">
-    <div class="max-w-sm mx-auto bg-white shadow py-8 px-8">
-      <h2 class="text-base font-semibold text-gray-900">Ingredients</h2>
-      <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-gray-500 marker:text-sky-400">
+    <div class="max-w-sm mx-auto bg-white shadow py-8 px-8 dark:bg-slate-800">
+      <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Ingredients</h2>
+      <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-slate-500 marker:text-sky-400 dark:text-slate-400">
         <li>5 чашек нарезанных белых грибов</li>
         <li>1/2 стакана оливкового масла</li>
         <li>3 фунта сельдерея</li>
@@ -553,7 +563,7 @@ Tailwind также включает модификаторы для други�
 </Example>
 
 ```html
-<ul role="list" class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-gray-500">
+<ul role="list" class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-500" dark-class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-400">
   <li>5 чашек нарезанных белых грибов</li>
   <li>1/2 стакана оливкового масла</li>
   <li>3 фунта сельдерея</li>
@@ -568,7 +578,7 @@ Tailwind также включает модификаторы для други�
 
 <Example p="none" hint="Попробуйте выделить часть этого текста с помощью мыши">
   <div class="px-6">
-    <div class="max-w-lg mx-auto bg-white shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900">
+    <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:bg-slate-800 dark:text-slate-400">
       <p>
         Итак, я пошел в воду. Я не буду врать вам, мальчики, я был в ужасе. Но я продолжал настаивать, и когда я пробирался мимо прибоя, меня охватило странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но я говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
       </p>
@@ -608,8 +618,8 @@ Tailwind также включает модификаторы для други�
 
 <Example p="none">
   <div class="px-6">
-    <div class="max-w-lg mx-auto bg-white shadow py-8 px-6 font-serif">
-      <p class="first-line:uppercase first-line:tracking-widest first-letter:text-gray-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3">
+    <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 font-serif dark:bg-slate-800 dark:text-slate-200">
+      <p class="first-line:uppercase first-line:tracking-widest first-letter:text-slate-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3 dark:first-letter:text-white">
         Что ж, позволь мне кое-что сказать, веселый мальчик. Вы знаете эту маленькую марку, на которой написано «Публичная библиотека Нью-Йорка»? Что ж, это может ничего не значить для вас, но для меня это много значит. Чертовски много.
       </p>
       <p class="mt-6">
@@ -619,12 +629,18 @@ Tailwind также включает модификаторы для други�
   </div>
 </Example>
 
-<button class="**focus:ring-2 focus:ring-red-500** ...">
-  Кольцо в focus
-</button>
-<button class="**focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-500** ...">
-  Кольцо в focus-visible
-</button>
+```html
+<p class="**first-line:uppercase** **first-line:tracking-widest**
+  **first-letter:text-7xl** **first-letter:font-bold** **first-letter:text-slate-900**
+  **first-letter:mr-3** **first-letter:float-left**
+" dark-class="**first-line:uppercase** **first-line:tracking-widest**
+  **first-letter:text-7xl** **first-letter:font-bold** **first-letter:text-white**
+  **first-letter:mr-3** **first-letter:float-left**
+">
+  Что ж, позволь мне сказать тебе кое-что, смешной мальчик. 
+  Знаешь эту маленькую марку, на которой написано "Публичная библиотека Нью-Йорка"? 
+  Ну, это может ничего не значить для вас, но это много значит для меня. Один чертовски много.
+</p>
 ```
 
 Обратите внимание, что в настоящее время только [Chrome, Edge и Firefox](https://caniuse.com/?search=focus-visible) нативно поддерживают `focus-visible`, поэтому для достаточной поддержки браузера вы должны установить и настроить оба параметра [JS полифил focus-visible](https://github.com/WICG/focus-visible) и [PostCSS полифил focus-visible](https://github.com/csstools/postcss-focus-visible). Обязательно включите плагин PostCSS _после_ Tailwind в свой список плагинов PostCSS:
@@ -654,8 +670,8 @@ Tailwind также включает модификаторы для други�
 <Example p="none">
   <div class="grid grid-cols-1 sm:grid-cols-2">
     <div class="p-8 pt-7">
-      <p class="mb-2 text-sm font-medium text-gray-500">Светлйы режим</p>
-      <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+      <p class="mb-2 text-sm font-medium text-slate-500">Светлый режим</p>
+      <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
         <div>
           <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -663,15 +679,15 @@ Tailwind также включает модификаторы для други�
             </svg>
           </span>
         </div>
-        <h3 class="mt-5 text-base font-medium text-gray-900 tracking-tight">Пишет вверх ногами</h3>
-        <p class="mt-2 text-sm text-gray-500">
+        <h3 class="mt-5 text-base font-medium text-slate-900 tracking-tight">Пишет вверх ногами</h3>
+        <p class="mt-2 text-sm text-slate-500">
           Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Работает даже в космосе.
         </p>
       </div>
     </div>
-    <div class="bg-gray-900 p-8 pt-7">
-      <p class="mb-2 text-sm font-medium text-gray-400">Темный режим</p>
-      <div class="bg-gray-800 rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+    <div class="bg-slate-900 p-8 pt-7">
+      <p class="mb-2 text-sm font-medium text-slate-400">Темный режим</p>
+      <div class="bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
         <div>
           <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -680,7 +696,7 @@ Tailwind также включает модификаторы для други�
           </span>
         </div>
         <h3 class="mt-5 text-base font-medium text-white tracking-tight">Пишет вверх ногами</h3>
-        <p class="mt-2 text-sm text-gray-400">
+        <p class="mt-2 text-sm text-slate-400">
           Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Работает даже в космосе.
         </p>
       </div>
@@ -689,14 +705,14 @@ Tailwind также включает модификаторы для други�
 </Example>
 
 ```html
-<div class="bg-white **dark:bg-gray-900** rounded-lg px-6 py-8 ring-1 ring-gray-900/5 shadow-xl">
+<div class="bg-white **dark:bg-slate-900** rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
   <div>
     <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
       <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
     </span>
   </div>
-  <h3 class="text-gray-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">Пишет вверх ногами</h3>
-  <p class="text-gray-500 **dark:text-gray-400** mt-2 text-sm">
+  <h3 class="text-slate-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">Пишет вверх ногами</h3>
+  <p class="text-slate-500 **dark:text-slate-400** mt-2 text-sm">
     Перо в невесомости можно использовать для письма в любой ориентации, включая перевернутую. Работает даже в космосе.
   </p>
 </div>
@@ -790,22 +806,22 @@ _Поддержка письма справа налево является эк
 <Example>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
     <div dir="ltr">
-      <p class="mb-4 text-sm font-medium text-gray-500">Left-to-right</p>
+      <p class="mb-4 text-sm font-medium">Left-to-right</p>
       <div class="group flex items-center">
         <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         <div class="ml-3 rtl:ml-0 rtl:mr-3">
-          <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Tom Cook</p>
-          <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">Director of Operations</p>
+          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
+          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
         </div>
       </div>
     </div>
     <div dir="rtl">
-      <p class="mb-4 text-sm font-medium text-gray-500">Right-to-left</p>
+      <p class="mb-4 text-sm font-medium">Right-to-left</p>
       <div class="group flex items-center">
         <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         <div class="ml-3 rtl:ml-0 rtl:mr-3">
-          <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">تامر كرم</p>
-          <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">الرئيس التنفيذي</p>
+          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">تامر كرم</p>
+          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">الرئيس التنفيذي</p>
         </div>
       </div>
     </div>
@@ -816,8 +832,8 @@ _Поддержка письма справа налево является эк
   <div class="group flex items-center">
     <img class="shrink-0 h-12 w-12 rounded-full" src="..." alt="" />
 >   <div class="ltr:ml-3 rtl:mr-3">
-      <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">...</p>
-      <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">...</p>
+      <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900" dark-class="text-sm font-medium text-slate-300 group-hover:text-white">...</p>
+      <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700" dark-class="text-sm font-medium text-slate-500 group-hover:text-slate-300">...</p>
     </div>
   </div>
 ```
@@ -841,11 +857,11 @@ _Поддержка письма справа налево является эк
 
 <Example hint="Попробуйте переключить раскрытие, чтобы увидеть, как меняются стили">
   <div class="max-w-lg mx-auto">
-    <details class="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg" open>
-      <summary class="text-sm leading-6 text-gray-900 font-semibold select-none">
+    <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
+      <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
         Почему они называют его Овальтином?
       </summary>
-      <div class="mt-3 text-sm leading-6 text-gray-600">
+      <div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
         <p>Кружка круглая. Баночка круглая. Они должны называть это Roundtine.</p>
       </div>
     </details>
@@ -855,11 +871,11 @@ _Поддержка письма справа налево является эк
 
 ```html
   <div class="max-w-lg mx-auto p-8">
->   <details class="open:bg-white open:ring-1 open:ring-black/5 open:shadow-lg p-6 rounded-lg" open>
-      <summary class="text-sm leading-6 text-gray-900 font-semibold select-none">
+>   <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
+      <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
         Почему они называют его Овальтином?
       </summary>
-      <div class="mt-3 text-sm leading-6 text-gray-600">
+      <div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
         <p>Кружка круглая. Баночка круглая. Они должны называть это Roundtine.</p>
       </div>
     </details>
@@ -972,43 +988,43 @@ module.exports = {
 
 | Modifier | CSS |
 | --- | --- |
-| <a href="#hover" className="whitespace-nowrap">hover</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:hover</code> |
-| <a href="#focus" className="whitespace-nowrap">focus</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:focus</code> |
-| <a href="#focus-within" className="whitespace-nowrap">focus-within</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:focus-within</code> |
-| <a href="#focus-visible" className="whitespace-nowrap">focus-visible</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:focus-visible</code> |
-| <a href="#active" className="whitespace-nowrap">active</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:active</code> |
-| <a href="#visited" className="whitespace-nowrap">visited</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:visited</code> |
-| <a href="#target" className="whitespace-nowrap">target</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:target</code> |
-| <a href="#first" className="whitespace-nowrap">first</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:first-child</code> |
-| <a href="#last" className="whitespace-nowrap">last</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:last-child</code> |
-| <a href="#only" className="whitespace-nowrap">only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:only-child</code> |
-| <a href="#odd" className="whitespace-nowrap">odd</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:nth-child(odd)</code> |
-| <a href="#even" className="whitespace-nowrap">even</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:nth-child(even)</code> |
-| <a href="#first-of-type" className="whitespace-nowrap">first-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:first-of-type</code> |
-| <a href="#last-of-type" className="whitespace-nowrap">last-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:last-of-type</code> |
-| <a href="#only-of-type" className="whitespace-nowrap">only-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:only-of-type</code> |
-| <a href="#empty" className="whitespace-nowrap">empty</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:empty</code> |
-| <a href="#disabled" className="whitespace-nowrap">disabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:disabled</code> |
-| <a href="#checked" className="whitespace-nowrap">checked</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:checked</code> |
-| <a href="#indeterminate" className="whitespace-nowrap">indeterminate</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:indeterminate</code> |
-| <a href="#default" className="whitespace-nowrap">default</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:default</code> |
-| <a href="#required" className="whitespace-nowrap">required</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:required</code> |
-| <a href="#valid" className="whitespace-nowrap">valid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:valid</code> |
-| <a href="#invalid" className="whitespace-nowrap">invalid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:invalid</code> |
-| <a href="#in-range" className="whitespace-nowrap">in-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:in-range</code> |
-| <a href="#out-of-range" className="whitespace-nowrap">out-of-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:out-of-range</code> |
-| <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:placeholder-shown</code> |
-| <a href="#autofill" className="whitespace-nowrap">autofill</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:autofill</code> |
-| <a href="#read-only" className="whitespace-nowrap">read-only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>:read-only</code> |
-| <a href="#open" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>[open]</code> |
-| <a href="#before-and-after" className="whitespace-nowrap">before</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::before</code> |
-| <a href="#before-and-after" className="whitespace-nowrap">after</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::after</code> |
-| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::first-letter</code> |
-| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::first-line</code> |
-| <a href="#highlighted-text" className="whitespace-nowrap">marker</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::marker</code> |
-| <a href="#selection" className="whitespace-nowrap">selection</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::selection</code> |
-| <a href="#file" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::file-selector-button</code> |
-| <a href="#placeholder" className="whitespace-nowrap">placeholder</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-gray-400">&</span>::placeholder</code> |
+| <a href="#hover" className="whitespace-nowrap">hover</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:hover</code> |
+| <a href="#focus" className="whitespace-nowrap">focus</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus</code> |
+| <a href="#focus-within" className="whitespace-nowrap">focus-within</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-within</code> |
+| <a href="#focus-visible" className="whitespace-nowrap">focus-visible</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-visible</code> |
+| <a href="#active" className="whitespace-nowrap">active</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:active</code> |
+| <a href="#visited" className="whitespace-nowrap">visited</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:visited</code> |
+| <a href="#target" className="whitespace-nowrap">target</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:target</code> |
+| <a href="#first" className="whitespace-nowrap">first</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-child</code> |
+| <a href="#last" className="whitespace-nowrap">last</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-child</code> |
+| <a href="#only" className="whitespace-nowrap">only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-child</code> |
+| <a href="#odd" className="whitespace-nowrap">odd</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(odd)</code> |
+| <a href="#even" className="whitespace-nowrap">even</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(even)</code> |
+| <a href="#first-of-type" className="whitespace-nowrap">first-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-of-type</code> |
+| <a href="#last-of-type" className="whitespace-nowrap">last-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-of-type</code> |
+| <a href="#only-of-type" className="whitespace-nowrap">only-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-of-type</code> |
+| <a href="#empty" className="whitespace-nowrap">empty</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:empty</code> |
+| <a href="#disabled" className="whitespace-nowrap">disabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:disabled</code> |
+| <a href="#checked" className="whitespace-nowrap">checked</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:checked</code> |
+| <a href="#indeterminate" className="whitespace-nowrap">indeterminate</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:indeterminate</code> |
+| <a href="#default" className="whitespace-nowrap">default</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:default</code> |
+| <a href="#required" className="whitespace-nowrap">required</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:required</code> |
+| <a href="#valid" className="whitespace-nowrap">valid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:valid</code> |
+| <a href="#invalid" className="whitespace-nowrap">invalid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:invalid</code> |
+| <a href="#in-range" className="whitespace-nowrap">in-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:in-range</code> |
+| <a href="#out-of-range" className="whitespace-nowrap">out-of-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:out-of-range</code> |
+| <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:placeholder-shown</code> |
+| <a href="#autofill" className="whitespace-nowrap">autofill</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:autofill</code> |
+| <a href="#read-only" className="whitespace-nowrap">read-only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:read-only</code> |
+| <a href="#open-closed-state" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[open]</code> |
+| <a href="#before-and-after" className="whitespace-nowrap">before</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::before</code> |
+| <a href="#before-and-after" className="whitespace-nowrap">after</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::after</code> |
+| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-letter</code> |
+| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-line</code> |
+| <a href="#highlighted-text" className="whitespace-nowrap">marker</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::marker</code> |
+| <a href="#selection" className="whitespace-nowrap">selection</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::selection</code> |
+| <a href="#file-input-buttons" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::file-selector-button</code> |
+| <a href="#placeholder" className="whitespace-nowrap">placeholder</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::placeholder</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">sm</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 640px)</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">md</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 768px)</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">lg</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1024px)</code> |
@@ -1020,8 +1036,8 @@ module.exports = {
 | <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-safe</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: no-preference)</code> |
 | <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-reduce</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: reduce)</code> |
 | <a href="#print-styles" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
-| <a href="#rtl-support" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-gray-400">&</span></code> |
-| <a href="#rtl-support" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-gray-400">&</span></code> |
+| <a href="#rtl-support" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-slate-400">&</span></code> |
+| <a href="#rtl-support" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-slate-400">&</span></code> |
 
 </div>
 

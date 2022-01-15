@@ -16,16 +16,16 @@ export const classes = { utilities }
 Используйте `inline`, `inline-block` и `block` для управления потоком текста и элементов.
 
 <Example p="none">
-  <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-gray-500 text-sm leading-6 sm:text-base sm:leading-7">
-    При управлении потоком текста с помощью свойства CSS <span class="inline bg-sky-100 font-bold text-sm text-gray-900 font-mono rounded">display: inline</span>
+  <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-slate-500 text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+    При управлении потоком текста с помощью свойства CSS <span class="inline bg-sky-100 font-bold text-sm text-slate-900 font-mono rounded dark:bg-slate-600 dark:text-slate-200">display: inline</span>
     вызовет текст внутри элемента для нормального обертывания.
     <br><br>
     При использовании свойства
-    <span class="inline-block bg-sky-100 font-bold text-sm text-gray-900 font-mono rounded">display: inline-block</span>
+    <span class="inline-block bg-sky-100 font-bold text-sm text-slate-900 font-mono rounded dark:bg-slate-600 dark:text-slate-200">display: inline-block</span>
     обернет элемент, чтобы предотвратить текст внутри не выходит за пределы своего родителя.
     <br><br>
     Наконец, использование свойства
-    <span class="block bg-sky-100 font-bold text-sm text-gray-900 font-mono rounded">display: block</span>
+    <span class="block bg-sky-100 font-bold text-sm text-slate-900 font-mono rounded dark:bg-slate-600 dark:text-slate-200">display: block</span>
     поместит элемент на его собственную строку и заполнит его родитель.
   </div>
 </Example>
@@ -49,12 +49,12 @@ export const classes = { utilities }
 Используйте `flow-root` для создания элемента блочного уровня с его собственным [контекстом форматирования блока](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context).
 
 <Example p="none">
-  <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-gray-500 text-sm leading-6 sm:text-base sm:leading-7">
+  <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-slate-500 text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
     <div class="flow-root bg-stripes-purple mb-0.5">
-      <div class="my-4 bg-white">Что ж, позволь мне кое-что сказать, веселый мальчик. Вы знаете эту маленькую марку, на которой написано «Публичная библиотека Нью-Йорка»? Что ж, это может ничего не значить для вас, но для меня это много значит. Чертовски много.</div>
+      <div class="my-4 bg-white dark:bg-slate-800">Что ж, позволь мне кое-что сказать, веселый мальчик. Вы знаете эту маленькую марку, на которой написано «Публичная библиотека Нью-Йорка»? Что ж, это может ничего не значить для вас, но для меня это много значит. Чертовски много.</div>
     </div>
     <div class="flow-root bg-stripes-purple mt-0.5">
-      <div class="my-4 bg-white">Конечно, смейтесь, если хотите. Я видел ваш типаж раньше: яркий, создающий сцену, щеголяющий условностями. Да, я знаю, о чем ты думаешь. Что этот парень так сильно портит старые библиотечные книги? Что ж, позвольте мне дать вам подсказку, младший.</div>
+      <div class="my-4 bg-white dark:bg-slate-800">Конечно, смейтесь, если хотите. Я видел ваш типаж раньше: яркий, создающий сцену, щеголяющий условностями. Да, я знаю, о чем ты думаешь. Что этот парень так сильно портит старые библиотечные книги? Что ж, позвольте мне дать вам подсказку, младший. </div>
     </div>
   </div>
 </Example>
@@ -75,12 +75,12 @@ export const classes = { utilities }
 Используйте `flex` для создания гибкого контейнера на уровне блока.
 
 <Example p="none">
-  <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-gray-500 leading-6 flex justify-center">
+  <div class="mx-auto max-w-xs bg-white shadow-xl p-4 text-slate-500 leading-6 flex justify-center dark:bg-slate-800 dark:text-slate-400">
     <div class="flex items-center gap-4 p-4">
       <img class="w-12 h-12 rounded-full" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
       <div class="flex flex-col">
-        <strong class="text-gray-900 font-medium">Эндрю Альфред</strong>
-        <span class="text-gray-500 font-medium">Технический консультант</span>
+        <strong class="text-slate-900 font-medium dark:text-slate-200">Эндрю Альфред</strong>
+        <span class="text-slate-500 font-medium dark:text-slate-400">Технический консультант</span>
       </div>
     </div>
   </div>
@@ -101,25 +101,23 @@ export const classes = { utilities }
 Используйте `inline-flex` для создания встроенного гибкого контейнера, который обтекает текст.
 
 <Example p="none">
-  <div class="mx-auto max-w-lg bg-white shadow-xl p-4 text-gray-500 text-sm leading-6 sm:text-base sm:leading-7">
-    Нет. Это не так, и самая неприятная часть этого состоит не в том, что она встречалась с ним, а в том, что ОН перестал ее видеть. Ты понимаешь? Он,
-    <div class="inline-flex items-center align-middle mt-[-3px]">
-      <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80" alt="" class="w-5 h-5 rounded-full mx-1" />
-      <span class="font-medium text-gray-900">Ньюман</span>
-    </div>,
-    перестал ее видеть. Ньюман никогда ни с кем не переставал встречаться. Ньюман увидит любого, кто захочет его видеть. Не столько почему она увидела его таким тревожным. Но почему ОН, Ньюман, перестал с ней встречаться?
-  </div>
+  <p class="mx-auto max-w-lg bg-white shadow-xl p-4 text-slate-500 text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+    Сегодня я провел большую часть дня, изучая способы воспользоваться тем фактом, что в Мичигане бутылки можно вернуть за 10 центов, а здесь — только за 5 центов. <span class="ml-1 inline-flex items-baseline">
+      <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80" alt="" class="self-center w-5 h-5 rounded-full mr-1" />
+      <span class="font-medium text-slate-900 dark:text-slate-200">Крамер</span>
+    </span> продолжает говорить мне, что нет никакого способа заставить это работать, что он просчитал все возможные подходы, но я просто должен верить, что есть способ заставить это работать, здесь просто слишком много возможностей.
+  </p>
 </Example>
 
 ```html
-<div>
-  Нет, это не так, и самая неприятная часть этого, ...
-  <div class="**inline-flex** items-center align-middle">
-    <img src="path/to/image.jpg" alt="" class="w-5 h-5 rounded-full mx-1" />
-    <span>Ньюман</span>
-  </div>
-  перестал ее видеть. Ньюман никогда ни с кем не переставал встречаться. ...
-</div>
+<p>
+  Сегодня я провел большую часть дня, изучая способы ...
+  <span class="**inline-flex** items-baseline">
+    <img src="path/to/image.jpg" alt="" class="self-center w-5 h-5 rounded-full mx-1" />
+    <span>Крамер</span>
+  </span>
+  продолжает говорить мне, что нет никакого способа заставить это работать, что ...
+</p>
 ```
 
 ### Гриды
@@ -152,21 +150,21 @@ export const classes = { utilities }
 
 <Example p="none">
   <div class="space-x-3 overflow-x-scroll w-full p-8 whitespace-nowrap">
-    <div class="inline-grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-light-blue rounded-lg text-center">
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">01</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">02</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">03</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">04</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">05</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">06</div>
+    <div class="inline-grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-sky rounded-lg text-center">
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">01</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">02</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">03</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">04</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">05</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">06</div>
     </div>
-    <div class="inline-grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-light-blue rounded-lg text-center">
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">01</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">02</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">03</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">04</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">05</div>
-      <div class="p-4 w-14 h-14 bg-light-blue-500 shadow-lg rounded-lg">06</div>
+    <div class="inline-grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6 bg-stripes-sky rounded-lg text-center">
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">01</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">02</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">03</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">04</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">05</div>
+      <div class="p-4 w-14 h-14 bg-sky-500 shadow-lg rounded-lg">06</div>
     </div>
   </div>
 </Example>
@@ -225,26 +223,26 @@ export const classes = { utilities }
     <div class="table border-collapse table-auto w-full text-sm">
       <div class="table-header-group">
         <div class="table-row">
-          <div class="table-cell border-b font-medium p-4 pl-8 pt-0 pb-3 text-gray-400 text-left">Песня</div>
-          <div class="table-cell border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Артист</div>
-          <div class="table-cell border-b font-medium p-4 pr-8 pt-0 pb-3 text-gray-400 text-left">год</div>
+          <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Песня</div>
+          <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Артист</div>
+          <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">Год</div>
         </div>
       </div>
-      <div class="table-row-group bg-white">
+      <div class="table-row-group bg-white dark:bg-slate-800">
         <div class="table-row">
-          <div class="table-cell border-b border-gray-100 p-4 pl-8 text-gray-500">The Sliding Mr. Bones (Next Stop, Pottersville)</div>
-          <div class="table-cell border-b border-gray-100 p-4 text-gray-500">Malcolm Lockyer</div>
-          <div class="table-cell border-b border-gray-100 p-4 pr-8 text-gray-500">1961</div>
+          <div class="table-cell border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">The Sliding Mr. Bones (Next Stop, Pottersville)</div>
+          <div class="table-cell border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">Malcolm Lockyer</div>
+          <div class="table-cell border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">1961</div>
         </div>
         <div class="table-row">
-          <div class="table-cell border-b border-gray-100 p-4 pl-8 text-gray-500">Witchy Woman</div>
-          <div class="table-cell border-b border-gray-100 p-4 text-gray-500">The Eagles</div>
-          <div class="table-cell border-b border-gray-100 p-4 pr-8 text-gray-500">1972</div>
+          <div class="table-cell border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Witchy Woman</div>
+          <div class="table-cell border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">The Eagles</div>
+          <div class="table-cell border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">1972</div>
         </div>
         <div class="table-row">
-          <div class="table-cell border-b border-gray-200 p-4 pl-8 text-gray-500">Shining Star</div>
-          <div class="table-cell border-b border-gray-200 p-4 text-gray-500">Earth, Wind, and Fire</div>
-          <div class="table-cell border-b border-gray-200 p-4 pr-8 text-gray-500">1975</div>
+          <div class="table-cell border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">Shining Star</div>
+          <div class="table-cell border-b border-slate-200 dark:border-slate-600 p-4 text-slate-500 dark:text-slate-400">Earth, Wind, and Fire</div>
+          <div class="table-cell border-b border-slate-200 dark:border-slate-600 p-4 pr-8 text-slate-500 dark:text-slate-400">1975</div>
         </div>
       </div>
     </div>

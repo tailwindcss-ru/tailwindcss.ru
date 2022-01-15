@@ -233,10 +233,7 @@ export const documentationNav = {
     pages['screen-readers']
   ],
   'Официальные плагины': [
-    {
-      title: 'Типография',
-      href: 'https://github.com/tailwindlabs/tailwindcss-typography',
-    },
+    pages['typography-plugin'],
     {
       title: 'Формы',
       href: 'https://github.com/tailwindlabs/tailwindcss-forms',

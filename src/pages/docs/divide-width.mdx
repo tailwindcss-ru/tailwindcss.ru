@@ -36,15 +36,15 @@ export const classes = {
 Добавьте границы между горизонтальными элементами с помощью утилит `divide-x-{width}`.
 
 <Example>
-  <div class="grid grid-cols-3 divide-x divide-gray-200 font-mono text-white text-sm text-center font-bold leading-6 rounded-lg shadow-lg overflow-hidden">
-    <div class="p-4 text-gray-400 bg-white">01</div>
-    <div class="p-4 text-gray-400 bg-white">02</div>
-    <div class="p-4 text-gray-400 bg-white">03</div>
+  <div class="grid grid-cols-3 divide-x font-mono text-sm text-center font-bold leading-6 rounded-lg shadow-lg overflow-hidden dark:divide-slate-700">
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
   </div>
 </Example>
 
 ```html
-<div class="grid grid-cols-3 **divide-x** divide-green-500">
+<div class="grid grid-cols-3 **divide-x**">
   <div>01</div>
   <div>02</div>
   <div>03</div>
@@ -56,15 +56,15 @@ export const classes = {
 Добавьте границы между составными элементами с помощью утилит `divide-y-{width}`.
 
 <Example p="none">
-  <div class="grid grid-cols-1 divide-y divide-gray-200 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
-    <div class="p-4 text-gray-400 bg-white">01</div>
-    <div class="p-4 text-gray-400 bg-white">02</div>
-    <div class="p-4 text-gray-400 bg-white">03</div>
+  <div class="grid grid-cols-1 divide-y font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-slate-700">
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
   </div>
 </Example>
 
 ```html
-<div class="grid grid-cols-1 **divide-y** divide-yellow-500">
+<div class="grid grid-cols-1 **divide-y**">
   <div>01</div>
   <div>02</div>
   <div>03</div>
@@ -76,15 +76,15 @@ export const classes = {
 Если ваши элементы расположены в обратном порядке (например, `flex-row-reverse` или `flex-col-reverse`), используйте утилиты `divide-x-reverse` или `divide-y-reverse`, чтобы убедиться, что граница добавлен к правильной стороне каждого элемента.
 
 <Example p="none">
-  <div class="flex flex-col-reverse divide-y divide-y-reverse divide-gray-200 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
-    <div class="p-4 text-gray-400 bg-white">01</div>
-    <div class="p-4 text-gray-400 bg-white">02</div>
-    <div class="p-4 text-gray-400 bg-white">03</div>
+  <div class="flex flex-col-reverse divide-y divide-y-reverse font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-slate-700">
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
+    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
   </div>
 </Example>
 
 ```html
-<div class="flex **flex-col-reverse divide-y divide-y-reverse** divide-rose-400">
+<div class="flex **flex-col-reverse divide-y divide-y-reverse**">
   <div>01</div>
   <div>02</div>
   <div>03</div>

@@ -2,8 +2,6 @@ import NextLink from 'next/link'
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
 import { Steps } from '@/components/Steps'
-import { black } from 'tailwindcss/colors'
-import { theme } from 'tailwind.config'
 
 let steps = [
   {
@@ -87,7 +85,6 @@ let steps = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>/* ... */</script>
 >   <style type="text/tailwindcss">
 >     @layer utilities {
 >       .content-auto {
@@ -104,17 +101,44 @@ let steps = [
   </html>`,
     },
   },
+  {
+    title: 'Try working with a core plugin',
+    body: () => (
+      <p>
+        Enable core plugins, like forms and typography, using the <code>plugins</code> query
+        parameter.
+      </p>
+    ),
+    code: {
+      name: 'index.html',
+      lang: 'html',
+      code: `  <!doctype html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  </head>
+  <body>
+>   <div class="prose">
+      <!-- ... -->
+    </div>
+  </body>
+  </html>`,
+    },
+  },
 ]
 
 export default function PlayCdn({ code }) {
   return (
     <InstallationLayout>
-      <div className="relative z-10 prose mb-16 max-w-3xl">
+      <div id="content" className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
+        <h3 className="sr-only">Play CDN</h3>
         <p>
           Воспользуйтесь Play CDN, чтобы попробовать Tailwind прямо в браузере без каких-либо шагов сборки. Play CDN предназначен только для целей разработки и не является лучшим выбором для производства.
         </p>
       </div>
-      <Steps steps={steps} code={code} />
+      <Steps level={4} steps={steps} code={code} />
     </InstallationLayout>
   )
 }

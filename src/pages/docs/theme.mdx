@@ -190,13 +190,13 @@ module.exports = {
 
 Чтобы узнать больше о настройке конкретного основного плагина, посетите документацию по этому плагину.
 
-Полный справочник доступных свойств темы и их значений по умолчанию смотрите в [конфигурации темы по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/v1/stubs/defaultConfig.stub.js#L5).
+Полную справку о доступных свойствах темы и их значениях по умолчанию см. в [смотрите конфигурацию темы по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js).
 
 ---
 
 ## Настройка темы по умолчанию
 
-По умолчанию ваш проект автоматически наследует значения из [конфигурации темы по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/v1/stubs/defaultConfig.stub.js#L5). Если вы хотите настроить тему по умолчанию, у вас есть несколько различных вариантов в зависимости от Ваших целей.
+По умолчанию ваш проект автоматически наследует значения из [конфигурации темы по умолчанию](https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/defaultConfig.stub.js). Если вы хотите настроить тему по умолчанию, у вас есть несколько вариантов в зависимости от ваших целей.
 
 ### Расширение темы по умолчанию
 
@@ -275,12 +275,12 @@ module.exports = {
     spacing: {
       // ...
     },
-    backgroundSize: ({ theme }) => {
+    backgroundSize: ({ theme }) => ({
       auto: 'auto',
       cover: 'cover',
       contain: 'contain',
       ...theme('spacing')
-    }
+    })
   }
 }
 ```

@@ -196,8 +196,8 @@ module.exports = {
 ```
 
 
-<details className="-mt-0 mb-6 rounded-xl border px-6 py-3 prose open:pb-5">
-  <summary className="font-medium cursor-default select-none text-gray-900">Почему Tailwind группирует стили в "layers"?</summary>
+<details className="-mt-0 mb-6 rounded-xl border px-6 py-3 prose prose-slate open:pb-5 dark:prose-dark dark:border-slate-800">
+  <summary className="font-medium cursor-default select-none text-slate-900 dark:text-slate-200">Почему Tailwind группирует стили в "layers"?</summary>
 
 В CSS порядок правил в вашей таблице стилей определяет, какое объявление будет лучше, если два селектора имеют одинаковую специфичность:
 
@@ -286,7 +286,7 @@ module.exports = {
 }
 ```
 
-Определяя классы компонентов на уровне `components`, вы можете по-прежнему использовать классы утилит пользователя, чтобы при необходимости их переопределить:
+Определив классы компонентов на уровне `components`, вы по-прежнему можете использовать классы утилит для их переопределения, когда это необходимо:
 
 ```html
 <!-- Будет похоже на открытку, но с квадратными углами -->
@@ -491,20 +491,19 @@ module.exports = {
       addBase({
         'h1': {
           fontSize: theme('fontSize.2xl'),
-        }
+        },
         'h2': {
           fontSize: theme('fontSize.xl'),
-        }
+        },
       })
       addComponents({
         '.card': {
-          backgroundColor: theme('colors.white');
-          borderRadius: theme('borderRadius.lg');
-          padding: theme('spacing.6');
-          boxShadow: theme('boxShadow.xl');
+          backgroundColor: theme('colors.white'),
+          borderRadius: theme('borderRadius.lg'),
+          padding: theme('spacing.6'),
+          boxShadow: theme('boxShadow.xl'),
         }
       })
-
       addUtilities({
         '.content-auto': {
           contentVisibility: 'auto',

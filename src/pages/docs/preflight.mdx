@@ -22,7 +22,7 @@ Tailwind автоматически внедряет эти стили, когд
 
 Хотя большинство стилей в Preflight предназначены для того, чтобы оставаться незамеченными - они просто заставляют вещи вести себя так, как вы от них ожидаете, - некоторые из них более самоуверенны и могут удивить, когда вы впервые столкнетесь с ними.
 
-Полный справочник всех стилей, применяемых Preflight, [смотрите в таблице стилей](https://unpkg.com/tailwindcss@^2/dist/base.css).
+Полный список всех стилей, применяемых Preflight, [смотрите в таблице стилей](https://unpkg.com/tailwindcss@^3/src/css/preflight.css).
 
 ---
 
@@ -158,7 +158,7 @@ object {
 ::after {
   border-width: 0;
   border-style: solid;
-  border-color: theme('borderColor.default', currentColor);
+  border-color: theme('borderColor.DEFAULT', currentColor);
 }
 ```
 
@@ -224,7 +224,11 @@ button:focus {
 
 Если вы хотите полностью отключить предварительную проверку - возможно, потому что вы интегрируете Tailwind в существующий проект или потому, что хотите предоставить свои собственные базовые стили - все, что вам нужно сделать, это установить для параметра `preflight` значение `false` в разделе `corePlugins` файла `tailwind.config.js`:
 
-<ConfigSample
-  path="corePlugins"
-  add={{ preflight: false }}
-/>
+
+```diff-js tailwind.config.js
+  module.exports = {
++   corePlugins: {
++     preflight: false,
++   }
+  }
+```
