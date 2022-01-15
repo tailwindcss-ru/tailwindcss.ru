@@ -66,7 +66,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
         className="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
         onClick={() => setIsOpen(true)}
       >
-        <span className="sr-only">Navigation</span>
+        <span className="sr-only">Навигация</span>
         <svg width="24" height="24" fill="none" aria-hidden="true">
           <path
             d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
@@ -90,7 +90,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
             className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
             onClick={() => setIsOpen(false)}
           >
-            <span className="sr-only">Close navigation</span>
+            <span className="sr-only">Закрыть навигацию</span>
             <svg viewBox="0 0 10 10" className="w-2.5 h-2.5 overflow-visible" aria-hidden="true">
               <path
                 d="M0 0L10 10M10 0L0 10"
@@ -109,6 +109,14 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
                 className="hover:text-sky-500 dark:hover:text-sky-400"
               >
                 GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://t.me/tailwindcss_rus"
+                className="hover:text-sky-500 dark:hover:text-sky-400"
+              >
+                Telegram
               </a>
             </li>
           </ul>
@@ -132,19 +140,6 @@ export function NavItems() {
       <li>
         <a href="https://tailwindui.com" className="hover:text-sky-500 dark:hover:text-sky-400">
           Компоненты
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://t.me/tailwindcss_rus"
-          className="block w-6 h-6 text-gray-400 hover:text-gray-500"
-        >
-          <span className="sr-only">Tailwind CSS в Telegram</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="m9.417 15.181-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z"
-            />
-          </svg>
         </a>
       </li>
       <li>
@@ -247,6 +242,20 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                       aria-hidden="true"
                     >
                       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://t.me/tailwindcss_rus"
+                    className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+                  >
+                    <span className="sr-only">Tailwind CSS в Telegram</span>
+                    <svg
+                      viewBox="0 0 20 20"
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="m9.417 15.181-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z" />
                     </svg>
                   </a>
                 </div>

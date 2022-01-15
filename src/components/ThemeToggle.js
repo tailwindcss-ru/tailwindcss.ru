@@ -167,7 +167,7 @@ export function ThemeToggle({ panelClassName = 'mt-4' }) {
 
   return (
     <Listbox value={setting} onChange={setSetting}>
-      <Listbox.Label className="sr-only">Theme</Listbox.Label>
+      <Listbox.Label className="sr-only">Тема</Listbox.Label>
       <Listbox.Button type="button">
         <span className="dark:hidden">
           <SunIcon className="w-6 h-6" selected={setting !== 'system'} />
@@ -211,7 +211,7 @@ export function ThemeSelect() {
   return (
     <div className="flex items-center justify-between">
       <label htmlFor="theme" className="text-slate-700 font-normal dark:text-slate-400">
-        Switch theme
+        Переключить тему
       </label>
       <div className="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
         <SunIcon className="w-6 h-6 mr-2 dark:hidden" />
