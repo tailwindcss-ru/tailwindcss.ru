@@ -1,6 +1,6 @@
 ---
-title: "Text Indent"
-description: "Utilities for controlling the amount of empty space shown before text in a block."
+title: "Отступ текста"
+description: "Утилиты для управления количеством пустого пространства, отображаемого перед текстом в блоке."
 ---
 
 import utilities from 'utilities?plugin=textIndent'
@@ -16,39 +16,37 @@ export const classes = {
 
 ## Основы использования
 
-### Adding a text indent
+### Добавление отступа текста
 
-Use the `indent-{width}` utilities to set the amount of empty space (indentation) that's shown before text in a block.
+Используйте утилиты `indent-{width}`, чтобы установить количество пустого пространства (отступа), которое отображается перед текстом в блоке.
 
 <Example p="none">
   <div class="bg-white p-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto leading-6 dark:bg-slate-800 dark:text-slate-400">
     <p class="indent-8">
-      Итак, я пошел в воду. I won't lie to you boys, I was
-      terrified. But I pressed on, and as I made my way past the breakers
-      a strange calm came over me. I don't know if it was divine intervention
-      or the kinship of all living things but I tell you Jerry at that moment,
-      I <em>was</em> a marine biologist.
+      Итак, я пошел в воду. Я не буду лгать вам, мальчики, я был в ужасе. Но
+       я шел дальше, и когда я пробирался мимо прибоя, на меня снизошло странное спокойствие. 
+       Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но скажу тебе, 
+       Джерри, в тот момент я <em>был</em> морским биологом.
     </p>
   </div>
 </Example>
 
 ```html
 <p class="**indent-8**">
-  Итак, я пошел в воду. I won't lie to you boys, I was
-  terrified. But I pressed on, and as I made my way past the breakers
-  a strange calm came over me. I don't know if it was divine intervention
-  or the kinship of all living things but I tell you Jerry at that moment,
-  I <em>was</em> a marine biologist.
+  Итак, я пошел в воду. Я не буду лгать вам, мальчики, я был в ужасе. 
+  Но я шел дальше, и когда я пробирался мимо прибоя, на меня снизошло странное спокойствие. 
+  Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но скажу тебе, 
+  Джерри, в тот момент я <em>был</em> морским биологом.
 </p>
 ```
 
 ### Использование отрицательных значений
 
-To use a negative text indent value, prefix the class name with a dash to convert it to a negative value.
+Чтобы использовать отрицательное значение отступа текста, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
 ```html
 <div class="**-indent-8**">
-  Итак, я пошел в воду. I won't lie to...
+  Итак, я пошел в воду. Я не буду лгать...
 </div>
 ```
 
@@ -70,7 +68,7 @@ To use a negative text indent value, prefix the class name with a dash to conver
 
 ### Настройка вашей темы
 
-The default text indent scale is based on the [default spacing scale](/docs/customizing-spacing#default-spacing-scale). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
+Масштаб отступа текста по умолчанию основан на [масштабе интервала по умолчанию](/docs/customizing-spacing#default-spacing-scale). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -84,7 +82,7 @@ The default text indent scale is based on the [default spacing scale](/docs/cust
   }
 ```
 
-Alternatively, you can customize just the text indent scale by editing `theme.textIndent` или `theme.extend.textIndent` в вашем файле `tailwind.config.js`.
+Кроме того, вы можете настроить только масштаб текста, отредактировав `theme.textIndent` или `theme.extend.textIndent` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {

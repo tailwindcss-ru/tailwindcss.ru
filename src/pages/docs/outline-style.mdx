@@ -1,6 +1,6 @@
 ---
-title: "Outline Style"
-description: "Utilities for controlling the style of an element's outline."
+title: "Стиль контура"
+description: "Утилиты для управления стилем контура элемента."
 ---
 
 import utilities from 'utilities?plugin=outlineStyle'
@@ -12,43 +12,43 @@ export const classes = { utilities }
 
 ## Основы использования
 
-### Setting the outline style
+### Настройка стиля контура
 
-Use the `outline-{style}` utilities to change the style of an element's outline.
+Используйте утилиты `outline-{style}`, чтобы изменить стиль контура элемента.
 
 <Example>
   <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-white text-sm font-semibold text-center">
     <div class="flex flex-col items-center shrink-0">
       <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-indigo-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Button A</button>
+      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-indigo-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка А</button>
     </div>
     <div class="flex flex-col items-center shrink-0">
       <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-dashed</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline-dashed outline-2 outline-offset-2 outline-indigo-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Button B</button>
+      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline-dashed outline-2 outline-offset-2 outline-indigo-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка Б</button>
     </div>
     <div class="flex flex-col items-center shrink-0">
       <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-dotted</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline-dotted outline-2 outline-offset-2 outline-indigo-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Button C</button>
+      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline-dotted outline-2 outline-offset-2 outline-indigo-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка В</button>
     </div>
     <div class="flex flex-col items-center shrink-0">
       <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-double</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline-double outline-3 outline-offset-2 outline-indigo-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Button D</button>
+      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline-double outline-3 outline-offset-2 outline-indigo-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка Г</button>
     </div>
   </div>
 </Example>
 
 ```html
-<button class="**outline** outline-2  outline-offset-2 ...">Button A</button>
-<button class="**outline-dashed** outline-2 outline-offset-2 ...">Button B</button>
-<button class="**outline-dotted** outline-2 outline-offset-2 ...">Button C</button>
-<button class="**outline-double** outline-3 outline-offset-2 ...">Button D</button>
+<button class="**outline** outline-2  outline-offset-2 ...">Кнопка А</button>
+<button class="**outline-dashed** outline-2 outline-offset-2 ...">Кнопка Б</button>
+<button class="**outline-dotted** outline-2 outline-offset-2 ...">Кнопка В</button>
+<button class="**outline-double** outline-3 outline-offset-2 ...">Кнопка Г</button>
 ```
 
-### Removing outlines
+### Удаление контуров
 
-Use `outline-none` to hide the default browser outline on focused elements.
+Используйте `outline-none`, чтобы скрыть контур браузера по умолчанию на выделенных элементах.
 
-It is highly recommended to apply your own focus styling for accessibility when using this utility.
+Настоятельно рекомендуется применять собственные стили фокуса для обеспечения доступности при использовании этой утилиты.
 
 <Example hint="Focus the input to see the expected behaviour">
   <div class="flex flex-col sm:flex-row items-center justify-center gap-x-16 gap-y-8 px-0 sm:px-10 font-mono font-bold">
@@ -67,7 +67,7 @@ It is highly recommended to apply your own focus styling for accessibility when 
   class="**focus:outline-none focus:ring focus:border-blue-500** ..." />
 ```
 
-The `outline-none` utility is implemented using a transparent outline under the hood to ensure elements are still visibly focused to [Windows high contrast mode](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/) users.
+Утилита `outline-none` реализована с использованием прозрачного контура под капотом, чтобы гарантировать, что элементы по-прежнему визуально сфокусированы на [режим высокой контрастности Windows](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/) пользователей.
 
 ---
 

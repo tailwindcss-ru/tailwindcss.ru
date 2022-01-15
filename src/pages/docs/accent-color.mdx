@@ -1,6 +1,6 @@
 ---
-title: "Accent Color"
-description: "Utilities for controlling the accented color of a form control."
+title: "Акцентный цвет"
+description: "Утилиты для управления акцентированным цветом элемента управления формы."
 ---
 
 import utilities from 'utilities?plugin=accentColor'
@@ -13,22 +13,22 @@ export const classes = { utilities }
 
 ## Основы использования
 
-### Setting the accent color
+### Установка акцентного цвета
 
-Use the `accent-{color}` utilities to change the accent color of an element. This is helpful for styling elements like checkboxes and radio groups by overriding the browser's default color.
+Используйте утилиты `accent-{color}`, чтобы изменить цвет акцента элемента. Это полезно для стилизации элементов, таких как флажки и радиогруппы, за счет переопределения цвета браузера по умолчанию.
 
 <Example>
   <div class="flex flex-wrap justify-center gap-6">
     <label class="flex items-center space-x-2">
       <input type="checkbox" checked>
       <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
-        Browser default
+        Браузер по умолчанию
       </div>
     </label>
     <label class="flex items-center space-x-2">
       <input type="checkbox" class="accent-pink-500" checked>
       <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
-        Customized
+        Кастомизированный
       </div>
     </label>
   </div>
@@ -36,19 +36,19 @@ Use the `accent-{color}` utilities to change the accent color of an element. Thi
 
 ```html
 <label>
-  <input type="checkbox" checked> Browser default
+  <input type="checkbox" checked> Браузер по умолчанию
 </label>
 <label>
-  <input type="checkbox" class="**accent-pink-500**" checked> Customized
+  <input type="checkbox" class="**accent-pink-500**" checked> Кастомизированный
 </label>
 ```
 
 ### Изменение непрозрачности
 
-While it's possible to control the opacity of the accent color using the color opacity modifier, the `rgba()` alpha value is only supported in Firefox at this time *(last tested November 2021)*.
+Хотя можно управлять непрозрачностью акцентного цвета с помощью модификатора непрозрачности цвета, альфа-значение `rgba()` в настоящее время поддерживается только в Firefox *(последнее тестирование в ноябре 2021 г.)*.
 
 ```html
-<input type="checkbox" class="**accent-emerald-500/25**" checked> Emerald
+<input type="checkbox" class="**accent-emerald-500/25**" checked> Изумруд
 ```
 
 ---
@@ -63,7 +63,7 @@ While it's possible to control the opacity of the accent color using the color o
 <input type="checkbox" class="accent-pink-300 **focus:accent-pink-500**" checked>
 ```
 
-Note, while it's possible to set an accent color using the `hover` and `active` modifiers, the resulting color will be slightly different than what you set, as browsers automatically adjust the brightness of the accent color for these two states.
+Обратите внимание: несмотря на то, что можно установить цвет акцента с помощью модификаторов `hover` и `active`, результирующий цвет будет немного отличаться от установленного вами, так как браузеры автоматически настраивают яркость цвета акцента для этих двух состояний.
 
 </HoverFocusAndOtherStates>
 

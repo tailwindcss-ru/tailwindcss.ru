@@ -1,6 +1,6 @@
 ---
-title: "Scroll Snap Type"
-description: "Utilities for controlling how strictly snap points are enforced in a snap container."
+title: "Тип привязки прокрутки"
+description: "Утилиты для управления тем, как строго применяются точки привязки в контейнере привязки."
 ---
 
 import utilities from 'utilities?plugin=scrollSnapType'
@@ -12,16 +12,16 @@ export const classes = { utilities }
 
 ## Основы использования
 
-### Horizontal scroll snapping
+### Привязка горизонтальной прокрутки
 
-Use the `snap-x` utility to enable horizontal scroll snapping within an element.
+Используйте утилиту `snap-x`, чтобы включить привязку горизонтальной прокрутки к элементу.
 
-For scroll snapping to work, you need to also set the [scroll snap alignment](/docs/scroll-snap-align) on the children within the element.
+Чтобы привязка прокрутки работала, вам также необходимо установить [выравнивание привязки прокрутки](/docs/scroll-snap-align) для дочерних элементов внутри элемента.
 
 <Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
   <!-- Snap Point -->
   <div class="flex ml-[50%] items-end justify-start pt-10 mb-6">
-    <div class="ml-2 rounded font-mono text-[0.625rem] leading-6 px-1.5 ring-1 ring-inset bg-indigo-50 text-indigo-600 ring-indigo-600 dark:bg-indigo-500 dark:ring-0 dark:text-white dark:highlight-white/10">snap point</div>
+    <div class="ml-2 rounded font-mono text-[0.625rem] leading-6 px-1.5 ring-1 ring-inset bg-indigo-50 text-indigo-600 ring-indigo-600 dark:bg-indigo-500 dark:ring-0 dark:text-white dark:highlight-white/10">точка привязки</div>
     <div class="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
   </div>
   <!-- Contents -->
@@ -76,14 +76,14 @@ For scroll snapping to work, you need to also set the [scroll snap alignment](/d
 </div>
 ```
 
-### Mandatory scroll snapping
+### Обязательная привязка прокрутки
 
-Use the `snap-mandatory` utility to force a snap container to always come to rest on a snap point.
+Используйте утилиту `snap-mandatory`, чтобы заставить контейнер моментальных снимков всегда останавливаться на точке моментального привязки.
 
 <Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
   <!-- Snap Point -->
   <div class="flex ml-[50%] items-end justify-start pt-10 mb-6">
-    <div class="ml-2 rounded font-mono text-[0.625rem] leading-6 px-1.5 ring-1 ring-inset bg-indigo-50 text-indigo-600 ring-indigo-600 dark:bg-indigo-500 dark:ring-0 dark:text-white dark:highlight-white/10">snap point</div>
+    <div class="ml-2 rounded font-mono text-[0.625rem] leading-6 px-1.5 ring-1 ring-inset bg-indigo-50 text-indigo-600 ring-indigo-600 dark:bg-indigo-500 dark:ring-0 dark:text-white dark:highlight-white/10">точка привязки</div>
     <div class="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
   </div>
   <!-- Contents -->
@@ -138,14 +138,14 @@ Use the `snap-mandatory` utility to force a snap container to always come to res
 </div>
 ```
 
-### Proximity scroll snapping
+### Привязка прокрутки сближения
 
-Use the `snap-proximity` utility to make a snap container come to rest on snap points that are close in proximity. This is the browser default.
+Используйте утилиту `snap-proximity`, чтобы контейнер моментальных снимков останавливался на точках привязки, которые находятся близко друг к другу. Это браузер по умолчанию.
 
 <Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
   <!-- Snap Point -->
   <div class="flex ml-[50%] items-end justify-start pt-10 mb-6">
-    <div class="ml-2 rounded font-mono text-[0.625rem] leading-6 px-1.5 ring-1 ring-inset bg-indigo-50 text-indigo-600 ring-indigo-600 dark:bg-indigo-500 dark:ring-0 dark:text-white dark:highlight-white/10">snap point</div>
+    <div class="ml-2 rounded font-mono text-[0.625rem] leading-6 px-1.5 ring-1 ring-inset bg-indigo-50 text-indigo-600 ring-indigo-600 dark:bg-indigo-500 dark:ring-0 dark:text-white dark:highlight-white/10">точка привязки</div>
     <div class="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
   </div>
   <!-- Contents -->

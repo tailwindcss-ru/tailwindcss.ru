@@ -1,6 +1,6 @@
 ---
-title: "Text Decoration Color"
-description: "Utilities for controlling the color of text decorations."
+title: "Цвет оформления текста"
+description: "Утилиты для управления цветом оформления текста."
 ---
 
 import utilities from 'utilities?plugin=textDecorationColor'
@@ -13,9 +13,9 @@ export const classes = { utilities }
 
 ## Основы использования
 
-### Setting the text decoration color
+### Установка цвета оформления текста
 
-Use the `decoration-{color}` utilities to change the color of an element's [text decoration](/docs/text-decoration).
+Используйте утилиты `decoration-{color}` , чтобы изменить цвет [текстового оформления элемента](/docs/text-decoration).
 
 <Example p="none">
   <div class="bg-white p-8 text-slate-900 shadow-lg max-w-sm mx-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
@@ -36,7 +36,7 @@ Use the `decoration-{color}` utilities to change the color of an element's [text
 
 ### Изменение непрозрачности
 
-Control the opacity of an element's text decoration color using the color opacity modifier.
+Управляйте непрозрачностью цвета оформления текста элемента с помощью модификатора непрозрачности цвета.
 
 <Example p="none">
   <div class="bg-white p-8 text-slate-900 shadow-lg max-w-sm mx-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
@@ -55,7 +55,7 @@ Control the opacity of an element's text decoration color using the color opacit
 </div>
 ```
 
-You can use any value defined in your [opacity scale](/docs/opacity), or use arbitrary values if you need to deviate from your design tokens.
+Вы можете использовать любое значение, определенное в вашей [шкале непрозрачности](/docs/opacity), или использовать произвольные значения, если вам нужно отклониться от ваших токенов дизайна.
 
 ```html
 <strong class="underline **decoration-sky-500/[.33]**"></strong>

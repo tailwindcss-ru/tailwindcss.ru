@@ -1,6 +1,6 @@
 ---
-title: "Flex Basis"
-description: "Utilities for controlling the initial size of flex items."
+title: "Основы флексов"
+description: "Утилиты для управления начальным размером flex-элементов."
 ---
 
 import utilities from 'utilities?plugin=flexBasis'
@@ -12,9 +12,9 @@ export const classes = { utilities }
 
 ## Основы использования
 
-### Setting the flex basis
+### Настройка гибкой основы
 
-Use the `basis-{size}` utilities to set the initial size of flex items.
+Используйте утилиты `basis-{size}`, чтобы установить начальный размер flex-элементов.
 
 <Example>
   <div class="flex flex-row space-x-4 font-mono text-white text-sm font-bold leading-6">
@@ -60,7 +60,7 @@ Use the `basis-{size}` utilities to set the initial size of flex items.
 
 ### Настройка вашей темы
 
-The default flex basis scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as a set of percentage based values.
+Базовая шкала гибкости по умолчанию представляет собой комбинацию [шкалы интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), а также набора процентных значений.
 
 Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
@@ -77,7 +77,7 @@ The default flex basis scale is a combination of the [default spacing scale](/do
   }
 ```
 
-Alternatively, you can customize just the flex basis scale by editing `theme.flexBasis` или `theme.extend.flexBasis` в вашем файле `tailwind.config.js`.
+Кроме того, вы можете настроить только базовый масштаб flex, отредактировав `theme.flexBasis` или `theme.extend.flexBasis` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {

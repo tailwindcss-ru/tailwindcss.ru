@@ -1,16 +1,16 @@
 ---
 title: '@tailwindcss/typography'
-shortTitle: Typography
-description: Beautiful typographic defaults for HTML you don't control.
+shortTitle: Типография
+description: Красивые типографские настройки по умолчанию для HTML, которые вы не контролируете.
 ---
 
 import { TipGood, TipBad, TipInfo } from '@/components/Tip'
 
-The official Tailwind CSS Typography plugin provides a set of `prose` classes you can use to add beautiful typographic defaults to any vanilla HTML you don't control, like HTML rendered from Markdown, or pulled from a CMS.
+Официальный подключаемый модуль Tailwind CSS Typography предоставляет набор классов `prose`, которые вы можете использовать для добавления красивых типографических значений по умолчанию к любому ванильному HTML, который вы не контролируете, например HTML, отображаемый из Markdown или извлеченный из CMS.
 
 
 <a href="https://play.tailwindcss.com/uj1vGACRJA?layout=preview">
-  <img src={require('@/img/typography-demo.jpg').default} alt="Tailwind CSS IntelliSense extension for Visual Studio Code" width={3086} height={1658} className="rounded-lg ring-1 ring-black/5" />
+  <img src={require('@/img/typography-demo.jpg').default} alt="Расширение Tailwind CSS IntelliSense для Visual Studio Code" width={3086} height={1658} className="rounded-lg ring-1 ring-black/5" />
 </a>
 
 ```html
@@ -19,19 +19,19 @@ The official Tailwind CSS Typography plugin provides a set of `prose` classes yo
 </article>
 ```
 
-To see what it looks like in action, check out our [live demo](https://play.tailwindcss.com/uj1vGACRJA?layout=preview) on Tailwind Play.
+Чтобы увидеть, как это выглядит в действии, посмотрите нашу [демонстрацию](https://play.tailwindcss.com/uj1vGACRJA?layout=preview) на Tailwind Play.
 
 ---
 
-## Installation
+## Установка
 
-Install the plugin from npm:
+Установите плагин из npm:
 
 ```shell
 npm install -D @tailwindcss/typography
 ```
 
-Then add the plugin to your `tailwind.config.js` file:
+Затем добавьте плагин в файл `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -48,29 +48,29 @@ module.exports = {
 
 ---
 
-## Basic usage
+## Основное использование
 
-Now you can use the `prose` classes to add sensible typography styles to any vanilla HTML:
+Теперь вы можете использовать классы `prose`, чтобы добавить разумные стили типографики к любому ванильному HTML:
 
 ```html
 <article class="prose lg:prose-xl">
-  <h1>Garlic bread with cheese: What the science tells us</h1>
+  <h1>Чесночный хлеб с сыром: что говорит нам наука</h1>
   <p>
-    For years parents have espoused the health benefits of eating garlic bread with cheese to their
-    children, with the food earning such an iconic status in our culture that kids will often dress
-    up as warm, cheesy loaf for Halloween.
+    В течение многих лет родители поддерживали пользу для здоровья от употребления в пищу чесночного хлеба с сыром 
+    для своих детей, и эта еда приобрела такой культовый статус в нашей культуре, 
+    что дети часто наряжаются теплым, сырным хлебом на Хэллоуин.
   </p>
   <p>
-    But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases
-    springing up around the country.
+    Но недавнее исследование показывает, что знаменитая закуска может быть связана 
+    с серией случаев бешенства, возникающих по всей стране.
   </p>
   <!-- ... -->
 </article>
 ```
 
-### Choosing a gray scale
+### Выбор оттенков серого
 
-This plugin includes a modifier class for each of the five gray scales Tailwind includes by default so you can easily style your content to match the grays you're using in your project.
+Этот подключаемый модуль включает в себя класс модификатора для каждой из пяти шкал серого, которые Tailwind включает по умолчанию, поэтому вы можете легко стилизовать свой контент в соответствии с оттенками серого, которые вы используете в своем проекте.
 
 ```html
 <article class="prose **prose-slate**">
@@ -78,9 +78,9 @@ This plugin includes a modifier class for each of the five gray scales Tailwind 
 </article>
 ```
 
-Here are the classes that are generated using a totally default Tailwind CSS v2.0 build:
+Вот классы, созданные с использованием стандартной сборки Tailwind CSS v2.0:
 
-| Class                    | Gray scale |
+| Класс                    | Оттенки серого |
 | ------------------------ | ---------- |
 | `prose-gray` _(default)_ | Gray       |
 | `prose-slate`            | Slate      |
@@ -88,9 +88,9 @@ Here are the classes that are generated using a totally default Tailwind CSS v2.
 | `prose-neutral`          | Neutral    |
 | `prose-stone`            | Stone      |
 
-Modifier classes are designed to be used with the [multi-class modifier pattern](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/#component-modifiers) and must be used in conjunction with the base `prose` class.
+Классы модификаторов предназначены для использования с [шаблоном модификаторов нескольких классов](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/#component-modifiers) и должны использоваться вместе с базовый класс `prose`.
 
-<TipInfo>Always include the `prose` class when adding a gray scale modifier</TipInfo>
+<TipInfo>Всегда включайте класс `prose` при добавлении модификатора оттенков серого</TipInfo>
 
 ```html
 <article class="**prose** prose-stone">
@@ -98,11 +98,11 @@ Modifier classes are designed to be used with the [multi-class modifier pattern]
 </article>
 ```
 
-To learn about creating your own color themes, read the [adding custom color themes](#adding-custom-color-themes) documentation.
+Чтобы узнать о создании собственных цветовых тем, прочитайте документацию [добавление пользовательских цветовых тем](#adding-custom-color-themes).
 
-### Applying a type scale
+### Применение масштаба шрифта
 
-Size modifiers allow you to adjust the overall size of your typography for different contexts.
+Модификаторы размера позволяют настроить общий размер типографики для различных контекстов.
 
 ```html
 <article class="prose **prose-xl**">
@@ -110,9 +110,9 @@ Size modifiers allow you to adjust the overall size of your typography for diffe
 </article>
 ```
 
-Five different typography sizes are included out of the box:
+Пять различных размеров типографики включены в стандартную комплектацию:
 
-| Class                    |  Body font size |
+| Класс                    |  Размер шрифта основного текста |
 | ------------------------ | --------------- |
 | `prose-sm`               | 0.875rem _(14px)_ |
 | `prose-base` _(default)_ |     1rem _(16px)_ |
@@ -120,7 +120,7 @@ Five different typography sizes are included out of the box:
 | `prose-xl`               |  1.25rem _(20px)_ |
 | `prose-2xl`              |   1.5rem _(24px)_ |
 
-These can be used in combination with Tailwind's [breakpoint modifiers](/docs/responsive-design) to change the overall font size of a piece of content at different viewport sizes:
+Их можно использовать в сочетании с [модификаторами контрольных точек](/docs/responsive-design) Tailwind для изменения общего размера шрифта части контента при разных размерах окна просмотра:
 
 ```html
 <article class="prose **md:prose-lg** **lg:prose-xl**">
@@ -128,11 +128,11 @@ These can be used in combination with Tailwind's [breakpoint modifiers](/docs/re
 </article>
 ```
 
-Everything about the provided size modifiers has been hand-tuned by professional designers to look as beautiful as possible, including the relationships between font sizes, heading spacing, code block padding, and more.
+Все в предоставленных модификаторах размера было вручную настроено профессиональными дизайнерами, чтобы они выглядели как можно лучше, включая соотношение между размерами шрифта, интервалами между заголовками, отступами блоков кода и многим другим.
 
-Size modifiers are designed to be used with the [multi-class modifier pattern](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/#component-modifiers) and must be used in conjunction with the base `prose` class.
+Модификаторы размера предназначены для использования с [шаблоном модификатора нескольких классов](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/#component-modifiers) и должны использоваться вместе с базовый класс `prose`.
 
-<TipInfo>Always include the `prose` class when adding a size modifier</TipInfo>
+<TipInfo>Всегда включайте класс `prose` при добавлении модификатора размера</TipInfo>
 
 ```html
 <article class="**prose** prose-lg">
@@ -140,11 +140,11 @@ Size modifiers are designed to be used with the [multi-class modifier pattern](h
 </article>
 ```
 
-To learn about customizing the included type scales, read the documentation on [customizing the CSS](#customizing-the-css).
+Чтобы узнать о настройке включенных масштабов шрифта, прочитайте документацию по [настройке CSS](#customizing-the-css).
 
-### Adapting to dark mode
+### Адаптация к темному режиму
 
-Each default color theme includes a hand-designed dark mode version that you can trigger by adding the `prose-invert` class:
+Каждая цветовая тема по умолчанию включает в себя созданную вручную версию темного режима, которую вы можете активировать, добавив класс `prose-invert`:
 
 ```html
 <article class="prose **dark:prose-invert**">
@@ -152,12 +152,12 @@ Each default color theme includes a hand-designed dark mode version that you can
 </article>
 ```
 
-To learn about creating your own color themes, read the [adding custom color themes](#adding-custom-color-themes) documentation.
+Чтобы узнать о создании собственных цветовых тем, прочитайте документацию [добавление пользовательских цветовых тем](#adding-custom-color-themes).
 
 
-### Element modifiers
+### Модификаторы элементов
 
-Use element modifiers to customize the style of individual elements in your content directly in your HTML:
+Используйте модификаторы элементов, чтобы настроить стиль отдельных элементов в вашем контенте непосредственно в вашем HTML:
 
 ```html
 <article class="prose **prose-img:rounded-xl** **prose-headings:underline** **prose-a:text-blue-600**">
@@ -165,11 +165,11 @@ Use element modifiers to customize the style of individual elements in your cont
 </article>
 ```
 
-This makes it easy to do things like style links to match your brand, add a border radius to images, and tons more.
+Это позволяет легко делать такие вещи, как стилизовать ссылки в соответствии с вашим брендом, добавлять радиус границы к изображениям и многое другое.
 
-Here's a complete list of available element modifiers:
+Вот полный список доступных модификаторов элементов:
 
-| Modifier                     | Target                       |
+| Модификатор                     | Цель                       |
 | ---------------------------- | ---------------------------- |
 | `prose-headings:{utility}`   | `h1`, `h2`, `h3`, `h4`, `th` |
 | `prose-lead:{utility}`       | `[class~="lead"]`            |
@@ -198,7 +198,7 @@ Here's a complete list of available element modifiers:
 | `prose-video:{utility}`      | `video`                      |
 | `prose-hr:{utility}`         | `hr`                         |
 
-When stacking these modifiers with other modifiers like `hover`, you most likely want the other modifier to come first:
+При объединении этих модификаторов с другими модификаторами, такими как `hover`, вы, скорее всего, захотите, чтобы другой модификатор был первым:
 
 ```html
 <article class="prose prose-a:text-blue-600 **hover:prose-a:text-blue-500**">
@@ -206,13 +206,13 @@ When stacking these modifiers with other modifiers like `hover`, you most likely
 </article>
 ```
 
-Read the Tailwind CSS documentation on [ordering stacked modifiers](https://tailwindcss.com/docs/hover-focus-and-other-states#ordering-stacked-modifiers) to learn more.
+Прочтите документацию Tailwind CSS по адресу [упорядочивание сложенных модификаторов](https://tailwindcss.com/docs/hover-focus-and-other-states#ordering-stacked-modifiers), чтобы узнать больше.
 
-### Overriding max-width
+### Переопределение максимальной ширины
 
-Each size modifier comes with a baked in `max-width` designed to keep the content as readable as possible. This isn't always what you want though, and sometimes you'll want the content to just fill the width of its container.
+Каждый модификатор размера поставляется с запеченной `max-width`, предназначенной для того, чтобы содержимое было как можно более читабельным. Это не всегда то, что вам нужно, и иногда вам нужно, чтобы содержимое просто заполнило ширину своего контейнера.
 
-In those cases, all you need to do is add `max-w-none` to your content to override the embedded max-width:
+В этих случаях все, что вам нужно сделать, это добавить `max-w-none` к вашему контенту, чтобы переопределить встроенную максимальную ширину max-width:
 
 ```html
 <div class="grid grid-cols-4">
@@ -229,20 +229,20 @@ In those cases, all you need to do is add `max-w-none` to your content to overri
 
 ---
 
-## Advanced topics
+## Расширенные темы
 
-### Undoing typography styles
+### Отмена стилей типографики
 
 
-If you have a block of markup embedded in some content that shouldn't inherit the `prose` styles, use the `not-prose` class to sandbox it:
+Если у вас есть блок разметки, встроенный в какой-либо контент, который не должен наследовать стили `prose`, используйте класс `not-prose` для изолирования его:
 
 ```html
 <article class="prose">
-  <h1>My Heading</h1>
+  <h1>Мой заголовок</h1>
   <p>...</p>
 
   <div class="not-prose">
-    <!-- Some example or demo that needs to be prose-free -->
+    <!-- Некоторый пример или демонстрация, которая должна быть без прозы -->
   </div>
 
   <p>...</p>
@@ -250,11 +250,11 @@ If you have a block of markup embedded in some content that shouldn't inherit th
 </article>
 ```
 
-Note that you can't nest new `prose` instances within a `not-prose` block at this time.
+Обратите внимание, что в настоящее время вы не можете вкладывать новые экземпляры `prose` в блок `not-prose`.
 
-### Adding custom color themes
+### Добавление пользовательских цветовых тем
 
-You can create your own color theme by adding a new key in the `typography` section of your `tailwind.config.js` file and providing your colors under the `css` key:
+Вы можете создать свою собственную цветовую тему, добавив новый ключ в раздел `typography` вашего файла `tailwind.config.js` и указав свои цвета в ключе `css`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -307,11 +307,11 @@ module.exports = {
 }
 ```
 
-See our internal [style definitions](https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js) for some more examples.
+Смотрите наши внутренние [определения стилей](https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js) для получения дополнительных примеров.
 
-### Changing the default class name
+### Изменение имени класса по умолчанию
 
-If you need to use a class name other than `prose` for any reason, you can do so using the `className` option when registering the plugin:
+Если по какой-либо причине вам нужно использовать имя класса, отличное от `prose` , вы можете сделать это, используя опцию `className` при регистрации плагина:
 
 ```js
 // tailwind.config.js
@@ -328,15 +328,15 @@ module.exports = {
 }
 ```
 
-Now every instance of `prose` in the default class names will be replaced by your custom class name:
+Теперь каждый экземпляр `prose` в именах классов по умолчанию будет заменен вашим именем класса:
 
 ```html
 <article class="wysiwyg wysiwyg-slate lg:wysiwyg-xl">
-  <h1>My Heading</h1>
+  <h1>Мой заголовок</h1>
   <p>...</p>
 
   <div class="not-wysiwyg">
-    <!-- Some example or demo that needs to be prose-free -->
+    <!-- Некоторый пример или демонстрация, которая должна быть без прозы -->
   </div>
 
   <p>...</p>
@@ -344,9 +344,9 @@ Now every instance of `prose` in the default class names will be replaced by you
 </article>
 ```
 
-### Customizing the CSS
+### Настройка CSS
 
-If you want to customize the raw CSS generated by this plugin, add your overrides under the `typography` key in the `theme` section of your `tailwind.config.js` file:
+Если вы хотите настроить необработанный CSS, сгенерированный этим плагином, добавьте свои переопределения под ключом `typography` в разделе `theme` вашего файла `tailwind.config.js`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -374,7 +374,7 @@ module.exports = {
 }
 ```
 
-Like with all theme customizations in Tailwind, you can also define the `typography` key as a function if you need access to the `theme` helper:
+Как и со всеми настройками темы в Tailwind, вы также можете определить клавишу `typography` как функцию, если вам нужен доступ к хелперу `theme`:
 
 ```js
 // tailwind.config.js
@@ -399,6 +399,6 @@ module.exports = {
 }
 ```
 
-Customizations should be applied to a specific modifier like `DEFAULT` or `xl`, and must be added under the `css` property. Customizations are authored in the same [CSS-in-JS syntax](https://tailwindcss.com/docs/plugins#css-in-js-syntax) used to write Tailwind plugins.
+Индивидуальные настройки должны применяться к определенному модификатору, такому как `DEFAULT` ии `xl`, и должны быть добавлены в свойство `css`. Настройки создаются с использованием того же [синтаксиса CSS-in-JS](https://tailwindcss.com/docs/plugins#css-in-js-syntax), который используется для написания плагинов Tailwind.
 
-See [the default styles](https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js) for this plugin for more in-depth examples of configuring each modifier.
+Смотрите [стили по умолчанию](https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js) для этого плагина для получения более подробных примеров настройки каждого модификатора.
