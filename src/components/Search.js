@@ -61,10 +61,6 @@ export function SearchProvider({ children }) {
           <DocSearchModal
             initialQuery={initialQuery}
             initialScrollY={window.scrollY}
-            searchParameters={{
-              facetFilters: 'version:v3',
-              distinct: 1,
-            }}
             placeholder="Искать в документации"
             onClose={onClose}
             indexName={INDEX_NAME}
