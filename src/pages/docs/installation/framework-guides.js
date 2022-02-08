@@ -70,35 +70,34 @@ export default function FrameworkGuides() {
           {
             name: 'SvelteKit',
             slug: 'sveltekit',
-            description: 'The fastest way to build apps of all sizes with Svelte.js.',
+            description: 'Самый быстрый способ создавать приложения любого размера с помощью Svelte.js.',
             logo: SvelteLogo,
           },
           {
             name: 'Angular',
             slug: 'angular',
-            description: 'Platform for building mobile and desktop web applications.',
+            description: 'Платформа для создания мобильных и настольных веб-приложений.',
             logo: AngularLogo,
             logoDark: AngularLogoWhite,
           },
           {
             name: 'Ruby on Rails',
             slug: 'ruby-on-rails',
-            description:
-              'Full-stack framework with all the tools needed to build amazing web apps.',
+            description: 'Фреймворк полного стека со всеми инструментами, необходимыми для создания удивительных веб-приложений.',
             logo: RailsLogo,
             logoDark: RailsLogoWhite,
           },
           {
             name: 'Remix',
             slug: 'remix',
-            description: 'Full stack framework focused on web fundamentals and modern UX.',
+            description: 'Фреймворк с полным стеком, ориентированный на основы веб-технологий и современный UX.',
             logo: RemixLogo,
             logoDark: RemixLogoWhite,
           },
           {
             name: 'Phoenix',
             slug: 'phoenix',
-            description: 'A framework to build rich, interactive applications with Elixir.',
+            description: 'Фреймворк для создания многофункциональных интерактивных приложений с помощью Elixir.',
             logo: () => (
               <img
                 src={PhoenixLogo}
@@ -111,7 +110,7 @@ export default function FrameworkGuides() {
           {
             name: 'Parcel',
             slug: 'parcel',
-            description: 'The zero-configuration build tool for the web.',
+            description: 'Инструмент сборки с нулевой конфигурацией для Интернета.',
             logo: () => (
               <img
                 src={ParcelLogo}

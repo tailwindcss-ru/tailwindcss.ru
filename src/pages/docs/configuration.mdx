@@ -358,23 +358,23 @@ module.exports = {
 
 При использовании стратегии выбора убедитесь, что файл шаблона, который включает ваш корневой селектор, включен в вашу [конфигурацию содержимого](/docs/optimizing-for-production#basic-usage), в противном случае весь ваш CSS будет удален при сборке для производства.
 
-#### Important modifier
+#### Важный модификатор
 
-Alternatively, you can make any utility important by adding a `!` character to the beginning:
+Кроме того, вы можете сделать любую утилиту важной, добавив в начало символ `!`:
 
 ```html
 <p class="font-bold !font-medium">
-  This will be medium even though bold comes later in the CSS.
+  Это будет средним шрифтом, несмотря на то, что полужирный шрифт появляется позже в CSS.
 </p>
 ```
 
-The `!` always goes at the beginning of the utility name, after any variants, but before any prefix:
+`!` всегда стоит в начале имени утилиты, после любых вариантов, но перед любым префиксом:
 
 ```html
 <div class="sm:hover:!tw-font-bold">
 ```
 
-This can be useful in rare situations where you need to increase specificity because you're at war with some styles you don't control.
+Это может быть полезно в редких ситуациях, когда вам нужно повысить специфичность, потому что вы находитесь в состоянии войны с некоторыми стилями, которые вы не контролируете.
 
 ### Разделитель
 
