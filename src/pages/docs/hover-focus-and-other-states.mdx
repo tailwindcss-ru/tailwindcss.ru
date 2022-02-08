@@ -387,6 +387,17 @@ Tailwind также включает модификаторы для други�
 
 Этот шаблон работает со всеми модификаторами псевдокласса, например, `peer-focus`, `peer-required` и `peer-disabled`.
 
+It's important to note that the `peer` marker can only be used on _previous_ siblings because of how the [general sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) works in CSS.
+
+<TipBad>Won't work, only previous siblings can be marked as peers</TipBad>
+
+```html
+<label>
+  <span class="**peer-invalid:text-red-500** ...">Email</span>
+  <input type="email" class="**peer** ..."/>
+</label>
+```
+
 ---
 
 ## Псевдоэлементы

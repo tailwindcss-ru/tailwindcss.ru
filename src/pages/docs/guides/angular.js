@@ -7,106 +7,83 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by creating a new SvelteKit project if you don't have one set up already. The most
-        common approach is outlined in the{' '}
-        <a href="https://kit.svelte.dev/docs#introduction-getting-started">
-          Getting Started with SvelteKit
-        </a>{' '}
-        introduction.
+        Start by creating a new Angular project if you don’t have one set up already. The most
+        common approach is to use <a href="https://angular.io/cli">Angular CLI</a>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init svelte@next my-app\ncd my-app',
+      code: 'ng new my-project\ncd my-project',
     },
   },
   {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
-        following commands to generate both <code>tailwind.config.cjs</code> and{' '}
-        <code>postcss.config.cjs</code>.
+        Install <code>tailwindcss</code> via npm, and then run the init command to generate a{' '}
+        <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init tailwind.config.cjs -p\nmv postcss.config.js postcss.config.cjs',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
     },
   },
   {
     title: 'Configure your template paths',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.cjs</code> file.
+        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
-      name: 'tailwind.config.cjs',
-      lang: 'javascript',
+      name: 'tailwind.config.js',
+      lang: 'js',
       code: `  module.exports = {
->   content: ['./src/**/*.{html,js,svelte,ts}'],
+>   content: [
+>     "./src/**/*.{html,ts}",
+>   ],
     theme: {
-      extend: {}
+      extend: {},
     },
-    plugins: []
-  };`,
+    plugins: [],
+  }`,
     },
   },
   {
     title: 'Add the Tailwind directives to your CSS',
     body: () => (
       <p>
-        Create a <code>./src/app.css</code> file and add the <code>@tailwind</code> directives for
-        each of Tailwind’s layers.
+        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
+        <code>./src/styles.css</code> file.
       </p>
     ),
     code: {
-      name: 'app.css',
+      name: 'styles.css',
       lang: 'css',
-      code: `@tailwind base;
-@tailwind components;
-@tailwind utilities;`,
-    },
-  },
-  {
-    title: 'Import the CSS file',
-    body: () => (
-      <p>
-        Create a <code>./src/routes/__layout.svelte</code> file and import the newly-created{' '}
-        <code>app.css</code> file.
-      </p>
-    ),
-    code: {
-      name: '__layout.svelte',
-      lang: 'html',
-      code: `<script>
-  import "../app.css";
-</script>
-
-<slot />`,
+      code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
     },
   },
   {
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Run your build process with <code>ng serve</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm run dev',
+      code: 'ng serve',
     },
   },
   {
     title: 'Start using Tailwind in your project',
     body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
-      name: 'index.svelte',
+      name: 'app.component.html',
       lang: 'html',
       code: `<h1 class="text-3xl font-bold underline">
   Hello world!
@@ -115,11 +92,11 @@ let steps = [
   },
 ]
 
-export default function UsingSvelteKit({ code }) {
+export default function UsingAngular({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with SvelteKit"
-      description="Setting up Tailwind CSS in a SvelteKit project."
+      title="Install Tailwind CSS with Angular"
+      description="Setting up Tailwind CSS in an Angular project."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -146,9 +123,9 @@ export function getStaticProps() {
   }
 }
 
-UsingSvelteKit.layoutProps = {
+UsingAngular.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with SvelteKit',
+    title: 'Install Tailwind CSS with Angular',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,

@@ -7,15 +7,15 @@ let steps = [
     title: 'Create your project',
     body: () => (
       <p>
-        Start by creating a new React project with{' '}
-        <a href="https://create-react-app.dev/docs/getting-started">Create React App v5.0+</a> if
-        you don't have one already set up.
+        Start by creating a new Parcel project if you don’t have one set up already. The most common
+        approach is to add Parcel as a dev-dependency to your project as outlined in their{' '}
+        <a href="https://parceljs.org/getting-started/webapp/">getting started guide</a>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npx create-react-app my-project\ncd my-project',
+      code: 'mkdir my-project\ncd my-project\nnpm install -D parcel\nmkdir src\ntouch src/index.html',
     },
   },
   {
@@ -29,7 +29,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
@@ -44,7 +44,7 @@ let steps = [
       lang: 'js',
       code: `  module.exports = {
 >   content: [
->     "./src/**/*.{js,jsx,ts,tsx}",
+>     "./src/**/*.{html,js,ts,jsx,tsx}",
 >   ],
     theme: {
       extend: {},
@@ -57,8 +57,8 @@ let steps = [
     title: 'Add the Tailwind directives to your CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-        <code>./src/index.css</code> file.
+        Create a <code>./src/index.css</code> file and add the <code>@tailwind</code> directives for
+        each of Tailwind’s layers.
       </p>
     ),
     code: {
@@ -71,37 +71,46 @@ let steps = [
     title: 'Start your build process',
     body: () => (
       <p>
-        Run your build process with <code>npm run start</code>.
+        Run your build process with <code>npx parcel src/index.html</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm run start',
+      code: 'npx parcel src/index.html',
     },
   },
   {
     title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    body: () => (<p>
+      Add your CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility
+      classes to style your content.
+    </p>),
     code: {
-      name: 'App.js',
-      lang: 'jsx',
-      code: `  export default function App() {
-    return (
->     <h1 className="text-3xl font-bold underline">
->       Hello world!
->     </h1>
-    )
-  }`,
+      name: 'index.html',
+      lang: 'html',
+      code: `  <!doctype html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>   <link href="./index.css" rel="stylesheet">
+  </head>
+  <body>
+>   <h1 class="text-3xl font-bold underline">
+>     Hello world!
+>   </h1>
+  </body>
+  </html>`,
     },
   },
 ]
 
-export default function UsingCRA({ code }) {
+export default function UsingParcel({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Create React App"
-      description="Setting up Tailwind CSS in a Create React App project."
+      title="Install Tailwind CSS with Parcel"
+      description="Setting up Tailwind CSS in a Parcel project."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -114,18 +123,23 @@ export function getStaticProps() {
   return {
     props: {
       code: steps.map(({ code }) => {
-        if (code.lang && code.lang !== 'terminal') {
-          return highlightCode(code.code, code.lang)
-        }
-        return code.code
+        let isArray = Array.isArray(code)
+        code = isArray ? code : [code]
+        code = code.map((code) => {
+          if (code.lang && code.lang !== 'terminal') {
+            return highlightCode(code.code, code.lang)
+          }
+          return code.code
+        })
+        return isArray ? code : code[0]
       }),
     },
   }
 }
 
-UsingCRA.layoutProps = {
+UsingParcel.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Create React App',
+    title: 'Install Tailwind CSS with Parcel',
     section: 'Installation',
   },
   Layout: DocumentationLayout,
