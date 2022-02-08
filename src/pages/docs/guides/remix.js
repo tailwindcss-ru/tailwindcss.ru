@@ -4,11 +4,11 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Remix project if you don’t have one set up already. The most common
-        approach is to use <a href="https://remix.run/docs/en/v1">Create Remix</a>.
+        Начните с создания нового проекта Remix, если у вас его еще нет.
+        Самый распространенный подход — использовать <a href="https://remix.run/docs/en/v1">Create Remix</a>.
       </p>
     ),
     code: {
@@ -18,11 +18,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code>, its peer dependencies, and <code>concurrently</code> via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code>, его одноранговые зависимости и <code>concurrently</code> через npm,
+        а затем запустите команду init, чтобы сгенерировать как <code>tailwind.config.js</code>, так и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -32,10 +32,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -53,10 +53,10 @@ let steps = [
     },
   },
   {
-    title: 'Update your package.json scripts',
+    title: 'Обновите скрипты package.json',
     body: () => (
       <p>
-        Update the scripts in your <code>package.json</code> file to build both your development and production CSS.
+        Обновите сценарии в файле <code>package.json</code>, чтобы создать CSS для разработки и продакшена.
       </p>
     ),
     code: {
@@ -73,11 +73,10 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Create a <code>./styles/app.css</code> file and add the <code>@tailwind</code> directives
-        for each of Tailwind’s layers.
+        Создайте файл <code>./styles/app.css</code> и добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind.
       </p>
     ),
     code: {
@@ -87,10 +86,10 @@ let steps = [
     },
   },
   {
-    title: 'Import the CSS file',
+    title: 'Импортируйте файл CSS',
     body: () => (
       <p>
-        Import the compiled <code>./app/styles/app.css</code> file in your <code>./app/root.jsx</code> file.
+        Импортируйте скомпилированный файл <code>./app/styles/app.css</code> в свой файл <code>./app/root.jsx</code>.
       </p>
     ),
     code: {
@@ -104,10 +103,10 @@ export function links() {
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -117,8 +116,8 @@ export function links() {
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
       name: 'index.jsx',
       lang: 'jsx',
@@ -136,8 +135,8 @@ export function links() {
 export default function UsingRemix({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Remix"
-      description="Setting up Tailwind CSS in a Remix project."
+      title="Установите Tailwind CSS с Remix"
+      description="Настройка Tailwind CSS в проекте Remix."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -166,8 +165,8 @@ export function getStaticProps() {
 
 UsingRemix.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Remix',
-    section: 'Installation',
+    title: 'Установите Tailwind CSS с Remix',
+    section: 'Установка',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

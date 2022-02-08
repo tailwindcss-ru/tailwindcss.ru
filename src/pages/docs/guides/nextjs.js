@@ -4,11 +4,11 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Next.js project if you don’t have one set up already. The most
-        common approach is to use{' '}
+        Начните с создания нового проекта Next.js, если у вас его еще нет.
+        Наиболее распространенный подход — использовать{' '}
         <a href="https://nextjs.org/docs/api-reference/create-next-app">Create Next App</a>.
       </p>
     ),
@@ -19,11 +19,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем запустите команду init,
+        чтобы сгенерировать как <code>tailwind.config.js</code>, так и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -33,10 +33,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -55,10 +55,10 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
+        Добавьте директивы <code>@tailwind</code> для каждого из слоев Tailwind в ваш файл{' '}
         <code>./styles/globals.css</code> file.
       </p>
     ),
@@ -69,10 +69,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -82,8 +82,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
       name: 'index.js',
       lang: 'jsx',
@@ -101,18 +101,17 @@ let steps = [
 export default function UsingNextJS({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Next.js"
-      description="Setting up Tailwind CSS in a Next.js v10+ project."
+      title="Установите Tailwind CSS с Next.js"
+      description="Настройка Tailwind CSS в проекте Next.js v10+."
     >
       <div className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
-          The quickest way to start using Tailwind CSS in your Next.js project is to use the{' '}
+          Самый быстрый способ начать использовать Tailwind CSS в проекте Next.js – использовать{' '}
           <a href="https://github.com/vercel/next.js/tree/4d4f3093019179b1928ec07c16f38882241c0375/examples/with-tailwindcss">
-            Next.js + Tailwind CSS Example
-          </a>
-          . This will automatically configure your Tailwind setup based on the official Next.js
-          example. If you'd like to configure Tailwind manually, continue with the rest of this
-          guide.
+            Пример Next.js + Tailwind CSS
+          </a>.
+          Это автоматически настроит вашу настройку Tailwind на основе официального примера Next.js.
+          Если вы хотите настроить Tailwind вручную, перейдите к остальной части этого руководства.
         </p>
       </div>
       <Steps steps={steps} code={code} />
@@ -142,8 +141,8 @@ export function getStaticProps() {
 
 UsingNextJS.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Next.js',
-    section: 'Installation',
+    title: 'Установите Tailwind CSS с Next.js',
+    section: 'Установка',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

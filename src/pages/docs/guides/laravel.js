@@ -4,12 +4,12 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Laravel project if you don’t have one set up already. The most
-        common approach is to use{' '}
-        <a href="https://laravel.com/docs/8.x#the-laravel-installer">the Laravel Installer</a>.
+        Начните с создания нового проекта Laravel, если у вас его еще нет.
+        Наиболее распространенный подход — использовать{' '}
+        <a href="https://laravel.com/docs/8.x#the-laravel-installer">установщик Laravel</a>.
       </p>
     ),
     code: {
@@ -19,7 +19,7 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
         Install <code>tailwindcss</code> and its peer dependencies via npm, and create your{' '}
@@ -33,10 +33,10 @@ let steps = [
     },
   },
   {
-    title: 'Add Tailwind to your Laravel Mix configuration',
+    title: 'Добавьте Tailwind в конфигурацию Laravel Mix',
     body: () => (
       <p>
-        In your <code>webpack.mix.js</code> file, add <code>tailwindcss</code> as a PostCSS plugin.
+        В файле <code>webpack.mix.js</code> добавьте <code>tailwindcss</code> в качестве подключаемого плагина PostCSS.
       </p>
     ),
     code: {
@@ -49,10 +49,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -72,10 +72,10 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
+        Добавьте директивы <code>@tailwind</code> для каждого из слоев Tailwind в ваш файл{' '}
         <code>./resources/css/app.css</code> file.
       </p>
     ),
@@ -86,10 +86,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run watch</code>.
+        Запустите процесс сборки с помощью <code>npm run watch</code>.
       </p>
     ),
     code: {
@@ -99,11 +99,11 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
+    title: 'Начните использовать Tailwind в своем проекте',
     body: () => (
       <p>
-        Make sure your compiled CSS is included in the <code>{'<head>'}</code> then start using
-        Tailwind’s utility classes to style your content.
+        Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>,
+        а затем начните использовать служебные классы Tailwind для оформления вашего контента.
       </p>
     ),
     code: {
@@ -129,8 +129,8 @@ let steps = [
 export default function UsingLaravel({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Laravel"
-      description="Setting up Tailwind CSS in a Laravel project."
+      title="Установите Tailwind CSS с Laravel"
+      description="Настройка Tailwind CSS в проекте Laravel."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -154,8 +154,8 @@ export function getStaticProps() {
 
 UsingLaravel.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Laravel',
-    section: 'Installation',
+    title: 'Установите Tailwind CSS с Laravel',
+    section: 'Установка',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

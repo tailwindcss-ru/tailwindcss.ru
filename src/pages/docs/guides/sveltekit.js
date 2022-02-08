@@ -4,15 +4,13 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new SvelteKit project if you don't have one set up already. The most
-        common approach is outlined in the{' '}
+        Начните с создания нового проекта SvelteKit, если он еще не настроен. Наиболее распространенный подход описан в{' '}
         <a href="https://kit.svelte.dev/docs#introduction-getting-started">
-          Getting Started with SvelteKit
-        </a>{' '}
-        introduction.
+          начале работы со SvelteKit
+        </a>{' '}.
       </p>
     ),
     code: {
@@ -22,12 +20,12 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
-        following commands to generate both <code>tailwind.config.cjs</code> and{' '}
-        <code>postcss.config.cjs</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm,
+        а затем выполните следующие команды, чтобы сгенерировать как <code>tailwind.config.cjs</code>,
+        так и{' '} <code>postcss.config.cjs</code>.
       </p>
     ),
     code: {
@@ -37,10 +35,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.cjs</code> file.
+        Добавьте пути ко всем файлам шаблонов в файл <code>tailwind.config.cjs</code>.
       </p>
     ),
     code: {
@@ -56,11 +54,10 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Create a <code>./src/app.css</code> file and add the <code>@tailwind</code> directives for
-        each of Tailwind’s layers.
+        Создайте файл <code>./src/app.css</code> и добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind.
       </p>
     ),
     code: {
@@ -72,11 +69,10 @@ let steps = [
     },
   },
   {
-    title: 'Import the CSS file',
+    title: 'Импортируйте файл CSS',
     body: () => (
       <p>
-        Create a <code>./src/routes/__layout.svelte</code> file and import the newly-created{' '}
-        <code>app.css</code> file.
+        Создайте файл <code>./src/routes/__layout.svelte</code> и импортируйте только что созданный{' '} <code>app.css</code>.
       </p>
     ),
     code: {
@@ -90,10 +86,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -103,8 +99,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
       name: 'index.svelte',
       lang: 'html',
@@ -118,8 +114,8 @@ let steps = [
 export default function UsingSvelteKit({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with SvelteKit"
-      description="Setting up Tailwind CSS in a SvelteKit project."
+      title="Установите Tailwind CSS с SvelteKit"
+      description="Настройка Tailwind CSS в проекте SvelteKit."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -148,8 +144,8 @@ export function getStaticProps() {
 
 UsingSvelteKit.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with SvelteKit',
-    section: 'Getting Started',
+    title: 'Установите Tailwind CSS с SvelteKit',
+    section: 'Начало работы',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

@@ -5,15 +5,11 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Gatsby project if you don’t have one set up already. The most common
-        approach is to use{' '}
-        <a href="https://www.gatsbyjs.com/docs/reference/gatsby-cli/#how-to-use-gatsby-cli">
-          Gatsby CLI
-        </a>
-        .
+        Начните с создания нового проекта Gatsby, если у вас его еще нет. Наиболее распространенный подход — использовать{' '}
+        <a href="https://www.gatsbyjs.com/docs/reference/gatsby-cli/#how-to-use-gatsby-cli">Gatsby CLI</a>.
       </p>
     ),
     code: {
@@ -23,12 +19,12 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-        <code>gatsby-plugin-postcss</code>, and then run the init command to generate both{' '}
-        <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости, а также{' '}
+        <code>gatsby-plugin-postcss</code>, а затем запустите команду init для создания обоих{' '}
+        <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -38,15 +34,14 @@ let steps = [
     },
   },
   {
-    title: 'Enable the Gatsby PostCSS plugin',
+    title: 'Включить плагин Gatsby PostCSS',
     body: () => (
       <p>
-        In your <code>gatsby-config.js</code> file, enable the <code>gatsby-plugin-postcss</code>.
-        See{' '}
+        В файле <code>gatsby-config.js</code> включите <code>gatsby-plugin-postcss</code>.
+        Дополнительную информацию смотрите в{' '}
         <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-postcss/">
-          the plugin's documentation
-        </a>{' '}
-        for more information.
+          документации подключаемого плагина
+        </a>{''}.
       </p>
     ),
     code: {
@@ -61,10 +56,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -82,11 +77,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Create a <code>./src/styles/global.css</code> file and add the <code>@tailwind</code>{' '}
-        directives for each of Tailwind’s layers.
+        Создайте файл <code>./src/styles/global.css</code> и добавьте директивы <code>@tailwind</code>{' '}
+        для каждого слоя Tailwind.
       </p>
     ),
     code: {
@@ -96,11 +91,10 @@ let steps = [
     },
   },
   {
-    title: 'Import the CSS file',
+    title: 'Импортируйте файл CSS',
     body: () => (
       <p>
-        Create a <code>gatsby-browser.js</code> file at the root of your project if it doesn’t
-        already exist, and import your newly-created <code>./src/styles/global.css</code> file.
+        Создайте файл <code>gatsby-browser.js</code> в корне вашего проекта, если он еще не существует, и импортируйте только что созданный файл <code>./src/styles/global.css</code>.
       </p>
     ),
     code: {
@@ -110,10 +104,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>gatsby develop</code>.
+        Запустите процесс сборки с помощью <code>gatsby develop</code>.
       </p>
     ),
     code: {
@@ -123,8 +117,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
       name: 'index.js',
       lang: 'jsx',
@@ -144,8 +138,8 @@ let steps = [
 export default function UsingGatsby({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Gatsby"
-      description="Setting up Tailwind CSS in a Gatsby project."
+      title="Установите Tailwind CSS с Gatsby"
+      description="Настройка Tailwind CSS в проекте Gatsby."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -174,8 +168,8 @@ export function getStaticProps() {
 
 UsingGatsby.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Gatsby',
-    section: 'Installation',
+    title: 'Установите Tailwind CSS с Gatsby',
+    section: 'Установка',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

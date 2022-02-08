@@ -4,12 +4,12 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Parcel project if you don’t have one set up already. The most common
-        approach is to add Parcel as a dev-dependency to your project as outlined in their{' '}
-        <a href="https://parceljs.org/getting-started/webapp/">getting started guide</a>.
+        Начните с создания нового проекта Parcel, если у вас его еще нет.
+        Наиболее распространенный подход — добавить Parcel в качестве dev-dependency в ваш проект, как описано в их{' '}
+        <a href="https://parceljs.org/getting-started/webapp/">руководстве по началу работы</a>.
       </p>
     ),
     code: {
@@ -19,11 +19,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем запустите команду init,
+        чтобы сгенерировать как <code>tailwind.config.js</code>, так и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -33,10 +33,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -54,11 +54,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Create a <code>./src/index.css</code> file and add the <code>@tailwind</code> directives for
-        each of Tailwind’s layers.
+        Создайте файл <code>./src/index.css</code> и добавьте директивы
+        <code>@tailwind</code> для каждого слоя Tailwind.
       </p>
     ),
     code: {
@@ -68,10 +68,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npx parcel src/index.html</code>.
+        Запустите процесс сборки с помощью <code>npx parcel src/index.html</code>.
       </p>
     ),
     code: {
@@ -81,10 +81,10 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
+    title: 'Начните использовать Tailwind в своем проекте',
     body: () => (<p>
-      Add your CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility
-      classes to style your content.
+      Добавьте свой файл CSS в <code>{'<head>'}</code> и начните использовать
+      классы утилит Tailwind для стилизации своего контента.
     </p>),
     code: {
       name: 'index.html',
@@ -109,8 +109,8 @@ let steps = [
 export default function UsingParcel({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Parcel"
-      description="Setting up Tailwind CSS in a Parcel project."
+      title="Установите Tailwind CSS с Parcel"
+      description="Настройка Tailwind CSS в проекте Parcel."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -139,8 +139,8 @@ export function getStaticProps() {
 
 UsingParcel.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Parcel',
-    section: 'Installation',
+    title: 'Установите Tailwind CSS с Parcel',
+    section: 'Установка',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

@@ -4,12 +4,12 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new React project with{' '}
-        <a href="https://create-react-app.dev/docs/getting-started">Create React App v5.0+</a> if
-        you don't have one already set up.
+        Начните с создания нового проекта React с помощью{' '}
+        <a href="https://create-react-app.dev/docs/getting-started">Create React App v5.0+</a>,
+        если оно еще не настроено.
       </p>
     ),
     code: {
@@ -19,11 +19,12 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm,
+        а затем запустите команду init, чтобы сгенерировать как <code>tailwind.config.js</code>,
+        так и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -33,10 +34,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -54,11 +55,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-        <code>./src/index.css</code> file.
+        Добавьте директивы <code>@tailwind</code> для каждого из слоев Tailwind в ваш файл{' '}
+        <code>./src/index.css</code>.
       </p>
     ),
     code: {
@@ -68,10 +69,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run start</code>.
+        Запустите процесс сборки с помощью <code>npm run start</code>.
       </p>
     ),
     code: {
@@ -81,8 +82,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать служебные классы Tailwind для оформления своего контента.</p>,
     code: {
       name: 'App.js',
       lang: 'jsx',
@@ -100,8 +101,8 @@ let steps = [
 export default function UsingCRA({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Create React App"
-      description="Setting up Tailwind CSS in a Create React App project."
+      title="Установите Tailwind CSS с помощью Create React App"
+      description="Настройка Tailwind CSS в проекте Create React App."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -125,8 +126,8 @@ export function getStaticProps() {
 
 UsingCRA.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Create React App',
-    section: 'Installation',
+    title: 'Установите Tailwind CSS с помощью Create React App',
+    section: 'Установка',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

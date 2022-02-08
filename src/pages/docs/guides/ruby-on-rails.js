@@ -4,11 +4,11 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Rails project if you don't have one set up already. The most common
-        approach is to use the{' '}
+        Начните с создания нового проекта Rails, если у вас его еще нет.
+        Самый распространенный подход — использовать{' '}
         <a href="https://guides.rubyonrails.org/command_line.html">Rails Command Line</a>.
       </p>
     ),
@@ -19,11 +19,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install the <code>tailwindcss-rails</code> gem, and then run the install command to generate a {' '}
-        <code>tailwind.config.js</code> file in the <code>./config</code> directory.
+        Установите gem <code>tailwindcss-rails</code>, а затем запустите команду установки, чтобы сгенерировать файл {' '}
+        <code>tailwind.config.js</code> в директории <code>./config</code>.
       </p>
     ),
     code: {
@@ -33,11 +33,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files to your <code>./config/tailwind.config.js</code>{' '}
-        file.
+        Добавьте пути ко всем файлам шаблонов в файл <code>./config/tailwind.config.js</code>{' '}.
       </p>
     ),
     code: {
@@ -57,7 +56,7 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
         Add the <code>@tailwind</code> directives for each of Tailwind's layers to your{' '}
@@ -72,10 +71,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>./bin/dev</code>.
+        Запустите процесс сборки с помощью <code>./bin/dev</code>.
       </p>
     ),
     code: {
@@ -85,8 +84,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind's utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
       name: 'index.html.erb',
       lang: 'html',
@@ -100,16 +99,16 @@ let steps = [
 export default function UsingRails({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Ruby on Rails"
-      description="Setting up Tailwind CSS in Ruby on Rails v7+ project."
+      title="Установите Tailwind CSS с Ruby on Rails"
+      description="Настройка Tailwind CSS в проекте Ruby on Rails v7+."
     >
       <div className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
-          The quickest way to start using Tailwind CSS in your Rails project is to use{' '}
-          <a href="https://github.com/rails/tailwindcss-rails">Tailwind CSS for Rails</a> by running{' '}
-          <code>rails new my-app --css tailwind</code>. This will automatically configure your
-          Tailwind setup based on the official Rails example. If you'd like to configure Tailwind
-          manually, continue with the rest of this guide.
+          Самый быстрый способ начать использовать Tailwind CSS в проекте Rails — использовать{' '}
+          <a href="https://github.com/rails/tailwindcss-rails">Tailwind CSS для Rails</a>, запустив{' '}
+          <code>rails new my-app --css tailwind</code>.
+          Это автоматически настроит вашу настройку Tailwind на основе официального примера Rails.
+          Если вы хотите настроить Tailwind вручную, перейдите к остальной части этого руководства.
         </p>
       </div>
       <Steps steps={steps} code={code} />
@@ -134,8 +133,8 @@ export function getStaticProps() {
 
 UsingRails.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Ruby on Rails',
-    section: 'Installation',
+    title: 'Установите Tailwind CSS с Ruby on Rails',
+    section: 'Установка',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

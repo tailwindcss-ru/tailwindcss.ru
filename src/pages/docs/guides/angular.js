@@ -4,11 +4,11 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Angular project if you don’t have one set up already. The most
-        common approach is to use <a href="https://angular.io/cli">Angular CLI</a>.
+        Начните с создания нового проекта Angular, если у вас его еще нет.
+        Наиболее распространенный подход — использовать <a href="https://angular.io/cli">Angular CLI</a>.
       </p>
     ),
     code: {
@@ -18,11 +18,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> via npm, and then run the init command to generate a{' '}
-        <code>tailwind.config.js</code> file.
+        Установите <code>tailwindcss</code> через npm, а затем запустите команду init для создания файла{' '}
+        <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -32,10 +32,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -53,11 +53,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-        <code>./src/styles.css</code> file.
+        Добавьте директивы <code>@tailwind</code> для каждого из слоев Tailwind в ваш файл{' '}
+        <code>./src/styles.css</code>.
       </p>
     ),
     code: {
@@ -67,10 +67,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>ng serve</code>.
+        Запустите процесс сборки с помощью <code>ng serve</code>.
       </p>
     ),
     code: {
@@ -80,8 +80,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
       name: 'app.component.html',
       lang: 'html',
@@ -95,8 +95,8 @@ let steps = [
 export default function UsingAngular({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Angular"
-      description="Setting up Tailwind CSS in an Angular project."
+      title="Установите Tailwind CSS с Angular"
+      description="Настройка Tailwind CSS в проекте Angular."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -125,8 +125,8 @@ export function getStaticProps() {
 
 UsingAngular.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Angular',
-    section: 'Getting Started',
+    title: 'Установите Tailwind CSS с Angular',
+    section: 'Начало работы',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,
