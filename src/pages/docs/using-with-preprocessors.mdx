@@ -41,11 +41,11 @@ npm install -D postcss-import
 ```js
 // postcss.config.js
 module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
+  plugins: {
+    'postcss-import': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
 ```
 
@@ -57,7 +57,8 @@ module.exports = {
 /* components.css */
 
 .btn {
-  @apply px-4 py-2 rounded font-semibold bg-gray-200 text-black;
+  padding: theme('spacing.4') theme('spacing.2');
+  /* ... */
 }
 
 /* Не будет работать */
@@ -77,14 +78,16 @@ module.exports = {
 ```css
 /* components/buttons.css */
 .btn {
-  @apply px-4 py-2 rounded font-semibold bg-gray-200 text-black;
+  padding: theme('spacing.4') theme('spacing.2');
+  /* ... */
 }
 ```
 
 ```css
 /* components/card.css */
 .card {
-  @apply p-4 bg-white shadow rounded;
+  padding: theme('spacing.4');
+  /* ... */
 }
 ```
 
@@ -129,12 +132,12 @@ module.exports = {
 ```js
 // postcss.config.js
 module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss/nesting'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
+  plugins: {
+    'postcss-import': {},
+    'tailwindcss/nesting': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
 ```
 
@@ -143,7 +146,7 @@ module.exports = {
 Если вы предпочитаете использовать [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) (который основан на незавершенной работе [CSS Nesting](https://drafts.csswg.org/css-nesting-1/)), сначала установите плагин:
 
 ```shell
-npm install postcss-nesting
+npm install -D postcss-nesting
 ```
 
 Затем передайте сам плагин в качестве аргумента для `tailwindcss/nesting` в вашей конфигурации PostCSS:
@@ -151,12 +154,12 @@ npm install postcss-nesting
 ```js
 // postcss.config.js
 module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss/nesting')(require('postcss-nesting')),
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
+  plugins: {
+    'postcss-import': {},
+    'tailwindcss/nesting': 'postcss-nesting',
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
 ```
 
@@ -167,14 +170,14 @@ module.exports = {
 ```js
 // postcss.config.js
 module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss/nesting')(require('postcss-nesting')),
-    require('tailwindcss'),
-    require('postcss-preset-env')({
-      features: { 'nesting-rules': false }
-    }),
-  ]
+  plugins: {
+    'postcss-import': {},
+    'tailwindcss/nesting': 'postcss-nesting',
+    tailwindcss: {},
+    'postcss-preset-env': {
+      features: { 'nesting-rules': false },
+    },
+  }
 }
 ```
 
@@ -216,17 +219,17 @@ module.exports = {
 Чтобы использовать его, установите его через npm:
 
 ```shell
-npm install autoprefixer
+npm install -D autoprefixer
 ```
 
 Затем добавьте его в самый конец списка плагинов в конфигурации PostCSS:
 
 ```js
 module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
 ```
 

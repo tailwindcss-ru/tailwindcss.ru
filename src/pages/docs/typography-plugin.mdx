@@ -2,6 +2,7 @@
 title: '@tailwindcss/typography'
 shortTitle: Типография
 description: Красивые типографские настройки по умолчанию для HTML, которые вы не контролируете.
+repo: https://github.com/tailwindlabs/tailwindcss-typography
 ---
 
 import { TipGood, TipBad, TipInfo } from '@/components/Tip'
@@ -33,8 +34,7 @@ npm install -D @tailwindcss/typography
 
 Затем добавьте плагин в файл `tailwind.config.js`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     // ...
@@ -313,15 +313,14 @@ module.exports = {
 
 Если по какой-либо причине вам нужно использовать имя класса, отличное от `prose` , вы можете сделать это, используя опцию `className` при регистрации плагина:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     // ...
   },
   plugins: [
     require('@tailwindcss/typography')({
-        className: 'wysiwyg',
+      className: 'wysiwyg',
     }),
   ]
   ...
@@ -376,8 +375,7 @@ module.exports = {
 
 Как и со всеми настройками темы в Tailwind, вы также можете определить клавишу `typography` как функцию, если вам нужен доступ к хелперу `theme`:
 
-```js
-// tailwind.config.js
+```js tailwind.config.js
 module.exports = {
   theme: {
     extend: {

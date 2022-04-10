@@ -102,10 +102,10 @@ let steps = [
     },
   },
   {
-    title: 'Try working with a core plugin',
+    title: 'Try using a first-party plugin',
     body: () => (
       <p>
-        Enable core plugins, like forms and typography, using the <code>plugins</code> query
+        Enable first-party plugins, like forms and typography, using the <code>plugins</code> query
         parameter.
       </p>
     ),
@@ -132,7 +132,10 @@ let steps = [
 export default function PlayCdn({ code }) {
   return (
     <InstallationLayout>
-      <div id="content" className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
+      <div
+        id="content-wrapper"
+        className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark"
+      >
         <h3 className="sr-only">Play CDN</h3>
         <p>
           Воспользуйтесь Play CDN, чтобы попробовать Tailwind прямо в браузере без каких-либо шагов сборки. Play CDN предназначен только для целей разработки и не является лучшим выбором для производства.

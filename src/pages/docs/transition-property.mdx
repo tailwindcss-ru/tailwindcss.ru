@@ -35,7 +35,7 @@ export const classes = { utilities }
 Для ситуаций, когда пользователь указал, что он предпочитает уменьшенное движение, вы можете условно применить анимацию и переходы, используя варианты `motion-safe` и `motion-reduce`:
 
 ```html
-<button class="transition transform hover:-translate-y-1 **motion-reduce:transition-none motion-reduce:transform-none** ...">
+<button class="transition transform hover:-translate-y-1 **motion-reduce:transition-none motion-reduce:hover:transform-none** ...">
   Наведи на меня
 </button>
 ```

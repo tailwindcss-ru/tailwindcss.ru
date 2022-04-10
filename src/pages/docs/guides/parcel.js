@@ -22,18 +22,35 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем запустите команду init,
-        чтобы сгенерировать как <code>tailwind.config.js</code>, так и <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm,
+        а затем запустите команду init для создания <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss\nnpx tailwindcss init',
     },
   },
   {
-    title: 'Настройте пути к шаблону',
+    title: 'Конфигурация PostCSS',
+    body: () => (
+      <p>
+        Создайте файл <code>.postcssrc</code> в корне проекта и включите подключаемый модуль <code>tailwindcss</code>.
+      </p>
+    ),
+    code: {
+      name: '.postcssrc',
+      lang: 'json',
+      code: `{
+  "plugins": {
+    "tailwindcss": {}
+  }
+}`
+    }
+  },
+  {
+    title: 'Конфигурация путей к шаблону',
     body: () => (
       <p>
         Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.

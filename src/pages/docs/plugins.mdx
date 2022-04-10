@@ -10,7 +10,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 Плагины позволяют регистрировать новые стили для Tailwind для внедрения в таблицу стилей пользователя с использованием JavaScript вместо CSS.
 
-Чтобы начать работу с Вашим первым плагином, импортируйте функцию Tailwind `plugin` из `tailwindcss/plugin`. Затем внутри Вашего массива `plugins` и вызовите его с анонимной функцией в качестве первого аргумента.
+Чтобы начать работу с вашим первым плагином, импортируйте функцию Tailwind `plugin` из `tailwindcss/plugin`. Затем внутри вашего массива `plugins` вызовите импортированную функцию `plugin` с анонимной функцией в качестве первого аргумента.
 
 ```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
@@ -234,6 +234,36 @@ module.exports = {
 
 Дополнительные сведения смотрите в документации [Наведение, фокус и другие состояния](/docs/hover-focus-and-other-states).
 
+### Providing default values
+
+Utility plugins can provide default values by including a configuration object as the second argument to the `plugin` function:
+
+```js ./plugins/tab-size.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = plugin(function({ matchUtilities, theme }) {
+  matchUtilities(
+    {
+      tab: (value) => ({
+        tabSize: value
+      }),
+    },
+    { values: theme('tabSize') }
+  )
+}, {
+  theme: {
+    tabSize: {
+      1: '1',
+      2: '2',
+      4: '4',
+      8: '8',
+    }
+  }
+})
+```
+
+These values behave just like the values in the default configuration, and can be overridden or extended by the end user.
+
 ---
 
 ## Добавление компонентов
@@ -436,6 +466,38 @@ module.exports = {
   <button class="bg-blue-500 **hocus:bg-blue-600**">...</button>
 </form>
 ```
+
+---
+
+## Расширение конфигурации
+
+Плагины могут объединять свой собственный набор значений конфигурации с пользовательской конфигурацией `tailwind.config.js`, предоставляя объект в качестве второго аргумента функции `plugin`:
+
+```js ./plugins/tab-size.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = plugin(function({ matchUtilities, theme }) {
+  matchUtilities(
+    {
+      tab: (value) => ({
+        tabSize: value
+      }),
+    },
+    { values: theme('tabSize') }
+  )
+}, {
+  theme: {
+    tabSize: {
+      1: '1',
+      2: '2',
+      4: '4',
+      8: '8',
+    }
+  }
+})
+```
+
+Это может быть полезно для таких вещей, как предоставление значений `theme` по умолчанию для классов, которые генерирует ваш плагин.
 
 ---
 

@@ -179,6 +179,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
       <PageHeader
         title={meta.title}
         description={meta.description}
+        repo={meta.repo}
         badge={{ key: 'Версия Tailwind CSS', value: meta.featureVersion }}
         section={section}
       />
@@ -186,12 +187,18 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
         {classes ? (
           <>
             <ClassTable {...classes} />
-            <div id="content" className="relative z-20 prose prose-slate mt-12 dark:prose-dark">
+            <div
+              id="content-wrapper"
+              className="relative z-20 prose prose-slate mt-12 dark:prose-dark"
+            >
               <MDXProvider components={{ Heading }}>{children}</MDXProvider>
             </div>
           </>
         ) : (
-          <div id="content" className="relative z-20 prose prose-slate mt-8 dark:prose-dark">
+          <div
+            id="content-wrapper"
+            className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
+          >
             <MDXProvider components={{ Heading }}>{children}</MDXProvider>
           </div>
         )}

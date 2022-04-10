@@ -111,7 +111,10 @@ let steps = [
 export default function UsingPostCss({ code }) {
   return (
     <InstallationLayout>
-      <div id="content" className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
+      <div
+        id="content-wrapper"
+        className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark"
+      >
         <h3 className="sr-only">Installing Tailwind CSS as a PostCSS plugin</h3>
         <p>
           Установка Tailwind CSS в качестве плагина PostCSS - самый простой способ интегрировать его с такими инструментами сборки, как webpack, Rollup, Vite и Parcel.
