@@ -105,8 +105,7 @@ let steps = [
     title: 'Try using a first-party plugin',
     body: () => (
       <p>
-        Enable first-party plugins, like forms and typography, using the <code>plugins</code> query
-        parameter.
+        Включите сторонние подключаемые модули, например формы и типографику, с помощью параметра запроса <code>плагинов</code>.
       </p>
     ),
     code: {

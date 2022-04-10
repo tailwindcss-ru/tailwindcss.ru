@@ -112,9 +112,9 @@ export const classes = { utilities }
 
 <ArbitraryValues property="font-family" featuredClass="font-['Open_Sans']" element="p" />
 
-### Customizing the default font
+### Настройка шрифта по умолчанию
 
-For convenience, [Preflight](/docs/preflight) sets the font family on the `html` element to match your configured `sans` font, so one way to change the default font for your project is to customize the `sans` key in your `fontFamily` configuration:
+Для удобства [Preflight](/docs/preflight) устанавливает семейство шрифтов в элементе `html` в соответствии с настроенным шрифтом `sans`, поэтому один из способов изменить шрифт по умолчанию для вашего проекта — настроить ключ `sans` в вашей конфигурации `fontFamily`:
 
 ```diff-js tailwind.config.js
   const defaultTheme = require('tailwindcss/defaultTheme')
@@ -130,7 +130,7 @@ For convenience, [Preflight](/docs/preflight) sets the font family on the `html`
   }
 ```
 
-You can also customize the default font used in your project by [adding a custom base style](/docs/adding-custom-styles#adding-base-styles) that sets the `font-family` property explicitly:
+Вы также можете настроить шрифт по умолчанию, используемый в вашем проекте, [добавив собственный базовый стиль](/docs/adding-custom-styles#adding-base-styles), который явно задает свойство `font-family`:
 
 ```css main.css
 @tailwind base;
@@ -144,4 +144,4 @@ You can also customize the default font used in your project by [adding a custom
 }
 ```
 
-This is the best approach if you have customized your font family utilities to have different names and don't want there to be `font-sans` utility available in your project.
+Это лучший подход, если вы настроили утилиты семейства шрифтов, чтобы они имели разные имена, и не хотите, чтобы в вашем проекте была доступна утилита `font-sans`.

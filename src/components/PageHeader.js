@@ -18,7 +18,7 @@ export function PageHeader({ title, description, repo, badge = {}, section }) {
               href={repo}
               className="ml-3 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300 sm:mt-1 sm:ml-4"
             >
-              <span className="sr-only">View on GitHub</span>
+              <span className="sr-only">Посмотреть на GitHub</span>
               <svg
                 viewBox="0 0 16 16"
                 className="w-5 h-5 sm:w-6 sm:h-6"

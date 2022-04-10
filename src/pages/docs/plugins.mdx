@@ -234,9 +234,9 @@ module.exports = {
 
 Дополнительные сведения смотрите в документации [Наведение, фокус и другие состояния](/docs/hover-focus-and-other-states).
 
-### Providing default values
+### Предоставление значений по умолчанию
 
-Utility plugins can provide default values by including a configuration object as the second argument to the `plugin` function:
+Служебные плагины могут предоставлять значения по умолчанию, включая объект конфигурации в качестве второго аргумента функции `plugin`:
 
 ```js ./plugins/tab-size.js
 const plugin = require('tailwindcss/plugin')
@@ -262,7 +262,7 @@ module.exports = plugin(function({ matchUtilities, theme }) {
 })
 ```
 
-These values behave just like the values in the default configuration, and can be overridden or extended by the end user.
+Эти значения ведут себя точно так же, как значения в конфигурации по умолчанию, и могут быть переопределены или расширены конечным пользователем.
 
 ---
 
