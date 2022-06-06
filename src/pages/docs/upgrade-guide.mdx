@@ -176,25 +176,25 @@ Play CDN предназначен только для целей разрабо�
 
 Хотя нет никакого вреда в том, чтобы оставить их в вашем HTML, их можно безопасно удалить — за одним исключением. Если вы полагаетесь на `transform` для создания нового контекста стека, вы можете оставить его, иначе вы можете столкнуться с проблемами z-порядка. В качестве альтернативы замените его на `relative` или `isolate`, чтобы принудительно использовать новый контекст стека.
 
-### New opacity modifier syntax
+### Новый синтаксис модификатора непрозрачности
 
-The new engine introduces [a new syntax](https://tailwindcss.com/docs/background-color#changing-the-opacity) for changing the opacity of color utilities that we recommend migrating to from utilities like `bg-opacity-{value}`:
+В новом движке представлен [новый синтаксис](https://tailwindcss.com/docs/background-color#changing-the-opacity) для изменения непрозрачности цветных утилит, на которые мы рекомендуем перейти с таких утилит, как `bg-opacity-{value}`:
 
 ```diff-html
 - <div class="bg-black bg-opacity-25">
 + <div class="bg-black/25">
 ```
 
-The old approach still works in all cases except when using a `border-opacity-*` utility with the default `border` class — in v3 you'll need to explicitly specify your border color:
+Старый подход по-прежнему работает во всех случаях, за исключением использования утилиты `border-opacity-*` с классом `border` по умолчанию — в версии 3 вам нужно будет явно указать цвет границы:
 
 ```diff-html
 - <div class="border border-opacity-25">
 + <div class="border border-gray-200/25">
 ```
 
-Every other situation behaves the same, so aside from that change your projects will work exactly as they did before. We do recommend using the new syntax going forward though, and plan to disable utilities like `border-opacity-*` and `bg-opacity-*` by default in v4, though you will still be able to enable them if needed.
+Все остальные ситуации ведут себя так же, поэтому, за исключением этого изменения, ваши проекты будут работать точно так же, как и раньше. Тем не менее, мы рекомендуем использовать новый синтаксис в будущем и планируем отключить такие утилиты, как `border-opacity-*` и `bg-opacity-*` по умолчанию в версии 4, хотя вы все равно сможете включить их при необходимости.
 
-This new syntax works for all color utilities, even utilities that didn't have any way to change the opacity in the past like `from-red-500/75`.
+Этот новый синтаксис работает для всех утилит для работы с цветом, даже для тех, у которых раньше не было способа изменить непрозрачность, например `from-red-500/75`.
 
 ---
 
