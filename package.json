@@ -13,7 +13,7 @@
   ],
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.1",
-    "@docsearch/react": "1.0.0-alpha.27",
+    "@docsearch/react": "^3.0.0",
     "@headlessui/react": "^0.0.0-insiders.336faab",
     "@juggle/resize-observer": "^3.2.0",
     "@mdx-js/loader": "^1.6.21",
@@ -25,6 +25,7 @@
     "@sindresorhus/slugify": "^1.1.0",
     "@svgr/webpack": "^5.5.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.1",
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.0",
     "brotli-size": "^4.0.0",
@@ -58,9 +59,10 @@
     "seedrandom": "^3.0.5",
     "simple-functional-loader": "^1.2.1",
     "stringify-object": "^3.3.0",
-    "tailwindcss": "^3.0.23",
+    "tailwindcss": "^3.0.24",
     "tinytime": "^0.2.6",
-    "unist-util-visit": "^2.0.3"
+    "unist-util-visit": "^2.0.3",
+    "zustand": "^4.0.0-rc.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "2.x",

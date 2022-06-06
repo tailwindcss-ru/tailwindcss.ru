@@ -38,7 +38,6 @@ export function SearchProvider({ children }) {
     isOpen,
     onOpen,
     onClose,
-    onInput,
   })
 
   return (
@@ -67,9 +66,9 @@ export function SearchProvider({ children }) {
             apiKey={API_KEY}
             appId={APP_ID}
             navigator={{
-              navigate({ suggestionUrl }) {
+              navigate({ itemUrl }) {
                 setIsOpen(false)
-                router.push(suggestionUrl)
+                router.push(itemUrl)
               },
             }}
             hitComponent={Hit}
@@ -84,6 +83,11 @@ export function SearchProvider({ children }) {
 
                 if (item.hierarchy?.lvl0) {
                   item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
+                }
+
+                if (item._highlightResult?.hierarchy?.lvl0?.value) {
+                  item._highlightResult.hierarchy.lvl0.value =
+                    item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
                 }
 
                 return {

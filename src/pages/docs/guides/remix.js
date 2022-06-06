@@ -21,14 +21,13 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code>, его одноранговые зависимости и <code>concurrently</code> через npm,
-        а затем запустите команду init, чтобы сгенерировать как <code>tailwind.config.js</code>, так и <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code>, его одноранговые зависимости и <code>параллельно</code> через npm, а затем запустите команду init, чтобы сгенерировать файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer concurrently\nnpx tailwindcss init -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer concurrently\nnpx tailwindcss init',
     },
   },
   {
