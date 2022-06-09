@@ -1,6 +1,7 @@
 ---
-title: "Border Spacing"
-description: "Utilities for controlling the spacing between table borders."
+title: "Расстояние между границами"
+shortTitle: "Расстояние между границами"
+description: "Утилиты для управления расстоянием между границами таблицы."
 ---
 
 import utilities from 'utilities?plugin=borderSpacing'
@@ -21,11 +22,11 @@ export const classes = {
   },
 }
 
-## Basic usage
+## Основное использование
 
-### Setting the border spacing
+### Настройка интервала между границами
 
-Use `border-spacing` to control the space between the borders of table cells with [separate borders](/docs/border-collapse#separate).
+Используйте `border-spacing`, чтобы управлять пространством между границами ячеек таблицы с помощью [раздельных границ](/docs/border-collapse#separate).
 
 <Example p="none">
   <div class="px-4 py-8 sm:px-8">
@@ -81,23 +82,23 @@ Use `border-spacing` to control the space between the borders of table cells wit
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применение условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates element="table" featuredClass="border-spacing-2" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries element="table" featuredClass="border-spacing-4" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind's border spacing utilities use the [default spacing scale](/docs/customizing-spacing). You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+По умолчанию утилиты для расстановки границ Tailwind используют [масштаб расстояний по умолчанию](/docs/customizing-spacing). Вы можете настроить шкалу интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -111,7 +112,7 @@ By default, Tailwind's border spacing utilities use the [default spacing scale](
   }
 ```
 
-Alternatively, you can customize just the border spacing scale by editing `theme.borderSpacing` or `theme.extend.borderSpacing` in your `tailwind.config.js` file.
+В качестве альтернативы вы можете настроить только шкалу интервалов между границами, отредактировав `theme.borderSpacing` или `theme.extend.borderSpacing` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -125,8 +126,8 @@ Alternatively, you can customize just the border spacing scale by editing `theme
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Узнайте больше о настройке темы по умолчанию в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="border-spacing" featuredClass="border-spacing-[7px]" />

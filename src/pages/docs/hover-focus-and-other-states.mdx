@@ -1,7 +1,7 @@
 ---
-title: Обработка наведения, фокусировки и других состояний
-shortTitle: Наведение, фокус и другие состояния
-description: Использование утилит для стилизации элементов при наведении, фокусе и т. д.
+title: "Обработка наведения, фокусировки и других состояний"
+shortTitle: "Наведение, фокус и др"
+description: "Использование утилит для стилизации элементов при наведении, фокусе и т. д."
 ---
 
 import { TipGood, TipBad, TipInfo } from '@/components/Tip'
@@ -944,13 +944,13 @@ _Поддержка письма справа налево является эк
 
 ---
 
-## Custom modifiers
+## Пользовательские модификаторы
 
-### Using arbitrary variants
+### Использование произвольных вариантов
 
-Just like [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) let you use custom values with your utility classes, arbitrary variants let you write custom selector modifiers directly in your HTML.
+Точно так же, как [произвольные значения](/docs/adding-custom-styles#using-arbitrary-values) позволяют использовать настраиваемые значения с вашими служебными классами, произвольные варианты позволяют вам писать настраиваемые модификаторы селектора непосредственно в HTML.
 
-Arbitrary variants are just format strings that represent the selector, wrapped in square brackets. For example, this arbitrary modifier selects an element only when it is the third child:
+Произвольные варианты — это просто строки формата, представляющие селектор, заключенные в квадратные скобки. Например, этот произвольный модификатор выбирает элемент, только если он является третьим дочерним элементом:
 
 <SnippetGroup>
 
@@ -962,7 +962,7 @@ Arbitrary variants are just format strings that represent the selector, wrapped 
 </ul>
 ```
 
-```css Generated CSS
+```css Сгенерированный CSS
 /* https://media.giphy.com/media/uPnKU86sFa2fm/giphy.gif */
 .\[\&\:nth-child\(3\)\]\:underline:nth-child(3) {
   text-decoration-style: underline
@@ -971,9 +971,9 @@ Arbitrary variants are just format strings that represent the selector, wrapped 
 
 </SnippetGroup>
 
-The format string is the same as what you'd use with the [`addVariant` plugin API]((/docs/plugins#adding-variants)), with the `&` representing the selector being modified.
+Строка формата такая же, как и для [`addVariant` API плагина]((/docs/plugins#adding-variants)), где `&` представляет изменяемый селектор.
 
-Arbitrary variants can be stacked with built-in modifiers or with each other, just like the rest of the modifiers in Tailwind:
+Произвольные варианты можно комбинировать со встроенными модификаторами или друг с другом, как и остальные модификаторы в Tailwind:
 
 <SnippetGroup>
 
@@ -985,7 +985,7 @@ Arbitrary variants can be stacked with built-in modifiers or with each other, ju
 </ul>
 ```
 
-```css Generated CSS
+```css Сгенерированный CSS
 /* https://media.giphy.com/media/Sd3cd0SrUKZEyWmAlM/giphy.gif */
 @media (min-width: 1024px) {
   .lg\:\[\&\:nth-child\(3\)\]\:hover\:underline:hover:nth-child(3) {
@@ -997,7 +997,7 @@ Arbitrary variants can be stacked with built-in modifiers or with each other, ju
 </SnippetGroup>
 
 
-If you need spaces in your selector, you can use an underscore. For example, this arbitrary modifier selects all `p` elements within the element where you've added the class:
+Если вам нужны пробелы в селекторе, вы можете использовать подчеркивание. Например, этот произвольный модификатор выбирает все элементы `p` внутри элемента, в который вы добавили класс:
 
 <SnippetGroup>
 
@@ -1013,7 +1013,7 @@ If you need spaces in your selector, you can use an underscore. For example, thi
 </div>
 ```
 
-```css Generated CSS
+```css Сгенерированный CSS
 /* https://media.giphy.com/media/uPnKU86sFa2fm/giphy.gif */
 .\[\&\:nth-child\(3\)\]\:underline:nth-child(3) {
   text-decoration-style: underline
@@ -1022,7 +1022,7 @@ If you need spaces in your selector, you can use an underscore. For example, thi
 
 </SnippetGroup>
 
-You can also use at-rules like `@media` or `@supports` in arbitrary variants:
+Вы также можете использовать at-правила, такие как `@media` или `@supports` в произвольных вариантах:
 
 <SnippetGroup>
 
@@ -1032,7 +1032,7 @@ You can also use at-rules like `@media` or `@supports` in arbitrary variants:
 </div>
 ```
 
-```css Generated CSS
+```css Сгенерированный CSS
 /* https://media.giphy.com/media/sEms56zTGDx96/giphy.gif */
 @supports (display: grid) {
   .\[\@supports\(display\:grid\)\]\:grid {
@@ -1043,9 +1043,9 @@ You can also use at-rules like `@media` or `@supports` in arbitrary variants:
 
 </SnippetGroup>
 
-With at-rule custom modifiers the `&` placeholder isn't necessary, just like when nesting with a preprocessor.
+С пользовательскими модификаторами at-правила заполнитель `&` не нужен, как и при вложении с препроцессором.
 
-You can even combine at-rules and regular selector modifiers by including the selector modifier within curly braces after the at-rule:
+Вы даже можете комбинировать at-правила и обычные модификаторы селектора, включив модификатор селектора в фигурные скобки после at-правила:
 
 
 <SnippetGroup>
@@ -1056,7 +1056,7 @@ You can even combine at-rules and regular selector modifiers by including the se
 </button>
 ```
 
-```css Generated CSS
+```css Сгенерированный CSS
 /* https://media.giphy.com/media/l0IypeKl9NJhPFMrK/giphy.gif */
 @media (any-hover: hover) {
   .\[\@media\(any-hover\:hover\)\{\&\:hover\}\]\:opacity-100:hover {
@@ -1068,9 +1068,9 @@ You can even combine at-rules and regular selector modifiers by including the se
 </SnippetGroup>
 
 
-### Creating a plugin
+### Создание плагина
 
-If you find yourself using the same arbitrary modifier multiple times in your project, it might be worth extracting it to a plugin using the `addVariant` API:
+Если вы обнаружите, что используете один и тот же произвольный модификатор несколько раз в своем проекте, возможно, стоит извлечь его в плагин с помощью API `addVariant`:
 
 ```js tailwind.config.js
 let plugin = require('tailwindcss/plugin')
@@ -1086,7 +1086,7 @@ module.exports = {
 }
 ```
 
-Learn more in the [adding variant plugins](/docs/plugins#adding-variants) documentation.
+Узнайте больше в документации [добавление вариантов плагинов](/docs/plugins#adding-variants).
 
 ---
 
@@ -1441,7 +1441,7 @@ dark(groupHover(focus('opacity-100')))
 
 #### enabled <small>(:enabled)</small>
 
-Style an input when it's enabled using the `enabled` modifier, most helpful when you only want to apply another style when an element is not disabled:
+Стиль ввода, когда он включен, с помощью модификатора `enabled`, наиболее полезен, когда вы хотите применить другой стиль только тогда, когда элемент не отключен:
 
 ```html
 <input class="**enabled:hover:border-gray-400** disabled:opacity-75 ..." />
