@@ -191,6 +191,7 @@ export const documentationNav = {
   ],
   'Таблицы': [
     pages['border-collapse'],
+    pages['border-spacing'],
     pages['table-layout']
   ],
   'Переходы и анимация': [

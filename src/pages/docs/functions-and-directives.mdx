@@ -163,10 +163,10 @@ Tailwind автоматически переместит любой CSS в ди�
 
 @layer components {
   .card {
-    background-color: theme('colors.white');
-    border-radius: theme('borderRadius.lg');
-    padding: theme('spacing.6');
-    box-shadow: theme('boxShadow.xl');
+    background-color: theme(colors.white);
+    border-radius: theme(borderRadius.lg);
+    padding: theme(spacing.6);
+    box-shadow: theme(boxShadow.xl);
   }
 }
 ```
@@ -199,10 +199,10 @@ module.exports = {
     plugin(function ({ addComponents, theme }) {
       addComponents({
         '.card': {
-          backgroundColor: theme('colors.white'),
-          borderRadius: theme('borderRadius.lg'),
-          padding: theme('spacing.6'),
-          boxShadow: theme('boxShadow.xl'),
+          backgroundColor: theme(colors.white),
+          borderRadius: theme(borderRadius.lg),
+          padding: theme(spacing.6),
+          boxShadow: theme(boxShadow.xl),
         }
       })
     })
@@ -224,11 +224,9 @@ Tailwind добавляет несколько пользовательских 
 
 Используйте функцию `theme()` для доступа к Вашим значениям конфигурации Tailwind, используя точечную нотацию.
 
-Это может быть полезной альтернативой `@apply`, когда вы хотите ссылаться на значение из конфигурации Вашей темы только для части объявления:
-
 ```css
 .content-area {
-  height: calc(100vh - theme('spacing.12'));
+  height: calc(100vh - theme(spacing.12));
 }
 ```
 
@@ -236,7 +234,7 @@ Tailwind добавляет несколько пользовательских 
 
 ```css
 .content-area {
-  height: calc(100vh - theme('spacing[2.5]'));
+  height: calc(100vh - theme(spacing[2.5]));
 }
 ```
 
@@ -246,7 +244,7 @@ Tailwind добавляет несколько пользовательских 
 
 ```css
 .btn-blue {
-  background-color: theme('colors.blue-500');
+  background-color: theme(colors.blue-500);
 }
 ```
 
@@ -254,7 +252,15 @@ Tailwind добавляет несколько пользовательских 
 
 ```css
 .btn-blue {
-  background-color: theme('colors.blue.500');
+  background-color: theme(colors.blue.500);
+}
+```
+
+To adjust the opacity of a color retrieved with `theme`, use a slash followed by the opacity value you want to use:
+
+```css
+.btn-blue {
+  background-color: theme(colors.blue.500 / 75%);
 }
 ```
 

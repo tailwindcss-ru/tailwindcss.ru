@@ -5,6 +5,7 @@ description: "Настройка цветовой палитры по умолч
 
 import { Heading } from '@/components/Heading'
 import { ColorPaletteReference } from '@/components/ColorPaletteReference'
+import { SnippetGroup } from '@/components/SnippetGroup'
 import { TipGood, TipBad } from '@/components/Tip'
 
 ## <Heading hidden>Цветовая палитра по умолчанию</Heading>
@@ -327,57 +328,83 @@ module.exports = {
 
 Опять же, мы рекомендуем придерживаться соглашения об именах по умолчанию для большинства проектов и использовать абстрактные имена только в том случае, если у вас есть действительно веская причина.
 
-### Использование переменных CSS
+---
 
-Если вы используете абстрактные названия цветов, потому что хотите поддерживать несколько тем в своем проекте, есть большая вероятность, что вы также захотите использовать переменные CSS для определения своих цветов.
+## Использование переменных CSS
 
-Лучший способ сделать это - определить ваши переменные CSS как только цвет _каналов_, без включения фактической функции цвета:
+Если вы хотите определить свои цвета как переменные CSS, вам нужно определить эти переменные просто как _каналы_ цвета, если вы хотите, чтобы они работали с [синтаксисом модификатора непрозрачности](/docs/text-color#changing-the-opacity):
+
+<TipGood>Определите свои переменные CSS как каналы без функции цветового пространства</TipGood>
+
+```css main.css
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    :root {
+>     --color-primary: 255 115 179;
+>     --color-secondary: 111 114 185;
+      /* ... */
+    }
+  }
+```
+
+<TipBad>Не включайте функцию цветового пространства, иначе модификаторы непрозрачности не будут работать</TipBad>
+
+```css main.css
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    :root {
+>     --color-primary: rgb(255 115 179);
+>     --color-secondary: rgb(111 114 185);
+      /* ... */
+    }
+  }
+```
+
+Затем определите свои цвета в файле конфигурации, обязательно включив используемое вами цветовое пространство и специальный заполнитель `<alpha-value>`, который Tailwind будет использовать для вставки значения альфы при использовании модификатора непрозрачности:
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      // Using modern `rgb`
+      primary: 'rgb(var(--color-primary) / <alpha-value>)',
+      primary: 'rgb(var(--color-secondary) / <alpha-value>)',
+
+      // Using modern `hsl`
+      primary: 'hsl(var(--color-primary) / <alpha-value>)',
+      primary: 'hsl(var(--color-secondary) / <alpha-value>)',
+
+      // Using legacy `rgba`
+      primary: 'rgba(var(--color-primary), <alpha-value>)',
+      primary: 'rgba(var(--color-secondary), <alpha-value>)',
+    }
+  }
+}
+```
+
+При определении цветов таким образом убедитесь, что формат переменных CSS соответствует используемой функции цвета. Вы захотите использовать пробелы, если используете современный [синтаксис, разделенный пробелами](https://css-tricks.com/the-expanding-gamut-of-color-on-the-web/#aa-a-tale-of-new-syntaxes) и запятые при использовании устаревших функций, таких как `rgba` или `hsla`:
 
 ```css main.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.theme-startup {
-  --color-primary: 255 115 179;
-  --color-secondary: 111 114 185;
-  /* ... */
-}
+@layer base {
+  :root {
+    /* For rgb(255 115 179 / <alpha-value) */
+    --color-primary: 255 115 179;
 
-.theme-boring {
-  --color-primary: 2 82 204;
-  --color-secondary: 255 196 2;
-  /* ... */
-}
+    /* For hsl(198deg 93% 60% / <alpha-value) */
+    --color-primary: 198deg 93% 60%;
 
-.theme-elegant {
-  --color-primary: 192 178 131;
-  --color-secondary: 220 208 192;
-  /* ... */
-}
-```
-
-Затем определите свои цвета в файле конфигурации как _функции_ и примените `opacityValue`, если он определен:
-
-```js tailwind.config.js
-function withOpacityValue(variable) {
-  return ({ opacityValue }) => {
-    if (opacityValue === undefined) {
-      return `rgb(var(${variable}))`
-    }
-    return `rgb(var(${variable}) / ${opacityValue})`
-  }
-}
-
-module.exports = {
-  theme: {
-    colors: {
-      primary: withOpacityValue('--color-primary'),
-      secondary: withOpacityValue('--color-secondary'),
-      // ...
-    }
+    /* For rgba(255, 115, 179, <alpha-value) */
+    --color-primary: 255, 115, 179;
   }
 }
 ```
-
-Это позволяет использовать модификаторы непрозрачности цвета Tailwind для таких вещей, как `bg-primary/75`, даже когда вы используете переменные CSS для определения ваших цветов.
