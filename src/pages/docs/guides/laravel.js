@@ -84,7 +84,7 @@ let tabs = [
         title: 'Начните процесс сборки',
         body: () => (
           <p>
-            Запустите процесс сборки с помощью <code>npm run watch</code>.
+            Запустите процесс сборки с помощью <code>npm run dev</code>.
           </p>
         ),
         code: {
