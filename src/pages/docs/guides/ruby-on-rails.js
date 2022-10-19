@@ -7,8 +7,8 @@ let steps = [
     title: 'Создайте свой проект',
     body: () => (
       <p>
-        Начните с создания нового проекта Rails, если у вас его еще нет.
-        Самый распространенный подход — использовать{' '}
+        Начните с создания нового проекта Rails, если у вас его еще нет. Самый распространенный
+        подход — использовать{' '}
         <a href="https://guides.rubyonrails.org/command_line.html">Rails Command Line</a>.
       </p>
     ),
@@ -22,8 +22,8 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите gem <code>tailwindcss-rails</code>, а затем запустите команду установки, чтобы сгенерировать файл {' '}
-        <code>tailwind.config.js</code> в директории <code>./config</code>.
+        Установите gem <code>tailwindcss-rails</code>, а затем запустите команду установки, чтобы
+        сгенерировать файл <code>tailwind.config.js</code> в каталоге <code>./config</code>.
       </p>
     ),
     code: {
@@ -36,13 +36,14 @@ let steps = [
     title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Добавьте пути ко всем файлам шаблонов в файл <code>./config/tailwind.config.js</code>{' '}.
+        Добавьте пути ко всем файлам шаблонов в файл <code>./config/tailwind.config.js</code> .
       </p>
     ),
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     './app/helpers/**/*.rb',
 >     './app/javascript/**/*.js',
@@ -102,13 +103,13 @@ export default function UsingRails({ code }) {
       title="Установите Tailwind CSS с Ruby on Rails"
       description="Настройка Tailwind CSS в проекте Ruby on Rails v7+."
     >
-      <div className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
+      <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
         <p>
           Самый быстрый способ начать использовать Tailwind CSS в проекте Rails — использовать{' '}
           <a href="https://github.com/rails/tailwindcss-rails">Tailwind CSS для Rails</a>, запустив{' '}
-          <code>rails new my-app --css tailwind</code>.
-          Это автоматически настроит вашу настройку Tailwind на основе официального примера Rails.
-          Если вы хотите настроить Tailwind вручную, перейдите к остальной части этого руководства.
+          <code>rails new my-app --css tailwind</code>. Это автоматически настроит вашу настройку
+          Tailwind на основе официального примера Rails. Если вы хотите настроить Tailwind вручную,
+          перейдите к остальной части этого руководства.
         </p>
       </div>
       <Steps steps={steps} code={code} />
@@ -117,16 +118,11 @@ export default function UsingRails({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        if (code.lang && code.lang !== 'terminal') {
-          return highlightCode(code.code, code.lang)
-        }
-        return code.code
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

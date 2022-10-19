@@ -5,6 +5,7 @@ description: Рекомендации по добавлению собствен
 ---
 
 import { TipGood, TipBad, TipCompat, TipInfo } from '@/components/Tip'
+import { SnippetGroup } from '@/components/SnippetGroup'
 
 Часто самая большая проблема при работе с фреймворком - это выяснить, что вы должны делать, когда вам нужно что-то, что фреймворк не обрабатывает за вас.
 
@@ -83,6 +84,14 @@ module.exports = {
 </div>
 ```
 
+Можно даже использовать [функцию `theme`](/docs/functions-and-directives#theme) для ссылки на токены дизайна в вашем файле `tailwind.config.js`:
+
+```html
+<div class="grid grid-cols-[fit-content(theme(spacing.32))]">
+  <!-- ... -->
+</div>
+```
+
 ### Произвольные свойства
 
 Если вам когда-нибудь понадобится использовать свойство CSS, для которого Tailwind не входит в стандартную утилиту, вы также можете использовать обозначение квадратных скобок для написания полностью произвольного CSS:
@@ -108,6 +117,33 @@ module.exports = {
   <!-- ... -->
 </div>
 ```
+
+### Произвольные варианты
+
+Произвольные _варианты_ аналогичны произвольным значениям, но для изменения селектора на лету, как вы можете со встроенными вариантами псевдокласса, такими как `hover:{utility}`, или адаптивными вариантами, такими как `md:{utility}`, но с использованием квадрата прямо в вашем HTML.
+
+<SnippetGroup>
+
+```html HTML
+<ul role="list">
+  {#each items as item}
+    <li class="**lg:[&:nth-child(3)]:hover:underline**">{item}</li>
+  {/each}
+</ul>
+```
+
+```css Generated CSS
+/* https://media.giphy.com/media/Sd3cd0SrUKZEyWmAlM/giphy.gif */
+@media (min-width: 1024px) {
+  .lg\:\[\&\:nth-child\(3\)\]\:hover\:underline:hover:nth-child(3) {
+    text-decoration-line: underline;
+  }
+}
+```
+
+</SnippetGroup>
+
+Узнайте больше в документации по [произвольным вариантам](/docs/hover-focus-and-other-states#using-arbitrary-variants).
 
 ### Обработка пробелов
 
@@ -135,7 +171,15 @@ module.exports = {
 </div>
 ```
 
-### Разрешение двусмысленностей
+Если вы используете что-то вроде JSX, где обратная косая черта удалена из отображаемого HTML, используйте [String.raw()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw), поэтому обратная косая черта не рассматривается как escape-символ JavaScript:
+
+```jsx
+<div className={String.raw`before:content-['hello\_world']`}>
+  <!-- ... -->
+</div>
+```
+
+### Разрешение неоднозначностей
 
 Многие утилиты в Tailwind имеют общее пространство имен, но соответствуют различным свойствам CSS. Например, `text-lg` и `text-black` имеют общее пространство имен `text-`, но одно для `font-size`, а другое для `color`.
 

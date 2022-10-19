@@ -1,14 +1,15 @@
+import { Steps } from '@/components/Steps'
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
-import { Cta } from '@/components/Cta'
-import { Steps } from '@/components/Steps'
+import Link from 'next/link'
 
 let steps = [
   {
     title: 'Установка Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code> через npm и создайте файл <code>tailwind.config.js</code>{' '}.
+        Установите <code>tailwindcss</code> через npm и создайте файл{' '}
+        <code>tailwind.config.js</code> .
       </p>
     ),
     code: {
@@ -27,7 +28,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: ["./src/**/*.{html,js}"],
     theme: {
       extend: {},
@@ -40,7 +42,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Добавьте директивы <code>@tailwind</code> для каждого макета Tailwind в свой основной файл CSS.
+        Добавьте директивы <code>@tailwind</code> для каждого макета Tailwind в свой основной файл
+        CSS.
       </p>
     ),
     code: {
@@ -51,7 +54,12 @@ let steps = [
   },
   {
     title: 'Запустите процесс сборки Tailwind CLI',
-    body: () => <p>Запустите инструмент CLI, чтобы просканировать файлы шаблонов на предмет классов и создать свой CSS.</p>,
+    body: () => (
+      <p>
+        Запустите инструмент CLI, чтобы просканировать файлы шаблонов на предмет классов и создать
+        свой CSS.
+      </p>
+    ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
@@ -62,7 +70,8 @@ let steps = [
     title: 'Начните использовать Tailwind в своем HTML',
     body: () => (
       <p>
-        Добавьте свой скомпилированный файл CSS в <code>{'<head>'}</code> и начните использовать классы утилиты Tailwind для стилизации вашего контента.
+        Добавьте свой скомпилированный файл CSS в <code>{'<head>'}</code> и начните использовать
+        классы утилиты Tailwind для стилизации вашего контента.
       </p>
     ),
     code: {
@@ -90,11 +99,16 @@ export default function TailwindCli({ code }) {
     <InstallationLayout>
       <div
         id="content-wrapper"
-        className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark"
+        className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark"
       >
         <h3 className="sr-only">Installing Tailwind CLI</h3>
         <p>
-          Самый простой и быстрый способ начать работу с Tailwind CSS с нуля - использовать инструмент Tailwind CLI.
+          Самый простой и быстрый способ начать работу с Tailwind CSS с нуля — использовать
+          инструмент командной строки Tailwind. Интерфейс командной строки также доступен в виде{' '}
+          <Link href="/blog/standalone-cli">
+            <a>автономного исполняемого файла</a>
+          </Link>{' '}
+          , если вы хотите использовать его без установки Node.js.
         </p>
       </div>
       <Steps level={4} steps={steps} code={code} />
@@ -104,8 +118,8 @@ export default function TailwindCli({ code }) {
           href="/docs/tailwind-cli"
           description={
             <>
-              <strong className="text-slate-900 font-semibold">
-                Это только начало возможностей Tailwind CLI.
+              <strong className="font-semibold text-slate-900">
+                Это только начало возможностей интерфейса командной строки Tailwind.
               </strong>{' '}
               Чтобы узнать больше обо всех его возможностях, ознакомьтесь с документацией Tailwind CLI.
             </>
@@ -117,21 +131,11 @@ export default function TailwindCli({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        let isArray = Array.isArray(code)
-        code = isArray ? code : [code]
-        code = code.map((code) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-        return isArray ? code : code[0]
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

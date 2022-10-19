@@ -7,8 +7,8 @@ let steps = [
     title: 'Создайте свой проект',
     body: () => (
       <p>
-        Начните с создания нового проекта Remix, если у вас его еще нет.
-        Самый распространенный подход — использовать <a href="https://remix.run/docs/en/v1">Create Remix</a>.
+        Начните с создания нового проекта Remix, если у вас его еще нет. Самый распространенный
+        подход — использовать <a href="https://remix.run/docs/en/v1">Create Remix</a>.
       </p>
     ),
     code: {
@@ -21,7 +21,9 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code>, его одноранговые зависимости и <code>параллельно</code> через npm, а затем запустите команду init, чтобы сгенерировать файл <code>tailwind.config.js</code>.
+        Установите <code>tailwindcss</code>, его одноранговые зависимости и{' '}
+        <code>concurrently</code> через npm, а затем запустите команду init, чтобы сгенерировать
+        файл <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
@@ -40,7 +42,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     "./app/**/*.{js,ts,jsx,tsx}",
 >   ],
@@ -55,7 +58,8 @@ let steps = [
     title: 'Обновите скрипты package.json',
     body: () => (
       <p>
-        Обновите сценарии в файле <code>package.json</code>, чтобы создать CSS для разработки и продакшена.
+        Обновите сценарии в файле <code>package.json</code>, чтобы создать CSS для разработки и
+        производства.
       </p>
     ),
     code: {
@@ -66,7 +70,7 @@ let steps = [
 >     "build": "npm run build:css && remix build",
 >     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
 >     "dev": "concurrently \\\"npm run dev:css\\\" \\\"remix dev\\\"",
->     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+>     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css"
     }
   }`,
     },
@@ -75,7 +79,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Создайте файл <code>./styles/app.css</code> и добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind.
+        Создайте файл <code>./styles/app.css</code> и добавьте директивы <code>@tailwind</code> для
+        каждого слоя Tailwind.
       </p>
     ),
     code: {
@@ -88,7 +93,8 @@ let steps = [
     title: 'Импортируйте файл CSS',
     body: () => (
       <p>
-        Импортируйте скомпилированный файл <code>./app/styles/app.css</code> в свой файл <code>./app/root.jsx</code>.
+        Импортируйте скомпилированный файл <code>./app/styles/app.css</code> в ваш файл{' '}
+        <code>./app/root.jsx</code>.
       </p>
     ),
     code: {
@@ -143,21 +149,11 @@ export default function UsingRemix({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        let isArray = Array.isArray(code)
-        code = isArray ? code : [code]
-        code = code.map((code) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-        return isArray ? code : code[0]
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

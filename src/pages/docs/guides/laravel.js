@@ -4,6 +4,7 @@ import { useRouteHash } from '@/hooks/useRouteHash'
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { FrameworkGuideLayout } from '@/layouts/FrameworkGuideLayout'
 import { Steps } from '@/components/Steps'
+import { TabBar } from '@/components/Guides/TabBar.jsx'
 
 let tabs = [
   {
@@ -14,8 +15,8 @@ let tabs = [
         title: 'Создайте свой проект',
         body: () => (
           <p>
-            Начните с создания нового проекта Laravel, если у вас его еще нет.
-            Самый распространенный подход — использовать{' '}
+            Начните с создания нового проекта Laravel, если у вас его еще нет. Самый
+            распространенный подход — использовать{' '}
             <a href="https://laravel.com/docs/9.x#your-first-laravel-project">
               команду композера <code>create-project</code>
             </a>
@@ -32,9 +33,9 @@ let tabs = [
         title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Установите <code>tailwindcss</code> и его одноранговые зависимости через npm,
-            а затем запустите команду init, чтобы сгенерировать как
-            <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
+            Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем
+            запустите команду init, чтобы сгенерировать как <code>tailwind.config.js</code>, так и{' '}
+            <code>postcss.config.js</code>.
           </p>
         ),
         code: {
@@ -47,13 +48,14 @@ let tabs = [
         title: 'Настройте пути к шаблону',
         body: () => (
           <p>
-            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>{' '}.
+            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code> .
           </p>
         ),
         code: {
           name: 'tailwind.config.js',
           lang: 'js',
-          code: `  module.exports = {
+          code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     "./resources/**/*.blade.php",
 >     "./resources/**/*.js",
@@ -97,8 +99,8 @@ let tabs = [
         title: 'Начните использовать Tailwind в своем проекте',
         body: () => (
           <p>
-            Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>,
-            а затем начните использовать служебные классы Tailwind для оформления вашего контента.
+            Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>, а затем
+            начните использовать служебные классы Tailwind для оформления вашего контента.
           </p>
         ),
         code: {
@@ -129,8 +131,8 @@ let tabs = [
         title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Установите <code>tailwindcss</code> и его одноранговые зависимости через npm и создайте файл{' '}
-            <code>tailwind.config.js</code>.
+            Установите <code>tailwindcss</code> и его одноранговые зависимости через npm и создайте
+            файл <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -143,7 +145,8 @@ let tabs = [
         title: 'Добавьте Tailwind в конфигурацию Laravel Mix',
         body: () => (
           <p>
-            В файле <code>webpack.mix.js</code> добавьте <code>tailwindcss</code> как плагин PostCSS.
+            В файле <code>webpack.mix.js</code> добавьте <code>tailwindcss</code> как плагин
+            PostCSS.
           </p>
         ),
         code: {
@@ -159,13 +162,14 @@ let tabs = [
         title: 'Настройте пути к шаблону',
         body: () => (
           <p>
-            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>{' '}.
+            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code> .
           </p>
         ),
         code: {
           name: 'tailwind.config.js',
           lang: 'js',
-          code: `  module.exports = {
+          code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     "./resources/**/*.blade.php",
 >     "./resources/**/*.js",
@@ -209,8 +213,8 @@ let tabs = [
         title: 'Начните использовать Tailwind в своем проекте',
         body: () => (
           <p>
-            Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>,
-            а затем начните использовать классы-утилиты Tailwind для оформления вашего контента.
+            Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>, а затем
+            начните использовать классы-утилиты Tailwind для оформления вашего контента.
           </p>
         ),
         code: {
@@ -249,49 +253,18 @@ export default function UsingLaravel({ code }) {
       title="Установите Tailwind CSS с Laravel"
       description="Настройка Tailwind CSS в проекте Laravel."
     >
-      <div className="flex overflow-auto mb-6 -mx-4 sm:-mx-6">
-        <div className="flex-none min-w-full px-4 sm:px-6">
-          <ul className="border-b border-slate-200 space-x-6 flex whitespace-nowrap dark:border-slate-200/5">
-            {tabs.map((tab, tabIndex) => (
-              <li key={tab.name}>
-                <h2>
-                  <Link href={tab.href} scroll={false}>
-                    <a
-                      className={clsx(
-                        'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',
-                        tabIndex === selectedTabIndex
-                          ? 'text-sky-500 border-current'
-                          : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700'
-                      )}
-                    >
-                      {tab.name}
-                    </a>
-                  </Link>
-                </h2>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
+      <TabBar tabs={tabs} selectedTabIndex={selectedTabIndex} />
       <Steps steps={tabs[selectedTabIndex].steps} code={code[selectedTabIndex]} />
     </FrameworkGuideLayout>
   )
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: tabs.map((tab) =>
-        tab.steps.map(({ code }) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-      ),
+      code: tabs.map((tab) => highlightedCodeSnippets(tab.steps)),
     },
   }
 }

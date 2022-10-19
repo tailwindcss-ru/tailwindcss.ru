@@ -7,8 +7,8 @@ let steps = [
     title: 'Создайте свой проект',
     body: () => (
       <p>
-        Начните с создания нового проекта Parcel, если у вас его еще нет.
-        Наиболее распространенный подход — добавить Parcel в качестве dev-dependency в ваш проект, как описано в их{' '}
+        Начните с создания нового проекта Parcel, если у вас его еще нет. Наиболее распространенный
+        подход — добавить Parcel в качестве dev-dependency в ваш проект, как описано в их{' '}
         <a href="https://parceljs.org/getting-started/webapp/">руководстве по началу работы</a>.
       </p>
     ),
@@ -22,8 +22,8 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm,
-        а затем запустите команду init для создания <code>tailwind.config.js</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем
+        запустите команду init для создания <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -36,7 +36,8 @@ let steps = [
     title: 'Конфигурация PostCSS',
     body: () => (
       <p>
-        Создайте файл <code>.postcssrc</code> в корне проекта и включите подключаемый модуль <code>tailwindcss</code>.
+        Создайте файл <code>.postcssrc</code> в корне проекта и включите плагин{' '}
+        <code>tailwindcss</code>.
       </p>
     ),
     code: {
@@ -46,8 +47,8 @@ let steps = [
   "plugins": {
     "tailwindcss": {}
   }
-}`
-    }
+}`,
+    },
   },
   {
     title: 'Конфигурация путей к шаблону',
@@ -59,7 +60,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     "./src/**/*.{html,js,ts,jsx,tsx}",
 >   ],
@@ -99,10 +101,12 @@ let steps = [
   },
   {
     title: 'Начните использовать Tailwind в своем проекте',
-    body: () => (<p>
-      Добавьте свой файл CSS в <code>{'<head>'}</code> и начните использовать
-      классы утилит Tailwind для стилизации своего контента.
-    </p>),
+    body: () => (
+      <p>
+        Добавьте свой файл CSS в <code>{'<head>'}</code> и начните использовать служебные классы
+        Tailwind для стилизации своего контента.
+      </p>
+    ),
     code: {
       name: 'index.html',
       lang: 'html',
@@ -135,21 +139,11 @@ export default function UsingParcel({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        let isArray = Array.isArray(code)
-        code = isArray ? code : [code]
-        code = code.map((code) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-        return isArray ? code : code[0]
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

@@ -7,10 +7,12 @@ let steps = [
     title: 'Создайте свой проект',
     body: () => (
       <p>
-        Начните с создания нового проекта SvelteKit, если он еще не настроен. Наиболее распространенный подход описан в{' '}
+        Начните с создания нового проекта SvelteKit, если он еще не настроен. Наиболее
+        распространенный подход описан в{' '}
         <a href="https://kit.svelte.dev/docs#introduction-getting-started">
           начале работы со SvelteKit
-        </a>{' '}.
+        </a>{' '}
+        .
       </p>
     ),
     code: {
@@ -66,7 +68,8 @@ let steps = [
     code: {
       name: 'tailwind.config.cjs',
       lang: 'javascript',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
       extend: {}
@@ -79,7 +82,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Создайте файл <code>./src/app.css</code> и добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind.
+        Создайте файл <code>./src/app.css</code> и добавьте директивы <code>@tailwind</code> для
+        каждого слоя Tailwind.
       </p>
     ),
     code: {
@@ -94,11 +98,12 @@ let steps = [
     title: 'Импортируйте файл CSS',
     body: () => (
       <p>
-        Создайте файл <code>./src/routes/__layout.svelte</code> и импортируйте только что созданный{' '} <code>app.css</code>.
+        Создайте файл <code>./src/routes/+layout.svelte</code> и импортируйте только что созданный
+        файл <code>app.css</code>.
       </p>
     ),
     code: {
-      name: '__layout.svelte',
+      name: '+layout.svelte',
       lang: 'html',
       code: `<script>
   import "../app.css";
@@ -124,7 +129,7 @@ let steps = [
     title: 'Начните использовать Tailwind в своем проекте',
     body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
-      name: 'index.svelte',
+      name: '+page.svelte',
       lang: 'html',
       code: `<h1 class="text-3xl font-bold underline">
   Hello world!
@@ -145,21 +150,11 @@ export default function UsingSvelteKit({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        let isArray = Array.isArray(code)
-        code = isArray ? code : [code]
-        code = code.map((code) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-        return isArray ? code : code[0]
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

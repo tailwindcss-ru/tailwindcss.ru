@@ -247,6 +247,10 @@ export const documentationNav = {
       title: 'Линейный зажим',
       href: 'https://github.com/tailwindlabs/tailwindcss-line-clamp',
     },
+    {
+      title: 'Container Queries',
+      href: 'https://github.com/tailwindlabs/tailwindcss-container-queries',
+    },
   ],
   'Перевод': [
     {

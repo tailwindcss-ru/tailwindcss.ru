@@ -108,6 +108,23 @@ export const classes = { utilities }
 
 Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
+#### Предоставление настроек шрифта по умолчанию
+
+При желании вы можете указать [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) для каждого шрифта в вашем проекте, используя кортеж форма `[fontFamilies, { fontFeatureSettings }]` при настройке пользовательских шрифтов.
+
+```diff-js tailwind.config.js
+  module.exports = {
+    theme: {
+      fontFamily: {
+        sans: [
+          "Inter var, sans-serif",
++         { fontFeatureSettings: '"cv11", "ss01"' },
+        ],
+      },
+    },
+  }
+```
+
 ### Произвольные значения
 
 <ArbitraryValues property="font-family" featuredClass="font-['Open_Sans']" element="p" />
@@ -118,7 +135,7 @@ export const classes = { utilities }
 
 ```diff-js tailwind.config.js
   const defaultTheme = require('tailwindcss/defaultTheme')
-  
+
   module.exports = {
     theme: {
       extend: {

@@ -8,7 +8,8 @@ let steps = [
     title: 'Установка Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm и создайте файл{' '} <code>tailwind.config.js</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm и создайте файл{' '}
+        <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -46,7 +47,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: ["./src/**/*.{html,js}"],
     theme: {
       extend: {},
@@ -59,7 +61,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Добавьте директивы <code>@tailwind</code> для каждого макета Tailwind в свой основной файл CSS.
+        Добавьте директивы <code>@tailwind</code> для каждого макета Tailwind в свой основной файл
+        CSS.
       </p>
     ),
     code: {
@@ -72,7 +75,8 @@ let steps = [
     title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Запустите процесс сборки с помощью <code>npm run dev</code> или любой другой команды, настроенной в вашем файле <code>package.json</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code> или любой другой команды,
+        настроенной в вашем файле <code>package.json</code>.
       </p>
     ),
     code: {
@@ -85,7 +89,9 @@ let steps = [
     title: 'Начните использовать Tailwind в своем HTML',
     body: () => (
       <p>
-        Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>{' '} <em>(ваш фреймворк может справиться с этим за вас)</em>, затем начните использовать служебные классы Tailwind для стилизации вашего контента.
+        Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>{' '}
+        <em>(ваш фреймворк может справиться с этим за вас)</em>, затем начните использовать
+        служебные классы Tailwind для стилизации вашего контента.
       </p>
     ),
     code: {
@@ -113,11 +119,12 @@ export default function UsingPostCss({ code }) {
     <InstallationLayout>
       <div
         id="content-wrapper"
-        className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark"
+        className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark"
       >
         <h3 className="sr-only">Installing Tailwind CSS as a PostCSS plugin</h3>
         <p>
-          Установка Tailwind CSS в качестве плагина PostCSS - самый простой способ интегрировать его с такими инструментами сборки, как webpack, Rollup, Vite и Parcel.
+          Установка Tailwind CSS в качестве плагина PostCSS - самый простой способ интегрировать его
+          с такими инструментами сборки, как webpack, Rollup, Vite и Parcel.
         </p>
       </div>
       <Steps level={4} steps={steps} code={code} />
@@ -126,11 +133,12 @@ export default function UsingPostCss({ code }) {
         href="/docs/installation/framework-guides"
         description={
           <>
-            <strong className="text-slate-900 font-semibold dark:text-slate-200">
-              Вы зашли в тупик?
+            <strong className="font-semibold text-slate-900 dark:text-slate-200">
+              Вы застряли?
             </strong>{' '}
-            Настройка Tailwind с помощью PostCSS может немного отличаться в разных инструментах сборки.
-            Ознакомьтесь с нашими руководствами по фреймворку, чтобы узнать, есть ли у нас более конкретные инструкции для вашей конкретной настройки.
+            Настройка Tailwind с помощью PostCSS может немного отличаться в разных инструментах
+            сборки. Ознакомьтесь с нашими руководствами по фреймворку, чтобы узнать, есть ли у нас
+            более конкретные инструкции для вашей конкретной настройки.
           </>
         }
       />
@@ -139,21 +147,11 @@ export default function UsingPostCss({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        let isArray = Array.isArray(code)
-        code = isArray ? code : [code]
-        code = code.map((code) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-        return isArray ? code : code[0]
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

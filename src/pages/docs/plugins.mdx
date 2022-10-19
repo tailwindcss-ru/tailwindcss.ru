@@ -32,7 +32,6 @@ module.exports = {
 - `matchComponents()`, для регистрации новых стилей динамических компонентов
 - `addBase()`, для регистрации новых базовых стилей
 - `addVariant()`, для регистрации пользовательских вариантов
-- `matchVariant()`, для регистрации пользовательских динамических вариантов
 - `theme()`, для поиска значений в конфигурации темы пользователя
 - `config()`, для поиска значений в пользовательской конфигурации Tailwind
 - `corePlugins()`, для проверки, включен ли основной плагин
@@ -468,6 +467,27 @@ module.exports = {
 </form>
 ```
 
+### Parent and sibling states
+
+Your custom modifiers won't automatically work with Tailwind's [parent](/docs/hover-focus-and-other-states#styling-based-on-parent-state) and [sibling](/docs/hover-focus-and-other-states#styling-based-on-sibling-state) state modifiers.
+
+To support the `group-*` and `peer-*` versions of your own custom modifiers, register them as separate variants using the special `:merge` directive to ensure the `.group` and `.peer` classes only appear once in the final selector.
+
+```js tailwind.config.js
+  const plugin = require('tailwindcss/plugin')
+
+  module.exports = {
+    // ...
+    plugins: [
+      plugin(function({ addVariant }) {
+        addVariant('optional', '&:optional')
+>       addVariant('group-optional', ':merge(.group):optional &')
+>       addVariant('peer-optional', ':merge(.peer):optional ~ &')
+      })
+    ]
+  }
+```
+
 ---
 
 ## Расширение конфигурации
@@ -511,7 +531,7 @@ module.exports = plugin(function({ matchUtilities, theme }) {
 ```js ./plugins/markdown.js
 const plugin = require('tailwindcss/plugin')
 
-module.exports = plugin.withOptions(function (options) {
+module.exports = plugin.withOptions(function (options = {}) {
   return function({ addComponents }) {
     const className = options.className ?? 'markdown'
 

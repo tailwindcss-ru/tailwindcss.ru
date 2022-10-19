@@ -310,8 +310,8 @@ export function EditorTools() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-sky-500 dark:highlight-white/20"
-          light={require('@/img/icons/home/editor-tools.png').default}
-          dark={require('@/img/icons/home/dark/editor-tools.png').default}
+          light={require('@/img/icons/home/editor-tools.png').default.src}
+          dark={require('@/img/icons/home/dark/editor-tools.png').default.src}
         />
         <Caption className="text-sky-500">Инструменты редактора</Caption>
         <BigText>Интеграция IDE мирового класса.</BigText>
@@ -333,6 +333,7 @@ export function EditorTools() {
         left={
           <div className="relative">
             <img
+              decoding="async"
               src={require('@/img/beams/overlay.webp').default}
               alt=""
               className="absolute z-10 bottom-0 -left-80 w-[45.0625rem] pointer-events-none dark:hidden"

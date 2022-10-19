@@ -16,6 +16,10 @@ import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
 import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
+import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
+import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
+import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
+import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
 import PhoenixLogo from '@/img/guides/phoenix.png'
 import ParcelLogo from '@/img/guides/parcel.png'
 
@@ -25,7 +29,8 @@ export default function FrameworkGuides() {
       <div id="content-wrapper" className="prose prose-slate mb-10 max-w-3xl dark:prose-dark">
         <h3 className="sr-only">Framework Guides</h3>
         <p>
-          Руководства для конкретных платформ, в которых описывается рекомендуемый нами подход к установке Tailwind CSS в ряде популярных сред.
+          Руководства для конкретных платформ, в которых описывается рекомендуемый нами подход к
+          установке Tailwind CSS в ряде популярных сред.
         </p>
       </div>
       <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -62,15 +67,17 @@ export default function FrameworkGuides() {
             logo: GatsbyLogo,
           },
           {
-            name: 'Create React App',
-            slug: 'create-react-app',
-            description: 'Инструмент командной строки для создания нового одностраничного приложения React.',
-            logo: CraLogo,
+            name: 'SolidJS',
+            slug: 'solidjs',
+            description:
+              'Инструмент для создания простых, производительных и реактивных пользовательских интерфейсов.',
+            logo: SolidJSLogo,
           },
           {
             name: 'SvelteKit',
             slug: 'sveltekit',
-            description: 'Самый быстрый способ создавать приложения любого размера с помощью Svelte.js.',
+            description:
+              'Самый быстрый способ создавать приложения любого размера с помощью Svelte.js.',
             logo: SvelteLogo,
           },
           {
@@ -83,24 +90,27 @@ export default function FrameworkGuides() {
           {
             name: 'Ruby on Rails',
             slug: 'ruby-on-rails',
-            description: 'Фреймворк полного стека со всеми инструментами, необходимыми для создания удивительных веб-приложений.',
+            description:
+              'Фреймворк полного стека со всеми инструментами, необходимыми для создания удивительных веб-приложений.',
             logo: RailsLogo,
             logoDark: RailsLogoWhite,
           },
           {
             name: 'Remix',
             slug: 'remix',
-            description: 'Фреймворк с полным стеком, ориентированный на основы веб-технологий и современный UX.',
+            description:
+              'Фреймворк с полным стеком, ориентированный на основы веб-технологий и современный UX.',
             logo: RemixLogo,
             logoDark: RemixLogoWhite,
           },
           {
             name: 'Phoenix',
             slug: 'phoenix',
-            description: 'Фреймворк для создания многофункциональных интерактивных приложений с помощью Elixir.',
+            description:
+              'Фреймворк для создания многофункциональных интерактивных приложений с помощью Elixir.',
             logo: () => (
               <img
-                src={PhoenixLogo}
+                src={PhoenixLogo.src}
                 alt="Phoenix"
                 role="presentation"
                 className="w-10 h-10 object-contain object-center"
@@ -113,12 +123,31 @@ export default function FrameworkGuides() {
             description: 'Инструмент сборки с нулевой конфигурацией для Интернета.',
             logo: () => (
               <img
-                src={ParcelLogo}
+                src={ParcelLogo.src}
                 alt="Parcel"
                 role="presentation"
                 className="w-10 h-10 object-contain object-center"
               />
             ),
+          },
+          {
+            name: 'Symfony',
+            slug: 'symfony',
+            description: 'A PHP framework to create websites and web applications.',
+            logo: SymfonyLogo,
+            logoDark: SymfonyLogoWhite,
+          },
+          {
+            name: 'Meteor',
+            slug: 'meteor',
+            description: 'The full stack JavaScript framework for developing cross-platform apps.',
+            logo: MeteorLogo,
+          },
+          {
+            name: 'Create React App',
+            slug: 'create-react-app',
+            description: 'CLI tool for scaffolding a new single-page React application.',
+            logo: CraLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
@@ -168,7 +197,8 @@ export default function FrameworkGuides() {
           или установить Tailwind{' '}
           <Link href="/docs/installation/using-postcss">
             <a>как плагин PostCSS</a>
-          </Link>{' '}.
+          </Link>{' '}
+          .
         </p>
       </div>
     </InstallationLayout>

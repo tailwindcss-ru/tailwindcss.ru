@@ -8,9 +8,9 @@ let steps = [
     title: 'Создайте свой проект',
     body: () => (
       <p>
-        Начните с создания нового проекта Phoenix, если он еще не настроен.
-        Вы можете следовать их <a href="https://hexdocs.pm/phoenix/installation.html">руководству по установке</a>,
-        чтобы приступить к работе.
+        Начните с создания нового проекта Phoenix, если он еще не настроен. Вы можете следовать их{' '}
+        <a href="https://hexdocs.pm/phoenix/installation.html">руководству по установке</a>, чтобы
+        приступить к работе.
       </p>
     ),
     code: {
@@ -23,7 +23,8 @@ let steps = [
     title: 'Установите плагин Tailwind',
     body: () => (
       <p>
-        Добавьте подключаемый модуль Tailwind в свои зависимости и запустите <code>mix deps.get</code>, чтобы установить его.
+        Добавьте подключаемый модуль Tailwind в свои зависимости и запустите{' '}
+        <code>mix deps.get</code>, чтобы установить его.
       </p>
     ),
     code: {
@@ -40,8 +41,8 @@ let steps = [
     title: 'Настройте плагин Tailwind',
     body: () => (
       <p>
-        В файле <code>config.exs</code> вы можете указать, какую версию Tailwind CSS вы хотите использовать,
-        путь к вашей конфигурации Tailwind и настроить пути к ресурсам.
+        В файле <code>config.exs</code> вы можете указать, какую версию Tailwind CSS вы хотите
+        использовать, путь к вашей конфигурации Tailwind и настроить пути к ресурсам.
       </p>
     ),
     code: {
@@ -59,11 +60,7 @@ let steps = [
   },
   {
     title: 'Обновите сценарий развертывания',
-    body: () => (
-      <p>
-        Настройте псевдоним для создания своего CSS при развертывании.
-      </p>
-    ),
+    body: () => <p>Настройте псевдоним для создания своего CSS при развертывании.</p>,
     code: {
       name: 'mix.exs',
       lang: 'elixir',
@@ -107,13 +104,15 @@ let steps = [
     title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Добавьте пути ко всем файлам вашего шаблона в файл <code>./assets/tailwind.config.js</code>.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>./assets/tailwind.config.js</code>{' '}
+        .
       </p>
     ),
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     './js/**/*.js',
 >     '../lib/*_web.ex',
@@ -130,8 +129,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Добавьте директивы <code>@tailwind</code>{' '}
-        для каждого слоя Tailwind в <code>./assets/css/app.css</code>
+        Добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind в{' '}
+        <code>./assets/css/app.css</code>
       </p>
     ),
     code: {
@@ -144,7 +143,8 @@ let steps = [
     title: 'Удалить импорт CSS по умолчанию',
     body: () => (
       <p>
-        Удалите импорт CSS из <code>./assets/js/app.js</code>, так как теперь Tailwind сделает это за вас.
+        Удалите импорт CSS из <code>./assets/js/app.js</code>, так как теперь Tailwind сделает это
+        за вас.
       </p>
     ),
     code: {
@@ -192,16 +192,11 @@ export default function UsingPhoenix({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        if (code.lang && code.lang !== 'terminal') {
-          return highlightCode(code.code, code.lang)
-        }
-        return code.code
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

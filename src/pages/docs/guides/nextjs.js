@@ -7,8 +7,8 @@ let steps = [
     title: 'Создайте свой проект',
     body: () => (
       <p>
-        Начните с создания нового проекта Next.js, если у вас его еще нет.
-        Наиболее распространенный подход — использовать{' '}
+        Начните с создания нового проекта Next.js, если у вас его еще нет. Наиболее распространенный
+        подход — использовать{' '}
         <a href="https://nextjs.org/docs/api-reference/create-next-app">Create Next App</a>.
       </p>
     ),
@@ -22,8 +22,9 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем запустите команду init,
-        чтобы сгенерировать как <code>tailwind.config.js</code>, так и <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем
+        запустите команду init, чтобы сгенерировать как <code>tailwind.config.js</code>, так и{' '}
+        <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -42,7 +43,8 @@ let steps = [
     code: {
       name: 'tailwind.config.js',
       lang: 'js',
-      code: `  module.exports = {
+      code: `  /** @type {import('tailwindcss').Config} */
+  module.exports = {
 >   content: [
 >     "./pages/**/*.{js,ts,jsx,tsx}",
 >     "./components/**/*.{js,ts,jsx,tsx}",
@@ -104,14 +106,15 @@ export default function UsingNextJS({ code }) {
       title="Установите Tailwind CSS с Next.js"
       description="Настройка Tailwind CSS в проекте Next.js v10+."
     >
-      <div className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
+      <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
         <p>
           Самый быстрый способ начать использовать Tailwind CSS в проекте Next.js – использовать{' '}
-          <a href="https://github.com/vercel/next.js/tree/4d4f3093019179b1928ec07c16f38882241c0375/examples/with-tailwindcss">
+          <a href="https://github.com/vercel/next.js/tree/c3e5caf1109a2eb42801de23fc78e42a08e5da6e/examples/with-tailwindcss">
             Пример Next.js + Tailwind CSS
-          </a>.
-          Это автоматически настроит вашу настройку Tailwind на основе официального примера Next.js.
-          Если вы хотите настроить Tailwind вручную, перейдите к остальной части этого руководства.
+          </a>
+          . Это автоматически настроит вашу настройку Tailwind на основе официального примера
+          Next.js. Если вы хотите настроить Tailwind вручную, перейдите к остальной части этого
+          руководства.
         </p>
       </div>
       <Steps steps={steps} code={code} />
@@ -120,21 +123,11 @@ export default function UsingNextJS({ code }) {
 }
 
 export function getStaticProps() {
-  let { highlightCode } = require('../../../../remark/utils')
+  let { highlightedCodeSnippets } = require('@/components/Guides/Snippets.js')
 
   return {
     props: {
-      code: steps.map(({ code }) => {
-        let isArray = Array.isArray(code)
-        code = isArray ? code : [code]
-        code = code.map((code) => {
-          if (code.lang && code.lang !== 'terminal') {
-            return highlightCode(code.code, code.lang)
-          }
-          return code.code
-        })
-        return isArray ? code : code[0]
-      }),
+      code: highlightedCodeSnippets(steps),
     },
   }
 }

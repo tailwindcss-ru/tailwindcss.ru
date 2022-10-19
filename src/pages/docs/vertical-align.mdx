@@ -1,9 +1,11 @@
 ---
 title: "Вертикальное выравнивание"
-description: "Утилиты для управления вертикальным выравниванием строчного или табличного поля."
+shortTitle: Вертикальное выравнивание
+description: "Утилиты для управления вертикальным выравниванием встроенного блока или поля ячейки таблицы."
 ---
 
 import utilities from 'utilities?plugin=verticalAlign'
+import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
@@ -143,3 +145,11 @@ export const classes = { utilities }
 ### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="align-middle" featuredClass="align-top" element="p" />
+
+---
+
+## Using custom values
+
+### Arbitrary values
+
+<ArbitraryValues property="vertical-align" featuredClass="align-[4px]" hasTheme={false} />

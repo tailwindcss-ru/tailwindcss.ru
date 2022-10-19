@@ -68,6 +68,7 @@ export function BlogPostLayout({ children, meta }) {
                         src={author.avatar}
                         alt=""
                         className="mr-3 w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800"
+                        decoding="async"
                       />
                       <div className="text-sm leading-4">
                         <div className="text-slate-900 dark:text-slate-200">{author.name}</div>
@@ -92,16 +93,18 @@ export function BlogPostLayout({ children, meta }) {
           <footer className="mt-16">
             <div className="relative">
               <img
-                src={require('@/img/beams/blog-post-form@80.jpg').default}
+                src={require('@/img/beams/blog-post-form@80.jpg').default.src}
                 alt=""
                 className="absolute top-px sm:left-auto sm:right-0 left-1/4 dark:hidden max-w-none"
                 width="476"
+                decoding="async"
               />
               <img
-                src={require('@/img/beams/blog-post-form-dark@90.jpg').default}
+                src={require('@/img/beams/blog-post-form-dark@90.jpg').default.src}
                 alt=""
                 className="absolute top-px -left-1/4 sm:left-0 hidden dark:block max-w-none"
                 width="1429"
+                decoding="async"
               />
               <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
                 <h2 className="text-xl font-semibold text-slate-900 tracking-tight dark:text-white">
@@ -134,14 +137,15 @@ function Metadata({ meta }) {
       {meta.image ? (
         <>
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:image" content={`https://tailwindcss.com${meta.image}`} />
+          <meta name="twitter:image" content={`https://tailwindcss.com${meta.image.src}`} />
+          <meta property="og:image" content={`https://tailwindcss.com${meta.image.src}`} />
         </>
       ) : (
         <>
           <meta name="twitter:card" content="summary" />
           <meta
             name="twitter:image"
-            content={`https://tailwindcss.com${require('@/img/social-square.jpg').default}`}
+            content={`https://tailwindcss.com${require('@/img/social-square.jpg').default.src}`}
           />
         </>
       )}
@@ -149,7 +153,6 @@ function Metadata({ meta }) {
       <meta property="og:type" content="article" />
       <meta property="og:title" content={`${meta.title} – Tailwind CSS`} />
       <meta property="og:description" content={meta.description} />
-      <meta property="og:image" content={`https://tailwindcss.com${meta.image}`} />
       <meta name="description" content={meta.description}></meta>
     </Head>
   )

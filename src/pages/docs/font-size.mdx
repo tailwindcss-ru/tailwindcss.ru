@@ -77,34 +77,29 @@ export const classes = { utilities }
 
 ### Настройка вашей темы
 
-По умолчанию Tailwind предоставляет 10 утилит `font-size`. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.fontSize` Вашей конфигурации Tailwind.
+Вы можете настроить свой собственный набор утилит для изменения размера шрифта, используя раздел `theme.fontSize` вашего файла `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
     theme: {
-      fontSize: {
--       'xs': '.75rem',
--       'sm': '.875rem',
-+       'tiny': '.875rem',
-        'base': '1rem',
-        'lg': '1.125rem',
-        'xl': '1.25rem',
-        '2xl': '1.5rem',
--       '3xl': '1.875rem',
--       '4xl': '2.25rem',
-        '5xl': '3rem',
-        '6xl': '4rem',
-+       '7xl': '5rem',
-      }
++     fontSize: {
++       sm: '0.8rem',
++       base: '1rem',
++       xl: '1.25rem',
++       2xl: '1.563rem',
++       3xl: '1.953rem',
++       4xl: '2.441rem',
++       5xl: '3.052rem',
++     }
     }
   }
 ```
 
 Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Предоставление высоты строки по умолчанию
+#### Предоставление высоты строки по умолчанию
 
-Вы можете указать высоту строки по умолчанию для каждого размера шрифта, используя кортеж вида `[fontSize, lineHeight]` в Вашем файле `tailwind.config.js`.
+Тема Tailwind по умолчанию настраивает разумную `line-height` по умолчанию для каждой утилиты  `text-{size}`. Вы можете настроить свою собственную высоту строки по умолчанию при использовании пользовательских размеров шрифта, определив каждый размер с помощью кортежа формы `[fontSize, lineHeight]` в вашем файле `tailwind.config.js`.
 
 ```js tailwind.config.js
 module.exports = {
@@ -119,37 +114,21 @@ module.exports = {
 }
 ```
 
-Вы также можете указать высоту строки по умолчанию, используя синтаксис объекта:
+Вы также можете указать высоту строки по умолчанию, используя синтаксис объекта, что позволяет также указать значения по умолчанию для `letter-spacing` и `font-weight`. Вы можете сделать это, используя кортеж вида `[fontSize, { lineHeight?, letterSpacing?, fontWeight? }]`.
 
 ```js tailwind.config.js
 module.exports = {
   theme: {
     fontSize: {
-      sm: ['14px', {
-        lineHeight: '20px',
-      }],
-    }
-  }
-}
-```
-
-Мы уже предоставляем высоту строки по умолчанию для каждого класса `.text-{size}`.
-
-### Предоставление межбуквенного интервала по умолчанию
-
-Если вы также хотите указать значение межбуквенного интервала по умолчанию для размера шрифта, вы можете сделать это, используя кортеж вида `[fontSize, { letterSpacing, lineHeight }]` в Вашем файле `tailwind.config.js`.
-
-```js tailwind.config.js
-module.exports = {
-  theme: {
-    fontSize: {
-      '2xl': ['24px', {
+      '2xl': ['1.5rem', {
+        lineHeight: '2rem',
         letterSpacing: '-0.01em',
+        fontWeight: '500',
       }],
-      // Или с высотой строки по умолчанию
-      '3xl': ['32px', {
+      '3xl': ['1.875rem', {
+        lineHeight: '2.25rem',
         letterSpacing: '-0.02em',
-        lineHeight: '40px',
+        fontWeight: '700',
       }],
     }
   }

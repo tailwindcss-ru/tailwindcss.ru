@@ -333,7 +333,9 @@ function AtApplySection() {
           Не любите компонентные фреймворки?
         </h3>
         <Paragraph>
-          Используйте директиву Tailwind <InlineCode>@apply</InlineCode> для извлечения повторяющихся служебных шаблонов в пользовательские классы CSS, просто скопировав и вставив список имен классов.
+          Используйте директиву Tailwind <InlineCode>@apply</InlineCode> для извлечения
+          повторяющихся служебных шаблонов в пользовательские классы CSS, просто скопировав и
+          вставив список имен классов.
         </Paragraph>
         <Link href="/docs/reusing-styles" color="sky" darkColor="gray">
           Подробнее<span className="sr-only">, о повторном использовании стилей</span>
@@ -360,7 +362,8 @@ function AtApplySection() {
                 <dd className={clsx(...fade)}>
                   <time dateTime="2020-11-15T10:00:00-05:00">Чт 15 ноя 2020, 10:00</time> -{' '}
                   <time dateTime="2020-11-15T11:00:00-05:00">
-                    11:00<span className="sr-only sm:not-sr-only"> стандартное восточное время</span>
+                    11:00
+                    <span className="sr-only sm:not-sr-only"> стандартное восточное время</span>
                   </time>
                 </dd>
               </div>
@@ -561,8 +564,8 @@ export function ComponentDriven() {
           <Widont>Беспокоитесь о дублировании? Не будет.</Widont>
         </BigText>
         <Paragraph>
-          Если вы повторяете одни и те же утилиты снова и снова, все, что вам нужно сделать,
-          это извлечь их в компонент или часть шаблона и бум - у вас есть единственный источник правды,
+          Если вы повторяете одни и те же утилиты снова и снова, все, что вам нужно сделать, это
+          извлечь их в компонент или часть шаблона и бум - у вас есть единственный источник правды,
           так что вы можете вносить изменения в одном месте.
         </Paragraph>
         <Link href="/docs/reusing-styles" color="sky" darkColor="gray">

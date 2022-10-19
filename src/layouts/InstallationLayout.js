@@ -22,8 +22,8 @@ let readNext = [
     ),
     icon: {
       className: 'dark:bg-indigo-500 dark:highlight-white/20',
-      light: require('@/img/icons/home/utility-first.png').default,
-      dark: require('@/img/icons/home/dark/utility-first.png').default,
+      light: require('@/img/icons/home/utility-first.png').default.src,
+      dark: require('@/img/icons/home/dark/utility-first.png').default.src,
     },
   },
   {
@@ -36,8 +36,8 @@ let readNext = [
     ),
     icon: {
       className: 'dark:bg-indigo-500 dark:highlight-white/20',
-      light: require('@/img/icons/home/mobile-first.png').default,
-      dark: require('@/img/icons/home/dark/mobile-first.png').default,
+      light: require('@/img/icons/home/mobile-first.png').default.src,
+      dark: require('@/img/icons/home/dark/mobile-first.png').default.src,
     },
   },
   {
@@ -50,8 +50,8 @@ let readNext = [
     ),
     icon: {
       className: 'dark:bg-blue-500 dark:highlight-white/20',
-      light: require('@/img/icons/home/state-variants.png').default,
-      dark: require('@/img/icons/home/dark/state-variants.png').default,
+      light: require('@/img/icons/home/state-variants.png').default.src,
+      dark: require('@/img/icons/home/dark/state-variants.png').default.src,
     },
   },
   {
@@ -62,8 +62,8 @@ let readNext = [
     ),
     icon: {
       className: 'dark:bg-slate-600 dark:highlight-white/20',
-      light: require('@/img/icons/home/dark-mode.png').default,
-      dark: require('@/img/icons/home/dark/dark-mode.png').default,
+      light: require('@/img/icons/home/dark-mode.png').default.src,
+      dark: require('@/img/icons/home/dark/dark-mode.png').default.src,
     },
   },
   {
@@ -76,8 +76,8 @@ let readNext = [
     ),
     icon: {
       className: 'dark:bg-sky-500 dark:highlight-white/20',
-      light: require('@/img/icons/home/component-driven.png').default,
-      dark: require('@/img/icons/home/dark/component-driven.png').default,
+      light: require('@/img/icons/home/component-driven.png').default.src,
+      dark: require('@/img/icons/home/dark/component-driven.png').default.src,
     },
   },
   {
@@ -88,8 +88,8 @@ let readNext = [
     ),
     icon: {
       className: 'dark:bg-pink-500 dark:highlight-white/30',
-      light: require('@/img/icons/home/customization.png').default,
-      dark: require('@/img/icons/home/dark/customization.png').default,
+      light: require('@/img/icons/home/customization.png').default.src,
+      dark: require('@/img/icons/home/dark/customization.png').default.src,
     },
   },
 ]
