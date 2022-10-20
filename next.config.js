@@ -43,6 +43,9 @@ module.exports = withBundleAnalyzer({
   experimental: {
     esmExternals: false,
   },
+  images: {
+    unoptimized: true,
+  },
   async redirects() {
     return require('./redirects.json')
   },
