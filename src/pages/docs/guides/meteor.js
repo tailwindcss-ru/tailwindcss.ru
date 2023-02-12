@@ -18,7 +18,7 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
         Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
@@ -55,7 +55,7 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
         Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
@@ -69,7 +69,7 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
         Run your build process with <code>npm run start</code>.
@@ -82,8 +82,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать служебные классы Tailwind для оформления своего контента.</p>,
     code: {
       name: 'App.jsx',
       lang: 'jsx',
@@ -99,7 +99,7 @@ let steps = [
 export default function UsingMeteor({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Meteor"
+      title="Установите Tailwind CSS c Meteor"
       description="Setting up Tailwind CSS in a Meteor project."
     >
       <Steps steps={steps} code={code} />
@@ -119,9 +119,9 @@ export function getStaticProps() {
 
 UsingMeteor.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Meteor',
+    title: 'Установите Tailwind CSS c Meteor',
     description: 'Setting up Tailwind CSS in a Meteor project.',
-    section: 'Getting Started',
+    section: 'Начало работы',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

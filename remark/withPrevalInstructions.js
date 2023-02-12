@@ -254,7 +254,7 @@ function createPrevals({ tool: pageTool = error('UNKNOWN') } = {}) {
           : ''
 
       return md(`
-        ## Настройка Tailwind CSS
+        ## Настройте Tailwind CSS
 
         *Tailwind CSS требует Node.js 12.13.0 или выше.*
 

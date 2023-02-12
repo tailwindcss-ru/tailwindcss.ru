@@ -20,7 +20,7 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
         Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
@@ -84,7 +84,7 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
         Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
@@ -98,10 +98,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -111,7 +111,7 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
+    title: 'Начните использовать Tailwind в своем проекте',
     body: () => (
       <p>
         Make sure your compiled CSS is included in the <code>{'<head>'}</code> then start using
@@ -141,7 +141,7 @@ let steps = [
 export default function UsingAdonis({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with AdonisJS"
+      title="Установите Tailwind CSS c AdonisJS"
       description="Setting up Tailwind CSS in an AdonisJS project."
     >
       <Steps steps={steps} code={code} />
@@ -166,7 +166,7 @@ export function getStaticProps() {
 
 UsingAdonis.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Adonis',
+    title: 'Установите Tailwind CSS c Adonis',
     section: 'Installation',
   },
   Layout: DocumentationLayout,
