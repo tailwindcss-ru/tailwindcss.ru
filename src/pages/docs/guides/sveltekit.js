@@ -18,44 +18,47 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init svelte@next my-app\ncd my-app',
+      code: 'npm init svelte@latest my-app\ncd my-app',
     },
   },
   {
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости, а также{' '}
-        <code>svelte-preprocess</code>, а затем выполните следующие команды, чтобы сгенерировать оба{' '}
-        <code>tailwind.config.cjs</code> и <code>postcss.config.cjs</code>.
+        Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости,
+        а затем выполните следующие команды, чтобы сгенерировать как <code>tailwind.config.cjs</code>,
+        так и <code>postcss.config.cjs</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer svelte-preprocess\nnpx tailwindcss init tailwind.config.cjs -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init tailwind.config.cjs -p',
     },
   },
   {
     title: 'Enable use of PostCSS in <style> blocks',
     body: () => (
       <p>
-        In your <code>svelte.config.js</code> file, import <code>svelte-preprocess</code> and
-        configure it to process <code>&lt;style&gt;</code> blocks as PostCSS.
+        In your <code>svelte.config.js</code> file, import <code>vitePreprocess</code> to enable
+        processing <code>&lt;style&gt;</code> blocks as PostCSS.
       </p>
     ),
     code: {
       name: 'svelte.config.js',
       lang: 'js',
-      code: `> import preprocess from "svelte-preprocess";
+      code: `  import adapter from '@sveltejs/adapter-auto';
+> import { vitePreprocess } from '@sveltejs/kit/vite';
 
+  /** @type {import('@sveltejs/kit').Config} */
   const config = {
->   preprocess: [
->     preprocess({
->       postcss: true,
->     }),
->   ],
-  }`,
+    kit: {
+      adapter: adapter()
+    },
+>   preprocess: vitePreprocess()
+  };
+
+  export default config;`,
     },
   },
   {
@@ -127,13 +130,25 @@ let steps = [
   },
   {
     title: 'Начните использовать Tailwind в своем проекте',
-    body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
+    body: () => (
+      <p>
+        Начните использовать классы-утилиты Tailwind для стилизации своего контента, установив{' '}
+        <code>lang="postcss"</code> для всех блоков <code>&lt;style&gt;</code>,
+        которые должны обрабатываться Tailwind.
+      </p>
+    ),
     code: {
       name: '+page.svelte',
       lang: 'html',
-      code: `<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>`,
+      code: `> <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+
+> <style lang="postcss">
+    :global(html) {
+      background-color: theme(colors.gray.100);
+    }
+  </style>`,
     },
   },
 ]
@@ -142,7 +157,7 @@ export default function UsingSvelteKit({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с SvelteKit"
-      description="Настройка Tailwind CSS в проекте SvelteKit."
+      description="Настройте Tailwind CSS в проекте SvelteKit."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -161,7 +176,8 @@ export function getStaticProps() {
 
 UsingSvelteKit.layoutProps = {
   meta: {
-    title: 'Установите Tailwind CSS с SvelteKit',
+    title: 'Установите Tailwind CSS c SvelteKit',
+    description: 'Настройка Tailwind CSS в проекте SvelteKit.',
     section: 'Начало работы',
   },
   Layout: DocumentationLayout,

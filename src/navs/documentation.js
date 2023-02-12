@@ -10,7 +10,7 @@ export const documentationNav = {
     {
       title: 'Установка',
       href: '/docs/installation',
-      match: /^\/docs\/installation/,
+      match: /^\/docs\/(installation|guides)/,
     },
     // TODO: Add these pages
     // pages['tailwind-cli'],

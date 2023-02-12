@@ -21,15 +21,14 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code>, его одноранговые зависимости и{' '}
-        <code>concurrently</code> через npm, а затем запустите команду init, чтобы сгенерировать
-        файл <code>tailwind.config.js</code> file.
+        Установите <code>tailwindcss</code> и <code>одновременно</code> через npm, а затем запустите команду init
+        для создания файла <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer concurrently\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss concurrently\nnpx tailwindcss init',
     },
   },
   {
@@ -141,7 +140,7 @@ export default function UsingRemix({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с Remix"
-      description="Настройка Tailwind CSS в проекте Remix."
+      description="Настройте Tailwind CSS в проекте Remix."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -160,7 +159,8 @@ export function getStaticProps() {
 
 UsingRemix.layoutProps = {
   meta: {
-    title: 'Установите Tailwind CSS с Remix',
+    title: 'Установите Tailwind CSS c Remix',
+    description: 'Настройка Tailwind CSS в проекте Remix.',
     section: 'Установка',
   },
   Layout: DocumentationLayout,

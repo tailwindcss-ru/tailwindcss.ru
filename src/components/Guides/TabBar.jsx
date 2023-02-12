@@ -13,15 +13,15 @@ export function TabBar({ tabs, selectedTabIndex }) {
       <div className="flex-none min-w-full px-4 sm:px-6">
         <ul className="border-b border-slate-200 space-x-6 flex whitespace-nowrap dark:border-slate-200/5">
           {tabs.map((tab, tabIndex) => (
-            <li key={tab.name}>
+            <li key={tab.key || tab.name}>
               <h2>
                 <Link href={tab.href} scroll={false}>
                   <a
                     className={clsx(
                       'flex text-sm leading-6 font-semibold pt-3 pb-2.5 border-b-2 -mb-px',
                       tabIndex === selectedTabIndex
-                        ? 'text-sky-500 border-current'
-                        : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700'
+                        ? 'text-sky-500 border-current [&_code]:bg-sky-50'
+                        : 'text-slate-900 border-transparent hover:border-slate-300 dark:text-slate-200 dark:hover:border-slate-700 [&_code]:bg-slate-100 dark:[&_code]:bg-slate-800'
                     )}
                   >
                     {tab.name}

@@ -142,7 +142,9 @@ export function getStaticProps() {
 
 TailwindCli.layoutProps = {
   meta: {
-    title: 'Установка: Tailwind CLI',
+    title: 'Установка',
+    description:
+      'Самый простой и быстрый способ начать работу с Tailwind CSS с нуля — использовать инструмент командной строки Tailwind.',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

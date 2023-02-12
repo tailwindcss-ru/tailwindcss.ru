@@ -97,7 +97,7 @@ export default function UsingAngular({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с Angular"
-      description="Настройка Tailwind CSS в проекте Angular."
+      description="Настройте Tailwind CSS в проекте Angular."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -117,6 +117,7 @@ export function getStaticProps() {
 UsingAngular.layoutProps = {
   meta: {
     title: 'Установите Tailwind CSS с Angular',
+    description: 'Настройте Tailwind CSS в проекте Angular.',
     section: 'Начало работы',
   },
   Layout: DocumentationLayout,

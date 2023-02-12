@@ -32,6 +32,7 @@ module.exports = {
 - `matchComponents()`, для регистрации новых стилей динамических компонентов
 - `addBase()`, для регистрации новых базовых стилей
 - `addVariant()`, для регистрации пользовательских вариантов
+- `matchVariant()`, для регистрации пользовательских динамических вариантов
 - `theme()`, для поиска значений в конфигурации темы пользователя
 - `config()`, для поиска значений в пользовательской конфигурации Tailwind
 - `corePlugins()`, для проверки, включен ли основной плагин
@@ -153,7 +154,7 @@ module.exports = {
 }
 ```
 
-Узнайте больше о представлении ваших стилей в JavaScript в справочнике [синтаксис CSS-in-JS](#css-in-js-syntax).
+Узнайте больше о том, как представлять свои стили в JavaScript, в справочнике по [синтаксису CSS-in-JS](#css-in-js-syntax).
 
 ### Динамические утилиты
 
@@ -439,9 +440,11 @@ module.exports = {
 
 ## Добавление вариантов
 
-Функция `addVariant` позволяет вам зарегистрировать свои собственные [модификаторы](/docs/hover-focus-and-other-states), которые можно использовать так же, как встроенные варианты hover, focus, active и т. д.
+Функции `addVariant` и `matchVariant` позволяют вам регистрировать свои собственные [модификаторы](/docs/hover-focus-and-other-states), которые можно использовать так же, как и встроенные варианты, такие как `hover`, `focus` или `supports`.
 
-Чтобы добавить новый вариант, вызовите функцию `addVariant`, передав имя вашего настраиваемого варианта и строку формата, которая представляет, как следует изменить селектор.
+### Статические варианты
+
+Используйте функцию `addVariant` для простых пользовательских вариантов, передав имя вашего пользовательского варианта и строку формата, которая представляет, как следует изменить селектор.
 
 ```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
@@ -452,7 +455,7 @@ module.exports = {
     plugin(function({ addVariant }) {
       addVariant('optional', '&:optional')
       addVariant('hocus', ['&:hover', '&:focus'])
-      addVariant('supports-grid', '@supports (display: grid)')
+      addVariant('inverted-colors', '@media (inverted-colors: inverted)')
     })
   ]
 }
@@ -461,10 +464,56 @@ module.exports = {
 Первый аргумент - это имя модификатора, которое пользователи будут использовать в своем HTML, поэтому в приведенном выше примере можно было бы написать такие классы:
 
 ```html
-<form class="flex **supports-grid:grid** ...">
+<form class="flex **inverted-colors:outline** ...">
   <input class="**optional:border-gray-300** ..." />
   <button class="bg-blue-500 **hocus:bg-blue-600**">...</button>
 </form>
+```
+
+### Dynamic variants
+
+Use the `matchVariant` function to register new parameterized variants like the built-in `supports-*`, `data-*`, and `aria-*` variants:
+
+```js tailwind.config.js
+const plugin = require('tailwindcss/plugin')
+
+module.exports = {
+  plugins: [
+    plugin(function({ matchVariant }) {
+      matchVariant(
+        'nth',
+        (value) => {
+          return `&:nth-child(${value})`;
+        },
+        {
+          values: {
+            1: '1',
+            2: '2',
+            3: '3',
+          }
+        }
+      );
+    })
+  ]
+}
+```
+
+Variants defined with `matchVariant` also support arbitrary values using square bracket notation:
+
+```html
+<div class="**nth-[3n+1]:bg-blue-500** ...">
+  <!-- ... -->
+</div>
+```
+
+Use the `sort` option to control the source order of the generated CSS if needed to avoid precedence issues with other values that come from the same variant:
+
+```js
+matchVariant("min", (value) => `@media (min-width: ${value})`, {
+  sort(a, z) {
+    return parseInt(a) - parseInt(z);
+  },
+});
 ```
 
 ### Parent and sibling states

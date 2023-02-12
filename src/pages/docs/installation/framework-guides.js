@@ -2,26 +2,27 @@ import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
 import Link from 'next/link'
 
-import { ReactComponent as NextJsLogo } from '@/img/guides/nextjs.svg'
-import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg'
-import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
-import { ReactComponent as LaravelLogo } from '@/img/guides/laravel.svg'
-import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
-import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
-import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
-import { ReactComponent as CraLogo } from '@/img/guides/cra.svg'
+import { ReactComponent as AdonisLogo } from '@/img/guides/adonis.svg'
 import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
 import { ReactComponent as AngularLogoWhite } from '@/img/guides/angular-white.svg'
-import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
-import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
+import { ReactComponent as CraLogo } from '@/img/guides/cra.svg'
+import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
+import { ReactComponent as LaravelLogo } from '@/img/guides/laravel.svg'
+import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
+import { ReactComponent as NextJsLogo } from '@/img/guides/nextjs.svg'
+import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg'
+import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
+import { ReactComponent as ParcelLogo } from '@/img/guides/parcel.svg'
+import { ReactComponent as PhoenixLogo } from '@/img/guides/phoenix.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
+import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
+import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
+import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
+import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
 import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
 import { ReactComponent as SymfonyLogoWhite } from '@/img/guides/symfony-white.svg'
-import { ReactComponent as MeteorLogo } from '@/img/guides/meteor.svg'
-import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
-import PhoenixLogo from '@/img/guides/phoenix.png'
-import ParcelLogo from '@/img/guides/parcel.png'
+import { ReactComponent as ViteLogo } from '@/img/guides/vite.svg'
 
 export default function FrameworkGuides() {
   return (
@@ -106,29 +107,14 @@ export default function FrameworkGuides() {
           {
             name: 'Phoenix',
             slug: 'phoenix',
-            description:
-              'Фреймворк для создания многофункциональных интерактивных приложений с помощью Elixir.',
-            logo: () => (
-              <img
-                src={PhoenixLogo.src}
-                alt="Phoenix"
-                role="presentation"
-                className="w-10 h-10 object-contain object-center"
-              />
-            ),
+            description: 'Фреймворк для создания многофункциональных интерактивных приложений с помощью Elixir.',
+            logo: PhoenixLogo,
           },
           {
             name: 'Parcel',
             slug: 'parcel',
             description: 'Инструмент сборки с нулевой конфигурацией для Интернета.',
-            logo: () => (
-              <img
-                src={ParcelLogo.src}
-                alt="Parcel"
-                role="presentation"
-                className="w-10 h-10 object-contain object-center"
-              />
-            ),
+            logo: ParcelLogo,
           },
           {
             name: 'Symfony',
@@ -148,6 +134,12 @@ export default function FrameworkGuides() {
             slug: 'create-react-app',
             description: 'CLI tool for scaffolding a new single-page React application.',
             logo: CraLogo,
+          },
+          {
+            name: 'AdonisJS',
+            slug: 'adonisjs',
+            description: 'A fully featured web framework for Node.js.',
+            logo: AdonisLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
@@ -207,7 +199,9 @@ export default function FrameworkGuides() {
 
 FrameworkGuides.layoutProps = {
   meta: {
-    title: 'Установка: Руководства по фреймворкам',
+    title: 'Руководства по фреймворку',
+    description:
+      'Руководства для конкретных платформ, которые охватывают рекомендуемый нами подход к установке Tailwind CSS в ряде популярных сред.',
     section: 'Начало работы',
   },
   Layout: DocumentationLayout,

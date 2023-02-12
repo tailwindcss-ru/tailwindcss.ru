@@ -131,7 +131,7 @@ export default function UsingParcel({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с Parcel"
-      description="Настройка Tailwind CSS в проекте Parcel."
+      description="Настройте Tailwind CSS в проекте Parcel."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -150,7 +150,8 @@ export function getStaticProps() {
 
 UsingParcel.layoutProps = {
   meta: {
-    title: 'Установите Tailwind CSS с Parcel',
+    title: 'Установите Tailwind CSS c Parcel',
+    description: 'Настройка Tailwind CSS в проекте Parcel.',
     section: 'Установка',
   },
   Layout: DocumentationLayout,

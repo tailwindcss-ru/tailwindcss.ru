@@ -13,12 +13,9 @@ let tabs = [
         title: 'Создайте свой проект',
         body: () => (
           <p>
-            Начните с создания нового проекта Vite, если у вас его еще нет. Самый распространенный
-            подход — использовать{' '}
-            <a href="https://github.com/vitejs/vite/tree/main/packages/create-vite#readme">
-              Create Vite
-            </a>
-            .
+            Начните с создания нового проекта Vite, если у вас его еще нет.
+            Самый распространенный подход — использовать{' '}
+            <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project">Создать Vite</a>.
           </p>
         ),
         code: {
@@ -189,7 +186,7 @@ let tabs = [
         title: 'Начните процесс сборки',
         body: () => (
           <p>
-            Run your build process with <code>npm run dev</code>.
+            Запустите процесс сборки с помощью <code>npm run dev</code>.
           </p>
         ),
         code: {
@@ -229,7 +226,7 @@ export default function UsingVite({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с Vite"
-      description="Настройка Tailwind CSS в проекте Vite."
+      description="Настройте Tailwind CSS в проекте Vite."
     >
       <TabBar tabs={tabs} selectedTabIndex={selectedTabIndex} />
       <Steps steps={tabs[selectedTabIndex].steps} code={code[selectedTabIndex]} />
@@ -249,7 +246,8 @@ export function getStaticProps() {
 
 UsingVite.layoutProps = {
   meta: {
-    title: 'Установите Tailwind CSS с Vite',
+    title: 'Установите Tailwind CSS c Vite',
+    description: 'Настройка Tailwind CSS в проекте Vite.',
     section: 'Установка',
   },
   Layout: DocumentationLayout,

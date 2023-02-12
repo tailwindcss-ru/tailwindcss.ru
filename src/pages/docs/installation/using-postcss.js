@@ -136,7 +136,7 @@ export default function UsingPostCss({ code }) {
             <strong className="font-semibold text-slate-900 dark:text-slate-200">
               Вы застряли?
             </strong>{' '}
-            Настройка Tailwind с помощью PostCSS может немного отличаться в разных инструментах
+            Настройте Tailwind с помощью PostCSS может немного отличаться в разных инструментах
             сборки. Ознакомьтесь с нашими руководствами по фреймворку, чтобы узнать, есть ли у нас
             более конкретные инструкции для вашей конкретной настройки.
           </>
@@ -158,7 +158,9 @@ export function getStaticProps() {
 
 UsingPostCss.layoutProps = {
   meta: {
-    title: 'Установка: Использование PostCSS',
+    title: 'Установите Tailwind CSS с помощью PostCSS',
+    description:
+      'Установка Tailwind CSS в качестве плагина PostCSS — это самый простой способ интегрировать его с инструментами сборки, такими как webpack, Rollup, Vite и Parcel.',
     section: 'Начало работы',
   },
   Layout: DocumentationLayout,

@@ -157,7 +157,8 @@ export function getStaticProps() {
 
 PlayCdn.layoutProps = {
   meta: {
-    title: 'Установка: Play CDN',
+    title: 'Попробуйте Tailwind CSS с помощью Play CDN',
+    description: 'Используйте Play CDN, чтобы попробовать Tailwind прямо в браузере, не выполняя никаких действий по сборке.',
     section: 'Начало работы',
   },
   Layout: DocumentationLayout,

@@ -1,5 +1,3 @@
-import clsx from 'clsx'
-import Link from 'next/link'
 import { useRouteHash } from '@/hooks/useRouteHash'
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { FrameworkGuideLayout } from '@/layouts/FrameworkGuideLayout'
@@ -251,7 +249,7 @@ export default function UsingLaravel({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с Laravel"
-      description="Настройка Tailwind CSS в проекте Laravel."
+      description="Настройте Tailwind CSS в проекте Laravel."
     >
       <TabBar tabs={tabs} selectedTabIndex={selectedTabIndex} />
       <Steps steps={tabs[selectedTabIndex].steps} code={code[selectedTabIndex]} />
@@ -272,6 +270,7 @@ export function getStaticProps() {
 UsingLaravel.layoutProps = {
   meta: {
     title: 'Установите Tailwind CSS с Laravel',
+    description: 'Настройте Tailwind CSS в проекте Laravel.',
     section: 'Установка',
   },
   Layout: DocumentationLayout,

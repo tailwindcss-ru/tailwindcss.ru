@@ -101,7 +101,7 @@ export default function UsingRails({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с Ruby on Rails"
-      description="Настройка Tailwind CSS в проекте Ruby on Rails v7+."
+      description="Настройте Tailwind CSS в проекте Ruby on Rails v7+."
     >
       <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
         <p>
@@ -129,7 +129,8 @@ export function getStaticProps() {
 
 UsingRails.layoutProps = {
   meta: {
-    title: 'Установите Tailwind CSS с Ruby on Rails',
+    title: 'Установите Tailwind CSS c Ruby on Rails',
+    description: 'Настройка Tailwind CSS в проекте Ruby on Rails v7+.',
     section: 'Установка',
   },
   Layout: DocumentationLayout,

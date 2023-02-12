@@ -60,15 +60,23 @@ let steps = [
   },
   {
     title: 'Обновите сценарий развертывания',
-    body: () => <p>Настройте псевдоним для создания своего CSS при развертывании.</p>,
+    body: () => (
+      <p>
+        Настройте псевдоним <code>assets.deploy</code>, чтобы создать свой CSS при развертывании.
+      </p>
+    ),
     code: {
       name: 'mix.exs',
       lang: 'elixir',
       code: `  defp aliases do
     [
+      setup: ["deps.get", "ecto.setup"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
 >     "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
-  ]`,
+  end`,
     },
   },
   {
@@ -82,6 +90,8 @@ let steps = [
       name: 'dev.exs',
       lang: 'elixir',
       code: `  watchers: [
+    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
 >   tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]`,
     },
@@ -184,7 +194,7 @@ export default function UsingPhoenix({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с Phoenix"
-      description="Настройка Tailwind CSS в проекте Phoenix."
+      description="Настройте Tailwind CSS в проекте Phoenix."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -203,7 +213,8 @@ export function getStaticProps() {
 
 UsingPhoenix.layoutProps = {
   meta: {
-    title: 'Установите Tailwind CSS с Phoenix',
+    title: 'Установите Tailwind CSS c Phoenix',
+    description: 'Настройка Tailwind CSS в проекте Phoenix.',
     section: 'Установка',
   },
   Layout: DocumentationLayout,

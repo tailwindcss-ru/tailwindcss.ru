@@ -6,12 +6,12 @@ import { SnippetGroup } from '@/components/SnippetGroup'
 import { Editor } from '@/components/Editor'
 import { Transition } from '@headlessui/react'
 
-export function Steps({ steps, code, level = 2 }) {
+export function Steps({ intro, steps, code, level = 2 }) {
   let StepHeading = `h${level}`
 
   return (
     <>
-      <div className="hidden sm:block absolute top-0 left-[15%] pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] dark:hidden">
+      <div className="hidden sm:block absolute -z-10 top-0 left-[15%] pt-[40%] 2xl:left-[40%] 2xl:pt-[8%] dark:hidden">
         <img
           src={require('@/img/beams/installation.jpg').default.src}
           alt=""
@@ -19,6 +19,11 @@ export function Steps({ steps, code, level = 2 }) {
           decoding="async"
         />
       </div>
+      {intro && (
+        <div className="relative z-10 max-w-3xl mb-16 prose prose-slate dark:prose-dark">
+          {intro()}
+        </div>
+      )}
       <ol className="relative space-y-2 mb-16" style={{ counterReset: 'step' }}>
         {steps.map((step, index) => (
           <li

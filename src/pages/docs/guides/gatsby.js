@@ -1,6 +1,5 @@
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { FrameworkGuideLayout } from '@/layouts/FrameworkGuideLayout'
-import { Cta } from '@/components/Cta'
 import { Steps } from '@/components/Steps'
 
 let steps = [
@@ -141,7 +140,7 @@ export default function UsingGatsby({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS с Gatsby"
-      description="Настройка Tailwind CSS в проекте Gatsby."
+      description="Настройте Tailwind CSS в проекте Gatsby."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -161,6 +160,7 @@ export function getStaticProps() {
 UsingGatsby.layoutProps = {
   meta: {
     title: 'Установите Tailwind CSS с Gatsby',
+    description: 'Настройте Tailwind CSS в проекте Gatsby.',
     section: 'Установка',
   },
   Layout: DocumentationLayout,

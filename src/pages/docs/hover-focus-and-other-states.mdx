@@ -64,7 +64,7 @@ Tailwind включает в себя модификаторы практиче�
 
 - [Псевдоклассы](#pseudo-classes), такие как `:hover`, `:focus`, `:first-child`, и `:required`
 - [Псевдоэлементы](#pseudo-elements), такие как `::before`, `::after`, `::placeholder`, и `::selection`
-- [Медиа-запросы](#media-queries), такие как отзывчивые контрольные точки, темный режим и `prefers-reduced-motion`
+- [Медиа и функциональные запросы](#media-and-feature-queries), такие как отзывчивые контрольные точки, темный режим и `prefers-reduced-motion`
 - [Селекторы атрибутов](#attribute-selectors), такие как `[dir="rtl"]` и `[open]`
 
 Эти модификаторы могут быть даже [сложены](#ordering-stacked-modifiers) для более конкретных ситуаций, например, изменение цвета фона в темном режиме, в средней контрольной точке, при наведении курсора:
@@ -304,7 +304,7 @@ Tailwind также включает модификаторы для други�
 <form>
   <label class="block">
     <span class="block text-sm font-medium text-slate-700">Имя пользователя</span>
-    <!-- Using form state modifers, the classes can be identical for every input -->
+    <!-- Using form state modifiers, the classes can be identical for every input -->
     <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       **disabled:bg-slate-50** **disabled:text-slate-500** **disabled:border-slate-200** **disabled:shadow-none**
@@ -1688,7 +1688,7 @@ dark(groupHover(focus('opacity-100')))
 
 #### focus <small>(:focus)</small>
 
-Стилизуйте элемент, когда он находится в фокусе модификатора `focus`:
+Стилизуйте элемент, когда он находится в фокусе, используя модификатор `focus`:
 
 ```html
 <input class="border-gray-300 **focus:border-blue-400** ..." />
