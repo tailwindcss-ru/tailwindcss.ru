@@ -77,11 +77,11 @@ import { SnippetGroup } from '@/components/SnippetGroup'
 }
 ```
 
-Tailwind автоматически переместит любой CSS в директиве `@layer` в то же место, что и соответствующее правило `@tailwind`, поэтому вам не нужно беспокоиться о создании CSS в определенном порядке, чтобы избежать проблем со специфичностью.
+Tailwind автоматически переместит CSS внутри любой директивы `@layer` в то же место, что и соответствующее правило `@tailwind`, поэтому вам не нужно беспокоиться о создании CSS в определенном порядке, чтобы избежать проблем со специфичностью.
 
 Любой пользовательский CSS, добавленный к слою, будет включен в окончательную сборку только в том случае, если этот CSS действительно используется в вашем HTML, как и все классы, встроенные в Tailwind по умолчанию.
 
-Обертывание любого пользовательского CSS в директиве `@layer` также позволяет использовать модификаторы с этими правилами, такие как `hover:` и `focus:`, или адаптивные модификаторы, такие как `md:` и `lg:`.
+Обертывание любого пользовательского CSS с помощью `@layer` также позволяет использовать модификаторы с этими правилами, такие как `hover:` и `focus:`, или адаптивные модификаторы, такие как `md:` и `lg:`.
 
 ### @apply
 
@@ -240,6 +240,32 @@ Use the `@config` directive to specify which config file Tailwind should use whe
 </SnippetGroup>
 
 The path you provide to the `@config` directive is relative to that CSS file, and will take precedence over a path defined in your PostCSS configuration or in the Tailwind CLI.
+
+Note that if you're using `postcss-import`, your `@import` statements need to come before `@config` for things to work correctly, as `postcss-import` is strict about following the CSS spec which requires `@import` statements to precede any other rules in the file.
+
+<TipBad>Don't put <code>@config</code> before your <code>@import</code> statements</TipBad>
+
+```css admin.css
+@config "./tailwind.admin.config.js";
+
+@import "tailwindcss/base";
+@import "./custom-base.css";
+@import "tailwindcss/components";
+@import "./custom-components.css";
+@import "tailwindcss/utilities";
+```
+
+<TipGood>Put your <code>@import</code> statements before the <code>@config</code> directive</TipGood>
+
+```css admin.css
+@import "tailwindcss/base";
+@import "./custom-base.css";
+@import "tailwindcss/components";
+@import "./custom-components.css";
+@import "tailwindcss/utilities";
+
+@config "./tailwind.admin.config.js";
+```
 
 ---
 

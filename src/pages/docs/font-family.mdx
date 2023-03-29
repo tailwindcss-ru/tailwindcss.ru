@@ -108,9 +108,9 @@ export const classes = { utilities }
 
 Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-#### Предоставление настроек шрифта по умолчанию
 
-При желании вы можете указать [font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) для каждого шрифта в вашем проекте, используя кортеж форма `[fontFamilies, { fontFeatureSettings }]` при настройке пользовательских шрифтов.
+#### Предоставление настроек шрифта по умолчанию
+При желании вы можете указать [настройки-функции-шрифта по умолчанию]](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) и [настройки-вариации-шрифта](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings) для каждого шрифта в вашем проекте, используя кортеж формы `[fontFamilies, { fontFeatureSettings, fontVariationSettings }]` при настройке пользовательского шрифты.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -118,7 +118,10 @@ export const classes = { utilities }
       fontFamily: {
         sans: [
           "Inter var, sans-serif",
-+         { fontFeatureSettings: '"cv11", "ss01"' },
++         {
++           fontFeatureSettings: '"cv11", "ss01"',
++           fontVariationSettings: '"opsz" 32'
++         },
         ],
       },
     },

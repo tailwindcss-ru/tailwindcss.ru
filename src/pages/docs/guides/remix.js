@@ -18,17 +18,36 @@ let steps = [
     },
   },
   {
-    title: 'Установите Tailwind CSS',
+    title: 'Включить встроенную поддержку CSS Tailwind в Remix',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code> и <code>одновременно</code> через npm, а затем запустите команду init
-        для создания файла <code>tailwind.config.js</code>.
+        Установите флаг функции <code>unstable_tailwind</code> в файле <code>remix.config.js</code>{' '}.
+        В конце концов это станет стабильным и не будет необходимо.
+      </p>
+    ),
+    code: {
+      name: 'remix.config.js',
+      lang: 'js',
+      code: `  /** @type {import('@remix-run/dev').AppConfig} */
+  module.exports = {
+>   future: {
+>     unstable_tailwind: true,
+>   },
+  }`,
+    },
+  },
+  {
+    title: 'Установите CSS Tailwind',
+    body: () => (
+      <p>
+        Установите <code>tailwindcss</code> через npm, а затем запустите команду init для создания файла{' '}
+        <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss concurrently\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss\nnpx tailwindcss init',
     },
   },
   {
@@ -43,9 +62,7 @@ let steps = [
       lang: 'js',
       code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
->   content: [
->     "./app/**/*.{js,ts,jsx,tsx}",
->   ],
+>   content: ["./app/**/*.{js,jsx,ts,tsx}"],
     theme: {
       extend: {},
     },
@@ -54,36 +71,15 @@ let steps = [
     },
   },
   {
-    title: 'Обновите скрипты package.json',
-    body: () => (
-      <p>
-        Обновите сценарии в файле <code>package.json</code>, чтобы создать CSS для разработки и
-        производства.
-      </p>
-    ),
-    code: {
-      name: 'package.json',
-      lang: 'json5',
-      code: `  {
-    "scripts": {
->     "build": "npm run build:css && remix build",
->     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
->     "dev": "concurrently \\\"npm run dev:css\\\" \\\"remix dev\\\"",
->     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css"
-    }
-  }`,
-    },
-  },
-  {
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Создайте файл <code>./styles/app.css</code> и добавьте директивы <code>@tailwind</code> для
-        каждого слоя Tailwind.
+        Создайте файл <code>./app/tailwind.css</code> и добавьте директивы <code>@tailwind</code>
+        для каждого слоя Tailwind.
       </p>
     ),
     code: {
-      name: 'app.css',
+      name: 'tailwind.css',
       lang: 'css',
       code: '@tailwind base;\n@tailwind components;\n@tailwind utilities;',
     },
@@ -92,18 +88,18 @@ let steps = [
     title: 'Импортируйте файл CSS',
     body: () => (
       <p>
-        Импортируйте скомпилированный файл <code>./app/styles/app.css</code> в ваш файл{' '}
+        Импортируйте только что созданный файл <code>./app/tailwind.css</code> в ваш файл{' '}
         <code>./app/root.jsx</code>.
       </p>
     ),
     code: {
-      name: 'root.jsx',
-      lang: 'js',
-      code: `import styles from "./styles/app.css"
+      name: 'root.tsx',
+      lang: 'tsx',
+      code: `import stylesheet from "~/tailwind.css";
 
-export function links() {
-  return [{ rel: "stylesheet", href: styles }]
-}`,
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];`,
     },
   },
   {
@@ -123,8 +119,8 @@ export function links() {
     title: 'Начните использовать Tailwind в своем проекте',
     body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
-      name: 'index.jsx',
-      lang: 'jsx',
+      name: 'index.tsx',
+      lang: 'tsx',
       code: `  export default function Index() {
     return (
 >     <h1 className="text-3xl font-bold underline">

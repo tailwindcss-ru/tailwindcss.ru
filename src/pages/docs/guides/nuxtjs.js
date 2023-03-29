@@ -28,38 +28,15 @@ let tabs = [
         body: () => (
           <>
             <p>
-              Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости, а также{' '}
-              <code>@nuxt/postcss8</code>, а затем запустите команду init для создания{' '}
-              файл <code>tailwind.config.js</code>.
-            </p>
-            <p className="mt-3 text-xs italic">
-              Использование <code>@latest</code> необходимо, поскольку Nuxt по умолчанию устанавливает
-              PostCSS v7 и Autoprefixer v9.
+              Установите <code>tailwindcss</code> и его одноранговые зависимости через npm,
+              а затем запустите команду init для создания файла <code>tailwind.config.js</code>.
             </p>
           </>
         ),
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss@latest autoprefixer@latest @nuxt/postcss8\nnpx tailwindcss init',
-        },
-      },
-      {
-        title: 'Включите плагин Nuxt.js PostCSS',
-        body: () => (
-          <p>
-            В файле <code>nuxt.config.js</code> включите подключаемый модуль <code>@nuxt/postcss8</code>.
-          </p>
-        ),
-        code: {
-          name: 'nuxt.config.js',
-          lang: 'js',
-          code: `  export default {
-    buildModules: [
->     '@nuxt/postcss8',
-      // ...
-    ],
-  }`,
+          code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init',
         },
       },
       {
@@ -76,9 +53,11 @@ let tabs = [
           code: `  export default {
     build: {
 >     postcss: {
->       plugins: {
->         tailwindcss: {},
->         autoprefixer: {},
+>       postcssOptions: {
+>         plugins: {
+>           tailwindcss: {},
+>           autoprefixer: {},
+>         },
 >       },
 >     },
     }
@@ -218,7 +197,7 @@ let tabs = [
         code: {
           name: 'nuxt.config.js',
           lang: 'js',
-          code: `  // https://v3.nuxtjs.org/api/configuration/nuxt.config
+          code: `  // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
 >   postcss: {
 >     plugins: {
@@ -282,7 +261,7 @@ let tabs = [
         code: {
           name: 'nuxt.config.js',
           lang: 'js',
-          code: `  // https://v3.nuxtjs.org/api/configuration/nuxt.config
+          code: `  // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
 >   css: ['~/assets/css/main.css'],
     postcss: {

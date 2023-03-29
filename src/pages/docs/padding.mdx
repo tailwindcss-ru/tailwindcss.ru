@@ -9,7 +9,6 @@ import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
-
 export const classes = {
   utilities,
   sort: (classes) => numbersFirst(classes),
@@ -114,6 +113,51 @@ export const classes = {
 ```html
 <div class="**p-8** ...">p-8</div>
 ```
+
+### Using logical properties
+
+Use the `ps-*` and `pe-*` utilities to set the `padding-inline-start` and `padding-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
+
+<Example>
+  <div class="grid grid-cols-2 gap-x-4 place-items-center">
+    <div class="flex flex-col items-start gap-y-4">
+      <p class="text-sm font-medium">Left-to-right</p>
+      <div class="bg-indigo-500 rounded-lg shadow-lg overflow-hidden flex font-mono text-white text-sm font-bold leading-6">
+        <div class="w-8 bg-stripes-white"></div>
+        <div class="p-4">ps-8</div>
+      </div>
+      <div class="mt-4 bg-indigo-500 rounded-lg shadow-lg overflow-hidden flex font-mono text-white text-sm font-bold leading-6">
+        <div class="p-4">pe-8</div>
+        <div class="w-8 bg-stripes-white"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-end gap-y-4">
+      <p class="text-sm font-medium">Right-to-left</p>
+      <div class="bg-indigo-500 rounded-lg shadow-lg overflow-hidden flex font-mono text-white text-sm font-bold leading-6">
+        <div class="p-4">ps-8</div>
+        <div class="w-8 bg-stripes-white"></div>
+      </div>
+      <div class="mt-4 bg-indigo-500 rounded-lg shadow-lg overflow-hidden flex font-mono text-white text-sm font-bold leading-6">
+        <div class="w-8 bg-stripes-white"></div>
+        <div class="p-4">pe-8</div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div dir="**ltr**">
+  <div class="**ps-8** ...">ps-8</div>
+  <div class="**pe-8** ...">pe-8</div>
+<div>
+
+<div dir="**rtl**">
+  <div class="**ps-8** ...">ps-8</div>
+  <div class="**pe-8** ...">pe-8</div>
+<div>
+```
+
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
 ---
 

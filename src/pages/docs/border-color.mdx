@@ -146,6 +146,37 @@ export const classes = {
 <div class="border-4 border-indigo-200 **border-y-indigo-500** ..."></div>
 ```
 
+### Using logical properties
+
+<UsingLogicalProperties feature="Border color" syntax="border-{s|e}-{color}" />
+
+Use the `border-s-*` and `border-e-*` utilities to set the `border-inline-start-color` and `border-inline-end-color` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction.
+
+<Example>
+  <div class="grid grid-cols-2 gap-x-4 place-items-center">
+    <div class="flex flex-col items-start gap-y-4" dir="ltr">
+      <p class="text-sm font-medium">Left-to-right</p>
+      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 w-16 h-16 border-indigo-200 dark:border-indigo-600/20 border-4 border-s-indigo-500 dark:border-s-indigo-500"></div>
+    </div>
+    <div class="flex flex-col items-start gap-y-4" dir="rtl">
+      <p class="text-sm font-medium">Right-to-left</p>
+      <div class="p-4 shadow-sm bg-white dark:bg-slate-900 ring-1 ring-slate-900/5 w-16 h-16 border-indigo-200 dark:border-indigo-600/20 border-4 border-s-indigo-500 dark:border-s-indigo-500"></div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div dir="**ltr**">
+  <div class="**border-s-indigo-500** ..."></div>
+<div>
+
+<div dir="**rtl**">
+  <div class="**border-s-indigo-500** ..."></div>
+<div>
+```
+
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+
 ---
 
 ## <Heading ignore>Применяя условно</Heading>

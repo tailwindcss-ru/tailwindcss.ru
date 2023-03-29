@@ -118,6 +118,47 @@ export const classes = {
 <div class="**-mt-8** bg-sky-300 ...">-mt-8</div>
 ```
 
+### Using logical properties
+
+Use the `ms-*` and `me-*` utilities to set the `margin-inline-start` and `margin-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
+
+<Example>
+  <div class="grid grid-cols-2 gap-x-4 place-items-center">
+    <div class="flex flex-col items-start gap-y-4" dir="ltr">
+      <p class="text-sm font-medium">Left-to-right</p>
+      <div class="bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 ms-8">ms-8</div>
+      </div>
+      <div class="mt-4 bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 me-8">me-8</div>
+      </div>
+    </div>
+    <div class="flex flex-col items-start gap-y-4" dir="rtl">
+      <p class="text-sm font-medium">Right-to-left</p>
+      <div class="bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 ms-8">ms-8</div>
+      </div>
+      <div class="mt-4 bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 me-8">me-8</div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div dir="**ltr**">
+  <div class="**ms-8** ...">ms-8</div>
+  <div class="**me-8** ...">me-8</div>
+<div>
+
+<div dir="**rtl**">
+  <div class="**ms-8** ...">ms-8</div>
+  <div class="**me-8** ...">me-8</div>
+<div>
+```
+
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+
 ---
 
 ## <Heading ignore>Применяя условно</Heading>

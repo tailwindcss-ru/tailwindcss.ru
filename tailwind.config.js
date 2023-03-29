@@ -7,7 +7,11 @@ module.exports = {
     optimizeUniversalDefaults: true,
   },
   content: ['./src/**/*.{js,jsx,mdx,html}', './remark/**/*.js'],
-  blocklist: ['[html:has(&)]:bg-blue-500'],
+  blocklist: [
+    '[html:has(&)]:bg-blue-500',
+    'list-image-[url(checkmark.png)]',
+    'list-image-[url(carrot.png)]',
+  ],
   darkMode: 'class',
   theme: {
     // `demo-*` screens are used for the "mobile-first" responsive demo
@@ -270,7 +274,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms')({ strategy: 'class' }),

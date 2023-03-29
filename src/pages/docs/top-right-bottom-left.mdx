@@ -117,6 +117,43 @@ export const classes = {
 </div>
 ```
 
+### Using logical properties
+
+Use the `start-*` and `end-*` utilities to set the `inset-inline-start` and `inset-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
+
+<Example>
+  <div class="grid grid-cols-2 gap-x-4 place-items-center">
+    <div class="flex flex-col items-start gap-y-4">
+      <p class="text-sm font-medium">Left-to-right</p>
+      <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+        <div class="p-4 w-14 h-14 absolute top-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
+      </div>
+    </div>
+    <div class="flex flex-col items-end gap-y-4">
+      <p class="text-sm font-medium">Right-to-left</p>
+      <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+        <div class="p-4 w-14 h-14 absolute top-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div dir="**ltr**">
+  <div class="relative h-32 w-32 ...">
+    <div class="absolute h-14 w-14 top-0 **start-0** ..."></div>
+  </div>
+<div>
+
+<div dir="**rtl**">
+  <div class="relative h-32 w-32 ...">
+    <div class="absolute h-14 w-14 top-0 **start-0** ..."></div>
+  </div>
+<div>
+```
+
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+
 ---
 
 ## <Heading ignore>Применяя условно</Heading>

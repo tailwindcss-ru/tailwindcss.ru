@@ -110,9 +110,11 @@ export const classes = {
 ```diff-js tailwind.config.js
   module.exports = {
     theme: {
-+     maxWidth: {
-+       '1/2': '50%',
-+     }
+      extend: {
++       maxWidth: {
++         '1/2': '50%',
++       }
+      }
     }
   }
 ```

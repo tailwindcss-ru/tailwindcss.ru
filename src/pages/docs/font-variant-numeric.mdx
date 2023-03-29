@@ -36,13 +36,9 @@ export const classes = {
 
 Обратите внимание, что многие шрифты не поддерживают эти функции *(например, поддержка сложенных дробей особенно редка)*, поэтому некоторые из этих утилит могут не работать в зависимости от семейства шрифтов, которое вы используете.
 
--- block
-
-### Порядковый
+### Порядковый номер
 
 Используйте утилиту `ordinal`, чтобы включить специальные глифы для порядковых маркеров.
-
--- column
 
 <Example>
   <p class="font-source ordinal text-center text-slate-900 text-lg dark:text-slate-200">1-й</p>
@@ -52,15 +48,9 @@ export const classes = {
 <p class="**ordinal** ...">1-й</p>
 ```
 
--- /block
-
--- block
-
 ### Разрезанный ноль
 
 Используйте утилиту `slashed-zero`, чтобы установить 0 с косой чертой; это полезно, когда необходимо четкое различие между O и 0.
-
--- column
 
 <Example>
   <p class="font-source slashed-zero text-center text-slate-900 text-lg dark:text-slate-200">0</p>
@@ -70,15 +60,9 @@ export const classes = {
 <p class="**slashed-zero** ...">0</p>
 ```
 
--- /block
-
--- block
-
 ### Цифры на подкладке
 
 Используйте утилиту `lining-nums`, чтобы использовать числовые глифы, которые выровнены по своей базовой линии. Это соответствует функции OpenType `lnum`. Это значение по умолчанию для большинства шрифтов.
-
--- column
 
 <Example>
   <p class="font-source lining-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
@@ -90,15 +74,9 @@ export const classes = {
 </p>
 ```
 
--- /block
-
--- block
-
 ### Цифры в старинном стиле
 
 Используйте утилиту `oldstyle-nums` для использования числовых глифов там, где у некоторых чисел есть нижние элементы. Это соответствует функции OpenType `onum`.
-
--- column
 
 <Example>
   <p class="font-source oldstyle-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
@@ -110,15 +88,9 @@ export const classes = {
 </p>
 ```
 
--- /block
-
--- block
-
 ### Пропорциональные цифры
 
 Используйте утилиту `proportional-nums`, чтобы использовать числовые глифы с пропорциональной шириной (а не равномерные/табличные). Это соответствует функции OpenType `pnum`.
-
--- column
 
 <Example>
   <div class="max-w-sm text-right">
@@ -136,15 +108,9 @@ export const classes = {
 </p>
 ```
 
--- /block
-
--- block
-
 ### Табличные цифры
 
 Используйте утилиту `tabular-nums` для использования числовых глифов, которые имеют одинаковую/табличную ширину (а не пропорциональную). Это соответствует функции OpenType `tnum`.
-
--- column
 
 <Example>
   <div class="max-w-sm text-right">
@@ -162,15 +128,9 @@ export const classes = {
 </p>
 ```
 
--- /block
-
--- block
-
 ### Диагональные дроби
 
 Используйте утилиту `diagonal-fractions`, чтобы заменить числа, разделенные косой чертой, на обычные диагональные дроби. Это соответствует функции OpenType `frac`.
-
--- column
 
 <Example>
   <p class="font-source diagonal-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
@@ -182,15 +142,9 @@ export const classes = {
 </p>
 ```
 
--- /block
-
--- block
-
 ### Дробные фракции
 
 Используйте утилиту `stacked-fractions`, чтобы заменить числа, разделенные косой чертой, обычными составными дробями. Это соответствует функции OpenType `afrc`. Кажется, очень немногие шрифты поддерживают эту функцию — здесь мы использовали Ubuntu Mono.
-
--- column
 
 <Example>
   <p class="font-ubuntu-mono stacked-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
@@ -201,8 +155,6 @@ export const classes = {
   1/2 3/4 5/6
 </p>
 ```
-
--- /block
 
 ### Сброс вариантов числового шрифта
 

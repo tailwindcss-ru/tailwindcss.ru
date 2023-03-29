@@ -116,9 +116,11 @@ export const documentationNav = {
     pages['font-weight'],
     pages['font-variant-numeric'],
     pages['letter-spacing'],
+    pages['line-clamp'],
     pages['line-height'],
-    pages['list-style-type'],
+    pages['list-style-image'],
     pages['list-style-position'],
+    pages['list-style-type'],
     pages['text-align'],
     pages['text-color'],
     pages['text-decoration'],
@@ -132,6 +134,7 @@ export const documentationNav = {
     pages['vertical-align'],
     pages['whitespace'],
     pages['word-break'],
+    pages['hyphens'],
     pages['content'],
   ],
   'Фоны': [
@@ -192,9 +195,10 @@ export const documentationNav = {
   'Таблицы': [
     pages['border-collapse'],
     pages['border-spacing'],
-    pages['table-layout']
+    pages['table-layout'],
+    pages['caption-side'],
   ],
-  'Переходы и анимация': [
+  'Переходы и Анимация': [
     pages['transition-property'],
     pages['transition-duration'],
     pages['transition-timing-function'],
@@ -244,11 +248,7 @@ export const documentationNav = {
       href: 'https://github.com/tailwindlabs/tailwindcss-aspect-ratio',
     },
     {
-      title: 'Линейный зажим',
-      href: 'https://github.com/tailwindlabs/tailwindcss-line-clamp',
-    },
-    {
-      title: 'Container Queries',
+      title: 'Контейнерные запросы',
       href: 'https://github.com/tailwindlabs/tailwindcss-container-queries',
     },
   ],

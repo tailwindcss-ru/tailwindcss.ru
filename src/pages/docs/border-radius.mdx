@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Закругленные углы
 
-Используйте такие утилиты, как `.rounded-sm`, `.rounded` или `.rounded-lg`, чтобы применить к элементу разные размеры радиуса границы.
+Используйте такие утилиты, как `rounded-sm`, `rounded` или `rounded-lg`, чтобы применить различные размеры радиуса границы к элементу.
 
 <Example>
   <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
@@ -65,8 +65,6 @@ export const classes = { utilities }
 
 Используйте `rounded-none`, чтобы удалить существующий радиус границы элемента.
 
-Это чаще всего используется для удаления радиуса границы, который был применен в меньшей контрольной точке.
-
 <Example>
   <div class="flex justify-center gap-4 text-white text-sm text-center font-bold leading-6">
     <div class="flex flex-col items-center shrink-0">
@@ -80,7 +78,9 @@ export const classes = { utilities }
 <button class="**rounded-none** ...">Сохранить изменения</button>
 ```
 
-### Округление сторон отдельно
+Это чаще всего используется для удаления радиуса границы, который был применен к меньшей контрольной точке.
+
+### Скругление сторон отдельно
 
 Используйте `rounded-{t|r|b|l}{-size?}` только для округления одной стороны элемента.
 
@@ -112,7 +112,7 @@ export const classes = { utilities }
 <div class="**rounded-l-lg** ..."></div>
 ```
 
-## Отдельное скругление углов
+### Скругление углов отдельно
 
 Используйте `rounded-{tl|tr|br|bl}{-size?}` только для скругления одного угла элемента.
 
@@ -143,6 +143,46 @@ export const classes = { utilities }
 <div class="**rounded-br-lg** ..."></div>
 <div class="**rounded-bl-lg** ..."></div>
 ```
+
+### <Heading ignore>Using logical properties</Heading>
+
+Use the `rounded-{s|e|ss|se|es|ee}{-size?}` utilities to set the border radius using [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to the appropriate corners based on the text direction.
+
+<Example>
+  <div class="grid grid-cols-2 gap-x-4 place-items-center">
+    <div class="flex flex-col items-start gap-y-4" dir="ltr">
+      <p class="text-sm font-medium">Left-to-right</p>
+      <div class="p-4 shadow-sm bg-blue-500 w-16 h-16 rounded-s-lg"></div>
+    </div>
+    <div class="flex flex-col items-start gap-y-4" dir="rtl">
+      <p class="text-sm font-medium">Right-to-left</p>
+      <div class="p-4 shadow-sm bg-blue-500 w-16 h-16 rounded-s-lg"></div>
+    </div>
+  </div>
+</Example>
+
+```html
+<div dir="**ltr**">
+  <div class="**rounded-s-lg** ..."></div>
+<div>
+
+<div dir="**rtl**">
+  <div class="**rounded-s-lg** ..."></div>
+<div>
+```
+
+Here are all the available border color logical property utilities and their physical property equivalents in both LTR and RTL modes.
+
+| Class | Left-to-right | Right-to-left |
+| --- | --- | --- |
+| `rounded-s-*` | `rounded-l-*` | `rounded-r-*` |
+| `rounded-e-*` | `rounded-r-*` | `rounded-l-*` |
+| `rounded-ss-*` | `rounded-tl-*` | `rounded-tr-*` |
+| `rounded-se-*` | `rounded-tr-*` | `rounded-tl-*` |
+| `rounded-es-*` | `rounded-bl-*` | `rounded-br-*` |
+| `rounded-ee-*` | `rounded-br-*` | `rounded-bl-*` |
+
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
 ---
 
