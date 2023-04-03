@@ -63,7 +63,7 @@ const movies = [
     genre: 'Комедия',
     runtime: '1ч 46м',
     cast: 'Саймон Пегг, Зак Галифианакис',
-    image: require('@/img/prognosis-negative.jpg').default,
+    image: require('@/img/prognosis-negative.jpg').default.src,
   },
   {
     title: 'Рошель, Рошель',
@@ -73,7 +73,7 @@ const movies = [
     genre: 'Романтика',
     runtime: '1ч 56м',
     cast: 'Эмилия Кларк',
-    image: require('@/img/rochelle-rochelle.jpg').default,
+    image: require('@/img/rochelle-rochelle.jpg').default.src,
   },
   {
     title: 'Смертельный удар',
@@ -83,7 +83,7 @@ const movies = [
     genre: 'Экшен',
     runtime: '2ч 5м',
     cast: 'Идрис Эльба, Джон Сина, Тандиве Ньютон',
-    image: require('@/img/death-blow.jpg').default,
+    image: require('@/img/death-blow.jpg').default.src,
   },
 ]
 
@@ -556,8 +556,8 @@ export function ComponentDriven() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <IconContainer
           className="dark:bg-sky-500 dark:highlight-white/20"
-          light={require('@/img/icons/home/component-driven.png').default}
-          dark={require('@/img/icons/home/dark/component-driven.png').default}
+          light={require('@/img/icons/home/component-driven.png').default.src}
+          dark={require('@/img/icons/home/dark/component-driven.png').default.src}
         />
         <Caption className="text-sky-500">Компонентно-управляемый</Caption>
         <BigText>

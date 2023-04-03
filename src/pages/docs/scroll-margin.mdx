@@ -75,11 +75,11 @@ export const classes = {
 </div>
 ```
 
-### Using logical properties
+### Использование логических свойств
 
-Use the `scroll-ms-*` and `scroll-me-*` utilities to set the `scroll-margin-inline-start` and `scroll-margin-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction.
+Используйте утилиты `scroll-ms-*` и `scroll-me-*`, чтобы установить `scroll-margin-inline-start` и `scroll-margin-inline-end` [логические свойства](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), которые сопоставляются с левой или правой стороной в зависимости от направления текста.
 
-<Example p="none" hint="Scroll in the grid of images to see the expected behaviour">
+<Example p="none" hint="Прокрутите сетку изображений, чтобы увидеть ожидаемое поведение">
   <p class="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
   <div class="w-full flex gap-12 snap-x overflow-x-auto pb-10" dir="ltr">
     <div class="snap-start scroll-ms-6 shrink-0 relative first:ps-6 last:pr-[calc(100%-21.5rem)]">
@@ -148,7 +148,7 @@ Use the `scroll-ms-*` and `scroll-me-*` utilities to set the `scroll-margin-inli
 </div>
 ```
 
-For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+Для большего контроля вы также можете использовать [модификаторы LTR и RTL](/docs/hover-focus-and-other-states#rtl-support) для условного применения определенных стилей в зависимости от текущего направления текста.
 
 ---
 

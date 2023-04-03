@@ -5,7 +5,7 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Установка Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
         Установите <code>tailwindcss</code> и его одноранговые зависимости через npm и создайте файл{' '}
@@ -123,7 +123,7 @@ export default function UsingPostCss({ code }) {
       >
         <h3 className="sr-only">Installing Tailwind CSS as a PostCSS plugin</h3>
         <p>
-          Установка Tailwind CSS в качестве плагина PostCSS - самый простой способ интегрировать его
+          Установите Tailwind CSS в качестве плагина PostCSS - самый простой способ интегрировать его
           с такими инструментами сборки, как webpack, Rollup, Vite и Parcel.
         </p>
       </div>
@@ -160,7 +160,7 @@ UsingPostCss.layoutProps = {
   meta: {
     title: 'Установите Tailwind CSS с помощью PostCSS',
     description:
-      'Установка Tailwind CSS в качестве плагина PostCSS — это самый простой способ интегрировать его с инструментами сборки, такими как webpack, Rollup, Vite и Parcel.',
+      'Установите Tailwind CSS в качестве плагина PostCSS — это самый простой способ интегрировать его с инструментами сборки, такими как webpack, Rollup, Vite и Parcel.',
     section: 'Начало работы',
   },
   Layout: DocumentationLayout,

@@ -4,13 +4,13 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by{' '}
-        <a href="https://docs.adonisjs.com/guides/installation">creating a new AdonisJS project</a>{' '}
-        if you don’t have one set up already. Choose <code>web</code> for the project structure and{' '}
-        <code>y</code> when asked to include Webpack Encore.
+        Начните с{' '}
+        <a href="https://docs.adonisjs.com/guides/installation">создания нового проекта AdonisJS</a>,
+        если он еще не настроен. Выберите <code>web</code> для структуры проекта и{' '}
+        <code>y</code>, когда будет предложено включить Webpack Encore.
       </p>
     ),
     code: {
@@ -23,9 +23,9 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-        <code>postcss-loader</code>, and then run the init command to generate both{' '}
-        <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости, а также{' '}
+        <code>postcss-loader</code>, а затем запустите команду init для создания обоих{' '}
+        <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -35,14 +35,14 @@ let steps = [
     },
   },
   {
-    title: 'Enable PostCSS support',
+    title: 'Включите поддержку PostCSS',
     body: () => (
       <p>
-        In your <code>webpack.config.js</code> file, enable the PostCSS loader. See the{' '}
+        В файле <code>webpack.config.js</code> включите загрузчик PostCSS.
+        Дополнительную информацию смотрите в{' '}
         <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">
-          Webpack Encore documentation
-        </a>{' '}
-        for more information.
+          документации Webpack Encore
+        </a>.
       </p>
     ),
     code: {
@@ -62,10 +62,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -87,8 +87,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-        <code>./resources/css/app.css</code> file.
+        Добавьте директивы <code>@tailwind</code> для каждого из слоев Tailwind в ваш файл{' '}
+        <code>./resources/css/app.css</code>.
       </p>
     ),
     code: {
@@ -114,8 +114,8 @@ let steps = [
     title: 'Начните использовать Tailwind в своем проекте',
     body: () => (
       <p>
-        Make sure your compiled CSS is included in the <code>{'<head>'}</code> then start using
-        Tailwind’s utility classes to style your content.
+        Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>, а затем
+        начните использовать служебные классы Tailwind для оформления вашего контента.
       </p>
     ),
     code: {
@@ -142,7 +142,7 @@ export default function UsingAdonis({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS c AdonisJS"
-      description="Setting up Tailwind CSS in an AdonisJS project."
+      description="Настройка Tailwind CSS в проекте AdonisJS."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>

@@ -4,8 +4,7 @@ export function RemovingFilters({ defaultClass, element = 'div', children }) {
   return (
     <>
       <p>
-        To remove all of the filters on an element at once, use the <code>filter-none</code>{' '}
-        utility:
+        Чтобы сразу удалить все фильтры для элемента, используйте утилиту <code>filter-none</code>:
       </p>
       {children || (
         <pre className="language-html">
@@ -20,8 +19,8 @@ export function RemovingFilters({ defaultClass, element = 'div', children }) {
         </pre>
       )}
       <p>
-        This can be useful when you want to remove filters conditionally, such as on hover or at a
-        particular breakpoint.
+        Это может быть полезно, когда вы хотите удалить фильтры условно, например,
+        при наведении или в определенной контрольной точке.
       </p>
     </>
   )

@@ -4,8 +4,8 @@ export function RemovingBackdropFilters({ defaultClass, element = 'div', childre
   return (
     <>
       <p>
-        To remove all of the backdrop filters on an element at once, use the{' '}
-        <code>backdrop-filter-none</code> utility:
+        Чтобы удалить сразу все фоновые фильтры для элемента, используйте утилиту{' '}
+        <code>backdrop-filter-none</code>:
       </p>
       {children || (
         <pre className="language-html">
@@ -20,8 +20,8 @@ export function RemovingBackdropFilters({ defaultClass, element = 'div', childre
         </pre>
       )}
       <p>
-        This can be useful when you want to remove backdrop filters conditionally, such as on hover
-        or at a particular breakpoint.
+        Это может быть полезно, когда вы хотите условно удалить фоновые фильтры,
+        например, при наведении или в определенной контрольной точке.
       </p>
     </>
   )

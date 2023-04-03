@@ -4,8 +4,9 @@ export function HardwareAcceleration({ defaultClass, element = 'div', children }
   return (
     <>
       <p>
-        If your transition performs better when rendered by the GPU instead of the CPU, you can
-        force hardware acceleration by adding the <code>transform-gpu</code> utility:
+        Если ваш переход работает лучше при рендеринге с помощью графического процессора,
+        а не центрального процессора, вы можете принудительно ускорить аппаратное ускорение,
+        добавив утилиту <code>transform-gpu</code>:
       </p>
       {children || (
         <pre className="language-html">
@@ -20,8 +21,8 @@ export function HardwareAcceleration({ defaultClass, element = 'div', children }
         </pre>
       )}
       <p>
-        Use <code>transform-cpu</code> to force things back to the CPU if you need to undo this
-        conditionally.
+        Используйте <code>transform-cpu</code>, чтобы принудительно вернуть данные ЦП,
+        если вам нужно отменить это условно.
       </p>
     </>
   )

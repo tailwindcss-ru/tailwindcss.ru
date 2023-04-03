@@ -68,7 +68,7 @@ let tabs = [
         title: 'Настройте пути к шаблону',
         body: () => (
           <p>
-            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>{' '}.
+            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -155,11 +155,11 @@ let tabs = [
     href: '#3',
     steps: [
       {
-        title: 'Create your project',
+        title: 'Создайте свой проект',
         body: () => (
           <p>
-            Start by creating a new Nuxt.js project if you don’t have one set up already. The most
-            common approach is to use the{' '}
+            Начните с создания нового проекта Nuxt.js, если он у вас еще не настроен.
+            Самый распространенный подход — использовать{' '}
             <a href="https://nuxt.com/docs/getting-started/installation">
               Nuxt Command Line Interface
             </a>
@@ -176,8 +176,7 @@ let tabs = [
         title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the
-            init command to generate a <code>tailwind.config.js</code> file.
+            Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем запустите команду init для создания файла <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -190,8 +189,8 @@ let tabs = [
         title: 'Добавьте Tailwind в свою конфигурацию PostCSS',
         body: () => (
           <p>
-            Add <code>tailwindcss</code> and <code>autoprefixer</code> to the{' '}
-            <code>postcss.plugins</code> object in your <code>nuxt.config.js</code> file.
+            Добавьте <code>tailwindcss</code> и <code>autoprefixer</code> в объект{' '}
+            <code>postcss.plugins</code> в файле <code>nuxt.config.js</code>.
           </p>
         ),
         code: {
@@ -209,11 +208,10 @@ let tabs = [
         },
       },
       {
-        title: 'Configure your template paths',
+        title: 'Настройте пути к шаблону',
         body: () => (
           <p>
-            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
-            file.
+            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -240,8 +238,8 @@ let tabs = [
         title: 'Добавьте директивы Tailwind в свой CSS',
         body: () => (
           <p>
-            Create an <code>./assets/css/main.css</code> file and add the <code>@tailwind</code>{' '}
-            directives for each of Tailwind’s layers.
+            Создайте файл <code>./assets/css/main.css</code> и добавьте директивы <code>@tailwind</code>{' '}
+            для каждого слоя Tailwind.
           </p>
         ),
         code: {
@@ -251,11 +249,11 @@ let tabs = [
         },
       },
       {
-        title: 'Add the CSS file globally',
+        title: 'Добавьте файл CSS глобально',
         body: () => (
           <p>
-            Add your newly-created <code>./assets/css/main.css</code> to the <code>css</code> array
-            in your <code>nuxt.config.js</code> file.
+            Добавьте только что созданный файл <code>./assets/css/main.css</code>
+            в массив <code>css</code> в файле <code>nuxt.config.js</code>.
           </p>
         ),
         code: {

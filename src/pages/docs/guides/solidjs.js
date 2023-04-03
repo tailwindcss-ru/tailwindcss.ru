@@ -4,12 +4,12 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new SolidJS project if you don't have one set up already. The most
-        common approach is to use{' '}
-        <a href="https://www.solidjs.com/guides/getting-started">the SolidJS Vite template</a>.
+        Начните с создания нового проекта SolidJS, если он еще не настроен.
+        Самый распространенный подход — использовать{' '}
+        <a href="https://www.solidjs.com/guides/getting-started">шаблон SolidJS Vite</a>.
       </p>
     ),
     code: {
@@ -22,8 +22,8 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code>и его одноранговые зависимости через npm, а затем запустите команду init,
+        чтобы сгенерировать как <code>tailwind.config.js</code>, так и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -33,10 +33,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -58,8 +58,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-        <code>./src/index.css</code> file.
+        Добавьте директивы <code>@tailwind</code> для каждого из слоев Tailwind в ваш файл{' '}
+        <code>./src/index.css</code>.
       </p>
     ),
     code: {
@@ -102,7 +102,7 @@ export default function UsingSolidJS({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS c SolidJS"
-      description="Setting up Tailwind CSS in a SolidJS project."
+      description="Настройка Tailwind CSS в проекте SolidJS."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -122,7 +122,7 @@ export function getStaticProps() {
 UsingSolidJS.layoutProps = {
   meta: {
     title: 'Установите Tailwind CSS c SolidJS',
-    description: 'Setting up Tailwind CSS in a SolidJS project.',
+    description: 'Настройка Tailwind CSS в проекте SolidJS.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

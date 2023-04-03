@@ -4,11 +4,12 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Symfony project if you don’t have one set up already. The most
-        common approach is to use <a href="https://symfony.com/download">the Symfony Installer</a>.
+        Начните с создания нового проекта Symfony, если у вас его еще нет.
+        Самый распространенный подход — использовать{' '}
+        <a href="https://symfony.com/download">установщик Symfony</a>.
       </p>
     ),
     code: {
@@ -18,12 +19,12 @@ let steps = [
     },
   },
   {
-    title: 'Install Webpack Encore',
+    title: 'Установите Webpack Encore',
     body: () => (
       <p>
-        Install Webpack Encore, which handles building your assets. See{' '}
-        <a href="https://symfony.com/doc/current/frontend.html">the documentation</a> for more
-        information.
+        Установите Webpack Encore, который занимается созданием ваших ресурсов.
+        Дополнительную информацию смотрите в{' '}
+        <a href="https://symfony.com/doc/current/frontend.html">документации</a>.
       </p>
     ),
     code: {
@@ -36,9 +37,9 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-        <code>postcss-loader</code>, and then run the init command to generate both{' '}
-        <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости, а также{' '}
+        <code>postcss-loader</code>, а затем запустите команду init для создания обоих{' '}
+        <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -48,12 +49,12 @@ let steps = [
     },
   },
   {
-    title: 'Enable PostCSS support',
+    title: 'Включите поддержку PostCSS',
     body: () => (
       <p>
-        In your <code>webpack.config.js</code> file, enable PostCSS Loader. See{' '}
-        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">the documentation</a>{' '}
-        for more information.
+        В файле <code>webpack.config.js</code> включите загрузчик PostCSS.
+        Дополнительную информацию смотрите в{' '}
+        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">документации</a>.
       </p>
     ),
     code: {
@@ -66,10 +67,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -92,8 +93,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-        <code>./assets/styles/app.css</code> file.
+        Добавьте директивы <code>@tailwind</code> для каждого из слоев Tailwind в ваш файл{' '}
+        <code>./assets/styles/app.css</code>.
       </p>
     ),
     code: {
@@ -106,7 +107,7 @@ let steps = [
     title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run watch</code>.
+        Запустите процесс сборки с помощью <code>npm run watch</code>.
       </p>
     ),
     code: {
@@ -119,8 +120,8 @@ let steps = [
     title: 'Начните использовать Tailwind в своем проекте',
     body: () => (
       <p>
-        Make sure your compiled CSS is included in the <code>{'<head>'}</code> then start using
-        Tailwind’s utility classes to style your content.
+        Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>, а затем
+        начните использовать служебные классы Tailwind для оформления вашего контента.
       </p>
     ),
     code: {
@@ -149,7 +150,7 @@ export default function UsingSymfony({ code }) {
   return (
     <FrameworkGuideLayout
       title="Установите Tailwind CSS c Symfony"
-      description="Setting up Tailwind CSS in a Symfony project."
+      description="Настройка Tailwind CSS в проекте Symfony."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -169,7 +170,7 @@ export function getStaticProps() {
 UsingSymfony.layoutProps = {
   meta: {
     title: 'Установите Tailwind CSS c Symfony',
-    description: 'Setting up Tailwind CSS in a Symfony project.',
+    description: 'Настройка Tailwind CSS в проекте Symfony.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

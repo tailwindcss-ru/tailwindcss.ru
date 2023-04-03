@@ -4,15 +4,14 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Ember.js project if you don't have one set up already. The most
-        common approach is to use{' '}
+        Начните с создания нового проекта Ember.js, если у вас его еще нет.
+        Самый распространенный подход — использовать{' '}
         <a href="https://guides.emberjs.com/release/getting-started/quick-start/#toc_create-a-new-application">
           Ember CLI
-        </a>
-        .
+        </a>.
       </p>
     ),
     code: {
@@ -22,12 +21,12 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите CSS Tailwind',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-        <code>postcss-loader</code>, and then run the <code>init</code> command to generate both{' '}
-        <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости, а также{' '}
+        <code>postcss-loader</code>, а затем запустите команду <code>init</code>, чтобы сгенерировать оба файла{' '}
+        <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -37,10 +36,10 @@ let steps = [
     },
   },
   {
-    title: 'Enable PostCSS support',
+    title: 'Включите поддержку PostCSS',
     body: () => (
       <p>
-        In your <code>ember-cli-build.js</code> file, configure PostCSS to process your CSS files.
+        В файле <code>ember-cli-build.js</code> настройте PostCSS для обработки файлов CSS.
       </p>
     ),
     code: {
@@ -88,10 +87,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -108,11 +107,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Create a <code>./app/app.css</code> file and add the <code>@tailwind</code> directives for
-        each of Tailwind's layers.
+        Создайте файл <code>./app/app.css</code> и добавьте
+        директивы <code>@tailwind</code> для каждого слоя Tailwind.
       </p>
     ),
     code: {
@@ -124,11 +123,10 @@ let steps = [
     },
   },
   {
-    title: 'Import the CSS file',
+    title: 'Импортируйте файл CSS',
     body: () => (
       <p>
-        Import the newly-created <code>./app/app.css</code> file in your <code>./app/app.js</code>{' '}
-        file.
+        Импортируйте только что созданный файл <code>./app/app.css</code> в свой файл <code>./app/app.js</code>.
       </p>
     ),
     code: {
@@ -150,10 +148,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run start</code>.
+        Запустите процесс сборки с помощью <code>npm run start</code>.
       </p>
     ),
     code: {
@@ -163,8 +161,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind's utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => <p>Начните использовать служебные классы Tailwind для оформления своего контента.</p>,
     code: {
       name: 'application.hbs',
       lang: 'hbs',
@@ -182,8 +180,8 @@ let steps = [
 export default function UsingEmberJs({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Ember.js"
-      description="Setting up Tailwind CSS in an Ember.js project."
+      title="Установите Tailwind CSS с Ember.js"
+      description="Настройка Tailwind CSS в проекте Ember.js."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -202,9 +200,9 @@ export function getStaticProps() {
 
 UsingEmberJs.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS With Ember.js',
-    description: 'Setting up Tailwind CSS in an Ember.js project.',
-    section: 'Getting Started',
+    title: 'Установите Tailwind CSS с Ember.js',
+    description: 'Настройка Tailwind CSS в проекте Ember.js.',
+    section: 'Установка',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

@@ -456,9 +456,9 @@ module.exports = {
 </form>
 ```
 
-### Dynamic variants
+### Динамические варианты
 
-Use the `matchVariant` function to register new parameterized variants like the built-in `supports-*`, `data-*`, and `aria-*` variants:
+Используйте функцию `matchVariant` для регистрации новых параметризованных вариантов, таких как встроенные варианты `supports-*`, `data-*` и `aria-*` variants:
 
 ```js tailwind.config.js
 const plugin = require('tailwindcss/plugin')
@@ -484,7 +484,7 @@ module.exports = {
 }
 ```
 
-Variants defined with `matchVariant` also support arbitrary values using square bracket notation:
+Варианты, определенные с помощью `matchVariant`, также поддерживают произвольные значения с использованием обозначения квадратных скобок:
 
 ```html
 <div class="**nth-[3n+1]:bg-blue-500** ...">
@@ -492,7 +492,7 @@ Variants defined with `matchVariant` also support arbitrary values using square 
 </div>
 ```
 
-Use the `sort` option to control the source order of the generated CSS if needed to avoid precedence issues with other values that come from the same variant:
+Используйте параметр `sort`, чтобы контролировать исходный порядок сгенерированного CSS, если это необходимо, чтобы избежать проблем с приоритетом других значений, которые происходят из того же варианта:
 
 ```js
 matchVariant("min", (value) => `@media (min-width: ${value})`, {
@@ -502,11 +502,11 @@ matchVariant("min", (value) => `@media (min-width: ${value})`, {
 });
 ```
 
-### Parent and sibling states
+### Родительское и родственное состояния
 
-Your custom modifiers won't automatically work with Tailwind's [parent](/docs/hover-focus-and-other-states#styling-based-on-parent-state) and [sibling](/docs/hover-focus-and-other-states#styling-based-on-sibling-state) state modifiers.
+Ваши пользовательские модификаторы не будут автоматически работать модификаторы состояния Tailwind с [parent](/docs/hover-focus-and-other-states#styling-based-on-parent-state) и [sibling](/docs/hover-focus-and-other-states#styling-based-on-sibling-state).
 
-To support the `group-*` and `peer-*` versions of your own custom modifiers, register them as separate variants using the special `:merge` directive to ensure the `.group` and `.peer` classes only appear once in the final selector.
+Чтобы поддерживать версии `group-*` и `peer-*` ваших собственных пользовательских модификаторов, зарегистрируйте их как отдельные варианты, используя специальную директиву `:merge`, чтобы гарантировать, что классы `.group` и `.peer` появляются только один раз в финальном селекторе.
 
 ```js tailwind.config.js
   const plugin = require('tailwindcss/plugin')

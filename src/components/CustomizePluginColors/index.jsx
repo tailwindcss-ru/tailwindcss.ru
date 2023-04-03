@@ -5,12 +5,12 @@ export function CustomizePluginColors({ name, configKey, children, learnMore = t
   return (
     <>
       <p>
-        By default, Tailwind makes the entire{' '}
-        <a href="/docs/customizing-colors#default-color-palette">default color palette</a> available
-        as {name} colors. You can{' '}
-        <a href="/docs/colors#customizing">customize your color palette</a> by editing{' '}
-        <code>theme.colors</code> or <code>theme.extend.colors</code> in your{' '}
-        <code>tailwind.config.js</code> file.
+        По умолчанию Tailwind делает всю{' '}
+        <a href="/docs/customizing-colors#default-color-palette">цветовую палитру по умолчанию</a> доступной
+        в виде цветов {name}. Вы можете{' '}
+        <a href="/docs/colors#customizing">настроить свою цветовую палитру</a>, отредактировав{' '}
+        <code>theme.colors</code> или <code>theme.extend.colors</code>{' '}
+        в файле <code>tailwind.config.js</code>.
       </p>
       {children || (
         <Editor filename="tailwind.config.js">
@@ -23,14 +23,14 @@ export function CustomizePluginColors({ name, configKey, children, learnMore = t
         </Editor>
       )}
       <p>
-        Alternatively, you can customize just your {name} colors by editing{' '}
-        <code>theme.{configKey}</code> or <code>theme.extend.{configKey}</code> in your{' '}
-        <code>tailwind.config.js</code> file.
+        Кроме того, вы можете настроить только цвета {name}, отредактировав{' '}
+        <code>theme.{configKey}</code> или <code>theme.extend.{configKey}</code>{' '}
+        в своем файле <code>tailwind.config.js</code>.
       </p>
       {learnMore && (
         <p>
-          Learn more about customizing the default theme in the{' '}
-          <a href="/docs/theme#customizing-the-default-theme">theme customization</a> documentation.
+          Узнайте больше о настройке темы по умолчанию в документации по{' '}
+          <a href="/docs/theme#customizing-the-default-theme">кастомизации темы</a>.
         </p>
       )}
     </>

@@ -120,9 +120,9 @@ export const classes = { utilities }
 
 Дополнительные сведения смотрите в документации [Ширина разделения](/docs/divide-width) и [Цвет разделения](/docs/divide-color).
 
-### Using logical properties
+### Использование логических свойств
 
-Use the `border-s-*` and `border-e-*` utilities to set the `border-inline-start-width` and `border-inline-end-width` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction.
+Используйте утилиты `border-s-*` и `border-e-*`, чтобы установить `border-inline-start-width` и `border-inline-end-width` [логические свойства](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), которые сопоставляются либо с левой, либо с правой границей в зависимости от направления текста.
 
 <Example>
   <div class="grid grid-cols-2 gap-x-4 place-items-center">
@@ -147,11 +147,11 @@ Use the `border-s-*` and `border-e-*` utilities to set the `border-inline-start-
 <div>
 ```
 
-For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+Для большего контроля вы также можете использовать [модификаторы LTR и RTL](/docs/hover-focus-and-other-states#rtl-support) для условного применения определенных стилей в зависимости от текущего направления текста.
 
-### Using without Preflight
+### Использование без Preflight
 
-If you've [disabled Preflight](/docs/preflight#disabling-preflight) in your project, you'll need to include a [border style](/docs/border-style) utility any time you use one of the `border-width` utilities for the border to actually take effect:
+Если вы [отключили Preflight](/docs/preflight#disabling-preflight) в своем проекте, вам потребуется включать утилиту [border style](/docs/border-style) каждый раз, когда вы используете одну из утилит `border-width` для того, чтобы граница действительно вступила в силу:
 
 ```diff-html
 - <div class="**border-4** border-indigo-500 ...">
@@ -160,9 +160,9 @@ If you've [disabled Preflight](/docs/preflight#disabling-preflight) in your proj
   </div>
 ```
 
-This is because browsers set the `border-style` of most elements to `none` by default, so adding a `border-width` on its own isn't enough to render a border.
+Это связано с тем, что браузеры по умолчанию устанавливают для `border-style` большинства элементов значение `none`, поэтому добавления `border-width` самой по себе недостаточно для отображения границы.
 
-Preflight applies a global [border reset](/docs/preflight#border-styles-are-reset-globally) that sets `border-style` to `solid` and `border-width` to `0`, which is what makes it possible to add a border to an element using just a `border-width` utility in projects using Preflight.
+Preflight применяет глобальный [сброс границ](/docs/preflight#border-styles-are-reset-globally), который устанавливает для `border-style` значение `solid`, а для `border-width` значение `0`, что делает можно добавить границу к элементу, используя только утилиту `border-width` в проектах, использующих Preflight.
 
 ---
 

@@ -108,7 +108,7 @@ export default function UsingCRA({ code }) {
     >
       <div hidden className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
-          We <strong>highly recommend</strong> using{' '}
+          Мы <strong>настоятельно рекомендуем</strong> использовать{' '}
           <Link href="https://vitejs.dev">
             <a>Vite</a>
           </Link>
@@ -120,14 +120,12 @@ export default function UsingCRA({ code }) {
           <Link href="https://remix.run">
             <a>Remix</a>
           </Link>
-          , or{' '}
+          , или{' '}
           <Link href="https://parceljs.org">
             <a>Parcel</a>
           </Link>{' '}
-          instead of Create React App. They provide an equivalent or better developer experience but
-          with more flexibility, giving you more control over how Tailwind and PostCSS are
-          configured. Create React App does not support custom PostCSS configurations, so you can't
-          use
+          вместо Create React App. Они обеспечивают эквивалентный или лучший опыт разработки,
+          но с большей гибкостью, что дает вам больше контроля над настройкой Tailwind и PostCSS.
         </p>
       </div>
 
@@ -147,12 +145,12 @@ export default function UsingCRA({ code }) {
 
           <div className="text-sm leading-6 text-amber-900 dark:text-slate-400">
             <p className="font-bold dark:text-slate-200">
-              Create React App does not support custom PostCSS configurations and is incompatible
-              with many important tools in the PostCSS ecosystem, like{' '}
+              Приложение Create React не поддерживает пользовательские конфигурации PostCSS
+              и несовместимо со многими важными инструментами экосистемы PostCSS, такими как{' '}
               <code className="text-xs font-bold">`postcss-import`</code>.
             </p>
             <p className="mt-3">
-              We <strong className="dark:text-slate-200">highly recommend</strong> using{' '}
+              Мы <strong className="dark:text-slate-200">настоятельно рекомендуем</strong> использовать{' '}
               <Link href="/docs/guides/vite">
                 <a className="underline font-bold dark:text-slate-200">Vite</a>
               </Link>
@@ -164,13 +162,12 @@ export default function UsingCRA({ code }) {
               <Link href="/docs/guides/nextjs">
                 <a className="underline font-bold dark:text-slate-200">Next.js</a>
               </Link>
-              , or{' '}
+              , или{' '}
               <Link href="/docs/guides/remix">
                 <a className="underline font-bold dark:text-slate-200">Remix</a>
               </Link>{' '}
-              instead of Create React App. They provide an equivalent or better developer experience
-              but with more flexibility, giving you more control over how Tailwind and PostCSS are
-              configured.
+              вместо Create React App. Они обеспечивают эквивалентный или лучший опыт разработки,
+              но с большей гибкостью, что дает вам больше контроля над настройкой Tailwind и PostCSS.
             </p>
           </div>
         </div>

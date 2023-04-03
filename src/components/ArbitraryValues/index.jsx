@@ -21,13 +21,13 @@ export function ArbitraryValues({
     <>
       {hasTheme ? (
         <p>
-          If you need to use a one-off {nameOrProperty} that doesn’t make sense to include in your
-          theme, use square brackets to generate a property on the fly using any arbitrary value.
+          Если вам нужно использовать одноразовое {nameOrProperty}, которое не имеет смысла включать в вашу тему,
+          используйте квадратные скобки, чтобы сгенерировать свойство на лету, используя любое произвольное значение.
         </p>
       ) : (
         <p>
-          If you need to use a one-off {nameOrProperty} that isn't included in Tailwind by default,
-          use square brackets to generate a property on the fly using any arbitrary value.
+          Если вам нужно использовать одноразовое {nameOrProperty}, которое не включено в Tailwind по умолчанию,
+          используйте квадратные скобки, чтобы сгенерировать свойство на лету, используя любое произвольное значение.
         </p>
       )}
       {children || (
@@ -44,9 +44,8 @@ export function ArbitraryValues({
         </pre>
       )}
       <p>
-        Learn more about arbitrary value support in the{' '}
-        <a href="/docs/adding-custom-styles#using-arbitrary-values">arbitrary values</a>{' '}
-        documentation.
+        Узнайте больше о поддержке произвольных значений в документации по{' '}
+        <a href="/docs/adding-custom-styles#using-arbitrary-values">произвольным значениям</a>.
       </p>
     </>
   )

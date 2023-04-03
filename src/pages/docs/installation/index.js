@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 let steps = [
   {
-    title: 'Установка Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
         Установите <code>tailwindcss</code> через npm и создайте файл{' '}

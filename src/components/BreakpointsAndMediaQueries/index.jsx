@@ -9,9 +9,10 @@ export function BreakpointsAndMediaQueries({
   return (
     <>
       <p>
-        You can also use variant modifiers to target media queries like responsive breakpoints, dark
-        mode, prefers-reduced-motion, and more. For example, use <code>md:{featuredClass}</code> to
-        apply the <code>{featuredClass}</code> utility at only medium screen sizes and above.
+        Вы также можете использовать модификаторы вариантов для таргетинга на медиа-запросы, такие как реагирующие
+        контрольные точки, темный режим, предпочтения с уменьшенным движением и многое другое. Например,
+        используйте <code>md:{featuredClass}</code>, чтобы применить утилиту <code>{featuredClass}</code> только
+        на экранах среднего размера и выше.
       </p>
       {children || (
         <pre className="language-html">
@@ -27,10 +28,10 @@ export function BreakpointsAndMediaQueries({
         </pre>
       )}
       <p>
-        To learn more, check out the documentation on{' '}
-        <a href="/docs/responsive-design">Responsive Design</a>,{' '}
-        <a href="/docs/dark-mode">Dark Mode</a> and{' '}
-        <a href="/docs/hover-focus-and-other-states#media-queries">other media query modifiers</a>.
+        Чтобы узнать больше, ознакомьтесь с документацией по{' '}
+        <a href="/docs/responsive-design">адаптивному дизайну</a>,{' '}
+        <a href="/docs/dark-mode">темному режиму</a> и{' '}
+        <a href="/docs/hover-focus-and-other-states#media-queries">другим модификаторам медиазапросов</a>.
       </p>
     </>
   )

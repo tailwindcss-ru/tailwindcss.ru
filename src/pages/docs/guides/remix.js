@@ -21,7 +21,7 @@ let steps = [
     title: 'Включить встроенную поддержку CSS Tailwind в Remix',
     body: () => (
       <p>
-        Установите флаг функции <code>unstable_tailwind</code> в файле <code>remix.config.js</code>{' '}.
+        Установите флаг функции <code>unstable_tailwind</code> в файле <code>remix.config.js</code>.
         В конце концов это станет стабильным и не будет необходимо.
       </p>
     ),

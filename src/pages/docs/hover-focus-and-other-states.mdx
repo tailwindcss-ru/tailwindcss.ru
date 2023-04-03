@@ -353,9 +353,9 @@ Tailwind также включает модификаторы для други�
 
 Этот шаблон работает со всеми модификаторами псевдокласса, например, `group-focus`, `group-active` или даже `group-odd`.
 
-#### Differentiating nested groups
+#### Отличие вложенных групп
 
-When nesting groups, you can style something based on the state of a _specific_ parent group by giving that parent a unique group name using a `group/{name}` class, and including that name in modifiers using classes like `group-hover/{name}`:
+При вложенных группах вы можете стилизовать что-то на основе состояния _специфической_ родительской группы, дав этому родителю уникальное имя группы, используя класс `group/{name}`, и включив это имя в модификаторы, используя такие классы, как `group-hover/{name}`:
 
 <Example p="none">
   <div class="px-4">
@@ -435,11 +435,11 @@ When nesting groups, you can style something based on the state of a _specific_ 
 </ul>
 ```
 
-Groups can be named however you like and don’t need to be configured in any way — just name your groups directly in your markup and Tailwind will automatically generate the necessary CSS.
+Группы можно называть как угодно, и их не нужно никак настраивать — просто назовите свои группы прямо в разметке, и Tailwind автоматически сгенерирует необходимый CSS.
 
-#### Arbitrary groups
+#### Произвольные группы
 
-You can create one-off `group-*` modifiers on the fly by providing your own selector as an [arbitrary value](/docs/adding-custom-styles#using-arbitrary-values) between square brackets:
+Вы можете создать одноразовые модификаторы `group-*` на лету, указав свой собственный селектор в виде [произвольного значения](/docs/adding-custom-styles#using-arbitrary-values) между квадратными скобками:
 
 <SnippetGroup>
 
@@ -459,7 +459,7 @@ You can create one-off `group-*` modifiers on the fly by providing your own sele
 
 </SnippetGroup>
 
-For more control, you can use the `&` character to mark where `.group` should end up in the final selector relative to the selector you are passing in:
+Для большего контроля вы можете использовать символ `&`, чтобы отметить, где `.group` должен оказаться в конечном селекторе относительно селектора, который вы передаете:
 
 <SnippetGroup>
 
@@ -525,9 +525,9 @@ For more control, you can use the `&` character to mark where `.group` should en
 ```
 
 
-#### Differentiating peers
+#### Отличие сверстников
 
-When using multiple peers, you can style something on the state of a _specific_ peer by giving that peer a unique name using a `peer/{name}` class, and including that name in modifiers using classes like `peer-checked/{name}`:
+При использовании нескольких одноранговых узлов вы можете стилизовать что-либо в состоянии _определенного_ однорангового узла, дав этому одноранговому узлу уникальное имя с помощью класса `peer/{name}`, и включив это имя в модификаторы, используя такие классы, как `peer-checked/{name}`:
 
 <Example p="none">
   <div class="px-4">
@@ -555,11 +555,11 @@ When using multiple peers, you can style something on the state of a _specific_ 
 </fieldset>
 ```
 
-Peers can be named however you like and don’t need to be configured in any way — just name your peers directly in your markup and Tailwind will automatically generate the necessary CSS.
+Одноранговые узлы можно называть как угодно, и их не нужно никак настраивать — просто назовите своих одноранговых узлов прямо в разметке, и Tailwind автоматически сгенерирует необходимый CSS.
 
-#### Arbitrary peers
+#### Произвольные одноранговые узлы
 
-You can create one-off `peer-*` modifiers on the fly by providing your own selector as an [arbitrary value](/docs/adding-custom-styles#using-arbitrary-values) between square brackets:
+Вы можете создавать одноразовые модификаторы `peer-*` на лету, указав свой собственный селектор в виде [произвольного значения](/docs/adding-custom-styles#using-arbitrary-values) между квадратными скобками:
 
 <SnippetGroup>
 
@@ -580,7 +580,7 @@ You can create one-off `peer-*` modifiers on the fly by providing your own selec
 
 </SnippetGroup>
 
-For more control, you can use the `&` character to mark where `.peer` should end up in the final selector relative to the selector you are passing in:
+Для большего контроля вы можете использовать символ `&`, чтобы отметить, где `.peer` должен оказаться в конечном селекторе относительно селектора, который вы передаете:
 
 <SnippetGroup>
 
@@ -1055,9 +1055,9 @@ Tailwind также включает модификатор `contrast-less`, к�
 </div>
 ```
 
-### Supports rules
+### Поддерживает правила
 
-Use the `supports-[...]` modifier to style things based on whether a certain feature is supported in the user's browser.
+Используйте модификатор `supports-[...]`, чтобы стилизовать вещи в зависимости от того, поддерживается ли определенная функция в браузере пользователя.
 
 ```html
 <div class="flex **supports-[display:grid]:grid** ...">
@@ -1065,9 +1065,9 @@ Use the `supports-[...]` modifier to style things based on whether a certain fea
 </div>
 ```
 
-Under the hood the `supports-[...]` modifier generates [`@supports rules`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) and takes anything you’d use with `@supports (...)` between the square brackets, like a property/value pair, and even expressions using `and` and `or`.
+Под капотом модификатор `supports-[...]` генерирует [`@supports rules`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) и берет все, что вы будет использоваться с `@supports (...)` между квадратными скобками, как пара свойство/значение, и даже с выражениями, использующими `and` и `or`.
 
-For terseness, if you only need to check if a property is supported (and not a specific value), you can just specify the property name:
+Для краткости, если вам нужно только проверить, поддерживается ли свойство (а не конкретное значение), вы можете просто указать имя свойства:
 
 ```html
 <div class="bg-black/75 **supports-[backdrop-filter]:bg-black/25** **supports-[backdrop-filter]:backdrop-blur** ...">
@@ -1075,7 +1075,7 @@ For terseness, if you only need to check if a property is supported (and not a s
 </div>
 ```
 
-You can configure shortcuts for common `@supports` rules you're using in your project in the `theme.supports` section of your `tailwind.config.js` file:
+Вы можете настроить ярлыки для общих правил `@supports`, которые вы используете в своем проекте, в разделе `theme.supports` вашего файла `tailwind.config.js`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -1087,7 +1087,7 @@ module.exports = {
 }
 ```
 
-You can then use these custom `supports-*` modifiers in your project:
+Затем вы можете использовать эти пользовательские модификаторы `supports-*` в своем проекте:
 
 ```html
 <div class="**supports-grid:grid**">

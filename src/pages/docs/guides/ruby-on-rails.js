@@ -60,9 +60,9 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind's layers to your{' '}
-        <code>application.tailwind.css</code> file located in the{' '}
-        <code>./app/assets/stylesheets</code> directory.
+        Добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind в ваш{' '}
+        файл <code>application.tailwind.css</code>, расположенный в каталоге{' '}
+        <code>./app/assets/stylesheets</code>.
       </p>
     ),
     code: {

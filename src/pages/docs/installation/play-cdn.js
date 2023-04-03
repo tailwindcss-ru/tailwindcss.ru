@@ -70,7 +70,7 @@ let steps = [
     },
   },
   {
-    title: 'Try adding some custom CSS',
+    title: 'Попробуйте добавить пользовательский CSS',
     body: () => (
       <p>
         Используйте <code>type="text/tailwindcss"</code>, чтобы добавить собственный CSS, который поддерживает все функции CSS Tailwinds.
@@ -102,7 +102,7 @@ let steps = [
     },
   },
   {
-    title: 'Try using a first-party plugin',
+    title: 'Попробуйте использовать сторонний плагин',
     body: () => (
       <p>
         Включите сторонние подключаемые модули, например формы и типографику, с помощью параметра запроса <code>плагинов</code>.

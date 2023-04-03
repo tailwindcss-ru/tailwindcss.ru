@@ -36,11 +36,11 @@ let steps = [
     },
   },
   {
-    title: 'Enable use of PostCSS in <style> blocks',
+    title: 'Включите использование PostCSS в блоках <style>',
     body: () => (
       <p>
-        In your <code>svelte.config.js</code> file, import <code>vitePreprocess</code> to enable
-        processing <code>&lt;style&gt;</code> blocks as PostCSS.
+        В файле <code>svelte.config.js</code> импортируйте <code>vitePreprocess</code>,
+        чтобы разрешить обработку блоков <code>&lt;style&gt;</code> как PostCSS.
       </p>
     ),
     code: {

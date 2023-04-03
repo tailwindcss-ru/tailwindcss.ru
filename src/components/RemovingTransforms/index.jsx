@@ -4,8 +4,7 @@ export function RemovingTransforms({ defaultClass, element = 'div', children }) 
   return (
     <>
       <p>
-        To remove all of the transforms on an element at once, use the <code>transform-none</code>{' '}
-        utility:
+        Чтобы удалить сразу все преобразования элемента, используйте утилиту <code>transform-none</code>:
       </p>
       {children || (
         <pre className="language-html">
@@ -20,8 +19,8 @@ export function RemovingTransforms({ defaultClass, element = 'div', children }) 
         </pre>
       )}
       <p>
-        This can be useful when you want to remove transforms conditionally, such as on hover or at
-        a particular breakpoint.
+        Это может быть полезно, когда вы хотите удалить преобразования по условию,
+        например, при наведении или в определенной контрольной точке.
       </p>
     </>
   )
