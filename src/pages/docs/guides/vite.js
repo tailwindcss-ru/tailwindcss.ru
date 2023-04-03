@@ -28,9 +28,8 @@ let tabs = [
         title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем
-            запустите команду init, чтобы сгенерировать как <code>tailwind.config.cjs</code>, так и{' '}
-            <code>postcss.config.cjs</code>.
+            Установите <code>tailwindcss</code> и его одноранговые зависимости, а затем создайте файлы{' '}
+            <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
           </p>
         ),
         code: {
@@ -43,14 +42,14 @@ let tabs = [
         title: 'Настройте пути к шаблону',
         body: () => (
           <p>
-            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.cjs</code> .
+            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>{' '}.
           </p>
         ),
         code: {
-          name: 'tailwind.config.cjs',
+          name: 'tailwind.config.js',
           lang: 'js',
           code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+  export default {
 >   content: [
 >     "./index.html",
 >     "./src/**/*.{js,ts,jsx,tsx}",
@@ -134,9 +133,8 @@ let tabs = [
         title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем
-            запустите команду init, чтобы сгенерировать как <code>tailwind.config.cjs</code>, так и{' '}
-            <code>postcss.config.cjs</code>.
+            Установите <code>tailwindcss</code> и его одноранговые зависимости, а затем создайте файлы{' '}
+            <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
           </p>
         ),
         code: {
@@ -149,14 +147,14 @@ let tabs = [
         title: 'Настройте пути к шаблону',
         body: () => (
           <p>
-            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.cjs</code> .
+            Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>{' '}.
           </p>
         ),
         code: {
-          name: 'tailwind.config.cjs',
+          name: 'tailwind.config.js',
           lang: 'js',
           code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+  export default {
 >   content: [
 >     "./index.html",
 >     "./src/**/*.{vue,js,ts,jsx,tsx}",

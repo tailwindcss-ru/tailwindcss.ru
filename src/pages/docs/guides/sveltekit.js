@@ -25,15 +25,14 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости,
-        а затем выполните следующие команды, чтобы сгенерировать как <code>tailwind.config.cjs</code>,
-        так и <code>postcss.config.cjs</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости, а затем создайте файлы{' '}
+        <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init tailwind.config.cjs -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
@@ -65,14 +64,14 @@ let steps = [
     title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Добавьте пути ко всем файлам шаблонов в файл <code>tailwind.config.cjs</code>.
+        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
-      name: 'tailwind.config.cjs',
+      name: 'tailwind.config.js',
       lang: 'javascript',
       code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+  export default {
 >   content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
       extend: {}
