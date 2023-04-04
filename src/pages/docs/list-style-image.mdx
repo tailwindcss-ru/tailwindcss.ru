@@ -1,6 +1,6 @@
 ---
-title: "List Style Image"
-description: "Utilities for controlling the marker images for list items."
+title: "Изображение стиля списка"
+description: "Утилиты для управления изображениями маркеров для элементов списка."
 ---
 
 import utilities from 'utilities?plugin=listStyleImage'
@@ -10,13 +10,13 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
-### Setting the list style image
+### Настройка изображения в стиле списка
 
-Control the marker image for list items using the `list-image-{value}` utilities.
+Управляйте изображением маркера для элементов списка с помощью утилит `list-image-{value}`.
 
-Out of the box, `list-image-none` is the only available preconfigured list style image utility. And while you can add additional utilities by [customizing your theme](#customizing-your-theme), you can also use the square bracket notation to generate an arbitrary value on the fly.
+Из коробки `list-image-none` является единственной доступной предварительно настроенной утилитой для изображений в стиле списка. И хотя вы можете добавить дополнительные утилиты, [настроив свою тему](#customizing-your-theme), вы также можете использовать нотацию с квадратными скобками для создания произвольного значения на лету.
 
 <Example p="none">
   <div class="px-4 sm:px-0">
@@ -46,13 +46,13 @@ Out of the box, `list-image-none` is the only available preconfigured list style
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяется условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокусировка и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="list-image-none" featuredClass="list-image-[url(checkmark.png)]" element="ul" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="list-image-none" featuredClass="list-image-[url(checkmark.png)]" element="ul" />
 
@@ -60,9 +60,9 @@ Out of the box, `list-image-none` is the only available preconfigured list style
 
 ## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind only provides the `list-image-none` utility. You can customize these values by editing `theme.listStyleImage` or `theme.extend.listStyleImage` in your `tailwind.config.js` file.
+По умолчанию Tailwind предоставляет только утилиту `list-image-none`. Вы можете настроить эти значения, отредактировав `theme.listStyleImage` или `theme.extend.listStyleImage` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -76,7 +76,7 @@ By default, Tailwind only provides the `list-image-none` utility. You can custom
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Узнайте больше о настройке темы по умолчанию в документации [настройка темы](/docs/theme#customizing-the-default-theme) documentation.
 
 ### Произвольные значения
 

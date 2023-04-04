@@ -1,6 +1,6 @@
 ---
-title: "Hyphens"
-description: "Utilities for controlling how words should be hyphenated."
+title: "Дефисы"
+description: "Утилиты для управления переносом слов."
 ---
 
 import utilities from 'utilities?plugin=hyphens'
@@ -9,11 +9,11 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
 ### None
 
-Use `hyphens-none` to prevent words from being hyphenated even if the line break suggestion `&shy;` is used:
+Используйте `hyphens-none`, чтобы предотвратить перенос слов, даже если используется предложение разрыва строки `&shy;`:
 
 <Example p="none">
   <div class="overflow-x-scroll sm:overflow-x-visible px-4">
@@ -31,7 +31,7 @@ Use `hyphens-none` to prevent words from being hyphenated even if the line break
 
 ### Manual
 
-Use `hyphens-manual` to only set hyphenation points where the line break suggestion `&shy;` is used:
+Используйте `hyphens-manual`, чтобы устанавливать точки переноса только там, где используется предложение разрыва строки `&shy;`:
 
 <Example p="none">
   <div class="overflow-x-scroll sm:overflow-x-visible px-4">
@@ -49,7 +49,7 @@ Use `hyphens-manual` to only set hyphenation points where the line break suggest
 
 ### Auto
 
-Use `hyphens-auto` to allow the browser to automatically choose hyphenation points based on the language. The line break suggestion `&shy;` will be preferred over automatic hyphenation points.
+Используйте `hyphens-auto`, чтобы позволить браузеру автоматически выбирать точки переноса в зависимости от языка. Предложение разрыва строки `&shy;` предпочтительнее, чем автоматические точки переноса.
 
 <Example p="none">
   <div class="overflow-x-scroll sm:overflow-x-visible px-4">
@@ -67,12 +67,12 @@ Use `hyphens-auto` to allow the browser to automatically choose hyphenation poin
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяется условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокусировка и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="hyphens-none" featuredClass="hyphens-auto" element="p" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="hyphens-none" featuredClass="hyphens-auto" element="p" />

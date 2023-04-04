@@ -1,6 +1,6 @@
 ---
-title: "Line Clamp"
-description: "Utilities for clamping text to a specific number of lines."
+title: "Зажим линии"
+description: "Утилиты для сжатия текста до определенного количества строк."
 ---
 
 import utilities from 'utilities?plugin=lineClamp'
@@ -10,11 +10,11 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
-### Truncating multi-line text
+### Обрезка многострочного текста
 
-Use the `line-clamp-*` utilities to truncate a block of text after a specific number of lines.
+Используйте утилиты `line-clamp-*`, чтобы обрезать блок текста после определенного количества строк.
 
 <Example p="none">
   <div class="px-4 sm:px-0">
@@ -42,9 +42,9 @@ Use the `line-clamp-*` utilities to truncate a block of text after a specific nu
 </article>
 ```
 
-### Undoing line clamping
+### Снятие зажима линии
 
-Use `line-clamp-none` to undo a previously applied line clamp utility.
+Используйте `line-clamp-none`, чтобы отменить ранее примененную утилиту зажима линии.
 
 ```html
 <p class="line-clamp-3 **lg:line-clamp-none**">
@@ -54,13 +54,13 @@ Use `line-clamp-none` to undo a previously applied line clamp utility.
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применяется условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокусировка и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="line-clamp-3" featuredClass="line-clamp-4" element="p"  />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="line-clamp-3" featuredClass="line-clamp-4" element="p"  />
 
@@ -68,9 +68,9 @@ Use `line-clamp-none` to undo a previously applied line clamp utility.
 
 ## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind provides the six `line-clamp` utilities. You can customize these values by editing `theme.lineClamp` or `theme.extend.lineClamp` in your `tailwind.config.js` file.
+По умолчанию Tailwind предоставляет шесть утилит `line-clamp`. Вы можете настроить эти значения, отредактировав `theme.lineClamp` или `theme.extend.lineClamp` в вашем файле `tailwind.config.js`.
 
 ```diff-js tailwind.config.js
   module.exports = {
@@ -84,7 +84,7 @@ By default, Tailwind provides the six `line-clamp` utilities. You can customize 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Узнайте больше о настройке темы по умолчанию в документации [настройка темы](/docs/theme#customizing-the-default-theme) documentation.
 
 ### Произвольные значения
 

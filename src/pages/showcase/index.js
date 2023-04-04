@@ -184,14 +184,13 @@ export default function Showcase() {
         <div className="relative max-w-3xl px-4 sm:px-6 lg:px-8 mx-auto sm:text-center">
           <h1 className="text-sm leading-6 font-semibold text-sky-500">Showcase</h1>
           <p className="mt-6 text-[2.5rem] leading-none sm:text-6xl tracking-tight font-bold text-slate-900 dark:text-white">
-            You can build anything with Tailwind CSS.
+            С помощью Tailwind CSS можно построить что угодно.
           </p>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can
-            definitely build the website for the spaceship —{' '}
+            Ну, не совсем <em>ничего</em>, как будто из него нельзя построить космический корабль. Но вы определенно можете создать веб-сайт для космического корабля —{' '}
             <Link href="/showcase/nasa">
               <a className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400">
-                NASA did
+                это сделало NASA
               </a>
             </Link>
             .

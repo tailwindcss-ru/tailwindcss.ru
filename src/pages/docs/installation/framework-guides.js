@@ -29,7 +29,7 @@ export default function FrameworkGuides() {
   return (
     <InstallationLayout>
       <div id="content-wrapper" className="prose prose-slate mb-10 max-w-3xl dark:prose-dark">
-        <h3 className="sr-only">Framework Guides</h3>
+        <h3 className="sr-only">Руководства по фреймворку</h3>
         <p>
           Руководства для конкретных платформ, в которых описывается рекомендуемый нами подход к
           установке Tailwind CSS в ряде популярных сред.
@@ -120,32 +120,32 @@ export default function FrameworkGuides() {
           {
             name: 'Symfony',
             slug: 'symfony',
-            description: 'A PHP framework to create websites and web applications.',
+            description: 'Фреймворк PHP для создания веб-сайтов и веб-приложений.',
             logo: SymfonyLogo,
             logoDark: SymfonyLogoWhite,
           },
           {
             name: 'Meteor',
             slug: 'meteor',
-            description: 'The full stack JavaScript framework for developing cross-platform apps.',
+            description: 'Полный стек JavaScript-фреймворка для разработки кроссплатформенных приложений.',
             logo: MeteorLogo,
           },
           {
             name: 'Create React App',
             slug: 'create-react-app',
-            description: 'CLI tool for scaffolding a new single-page React application.',
+            description: 'Инструмент CLI для создания нового одностраничного приложения React.',
             logo: CraLogo,
           },
           {
             name: 'AdonisJS',
             slug: 'adonisjs',
-            description: 'A fully featured web framework for Node.js.',
+            description: 'Полнофункциональный веб-фреймворк для Node.js.',
             logo: AdonisLogo,
           },
           {
             name: 'Ember.js',
             slug: 'emberjs',
-            description: 'A JavaScript framework for ambitious web developers.',
+            description: 'Фреймворк JavaScript для амбициозных веб-разработчиков.',
             logo: EmberLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
