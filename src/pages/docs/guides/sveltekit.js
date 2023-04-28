@@ -36,31 +36,6 @@ let steps = [
     },
   },
   {
-    title: 'Включите использование PostCSS в блоках <style>',
-    body: () => (
-      <p>
-        В файле <code>svelte.config.js</code> импортируйте <code>vitePreprocess</code>,
-        чтобы разрешить обработку блоков <code>&lt;style&gt;</code> как PostCSS.
-      </p>
-    ),
-    code: {
-      name: 'svelte.config.js',
-      lang: 'js',
-      code: `  import adapter from '@sveltejs/adapter-auto';
-> import { vitePreprocess } from '@sveltejs/kit/vite';
-
-  /** @type {import('@sveltejs/kit').Config} */
-  const config = {
-    kit: {
-      adapter: adapter()
-    },
->   preprocess: vitePreprocess()
-  };
-
-  export default config;`,
-    },
-  },
-  {
     title: 'Настройте пути к шаблону',
     body: () => (
       <p>

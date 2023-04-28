@@ -52,12 +52,11 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-    require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/container-queries'),
   ]
 }
 ```
-
 
 ### Типография
 
@@ -96,7 +95,7 @@ module.exports = {
 
 ### Соотношение сторон
 
-Плагин `@tailwindcss/aspect-ratio` добавляет классы `aspect-w-{n}` и `aspect-h-{n}`, которые можно комбинировать, чтобы придать элементу фиксированное соотношение сторон.
+Плагин `@tailwindcss/aspect-ratio` является альтернативой встроенной поддержке `aspect-ratio`, которая работает в старых браузерах, и добавляет классы `aspect-w-{n}` и `aspect-h-{n}`, которые могут быть объединены, чтобы дать элементу фиксированное соотношение сторон.
 
 ```html
 <div class="aspect-w-16 aspect-h-9">
@@ -105,6 +104,20 @@ module.exports = {
 ```
 
 [Узнать больше о плагине соотношения сторон &rarr;](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+
+### Container queries
+
+The `@tailwindcss/container-queries` plugin adds new `@{size}` variants like `@sm` and `@md` that let you style an element based on the dimensions of a parent marked with `@container` instead of the viewport.
+
+```html
+<div class="@container">
+  <div class="@lg:text-sky-400">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+[Learn more about the container queries plugin &rarr;](https://github.com/tailwindlabs/tailwindcss-container-queries)
 
 ---
 

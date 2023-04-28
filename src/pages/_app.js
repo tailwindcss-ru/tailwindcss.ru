@@ -54,7 +54,9 @@ export default function App({ Component, pageProps, router }) {
   const showHeader = router.pathname !== '/'
   const meta = Component.layoutProps?.meta || {}
   const description =
-    meta.metaDescription || meta.description || 'Документация по CSS-фреймворку Tailwind.'
+    meta.metaDescription ||
+    meta.description ||
+    'Tailwind CSS — это ориентированная на утилиты CSS-инфраструктура для быстрого создания современных веб-сайтов, не выходя из HTML-кода.'
   let image = meta.ogImage ?? meta.image
   image = image
     ? `https://tailwindcss.ru${image.default?.src ?? image.src ?? image}`
