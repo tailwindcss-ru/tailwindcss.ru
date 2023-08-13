@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import Link from 'next/link'
 import { showcase } from '@/showcase'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { Footer } from '@/components/Footer'
 import clsx from 'clsx'
 
@@ -128,10 +128,8 @@ function Site({ site, priority = false }) {
       <div className="flex flex-wrap items-center mt-6">
         <h2 className="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400">
           <Link href={`/showcase/${site.slug}`}>
-            <a>
-              <span className="absolute inset-0 rounded-3xl" />
-              {site.name}
-            </a>
+            <span className="absolute inset-0 rounded-3xl" />
+            {site.name}
           </Link>
         </h2>
         {site.isTemplate && (
@@ -187,11 +185,12 @@ export default function Showcase() {
             С помощью Tailwind CSS можно построить что угодно.
           </p>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            Ну, не совсем <em>ничего</em>, как будто из него нельзя построить космический корабль. Но вы определенно можете создать веб-сайт для космического корабля —{' '}
-            <Link href="/showcase/nasa">
-              <a className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400">
-                это сделало NASA
-              </a>
+            Ну, не совсем <em>ничего</em>, например, из него нельзя построить космический корабль. Но вы определенно можете создать веб-сайт для космического корабля —{' '}
+            <Link
+              href="/showcase/nasa"
+              className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400"
+            >
+              сделано NASA
             </Link>
             .
           </p>

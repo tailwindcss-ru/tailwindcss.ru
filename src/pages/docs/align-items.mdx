@@ -15,15 +15,15 @@ export const classes = { utilities }
 
 Используйте `items-stretch`, чтобы растянуть элементы до заполнения поперечной оси контейнера:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-stretch gap-4 w-full rounded-lg bg-stripes-cyan text-center">
-      <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">01</div>
-      <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">02</div>
-      <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-stretch gap-4 w-full rounded-lg bg-stripes-cyan text-center">
+    <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">01</div>
+    <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">02</div>
+    <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-cyan-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-stretch** ...">
@@ -37,15 +37,15 @@ export const classes = { utilities }
 
 Используйте `items-start`, чтобы выровнять элементы по началу поперечной оси контейнера:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-start gap-4 w-full rounded-lg bg-stripes-pink text-center">
-      <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">01</div>
-      <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">02</div>
-      <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-start gap-4 w-full rounded-lg bg-stripes-pink text-center">
+    <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">01</div>
+    <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">02</div>
+    <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-pink-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-start** ...">
@@ -59,15 +59,15 @@ export const classes = { utilities }
 
 Используйте `items-center` для выравнивания элементов по центру поперечной оси контейнера:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-center gap-4 w-full rounded-lg bg-stripes-violet text-center">
-      <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">01</div>
-      <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">02</div>
-      <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-center gap-4 w-full rounded-lg bg-stripes-violet text-center">
+    <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">01</div>
+    <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">02</div>
+    <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-violet-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-center** ...">
@@ -81,15 +81,15 @@ export const classes = { utilities }
 
 Используйте `items-end`, чтобы выровнять элементы по концу поперечной оси контейнера:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-end gap-4 w-full rounded-lg bg-stripes-sky text-center">
-      <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">01</div>
-      <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">02</div>
-      <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-end gap-4 w-full rounded-lg bg-stripes-sky text-center">
+    <div class="py-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">01</div>
+    <div class="py-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">02</div>
+    <div class="py-8 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-sky-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-end** ...">
@@ -103,15 +103,15 @@ export const classes = { utilities }
 
 Используйте `items-baseline` для выравнивания элементов по поперечной оси контейнера так, чтобы все их базовые линии были выровнены:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="flex items-baseline gap-4 w-full rounded-lg bg-stripes-blue text-center">
-      <div class="pt-2 pb-6 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">01</div>
-      <div class="pt-8 pb-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">02</div>
-      <div class="pt-12 pb-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">03</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="flex items-baseline gap-4 w-full rounded-lg bg-stripes-blue text-center">
+    <div class="pt-2 pb-6 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">01</div>
+    <div class="pt-8 pb-12 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">02</div>
+    <div class="pt-12 pb-4 flex-1 flex items-center justify-center shadow-lg rounded-lg bg-blue-500">03</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="flex **items-baseline** ...">

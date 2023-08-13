@@ -15,11 +15,11 @@ export const classes = { utilities }
 
 Измените размер содержимого элемента, чтобы покрыть его контейнер, используя `object-cover`.
 
-<Example>
-  <div class="text-center rounded-lg overflow-hidden w-56 sm:w-96 mx-auto">
-    <img class="object-cover h-48 w-full " src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="text-center rounded-lg overflow-hidden w-56 sm:w-96 mx-auto">
+  <img class="object-cover h-48 w-full " src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
+</div>
+```
 
 ```html
 <div class="bg-indigo-300 ...">
@@ -31,12 +31,12 @@ export const classes = { utilities }
 
 Измените размер содержимого элемента, чтобы оно оставалось внутри его контейнера, используя `object-contain`.
 
-<Example>
-  <div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
-    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
-    <img class="relative z-10 object-contain h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
+  <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+  <img class="relative z-10 object-contain h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
+</div>
+```
 
 ```html
 <div class="bg-purple-300 ...">
@@ -48,11 +48,11 @@ export const classes = { utilities }
 
 Растяните содержимое элемента, чтобы оно соответствовало его контейнеру, используя `object-fill`.
 
-<Example>
-  <div class="bg-stripes-sky-blue rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
-    <img class="object-fill h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="bg-stripes-sky-blue rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
+  <img class="object-fill h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
+</div>
+```
 
 ```html
 <div class="bg-sky-300 ...">
@@ -64,12 +64,12 @@ export const classes = { utilities }
 
 Отобразите содержимое элемента в его исходном размере, но при необходимости уменьшите его, чтобы он соответствовал его контейнеру, используя `object-scale-down`.
 
-<Example>
-  <div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
-    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
-    <img class="relative z-10 object-scale-down h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=160&q=80" />
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
+  <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+  <img class="relative z-10 object-scale-down h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=160&q=80" />
+</div>
+```
 
 ```html
 <div class="bg-cyan-300">
@@ -81,12 +81,12 @@ export const classes = { utilities }
 
 Отображать содержимое элемента в исходном размере, игнорируя размер контейнера, используя `object-none`.
 
-<Example>
-  <div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
-    <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
-    <img class="relative z-10 object-none h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="relative rounded-lg text-center overflow-hidden w-56 sm:w-96 mx-auto">
+  <div class="absolute inset-0 opacity-50 bg-stripes-gray"></div>
+  <img class="relative z-10 object-none h-48 w-full" src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&h=1280&q=80" />
+</div>
+```
 
 ```html
 <div class="bg-yellow-300">

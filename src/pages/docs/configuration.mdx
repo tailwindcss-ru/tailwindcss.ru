@@ -10,7 +10,8 @@ import { SnippetGroup } from '@/components/SnippetGroup'
 
 По умолчанию Tailwind будет искать необязательный файл `tailwind.config.js` в корне Вашего проекта, где вы можете определить любые настройки.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js}'],
   theme: {
@@ -56,7 +57,8 @@ npx tailwindcss init
 
 Это создаст минимальный файл `tailwind.config.js` в корне Вашего проекта:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [],
   theme: {
@@ -82,7 +84,7 @@ npx tailwindcss -c ./tailwindcss-config.js -i input.css -o output.css
 
 Если вы используете Tailwind в качестве плагина PostCSS, вам нужно будет указать собственный путь конфигурации в конфигурации PostCSS:
 
-```js postcss.config.js
+```js {{ filename: 'postcss.config.js' }}
 module.exports = {
   plugins: {
     tailwindcss: { config: './tailwindcss-config.js' },
@@ -102,6 +104,52 @@ module.exports = {
 
 Узнайте больше о директиве `@config` в документации [Функции и директивы](/docs/functions-and-directives#config) documentation.
 
+### Использование ESM или TypeScript
+
+Вы также можете настроить Tailwind CSS в ESM или даже в TypeScript:
+
+<SnippetGroup>
+
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+```
+
+```js {{ filename: 'tailwind.config.ts' }}
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+} satisfies Config
+```
+
+</SnippetGroup>
+
+Когда вы запускаете `npx tailwindcss init`, мы определяем, является ли ваш проект модулем ES, и автоматически генерируем файл конфигурации с правильным синтаксисом.
+
+Вы также можете явно сгенерировать файл конфигурации ESM, используя флаг `--esm`:
+
+```sh
+npx tailwindcss init --esm
+```
+
+Чтобы сгенерировать файл конфигурации TypeScript, используйте флаг `--ts`:
+
+```sh
+npx tailwindcss init --ts
+```
+
 ### Создание файла конфигурации PostCSS
 
 Используйте флаг `-p`, если вы хотите также сгенерировать базовый файл `postcss.config.js` вместе с файлом `tailwind.config.js`:
@@ -112,7 +160,7 @@ npx tailwindcss init -p
 
 Это сгенерирует в Вашем проекте файл `postcss.config.js`, который выглядит следующим образом:
 
-```js postcss.config.js
+```js {{ filename: 'postcss.config.js' }}
 module.exports = {
   plugins: {
     tailwindcss: {},
@@ -141,7 +189,8 @@ npx tailwindcss init --full
 
 В разделе `content` вы настраиваете пути ко всем вашим HTML-шаблонам, компонентам JS и любым другим файлам, которые содержат имена классов Tailwind.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -157,7 +206,8 @@ module.exports = {
 
 В разделе `theme` вы определяете свою цветовую палитру, шрифты, масштаб шрифта, размеры границ, контрольные точки - все, что связано с визуальным дизайном Вашего сайта.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...
   theme: {
@@ -195,7 +245,8 @@ module.exports = {
 
 Раздел `plugins` позволяет вам регистрировать плагины в Tailwind, которые можно использовать для создания дополнительных утилит, компонентов, базовых стилей или пользовательских вариантов.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...
   plugins: [
@@ -213,7 +264,8 @@ module.exports = {
 
 Раздел `presets` позволяет вам указать Вашу собственную базовую конфигурацию вместо использования базовой конфигурации Tailwind по умолчанию.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...
   presets: [
@@ -235,7 +287,8 @@ module.exports = {
 
 Например, вы можете добавить префикс `tw-`, установив опцию `prefix` следующим образом:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   prefix: 'tw-',
 }
@@ -303,7 +356,8 @@ module.exports = {
 
 Чтобы сгенерировать утилиты как `!important`, установите ключ `important` в параметрах конфигурации на `true`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   important: true,
 }
@@ -346,7 +400,8 @@ module.exports = {
 
 Чтобы обойти это, вы можете вместо этого установить `important` в селектор идентификаторов, например `#app`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...
   important: '#app',
@@ -407,7 +462,8 @@ module.exports = {
 
 По умолчанию мы используем двоеточие (`:`), но это может быть полезно изменить, если вы используете язык шаблонов, например [Pug](https://pugjs.org), который не поддерживает специальные символы в имени класса.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   separator: '_',
 }
@@ -419,7 +475,8 @@ module.exports = {
 
 Чтобы отключить определенные основные плагины, предоставьте объект для `corePlugins`, который устанавливает для этих плагинов значение `false`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: {
     float: false,
@@ -431,7 +488,8 @@ module.exports = {
 
 Если вы хотите внести в список надежных отправителей, какие основные плагины должны быть включены, предоставьте массив, который включает список основных плагинов, которые вы хотите использовать:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: [
     'margin',
@@ -444,7 +502,8 @@ module.exports = {
 
 Если вы хотите отключить все основные плагины Tailwind и просто использовать Tailwind как инструмент для обработки Ваших собственных плагинов, предоставьте пустой массив:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: []
 }
@@ -462,7 +521,7 @@ module.exports = {
 
 <SnippetGroup>
 
-```css site.css
+```css {{ filename: 'site.css' }}
 @config "./tailwind.site.config.js";
 
 @tailwind base;
@@ -470,7 +529,7 @@ module.exports = {
 @tailwind utilities;
 ```
 
-```css admin.css
+```css {{ filename: 'admin.css' }}
 @config "./tailwind.admin.config.js";
 
 @tailwind base;
@@ -516,7 +575,7 @@ fullConfig.theme.boxShadow['2xl']
 
 Файлы конфигурации, сгенерированные с помощью интерфейса командной строки Tailwind, по умолчанию включают необходимую аннотацию типа, но для ручной настройки типов TypeScript просто добавьте аннотацию типа над объектом конфигурации:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [

@@ -16,40 +16,40 @@ export const classes = { utilities }
 
 Управляйте размером шрифта элемента с помощью утилит `text-{size}`.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-sm</span>
-      <p class="text-sm font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base</span>
-      <p class="text-base font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-lg</span>
-      <p class="text-lg font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-xl</span>
-      <p class="text-xl font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-2xl</span>
-      <p class="text-2xl font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-sm</span>
+    <p class="text-sm font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
   </div>
-</Example>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base</span>
+    <p class="text-base font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-lg</span>
+    <p class="text-lg font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-xl</span>
+    <p class="text-xl font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-2xl</span>
+    <p class="text-2xl font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+</div>
+```
 
 ```html
 <p class="**text-sm** ...">Быстрая коричневая лиса ...</p>
@@ -63,28 +63,28 @@ export const classes = { utilities }
 
 Установите высоту строки элемента одновременно с установкой размера шрифта, добавив модификатор высоты строки в любую утилиту изменения размера шрифта. Например, используйте `text-xl/8`, чтобы установить размер шрифта `1.25rem` с высотой строки `2rem`.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/6</span>
-      <p class="text-base/6 text-slate-900 dark:text-slate-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/7</span>
-      <p class="text-base/7 text-slate-900 dark:text-slate-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/loose</span>
-      <p class="text-base/loose text-slate-900 dark:text-slate-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
-      </p>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/6</span>
+    <p class="text-base/6 text-slate-900 dark:text-slate-200">
+      Так я начал ходить в воду. Я не буду лгать вам, мальчики, я был в ужасе. Но я шел дальше, и когда я пробирался мимо прибоя, на меня снизошло странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но скажу тебе, Джерри, что в тот момент я <em>был</em> морским биологом.
+    </p>
   </div>
-</Example>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/7</span>
+    <p class="text-base/7 text-slate-900 dark:text-slate-200">
+      Так я начал ходить в воду. Я не буду лгать вам, мальчики, я был в ужасе. Но я шел дальше, и когда я пробирался мимо прибоя, на меня снизошло странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но скажу тебе, Джерри, что в тот момент я <em>был</em> морским биологом.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">text-base/loose</span>
+    <p class="text-base/loose text-slate-900 dark:text-slate-200">
+      Так я начал ходить в воду. Я не буду лгать вам, мальчики, я был в ужасе. Но я шел дальше, и когда я пробирался мимо прибоя, на меня снизошло странное спокойствие. Я не знаю, было ли это божественным вмешательством или родством всех живых существ, но скажу тебе, Джерри, что в тот момент я <em>был</em> морским биологом.
+    </p>
+  </div>
+</div>
+```
 
 ```html
 <p class="**text-base/6** ...">So I started to walk into the water...</p>
@@ -118,7 +118,7 @@ export const classes = { utilities }
 
 Вы можете настроить свой собственный набор утилит для изменения размера шрифта, используя раздел `theme.fontSize` вашего файла `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
 +     fontSize: {
@@ -140,7 +140,8 @@ export const classes = { utilities }
 
 Тема Tailwind по умолчанию настраивает разумную `line-height` по умолчанию для каждой утилиты  `text-{size}`. Вы можете настроить свою собственную высоту строки по умолчанию при использовании пользовательских размеров шрифта, определив каждый размер с помощью кортежа формы `[fontSize, lineHeight]` в вашем файле `tailwind.config.js`.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     fontSize: {
@@ -155,7 +156,8 @@ module.exports = {
 
 Вы также можете указать высоту строки по умолчанию, используя синтаксис объекта, что позволяет также указать значения по умолчанию для `letter-spacing` и `font-weight`. Вы можете сделать это, используя кортеж вида `[fontSize, { lineHeight?, letterSpacing?, fontWeight? }]`.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     fontSize: {

@@ -24,7 +24,7 @@ npx tailwindcss -o build.css --minify
 
 Если вы установили Tailwind как плагин PostCSS, добавьте `cssnano` в конец списка плагинов:
 
-```js postcss.config.js
+```js {{ filename: 'postcss.config.js' }}
 module.exports = {
   plugins: {
     tailwindcss: {},

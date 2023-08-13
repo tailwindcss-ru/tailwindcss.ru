@@ -156,7 +156,7 @@ Tailwind автоматически переместит CSS внутри люб
 
 Если вы попытаетесь применить `@apply` к пользовательскому классу, который вы определили в своем глобальном CSS, в одном из этих блоков `<style>` для каждого компонента, вы получите сообщение об ошибке, что класс не существует:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -171,7 +171,7 @@ Tailwind автоматически переместит CSS внутри люб
 }
 ```
 
-```html Card.svelte
+```html {{ filename: 'Card.svelte' }}
 <div>
   <slot></slot>
 </div>
@@ -190,7 +190,7 @@ Tailwind автоматически переместит CSS внутри люб
 
 Решение этой проблемы состоит в том, чтобы определить любые пользовательские стили, которые вы хотите использовать `@apply` в своих компонентах, используя вместо этого [систему плагинов](/docs/plugins) instead:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -220,7 +220,7 @@ module.exports = {
 
 <SnippetGroup>
 
-```css site.css
+```css {{ filename: 'site.css' }}
 @config "./tailwind.site.config.js";
 
 @tailwind base;
@@ -228,7 +228,7 @@ module.exports = {
 @tailwind utilities;
 ```
 
-```css admin.css
+```css {{ filename: 'admin.css' }}
 @config "./tailwind.admin.config.js";
 
 @tailwind base;
@@ -244,7 +244,7 @@ module.exports = {
 
 <TipBad>Не помещайте <code>@config</code> перед операторами <code>@import</code></TipBad>
 
-```css admin.css
+```css {{ filename: 'admin.css' }}
 @config "./tailwind.admin.config.js";
 
 @import "tailwindcss/base";
@@ -256,7 +256,7 @@ module.exports = {
 
 <TipGood>Поместите операторы <code>@import</code> перед директивой <code>@config</code></TipGood>
 
-```css admin.css
+```css {{ filename: 'admin.css' }}
 @import "tailwindcss/base";
 @import "./custom-base.css";
 @import "tailwindcss/components";

@@ -15,13 +15,13 @@ export const classes = { utilities }
 
 Используйте `whitespace-normal` для нормального переноса текста внутри элемента. Новые строки и пробелы будут свернуты.
 
-<Example p="none">
-  <div class="bg-white p-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
-    <div class="whitespace-normal">Hey everyone!
+```html {{ example: { p: 'none' } }}
+<div class="bg-white p-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+  <div class="whitespace-normal">Hey everyone!
 It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.
 You will never know.</div>
 </div>
-</Example>
+```
 
 ```html
 <div class="w-3/4 ...">
@@ -37,13 +37,13 @@ It's almost 2022       and we still don't know if there       is aliens living a
 
 Используйте `whitespace-nowrap`, чтобы предотвратить перенос текста внутри элемента. Новые строки и пробелы будут свернуты.
 
-<Example p="none">
-  <div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
-    <div class="whitespace-nowrap">Hey everyone!
+```html {{ example: { p: 'none' } }}
+<div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+  <div class="whitespace-nowrap">Hey everyone!
 It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.
 You will never know.</div>
 </div>
-</Example>
+```
 
 ```html
 <div class="w-3/4 overflow-x-auto ...">
@@ -59,13 +59,15 @@ It's almost 2022       and we still don't know if there       is aliens living a
 
 Используйте `whitespace-pre`, чтобы сохранить символы новой строки и пробелы внутри элемента. Текст не переносится.
 
-<Example p="none">
-  <div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
-    <div class="whitespace-pre">Hey everyone!<br>
-It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.</br>
+```html {{ example: { p: 'none' } }}
+<div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+  <div class="whitespace-pre">Hey everyone!
+
+It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.
+
 You will never know.</div>
 </div>
-</Example>
+```
 
 ```html
 <div class="w-3/4 overflow-x-auto ...">
@@ -81,13 +83,15 @@ It's almost 2022       and we still don't know if there       is aliens living a
 
 Используйте `whitespace-pre-line`, чтобы сохранить символы новой строки, но не пробелы внутри элемента. Текст будет перенесен в обычном режиме.
 
-<Example p="none">
-  <div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
-    <div class="whitespace-pre-line">Hey everyone!<br>
-It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.</br>
+```html {{ example: { p: 'none' } }}
+<div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+  <div class="whitespace-pre-line">Hey everyone!
+
+It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.
+
 You will never know.</div>
 </div>
-</Example>
+```
 
 ```html
 <div class="w-3/4 ...">
@@ -103,13 +107,15 @@ It's almost 2022       and we still don't know if there       is aliens living a
 
 Используйте `whitespace-pre-wrap`, чтобы сохранить символы новой строки и пробелы внутри элемента. Текст будет перенесен в обычном режиме.
 
-<Example p="none">
-  <div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
-    <div class="whitespace-pre-wrap">Hey everyone!<br>
-It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.</br>
+```html {{ example: { p: 'none' } }}
+<div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+  <div class="whitespace-pre-wrap">Hey everyone!
+
+It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.
+
 You will never know.</div>
 </div>
-</Example>
+```
 
 ```html
 <div class="w-3/4 ...">
@@ -125,13 +131,15 @@ You will never know.</div>
 
 Используйте `whitespace-break-spaces`, чтобы сохранить новые строки и пробелы внутри элемента. Пробелы в конце строк не будут висеть, а переносятся на следующую строку.
 
-<Example p="none">
-  <div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
-    <div class="whitespace-break-spaces">Hey everyone!<br>
-It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.</br>
+```html {{ example: { p: 'none' } }}
+<div class="bg-white px-6 py-8 shadow-xl text-slate-700 max-w-md mx-auto overflow-auto text-sm leading-6 sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+  <div class="whitespace-break-spaces">Hey everyone!
+
+It's almost 2022       and we still don't know if there       is aliens living among us, or do we? Maybe the person writing this is an alien.
+
 You will never know.</div>
 </div>
-</Example>
+```
 
 ```html
 <div class="w-3/4 ...">

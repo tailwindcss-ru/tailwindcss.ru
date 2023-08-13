@@ -16,13 +16,13 @@ export const classes = { utilities }
 
 Используйте `order-{order}` для рендеринга элементов гибкости и сетки в другом порядке, чем они отображаются в DOM.
 
-<Example>
-  <div class="flex justify-between font-mono text-white text-sm font-bold leading-6">
-    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg order-last">01</div>
-    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg">02</div>
-    <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg">03</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="flex justify-between font-mono text-white text-sm font-bold leading-6">
+  <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg order-last">01</div>
+  <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg">02</div>
+  <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg">03</div>
+</div>
+```
 
 ```html
 <div class="flex justify-between ...">
@@ -62,7 +62,7 @@ export const classes = { utilities }
 
 По умолчанию Tailwind предоставляет утилиты для `order-first`, `order-last`, `order-none` и `order-{number}` для чисел от 1 до 12. Вы можете настроить эти значения, отредактировав `theme.order` или `theme.extend.order` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

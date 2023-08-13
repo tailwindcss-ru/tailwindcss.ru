@@ -17,22 +17,22 @@ export const classes = { utilities }
 
 Используйте утилиты `outline-{color}`, чтобы изменить цвет контура элемента.
 
-<Example>
-  <div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 font-bold text-sm text-white text-center">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-blue-500</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-blue-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка А</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-cyan-500</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-cyan-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка Б</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-pink-500</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-pink-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка В</button>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 font-bold text-sm text-white text-center">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-blue-500</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-blue-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка А</button>
   </div>
-</Example>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-cyan-500</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-cyan-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка Б</button>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-pink-500</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-pink-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Кнопка В</button>
+  </div>
+</div>
+```
 
 ```html
 <button class="outline outline-offset-2 **outline-blue-500** ...">Кнопка А</button>
@@ -44,14 +44,14 @@ export const classes = { utilities }
 
 Управляйте непрозрачностью цвета контура элемента с помощью модификатора непрозрачности цвета.
 
-<Example>
-  <div class="text-center font-bold text-sm text-white">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-blue-500/50</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-blue-500/50 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Сохранить изменения</button>
-    </div>
+```html {{ example: true }}
+<div class="text-center font-bold text-sm text-white">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">outline-blue-500/50</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm outline outline-2 outline-offset-2 outline-blue-500/50 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent">Сохранить изменения</button>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <button class="outline-2 outline-blue-500**/50** ...">Сохранить изменения</button>

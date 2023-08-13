@@ -20,22 +20,22 @@ export const classes = {
 
 Используйте утилиты `shadow-{color}` для изменения цвета существующей тени блока. По умолчанию цветные тени имеют непрозрачность 100%, но вы можете настроить это с помощью модификатора непрозрачности.
 
-<Example>
-  <div class="flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">shadow-cyan-500/50</p>
-      <button class="py-2 px-3 bg-cyan-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-cyan-500/50 focus:outline-none">Подписаться</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">shadow-blue-500/50</p>
-      <button class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none">Подписаться</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">shadow-indigo-500/50</p>
-      <button class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/50 focus:outline-none">Подписаться</button>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">shadow-cyan-500/50</p>
+    <button class="py-2 px-3 bg-cyan-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-cyan-500/50 focus:outline-none">Подписаться</button>
   </div>
-</Example>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">shadow-blue-500/50</p>
+    <button class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none">Подписаться</button>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm text-slate-500 font-mono text-center mb-3 dark:text-slate-400">shadow-indigo-500/50</p>
+    <button class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/50 focus:outline-none">Подписаться</button>
+  </div>
+</div>
+```
 
 ```html
 <button class="bg-cyan-500 **shadow-lg shadow-cyan-500/50** ...">Подписаться</button>
@@ -47,18 +47,18 @@ export const classes = {
 
 При использовании теней на цветном фоне цветные тени часто могут выглядеть более естественными, чем тени по умолчанию на основе черного, которые, как правило, выглядят серыми и размытыми.
 
-<Example p="none">
-  <div class="flex justify-around bg-indigo-300 px-8 pt-10 pb-12 space-x-6">
-    <div class="flex flex-col items-center">
-      <p class="mb-3 text-sm font-medium text-indigo-900">Default shadow</p>
-      <button class="py-2 px-3 bg-white text-indigo-600 text-sm font-semibold rounded-md shadow-lg focus:outline-none">Подписаться</button>
-    </div>
-    <div class="flex flex-col items-center">
-      <p class="mb-3 text-sm font-medium text-indigo-900">Colored shadow</p>
-      <button class="py-2 px-3 bg-white text-indigo-600 text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/40 focus:outline-none">Подписаться</button>
-    </div>
+```html {{ example: { p: 'none' } }}
+<div class="flex justify-around bg-indigo-300 px-8 pt-10 pb-12 space-x-6">
+  <div class="flex flex-col items-center">
+    <p class="mb-3 text-sm font-medium text-indigo-900">Default shadow</p>
+    <button class="py-2 px-3 bg-white text-indigo-600 text-sm font-semibold rounded-md shadow-lg focus:outline-none">Подписаться</button>
   </div>
-</Example>
+  <div class="flex flex-col items-center">
+    <p class="mb-3 text-sm font-medium text-indigo-900">Colored shadow</p>
+    <button class="py-2 px-3 bg-white text-indigo-600 text-sm font-semibold rounded-md shadow-lg shadow-indigo-500/40 focus:outline-none">Подписаться</button>
+  </div>
+</div>
+```
 
 ```html
 <!-- Default shadow-->

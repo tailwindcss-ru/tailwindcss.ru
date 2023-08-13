@@ -10,7 +10,8 @@ import { ThemeReference } from '@/components/ThemeReference'
 
 В разделе `content` вашего файла `tailwind.config.js` вы настраиваете пути ко всем вашим HTML-шаблонам, компонентам JavaScript и любым другим исходным файлам, которые содержат имена классов Tailwind.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -32,7 +33,8 @@ Tailwind CSS работает, сканируя все ваши компонен
 
 Сконфигурируйте пути ко всем вашим файлам содержимого в разделе `content` вашего файла конфигурации:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -60,7 +62,8 @@ Tailwind использует скрытую библиотеку [fast-glob](ht
 
 <TipBad>Не используйте слишком широкие шаблоны</TipBad>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './**/*.{html,js}',
@@ -73,7 +76,8 @@ module.exports = {
 
 <TipGood>Будьте конкретны с вашими шаблонами контента</TipGood>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './components/**/*.{html,js}',
@@ -88,7 +92,7 @@ module.exports = {
 
 <TipGood>Не забудьте указать точку входа HTML, если применимо</TipGood>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
 >     './public/index.html',
@@ -100,7 +104,8 @@ module.exports = {
 
 Если у вас есть какие-либо файлы JavaScript, которые манипулируют вашим HTML для добавления классов, убедитесь, что вы также включили их:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
@@ -110,7 +115,7 @@ module.exports = {
 }
 ```
 
-```js src/spaghetti.js
+```js {{ filename: 'src/spaghetti.js' }}
 // ...
 menuButton.addEventListener('click', function () {
   let classList = document.getElementById('nav').classList
@@ -124,7 +129,8 @@ menuButton.addEventListener('click', function () {
 
 <TipBad>Никогда не включайте файлы CSS в конфигурацию вашего контента</TipBad>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/**/*.css',
@@ -161,7 +167,7 @@ module.exports = {
 
 Мы не ограничиваем наш поиск только атрибутами `class="..."`, потому что вы можете использовать классы где угодно, например, в некотором JavaScript для переключения меню:
 
-```html spaghetti.js
+```html {{ filename: 'spaghetti.js' }}
 <script>
   menuButton.addEventListener('click', function () {
     let classList = document.getElementById('nav').classList
@@ -173,7 +179,7 @@ module.exports = {
 
 Используя этот очень простой подход, Tailwind чрезвычайно надежно работает с любым языком программирования, например, с JSX:
 
-```jsx Button.jsx
+```jsx {{ filename: 'Button.jsx' }}
 const sizes = {
   md: 'px-4 py-2 rounded-md text-base',
   lg: 'px-5 py-3 rounded-lg text-lg',
@@ -275,7 +281,7 @@ function Button({ color, children }) {
 
 Если вы работаете с какими-либо сторонними библиотеками (например, [Select2](https://select2.org/)) и оформляете эту библиотеку с помощью собственного пользовательского CSS, мы рекомендуем писать эти стили _без_ использования функции Tailwind `@layer`:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 
@@ -297,7 +303,7 @@ function Button({ color, children }) {
 
 Если вы создали свой собственный многоразовый набор компонентов, стилизованных под Tailwind, и импортируете их в несколько проектов, обязательно сконфигурируйте Tailwind для сканирования этих компонентов на предмет имен классов:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
       './components/**/*.{html,js}',
@@ -312,7 +318,7 @@ function Button({ color, children }) {
 
 Если вы работаете в монорепозитории с рабочими пространствами, вам может понадобиться использовать `require.resolve`, чтобы убедиться, что Tailwind может видеть ваши файлы содержимого:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   const path = require('path');
 
   module.exports = {
@@ -331,7 +337,7 @@ function Button({ color, children }) {
 
 Чтобы всегда разрешать пути относительно файла `tailwind.config.js`, используйте нотацию объекта для вашей конфигурации `content` и установите для свойства `relative` значение `true`:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: {
 +     relative: true,
@@ -350,7 +356,8 @@ function Button({ color, children }) {
 
 Если по какой-либо причине вам нужно настроить Tailwind на сканирование необработанного содержимого, а не содержимого файла, используйте объект с ключом `raw` вместо пути:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -373,7 +380,8 @@ module.exports = {
 
 Если вам нужно убедиться, что Tailwind генерирует определенные имена классов, которых нет в ваших файлах содержимого, используйте опцию `safelist`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -394,7 +402,8 @@ module.exports = {
 
 Tailwind поддерживает списки надежных отправителей на основе шаблонов для ситуаций, когда вам нужно добавить в список надежных отправителей большое количество классов:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -415,7 +424,8 @@ module.exports = {
 
 Если вы хотите заставить Tailwind генерировать варианты для любых совпадающих классов, включите их, используя опцию `variants`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -451,7 +461,8 @@ module.exports = {
 
 В этих ситуациях вы можете использовать параметр `blocklist`, чтобы указать Tailwind игнорировать определенные классы, которые он обнаруживает в вашем контенте:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './pages/**/*.{html,js}',
@@ -477,7 +488,7 @@ module.exports = {
 
 Используйте опцию `content.transform` для преобразования любого контента, соответствующего определенному расширению файла, перед извлечением классов:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const remark = require('remark')
 
 module.exports = {
@@ -501,7 +512,8 @@ module.exports = {
 
 Используйте опцию `extract`, чтобы переопределить логику, которую Tailwind использует для определения имен классов для определенных расширений файлов:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: {
     files: ['./src/**/*.{html,wtf}'],
@@ -529,7 +541,7 @@ module.exports = {
 
 Распространенной ошибкой является отсутствие расширения файла, например, если вы используете `jsx` вместо `js` для ваших компонентов React:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
 -     './src/**/*.{html,js}',
@@ -541,7 +553,7 @@ module.exports = {
 
 Или создать новую папку в середине проекта, которая изначально не была охвачена, и забыть добавить ее в свою конфигурацию:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
       './pages/**/*.{html,js}',
@@ -578,7 +590,8 @@ module.exports = {
 
 Это означает, что если создание вашего CSS приводит к изменению _любых_ файлов в этих каталогах, будет запущена перестройка, даже если измененный файл не соответствует расширению в вашем glob.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // С некоторыми инструментами сборки ваш CSS будет перестраиваться
@@ -595,7 +608,7 @@ module.exports = {
 
 Чтобы решить эту проблему, используйте более конкретные пути в вашей конфигурации `content`, не забудьте включить только те каталоги, которые не изменятся при сборке CSS:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     content: [
 -     './src/**/*.{html,js}',

@@ -20,13 +20,13 @@ export const classes = {
 
 Используйте утилиты `row-span-{n}`, чтобы сделать элемент охватывающим _n_ строк.
 
-<Example>
-  <div class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center row-span-3">01</div>
-    <div class="p-4 rounded-lg bg-fuchsia-300 grid place-content-center col-span-2 dark:bg-fuchsia-800 dark:text-fuchsia-400">02</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center row-span-2 col-span-2">03</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center row-span-3">01</div>
+  <div class="p-4 rounded-lg bg-fuchsia-300 grid place-content-center col-span-2 dark:bg-fuchsia-800 dark:text-fuchsia-400">02</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center row-span-2 col-span-2">03</div>
+</div>
+```
 
 ```html
 <div class="grid grid-rows-3 grid-flow-col gap-4">
@@ -42,13 +42,13 @@ export const classes = {
 
 Обратите внимание, что линии сетки CSS начинаются с 1, а не с 0, поэтому элемент во всю высоту в трехстрочной сетке будет начинаться со строки 1 и заканчиваться на строке 4.
 
-<Example>
-  <div class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-sky rounded-lg">
-    <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-start-2 row-span-2">01</div>
-    <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-end-3 row-span-2">02</div>
-    <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-start-1 row-end-4">03</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-sky rounded-lg">
+  <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-start-2 row-span-2">01</div>
+  <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-end-3 row-span-2">02</div>
+  <div class="p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center row-start-1 row-end-4">03</div>
+</div>
+```
 
 ```html
 <div class="grid grid-rows-3 grid-flow-col gap-4">
@@ -80,7 +80,7 @@ export const classes = {
 
 Для создания дополнительных утилит `row-{value}`, которые напрямую управляют сокращенным свойством `grid-row`, настройте раздел `gridRow` в конфигурации Вашей темы Tailwind:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -96,7 +96,7 @@ export const classes = {
 
 Чтобы добавить новые утилиты `row-start-{n}`, используйте раздел `gridRowStart` конфигурации Вашей темы Tailwind:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -115,7 +115,7 @@ export const classes = {
 
 Чтобы добавить новые утилиты `row-end-{n}`, используйте раздел `gridRowEnd` конфигурации Вашей темы Tailwind:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

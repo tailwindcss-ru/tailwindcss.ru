@@ -17,22 +17,22 @@ export const classes = { utilities }
 
 Используйте утилиты `accent-{color}`, чтобы изменить цвет акцента элемента. Это полезно для стилизации элементов, таких как флажки и радиогруппы, за счет переопределения цвета браузера по умолчанию.
 
-<Example>
-  <div class="flex flex-wrap justify-center gap-6">
-    <label class="flex items-center space-x-2">
-      <input type="checkbox" checked>
-      <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
-        Браузер по умолчанию
-      </div>
-    </label>
-    <label class="flex items-center space-x-2">
-      <input type="checkbox" class="accent-pink-500" checked>
-      <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
-        Кастомизированный
-      </div>
-    </label>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="flex flex-wrap justify-center gap-6">
+  <label class="flex items-center space-x-2">
+    <input type="checkbox" checked />
+    <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
+      Браузер по умолчанию
+    </div>
+  </label>
+  <label class="flex items-center space-x-2">
+    <input type="checkbox" class="accent-pink-500" checked />
+    <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
+      Кастомизированный
+    </div>
+  </label>
+</div>
+```
 
 ```html
 <label>

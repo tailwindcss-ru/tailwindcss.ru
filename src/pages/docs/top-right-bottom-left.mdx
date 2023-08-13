@@ -20,37 +20,37 @@ export const classes = {
 
 Используйте утилиты `{top|right|bottom|left|inset}-{size}`, чтобы установить горизонтальное или вертикальное положение [позиционированного элемента](/docs/position).
 
-<Example>
-  <div class="grid grid-cols-3 grid-rows-3 place-items-center gap-4 font-mono text-white text-sm font-bold leading-6">
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 w-14 h-14 absolute left-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">01</div>
-    </div>
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 absolute inset-x-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">02</div>
-    </div>
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 w-14 h-14 absolute right-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">03</div>
-    </div>
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 w-14 absolute inset-y-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">04</div>
-    </div>
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 absolute inset-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">05</div>
-    </div>
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 w-14 absolute inset-y-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">06</div>
-    </div>
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 w-14 h-14 absolute left-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">07</div>
-    </div>
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 absolute inset-x-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">08</div>
-    </div>
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 w-14 h-14 absolute right-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">09</div>
-    </div>
+```html {{ example: true }}
+<div class="grid grid-cols-3 grid-rows-3 place-items-center gap-4 font-mono text-white text-sm font-bold leading-6">
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 w-14 h-14 absolute left-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">01</div>
   </div>
-</Example>
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 absolute inset-x-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">02</div>
+  </div>
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 w-14 h-14 absolute right-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">03</div>
+  </div>
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 w-14 absolute inset-y-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">04</div>
+  </div>
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 absolute inset-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">05</div>
+  </div>
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 w-14 absolute inset-y-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">06</div>
+  </div>
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 w-14 h-14 absolute left-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">07</div>
+  </div>
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 absolute inset-x-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">08</div>
+  </div>
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 w-14 h-14 absolute right-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">09</div>
+  </div>
+</div>
+```
 
 ```html
 <!-- Закрепить в верхнем левом углу -->
@@ -103,13 +103,13 @@ export const classes = {
 
 Чтобы использовать отрицательное значение top/right/bottom/left, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
-<Example>
-  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
-    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-      <div class="p-4 w-14 h-14 absolute -left-4 -top-4 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
-    </div>
+```html {{ example: true }}
+<div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+  <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+    <div class="p-4 w-14 h-14 absolute -left-4 -top-4 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="relative h-32 w-32 ...">
@@ -121,22 +121,22 @@ export const classes = {
 
 Используйте утилиты `start-*` и `end-*`, чтобы установить `inset-inline-start` и `inset-inline-end` [логические свойства](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), которые сопоставляются с левой или правой стороной в зависимости от направления текста.
 
-<Example>
-  <div class="grid grid-cols-2 gap-x-4 place-items-center">
-    <div class="flex flex-col items-start gap-y-4">
-      <p class="text-sm font-medium">Left-to-right</p>
-      <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-        <div class="p-4 w-14 h-14 absolute top-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
-      </div>
-    </div>
-    <div class="flex flex-col items-end gap-y-4">
-      <p class="text-sm font-medium">Right-to-left</p>
-      <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
-        <div class="p-4 w-14 h-14 absolute top-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
-      </div>
+```html {{ example: true }}
+<div class="grid grid-cols-2 gap-x-4 place-items-center">
+  <div class="flex flex-col items-start gap-y-4">
+    <p class="text-sm font-medium">Left-to-right</p>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 h-14 absolute top-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
     </div>
   </div>
-</Example>
+  <div class="flex flex-col items-end gap-y-4">
+    <p class="text-sm font-medium">Right-to-left</p>
+    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple">
+      <div class="p-4 w-14 h-14 absolute top-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg"></div>
+    </div>
+  </div>
+</div>
+```
 
 ```html
 <div dir="**ltr**">
@@ -176,7 +176,7 @@ export const classes = {
 
 Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -190,7 +190,7 @@ export const classes = {
 
 Кроме того, вы можете настроить только top/right/bottom/left/inset scale, отредактировав `theme.inset` или `theme.extend.inset` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

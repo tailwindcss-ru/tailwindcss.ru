@@ -15,17 +15,17 @@ export const classes = { utilities }
 
 Используйте `content-start`, чтобы упаковать строки в контейнер напротив начала поперечной оси:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="grid grid-cols-3 gap-4 content-start w-full rounded-lg bg-stripes-purple text-center h-56">
-      <div class="p-4 shadow-lg rounded-lg bg-purple-500">01</div>
-      <div class="p-4 shadow-lg rounded-lg bg-purple-500">02</div>
-      <div class="p-4 shadow-lg rounded-lg bg-purple-500">03</div>
-      <div class="p-4 shadow-lg rounded-lg bg-purple-500">04</div>
-      <div class="p-4 shadow-lg rounded-lg bg-purple-500">05</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="grid grid-cols-3 gap-4 content-start w-full rounded-lg bg-stripes-purple text-center h-56">
+    <div class="p-4 shadow-lg rounded-lg bg-purple-500">01</div>
+    <div class="p-4 shadow-lg rounded-lg bg-purple-500">02</div>
+    <div class="p-4 shadow-lg rounded-lg bg-purple-500">03</div>
+    <div class="p-4 shadow-lg rounded-lg bg-purple-500">04</div>
+    <div class="p-4 shadow-lg rounded-lg bg-purple-500">05</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="h-56 grid grid-cols-3 gap-4 **content-start** ...">
@@ -41,17 +41,17 @@ export const classes = { utilities }
 
 Используйте `content-center`, чтобы упаковать строки в контейнер в центре поперечной оси:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="grid grid-cols-3 gap-4 content-center w-full rounded-lg bg-stripes-sky text-center h-56">
-      <div class="p-4 shadow-lg rounded-lg bg-sky-500">01</div>
-      <div class="p-4 shadow-lg rounded-lg bg-sky-500">02</div>
-      <div class="p-4 shadow-lg rounded-lg bg-sky-500">03</div>
-      <div class="p-4 shadow-lg rounded-lg bg-sky-500">04</div>
-      <div class="p-4 shadow-lg rounded-lg bg-sky-500">05</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="grid grid-cols-3 gap-4 content-center w-full rounded-lg bg-stripes-sky text-center h-56">
+    <div class="p-4 shadow-lg rounded-lg bg-sky-500">01</div>
+    <div class="p-4 shadow-lg rounded-lg bg-sky-500">02</div>
+    <div class="p-4 shadow-lg rounded-lg bg-sky-500">03</div>
+    <div class="p-4 shadow-lg rounded-lg bg-sky-500">04</div>
+    <div class="p-4 shadow-lg rounded-lg bg-sky-500">05</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="h-56 grid grid-cols-3 gap-4 **content-center** ...">
@@ -67,17 +67,17 @@ export const classes = { utilities }
 
 Используйте `content-end`, чтобы упаковать строки в контейнер напротив конца поперечной оси:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="grid grid-cols-3 gap-4 content-end w-full rounded-lg bg-stripes-pink text-center h-56">
-      <div class="p-4 shadow-lg rounded-lg bg-pink-500">01</div>
-      <div class="p-4 shadow-lg rounded-lg bg-pink-500">02</div>
-      <div class="p-4 shadow-lg rounded-lg bg-pink-500">03</div>
-      <div class="p-4 shadow-lg rounded-lg bg-pink-500">04</div>
-      <div class="p-4 shadow-lg rounded-lg bg-pink-500">05</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="grid grid-cols-3 gap-4 content-end w-full rounded-lg bg-stripes-pink text-center h-56">
+    <div class="p-4 shadow-lg rounded-lg bg-pink-500">01</div>
+    <div class="p-4 shadow-lg rounded-lg bg-pink-500">02</div>
+    <div class="p-4 shadow-lg rounded-lg bg-pink-500">03</div>
+    <div class="p-4 shadow-lg rounded-lg bg-pink-500">04</div>
+    <div class="p-4 shadow-lg rounded-lg bg-pink-500">05</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="h-56 grid grid-cols-3 gap-4 **content-end** ...">
@@ -93,17 +93,17 @@ export const classes = { utilities }
 
 Используйте `content-between` для распределения строк в контейнере таким образом, чтобы между каждой строкой оставалось равное пространство:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="grid grid-cols-3 gap-4 content-between w-full rounded-lg bg-stripes-violet text-center h-56">
-      <div class="p-4 shadow-lg rounded-lg bg-violet-500">01</div>
-      <div class="p-4 shadow-lg rounded-lg bg-violet-500">02</div>
-      <div class="p-4 shadow-lg rounded-lg bg-violet-500">03</div>
-      <div class="p-4 shadow-lg rounded-lg bg-violet-500">04</div>
-      <div class="p-4 shadow-lg rounded-lg bg-violet-500">05</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="grid grid-cols-3 gap-4 content-between w-full rounded-lg bg-stripes-violet text-center h-56">
+    <div class="p-4 shadow-lg rounded-lg bg-violet-500">01</div>
+    <div class="p-4 shadow-lg rounded-lg bg-violet-500">02</div>
+    <div class="p-4 shadow-lg rounded-lg bg-violet-500">03</div>
+    <div class="p-4 shadow-lg rounded-lg bg-violet-500">04</div>
+    <div class="p-4 shadow-lg rounded-lg bg-violet-500">05</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="h-56 grid grid-cols-3 gap-4 **content-between** ...">
@@ -119,17 +119,17 @@ export const classes = { utilities }
 
 Используйте `content-around` для распределения строк в контейнере таким образом, чтобы вокруг каждой строки оставалось равное количество места:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="grid grid-cols-3 gap-x-4 content-around w-full rounded-lg bg-stripes-blue text-center h-56">
-      <div class="p-4 shadow-lg rounded-lg bg-blue-500">01</div>
-      <div class="p-4 shadow-lg rounded-lg bg-blue-500">02</div>
-      <div class="p-4 shadow-lg rounded-lg bg-blue-500">03</div>
-      <div class="p-4 shadow-lg rounded-lg bg-blue-500">04</div>
-      <div class="p-4 shadow-lg rounded-lg bg-blue-500">05</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="grid grid-cols-3 gap-x-4 content-around w-full rounded-lg bg-stripes-blue text-center h-56">
+    <div class="p-4 shadow-lg rounded-lg bg-blue-500">01</div>
+    <div class="p-4 shadow-lg rounded-lg bg-blue-500">02</div>
+    <div class="p-4 shadow-lg rounded-lg bg-blue-500">03</div>
+    <div class="p-4 shadow-lg rounded-lg bg-blue-500">04</div>
+    <div class="p-4 shadow-lg rounded-lg bg-blue-500">05</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="h-56 grid grid-cols-3 gap-4 **content-around** ...">
@@ -145,17 +145,17 @@ export const classes = { utilities }
 
 Используйте `content-evenly` для распределения строк в контейнере таким образом, чтобы вокруг каждого элемента было одинаковое пространство, но также учитывайте удвоение пространства, которое вы обычно видите между каждым элементом при использовании `content-around`:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="grid grid-cols-3 gap-x-4 content-evenly w-full rounded-lg bg-stripes-indigo text-center h-56">
-      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">01</div>
-      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">02</div>
-      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">03</div>
-      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">04</div>
-      <div class="p-4 shadow-lg rounded-lg bg-indigo-500">05</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="grid grid-cols-3 gap-x-4 content-evenly w-full rounded-lg bg-stripes-indigo text-center h-56">
+    <div class="p-4 shadow-lg rounded-lg bg-indigo-500">01</div>
+    <div class="p-4 shadow-lg rounded-lg bg-indigo-500">02</div>
+    <div class="p-4 shadow-lg rounded-lg bg-indigo-500">03</div>
+    <div class="p-4 shadow-lg rounded-lg bg-indigo-500">04</div>
+    <div class="p-4 shadow-lg rounded-lg bg-indigo-500">05</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="h-56 grid grid-cols-3 gap-4 **content-evenly** ...">
@@ -171,17 +171,17 @@ export const classes = { utilities }
 
 Используйте `content-stretch`, чтобы позволить элементам контента заполнить доступное пространство вдоль поперечной оси контейнера:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="grid grid-cols-3 gap-4 content-stretch w-full rounded-lg bg-stripes-fuchsia text-center h-56">
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">01</div>
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">02</div>
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">03</div>
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">04</div>
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">05</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="grid grid-cols-3 gap-4 content-stretch w-full rounded-lg bg-stripes-fuchsia text-center h-56">
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">01</div>
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">02</div>
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">03</div>
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">04</div>
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-fuchsia-500">05</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="h-56 grid grid-cols-3 gap-4 **content-stretch** ...">
@@ -197,17 +197,17 @@ export const classes = { utilities }
 
 Используйте `content-normal`, чтобы упаковать элементы содержимого в их положение по умолчанию, как если бы значение `align-content` не было установлено:
 
-<Example>
-  <div class="font-mono text-white text-sm font-bold leading-6">
-    <div class="grid grid-cols-3 gap-4 w-full rounded-lg bg-stripes-indigo text-center h-56">
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">01</div>
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">02</div>
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">03</div>
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">04</div>
-      <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">05</div>
-    </div>
+```html {{ example: true }}
+<div class="font-mono text-white text-sm font-bold leading-6">
+  <div class="grid grid-cols-3 gap-4 w-full rounded-lg bg-stripes-indigo text-center h-56">
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">01</div>
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">02</div>
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">03</div>
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">04</div>
+    <div class="p-4 flex justify-center items-center shadow-lg rounded-lg bg-indigo-500">05</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="h-56 grid grid-cols-3 gap-4 **content-normal** ...">

@@ -12,7 +12,8 @@ import { Heading } from '@/components/Heading'
 
 Контрольные точки по умолчанию основаны на общих разрешениях устройств:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -41,7 +42,8 @@ module.exports = {
 
 Чтобы полностью заменить контрольные точки по умолчанию, добавьте свою настраиваемую конфигурацию `screens` непосредственно под ключом `theme`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -64,7 +66,8 @@ module.exports = {
 
 Чтобы переопределить один размер экрана (например, `lg`), добавьте ваше собственное значение `screens` под ключом `theme.extend`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -83,7 +86,8 @@ module.exports = {
 
 Самый простой способ добавить дополнительную контрольную точку большего размера - использовать ключ `extend`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -104,7 +108,7 @@ module.exports = {
 
 Вместо этого переопределите ключ `screens`, повторно указав контрольные точки по умолчанию:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -124,7 +128,8 @@ module.exports = {
 
 Вы можете называть свои пользовательские экраны как хотите, и не ограничиваться соглашением `sm`/`md`/`lg`/`xl`/`2xl`, которое Tailwind использует по умолчанию.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -159,7 +164,8 @@ module.exports = {
 
 Если вы хотите работать с контрольными точками максимальной ширины вместо минимальной ширины, вы можете указать свои экраны как объекты с помощью ключа `max`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -188,7 +194,8 @@ module.exports = {
 
 Если вы хотите, чтобы в ваших контрольных точках указывались как `min-width`, так и `max-width`, используйте вместе клчюи `min` и `max`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -226,7 +233,8 @@ module.exports = {
 
 Например, предположим, что у вас есть боковая панель и вы хотите, чтобы контрольные точки основывались на ширине области содержимого, а не на всем окне просмотра. Вы можете смоделировать это, переключив одну из ваших контрольных точек на меньшую контрольную точку, когда боковая панель станет видимой и сузит область содержимого:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -249,7 +257,8 @@ module.exports = {
 
 Если вам нужен полный контроль над сгенерированным медиа-запросом, используйте ключ `raw`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {

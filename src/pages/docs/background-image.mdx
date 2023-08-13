@@ -16,14 +16,14 @@ export const classes = { utilities }
 
 Чтобы придать элементу фон с линейным градиентом, используйте одну из утилит `bg-gradient-{direction}` в сочетании с утилитами [остановки градиентного цвета](/docs/gradient-color-stops).
 
-<Example>
-  <div class="space-y-4">
-    <div class="h-14 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-    <div class="h-14 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500"></div>
-    <div class="h-14 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
-    <div class="h-14 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500"></div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="space-y-4">
+  <div class="h-14 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+  <div class="h-14 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+  <div class="h-14 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+  <div class="h-14 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500"></div>
+</div>
+```
 
 ```html
 <div class="h-14 **bg-gradient-to-r from-cyan-500 to-blue-500**"></div>
@@ -54,7 +54,7 @@ export const classes = { utilities }
 
 Вы можете добавить свои собственные фоновые изображения, отредактировав раздел `theme.backgroundImage` вашего файла `tailwind.config.js`:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

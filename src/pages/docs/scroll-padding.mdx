@@ -20,26 +20,26 @@ export const classes = {
 
 Используйте утилиты `scroll-p{side}-{size}` для установки смещения прокрутки элемента в контейнере привязки.
 
-<Example p="none" hint="Прокрутите сетку изображений, чтобы увидеть ожидаемое поведение">
-  <div class="bg-stripes-pink w-6 absolute left-0 top-0 bottom-0 rounded-l-lg"></div>
-  <div class="w-full flex gap-8 snap-x scroll-pl-6 overflow-x-auto py-14">
-    <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
-      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-    </div>
-    <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
-      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-    </div>
-    <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
-      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-    </div>
-    <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
-      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-    </div>
-    <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
-      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-    </div>
+```html {{ example: { p: 'none', hint: 'Прокрутите сетку изображений, чтобы увидеть ожидаемое поведение' } }}
+<div class="bg-stripes-pink w-6 absolute left-0 top-0 bottom-0 rounded-l-lg"></div>
+<div class="w-full flex gap-8 snap-x scroll-pl-6 overflow-x-auto py-14">
+  <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
+    <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
   </div>
-</Example>
+  <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
+    <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
+    <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
+    <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <div class="snap-start shrink-0 first:pl-6 last:pr-[calc(100%-21.5rem)]">
+    <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+</div>
+```
 
 ```html
 <div class="**scroll-pl-6** snap-x ...">
@@ -65,50 +65,50 @@ export const classes = {
 
 Используйте утилиты `scroll-ps-*` и `scroll-pe-*`, чтобы установить `scroll-padding-inline-start` и `scroll-padding-inline-end` [логические свойства](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), которые сопоставляются с левой или правой стороной в зависимости от направления текста.
 
-<Example p="none" hint="Прокрутите сетку изображений, чтобы увидеть ожидаемое поведение">
-  <p class="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
-  <div class="relative" dir="ltr">
-    <div class="bg-stripes-pink w-6 absolute start-0 top-0 bottom-10"></div>
-    <div class="w-full flex gap-8 snap-x scroll-ps-6 overflow-x-auto pb-10">
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
+```html {{ example: { p: 'none', hint: 'Прокрутите сетку изображений, чтобы увидеть ожидаемое поведение' } }}
+<p class="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
+<div class="relative" dir="ltr">
+  <div class="bg-stripes-pink w-6 absolute start-0 top-0 bottom-10"></div>
+  <div class="w-full flex gap-8 snap-x scroll-ps-6 overflow-x-auto pb-10">
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
     </div>
   </div>
-  <p class="mb-4 mt-4 pl-6 text-sm font-medium">Right-to-left</p>
-  <div class="relative" dir="rtl">
-    <div class="bg-stripes-pink w-6 absolute start-0 top-0 bottom-10"></div>
-    <div class="w-full flex gap-8 snap-x scroll-ps-6 overflow-x-auto pb-10">
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
-      <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
-        <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-      </div>
+</div>
+<p class="mb-4 mt-4 pl-6 text-sm font-medium">Right-to-left</p>
+<div class="relative" dir="rtl">
+  <div class="bg-stripes-pink w-6 absolute start-0 top-0 bottom-10"></div>
+  <div class="w-full flex gap-8 snap-x scroll-ps-6 overflow-x-auto pb-10">
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+    </div>
+    <div class="snap-start shrink-0 first:ps-6 last:pe-[calc(100%-21.5rem)]">
+      <img class="shrink-0 w-80 h-40 rounded-lg shadow-xl bg-white" src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
     </div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div dir="**ltr**">
@@ -146,7 +146,7 @@ export const classes = {
 
 По умолчанию шкала прокрутки Tailwind использует [шкалу интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -160,7 +160,7 @@ export const classes = {
 
 Кроме того, вы можете настроить только масштаб прокрутки, отредактировав `theme.scrollPadding` или `theme.extend.scrollPadding` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

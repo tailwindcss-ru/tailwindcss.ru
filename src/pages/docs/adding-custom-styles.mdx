@@ -17,7 +17,8 @@ Tailwind изначально разрабатывался как расширя
 
 Если вы хотите изменить такие вещи, как цветовую палитру, шкалу интервалов, масштаб типографики или контрольные точки, добавьте свои настройки в раздел `theme` файла `tailwind.config.js`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -132,7 +133,7 @@ module.exports = {
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <ul role="list">
   {#each items as item}
     <li class="**lg:[&:nth-child(3)]:hover:underline**">{item}</li>
@@ -140,7 +141,7 @@ module.exports = {
 </ul>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 /* https://media.giphy.com/media/Sd3cd0SrUKZEyWmAlM/giphy.gif */
 @media (min-width: 1024px) {
   .lg\:\[\&\:nth-child\(3\)\]\:hover\:underline:hover:nth-child(3) {
@@ -223,7 +224,7 @@ module.exports = {
 
 Когда вам нужно добавить действительно настраиваемые правила CSS в проект Tailwind, самый простой подход - просто добавить настраиваемый CSS в свою таблицу стилей:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -235,7 +236,7 @@ module.exports = {
 
 Для большей мощности вы также можете использовать директиву `@layer` для добавления стилей к слоям Tailwind `base`, `components`, и `utilities`:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -297,7 +298,7 @@ module.exports = {
 
 Если вы хотите добавить свои собственные базовые стили по умолчанию для определенных элементов HTML, используйте директиву `@layer`, чтобы добавить эти стили к базовому слою `base` Tailwind:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -321,7 +322,7 @@ module.exports = {
 
 Традиционно это были классы вроде `card`, `btn`, `badge` — и т. д.
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -350,7 +351,7 @@ module.exports = {
 
 Слой `components` также является хорошим местом для размещения пользовательских стилей для любых сторонних компонентов, которые вы используете:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -375,7 +376,7 @@ module.exports = {
 
 Добавьте любой из ваших собственных пользовательских служебных классов в слой `utilities` Tailwind:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -393,7 +394,7 @@ module.exports = {
 
 Любые пользовательские стили, которые вы добавляете в Tailwind с помощью `@layer`, будут автоматически поддерживать синтаксис модификатора Tailwind для обработки таких вещей, как состояния наведения, отзывчивые контрольные точки, темный режим и многое другое.
 
-```css CSS
+```css {{ filename: 'CSS' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -405,7 +406,7 @@ module.exports = {
 }
 ```
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="**lg:dark:content-auto**">
   <!-- ... -->
 </div>
@@ -417,7 +418,7 @@ module.exports = {
 
 Любые пользовательские стили, которые вы добавляете к слоям `base`, `components` или `utilities`, будут включены в ваш скомпилированный CSS только в том случае, если эти стили действительно используются в вашем HTML.
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -432,7 +433,7 @@ module.exports = {
 
 Если вы хотите добавить собственный CSS, который всегда должен быть включен, добавьте его в свою таблицу стилей без использования директивы `@layer`:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 
@@ -452,7 +453,7 @@ module.exports = {
 
 Самый простой способ сделать это - использовать плагин [postcss-import](https://github.com/postcss/postcss-import):
 
-```diff-js postcss.config.js
+```diff-js {{ filename: 'postcss.config.js' }}
   module.exports = {
     plugins: {
 +     'postcss-import': {},
@@ -472,7 +473,7 @@ module.exports = {
 
 <TipBad>Не используйте `@layer` в стилях компонентов</TipBad>
 
-```html Card.svelte
+```html {{ filename: 'Card.svelte' }}
 <div>
   <slot></slot>
 </div>
@@ -498,7 +499,7 @@ module.exports = {
 
 <TipGood>Добавьте свои стили без использования `@layer`</TipGood>
 
-```html Card.svelte
+```html {{ filename: 'Card.svelte' }}
 <div>
   <slot></slot>
 </div>
@@ -519,7 +520,7 @@ module.exports = {
 
 <TipGood>Используйте утилиты Tailwind вместо стилей компонентов</TipGood>
 
-```html Card.svelte
+```html {{ filename: 'Card.svelte' }}
 <div class="bg-white rounded-lg p-6 shadow-xl">
   <slot></slot>
 </div>
@@ -531,7 +532,7 @@ module.exports = {
 
 Вы также можете добавить собственные стили в свой проект, используя систему плагинов Tailwind вместо использования файла CSS:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {

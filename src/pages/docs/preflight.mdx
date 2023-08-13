@@ -231,7 +231,7 @@ video {
 
 Если вы хотите полностью отключить предварительную проверку - возможно, потому что вы интегрируете Tailwind в существующий проект или потому, что хотите предоставить свои собственные базовые стили - все, что вам нужно сделать, это установить для параметра `preflight` значение `false` в разделе `corePlugins` файла `tailwind.config.js`:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
 +   corePlugins: {
 +     preflight: false,

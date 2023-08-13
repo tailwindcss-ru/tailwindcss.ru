@@ -8,7 +8,7 @@ let steps = [
     body: () => (
       <p>
         Начните с создания нового проекта Remix, если у вас его еще нет. Самый распространенный
-        подход — использовать <a href="https://remix.run/docs/en/v1">Create Remix</a>.
+        подход — использовать <a href="https://remix.run/docs">Создать Remix</a>.
       </p>
     ),
     code: {
@@ -21,8 +21,7 @@ let steps = [
     title: 'Включить встроенную поддержку CSS Tailwind в Remix',
     body: () => (
       <p>
-        Установите флаг функции <code>unstable_tailwind</code> в файле <code>remix.config.js</code>.
-        В конце концов это станет стабильным и не будет необходимо.
+        Установите флаг <code>tailwind</code> в файле <code>remix.config.js</code>.
       </p>
     ),
     code: {
@@ -30,9 +29,7 @@ let steps = [
       lang: 'js',
       code: `  /** @type {import('@remix-run/dev').AppConfig} */
   module.exports = {
->   future: {
->     unstable_tailwind: true,
->   },
+>   tailwind: true,
   }`,
     },
   },
@@ -41,13 +38,13 @@ let steps = [
     body: () => (
       <p>
         Установите <code>tailwindcss</code> через npm, а затем запустите команду init для создания файла{' '}
-        <code>tailwind.config.js</code>.
+        <code>tailwind.config.ts</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss\nnpx tailwindcss init --ts',
     },
   },
   {
@@ -58,16 +55,17 @@ let steps = [
       </p>
     ),
     code: {
-      name: 'tailwind.config.js',
-      lang: 'js',
-      code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
->   content: ["./app/**/*.{js,jsx,ts,tsx}"],
+      name: 'tailwind.config.ts',
+      lang: 'ts',
+      code: `  import type { Config } from 'tailwindcss'
+
+  export default {
+>   content: ['./app/**/*.{js,jsx,ts,tsx}'],
     theme: {
       extend: {},
     },
     plugins: [],
-  }`,
+  } satisfies Config`,
     },
   },
   {

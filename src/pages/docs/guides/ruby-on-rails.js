@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'rails new my-app\ncd my-app',
+      code: 'rails new my-project\ncd my-project',
     },
   },
   {
@@ -107,7 +107,7 @@ export default function UsingRails({ code }) {
         <p>
           Самый быстрый способ начать использовать Tailwind CSS в проекте Rails — использовать{' '}
           <a href="https://github.com/rails/tailwindcss-rails">Tailwind CSS для Rails</a>, запустив{' '}
-          <code>rails new my-app --css tailwind</code>. Это автоматически настроит вашу настройку
+          <code>rails new my-project --css tailwind</code>. Это автоматически настроит вашу настройку
           Tailwind на основе официального примера Rails. Если вы хотите настроить Tailwind вручную,
           перейдите к остальной части этого руководства.
         </p>

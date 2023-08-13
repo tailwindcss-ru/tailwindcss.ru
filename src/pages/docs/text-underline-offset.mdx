@@ -20,26 +20,26 @@ export const classes = {
 
 Используйте утилиты `underline-offset-{width}`, чтобы изменить смещение подчеркивания текста.
 
-<Example>
-  <div class="flex flex-col gap-8 text-slate-900 dark:text-slate-200">
-    <div>
-      <div class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">underline-offset-1</div>
-      <p class="text-lg font-medium underline underline-offset-1">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
-    </div>
-    <div>
-      <div class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">underline-offset-2</div>
-      <p class="text-lg font-medium underline underline-offset-2">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
-    </div>
-    <div>
-      <div class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">underline-offset-4</div>
-      <p class="text-lg font-medium underline underline-offset-4">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
-    </div>
-    <div>
-      <div class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">underline-offset-8</div>
-      <p class="text-lg font-medium underline underline-offset-8">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8 text-slate-900 dark:text-slate-200">
+  <div>
+    <div class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">underline-offset-1</div>
+    <p class="text-lg font-medium underline underline-offset-1">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
   </div>
-</Example>
+  <div>
+    <div class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">underline-offset-2</div>
+    <p class="text-lg font-medium underline underline-offset-2">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+  </div>
+  <div>
+    <div class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">underline-offset-4</div>
+    <p class="text-lg font-medium underline underline-offset-4">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+  </div>
+  <div>
+    <div class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">underline-offset-8</div>
+    <p class="text-lg font-medium underline underline-offset-8">Быстрая коричневая лиса прыгает через ленивую собаку.</p>
+  </div>
+</div>
+```
 
 ```html
 <p class="underline **underline-offset-1** ...">Быстрая коричневая лиса...</p>
@@ -68,7 +68,7 @@ export const classes = {
 
 Вы можете настроить утилиты `underline-offset-{width}`, отредактировав `theme.textUnderlineOffset` или `theme.extend.textUnderlineOffset` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

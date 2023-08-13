@@ -8,7 +8,8 @@ import { ThemeReference } from '@/components/ThemeReference'
 
 В разделе `theme` файла `tailwind.config.js` вы определяете цветовую палитру проекта, масштаб шрифтов, шрифты, контрольные точки, значения радиуса границы и многое другое.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -59,7 +60,8 @@ module.exports = {
 
 Ключ `screens` позволяет вам настраивать адаптивные контрольные точки в Вашем проекте.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -79,7 +81,8 @@ module.exports = {
 
 Ключ `colors` позволяет вам настроить глобальную цветовую палитру для Вашего проекта.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     colors: {
@@ -106,7 +109,8 @@ module.exports = {
 
 Ключ `spacing` позволяет вам настроить глобальную шкалу интервалов и размеров для Вашего проекта.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     spacing: {
@@ -204,7 +208,8 @@ module.exports = {
 
 Например, если вы хотите добавить дополнительную контрольную точку, но сохранить существующие, вы можете расширить свойство `screens`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -221,7 +226,8 @@ module.exports = {
 
 Чтобы переопределить параметр в теме по умолчанию, добавьте свои переопределения непосредственно в раздел `theme` Вашего `tailwind.config.js`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     // Заменяет все значения непрозрачности `opacity` по умолчанию
@@ -243,7 +249,8 @@ module.exports = {
 
 Конечно, вы можете как переопределить некоторые части темы по умолчанию, так и расширить другие части темы по умолчанию в той же конфигурации:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     opacity: {
@@ -269,7 +276,8 @@ module.exports = {
 
 Например, вы можете сгенерировать утилиты `background-size` для каждого значения в вашей шкале интервалов, указав тему `theme('spacing')` в вашей конфигурации `backgroundSize`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     spacing: {
@@ -291,7 +299,8 @@ module.exports = {
 
 <TipBad>Вы не можете использовать функции для отдельных значений</TipBad>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     fill: {
@@ -303,7 +312,8 @@ module.exports = {
 
 <TipGood>Используйте функции для ключей темы верхнего уровня</TipGood>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     fill: ({ theme }) => ({
@@ -319,7 +329,7 @@ module.exports = {
 
 Один из примеров того, где это полезно, - это если вы хотите добавить семейство шрифтов в один из стеков шрифтов Tailwind по умолчанию:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -342,7 +352,8 @@ module.exports = {
 
 <TipBad>Не назначайте пустой объект в конфигурации Вашей темы</TipBad>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     opacity: {},
@@ -352,7 +363,8 @@ module.exports = {
 
 <TipGood>Отключите плагин в конфигурации corePlugins</TipGood>
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: {
     opacity: false,

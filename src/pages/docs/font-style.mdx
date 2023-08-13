@@ -15,22 +15,22 @@ export const classes = { utilities }
 
 Утилиту `italic` можно использовать для выделения текста курсивом. Точно так же утилиту `not-italic` можно использовать для обычного отображения текста - обычно для сброса курсивного текста в разных контрольных точках.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">italic</span>
-      <p class="italic text-lg font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">not-italic</span>
-      <p class="not-italic text-lg font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">italic</span>
+    <p class="italic text-lg font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
   </div>
-</Example>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">not-italic</span>
+    <p class="not-italic text-lg font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+</div>
+```
 
 ```html
 <p class="**italic** ...">Быстрая коричневая лиса ...</p>

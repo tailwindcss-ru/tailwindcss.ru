@@ -64,8 +64,8 @@ let steps = [
     title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind в свой{' '}
-        файл <code>globals.css</code>.
+        Добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind в свой файл{' '}
+        <code>globals.css</code> file.
       </p>
     ),
     code: {

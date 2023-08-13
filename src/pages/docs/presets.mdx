@@ -10,7 +10,8 @@ import { ThemeReference } from '@/components/ThemeReference'
 
 Опция `presets` позволяет вам указать _различную_ конфигурацию для использования в качестве основы, что упрощает пакетирование набора настроек, которые вы хотели бы повторно использовать в проектах.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('@acmecorp/tailwind-base')
@@ -27,7 +28,7 @@ module.exports = {
 
 Пресеты - это обычные объекты конфигурации Tailwind, принимающие ту же форму, что и конфигурация, которую вы добавляете в свой файл `tailwind.config.js`.
 
-```js my-preset.js
+```js {{ filename: 'my-preset.js' }}
 // Пример предустановки
 module.exports = {
   theme: {
@@ -78,7 +79,8 @@ module.exports = {
 
 Предполагая, что этот пресет был сохранен в `./my-preset.js`, вы можете использовать его, добавив его в файл `tailwind.config.js` в вашем реальном проекте под ключом `presets`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('./my-preset.js')
@@ -151,7 +153,7 @@ module.exports = {
 
 Если вы сконфигурируете `corePlugins` как объект, он будет объединен во всех конфигурациях.
 
-```js my-preset.js
+```js {{ filename: 'my-preset.js' }}
 module.exports = {
   // ...
   corePlugins: {
@@ -160,7 +162,8 @@ module.exports = {
 }
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('./my-preset.js'),
@@ -174,7 +177,7 @@ module.exports = {
 
 Если вы сконфигурируете `corePlugins` как массив, он заменит любую конфигурацию `corePlugins`, предоставленную Вашим настроенным пресет(ом)(ами).
 
-```js my-preset.js
+```js {{ filename: 'my-preset.js' }}
 module.exports = {
   // ...
   corePlugins: {
@@ -183,7 +186,8 @@ module.exports = {
 }
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('./example-preset.js'),
@@ -199,7 +203,8 @@ module.exports = {
 
 Параметр `presets` представляет собой массив и может принимать несколько предустановок. Это полезно, если вы хотите разделить свои повторно используемые настройки на составляемые блоки, которые можно импортировать независимо.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('@acmecorp/tailwind-colors'),
@@ -213,7 +218,8 @@ module.exports = {
 
 Например, если обе эти конфигурации предоставляют пользовательскую цветовую палитру (и не используют `extend`), будет использоваться цветовая палитра из `configuration-b`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
     require('@acmecorp/configuration-a'),
@@ -228,7 +234,8 @@ module.exports = {
 
 Если вы хотите полностью отключить конфигурацию по умолчанию и начать без базовой конфигурации, установите `presets` в пустой массив:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [],
   // ...
@@ -239,17 +246,18 @@ module.exports = {
 
 Вы также можете сделать это из предустановки, если хотите, чтобы Ваша предустановка предоставляла полную систему дизайна сама по себе, которая не расширяет настройки Tailwind по умолчанию:
 
-```js my-preset.js
+```js {{ filename: 'my-preset.js' }}
 module.exports = {
   presets: [],
   // ...
 }
 ```
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
-    require('./example-preset.js')
+    require('./my-preset.js')
   ],
   // ...
 }

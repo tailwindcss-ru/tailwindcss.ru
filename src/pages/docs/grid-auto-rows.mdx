@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Размер неявно созданных строк сетки
 
-Используйте утилиты `auto-rows-{size}` для управления размером неявно создаваемых строк сетки.
+Используйте утилиты `auto-rows-{size}` для управления размером неявно созданных строк сетки.
 
 ```html
 <div class="grid grid-flow-row **auto-rows-max**">
@@ -44,7 +44,7 @@ export const classes = { utilities }
 
 По умолчанию Tailwind включает четыре универсальных `grid-auto-rows`. Вы можете настроить эти значения, отредактировав `theme.gridAutoRows` или `theme.extend.gridAutoRows` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

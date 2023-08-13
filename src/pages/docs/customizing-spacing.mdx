@@ -7,7 +7,8 @@ import { SpacingScale } from '@/components/SpacingScale'
 
 Используйте ключ `spacing` в разделе `theme` Вашего файла `tailwind.config.js`, чтобы настроить Tailwind [шкала интервалов/размеров по умолчанию](#shkala-intervalov-po-umolchaniyu).
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     spacing: {
@@ -22,7 +23,7 @@ module.exports = {
 }
 ```
 
-По умолчанию шкала интервалов наследуется подключаемыми модулями ядра `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space` и `translate`.
+По умолчанию шкала интервалов наследуется от основных плагинов `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space`, `translate`, `scrollMargin` и `scrollPadding`.
 
 ---
 
@@ -30,7 +31,8 @@ module.exports = {
 
 Как описано в [документации темы](/docs/theme#extending-the-default-theme), если вы хотите расширить шкалу интервалов по умолчанию, вы можете сделать это с помощью раздела `theme.extend.spacing` ваш файл `tailwind.config.js`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -53,7 +55,8 @@ module.exports = {
 
 Как описано в [документации темы](/docs/theme#zamena-temy-po-umolchaniyu), если вы хотите переопределить шкалу интервалов по умолчанию, вы можете сделать это, используя раздел `theme.spacing` Вашего файла `tailwind.config.js`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     spacing: {

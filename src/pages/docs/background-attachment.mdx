@@ -15,20 +15,20 @@ export const classes = { utilities }
 
 Используйте `bg-fixed` для исправления фонового изображения относительно области просмотра.
 
-<Example p="none">
-  <div class="px-4">
-    <div class="max-w-lg mx-auto h-80 overflow-y-scroll scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 bg-cover shadow-lg" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80'); background-position: center -80px;">
-      <div class="mt-40">
-        <div class="bg-white p-4 sm:p-8">
-          <div class="font-inter font-extrabold text-2xl text-black tracking-tight">Моя поездка на вершину</div>
-          <div class="mt-1 font-medium text-sm text-slate-500">16 ноября 2021 г. · Чтение займет 4 мин.</div>
-          <p class="mt-4 leading-7 text-slate-500">Может быть, мы сможем жить без библиотек, такие люди, как ты и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки пи-пи и пи-пи на Коте в Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего?</p>
-          <p class="mt-4 leading-7 text-slate-500">Смотреть. Если вы думаете, что речь идет о просроченных штрафах и недостающих книгах, вам лучше подумать еще раз. Речь идет о праве этого ребенка читать книгу, не искажая свой разум! Или: может быть, это тебя заводит, Сайнфелд; может быть, это то, как ты получаешь удовольствие. Вы и ваши друзья.</p>
-        </div>
+```html {{ example: { p: 'none' } }}
+<div class="px-4">
+  <div class="max-w-lg mx-auto h-80 overflow-y-scroll scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 bg-cover shadow-lg" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80'); background-position: center -80px;">
+    <div class="mt-40">
+      <div class="bg-white p-4 sm:p-8">
+        <div class="font-inter font-extrabold text-2xl text-black tracking-tight">Моя поездка на вершину</div>
+        <div class="mt-1 font-medium text-sm text-slate-500">16 ноября 2021 г. · 4 минуты чтения</div>
+        <p class="mt-4 leading-7 text-slate-500">Может быть, мы сможем жить без библиотек, такие люди, как ты и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но как насчет того ребенка, который сел, открыл книгу прямо сейчас в отделении местной библиотеки и нашел рисунки пи-пи и пи-пи на Коте в Шляпа и пять китайских братьев? Разве ОН не заслуживает лучшего?</p>
+        <p class="mt-4 leading-7 text-slate-500">Смотреть. Если вы думаете, что речь идет о просроченных штрафах и недостающих книгах, вам лучше подумать еще раз. Речь идет о праве этого ребенка читать книгу, не искажая свой разум! Или: может быть, это тебя заводит, Сайнфелд; может быть, это то, как ты получаешь удовольствие. Ты и твои веселые приятели.</p>
       </div>
     </div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="**bg-fixed** ..." style="background-image: url(...)"></div>
@@ -38,20 +38,20 @@ export const classes = { utilities }
 
 Используйте `bg-local` для прокрутки фонового изображения с контейнером и окном просмотра.
 
-<Example p="none">
-  <div class="px-4">
-    <div class="max-w-lg mx-auto bg-white shadow-lg">
-      <div class="py-8 sm:py-12">
-        <div class="h-64 overflow-y-scroll scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 bg-cover bg-local" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80');">
-          <div class="p-6 sm:px-16 sm:py-12 bg-black/40">
-            <p class="font-serif italic text-base sm:text-2xl text-white text-center leading-6 sm:leading-8">"Потому что почта никогда не останавливается. Он просто продолжает приходить, приходить и приходить, никогда не прекращается. Это безжалостно. С каждым днем их накапливается все больше и больше. И вы должны достать его, но чем больше вы его извлекаете, тем больше он поступает. А затем сломается считыватель штрих-кода, и наступает день Информационной палаты издателя."</p>
-            <div class="mt-6 font-inter font-bold text-sm sm:text-base text-white text-center">&mdash; Newman</div>
-          </div>
+```html {{ example: { p: 'none' } }}
+<div class="px-4">
+  <div class="max-w-lg mx-auto bg-white shadow-lg">
+    <div class="py-8 sm:py-12">
+      <div class="h-64 overflow-y-scroll scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 bg-cover bg-local" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80');">
+        <div class="p-6 sm:px-16 sm:py-12 bg-black/40">
+          <p class="font-serif italic text-base sm:text-2xl text-white text-center leading-6 sm:leading-8">"Потому что почта никогда не останавливается. Она просто продолжает прибывать, приходить и приходить, никогда не останавливаться. Она безжалостна. С каждым днем ее накапливается все больше и больше. тем больше их поступает. А потом считыватель штрих-кода ломается, и наступает день Информационного центра издателя".</p>
+          <div class="mt-6 font-inter font-bold text-sm sm:text-base text-white text-center">&mdash; Новичок</div>
         </div>
       </div>
     </div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="**bg-local** ..." style="background-image: url(...)"></div>
@@ -61,20 +61,20 @@ export const classes = { utilities }
 
 Используйте `bg-scroll` для прокрутки фонового изображения в области просмотра, но не в контейнере.
 
-<Example p="none">
-  <div class="px-4">
-    <div class="max-w-lg mx-auto bg-white shadow-lg">
-      <div class="py-8 sm:py-12">
-        <div class="h-64 overflow-y-scroll scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 bg-cover bg-scroll" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80');">
-          <div class="p-6 sm:px-16 sm:py-12 bg-black/40">
-            <p class="font-serif italic text-base sm:text-2xl text-white text-center leading-6 sm:leading-8">"Потому что почта никогда не останавливается. Он просто продолжает приходить, приходить и приходить, никогда не прекращается. Это безжалостно. С каждым днем их накапливается все больше и больше. И вы должны достать его, но чем больше вы его извлекаете, тем больше он поступает. А затем сломается считыватель штрих-кода, и наступает день Информационной палаты издателя."</p>
-            <div class="mt-6 font-inter font-bold text-sm sm:text-base text-white text-center">&mdash; Newman</div>
-          </div>
+```html {{ example: { p: 'none' } }}
+<div class="px-4">
+  <div class="max-w-lg mx-auto bg-white shadow-lg">
+    <div class="py-8 sm:py-12">
+      <div class="h-64 overflow-y-scroll scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 bg-cover bg-scroll" style="background-image:url('https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=666&q=80');">
+        <div class="p-6 sm:px-16 sm:py-12 bg-black/40">
+          <p class="font-serif italic text-base sm:text-2xl text-white text-center leading-6 sm:leading-8">"Потому что почта никогда не останавливается. Она просто продолжает прибывать, приходить и приходить, никогда не останавливаться. Она безжалостна. С каждым днем ее накапливается все больше и больше. тем больше их поступает. А потом считыватель штрих-кода ломается, и наступает день Информационного центра издателя."</p>
+          <div class="mt-6 font-inter font-bold text-sm sm:text-base text-white text-center">&mdash; Новичок</div>
         </div>
       </div>
     </div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="**bg-scroll** ..." style="background-image: url(...)"></div>

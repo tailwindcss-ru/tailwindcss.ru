@@ -108,24 +108,13 @@ export default function UsingCRA({ code }) {
     >
       <div hidden className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
-          Мы <strong>настоятельно рекомендуем</strong> использовать{' '}
-          <Link href="https://vitejs.dev">
-            <a>Vite</a>
-          </Link>
-          ,{' '}
-          <Link href="https://nextjs.org">
-            <a>Next.js</a>
-          </Link>
-          ,{' '}
-          <Link href="https://remix.run">
-            <a>Remix</a>
-          </Link>
-          , или{' '}
-          <Link href="https://parceljs.org">
-            <a>Parcel</a>
-          </Link>{' '}
-          вместо Create React App. Они обеспечивают эквивалентный или лучший опыт разработки,
-          но с большей гибкостью, что дает вам больше контроля над настройкой Tailwind и PostCSS.
+          Мы <strong>настоятельно рекомендуем</strong> использовать <Link href="https://vitejs.dev">Vite</Link>,{' '}
+          <Link href="https://nextjs.org">Next.js</Link>,{' '}
+          <Link href="https://remix.run">Remix</Link> или{' '}
+          <Link href="https://parceljs.org">Parcel</Link> вместо Create React App. Они обеспечивают
+          эквивалентный или лучший опыт разработки, но с большей гибкостью, что дает вам больше
+          контроля над настройкой Tailwind и PostCSS. Приложение Create React не поддерживает
+          пользовательские конфигурации PostCSS, поэтому вы не можете использовать
         </p>
       </div>
 
@@ -151,20 +140,20 @@ export default function UsingCRA({ code }) {
             </p>
             <p className="mt-3">
               Мы <strong className="dark:text-slate-200">настоятельно рекомендуем</strong> использовать{' '}
-              <Link href="/docs/guides/vite">
-                <a className="underline font-bold dark:text-slate-200">Vite</a>
+              <Link href="/docs/guides/vite" className="underline font-bold dark:text-slate-200">
+                Vite
               </Link>
               ,{' '}
-              <Link href="/docs/guides/parcel">
-                <a className="underline font-bold dark:text-slate-200">Parcel</a>
+              <Link href="/docs/guides/parcel" className="underline font-bold dark:text-slate-200">
+                Parcel
               </Link>
               ,{' '}
-              <Link href="/docs/guides/nextjs">
-                <a className="underline font-bold dark:text-slate-200">Next.js</a>
+              <Link href="/docs/guides/nextjs" className="underline font-bold dark:text-slate-200">
+                Next.js
               </Link>
               , или{' '}
-              <Link href="/docs/guides/remix">
-                <a className="underline font-bold dark:text-slate-200">Remix</a>
+              <Link href="/docs/guides/remix" className="underline font-bold dark:text-slate-200">
+                Remix
               </Link>{' '}
               вместо Create React App. Они обеспечивают эквивалентный или лучший опыт разработки,
               но с большей гибкостью, что дает вам больше контроля над настройкой Tailwind и PostCSS.

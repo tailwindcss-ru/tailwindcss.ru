@@ -34,10 +34,7 @@ let steps = [
     body: () => (
       <p>
         Отредактируйте объект <code>tailwind.config</code>, чтобы{' '}
-        <NextLink href="/docs/configuration">
-          <a>настроить конфигурацию</a>
-        </NextLink>{' '}
-        с помощью собственных токенов дизайна.
+        <NextLink href="/docs/configuration">настроить свою конфигурацию</NextLink> с помощью собственных маркеров дизайна.
       </p>
     ),
     code: {

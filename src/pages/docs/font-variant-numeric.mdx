@@ -40,9 +40,9 @@ export const classes = {
 
 Используйте утилиту `ordinal`, чтобы включить специальные глифы для порядковых маркеров.
 
-<Example>
-  <p class="font-source ordinal text-center text-slate-900 text-lg dark:text-slate-200">1-й</p>
-</Example>
+```html {{ example: true }}
+<p class="font-source ordinal text-center text-slate-900 text-lg dark:text-slate-200">1-й</p>
+```
 
 ```html
 <p class="**ordinal** ...">1-й</p>
@@ -52,9 +52,9 @@ export const classes = {
 
 Используйте утилиту `slashed-zero`, чтобы установить 0 с косой чертой; это полезно, когда необходимо четкое различие между O и 0.
 
-<Example>
-  <p class="font-source slashed-zero text-center text-slate-900 text-lg dark:text-slate-200">0</p>
-</Example>
+```html {{ example: true }}
+<p class="font-source slashed-zero text-center text-slate-900 text-lg dark:text-slate-200">0</p>
+```
 
 ```html
 <p class="**slashed-zero** ...">0</p>
@@ -64,9 +64,9 @@ export const classes = {
 
 Используйте утилиту `lining-nums`, чтобы использовать числовые глифы, которые выровнены по своей базовой линии. Это соответствует функции OpenType `lnum`. Это значение по умолчанию для большинства шрифтов.
 
-<Example>
-  <p class="font-source lining-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
-</Example>
+```html {{ example: true }}
+<p class="font-source lining-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
+```
 
 ```html
 <p class="**lining-nums** ...">
@@ -78,9 +78,9 @@ export const classes = {
 
 Используйте утилиту `oldstyle-nums` для использования числовых глифов там, где у некоторых чисел есть нижние элементы. Это соответствует функции OpenType `onum`.
 
-<Example>
-  <p class="font-source oldstyle-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
-</Example>
+```html {{ example: true }}
+<p class="font-source oldstyle-nums text-center text-slate-900 text-lg dark:text-slate-200">1234567890</p>
+```
 
 ```html
 <p class="**oldstyle-nums** ...">
@@ -92,12 +92,12 @@ export const classes = {
 
 Используйте утилиту `proportional-nums`, чтобы использовать числовые глифы с пропорциональной шириной (а не равномерные/табличные). Это соответствует функции OpenType `pnum`.
 
-<Example>
-  <div class="max-w-sm text-right">
-    <p class="font-source proportional-nums text-slate-900 text-lg dark:text-slate-200">12121</p>
-    <p class="font-source proportional-nums text-slate-900 text-lg dark:text-slate-200">90909</p>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="max-w-sm text-right">
+  <p class="font-source proportional-nums text-slate-900 text-lg dark:text-slate-200">12121</p>
+  <p class="font-source proportional-nums text-slate-900 text-lg dark:text-slate-200">90909</p>
+</div>
+```
 
 ```html
 <p class="**proportional-nums** ...">
@@ -112,12 +112,12 @@ export const classes = {
 
 Используйте утилиту `tabular-nums` для использования числовых глифов, которые имеют одинаковую/табличную ширину (а не пропорциональную). Это соответствует функции OpenType `tnum`.
 
-<Example>
-  <div class="max-w-sm text-right">
-    <p class="font-source tabular-nums text-slate-900 text-lg dark:text-slate-200">12121</p>
-    <p class="font-source tabular-nums text-slate-900 text-lg dark:text-slate-200">90909</p>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="max-w-sm text-right">
+  <p class="font-source tabular-nums text-slate-900 text-lg dark:text-slate-200">12121</p>
+  <p class="font-source tabular-nums text-slate-900 text-lg dark:text-slate-200">90909</p>
+</div>
+```
 
 ```html
 <p class="**tabular-nums** ...">
@@ -132,9 +132,9 @@ export const classes = {
 
 Используйте утилиту `diagonal-fractions`, чтобы заменить числа, разделенные косой чертой, на обычные диагональные дроби. Это соответствует функции OpenType `frac`.
 
-<Example>
-  <p class="font-source diagonal-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
-</Example>
+```html {{ example: true }}
+<p class="font-source diagonal-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
+```
 
 ```html
 <p class="**diagonal-fractions** ...">
@@ -146,9 +146,9 @@ export const classes = {
 
 Используйте утилиту `stacked-fractions`, чтобы заменить числа, разделенные косой чертой, обычными составными дробями. Это соответствует функции OpenType `afrc`. Кажется, очень немногие шрифты поддерживают эту функцию — здесь мы использовали Ubuntu Mono.
 
-<Example>
-  <p class="font-ubuntu-mono stacked-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
-</Example>
+```html {{ example: true }}
+<p class="font-ubuntu-mono stacked-fractions text-center text-slate-900 text-lg dark:text-slate-200">1/2 3/4 5/6</p>
+```
 
 ```html
 <p class="**stacked-fractions** ...">
@@ -158,7 +158,7 @@ export const classes = {
 
 ### Сброс вариантов числового шрифта
 
-Используйте свойство `normal-nums` для сброса вариантов числового шрифта. Обычно это полезно для сброса функции шрифта в определенной контрольной точке:
+Используйте свойство `normal-nums` для сброса числовых вариантов шрифта. Обычно это полезно для сброса функции шрифта в определенной точке останова:
 
 ```html
 <p class="slashed-zero tabular-nums **md:normal-nums** ...">

@@ -22,44 +22,44 @@ export const classes = {
 
 Используйте утилиты `ring-offset-{width}` для имитации смещения, добавляя сплошную белую тень прямоугольника и увеличивая толщину сопутствующего кольца контура для соответствия смещению.
 
-<Example>
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-sm text-center font-bold leading-6">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-0</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-0 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Кнопка А</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-2</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Кнопка Б</button>
-    </div>
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-4</p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-4 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Кнопка В</button>
-    </div>
+```html {{ example: true }}
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-sm text-center font-bold leading-6">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-0</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-0 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Кнопка А</button>
   </div>
-</Example>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-2</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Кнопка Б</button>
+  </div>
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">ring-offset-4</p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-slate-50 ring-pink-500 ring-offset-4 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Кнопка В</button>
+  </div>
+</div>
+```
 
 ```html
-<button class="... ring ring-pink-500 **ring-offset-0**">Button A</button>
-<button class="... ring ring-pink-500 **ring-offset-2**">Button B</button>
-<button class="... ring ring-pink-500 **ring-offset-4**">Button C</button>
+<button class="... ring ring-pink-500 **ring-offset-0**">Кнопка А</button>
+<button class="... ring ring-pink-500 **ring-offset-2**">Кнопка Б</button>
+<button class="... ring ring-pink-500 **ring-offset-4**">Кнопка В</button>
 ```
 
 ### Изменение цвета смещения
 
 На самом деле вы не можете компенсировать тень блока в CSS, поэтому мы должны имитировать ее, используя сплошную цветную тень, которая соответствует цвету родительского фона. По умолчанию мы используем белый цвет, но если вы добавляете кольцевое смещение поверх другого цвета фона, вы должны использовать утилиты `ring-offset-{color}` для соответствия родительскому цвету фона:
 
-<Example>
-  <div class="grid place-content-center text-white text-sm text-center font-bold leading-6">
-    <div class="flex flex-col items-center shrink-0">
-      <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">
-        <span class="dark:hidden">ring-offset-slate-50</span>
-        <span class="hidden dark:inline">dark:ring-offset-slate-900</span>
-      </p>
-      <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-4 ring-offset-slate-50 ring-pink-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Сохранить изменения</button>
-    </div>
+```html {{ example: true }}
+<div class="grid place-content-center text-white text-sm text-center font-bold leading-6">
+  <div class="flex flex-col items-center shrink-0">
+    <p class="font-medium text-sm font-mono text-slate-500 text-center mb-3 dark:text-slate-400">
+      <span class="dark:hidden">ring-offset-slate-50</span>
+      <span class="hidden dark:inline">dark:ring-offset-slate-900</span>
+    </p>
+    <button class="px-4 py-2 font-semibold text-sm bg-white text-slate-700 border border-slate-300 rounded-md shadow-sm ring-2 ring-offset-4 ring-offset-slate-50 ring-pink-500 dark:bg-slate-700 dark:text-slate-200 dark:border-transparent dark:ring-offset-slate-900">Сохранить изменения</button>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <button class="ring ring-pink-500 **ring-offset-2** **ring-offset-slate-50** **dark:ring-offset-slate-900** ...">
@@ -89,7 +89,8 @@ export const classes = {
 
 Чтобы настроить, какие утилиты ширины смещения кольца генерируются, добавьте свои пользовательские значения под ключом `ringOffsetWidth` в разделе `theme` файла `tailwind.config.js`.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {

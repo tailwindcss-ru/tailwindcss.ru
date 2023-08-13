@@ -16,19 +16,19 @@ export const classes = { utilities }
 
 Используйте утилиты `grid-cols-{n}` для создания сеток с _n_ столбцами одинакового размера.
 
-<Example>
-  <div class="grid grid-cols-4 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">01</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">02</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">03</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">04</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">05</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">06</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">07</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">08</div>
-    <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">09</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-cols-4 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">01</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">02</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">03</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">04</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">05</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">06</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">07</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">08</div>
+  <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">09</div>
+</div>
+```
 
 ```html
 <div class="grid **grid-cols-4** gap-4">
@@ -60,7 +60,7 @@ export const classes = { utilities }
 
 Здесь у вас есть прямой доступ к CSS свойству `grid-template-columns`, так что вы можете сделать свои собственные значения столбцов как общие, так и сложные и зависящие от сайта, как вам нравится.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

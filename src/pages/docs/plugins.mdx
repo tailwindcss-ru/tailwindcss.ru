@@ -12,7 +12,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 Чтобы начать работу с вашим первым плагином, импортируйте функцию Tailwind `plugin` из `tailwindcss/plugin`. Затем внутри вашего массива `plugins` вызовите импортированную функцию `plugin` с анонимной функцией в качестве первого аргумента.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -46,7 +46,8 @@ module.exports = {
 
 Плагины могут быть добавлены в ваш проект, установив их через npm, а затем добавив их в ваш файл `tailwind.config.js`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...
   plugins: [
@@ -131,7 +132,7 @@ module.exports = {
 
 Используйте функцию `addUtilities` для регистрации простых статических утилит, не поддерживающих значения, заданные пользователем:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -159,7 +160,7 @@ module.exports = {
 
 Используйте функцию `matchUtilities` для регистрации утилит, которые сопоставляются со значениями, определенными в конфигурации пользователя `theme`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -200,7 +201,8 @@ module.exports = {
 
 Это означает, что с учетом данной конфигурации Tailwind:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   prefix: 'tw-',
   important: true,
@@ -238,7 +240,7 @@ module.exports = {
 
 Служебные плагины могут предоставлять значения по умолчанию, включая объект конфигурации в качестве второго аргумента функции `plugin`:
 
-```js ./plugins/tab-size.js
+```js {{ filename: './plugins/tab-size.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(function({ matchUtilities, theme }) {
@@ -274,7 +276,7 @@ module.exports = plugin(function({ matchUtilities, theme }) {
 
 Чтобы добавить новые стили компонентов из плагина, вызовите `addComponents`, передав свои стили, используя [синтаксис CSS-in-JS](#css-in-js-syntax):
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -314,7 +316,8 @@ module.exports = {
 
 Это означает, что с учетом данной конфигурации Tailwind:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   prefix: 'tw-',
   important: true,
@@ -348,7 +351,7 @@ module.exports = {
 
 Хотя редко есть веские причины делать объявления компонентов важными, если вам это действительно нужно, вы всегда можете добавить вручную `!important`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -369,7 +372,7 @@ module.exports = {
 
 Все классы в селекторе по умолчанию будут иметь префикс, поэтому, если вы добавите более сложный стиль, например:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -417,7 +420,7 @@ module.exports = {
 
 Чтобы добавить новые базовые стили из плагина, вызовите `addBase`, передав свои стили, используя [синтаксис CSS-in-JS](#css-in-js-syntax):
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -445,7 +448,7 @@ module.exports = {
 
 Используйте функцию `addVariant` для простых пользовательских вариантов, передав имя вашего пользовательского варианта и строку формата, которая представляет, как следует изменить селектор.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -473,7 +476,7 @@ module.exports = {
 
 Используйте функцию `matchVariant` для регистрации новых параметризованных вариантов, таких как встроенные варианты `supports-*`, `data-*` и `aria-*` variants:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -510,7 +513,7 @@ module.exports = {
 ```js
 matchVariant("min", (value) => `@media (min-width: ${value})`, {
   sort(a, z) {
-    return parseInt(a) - parseInt(z);
+    return parseInt(a.value) - parseInt(z.value);
   },
 });
 ```
@@ -521,7 +524,7 @@ matchVariant("min", (value) => `@media (min-width: ${value})`, {
 
 Чтобы поддерживать версии `group-*` и `peer-*` ваших собственных пользовательских модификаторов, зарегистрируйте их как отдельные варианты, используя специальную директиву `:merge`, чтобы гарантировать, что классы `.group` и `.peer` появляются только один раз в финальном селекторе.
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
   const plugin = require('tailwindcss/plugin')
 
   module.exports = {
@@ -542,7 +545,7 @@ matchVariant("min", (value) => `@media (min-width: ${value})`, {
 
 Плагины могут объединять свой собственный набор значений конфигурации с пользовательской конфигурацией `tailwind.config.js`, предоставляя объект в качестве второго аргумента функции `plugin`:
 
-```js ./plugins/tab-size.js
+```js {{ filename: './plugins/tab-size.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(function({ matchUtilities, theme }) {
@@ -576,7 +579,7 @@ module.exports = plugin(function({ matchUtilities, theme }) {
 
 В таких случаях вы можете использовать `plugin.withOptions` для определения подключаемого модуля, который может быть вызван с помощью объекта конфигурации. Этот API похож на обычный API `plugin`, за исключением того, что каждый аргумент должен быть функцией, которая принимает `options` пользователя и возвращает значение, которое вы обычно передали бы с помощью обычного API:
 
-```js ./plugins/markdown.js
+```js {{ filename: './plugins/markdown.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin.withOptions(function (options = {}) {
@@ -602,7 +605,8 @@ module.exports = plugin.withOptions(function (options = {}) {
 
 Пользователь будет вызывать ваш плагин, передавая свои параметры при регистрации его в своей конфигурации `plugins`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     // ...
@@ -617,7 +621,8 @@ module.exports = {
 
 Пользователь также может зарегистрировать плагины, созданные таким образом, обычно, не вызывая их, если им не нужно передавать какие-либо настраиваемые параметры:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     // ...

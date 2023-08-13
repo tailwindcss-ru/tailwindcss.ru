@@ -16,40 +16,40 @@ export const classes = { utilities }
 
 Управляйте толщиной шрифта элемента с помощью утилит `font-{weight}`.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-light</span>
-      <p class="font-light text-lg text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-normal</span>
-      <p class="font-normal text-lg text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-medium</span>
-      <p class="font-medium text-lg text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-semibold</span>
-      <p class="font-semibold text-lg text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-bold</span>
-      <p class="font-bold text-lg text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-light</span>
+    <p class="font-light text-lg text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
   </div>
-</Example>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-normal</span>
+    <p class="font-normal text-lg text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-medium</span>
+    <p class="font-medium text-lg text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-semibold</span>
+    <p class="font-semibold text-lg text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-bold</span>
+    <p class="font-bold text-lg text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+</div>
+```
 
 ```html
 <p class="**font-light** ...">Быстрая коричневая лиса ...</p>
@@ -79,7 +79,7 @@ export const classes = { utilities }
 
 По умолчанию Tailwind предоставляет девять утилит `font-weight`. Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.fontWeight` вашей конфигурации Tailwind.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       fontWeight: {

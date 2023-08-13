@@ -16,28 +16,28 @@ export const classes = { utilities }
 
 Вы можете управлять шрифтом текста с помощью утилит семейства шрифтов.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-sans</span>
-      <p class="font-sans text-lg font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-serif</span>
-      <p class="font-serif text-lg font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-mono</span>
-      <p class="font-mono text-lg font-medium text-slate-900 dark:text-slate-200">
-        Быстрая коричневая лиса прыгает через ленивую собаку.
-      </p>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-sans</span>
+    <p class="font-sans text-lg font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
   </div>
-</Example>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-serif</span>
+    <p class="font-serif text-lg font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">font-mono</span>
+    <p class="font-mono text-lg font-medium text-slate-900 dark:text-slate-200">
+      Быстрая коричневая лиса прыгает через ленивую собаку.
+    </p>
+  </div>
+</div>
+```
 
 ```html
 <p class="**font-sans** ...">Быстрая коричневая лиса ...</p>
@@ -65,7 +65,7 @@ export const classes = { utilities }
 
 По умолчанию Tailwind предоставляет три утилиты семейства шрифтов: кроссбраузерный стек без засечек, кроссбраузерный стек с засечками и кроссбраузерный моноширинный стек. Вы можете изменить, добавить или удалить их, отредактировав раздел `theme.fontFamily` в Вашей конфигурации Tailwind.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       fontFamily: {
@@ -112,7 +112,7 @@ export const classes = { utilities }
 
 При желании вы можете указать [настройки-функции-шрифта по умолчанию](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings) и [настройки-вариации-шрифта](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings) для каждого шрифта в вашем проекте, используя кортеж формы `[fontFamilies, { fontFeatureSettings, fontVariationSettings }]` при настройке пользовательского шрифты.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       fontFamily: {
@@ -136,7 +136,7 @@ export const classes = { utilities }
 
 Для удобства [Preflight](/docs/preflight) устанавливает семейство шрифтов в элементе `html` в соответствии с настроенным шрифтом `sans`, поэтому один из способов изменить шрифт по умолчанию для вашего проекта — настроить ключ `sans` в вашей конфигурации `fontFamily`:
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   const defaultTheme = require('tailwindcss/defaultTheme')
 
   module.exports = {
@@ -152,7 +152,7 @@ export const classes = { utilities }
 
 Вы также можете настроить шрифт по умолчанию, используемый в вашем проекте, [добавив собственный базовый стиль](/docs/adding-custom-styles#adding-base-styles), который явно задает свойство `font-family`:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

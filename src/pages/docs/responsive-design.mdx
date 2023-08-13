@@ -31,9 +31,9 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 Вот простой пример компонента маркетинговой страницы, в котором используется составной макет на маленьких экранах и горизонтальный макет на больших экранах *(измените размер браузера, чтобы увидеть его в действии)*:
 
-<Example resizable p="none">
-  <iframe class="w-full h-[496px] pointer-events-none" src="/examples/responsive-design-demo"></iframe>
-</Example>
+```html {{ example: { resizable: true, p: 'none' } }}
+<iframe class="w-full h-[496px] pointer-events-none" src="/examples/responsive-design-demo"></iframe>
+```
 
 ```html
 <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden **md:max-w-2xl**">
@@ -128,7 +128,8 @@ Tailwind генерирует соответствующий модификат�
 
 Вы можете полностью настроить контрольные точки в файле `tailwind.config.js`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {

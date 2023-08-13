@@ -16,30 +16,30 @@ export const classes = { utilities }
 
 Используйте `appearance-none`, чтобы сбросить стиль элемента, специфичный для браузера. Эта утилита часто используется при создании [компонентов пользовательских форм](/docs/examples/forms).
 
-<Example>
-  <div class="max-w-sm mx-auto items-center">
-    <div class="flex my-6">
-      <select class="w-16">
-        <option>Да</option>
-        <option>Нет</option>
-        <option>Возможно</option>
-      </select>
-      <div class="mx-6 text-slate-900 text-sm font-semibold dark:text-slate-200">
-        Применены стили браузера по умолчанию
-      </div>
-    </div>
-    <div class="flex my-6 items-center">
-      <select class="appearance-none w-16">
-        <option>Да</option>
-        <option>Нет</option>
-        <option>Возможно</option>
-      </select>
-      <div class="mx-6 text-slate-900 text-sm font-semibold dark:text-slate-200">
-        Стили по умолчанию удалены
-      </div>
+```html {{ example: true }}
+<div class="max-w-sm mx-auto items-center">
+  <div class="flex my-6">
+    <select class="w-16">
+      <option>Да</option>
+      <option>Нет</option>
+      <option>Возможно</option>
+    </select>
+    <div class="mx-6 text-slate-900 text-sm font-semibold dark:text-slate-200">
+      Применены стили браузера по умолчанию
     </div>
   </div>
-</Example>
+  <div class="flex my-6 items-center">
+    <select class="appearance-none w-16">
+      <option>Yes</option>
+      <option>No</option>
+      <option>Maybe</option>
+    </select>
+    <div class="mx-6 text-slate-900 text-sm font-semibold dark:text-slate-200">
+      Default styles removed
+    </div>
+  </div>
+</div>
+```
 
 ```html
 <select>

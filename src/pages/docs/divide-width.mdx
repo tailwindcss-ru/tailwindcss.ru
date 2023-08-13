@@ -35,13 +35,13 @@ export const classes = {
 
 Добавьте границы между горизонтальными элементами с помощью утилит `divide-x-{width}`.
 
-<Example>
-  <div class="grid grid-cols-3 divide-x font-mono text-sm text-center font-bold leading-6 rounded-lg shadow-lg overflow-hidden dark:divide-slate-700">
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-cols-3 divide-x font-mono text-sm text-center font-bold leading-6 rounded-lg shadow-lg overflow-hidden dark:divide-slate-700">
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
+</div>
+```
 
 ```html
 <div class="grid grid-cols-3 **divide-x**">
@@ -55,13 +55,13 @@ export const classes = {
 
 Добавьте границы между составными элементами с помощью утилит `divide-y-{width}`.
 
-<Example p="none">
-  <div class="grid grid-cols-1 divide-y font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-slate-700">
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
-  </div>
-</Example>
+```html {{ example: { p: 'none' } }}
+<div class="grid grid-cols-1 divide-y font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-slate-700">
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
+</div>
+```
 
 ```html
 <div class="grid grid-cols-1 **divide-y**">
@@ -75,13 +75,13 @@ export const classes = {
 
 Если ваши элементы расположены в обратном порядке (например, `flex-row-reverse` или `flex-col-reverse`), используйте утилиты `divide-x-reverse` или `divide-y-reverse`, чтобы убедиться, что граница добавлен к правильной стороне каждого элемента.
 
-<Example p="none">
-  <div class="flex flex-col-reverse divide-y divide-y-reverse font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-slate-700">
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
-    <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
-  </div>
-</Example>
+```html {{ example: { p: 'none' } }}
+<div class="flex flex-col-reverse divide-y divide-y-reverse font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-slate-700">
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">01</div>
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">02</div>
+  <div class="p-4 text-slate-400 bg-white dark:bg-slate-800">03</div>
+</div>
+```
 
 ```html
 <div class="flex **flex-col-reverse divide-y divide-y-reverse**">
@@ -111,7 +111,7 @@ export const classes = {
 
 Шкала ширины разделения по умолчанию наследует свои значения из шкалы `borderWidth`, поэтому, если вы хотите настроить свои значения как для ширины границы, так и для ширины разделения, используйте раздел `theme.borderWidth` в файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       borderWidth: {
@@ -129,7 +129,7 @@ export const classes = {
 
 Чтобы настроить только значения ширины разделения, используйте раздел `theme.divideWidth` вашего файла `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       divideWidth: {

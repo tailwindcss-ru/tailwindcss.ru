@@ -2,6 +2,8 @@ import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
 import Link from 'next/link'
 
+import { ReactComponent as AstroLogo } from '@/img/guides/astro.svg'
+import { ReactComponent as AstroLogoWhite } from '@/img/guides/astro-white.svg'
 import { ReactComponent as AdonisLogo } from '@/img/guides/adonis.svg'
 import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
 import { ReactComponent as AngularLogoWhite } from '@/img/guides/angular-white.svg'
@@ -15,6 +17,7 @@ import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as ParcelLogo } from '@/img/guides/parcel.svg'
 import { ReactComponent as PhoenixLogo } from '@/img/guides/phoenix.svg'
+import { ReactComponent as QwikLogo } from '@/img/guides/qwik.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
@@ -148,27 +151,41 @@ export default function FrameworkGuides() {
             description: 'Фреймворк JavaScript для амбициозных веб-разработчиков.',
             logo: EmberLogo,
           },
+          {
+            name: 'Astro',
+            slug: 'astro',
+            description: 'The all-in-one web framework designed for speed.',
+            logo: AstroLogo,
+            logoDark: AstroLogoWhite,
+          },
+          {
+            name: 'Qwik',
+            slug: 'qwik',
+            description: 'Build instantly-interactive web apps without effort.',
+            logo: QwikLogo,
+          },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
             <div className="peer group ml-6 flex-auto">
               <h4 className="mb-2 leading-6 text-slate-900 font-semibold dark:text-slate-200">
-                <Link href={`/docs/guides/${slug}`}>
-                  <a className="before:absolute before:-inset-3 before:rounded-2xl">
-                    {name}
-                    <svg
-                      viewBox="0 0 3 6"
-                      className="ml-3 w-auto h-1.5 overflow-visible inline -mt-px text-slate-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
-                    >
-                      <path
-                        d="M0 0L3 3L0 6"
-                        fill="none"
-                        strokeWidth="2"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </a>
+                <Link
+                  href={`/docs/guides/${slug}`}
+                  className="before:absolute before:-inset-3 before:rounded-2xl"
+                >
+                  {name}
+                  <svg
+                    viewBox="0 0 3 6"
+                    className="ml-3 w-auto h-1.5 overflow-visible inline -mt-px text-slate-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+                  >
+                    <path
+                      d="M0 0L3 3L0 6"
+                      fill="none"
+                      strokeWidth="2"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </Link>
               </h4>
               <p className="text-sm leading-6 text-slate-700 dark:text-slate-400">{description}</p>
@@ -189,15 +206,9 @@ export default function FrameworkGuides() {
       </ul>
       <div className="mt-16 prose prose-slate max-w-3xl dark:prose-dark">
         <p>
-          Не видите выбранную вами схему? Вместо этого попробуйте использовать{' '}
-          <Link href="/docs/installation">
-            <a>Tailwind CLI</a>
-          </Link>{' '}
-          или установить Tailwind{' '}
-          <Link href="/docs/installation/using-postcss">
-            <a>как плагин PostCSS</a>
-          </Link>{' '}
-          .
+          Не видите выбранный вами фреймворк? Попробуйте использовать{' '}
+          <Link href="/docs/installation">Tailwind CLI</Link> или установить вместо этого Tailwind{' '}
+          <Link href="/docs/installation/using-postcss">в качестве подключаемого модуля PostCSS plugin</Link>.
         </p>
       </div>
     </InstallationLayout>

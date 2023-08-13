@@ -20,14 +20,14 @@ export const classes = {
 
 Используйте `gap-{size}`, чтобы изменить промежутки между строками и столбцами в макетах сетки и флексбокса.
 
-<Example>
-  <div class="grid grid-cols-2 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-violet rounded-lg">
-    <div class="p-4 rounded-lg shadow-lg bg-violet-500">01</div>
-    <div class="p-4 rounded-lg shadow-lg bg-violet-500">02</div>
-    <div class="p-4 rounded-lg shadow-lg bg-violet-500">03</div>
-    <div class="p-4 rounded-lg shadow-lg bg-violet-500">04</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-cols-2 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-violet rounded-lg">
+  <div class="p-4 rounded-lg shadow-lg bg-violet-500">01</div>
+  <div class="p-4 rounded-lg shadow-lg bg-violet-500">02</div>
+  <div class="p-4 rounded-lg shadow-lg bg-violet-500">03</div>
+  <div class="p-4 rounded-lg shadow-lg bg-violet-500">04</div>
+</div>
+```
 
 ```html
 <div class="grid **gap-4** grid-cols-2">
@@ -42,16 +42,16 @@ export const classes = {
 
 Используйте `gap-x-{size}` и `gap-y-{size}` для независимого изменения зазора между строками и столбцами.
 
-<Example>
-  <div class="grid grid-cols-3 gap-x-8 gap-y-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-sky rounded-lg">
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500">01</div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500">02</div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500">03</div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500">04</div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500">05</div>
-    <div class="p-4 rounded-lg shadow-lg bg-sky-500">06</div>
-  </div>
-</Example>
+```html {{ example: true }}
+<div class="grid grid-cols-3 gap-x-8 gap-y-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-sky rounded-lg">
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500">01</div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500">02</div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500">03</div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500">04</div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500">05</div>
+  <div class="p-4 rounded-lg shadow-lg bg-sky-500">06</div>
+</div>
+```
 
 ```html
 <div class="grid **gap-x-8** **gap-y-4** grid-cols-3">
@@ -84,7 +84,7 @@ export const classes = {
 
 По умолчанию для шкалы промежутков Tailwind используется [шкала интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -98,7 +98,7 @@ export const classes = {
 
 Кроме того, вы можете настроить только масштаб промежутка, отредактировав `theme.gap` или `theme.extend.gap` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {

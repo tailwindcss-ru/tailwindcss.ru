@@ -16,34 +16,34 @@ export const classes = { utilities }
 
 Для создания маркированных или числовых списков используйте утилиты `list-disc` и `list-decimal`.
 
-<Example>
-  <div class="flex flex-col gap-8">
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">list-disc</span>
-      <ul class="list-disc list-inside text-slate-900 dark:text-slate-200">
-        <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
-        <li>И я хотел бы занять минутку, просто посидеть здесь</li>
-        <li>Я расскажу вам, как я стал принцем города под названием Бель-Эйр</li>
-      </ul>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">list-decimal</span>
-      <ul class="list-decimal list-inside text-slate-900 dark:text-slate-200">
-        <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
-        <li>И я хотел бы занять минутку, просто посидеть здесь</li>
-        <li>Я расскажу вам, как я стал принцем города под названием Бель-Эйр</li>
-      </ul>
-    </div>
-    <div>
-      <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">list-none</span>
-      <ul class="list-none list-inside text-slate-900 dark:text-slate-200">
-        <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
-        <li>И я хотел бы занять минутку, просто посидеть здесь</li>
-        <li>Я расскажу вам, как я стал принцем города под названием Бель-Эйр</li>
-      </ul>
-    </div>
+```html {{ example: true }}
+<div class="flex flex-col gap-8">
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">list-disc</span>
+    <ul class="list-disc list-inside text-slate-900 dark:text-slate-200">
+      <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+      <li>И я хотел бы занять минутку, просто посидеть здесь</li>
+      <li>Я расскажу вам, как я стал принцем города под названием Бель-Эйр</li>
+    </ul>
   </div>
-</Example>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">list-decimal</span>
+    <ul class="list-decimal list-inside text-slate-900 dark:text-slate-200">
+      <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+      <li>И я хотел бы занять минутку, просто посидеть здесь</li>
+      <li>Я расскажу вам, как я стал принцем города под названием Бель-Эйр</li>
+    </ul>
+  </div>
+  <div>
+    <span class="font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400">list-none</span>
+    <ul class="list-none list-inside text-slate-900 dark:text-slate-200">
+      <li>Теперь это история о том, как моя жизнь перевернулась с ног на голову</li>
+      <li>И я хотел бы занять минутку, просто посидеть здесь</li>
+      <li>Я расскажу вам, как я стал принцем города под названием Бель-Эйр</li>
+    </ul>
+  </div>
+</div>
+```
 
 ```html
 <ul class="**list-disc**">
@@ -82,7 +82,7 @@ export const classes = { utilities }
 
 По умолчанию Tailwind предоставляет три утилиты для наиболее распространенных типов стилей списков. Вы изменяете, добавляете или удаляете их, редактируя раздел `theme.listStyleType` Вашей конфигурации Tailwind.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       listStyleType: {

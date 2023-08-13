@@ -103,12 +103,8 @@ export default function TailwindCli({ code }) {
       >
         <h3 className="sr-only">Installing Tailwind CLI</h3>
         <p>
-          Самый простой и быстрый способ начать работу с Tailwind CSS с нуля — использовать
-          инструмент командной строки Tailwind. Интерфейс командной строки также доступен в виде{' '}
-          <Link href="/blog/standalone-cli">
-            <a>автономного исполняемого файла</a>
-          </Link>{' '}
-          , если вы хотите использовать его без установки Node.js.
+          Самый простой и быстрый способ начать работу с Tailwind CSS с нуля — использовать инструмент командной строки Tailwind. Интерфейс командной строки также доступен в виде{' '}
+          <Link href="/blog/standalone-cli">автономного исполняемого файла</Link>, если вы хотите использовать его без установки Node.js.
         </p>
       </div>
       <Steps level={4} steps={steps} code={code} />

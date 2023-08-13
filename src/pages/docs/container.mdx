@@ -7,7 +7,7 @@ import defaultConfig from 'defaultConfig'
 export const screens = defaultConfig.theme.screens
 
 export const classes = {
-  custom: (
+  custom: () => (
     <table className="w-full text-left border-collapse">
       <colgroup>
         <col className="w-1/4" />
@@ -103,7 +103,8 @@ export const classes = {
 
 Чтобы центрировать контейнеры по умолчанию, установите для параметра `center` значение `true` в разделе `theme.container` Вашего файла конфигурации:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {
@@ -117,7 +118,8 @@ module.exports = {
 
 Чтобы добавить горизонтальные отступы по умолчанию, укажите количество отступов, которое вы хотите, используя опцию `padding` в разделе `theme.container` Вашего файла конфигурации:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {
@@ -129,7 +131,8 @@ module.exports = {
 
 Если вы хотите указать разную величину заполнения для каждой контрольной точки, используйте объект для предоставления значения по умолчанию `default` и любых переопределений, зависящих от контрольной точки:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {

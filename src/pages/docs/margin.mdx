@@ -20,30 +20,30 @@ export const classes = {
 
 Например, `mt-6` добавит `1.5rem` отступ элементу сверху, `mr-4` добавит `1rem` отступ элементу справа, `mb-8` добавит `2rem` отступ элементу снизу, и `ml-2` добавит `0.5rem` отступ элементу слева.
 
-<Example p="none">
-  <div class="relative font-mono text-white text-sm font-bold leading-6 h-56">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 md:-ml-24">
-      <div class="flow-root bg-stripes-purple rounded-b-lg">
-        <div class="bg-purple-500 rounded-lg shadow-lg p-4 mt-6">mt-6</div>
-      </div>
-    </div>
-    <div class="absolute right-0 top-1/2 -translate-y-1/2">
-      <div class="flow-root bg-stripes-purple rounded-l-lg">
-        <div class="flex-none bg-purple-500 rounded-lg shadow-lg p-4 mr-4">mr-4</div>
-      </div>
-    </div>
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 md:ml-24">
-      <div class="flow-root bg-stripes-purple rounded-t-lg">
-        <div class="bg-purple-500 rounded-lg shadow-lg p-4 mb-8">mb-8</div>
-      </div>
-    </div>
-    <div class="absolute left-0 top-1/2 -translate-y-1/2">
-      <div class="flow-root bg-stripes-purple rounded-r-lg">
-        <div class="flex-none bg-purple-500 rounded-lg shadow-lg p-4 ml-2">ml-2</div>
-      </div>
+```html {{ example: { p: 'none' } }}
+<div class="relative font-mono text-white text-sm font-bold leading-6 h-56">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 md:-ml-24">
+    <div class="flow-root bg-stripes-purple rounded-b-lg">
+      <div class="bg-purple-500 rounded-lg shadow-lg p-4 mt-6">mt-6</div>
     </div>
   </div>
-</Example>
+  <div class="absolute right-0 top-1/2 -translate-y-1/2">
+    <div class="flow-root bg-stripes-purple rounded-l-lg">
+      <div class="flex-none bg-purple-500 rounded-lg shadow-lg p-4 mr-4">mr-4</div>
+    </div>
+  </div>
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 md:ml-24">
+    <div class="flow-root bg-stripes-purple rounded-t-lg">
+      <div class="bg-purple-500 rounded-lg shadow-lg p-4 mb-8">mb-8</div>
+    </div>
+  </div>
+  <div class="absolute left-0 top-1/2 -translate-y-1/2">
+    <div class="flow-root bg-stripes-purple rounded-r-lg">
+      <div class="flex-none bg-purple-500 rounded-lg shadow-lg p-4 ml-2">ml-2</div>
+    </div>
+  </div>
+</div>
+```
 
 ```html
 <div class="**mt-6** ...">mt-6</div>
@@ -56,13 +56,13 @@ export const classes = {
 
 Управляйте горизонтальным отступом элемента с помощью утилит `mx-{size}`.
 
-<Example>
-  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
-    <div class="bg-stripes-indigo rounded-lg">
-      <div class="bg-indigo-500 rounded-lg shadow-lg p-4 mx-8">mx-8</div>
-    </div>
+```html {{ example: true }}
+<div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+  <div class="bg-stripes-indigo rounded-lg">
+    <div class="bg-indigo-500 rounded-lg shadow-lg p-4 mx-8">mx-8</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="**mx-8** ...">mx-8</div>
@@ -72,13 +72,13 @@ export const classes = {
 
 Управляйте вертикальным отступом элемента с помощью утилит `my-{size}`.
 
-<Example>
-  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
-    <div class="flow-root bg-stripes-pink rounded-lg">
-      <div class="bg-pink-500 rounded-lg shadow-lg p-4 my-8">my-8</div>
-    </div>
+```html {{ example: true }}
+<div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+  <div class="flow-root bg-stripes-pink rounded-lg">
+    <div class="bg-pink-500 rounded-lg shadow-lg p-4 my-8">my-8</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="**my-8** ...">my-8</div>
@@ -88,13 +88,13 @@ export const classes = {
 
 Контролируйте отступы со всех сторон элемента с помощью утилит `m-{size}`.
 
-<Example>
-  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
-    <div class="flow-root bg-stripes-blue rounded-lg">
-      <div class="bg-blue-500 rounded-lg shadow-lg p-4 m-8">m-8</div>
-    </div>
+```html {{ example: true }}
+<div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+  <div class="flow-root bg-stripes-blue rounded-lg">
+    <div class="bg-blue-500 rounded-lg shadow-lg p-4 m-8">m-8</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="**m-8** ...">m-8</div>
@@ -104,14 +104,14 @@ export const classes = {
 
 Чтобы использовать отрицательное значение маржи, поставьте перед именем класса дефис, чтобы преобразовать его в отрицательное значение.
 
-<Example>
-  <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
-    <div class="flex flex-col items-center">
-      <div class="relative w-36 h-16 bg-sky-400/20 border border-sky-700/10 rounded-md overflow-hidden"></div>
-      <div class="relative -mt-8 bg-sky-500 rounded-md flex items-center justify-center p-4 shadow-lg">-mt-8</div>
-    </div>
+```html {{ example: true }}
+<div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+  <div class="flex flex-col items-center">
+    <div class="relative w-36 h-16 bg-sky-400/20 border border-sky-700/10 rounded-md overflow-hidden"></div>
+    <div class="relative -mt-8 bg-sky-500 rounded-md flex items-center justify-center p-4 shadow-lg">-mt-8</div>
   </div>
-</Example>
+</div>
+```
 
 ```html
 <div class="w-36 h-16 bg-sky-400 opacity-20 ..."></div>
@@ -122,28 +122,28 @@ export const classes = {
 
 Используйте утилиты `ms-*` и `me-*`, чтобы установить `margin-inline-start` и `margin-inline-end` [логические свойства](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), которые сопоставляются с левой или правой стороной в зависимости от направления текста.
 
-<Example>
-  <div class="grid grid-cols-2 gap-x-4 place-items-center">
-    <div class="flex flex-col items-start gap-y-4" dir="ltr">
-      <p class="text-sm font-medium">Left-to-right</p>
-      <div class="bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
-        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 ms-8">ms-8</div>
-      </div>
-      <div class="mt-4 bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
-        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 me-8">me-8</div>
-      </div>
+```html {{ example: true }}
+<div class="grid grid-cols-2 gap-x-4 place-items-center">
+  <div class="flex flex-col items-start gap-y-4" dir="ltr">
+    <p class="text-sm font-medium">Left-to-right</p>
+    <div class="bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+      <div class="bg-indigo-500 rounded-lg shadow-lg p-4 ms-8">ms-8</div>
     </div>
-    <div class="flex flex-col items-start gap-y-4" dir="rtl">
-      <p class="text-sm font-medium">Right-to-left</p>
-      <div class="bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
-        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 ms-8">ms-8</div>
-      </div>
-      <div class="mt-4 bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
-        <div class="bg-indigo-500 rounded-lg shadow-lg p-4 me-8">me-8</div>
-      </div>
+    <div class="mt-4 bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+      <div class="bg-indigo-500 rounded-lg shadow-lg p-4 me-8">me-8</div>
     </div>
   </div>
-</Example>
+  <div class="flex flex-col items-start gap-y-4" dir="rtl">
+    <p class="text-sm font-medium">Right-to-left</p>
+    <div class="bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+      <div class="bg-indigo-500 rounded-lg shadow-lg p-4 ms-8">ms-8</div>
+    </div>
+    <div class="mt-4 bg-stripes-indigo rounded-lg font-mono text-white text-sm font-bold leading-6">
+      <div class="bg-indigo-500 rounded-lg shadow-lg p-4 me-8">me-8</div>
+    </div>
+  </div>
+</div>
+```
 
 ```html
 <div dir="**ltr**">
@@ -179,7 +179,7 @@ export const classes = {
 
 По умолчанию для шкалы полей Tailwind используется [шкала интервалов по умолчанию](/docs/customizing-spacing). Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
@@ -193,7 +193,7 @@ export const classes = {
 
 Кроме того, вы можете настроить только масштаб полей, отредактировав `theme.margin` или `theme.extend.margin` в вашем файле `tailwind.config.js`.
 
-```diff-js tailwind.config.js
+```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
