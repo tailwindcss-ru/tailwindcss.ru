@@ -32,7 +32,7 @@ export const documentationNav = {
     pages['adding-custom-styles'],
     pages['functions-and-directives'],
   ],
-  'Настройка': [
+  Настройка: [
     pages['configuration'],
     pages['content-configuration'],
     // TODO: Remove + redirect to v2
@@ -47,7 +47,7 @@ export const documentationNav = {
     pages['presets'],
   ],
   'Базовые стили': [pages['preflight']],
-  'Макет': [
+  Макет: [
     pages['aspect-ratio'],
     pages['container'],
     pages['columns'],
@@ -95,20 +95,17 @@ export const documentationNav = {
     pages['place-items'],
     pages['place-self'],
   ],
-  'Интервал': [
-    pages['padding'],
-    pages['margin'],
-    pages['space']
-  ],
-  'Размеры': [
+  Интервал: [pages['padding'], pages['margin'], pages['space']],
+  Размеры: [
     pages['width'],
     pages['min-width'],
     pages['max-width'],
     pages['height'],
     pages['min-height'],
     pages['max-height'],
+    pages['size'],
   ],
-  'Типография': [
+  Типография: [
     pages['font-family'],
     pages['font-size'],
     pages['font-smoothing'],
@@ -130,6 +127,7 @@ export const documentationNav = {
     pages['text-underline-offset'],
     pages['text-transform'],
     pages['text-overflow'],
+    pages['text-wrap'],
     pages['text-indent'],
     pages['vertical-align'],
     pages['whitespace'],
@@ -137,7 +135,7 @@ export const documentationNav = {
     pages['hyphens'],
     pages['content'],
   ],
-  'Фоны': [
+  Фоны: [
     pages['background-attachment'],
     pages['background-clip'],
     pages['background-color'],
@@ -148,7 +146,7 @@ export const documentationNav = {
     pages['background-image'],
     pages['gradient-color-stops'],
   ],
-  'Границы': [
+  Границы: [
     pages['border-radius'],
     pages['border-width'],
     pages['border-color'],
@@ -165,14 +163,14 @@ export const documentationNav = {
     pages['ring-offset-width'],
     pages['ring-offset-color'],
   ],
-  'Эффекты': [
+  Эффекты: [
     pages['box-shadow'],
     pages['box-shadow-color'],
     pages['opacity'],
     pages['mix-blend-mode'],
     pages['background-blend-mode'],
   ],
-  'Фильтры': [
+  Фильтры: [
     pages['blur'],
     pages['brightness'],
     pages['contrast'],
@@ -192,7 +190,7 @@ export const documentationNav = {
     pages['backdrop-saturate'],
     pages['backdrop-sepia'],
   ],
-  'Таблицы': [
+  Таблицы: [
     pages['border-collapse'],
     pages['border-spacing'],
     pages['table-layout'],
@@ -205,14 +203,14 @@ export const documentationNav = {
     pages['transition-delay'],
     pages['animation'],
   ],
-  'Преобразования': [
+  Преобразования: [
     pages['scale'],
     pages['rotate'],
     pages['translate'],
     pages['skew'],
     pages['transform-origin'],
   ],
-  'Интерактивность': [
+  Интерактивность: [
     pages['accent-color'],
     pages['appearance'],
     pages['cursor'],
@@ -229,14 +227,8 @@ export const documentationNav = {
     pages['user-select'],
     pages['will-change'],
   ],
-  'SVG': [
-    pages['fill'],
-    pages['stroke'],
-    pages['stroke-width']
-  ],
-  'Доступность': [
-    pages['screen-readers']
-  ],
+  SVG: [pages['fill'], pages['stroke'], pages['stroke-width']],
+  Доступность: [pages['screen-readers'], pages['forced-color-adjust']],
   'Официальные плагины': [
     pages['typography-plugin'],
     {
@@ -252,7 +244,7 @@ export const documentationNav = {
       href: 'https://github.com/tailwindlabs/tailwindcss-container-queries',
     },
   ],
-  'Перевод': [
+  Перевод: [
     {
       title: 'Сообщить об ошибке',
       href: 'https://github.com/tailwindcss-ru/tailwindcss.ru/issues/new',

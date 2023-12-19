@@ -14,13 +14,57 @@ export const classes = { utilities }
 
 ### Установка минимальной высоты
 
-Установите минимальную высоту элемента с помощью утилит `min-h-0`, `min-h-full` или `min-h-screen`.
+Установите минимальную высоту элемента с помощью утилиты `min-h-*` utilities.
+
+```html {{ example: true }}
+<div class="flex justify-center items-end gap-3 sm:gap-4 font-mono font-bold text-xs text-center text-white whitespace-nowrap h-96">
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-80 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">min-h-80</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-64 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">min-h-64</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-48 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">min-h-48</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-40 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">min-h-40</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-32 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">min-h-32</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-24 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">min-h-24</div>
+    </div>
+  </div>
+  <div class="w-8 bg-blue-500 rounded-lg shadow-lg min-h-full h-96 relative">
+    <div class="absolute w-8 bottom-6">
+      <div class="-rotate-90">min-h-full</div>
+    </div>
+  </div>
+</div>
+```
 
 ```html
-<div class="h-48">
-  <div class="h-24 **min-h-full**">
-    <!-- ... -->
-  </div>
+<div class="**h-96** ...">
+  <div class="**min-h-80** ...">min-h-80</div>
+  <div class="**min-h-64** ...">min-h-64</div>
+  <div class="**min-h-48** ...">min-h-48</div>
+  <div class="**min-h-40** ...">min-h-40</div>
+  <div class="**min-h-32** ...">min-h-32</div>
+  <div class="**min-h-24** ...">min-h-24</div>
+  <div class="**min-h-full** ...">min-h-full</div>
 </div>
 ```
 
@@ -42,20 +86,37 @@ export const classes = { utilities }
 
 ### Настройка вашей темы
 
-Вы можете настроить масштаб `min-height`, отредактировав `theme.minHeight` или `theme.extend.minHeight` в вашем файле `tailwind.config.js`.
+По умолчанию минимальная шкала высот Tailwind представляет собой комбинацию [шкалы интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), а также некоторых дополнительных значений, специфичных для высот.
+
+Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в файле `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
-+     minHeight: {
-+       '1/2': '50%',
-+     }
+      extend: {
++       spacing: {
++         '128': '32rem',
++       }
+      }
     }
   }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
+Чтобы настроить `min-height` отдельно, используйте раздел `theme.minHeight` вашего файла `tailwind.config.js`.
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       minHeight: {
++         '128': '32rem',
++       }
+      }
+    }
+  }
+```
+Узнайте больше о настройке темы по умолчанию в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
 ### Произвольные значения
 
-<ArbitraryValues property="min-height" featuredClass="min-h-[50%]" />
+<ArbitraryValues property="min-height" featuredClass="min-h-[220px]" />

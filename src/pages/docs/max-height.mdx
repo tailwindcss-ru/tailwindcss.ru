@@ -18,13 +18,71 @@ export const classes = {
 
 ### Установка максимальной высоты
 
-Установите максимальную высоту элемента с помощью утилит `max-h-full` или `max-h-screen`.
+Установите максимальную высоту элемента с помощью утилиты `max-h-*`.
+
+```html {{ example: true }}
+<div class="h-96 flex justify-center items-end space-x-4 font-mono font-bold text-xs text-center text-white">
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-full">
+    <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-80 relative">
+      <div class="absolute w-8 text-nowrap bottom-6">
+        <div class="-rotate-90">max-h-80</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-full">
+    <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-64 relative">
+      <div class="absolute w-8 text-nowrap bottom-6">
+        <div class="-rotate-90">max-h-64</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-full">
+    <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-48 relative">
+      <div class="absolute w-8 text-nowrap bottom-6">
+        <div class="-rotate-90">max-h-48</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-full">
+    <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-40 relative">
+      <div class="absolute w-8 text-nowrap bottom-6">
+        <div class="-rotate-90">max-h-40</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-full">
+    <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-32 relative">
+      <div class="absolute w-8 text-nowrap bottom-6">
+        <div class="-rotate-90">max-h-32</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-full">
+    <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-24 relative">
+      <div class="absolute w-8 text-nowrap bottom-6">
+        <div class="-rotate-90">max-h-24</div>
+      </div>
+    </div>
+  </div>
+  <div class="w-8 grid items-end bg-stripes-blue rounded-lg h-full">
+    <div class="w-full bg-blue-500 rounded-lg shadow-lg h-full max-h-full relative">
+      <div class="absolute w-8 text-nowrap bottom-6">
+        <div class="-rotate-90">max-h-full</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
 
 ```html
-<div class="h-24 ...">
-  <div class="h-48 **max-h-full** ...">
-    <!-- ... -->
-  </div>
+<div class="**h-96** ...">
+  <div class="h-full **max-h-80** ...">max-h-80</div>
+  <div class="h-full **max-h-64** ...">max-h-64</div>
+  <div class="h-full **max-h-48** ...">max-h-48</div>
+  <div class="h-full **max-h-40** ...">max-h-40</div>
+  <div class="h-full **max-h-32** ...">max-h-32</div>
+  <div class="h-full **max-h-24** ...">max-h-24</div>
+  <div class="h-full **max-h-full** ...">max-h-full</div>
 </div>
 ```
 
@@ -46,7 +104,7 @@ export const classes = {
 
 ### Настройка вашей темы
 
-По умолчанию шкала максимальной высоты Tailwind использует комбинацию [шкалы интервалов по умолчанию](/docs/customizing-spacing), а также некоторых дополнительных значений, связанных с высотой.
+По умолчанию максимальная шкала высоты Tailwind представляет собой комбинацию [шкалы интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), а также некоторых дополнительных значений, специфичных для высоты.
 
 Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в вашем файле `tailwind.config.js`.
 
@@ -62,7 +120,7 @@ export const classes = {
   }
 ```
 
-Кроме того, вы можете настроить только масштаб максимальной высоты, отредактировав `theme.maxHeight` или `theme.extend.maxHeight` в вашем файле `tailwind.config.js`.
+Чтобы настроить `max-height` отдельно, используйте раздел `theme.minHeight` вашего файла `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -80,4 +138,4 @@ export const classes = {
 
 ### Произвольные значения
 
-<ArbitraryValues property="max-height" featuredClass="max-h-[32rem]" />
+<ArbitraryValues property="max-height" featuredClass="max-h-[220px]" />
