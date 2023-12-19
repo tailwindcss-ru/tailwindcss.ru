@@ -18,7 +18,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init svelte@latest my-project\ncd my-project',
+      code: 'npm create svelte@latest my-project\ncd my-project',
     },
   },
   {
@@ -47,7 +47,7 @@ let steps = [
       name: 'svelte.config.js',
       lang: 'js',
       code: `  import adapter from '@sveltejs/adapter-auto';
-> import { vitePreprocess } from '@sveltejs/kit/vite';
+> import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
   /** @type {import('@sveltejs/kit').Config} */
   const config = {
     kit: {

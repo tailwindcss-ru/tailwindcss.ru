@@ -31,7 +31,7 @@ export function BreakpointsAndMediaQueries({
         Чтобы узнать больше, ознакомьтесь с документацией по{' '}
         <a href="/docs/responsive-design">адаптивному дизайну</a>,{' '}
         <a href="/docs/dark-mode">темному режиму</a> и{' '}
-        <a href="/docs/hover-focus-and-other-states#media-queries">другим модификаторам медиазапросов</a>.
+        <a href="/docs/hover-focus-and-other-states#media-and-feature-queries">другим модификаторам медиазапросов</a>.
       </p>
     </>
   )

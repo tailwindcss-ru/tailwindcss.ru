@@ -18,27 +18,11 @@ let steps = [
     },
   },
   {
-    title: 'Включить встроенную поддержку CSS Tailwind в Remix',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите флаг <code>tailwind</code> в файле <code>remix.config.js</code>.
-      </p>
-    ),
-    code: {
-      name: 'remix.config.js',
-      lang: 'js',
-      code: `  /** @type {import('@remix-run/dev').AppConfig} */
-  module.exports = {
->   tailwind: true,
-  }`,
-    },
-  },
-  {
-    title: 'Установите CSS Tailwind',
-    body: () => (
-      <p>
-        Установите <code>tailwindcss</code> через npm, а затем запустите команду init для создания файла{' '}
-        <code>tailwind.config.ts</code>.
+        Установите <code>tailwindcss</code> через npm, а затем запустите команду init для создания
+        файла <code>tailwind.config.ts</code>.
       </p>
     ),
     code: {
@@ -51,7 +35,7 @@ let steps = [
     title: 'Настройте пути к шаблону',
     body: () => (
       <p>
-        Добавьте пути ко всем файлам вашего шаблона в файл <code>tailwind.config.js</code>.
+        Добавьте пути ко всем файлам шаблонов в файл <code>tailwind.config.ts</code>.
       </p>
     ),
     code: {

@@ -49,6 +49,7 @@ export default {
   pageExtensions: ['js', 'jsx', 'mdx'],
   experimental: {
     esmExternals: false,
+    scrollRestoration: true,
   },
   images: {
     unoptimized: true,
