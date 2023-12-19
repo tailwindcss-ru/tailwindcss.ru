@@ -4,11 +4,11 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Astro project if you don't have one set up already. The most common
-        approach is to use{' '}
+        Начните с создания нового проекта Astro, если он у вас еще не настроен. Самый
+        распространенный подход — использовать{' '}
         <a href="https://docs.astro.build/en/getting-started/#start-your-first-project">
           create astro
         </a>
@@ -22,11 +22,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Run the <code>astro add</code> command to install both <code>tailwindcss</code> and{' '}
-        <code>@astro/tailwind</code> as well as generate a <code>tailwind.config.cjs</code> file.
+        Запустите команду <code>astro add</code>, чтобы установить <code>tailwindcss</code> и{' '}
+        <code>@astro/tailwind</code>, а также сгенерировать файл <code>tailwind.config.cjs</code>.
       </p>
     ),
     code: {
@@ -36,10 +36,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -49,8 +49,10 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind's utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => (
+      <p>Начните использовать служебные классы Tailwind для стилизации вашего контента.</p>
+    ),
     code: {
       name: 'index.astro',
       lang: 'html',
@@ -64,8 +66,8 @@ let steps = [
 export default function UsingAstro({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Astro"
-      description="Setting up Tailwind CSS in an Astro project."
+      title="Установите Tailwind CSS с помощью Astro"
+      description="Настройка Tailwind CSS в проекте Astro."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -84,8 +86,8 @@ export function getStaticProps() {
 
 UsingAstro.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Astro',
-    description: 'Setting up Tailwind CSS in an Astro project.',
+    title: 'Установите Tailwind CSS с помощью Astro',
+    description: 'Настройка Tailwind CSS в проекте Astro.',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,

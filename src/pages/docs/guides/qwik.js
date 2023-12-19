@@ -4,11 +4,12 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Создайте свой проект',
     body: () => (
       <p>
-        Start by creating a new Qwik project if you don't have one set up already. The most common
-        approach is to use <a href="https://qwik.builder.io/docs/getting-started/">Create Qwik</a>.
+        Начните с создания нового проекта Qwik, если он у вас еще не настроен. Самый
+        распространенный подход — использовать{' '}
+        <a href="https://qwik.builder.io/docs/getting-started/">Create Qwik</a>.
       </p>
     ),
     code: {
@@ -18,11 +19,12 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Установите <code>tailwindcss</code> и его одноранговые зависимости через npm, а затем
+        запустите команду init, чтобы сгенерировать как <code>tailwind.config.js</code> и{' '}
+        <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -32,10 +34,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Настройте пути к шаблонам',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Добавьте пути ко всем файлам шаблонов в файл <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -52,11 +54,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Добавьте директивы Tailwind в свой CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-        <code>./src/global.css</code> file.
+        Добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind в ваш файл{' '}
+        <code>./src/global.css</code>.
       </p>
     ),
     code: {
@@ -66,10 +68,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Начните процесс сборки',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -79,8 +81,10 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Начните использовать Tailwind в своем проекте',
+    body: () => (
+      <p>Начните использовать служебные классы Tailwind для стилизации вашего контента.</p>
+    ),
     code: {
       name: 'index.tsx',
       lang: 'tsx',
@@ -100,8 +104,8 @@ let steps = [
 export default function UsingQwik({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Qwik"
-      description="Setting up Tailwind CSS in a Qwik project."
+      title="Установите Tailwind CSS с помощью Qwik"
+      description="Настройка Tailwind CSS в проекте Qwik."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -120,8 +124,8 @@ export function getStaticProps() {
 
 UsingQwik.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Qwik',
-    description: 'Setting up Tailwind CSS in an Qwik project.',
+    title: 'Установите Tailwind CSS с помощью Qwik',
+    description: 'Настройка Tailwind CSS в проекте Qwik.',
     section: 'Getting Started',
   },
   Layout: DocumentationLayout,

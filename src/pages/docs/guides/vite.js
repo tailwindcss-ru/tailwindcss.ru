@@ -13,9 +13,10 @@ let tabs = [
         title: 'Создайте свой проект',
         body: () => (
           <p>
-            Начните с создания нового проекта Vite, если у вас его еще нет.
-            Самый распространенный подход — использовать{' '}
-            <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project">Создать Vite</a>.
+            Начните с создания нового проекта Vite, если у вас его еще нет. Самый распространенный
+            подход — использовать{' '}
+            <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project">Создать Vite</a>
+            .
           </p>
         ),
         code: {
@@ -28,8 +29,8 @@ let tabs = [
         title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Установите <code>tailwindcss</code> и его одноранговые зависимости, а затем создайте файлы{' '}
-            <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
+            Установите <code>tailwindcss</code> и его одноранговые зависимости, а затем создайте
+            файлы <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
           </p>
         ),
         code: {
@@ -133,8 +134,8 @@ let tabs = [
         title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Установите <code>tailwindcss</code> и его одноранговые зависимости, а затем создайте файлы{' '}
-            <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
+            Установите <code>tailwindcss</code> и его одноранговые зависимости, а затем создайте
+            файлы <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
           </p>
         ),
         code: {
@@ -211,15 +212,15 @@ let tabs = [
     ],
   },
   {
-    name: 'Using Svelte',
+    name: 'Использование Svelte',
     href: '#svelte',
     steps: [
       {
-        title: 'Create your project',
+        title: 'Создайте свой проект',
         body: () => (
           <p>
-            Start by creating a new Vite project if you don’t have one set up already. The most
-            common approach is to use{' '}
+            Начните с создания нового проекта Vite, если он у вас еще не настроен. Самый
+            распространенный подход – использовать{' '}
             <a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project">Create Vite</a>.
           </p>
         ),
@@ -230,11 +231,11 @@ let tabs = [
         },
       },
       {
-        title: 'Install Tailwind CSS',
+        title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
-            <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
+            Установите <code>tailwindcss</code> и его одноранговые зависимости, затем сгенерируйте
+            файлы <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
           </p>
         ),
         code: {
@@ -244,11 +245,10 @@ let tabs = [
         },
       },
       {
-        title: 'Configure your template paths',
+        title: 'Настройте пути к шаблонам',
         body: () => (
           <p>
-            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
-            file.
+            Добавьте пути ко всем файлам шаблонов в файл <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -268,11 +268,11 @@ let tabs = [
         },
       },
       {
-        title: 'Add the Tailwind directives to your CSS',
+        title: 'Добавьте директивы Tailwind в свой CSS',
         body: () => (
           <p>
-            Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-            <code>./src/app.css</code> file.
+            Добавьте директивы <code>@tailwind</code> для каждого слоя Tailwind в ваш файл{' '}
+            <code>./src/app.css</code>.
           </p>
         ),
         code: {
@@ -282,10 +282,10 @@ let tabs = [
         },
       },
       {
-        title: 'Start your build process',
+        title: 'Начните процесс сборки',
         body: () => (
           <p>
-            Run your build process with <code>npm run dev</code>.
+            Запустите процесс сборки с помощью <code>npm run dev</code>.
           </p>
         ),
         code: {
@@ -295,8 +295,10 @@ let tabs = [
         },
       },
       {
-        title: 'Start using Tailwind in your project',
-        body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+        title: 'Начните использовать Tailwind в своем проекте',
+        body: () => (
+          <p>Начните использовать служебные классы Tailwind для стилизации вашего контента.</p>
+        ),
         code: {
           name: 'App.svelte',
           lang: 'html',

@@ -6,17 +6,17 @@ import { TabBar } from '@/components/Guides/TabBar.jsx'
 
 let tabs = [
   {
-    name: 'Standard installation',
+    name: 'Стандартная установка',
     href: '#standard',
     steps: [
       {
         title: 'Создайте свой проект',
         body: () => (
           <p>
-            Start by creating a new Nuxt project if you don’t have one set up already. The most
-            common approach is to use the{' '}
+            Начните с создания нового проекта Nuxt, если он у вас еще не настроен. Самый
+            распространенный подход — использовать{' '}
             <a href="https://nuxt.com/docs/getting-started/installation">
-              Nuxt Command Line Interface
+              интерфейс командной строки Nuxt
             </a>
             .
           </p>
@@ -160,17 +160,17 @@ let tabs = [
     ],
   },
   {
-    name: 'Using Nuxt Modules',
+    name: 'Использование модулей Nuxt',
     href: '#modules',
     steps: [
       {
-        title: 'Create your project',
+        title: 'Создайте свой проект',
         body: () => (
           <p>
-            Start by creating a new Nuxt project if you don’t have one set up already. The most
-            common approach is to use the{' '}
+            Начните с создания нового проекта Nuxt, если он у вас еще не настроен. Самый
+            распространенный подход — использовать{' '}
             <a href="https://nuxt.com/docs/getting-started/installation">
-              Nuxt Command Line Interface
+              интерфейс командной строки Nuxt
             </a>
             .
           </p>
@@ -182,11 +182,11 @@ let tabs = [
         },
       },
       {
-        title: 'Install Tailwind CSS',
+        title: 'Установите Tailwind CSS',
         body: () => (
           <p>
-            Using nuxi, install the <code>@nuxtjs/tailwindcss</code> module and then run the init
-            command to generate a <code>tailwind.config.js</code> file.
+            Используя nuxi, установите модуль <code>@nuxtjs/tailwindcss</code>, а затем запустите
+            команду init, чтобы создать файл <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -196,10 +196,10 @@ let tabs = [
         },
       },
       {
-        title: 'Start your build process',
+        title: 'Начните процесс сборки',
         body: () => (
           <p>
-            Run your build process with <code>npm run dev</code>.
+            Запустите процесс сборки с помощью <code>npm run dev</code>.
           </p>
         ),
         code: {
@@ -209,8 +209,10 @@ let tabs = [
         },
       },
       {
-        title: 'Start using Tailwind in your project',
-        body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+        title: 'Начните использовать Tailwind в своем проекте',
+        body: () => (
+          <p>Начните использовать служебные классы Tailwind для стилизации вашего контента.</p>
+        ),
         code: {
           name: 'app.vue',
           lang: 'html',
@@ -236,8 +238,8 @@ export default function UsingNuxtJs({ code }) {
 
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Nuxt"
-      description="Setting up Tailwind CSS in a Nuxt project."
+      title="Установите Tailwind CSS с помощью Nuxt"
+      description="Настройка Tailwind CSS в проекте Nuxt."
     >
       <TabBar tabs={tabs} selectedTabIndex={selectedTabIndex} />
       <Steps steps={tabs[selectedTabIndex].steps} code={code[selectedTabIndex]} />
@@ -257,8 +259,8 @@ export function getStaticProps() {
 
 UsingNuxtJs.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Nuxt',
-    description: 'Setting up Tailwind CSS in a Nuxt project.',
+    title: 'Установите Tailwind CSS с помощью Nuxt',
+    description: 'Настройка Tailwind CSS в проекте Nuxt.',
     section: 'Installation',
   },
   Layout: DocumentationLayout,

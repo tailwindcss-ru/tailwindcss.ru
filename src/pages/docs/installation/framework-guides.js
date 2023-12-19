@@ -111,7 +111,8 @@ export default function FrameworkGuides() {
           {
             name: 'Phoenix',
             slug: 'phoenix',
-            description: 'Фреймворк для создания многофункциональных интерактивных приложений с помощью Elixir.',
+            description:
+              'Фреймворк для создания многофункциональных интерактивных приложений с помощью Elixir.',
             logo: PhoenixLogo,
           },
           {
@@ -130,7 +131,8 @@ export default function FrameworkGuides() {
           {
             name: 'Meteor',
             slug: 'meteor',
-            description: 'Полный стек JavaScript-фреймворка для разработки кроссплатформенных приложений.',
+            description:
+              'Полный стек JavaScript-фреймворка для разработки кроссплатформенных приложений.',
             logo: MeteorLogo,
           },
           {
@@ -154,14 +156,14 @@ export default function FrameworkGuides() {
           {
             name: 'Astro',
             slug: 'astro',
-            description: 'The all-in-one web framework designed for speed.',
+            description: 'Универсальная веб-платформа, созданная для скорости.',
             logo: AstroLogo,
             logoDark: AstroLogoWhite,
           },
           {
             name: 'Qwik',
             slug: 'qwik',
-            description: 'Build instantly-interactive web apps without effort.',
+            description: 'Создавайте мгновенно интерактивные веб-приложения без усилий.',
             logo: QwikLogo,
           },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
@@ -208,7 +210,10 @@ export default function FrameworkGuides() {
         <p>
           Не видите выбранный вами фреймворк? Попробуйте использовать{' '}
           <Link href="/docs/installation">Tailwind CLI</Link> или установить вместо этого Tailwind{' '}
-          <Link href="/docs/installation/using-postcss">в качестве подключаемого модуля PostCSS plugin</Link>.
+          <Link href="/docs/installation/using-postcss">
+            в качестве подключаемого модуля PostCSS plugin
+          </Link>
+          .
         </p>
       </div>
     </InstallationLayout>
