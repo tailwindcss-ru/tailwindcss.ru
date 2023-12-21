@@ -54,6 +54,7 @@ export default {
   images: {
     unoptimized: true,
   },
+  trailingSlash: true,
   async redirects() {
     return JSON.parse(fs.readFileSync(require.resolve('./redirects.json'), 'utf8'))
   },
