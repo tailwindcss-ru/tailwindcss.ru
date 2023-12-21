@@ -11,10 +11,10 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 function Featured() {
   return (
     <a
-      href="/blog/2023-07-18-tailwind-connect-2023-recap"
+      href="/blog/tailwindcss-v3-4"
       className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
     >
-      <strong className="font-semibold">Итоги 2023 года</strong>
+      <strong className="font-semibold">Tailwind CSS v3.4</strong>
       <svg
         width="2"
         height="2"
@@ -24,7 +24,9 @@ function Featured() {
       >
         <circle cx="1" cy="1" r="1" />
       </svg>
-      <span className="ml-2">Все, что было анонсировано на нашем специальном мероприятии</span>
+      <span className="ml-2">
+        Динамические единицы просмотра, :has(), подсетка и многое другое.
+      </span>
       <svg
         width="3"
         height="6"
