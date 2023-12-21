@@ -51,9 +51,6 @@ export default {
     esmExternals: false,
     scrollRestoration: true,
   },
-  images: {
-    unoptimized: true,
-  },
   async redirects() {
     return JSON.parse(fs.readFileSync(require.resolve('./redirects.json'), 'utf8'))
   },
