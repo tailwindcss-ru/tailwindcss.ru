@@ -33,13 +33,13 @@ export const classes = { utilities }
         <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
       </svg>
       <select class="w-20 appearance-none forced-colors:appearance-auto border row-start-1 col-start-1 rounded-lg bg-slate-50 dark:bg-slate-800 hover:border-cyan-500 dark:hover:border-cyan-700 hover:bg-white dark:hover:bg-slate-700 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-2">
-        <option>Yes</option>
-        <option>No</option>
-        <option>Maybe</option>
+        <option>Да</option>
+        <option>Нет</option>
+        <option>Возможно</option>
       </select>
     </div>
     <div class="mx-6 text-slate-900 text-sm font-semibold dark:text-slate-200">
-      Remove default browser styles
+      Удалить стили браузера по умолчанию
     </div>
   </div>
 </div>
@@ -64,11 +64,11 @@ export const classes = { utilities }
 </div>
 ```
 
-### Restoring the default element appearance
+### Восстановление внешнего вида элемента по умолчанию
 
-Use `appearance-auto` to restore the default browser specific styling on an element. This is useful for reverting to the standard browser controls in certain accessibility modes.
+Используйте `appearance-auto`, чтобы восстановить стиль элемента, специфичный для браузера по умолчанию. Это полезно для возврата к стандартным элементам управления браузера в определенных режимах доступности.
 
-```html {{ example: { hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the difference' } }}
+```html {{ example: { hint: 'Попробуйте эмулировать &#96;forced-colors: active&#96; в своих инструментах разработчика, чтобы увидеть разницу' } }}
 <div class="grid max-w-sm mx-auto my-6 gap-8 items-center justify-center">
   <div class="flex items-center">
     <label for="checkbox_2" class="select-none mx-6 grid grid-flow-col gap-3 items-center text-slate-900 text-sm font-semibold dark:text-slate-200">
@@ -78,7 +78,7 @@ Use `appearance-auto` to restore the default browser specific styling on an elem
           <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
       </div>
-      Falls back to default appearance
+      Возвращает внешний вид по умолчанию
     </label>
   </div>
   <div class="flex items-center">
@@ -89,7 +89,7 @@ Use `appearance-auto` to restore the default browser specific styling on an elem
           <path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
       </div>
-      Keeps custom appearance
+      Сохраняет индивидуальный внешний вид
     </label>
   </div>
 </div>
@@ -103,7 +103,7 @@ Use `appearance-auto` to restore the default browser specific styling on an elem
       <!-- ... -->
     </svg>
   </div>
-  Falls back to default appearance
+  Возвращает внешний вид по умолчанию
 </label>
 
 <label>
@@ -113,16 +113,16 @@ Use `appearance-auto` to restore the default browser specific styling on an elem
       <!-- ... -->
     </svg>
   </div>
-  Keeps custom appearance
+  Сохраняет индивидуальный внешний вид
 </label>
 ```
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применение условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="appearance-auto" featuredClass="appearance-none" variant="hover" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="appearance-auto" featuredClass="appearance-none" />

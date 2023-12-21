@@ -1,6 +1,6 @@
 ---
-title: "Text Wrap"
-description: "Utilities for controlling how text wraps within an element."
+title: "Перенос текста"
+description: "Утилиты для управления переносом текста внутри элемента."
 ---
 
 import utilities from 'utilities?plugin=textWrap'
@@ -9,11 +9,11 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
 ### Wrap
 
-Use `text-wrap` to wrap overflowing text onto multiple lines at logical points in the text.
+Используйте `text-wrap`, чтобы перенести переполненный текст на несколько строк в логических точках текста.
 
 ```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
@@ -33,7 +33,7 @@ Use `text-wrap` to wrap overflowing text onto multiple lines at logical points i
 
 ### No Wrap
 
-Use `text-nowrap` to prevent text from wrapping, allowing it to overflow if necessary.
+Используйте `text-nowrap`, чтобы предотвратить перенос текста и позволить ему переполняться при необходимости.
 
 ```html {{ example: { p: 'none' } }}
 <div class="grid gap-4 bg-white px-6 py-8 shadow-xl text-slate-700 max-w-sm mx-auto overflow-auto dark:bg-slate-800 dark:text-slate-400 text-nowrap">
@@ -51,7 +51,7 @@ Use `text-nowrap` to prevent text from wrapping, allowing it to overflow if nece
 
 ### Balance
 
-Use `text-balance` to distribute the text evenly across each line.
+Используйте `text-balance`, чтобы равномерно распределить текст по каждой строке.
 
 ```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
@@ -69,11 +69,11 @@ Use `text-balance` to distribute the text evenly across each line.
 </article>
 ```
 
-For performance reasons browsers limit text balancing to blocks that are ~6 lines or less, making it best suited for headings.
+Из соображений производительности браузеры ограничивают балансировку текста блоками длиной ~6 строк или меньше, что делает его лучше всего подходящим для заголовков.
 
 ### Pretty
 
-Use `text-pretty` to prevent orphans (a single word on its own line) at the end of a text block.
+Используйте `text-pretty`, чтобы предотвратить появление висячих строк (одного слова в отдельной строке) в конце текстового блока.
 
 ```html {{ example: { p: 'none' } }}
 <div class="px-4 sm:px-0">
@@ -93,12 +93,12 @@ Use `text-pretty` to prevent orphans (a single word on its own line) at the end 
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применение условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="text-wrap" featuredClass="text-balance" element="h1" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="text-wrap" featuredClass="text-balance" element="h1" />

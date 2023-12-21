@@ -1,6 +1,6 @@
 ---
-title: "Size"
-description: "Utilities for setting the width and height of an element at the same time."
+title: "Размер"
+description: "Утилиты для одновременной установки ширины и высоты элемента."
 ---
 
 import utilities from 'utilities?plugin=size'
@@ -14,11 +14,11 @@ export const classes = {
   sort: numbersFirst,
 }
 
-## Basic usage
+## Основы использования
 
-### Fixed sizes
+### Фиксированные размеры
 
-Use `size-{number}` or `size-px` to set an element to a fixed width and height at the same time.
+Используйте `size-{number}` или `size-px`, чтобы одновременно установить элементу фиксированную ширину и высоту.
 
 ```html {{ example: true }}
 <div class="grid grid-flow-col justify-center gap-4 font-mono font-bold text-xs text-center text-white">
@@ -38,9 +38,9 @@ Use `size-{number}` or `size-px` to set an element to a fixed width and height a
 <div class="**size-40** ...">size-40</div>
 ```
 
-### Percentage sizes
+### Процентные размеры
 
-Use `size-full` to set an element's width and height to be 100% of the parent container's width and height.
+Используйте `size-full`, чтобы установить ширину и высоту элемента равными 100% ширины и высоты родительского контейнера.
 
 ```html {{ example: true }}
 <div class="space-y-4 font-mono font-bold text-xs text-white">
@@ -56,9 +56,9 @@ Use `size-full` to set an element's width and height to be 100% of the parent co
 </div>
 ```
 
-### Resetting the size
+### Сброс размера
 
-The `size-auto` utility can be useful if you need to remove an element's assigned width and height under a specific condition, like at a particular breakpoint:
+Утилита `size-auto` может быть полезна, если вам нужно удалить назначенную ширину и высоту элемента при определенных условиях, например, в определенной контрольной точке:
 
 ```html
 <div class="size-full md:size-auto">
@@ -68,25 +68,25 @@ The `size-auto` utility can be useful if you need to remove an element's assigne
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применение условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates defaultClass="size-48" featuredClass="size-full" />
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="size-48" featuredClass="size-full" />
 
 ---
 
-## Using custom values
+## Использование пользовательских значений
 
-### Customizing your theme
+### Настройка вашей темы
 
-By default, Tailwind's size scale is a combination of the [default spacing scale](/docs/customizing-spacing#default-spacing-scale) as well as some additional values specific to sizing.
+По умолчанию шкала размеров Tailwind представляет собой комбинацию [шкалы интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), а также некоторых дополнительных значений, специфичных для размеров.
 
-You can customize your spacing scale by editing `theme.spacing` or `theme.extend.spacing` in your `tailwind.config.js` file.
+Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в файле `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -100,7 +100,7 @@ You can customize your spacing scale by editing `theme.spacing` or `theme.extend
   }
 ```
 
-To customize size separately, use the `theme.size` section of your `tailwind.config.js` file.
+Чтобы настроить размер отдельно, используйте раздел `theme.size` вашего файла `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -114,8 +114,8 @@ To customize size separately, use the `theme.size` section of your `tailwind.con
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization](/docs/theme#customizing-the-default-theme) documentation.
+Узнайте больше о настройке темы по умолчанию в документации [настройка темы](/docs/theme#customizing-the-default-theme).
 
-### Arbitrary values
+### Произвольные значения
 
 <ArbitraryValues property="size" featuredClass="size-[32rem]" />

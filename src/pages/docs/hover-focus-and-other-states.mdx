@@ -600,9 +600,9 @@ Tailwind также включает модификаторы для други�
 
 </SnippetGroup>
 
-### Styling direct children <small>(*-{'{modifier}'})</small>
+### Стилизация прямых дочерних элементов <small>(*-{'{modifier}'})</small>
 
-While it's generally preferable to put utility classes directly on child elements, you can use the `*` modifier in situations where you need to style direct children that you don’t have control over.
+Хотя обычно предпочтительнее размещать служебные классы непосредственно в дочерних элементах, вы можете использовать модификатор `*` в ситуациях, когда вам нужно стилизовать прямые дочерние элементы, над которыми у вас нет контроля.
 
 ```html {{ example: { p: 'none' } }}
 <div class="max-w-md mx-auto bg-white shadow p-6 dark:bg-slate-800">
@@ -634,9 +634,9 @@ While it's generally preferable to put utility classes directly on child element
 </div>
 ```
 
-It's important to note that overriding a style with a utility directly on the child itself won't work due to the specificity of the generated child selector.
+Важно отметить, что переопределение стиля с помощью утилиты непосредственно на самом дочернем элементе не будет работать из-за специфики создаваемого дочернего селектора.
 
-<TipBad>Won't work, children can't override their own styling.</TipBad>
+<TipBad>Не будет работать, дети не смогут изменить собственный стиль.</TipBad>
 
 ```html
 <ul class="***:bg-sky-50** ...">
@@ -649,9 +649,9 @@ It's important to note that overriding a style with a utility directly on the ch
 
 ---
 
-### Styling based on descendants <small>(has-{'{modifier}'})</small>
+### Стилизация на основе потомков <small>(has-{'{modifier}'})</small>
 
-Use the `has-*` modifier to style an element based on the state or content of its descendants.
+Используйте модификатор `has-*` для стилизации элемента на основе состояния или содержимого его потомков.
 
 ```html {{ example: { p: 'none' } }}
 <div class="max-w-md mx-auto bg-white shadow py-6 px-4">
@@ -695,11 +695,11 @@ Use the `has-*` modifier to style an element based on the state or content of it
 </label>
 ```
 
-You can use `has-*` with a pseudo-class, like `has-[:focus]`, to style an element based on the state of its descendants. You can also use element selectors, like `has-[img]` or `has-[a]`, to style an element based on the content of its descendants.
+Вы можете использовать `has-*` с псевдоклассом, например `has-[:focus]`, чтобы стилизовать элемент на основе состояния его потомков. Вы также можете использовать селекторы элементов, такие как `has-[img]` или `has-[a]`, чтобы стилизовать элемент на основе содержимого его потомков.
 
-#### Styling based on the descendants of a group <small>(group-has-{'{modifier}'})</small>
+#### Стилизация на основе потомков группы <small>(group-has-{'{modifier}'})</small>
 
-If you need to style an element based on the descendants of a parent element, you can mark the parent with the `group` class and use the `group-has-*` modifier to style the target element.
+Если вам нужно стилизовать элемент на основе потомков родительского элемента, вы можете пометить родителя классом `group` и использовать модификатор `group-has-*` для стилизации целевого элемента.
 
 ```html {{ example: { p: 'none' } }}
 <div class="mx-auto grid max-w-md divide-y divide-slate-100 bg-white text-slate-700 shadow">
@@ -749,9 +749,9 @@ If you need to style an element based on the descendants of a parent element, yo
 </div>
 ```
 
-#### Styling based on the descendants of a peer <small>(peer-has-{'{modifier}'})</small>
+#### Стилизация на основе потомков однорангового узла <small>(peer-has-{'{modifier}'})</small>
 
-If you need to style an element based on the descendants of a sibling element, you can mark the sibling with the `peer` class and use the `peer-has-*` modifier to style the target element.
+Если вам нужно стилизовать элемент на основе потомков родственного элемента, вы можете пометить родственный элемент классом `peer` и использовать модификатор `peer-has-*` для стилизации целевого элемента.
 
 ```html {{ example: { p: 'none' } }}
 <div class="max-w-md mx-auto bg-white shadow py-6 px-4">
@@ -1163,7 +1163,7 @@ If you need to style an element based on the descendants of a sibling element, y
 
 Используйте модификатор `motion-reduce` для условного добавления стилей, когда пользователь запросил уменьшение движения:
 
-```html {{ example: { hint: 'Try emulating &#96;prefers-reduced-motion: reduce&#96; in your developer tools to hide the spinner' } }}
+```html {{ example: { hint: 'Попробуйте эмулировать &#96;prefers-reduced-motion: reduce&#96; в инструментах разработчика, чтобы скрыть спинер' } }}
 <div class="flex items-center justify-center">
   <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500" disabled>
     <svg class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
@@ -1236,7 +1236,7 @@ Tailwind также включает модификатор `contrast-less`, к�
 
 Используйте модификатор `forced-colors` для условного добавления стилей, когда пользователь включил принудительный цветовой режим:
 
-```html {{ example: { p: 'none', hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the changes' } }}
+```html {{ example: { p: 'none', hint: 'Попробуйте эмулировать &#96;forced-colors: active&#96; в инструментах разработчика, чтобы увидеть изменения' } }}
 <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
   <form>
     <legend> Choose a theme: </legend>

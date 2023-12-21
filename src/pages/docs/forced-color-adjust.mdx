@@ -1,6 +1,6 @@
 ---
-title: "Forced Color Adjust"
-description: "Utilities for opting in and out of forced colors."
+title: "Принудительная настройка цвета"
+description: "Утилиты для включения и отключения принудительных цветов."
 ---
 
 import utilities from 'utilities?plugin=forcedColorAdjust'
@@ -9,13 +9,13 @@ import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
 
 export const classes = { utilities }
 
-## Basic usage
+## Основы использования
 
-### Opting out of forced colors
+### Отказ от принудительных цветов
 
-Use `forced-color-adjust-none` to opt an element out the colors enforced by [forced colors mode](/docs/hover-focus-and-other-states#forced-colors-mode). This is useful in situations where enforcing a limited color palette will degrade usability.
+Используйте `forced-color-adjust-none`, чтобы отключить для элемента цвета, заданные [режимом принудительного цвета](/docs/hover-focus-and-other-states#forced-colors-mode). Это полезно в ситуациях, когда ограничение цветовой палитры ухудшит удобство использования.
 
-```html {{ example: { hint: 'Try emulating &#96;forced-colors: active&#96; in your developer tools to see the changes' }}}
+```html {{ example: { hint: 'Попробуйте эмулировать &#96;forced-colors: active&#96; в инструментах разработчика, чтобы увидеть изменения' }}}
 <div class="mx-auto max-w-sm overflow-clip rounded-lg bg-white shadow">
   <div class="aspect-h-3 aspect-w-3 overflow-hidden">
     <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg" alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center" />
@@ -69,13 +69,13 @@ Use `forced-color-adjust-none` to opt an element out the colors enforced by [for
 </form>
 ```
 
-You can also use the [`forced-colors` modifier](/docs/hover-focus-and-other-states#forced-colors-mode) to conditionally add styles when the user has enabled a forced color mode.
+Вы также можете использовать [модификатор `forced-colors`](/docs/hover-focus-and-other-states#forced-colors-mode) для условного добавления стилей, когда пользователь включил принудительный цветовой режим.
 
-### Restoring forced colors
+### Восстановление вынужденных цветов
 
-Use `forced-color-adjust-auto` to undo `forced-color-adjust-none`, making an element adhere to colors enforced by forced colors mode.
+Используйте `forced-color-adjust-auto`, чтобы отменить `forced-color-adjust-none`, заставляя элемент придерживаться цветов, установленных в режиме принудительного цвета.
 
-This can be useful if you use a different control on a larger screen size for example:
+Это может быть полезно, если вы используете другой элемент управления на экране большего размера, например:
 
 ```html
 <form>
@@ -99,20 +99,20 @@ This can be useful if you use a different control on a larger screen size for ex
 
 ---
 
-## <Heading ignore>Applying conditionally</Heading>
+## <Heading ignore>Применение условно</Heading>
 
-### <Heading ignore>Hover, focus, and other states</Heading>
+### <Heading ignore>Наведение, фокус и другие состояния</Heading>
 
 <HoverFocusAndOtherStates featuredClass="forced-color-adjust-none" variant="focus">
 
 ```html
 <a href="#content" class="forced-color-adjust-none **focus:forced-color-adjust-auto**">
-  Skip to content
+  Перейти к содержимому
 </a>
 ```
 
 </HoverFocusAndOtherStates>
 
-### <Heading ignore>Breakpoints and media queries</Heading>
+### <Heading ignore>Контрольные точки и медиа-запросы</Heading>
 
 <BreakpointsAndMediaQueries defaultClass="forced-color-adjust-none" featuredClass="forced-color-adjust-auto" />
