@@ -1398,6 +1398,7 @@ module.exports = {
 
 | Модификатор | CSS |
 | --- | --- |
+| <code className="before:content-none after:content-none">aria-busy</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-busy="true"]</code> |
 | <code className="before:content-none after:content-none">aria-checked</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-checked="true"]</code> |
 | <code className="before:content-none after:content-none">aria-disabled</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-disabled="true"]</code> |
 | <code className="before:content-none after:content-none">aria-expanded</code> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-expanded="true"]</code> |
@@ -1933,7 +1934,7 @@ dark(groupHover(focus('opacity-100')))
 | <a href="#prefers-contrast" className="whitespace-nowrap">contrast-more</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: more)</code> |
 | <a href="#prefers-contrast" className="whitespace-nowrap">contrast-less</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: less)</code> |
 | <a href="#print-styles" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
-| <a href="#supports" className="whitespace-nowrap">supports-[<span className="text-slate-400">&hellip;</span>]</a> | <code className="whitespace-nowrap before:content-none after:content-none">@supports (<span className="text-slate-400">&hellip;</span>)</code> |
+| <a href="#supports-rules" className="whitespace-nowrap">supports-[<span className="text-slate-400">&hellip;</span>]</a> | <code className="whitespace-nowrap before:content-none after:content-none">@supports (<span className="text-slate-400">&hellip;</span>)</code> |
 | <a href="#aria-states" className="whitespace-nowrap">aria-checked</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-checked="true"]</code> |
 | <a href="#aria-states" className="whitespace-nowrap">aria-disabled</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-disabled="true"]</code> |
 | <a href="#aria-states" className="whitespace-nowrap">aria-expanded</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[aria-expanded="true"]</code> |
@@ -2104,7 +2105,7 @@ dark(groupHover(focus('opacity-100')))
       <!-- ... -->
     </a>
   {/each}
-</table>
+</nav>
 ```
 
 #### last-of-type <small>(:last-of-type)</small>
@@ -2120,7 +2121,7 @@ dark(groupHover(focus('opacity-100')))
     </a>
   {/each}
   <button>Больше</button>
-</table>
+</nav>
 ```
 
 #### only-of-type <small>(:only-of-type)</small>
@@ -2136,7 +2137,7 @@ dark(groupHover(focus('opacity-100')))
     </a>
   {/each}
   <button>Больше</button>
-</table>
+</nav>
 ```
 
 #### empty <small>(:empty)</small>
@@ -2217,7 +2218,7 @@ dark(groupHover(focus('opacity-100')))
 
 #### in-range <small>(:in-range)</small>
 
-Стиль ввода, когда его значение находится в пределах указанного диапазона, с помощью модификатора `in-range`:
+Оформите ввод, когда его значение находится в пределах указанного предела диапазона, используя модификатор `in-range`:
 
 ```html
 <input min="1" max="5" class="**in-range:border-green-500** ..." />
@@ -2225,7 +2226,7 @@ dark(groupHover(focus('opacity-100')))
 
 #### out-of-range <small>(:out-of-range)</small>
 
-Стиль ввода, когда его значение выходит за пределы указанного диапазона, с помощью модификатора `out-of-range`:
+Оформите ввод, когда его значение находится за пределами указанного предела диапазона, используя модификатор `out-of-range`:
 
 ```html
 <input min="1" max="5" class="**out-of-range:border-red-500** ..." />

@@ -287,7 +287,7 @@ function Notification({ imageUrl, imageAlt, title, message }) {
 
 ```html {{ filename: 'HTML' }}
 <!-- Before extracting a custom class -->
-<button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+<button class="py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
   Сохранить изменения
 </button>
 
@@ -306,7 +306,7 @@ function Notification({ imageUrl, imageAlt, title, message }) {
 
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    @apply py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75;
   }
 }
 ```

@@ -106,7 +106,25 @@ export const classes = { utilities }
 }
 ```
 
-Дополнительные сведения о настройке темы по умолчанию смотрите в документации [настройка темы](/docs/theme#customizing-the-default-theme).
+Как и в любом другом веб-проекте, обязательно включите в свой CSS необходимые правила `@font-face` или `@import` для любых пользовательских шрифтов, которые вы используете, чтобы эти шрифты загружались браузером для вашего сайта:
+
+```css {{ filename: 'app.css' }}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Roboto.woff2) format('woff2');
+  }
+}
+```
+
+Узнайте больше о настройке темы по умолчанию в документации [настройка темы](/docs/theme#customizing-the-default-theme) documentation.
 
 #### Предоставление настроек шрифта по умолчанию
 

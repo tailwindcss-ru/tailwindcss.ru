@@ -7,58 +7,29 @@ let steps = [
     title: 'Создайте свой проект',
     body: () => (
       <p>
-        Начните с{' '}
-        <a href="https://docs.adonisjs.com/guides/installation">создания нового проекта AdonisJS</a>,
-        если он еще не настроен. Выберите <code>web</code> для структуры проекта и{' '}
-        <code>y</code>, когда будет предложено включить Webpack Encore.
+        Начните с создания нового проекта AdonisJS, если он у вас еще не настроен. Самый
+        распространенный подход — использовать{' '}
+        <a href="https://docs.adonisjs.com/guides/installation">Create AdonisJS</a>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init adonis-ts-app@latest my-project\ncd my-project',
+      code: 'npm init adonisjs@latest my-project -- --kit=web\ncd my-project',
     },
   },
   {
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Используя npm, установите <code>tailwindcss</code> и его одноранговые зависимости, а также{' '}
-        <code>postcss-loader</code>, а затем запустите команду init для создания обоих{' '}
+        Установите <code>tailwindcss</code> и его одноранговые зависимости, затем сгенерируйте файлы{' '}
         <code>tailwind.config.js</code> и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
-    },
-  },
-  {
-    title: 'Включите поддержку PostCSS',
-    body: () => (
-      <p>
-        В файле <code>webpack.config.js</code> включите загрузчик PostCSS.
-        Дополнительную информацию смотрите в{' '}
-        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">
-          документации Webpack Encore
-        </a>.
-      </p>
-    ),
-    code: {
-      name: 'webpack.config.js',
-      lang: 'js',
-      code: `  /*
-  |--------------------------------------------------------------------------
-  | CSS loaders
-  |--------------------------------------------------------------------------
-  |
-  | Uncomment one of the following line of code to enable support for
-  | PostCSS or CSS.
-  |
-  */
-> Encore.enablePostCssLoader();
-  // Encore.configureCssLoader(() => {})`,
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
@@ -72,9 +43,10 @@ let steps = [
       name: 'tailwind.config.js',
       lang: 'js',
       code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+  export default {
 >   content: [
->     "./resources/**/*.{edge,js,ts,jsx,tsx,vue}",
+>     "./resources/**/*.edge",
+>     "./resources/**/*.{js,ts,jsx,tsx,vue}",
 >   ],
     theme: {
       extend: {},
@@ -114,19 +86,19 @@ let steps = [
     title: 'Начните использовать Tailwind в своем проекте',
     body: () => (
       <p>
-        Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>, а затем
-        начните использовать служебные классы Tailwind для оформления вашего контента.
+        Убедитесь, что ваш скомпилированный CSS включен в <code>{'<head>'}</code>, а затем начните
+        использовать служебные классы Tailwind для оформления вашего контента.
       </p>
     ),
     code: {
-      name: 'welcome.edge',
+      name: 'home.edge',
       lang: 'html',
       code: `  <!doctype html>
   <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @entryPointStyles('app')
+>   @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>
 >   <h1 class="text-3xl font-bold underline">
