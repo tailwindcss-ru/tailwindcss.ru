@@ -169,11 +169,11 @@ module.exports = {
 }
 ```
 
-When using this strategy Tailwind will not modify the provided selector in any way, so be mindful of it's specificity and consider using the `:where()` pseudo-class to ensure it has the same specificity as other utilities.
+При использовании этой стратегии Tailwind не будет каким-либо образом изменять предоставленный селектор, поэтому помните о его специфике и рассмотрите возможность использования псевдокласса `:where()`, чтобы гарантировать, что он имеет ту же специфичность, что и другие утилиты.
 
-### Using multiple selectors
+### Использование нескольких селекторов
 
-If you have multiple scenarios where dark mode should be enabled, you can specify all of them by providing an array:
+Если у вас есть несколько сценариев, в которых следует включить темный режим, вы можете указать их все, предоставив массив:
 
 ```js {{ filename: 'tailwind.config.js' }}
 /** @type {import('tailwindcss').Config} */
