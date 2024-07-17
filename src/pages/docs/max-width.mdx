@@ -178,9 +178,9 @@ export const classes = {
   }
 ```
 
-Note that values defined in `theme.maxWidth` take precedence over values defined in `theme.spacing`, so adding a custom value to `theme.spacing` that matches one of the default named sizes (like `lg` or `xl`) will not affect the corresponding `max-w-*` utility.
+Обратите внимание, что значения, определенные в `theme.maxWidth`, имеют приоритет над значениями, определенными в `theme.spacing`, поэтому добавьте в `theme.spacing` собственное значение, соответствующее одному из именованных размеров по умолчанию (например, `lg` или `xl`) не повлияет на соответствующую утилиту `max-w-*`.
 
-<TipBad>Don't override named sizes under `theme.spacing`</TipBad>
+<TipBad>Не переопределяйте именованные размеры в файле `theme.spacing`</TipBad>
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -194,7 +194,7 @@ Note that values defined in `theme.maxWidth` take precedence over values defined
   }
 ```
 
-<TipGood>Use `theme.maxWidth` to override named sizes</TipGood>
+<TipGood>Используйте `theme.maxWidth` для переопределения именованных размеров</TipGood>
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {

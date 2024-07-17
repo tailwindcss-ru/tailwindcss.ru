@@ -24,9 +24,7 @@ function Featured() {
       >
         <circle cx="1" cy="1" r="1" />
       </svg>
-      <span className="ml-2">
-        Современный набор пользовательского интерфейса приложений для React
-      </span>
+      <span className="ml-2">Современный набор для React</span>
       <svg
         width="3"
         height="6"
