@@ -8,6 +8,7 @@ import { numbersFirst } from '@/utils/sortClasses'
 import { ArbitraryValues } from '@/components/ArbitraryValues'
 import { BreakpointsAndMediaQueries } from '@/components/BreakpointsAndMediaQueries'
 import { HoverFocusAndOtherStates } from '@/components/HoverFocusAndOtherStates'
+import { TipGood, TipBad, TipCompat, TipInfo } from '@/components/Tip'
 
 export const classes = {
   utilities,
@@ -121,7 +122,7 @@ export const classes = {
 
 ### Ограничение ваших контрольных точек
 
-Классы `max-w-screen-{breakpoint}` могут использоваться, чтобы дать элементу максимальную ширину, соответствующую определенной контрольной точке. Эти значения автоматически берутся из [раздела `theme.screens`](/docs/theme#screens) вашего файла `tailwind.config.js`.
+Классы `max-w-screen-*` могут использоваться для присвоения элементу максимальной ширины, соответствующей определенной контрольной точке. Эти значения автоматически извлекаются из [раздела `theme.screens`](/docs/theme#screens) вашего файла `tailwind.config.js`.
 
 ```html
 <div class="max-w-screen-2xl">
@@ -147,9 +148,9 @@ export const classes = {
 
 ### Настройка вашей темы
 
-По умолчанию максимальный масштаб ширины Tailwind представляет собой комбинацию [масштаба интервала по умолчанию](/docs/customizing-spacing#default-spacing-scale), а также некоторых дополнительных значений, специфичных для ширины.
+По умолчанию максимальный масштаб ширины Tailwind представляет собой комбинацию [масштаба интервалов по умолчанию](/docs/customizing-spacing#default-spacing-scale), а также дополнительного набора именованных размеров для [больших элементов](##sizing-large-elements) исключительно для утилит `max-w-*`.
 
-Вы можете настроить масштаб интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в файле `tailwind.config.js`.
+Вы можете настроить значения глобальной шкалы интервалов, отредактировав `theme.spacing` или `theme.extend.spacing` в файле `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
@@ -163,14 +164,44 @@ export const classes = {
   }
 ```
 
-Чтобы настроить `max-width` отдельно, используйте раздел `theme.maxWidth` вашего файла `tailwind.config.js`.
+Чтобы настроить значения только для утилит `max-w-*`, используйте раздел `theme.maxWidth` вашего файла `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {
     theme: {
       extend: {
 +       maxWidth: {
-+         '128': '32rem',
++         '8xl': '96rem',
++       }
+      }
+    }
+  }
+```
+
+Note that values defined in `theme.maxWidth` take precedence over values defined in `theme.spacing`, so adding a custom value to `theme.spacing` that matches one of the default named sizes (like `lg` or `xl`) will not affect the corresponding `max-w-*` utility.
+
+<TipBad>Don't override named sizes under `theme.spacing`</TipBad>
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       spacing: {
++         'lg': '30rem',
++       }
+      }
+    }
+  }
+```
+
+<TipGood>Use `theme.maxWidth` to override named sizes</TipGood>
+
+```diff-js {{ filename: 'tailwind.config.js' }}
+  module.exports = {
+    theme: {
+      extend: {
++       maxWidth: {
++         'lg': '30rem',
 +       }
       }
     }

@@ -18,7 +18,7 @@ export const classes = {
 
 ### Настройка толщины оформления текста
 
-Используйте утилиты `decoration-{width}`, чтобы изменить толщину [текстового оформления элемента](/docs/text-decoration).
+Используйте утилиту `decoration-*`, чтобы изменить толщину [текстового оформления элемента](/docs/text-decoration).
 
 ```html {{ example: true }}
 <div class="flex flex-col gap-8 text-slate-900 dark:text-slate-200">
@@ -61,7 +61,7 @@ export const classes = {
 
 ### Настройка вашей темы
 
-Вы можете настроить утилиты `decoration-{width}`, отредактировав `theme.textDecorationThickness` или `theme.extend.textDecorationThickness` в вашем файле `tailwind.config.js`.
+Вы можете настроить утилиты `decoration-*`, отредактировав `theme.textDecorationThickness` или `theme.extend.textDecorationThickness` в файле `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {

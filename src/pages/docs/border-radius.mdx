@@ -82,7 +82,7 @@ export const classes = { utilities }
 
 ### Скругление сторон отдельно
 
-Используйте `rounded-{t|r|b|l}{-size?}` только для округления одной стороны элемента.
+Используйте утилиты `rounded-t-*`, `rounded-r-*`, `rounded-b-*` и `rounded-l-*`, чтобы скруглить только одну сторону элемента.
 
 ```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
@@ -114,7 +114,7 @@ export const classes = { utilities }
 
 ### Скругление углов отдельно
 
-Используйте `rounded-{tl|tr|br|bl}{-size?}` только для скругления одного угла элемента.
+Используйте утилиты `rounded-tl-*`, `rounded-tr-*`, `rounded-br-*` и `rounded-bl-*`, чтобы скруглить только один угол элемента.
 
 ```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-around gap-4 text-white text-sm text-center font-bold leading-6">
@@ -146,7 +146,7 @@ export const classes = { utilities }
 
 ### <Heading ignore>Использование логических свойств</Heading>
 
-Используйте утилиты `rounded-{s|e|ss|se|es|ee}{-size?}`, чтобы установить радиус границы, используя [логические свойства](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), которые сопоставляются с соответствующими углами в зависимости от направления текста.
+Используйте `rounded-s-*`, `rounded-e-*`, `rounded-ss-*`, `rounded-se-*`, `rounded-es-*` и `rounded-ee-*` утилиты для установки радиуса границы с помощью [логических свойств](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), которые сопоставляются с соответствующими углами в зависимости от направления текста.
 
 ```html {{ example: true }}
 <div class="grid grid-cols-2 gap-x-4 place-items-center">

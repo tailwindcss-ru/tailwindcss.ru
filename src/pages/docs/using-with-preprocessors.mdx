@@ -125,7 +125,7 @@ module.exports = {
 
 ### Вложенность
 
-Чтобы добавить поддержку вложенных объявлений, мы рекомендуем наш встроенный плагин Tailwindcss/nesting, который представляет собой плагин PostCSS, который обертывает [postcss-nested](https://github.com/postcss/postcss-nested) или [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) и действует как уровень совместимости, чтобы убедиться, что выбранный вами плагин вложения правильно понимает пользовательский синтаксис Tailwind.
+Чтобы добавить поддержку вложенных объявлений, мы рекомендуем наш встроенный плагин `tailwindcss/nesting`, который представляет собой плагин PostCSS, который служит оберткой для [postcss-nested](https://github.com/postcss/postcss-nested) или [postcss-nesting](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting) и действует как уровень совместимости, чтобы убедиться, что выбранный вами плагин вложения правильно понимает пользовательский синтаксис Tailwind.
 
 Он включен непосредственно в сам пакет `tailwindcss`, поэтому для его использования все, что вам нужно сделать, это добавить его в свою конфигурацию PostCSS где-нибудь перед Tailwind:
 
@@ -143,7 +143,7 @@ module.exports = {
 
 По умолчанию он использует подключаемый модуль [postcss-nested](https://github.com/postcss/postcss-nested) под капотом, который использует синтаксис, подобный Sass, и является подключаемым модулем, обеспечивающим поддержку вложенности в [Tailwind API плагинов CSS](/docs/plugins#css-in-js-syntax).
 
-Если вы предпочитаете использовать [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) (который основан на незавершенной работе [CSS Nesting](https://drafts.csswg.org/css-nesting-1/)), сначала установите плагин:
+Если вы предпочитаете использовать [postcss-nesting](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting) (который основан на стандарте спецификации [CSS Nesting](https://drafts.csswg.org/css-nesting-1/)), сначала установите плагин:
 
 ```shell
 npm install -D postcss-nesting
@@ -210,7 +210,7 @@ module.exports = {
 }
 ```
 
-Узнайте больше о функции `theme()` в нашей [документации по функциям и директивам](/docs/functions-and-directives#theme);
+Узнайте больше о функции `theme()` в нашей [документации по функциям и директивам](/docs/functions-and-directives#theme).
 
 ### Префиксы вендора
 

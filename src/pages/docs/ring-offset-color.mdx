@@ -21,7 +21,7 @@ export const classes = {
 
 ### Настройка цвета смещения кольца
 
-Используйте утилиты `ring-offset-{color}`, чтобы изменить цвет смещения кольца. Обычно это делается, чтобы попытаться сопоставить смещение с родительским цветом фона, поскольку истинные смещения тени блока фактически невозможны в CSS.
+Используйте утилиту `ring-offset-*`, чтобы изменить цвет смещения кольца. Обычно это делается для того, чтобы попытаться сопоставить смещение с цветом родительского фона, поскольку истинное смещение тени блока на самом деле невозможно в CSS.
 
 ```html {{ example: true }}
 <div class="grid place-content-center text-white text-sm text-center font-bold leading-6">
@@ -43,7 +43,7 @@ export const classes = {
 
 ### Изменение непрозрачности
 
-Управляйте непрозрачностью цвета смещения кольца элемента с помощью модификатора непрозрачности цвета.
+Используйте модификатор непрозрачности цвета, чтобы контролировать непрозрачность цвета смещения кольца элемента.
 
 ```html
 <button class="ring-2 ring-purple-500 ring-offset-4 ring-offset-purple-100**/50**"></button>
@@ -77,4 +77,4 @@ export const classes = {
 
 ### Произвольные значения
 
-<ArbitraryValues property="ring-offset-{color}" featuredClass="ring-offset-[#50d71e]" />
+<ArbitraryValues name="ring offset color" featuredClass="ring-offset-[#50d71e]" />

@@ -60,19 +60,29 @@ module.exports = {
               marginTop: '3em',
               marginBottom: '3em',
             },
+            '.lead': {
+              fontSize: '1.125em',
+              lineHeight: 'calc(32 / 18)',
+            },
             'h1, h2, h3': {
               letterSpacing: '-0.025em',
             },
             h2: {
-              marginBottom: `${16 / 24}em`,
+              fontSize: '1.25em',
+              fontWeight: '600',
+              marginBottom: `1.25em`,
             },
             h3: {
+              fontSize: '1.125em',
               marginTop: '2.4em',
+              marginBottom: '1em',
               lineHeight: '1.4',
             },
             h4: {
-              marginTop: '2em',
-              fontSize: '1.125em',
+              marginTop: '2.5em',
+              marginBottom: '0.75em',
+              fontSize: '1em',
+              fontWeight: '600',
             },
             'h2 small, h3 small, h4 small': {
               fontFamily: theme('fontFamily.mono').join(', '),
@@ -100,12 +110,16 @@ module.exports = {
             ul: {
               listStyleType: 'none',
               paddingLeft: '1em',
+              marginTop: '1em',
+              marginBottom: '2em',
             },
             'ul > li': {
               position: 'relative',
               // paddingLeft: '0',
               paddingLeft: '0.5em',
               listStyleType: 'disc',
+              marginTop: '0.75em',
+              marginBottom: '0.75em',
             },
             // 'ul > li::before': {
             //   content: '""',
@@ -117,9 +131,7 @@ module.exports = {
             //   borderRadius: '999px',
             //   backgroundColor: theme('colors.slate.300'),
             // },
-            'ul > li::marker': {
-              backgroundColor: theme('colors.slate.300'),
-            },
+            '--tw-prose-bullets': theme('colors.slate.300'),
             a: {
               fontWeight: theme('fontWeight.semibold'),
               textDecoration: 'none',
@@ -211,6 +223,7 @@ module.exports = {
         dark: {
           css: {
             color: theme('colors.slate.400'),
+            '--tw-prose-lead': theme('colors.slate.400'),
             'h2, h3, h4, thead th': {
               color: theme('colors.slate.200'),
             },
@@ -232,6 +245,7 @@ module.exports = {
             pre: {
               boxShadow: 'inset 0 0 0 1px rgb(255 255 255 / 0.1)',
             },
+            '--tw-prose-bullets': theme('colors.slate.500'),
             a: {
               color: theme('colors.white'),
               borderBottomColor: theme('colors.sky.400'),

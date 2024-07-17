@@ -13,7 +13,7 @@ export const classes = { utilities }
 
 ### Очистка плавающих элементов в влево
 
-Используйте `clear-left`, чтобы разместить элемент под любыми предыдущими элементами, обтекающими слева.
+Используйте утилиту `clear-left`, чтобы расположить элемент ниже любых предыдущих left-floated элементов.
 
 ```html {{ example: { resizable: true, p: 'none' } }}
 <div class="mx-4 bg-white shadow-xl p-8 text-slate-700 text-sm sm:text-base leading-6 sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
@@ -43,7 +43,7 @@ export const classes = { utilities }
 
 ### Очистка плавающих элементов в вправо
 
-Используйте `clear-right`, чтобы расположить элемент под любыми предыдущими элементами, обтекающими справа.
+Используйте утилиту `clear-right`, чтобы расположить элемент ниже любых предыдущих right-floated элементов.
 
 ```html {{ example: { resizable: true, p: 'none' } }}
 <div class="mx-4 bg-white shadow-xl p-8 text-slate-700 text-sm sm:text-base leading-6 sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
@@ -73,7 +73,7 @@ export const classes = { utilities }
 
 ### Очистка всех плавающих элементов
 
-Используйте `clear-both`, чтобы разместить элемент под всеми предыдущими плавающими элементами.
+Используйте утилиту `clear-both`, чтобы расположить элемент ниже всех предыдущих плавающих элементов.
 
 ```html {{ example: { resizable: true, p: 'none' } }}
 <div class="mx-4 bg-white shadow-xl p-8 text-slate-700 text-sm sm:text-base leading-6 sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
@@ -103,7 +103,7 @@ export const classes = { utilities }
 
 ### Отключение примененных очисток
 
-Используйте `clear-none`, чтобы сбросить все примененное к элементу. Это значение по умолчанию для свойства `clear`.
+Используйте утилиту `clear-none` для сброса всех очисток, примененных к элементу. Это значение по умолчанию для свойства сброса.
 
 ```html {{ example: { resizable: true, p: 'none' } }}
 <div class="mx-4 bg-white shadow-xl p-8 text-slate-700 dark:bg-slate-800 dark:text-slate-400">

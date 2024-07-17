@@ -13,7 +13,7 @@ export const classes = { utilities }
 
 ### Предотвращение родительской прокрутки
 
-Используйте `overscroll-contain`, чтобы прокрутка в целевой области не запускала прокрутку в родительском элементе, но сохраняла эффекты «отскока» при прокрутке за конец контейнера в операционных системах, которые его поддерживают.
+Используйте утилиту `overscroll-contain`, чтобы предотвратить прокрутку в целевой области инициировать прокрутку родительского элемента, но сохранить эффекты "bounce" при прокрутке за конец контейнера в операционных системах, которые его поддерживают.
 
 ```html {{ example: { p: 'none' } }}
 <div class="mx-4 overscroll-contain overflow-auto h-48 bg-white dark:bg-slate-800 shadow-xl p-8 space-y-4 text-slate-700 dark:text-slate-400 text-sm sm:text-base leading-6 sm:leading-7">
@@ -29,7 +29,7 @@ export const classes = { utilities }
 
 ### Предотвращение отскока при прокрутке
 
-Используйте `overscroll-none`, чтобы прокрутка в целевой области не запускала прокрутку в родительском элементе, а также предотвращала эффекты «отскока» при прокрутке за конец контейнера.
+Используйте утилиту `overscroll-none`, чтобы предотвратить прокрутку в целевой области, вызывающую прокрутку родительского элемента, а также предотвратить эффекты "bounce" при прокрутке за конец контейнера.
 
 ```html {{ example: { p: 'none' } }}
 <div class="mx-4 overscroll-none overflow-auto h-48 bg-white dark:bg-slate-800 shadow-xl p-8 space-y-4 text-slate-700 dark:text-slate-400 text-sm sm:text-base leading-6 sm:leading-7">
@@ -45,7 +45,7 @@ export const classes = { utilities }
 
 ### Использование поведения прокрутки по умолчанию
 
-Используйте `overscroll-auto`, чтобы пользователь мог продолжить прокрутку родительской области прокрутки, когда они достигнут границы основной области прокрутки.
+Используйте утилиту `overscroll-auto`, чтобы дать пользователю возможность продолжить прокрутку родительской области прокрутки, когда он достигнет границы основной области прокрутки.
 
 ```html {{ example: { p: 'none' } }}
 <div class="mx-4 overscroll-auto overflow-auto h-48 bg-white dark:bg-slate-800 shadow-xl p-8 space-y-4 text-slate-700 dark:text-slate-400 text-sm sm:text-base leading-6 sm:leading-7">

@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Настройка ширины контура
 
-Используйте утилиты `outline-{width}`, чтобы изменить ширину контура элемента.
+Используйте утилиту `outline-*`, чтобы изменить ширину контура элемента.
 
 ```html {{ example: true }}
 <div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 font-bold text-white text-sm text-center">
@@ -59,7 +59,7 @@ export const classes = { utilities }
 
 ### Настройка вашей темы
 
-Вы можете настроить утилиты `outline-{width}`, отредактировав `theme.outlineWidth` или `theme.extend.outlineWidth` в вашем файле `tailwind.config.js`.
+Вы можете настроить утилиты `outline-*`, отредактировав `theme.outlineWidth` или `theme.extend.outlineWidth` в файле `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {

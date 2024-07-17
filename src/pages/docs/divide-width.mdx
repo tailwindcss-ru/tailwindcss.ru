@@ -33,7 +33,7 @@ export const classes = {
 
 ### Добавить границы между горизонтальными дочерними элементами
 
-Добавьте границы между горизонтальными элементами с помощью утилит `divide-x-{width}`.
+Используйте утилиту `divide-x-*`, чтобы добавить границы между горизонтальными элементами.
 
 ```html {{ example: true }}
 <div class="grid grid-cols-3 divide-x font-mono text-sm text-center font-bold leading-6 rounded-lg shadow-lg overflow-hidden dark:divide-slate-700">
@@ -53,7 +53,7 @@ export const classes = {
 
 ### Добавить границы между сложенными дочерними элементами
 
-Добавьте границы между составными элементами с помощью утилит `divide-y-{width}`.
+Используйте утилиту `divide-y-*`, чтобы добавить границы между сложенными элементами.
 
 ```html {{ example: { p: 'none' } }}
 <div class="grid grid-cols-1 divide-y font-mono text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto dark:divide-slate-700">
@@ -149,4 +149,4 @@ export const classes = {
 
 ### Произвольные значения
 
-<ArbitraryValues property="divide-{x|y}-{width}" featuredClass="divide-x-[3px]" />
+<ArbitraryValues name="divide width" featuredClass="divide-x-[3px]" />

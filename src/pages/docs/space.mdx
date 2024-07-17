@@ -39,7 +39,7 @@ export const classes = {
 
 ### Добавьте горизонтальное пространство между детьми
 
-Контролируйте расстояние между элементами по горизонтали с помощью утилит `space-x-{amount}`.
+Используйте утилиты `space-x-*` для управления горизонтальным пространством между элементами.
 
 ```html {{ example: true }}
 <div class="flex justify-start font-mono text-white text-sm font-bold leading-6">
@@ -61,7 +61,7 @@ export const classes = {
 
 ### Добавьте вертикальное пространство между дочерними элементами
 
-Контролируйте расстояние между элементами по вертикали с помощью утилит `space-y-{amount}`.
+Используйте утилиты `space-y-*` для управления вертикальным пространством между элементами.
 
 ```html {{ example: true }}
 <div class="flex flex-col justify-center text-center w-full font-mono text-white text-sm font-bold leading-6">
@@ -183,4 +183,4 @@ To use a negative space value, prefix the class name with a dash to convert it t
 
 ### Произвольные значения
 
-<ArbitraryValues property="space-{x|y}" featuredClass="space-y-[5px]" />
+<ArbitraryValues name="space" featuredClass="space-y-[5px]" />

@@ -44,7 +44,7 @@ export const classes = {
 
 ### Установка цвета разделения
 
-Управляйте цветом границы между элементами с помощью утилит `divide-{color}`.
+Используйте утилиту `divide-*` для управления цветом границы между элементами.
 
 ```html {{ example: { p: 'none' } }}
 <div class="grid grid-cols-1 divide-y divide-blue-200 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
@@ -64,7 +64,7 @@ export const classes = {
 
 ### Изменение непрозрачности
 
-Управляйте непрозрачностью цвета разделения с помощью модификатора непрозрачности цвета.
+Используйте модификатор непрозрачности цвета, чтобы контролировать непрозрачность разделяемого цвета.
 
 ```html {{ example: { p: 'none' } }}
 <div class="grid grid-cols-1 divide-y-4 divide-slate-400/25 font-mono text-white text-sm text-center font-bold leading-6 shadow-lg overflow-hidden max-w-sm mx-auto">
@@ -110,4 +110,4 @@ export const classes = {
 
 ### Произвольные значения
 
-<ArbitraryValues property="divide-{color}" featuredClass="divide-[#243c5a]" />
+<ArbitraryValues name="divide color" featuredClass="divide-[#243c5a]" />

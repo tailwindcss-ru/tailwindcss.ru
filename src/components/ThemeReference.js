@@ -1,12 +1,13 @@
 import defaultConfig from 'defaultConfig'
 
 const descriptions = {
-  screens: "Адаптивные контрольные точки Вашего проекта",
-  colors: "Цветовая палитра вашего проекта",
-  spacing: "Шкала интервалов вашего проекта",
+  screens: 'Адаптивные контрольные точки вашего проекта',
+  colors: 'Цветовая палитра вашего проекта',
+  spacing: 'Масштаб интервалов вашего проекта',
   container: 'Конфигурация плагина `container`',
   inset: 'Значения свойств `top`, `right`, `bottom` и `left`',
-  keyframes: 'Значения ключевых кадров, используемые в плагине `animation` plugin',
+  keyframes: 'Значения ключевых кадров, используемые в плагине `animation`',
+  textColor: 'Значения свойства `color`',
   ...Object.fromEntries(
     [
       'placeholderColor',

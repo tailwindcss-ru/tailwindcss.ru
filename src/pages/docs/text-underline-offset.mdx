@@ -18,7 +18,7 @@ export const classes = {
 
 ### Настройка смещения подчеркивания
 
-Используйте утилиты `underline-offset-{width}`, чтобы изменить смещение подчеркивания текста.
+Используйте утилиту `underline-offset-*`, чтобы изменить смещение подчеркивания текста.
 
 ```html {{ example: true }}
 <div class="flex flex-col gap-8 text-slate-900 dark:text-slate-200">
@@ -66,7 +66,7 @@ export const classes = {
 
 ### Настройка вашей темы
 
-Вы можете настроить утилиты `underline-offset-{width}`, отредактировав `theme.textUnderlineOffset` или `theme.extend.textUnderlineOffset` в вашем файле `tailwind.config.js`.
+Вы можете настроить утилиты `text-underline-offset`, отредактировав `theme.textUnderlineOffset` или `theme.extend.textUnderlineOffset` в файле `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {

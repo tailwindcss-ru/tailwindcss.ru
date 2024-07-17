@@ -4,10 +4,11 @@ import 'focus-visible'
 import { useState, useEffect, Fragment } from 'react'
 import { Header } from '@/components/Header'
 import { Description, OgDescription, OgTitle, Title } from '@/components/Meta'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
 import Head from 'next/head'
 import { SearchProvider } from '@/components/Search'
+import * as Fathom from 'fathom-client'
 
 const progress = new ProgressBar({
   size: 2,
@@ -27,7 +28,30 @@ Router.events.on('routeChangeStart', () => progress.start())
 Router.events.on('routeChangeComplete', () => progress.finish())
 Router.events.on('routeChangeError', () => progress.finish())
 
+function useFathom(code, options) {
+  const router = useRouter()
+
+  useEffect(() => {
+    Fathom.load(code, options)
+
+    function onRouteChangeComplete() {
+      Fathom.trackPageview()
+    }
+    // Record a pageview when route changes
+    router.events.on('routeChangeComplete', onRouteChangeComplete)
+
+    // Unassign event listener
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChangeComplete)
+    }
+  }, [])
+}
+
 export default function App({ Component, pageProps, router }) {
+  useFathom('PMFMDJGK', {
+    includedDomains: ['tailwindcss.com'],
+  })
+
   let [navIsOpen, setNavIsOpen] = useState(false)
 
   useEffect(() => {
@@ -35,9 +59,9 @@ export default function App({ Component, pageProps, router }) {
     function handleRouteChange() {
       setNavIsOpen(false)
     }
-    Router.events.on('routeChangeComplete', handleRouteChange)
+    Router.events.on('routeChangeStart', handleRouteChange)
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange)
+      Router.events.off('routeChangeStart', handleRouteChange)
     }
   }, [navIsOpen])
 
@@ -45,7 +69,7 @@ export default function App({ Component, pageProps, router }) {
   const layoutProps = Component.layoutProps?.Layout
     ? { layoutProps: Component.layoutProps, navIsOpen, setNavIsOpen }
     : {}
-  const showHeader = router.pathname !== '/'
+  const showHeader = router.pathname !== '/' && router.pathname.startsWith('/careers') === false
   const meta = Component.layoutProps?.meta || {}
   const description =
     meta.metaDescription ||
@@ -56,7 +80,7 @@ export default function App({ Component, pageProps, router }) {
     ? `https://tailwindcss.ru${image.default?.src ?? image.src ?? image}`
     : `https://tailwindcss.com/api/og?path=${router.pathname}`
 
-  if (router.pathname.startsWith('/examples/')) {
+  if (router.pathname.includes('/examples/')) {
     return <Component {...pageProps} />
   }
 

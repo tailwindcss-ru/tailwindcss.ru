@@ -13,7 +13,7 @@ export const classes = { utilities }
 
 ### Отображение содержимого, которое выходит за пределы
 
-Используйте `overflow-visible`, чтобы предотвратить обрезку содержимого внутри элемента. Обратите внимание, что любое содержимое, выходящее за границы элемента, будет тогда видимым.
+Используйте утилиту `overflow-visible`, чтобы предотвратить обрезание содержимого внутри элемента. Обратите внимание, что любой контент, выходящий за пределы элемента, будет виден.
 
 ```html {{ example: true }}
 <div class="overflow-visible relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6 dark:bg-slate-800 dark:highlight-white/5">
@@ -31,7 +31,7 @@ export const classes = { utilities }
 
 ### Скрытие переполняющегося содержимого
 
-Используйте `overflow-hidden`, чтобы вырезать любое содержимое внутри элемента, выходящее за границы этого элемента.
+Используйте утилиту `overflow-hidden`, чтобы обрезать любой контент внутри элемента, который выходит за пределы этого элемента.
 
 ```html {{ example: true }}
 <div class="overflow-hidden relative max-w-sm mx-auto bg-white shadow-lg ring-1 ring-black/5 rounded-xl flex items-center gap-6 dark:bg-slate-800 dark:highlight-white/5">
@@ -49,7 +49,7 @@ export const classes = { utilities }
 
 ### Прокрутка при необходимости
 
-Используйте `overflow-auto`, чтобы добавить полосы прокрутки к элементу в случае, если его содержимое выходит за границы этого элемента. В отличие от `overflow-scroll`, которая всегда показывает полосы прокрутки, эта утилита покажет их только в том случае, если прокрутка необходима.
+Используйте утилиту `overflow-auto`, чтобы добавить полосы прокрутки к элементу в случае, если его содержимое выходит за пределы этого элемента. В отличие от `overflow-scroll`, которая всегда показывает полосы прокрутки, эта утилита будет показывать их только в том случае, если прокрутка необходима.
 
 ```html {{ example: true }}
 <div class="overflow-auto h-72 relative max-w-sm mx-auto bg-white dark:bg-slate-800 dark:highlight-white/5 shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y dark:divide-slate-200/5">
@@ -90,7 +90,7 @@ export const classes = { utilities }
 
 ### Скролл по горизонтали при необходимости
 
-Используйте `overflow-x-auto`, чтобы разрешить горизонтальную прокрутку, если это необходимо.
+Используйте утилиту `overflow-x-auto`, чтобы при необходимости разрешить горизонтальную прокрутку.
 
 ```html {{ example: { p: 'none' } }}
 <div class="max-w-md mx-auto bg-white shadow-xl min-w-0 dark:bg-slate-800 dark:highlight-white/5">
@@ -141,7 +141,7 @@ export const classes = { utilities }
 
 ### Скролл по вертикали при необходимости
 
-Используйте `overflow-y-auto`, чтобы разрешить вертикальную прокрутку, если это необходимо.
+Используйте утилиту `overflow-y-auto`, чтобы при необходимости разрешить вертикальную прокрутку.
 
 ```html {{ example: true }}
 <div class="overflow-y-auto h-72 relative max-w-sm mx-auto bg-white dark:bg-slate-800 dark:highlight-white/5 shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y dark:divide-slate-200/5">
@@ -182,7 +182,7 @@ export const classes = { utilities }
 
 ### Скролл по горизонтали всегда
 
-Используйте `overflow-x-scroll`, чтобы разрешить горизонтальную прокрутку и всегда показывать полосы прокрутки, если операционная система не отключила всегда видимые полосы прокрутки.
+Используйте утилиту `overflow-x-scroll`, чтобы разрешить горизонтальную прокрутку и всегда показывать полосы прокрутки, если операционная система не отключила всегда видимые полосы прокрутки.
 
 ```html {{ example: { p: 'none' } }}
 <div class="max-w-md mx-auto bg-white shadow-xl min-w-0 dark:bg-slate-800 dark:highlight-white/5">
@@ -233,7 +233,7 @@ export const classes = { utilities }
 
 ### Скролл по вертикали всегда
 
-Используйте `overflow-y-scroll`, чтобы разрешить вертикальную прокрутку и всегда показывать полосы прокрутки, если операционная система не отключила всегда видимые полосы прокрутки.
+Используйте утилиту `overflow-y-scroll`, чтобы разрешить вертикальную прокрутку и всегда показывать полосы прокрутки, если операционная система не отключила всегда видимые полосы прокрутки.
 
 ```html {{ example: true }}
 <div class="overflow-y-scroll h-72 relative max-w-sm mx-auto bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y dark:divide-slate-200/5">
@@ -274,7 +274,7 @@ export const classes = { utilities }
 
 ### Скролл во всех направлениях
 
-Используйте `overflow-scroll`, чтобы добавить полосы прокрутки к элементу. В отличие от overflow-auto, которая показывает полосы прокрутки только в случае необходимости, эта утилита показывает их всегда. Обратите внимание, что некоторые операционные системы (например, macOS) скрывают ненужные полосы прокрутки независимо от этого параметра.
+Используйте утилиту `overflow-scroll`, чтобы добавить полосы прокрутки к элементу. В отличие от `overflow-auto`, которая показывает полосы прокрутки только в случае необходимости, эта утилита показывает их всегда. Обратите внимание, что некоторые операционные системы (например, macOS) скрывают ненужные полосы прокрутки независимо от этого параметра.
 
 ```html {{ example: { p: 'none' } }}
 <div class="mx-4 bg-white dark:bg-slate-800 shadow-xl overflow-hidden">
@@ -419,7 +419,7 @@ export const classes = { utilities }
     <!-- Calendar contents -->
     <div class="row-start-[2] col-start-3 row-span-4 bg-blue-400/20 dark:bg-sky-600/50 border border-blue-700/10 dark:border-sky-500 rounded-lg m-1 p-1 flex flex-col">
       <span class="text-xs text-blue-600 dark:text-sky-100">5 AM</span>
-      <span class="text-xs font-medium text-blue-600 dark:text-sky-100">Flight to vancouver</span>
+      <span class="text-xs font-medium text-blue-600 dark:text-sky-100">Flight to Vancouver</span>
       <span class="text-xs text-blue-600 dark:text-sky-100">Toronto YYZ</span>
     </div>
     <div class="row-start-[3] col-start-[4] row-span-4 bg-purple-400/20 dark:bg-fuchsia-600/50 border border-purple-700/10 dark:border-fuchsia-500 rounded-lg m-1 p-1 flex flex-col">

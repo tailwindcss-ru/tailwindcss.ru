@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Порядок флекс и грид элементов
 
-Используйте `order-{order}` для рендеринга элементов гибкости и сетки в другом порядке, чем они отображаются в DOM.
+Используйте утилиты `order-*` для рендеринга гибких элементов и элементов сетки в другом порядке, чем они отображаются в DOM.
 
 ```html {{ example: true }}
 <div class="flex justify-between font-mono text-white text-sm font-bold leading-6">
@@ -60,7 +60,7 @@ export const classes = { utilities }
 
 ### Настройка вашей темы
 
-По умолчанию Tailwind предоставляет утилиты для `order-first`, `order-last`, `order-none` и `order-{number}` для чисел от 1 до 12. Вы можете настроить эти значения, отредактировав `theme.order` или `theme.extend.order` в вашем файле `tailwind.config.js`.
+По умолчанию Tailwind предоставляет утилиты для `order-first`, `order-last`, `order-none` и утилит с номерами от 1 до 12. Вы можете настроить эти значения, отредактировав `theme.order` или `theme.extend.order` в вашем файле `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {

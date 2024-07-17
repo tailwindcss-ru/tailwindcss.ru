@@ -14,7 +14,7 @@ export const classes = { utilities }
 
 ### Настройка смещения контура
 
-Используйте утилиты `outline-{offset}`, чтобы изменить смещение контура элемента.
+Используйте утилиту `outline-*`, чтобы изменить смещение контура элемента.
 
 ```html {{ example: true }}
 <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4 font-bold text-white text-sm text-center">
@@ -57,7 +57,7 @@ export const classes = { utilities }
 
 ### Настройка вашей темы
 
-Вы можете настроить утилиты `outline-offset-{width}`, отредактировав `theme.outlineOffset` или `theme.extend.outlineOffset` в вашем файле `tailwind.config.js`.
+Вы можете настроить утилиты `outline-offset-*`, отредактировав `theme.outlineOffset` или `theme.extend.outlineOffset` в файле `tailwind.config.js`.
 
 ```diff-js {{ filename: 'tailwind.config.js' }}
   module.exports = {

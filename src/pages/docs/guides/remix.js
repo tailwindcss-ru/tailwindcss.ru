@@ -21,14 +21,14 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code> через npm, а затем запустите команду init для создания
-        файла <code>tailwind.config.ts</code>.
+        Установите <code>tailwindcss</code> через npm, а затем запустите команду init для генерации
+        файлов <code>tailwind.config.ts</code> и <code>postcss.config.js</code>.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss\nnpx tailwindcss init --ts',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init --ts -p',
     },
   },
   {
@@ -70,14 +70,15 @@ let steps = [
     title: 'Импортируйте файл CSS',
     body: () => (
       <p>
-        Импортируйте только что созданный файл <code>./app/tailwind.css</code> в ваш файл{' '}
-        <code>./app/root.jsx</code>.
+        Импортируйте вновь созданный файл <code>./app/tailwind.css</code> в свой файл{' '}
+        <code>./app/root.tsx</code>.
       </p>
     ),
     code: {
       name: 'root.tsx',
       lang: 'tsx',
-      code: `import stylesheet from "~/tailwind.css";
+      code: `import type { LinksFunction } from "@remix-run/node";
+import stylesheet from "~/tailwind.css?url";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -101,7 +102,7 @@ export const links: LinksFunction = () => [
     title: 'Начните использовать Tailwind в своем проекте',
     body: () => <p>Начните использовать классы утилит Tailwind для оформления своего контента.</p>,
     code: {
-      name: 'index.tsx',
+      name: '_index.tsx',
       lang: 'tsx',
       code: `  export default function Index() {
     return (
