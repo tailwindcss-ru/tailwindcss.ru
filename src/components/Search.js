@@ -95,7 +95,7 @@ export function SearchProvider({ children }) {
               initialQuery={initialQuery}
               initialScrollY={window.scrollY}
               searchParameters={{
-                facetFilters: 'version:v3',
+                facetFilters: 'version:3',
                 distinct: 1,
                 attributesToRetrieve: [
                   'hierarchy.lvl0',
