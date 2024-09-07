@@ -78,7 +78,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 ```html {{ example: true }}
 <div class="max-w-sm mx-auto p-6 flex items-center bg-white rounded-xl shadow-lg space-x-4">
   <div class="shrink-0">
-    <svg class="h-12 w-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#2397B3" offset="0%"/><stop stop-color="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#73DFF2" offset="0%"/><stop stop-color="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
+    <svg class="size-12" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a"><stop stop-color="#2397B3" offset="0%"/><stop stop-color="#13577E" offset="100%"/></linearGradient><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b"><stop stop-color="#73DFF2" offset="0%"/><stop stop-color="#47B1EB" offset="100%"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z" fill="url(#a)" transform="translate(1 1)"/><path d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z" fill="url(#b)" transform="translate(1 1)"/><path d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="#FFF"/></g></svg>
   </div>
   <div>
     <div class="text-xl font-medium text-black">ChitChat</div>
@@ -90,7 +90,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 ```html
 <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
   <div class="shrink-0">
-    <img class="h-12 w-12" src="/img/logo.svg" alt="ChitChat Logo">
+    <img class="size-12" src="/img/logo.svg" alt="ChitChat Logo">
   </div>
   <div>
     <div class="text-xl font-medium text-black">ChitChat</div>
@@ -101,12 +101,12 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 В приведенном выше примере мы использовали:
 
-- Утилиты Tailwind [flexbox](/docs/display#flex) и [padding](/docs/padding) (`flex`, `shrink-0` и `p-6`) для управления общей компоновкой карточки.
-- Утилиты [max-width](/docs/max-width) и [margin](/docs/margin) (`max-w-sm` и `mx-auto`) для ограничения ширины карточки и ее центрирования по горизонтали
-- Утилиты [background color](/docs/background-color), [border radius](/docs/border-radius) и [box-shadow](/docs/box-shadow) (`bg-white`, `rounded-xl` и `shadow-lg`) для стилизации внешнего вида карточки
-- Утилиты [width](/docs/width) и [height](/docs/height) (`w-12` и `h-12`) для изменения размера изображения логотипа
-- Утилиты [space-between](/docs/space) (`space-x-4`) для обработки расстояния между логотипом и текстом
-- Утилиты [font size](/docs/font-size), [text color](/docs/text-color) и [font-weight](/docs/font-weight) (`text-xl`, `text-black`, `font-medium`и т.д.) для стилизации текста карточки
+- Утилиты Tailwind [flexbox](/docs/display#flex) и [padding](/docs/padding) (`flex`, `shrink-0` и `p-6`) для управления общим макетом карты
+- Утилиты [max-width](/docs/max-width) и [margin](/docs/margin) (`max-w-sm` и `mx-auto`) для ограничения ширины карты и ее центрирования по горизонтали
+- Утилиты [background color](/docs/background-color), [border radius](/docs/border-radius) и [box-shadow](/docs/box-shadow) (`bg-white`, `rounded-xl` и `shadow-lg`) для стилизации внешнего вида карты
+- Утилиты [size](/docs/size) utilities (`size-12`) для установки ширины и высоты изображения логотипа
+- Утилиты [space-between](/docs/space) (`space-x-4`) для управления интервалом между логотипом и текстом
+- Утилиты [font size](/docs/font-size), [text color](/docs/text-color) и [font-weight](/docs/font-weight) (`text-xl`, `text-black`, `font-medium` и т. д.) для стилизации текста карточки
 
 Такой подход позволяет нам реализовать полностью настраиваемый дизайн компонента без написания ни одной строчки пользовательского CSS.
 

@@ -13,11 +13,9 @@ let tabs = [
         title: 'Создайте свой проект',
         body: () => (
           <p>
-            Начните с создания нового проекта Rspack, если он у вас еще не настроен. Самый
+            Начните с создания нового проекта Rspack, если у вас его еще нет. Наиболее
             распространенный подход — использовать{' '}
-            <a href="https://www.rspack.dev/guide/quick-start.html#using-the-rspack-cli">
-              Rspack CLI
-            </a>
+            <a href="https://rspack.dev/guide/start/quick-start#using-the-rspack-cli">Rspack CLI</a>
             .
           </p>
         ),
@@ -45,12 +43,9 @@ let tabs = [
         title: 'Включить поддержку PostCSS',
         body: () => (
           <p>
-            В файле <code>rspack.config.js</code> включите загрузчик PostCSS. Дополнительную
-            информацию смотрите в{' '}
-            <a href="https://www.rspack.dev/guide/language-support.html#tailwind-css">
-              документации
-            </a>
-            .
+            В файле <code>rspack.config.js</code> включите загрузчик PostCSS. Для получения
+            дополнительной информации смотрите{' '}
+            <a href="https://rspack.dev/guide/tech/css#tailwind-css">документацию</a> .
           </p>
         ),
         code: {
@@ -144,11 +139,9 @@ let tabs = [
         title: 'Создайте свой проект',
         body: () => (
           <p>
-            Начните с создания нового проекта Rspack, если он у вас еще не настроен. Самый
+            Начните с создания нового проекта Rspack, если у вас его еще нет. Наиболее
             распространенный подход — использовать{' '}
-            <a href="https://www.rspack.dev/guide/quick-start.html#using-the-rspack-cli">
-              Rspack CLI
-            </a>
+            <a href="https://rspack.dev/guide/start/quick-start#using-the-rspack-cli">Rspack CLI</a>
             .
           </p>
         ),
@@ -176,12 +169,9 @@ let tabs = [
         title: 'Включите поддержку PostCSS',
         body: () => (
           <p>
-            В файле <code>rspack.config.js</code> включите загрузчик PostCSS. Дополнительную
-            информацию смотрите в{' '}
-            <a href="https://www.rspack.dev/guide/language-support.html#tailwind-css">
-              документации
-            </a>
-            .
+            В файле <code>rspack.config.js</code> включите загрузчик PostCSS. Для получения
+            дополнительной информации смотрите{' '}
+            <a href="https://rspack.dev/guide/tech/css#tailwind-css">документацию</a> .
           </p>
         ),
         code: {
