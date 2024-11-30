@@ -106,14 +106,15 @@ function TableOfContents({ tableOfContents, currentSection }) {
             />
             <div>
               <p className="text-[0.8125rem] font-semibold leading-5 text-sky-500 dark:text-sky-400">
-                From the creators of Tailwind CSS
+                От создателей Tailwind CSS
               </p>
               <p className="mt-1 text-base font-bold tracking-tight leading-[1.375] text-slate-900 dark:text-slate-200">
-                Make your ideas look awesome, without relying on a designer.
+                Сделайте так, чтобы ваши идеи выглядели потрясающе, не полагаясь на дизайнера.
               </p>
               <figure className="mt-6 pl-4 border-l border-slate-100 dark:border-slate-700">
                 <blockquote className="text-sm leading-5 text-slate-600 dark:text-slate-400">
-                  “This is the survival kit I wish I had when I started building apps.”
+                  «Это набор для выживания, который я хотел бы иметь, когда начал создавать
+                  приложения».
                 </blockquote>
                 <figcaption className="mt-3 text-xs leading-5 text-slate-500">
                   Derrick Reimer, <span className="">SavvyCal</span>
