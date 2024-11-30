@@ -231,7 +231,7 @@ export const documentationNav = {
   Доступность: [pages['screen-readers'], pages['forced-color-adjust']],
   'Официальные плагины': [
     {
-      title: 'Typography',
+      title: 'Типографика',
       href: 'https://github.com/tailwindlabs/tailwindcss-typography',
     },
     {

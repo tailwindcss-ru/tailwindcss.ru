@@ -50,7 +50,7 @@ function BlackFriday() {
       href="https://tailwindui.com/all-access"
       className="ml-3 text-xs leading-5 font-medium text-white dark:text-sky-400 bg-slate-900 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-slate-700"
     >
-      <strong className="font-semibold">Black Friday Deal</strong>
+      <strong className="font-semibold">Скидка на Черную пятницу</strong>
       <svg
         width="2"
         height="2"
@@ -61,8 +61,8 @@ function BlackFriday() {
         <circle cx="1" cy="1" r="1" />
       </svg>
       <span className="ml-2">
-        Get Tailwind UI + Refactoring UI{' '}
-        <span className="hidden min-[1320px]:inline">together</span> for over 30% off
+        Tailwind UI + Refactoring UI <span className="hidden min-[1320px]:inline">вместе</span> со
+        скидкой 30%+
       </span>
       <svg
         width="3"

@@ -336,7 +336,7 @@ function TopLevelNav({ mobile }) {
           </>
         }
       >
-        Templates
+        Шаблоны
       </TopLevelLink>
       <TopLevelLink
         mobile={mobile}
