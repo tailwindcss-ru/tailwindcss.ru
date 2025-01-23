@@ -48,10 +48,6 @@ function useFathom(code, options) {
 }
 
 export default function App({ Component, pageProps, router }) {
-  useFathom('PMFMDJGK', {
-    includedDomains: ['tailwindcss.com', 'tailwindcss.ru'],
-  })
-
   let [navIsOpen, setNavIsOpen] = useState(false)
 
   useEffect(() => {
@@ -77,8 +73,8 @@ export default function App({ Component, pageProps, router }) {
     'Tailwind CSS — это ориентированная на утилиты CSS-инфраструктура для быстрого создания современных веб-сайтов, не выходя из HTML-кода.'
   let image = meta.ogImage ?? meta.image
   image = image
-    ? `https://tailwindcss.ru${image.default?.src ?? image.src ?? image}`
-    : `https://tailwindcss.com/api/og?path=${router.pathname}`
+    ? `https://v3.tailwindcss.ru/${image.default?.src ?? image.src ?? image}`
+    : `https://v3.tailwindcss.com//api/og?path=${router.pathname}`
 
   if (router.pathname.includes('/examples/')) {
     return <Component {...pageProps} />
@@ -101,7 +97,11 @@ export default function App({ Component, pageProps, router }) {
         <meta key="twitter:site" name="twitter:site" content="@tailwindcss" />
         <meta key="twitter:image" name="twitter:image" content={image} />
         <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
-        <meta key="og:url" property="og:url" content={`https://tailwindcss.ru${router.pathname}`} />
+        <meta
+          key="og:url"
+          property="og:url"
+          content={`https://v3.tailwindcss.ru/${router.pathname}`}
+        />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:image" property="og:image" content={image} />
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feeds/feed.xml" />

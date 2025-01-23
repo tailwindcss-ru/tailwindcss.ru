@@ -7,7 +7,7 @@ import { mdxComponents } from '@/utils/mdxComponents'
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
 
 export default async function buildRss() {
-  const baseUrl = 'https://tailwindcss.ru'
+  const baseUrl = 'https://v3.tailwindcss.ru/'
   const blogUrl = `${baseUrl}/blog`
 
   const feed = new Feed({

@@ -26,7 +26,7 @@ let steps = [
     body: () => (
       <p>
         Запустите команду <code>astro add</code>, чтобы установить <code>tailwindcss</code> и{' '}
-        <code>@astro/tailwind</code>, а также сгенерировать файл <code>tailwind.config.cjs</code>.
+        <code>@astrojs/tailwind</code>, а также создать файл <code>tailwind.config.cjs</code>.
       </p>
     ),
     code: {

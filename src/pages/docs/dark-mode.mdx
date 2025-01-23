@@ -138,12 +138,11 @@ Tailwind автоматически обернет ваш пользовател
 Вот простой пример того, как вы можете поддерживать светлый режим, темный режим, а также соблюдать настройки операционной системы:
 
 ```js {{ filename: 'spaghetti.js' }}
-// При загрузке страницы или при смене темы лучше всего добавить строку в `head`, чтобы избежать FOUC
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark')
-} else {
-  document.documentElement.classList.remove('dark')
-}
+// При загрузке страницы или смене темы лучше добавить в строку в `head`, чтобы избежать FOUC
+document.documentElement.classList.toggle(
+  'dark',
+  localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+)
 
 // Всякий раз, когда пользователь явно выбирает светлый режим
 localStorage.theme = 'light'

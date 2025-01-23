@@ -7,8 +7,8 @@ let steps = [
     title: 'Создайте свой проект',
     body: () => (
       <p>
-        Начните с создания нового проекта Angular, если у вас его еще нет.
-        Наиболее распространенный подход — использовать <a href="https://angular.io/cli">Angular CLI</a>.
+        Начните с создания нового проекта Angular, если у вас его еще нет. Наиболее распространенный
+        подход — использовать <a href="https://angular.dev/tools/cli">Angular CLI</a>.
       </p>
     ),
     code: {
@@ -21,8 +21,8 @@ let steps = [
     title: 'Установите Tailwind CSS',
     body: () => (
       <p>
-        Установите <code>tailwindcss</code> через npm, а затем запустите команду init для создания файла{' '}
-        <code>tailwind.config.js</code>.
+        Установите <code>tailwindcss</code> через npm, а затем запустите команду init для создания
+        файла <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
