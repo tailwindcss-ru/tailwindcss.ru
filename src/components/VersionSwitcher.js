@@ -23,7 +23,7 @@ export function VersionSwitcher({ className }) {
         <Menu.Item>
           {({ active }) => (
             <a
-              href="https://tailwindcss.com"
+              href="https://tailwindcss.ru"
               className={clsx(
                 'block px-3 py-1',
                 active && 'bg-slate-50 text-slate-900 dark:bg-slate-600/30 dark:text-white'
