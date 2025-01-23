@@ -532,8 +532,10 @@ export function SidebarLayout({
                 className="group relative px-4 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-sm grid overflow-hidden border border-white/10 shadow-lg"
               >
                 <div className="grid gap-1 z-20">
-                  <p>v4.0 Beta Documentation →</p>
-                  <p className="text-[0.8125rem] text-gray-300">Preview the next Tailwind CSS.</p>
+                  <p>Документация v4.0 Beta →</p>
+                  <p className="text-[0.8125rem] text-gray-300">
+                    Предварительный просмотр следующего CSS Tailwind.
+                  </p>
                 </div>
                 <div className="absolute h-full w-1/2 right-0 top-0 overflow-hidden">
                   <div className="absolute h-full w-full bg-gradient-to-r from-slate-800 group-hover:from-slate-900 z-10" />
