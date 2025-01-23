@@ -5,14 +5,13 @@ description: Plugins and configuration settings that can improve the developer e
 
 ## Syntax support
 
-Tailwind CSS uses a lot of custom CSS at-rules like `@tailwind`, `@apply`, and `@screen`, and in many editors this can trigger warnings or errors where these rules aren't recognized.
+Tailwind CSS uses a lot of custom CSS at-rules like `@tailwind`, `@apply`, and `@config`, and in many editors this can trigger warnings or errors where these rules aren't recognized.
 
 The solution to this is almost always to install a plugin for your editor/IDE for PostCSS language support instead of regular CSS.
 
 If you're using VS Code, our official [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) plugin includes a dedicated Tailwind CSS language mode that has support for all of the custom at-rules and functions Tailwind uses.
 
 In some cases, you may need to disable native CSS linting/validations if your editor is very strict about the syntax it expects in your CSS files.
-
 
 ## IntelliSense for VS Code
 
@@ -29,7 +28,7 @@ Check out the project [on GitHub](https://github.com/tailwindcss/intellisense) t
 
 ## Automatic class sorting with Prettier
 
-We maintain an official [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) for Tailwind CSS that automatically sorts your classes following our [recommended class order](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted).
+We maintain an official [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) for Tailwind CSS that automatically sorts your classes following our [recommended class order](/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted).
 
 <img src={require('@/img/prettier-banner.jpg').default.src} alt="" width={2400} height={819} className="rounded-lg" />
 
@@ -43,7 +42,7 @@ It works seamlessly with custom Tailwind configurations, and because it’s just
 <button class="bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3">...</button>
 ```
 
-Check out the plugin [on GitHub](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) learn more and get started.
+Check out the plugin [on GitHub](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) to learn more and get started.
 
 ## JetBrains IDEs
 

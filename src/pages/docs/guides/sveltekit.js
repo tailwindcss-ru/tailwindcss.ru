@@ -18,22 +18,21 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm init svelte@latest my-app\ncd my-app',
+      code: 'npm create svelte@latest my-project\ncd my-project',
     },
   },
   {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, and then run the
-        following commands to generate both <code>tailwind.config.cjs</code>
-        and <code>postcss.config.cjs</code>.
+        Install <code>tailwindcss</code> and its peer dependencies, then generate your{' '}
+        <code>tailwind.config.js</code> and <code>postcss.config.js</code> files.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init tailwind.config.cjs -p',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p',
     },
   },
   {
@@ -48,8 +47,7 @@ let steps = [
       name: 'svelte.config.js',
       lang: 'js',
       code: `  import adapter from '@sveltejs/adapter-auto';
-> import { vitePreprocess } from '@sveltejs/kit/vite';
-
+> import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
   /** @type {import('@sveltejs/kit').Config} */
   const config = {
     kit: {
@@ -57,7 +55,6 @@ let steps = [
     },
 >   preprocess: vitePreprocess()
   };
-
   export default config;`,
     },
   },
@@ -65,14 +62,14 @@ let steps = [
     title: 'Configure your template paths',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.cjs</code> file.
+        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
       </p>
     ),
     code: {
-      name: 'tailwind.config.cjs',
+      name: 'tailwind.config.js',
       lang: 'javascript',
       code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+  export default {
 >   content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
       extend: {}

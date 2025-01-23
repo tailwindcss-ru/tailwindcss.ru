@@ -7,7 +7,7 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 Since Tailwind is a PostCSS plugin, there's nothing stopping you from using it with Sass, Less, Stylus, or other preprocessors, just like you can with other PostCSS plugins like [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-It's important to note that **you don't need to use a preprocessor with Tailwind** — you typically write very little CSS on a Tailwind project anyways so using a preprocessor just isn't as beneficial as it would be in a project where you write a lot of custom CSS.
+It's important to note that **you don't need to use a preprocessor with Tailwind** — you typically write very little CSS on a Tailwind project anyway, so using a preprocessor just isn't as beneficial as it would be in a project where you write a lot of custom CSS.
 
 This guide only exists as a reference for people who need to integrate Tailwind with a preprocessor for reasons outside of their control, not because it is a recommended practice.
 
@@ -125,7 +125,7 @@ The `postcss-import` plugin is smart enough to look for files in the `node_modul
 
 ### Nesting
 
-To add support for nested declarations, we recommend our bundled `tailwindcss/nesting` plugin, which is a PostCSS plugin that wraps [postcss-nested](https://github.com/postcss/postcss-nested) or [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) and acts as a compatibility layer to make sure your nesting plugin of choice properly understands Tailwind's custom syntax like `@apply` and `@screen`.
+To add support for nested declarations, we recommend our bundled `tailwindcss/nesting` plugin, which is a PostCSS plugin that wraps [postcss-nested](https://github.com/postcss/postcss-nested) or [postcss-nesting](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting) and acts as a compatibility layer to make sure your nesting plugin of choice properly understands Tailwind's custom syntax.
 
 It's included directly in the `tailwindcss` package itself, so to use it all you need to do is add it to your PostCSS configuration, somewhere before Tailwind:
 
@@ -143,7 +143,7 @@ module.exports = {
 
 By default, it uses the [postcss-nested](https://github.com/postcss/postcss-nested) plugin under the hood, which uses a Sass-like syntax and is the plugin that powers nesting support in the [Tailwind CSS plugin API](/docs/plugins#css-in-js-syntax).
 
-If you'd rather use [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) (which is based on the work-in-progress [CSS Nesting](https://drafts.csswg.org/css-nesting-1/) specification), first install the plugin:
+If you'd rather use [postcss-nesting](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting) (which is based on the standard [CSS Nesting](https://drafts.csswg.org/css-nesting-1/) specification), first install the plugin:
 
 ```shell
 npm install -D postcss-nesting
@@ -210,7 +210,7 @@ You may also find that most of the things you've used variables for in the past 
 }
 ```
 
-Learn more about the `theme()` function in our [functions and directives documentation](/docs/functions-and-directives#theme);
+Learn more about the `theme()` function in our [functions and directives documentation](/docs/functions-and-directives#theme).
 
 ### Vendor prefixes
 
@@ -237,7 +237,7 @@ module.exports = {
 
 ## Using Sass, Less, or Stylus
 
-For the best development experience, we highly recommended that you [use PostCSS exclusively](#using-post-css-as-your-preprocessor), and that you don't use preprocessors like Sass or Less in your Tailwind projects.
+For the best development experience, we highly recommend that you [use PostCSS exclusively](#using-post-css-as-your-preprocessor), and that you don't use preprocessors like Sass or Less in your Tailwind projects.
 
 To use Tailwind with a preprocessing tool like Sass, Less, or Stylus, you'll need to add an additional build step to your project that lets you run your preprocessed CSS through PostCSS. If you're using Autoprefixer in your project, you already have something like this set up.
 
@@ -253,7 +253,7 @@ The most important thing to understand about using Tailwind with a preprocessor 
 }
 ```
 
-Aside from that, each preprocessor has its own quirk or two when used with Tailwind, which are outlined with workarounds below.
+Aside from that, some preprocessors have quirks when used with Tailwind, which are outlined with workarounds below.
 
 ### Sass
 
@@ -275,52 +275,33 @@ When using Tailwind with Sass, using `!important` with `@apply` requires you to 
 }
 ```
 
-### Less
+In addition to this, Sass has trouble with Tailwind's `screen()` function unless wrapped in parentheses.
 
-When using Tailwind with Less, you cannot nest Tailwind's `@screen` directive.
-
-<TipBad>Won't work, Less doesn't realise it's a media query</TipBad>
+<TipBad>Won't work, Sass will generate an error</TipBad>
 
 ```css
-.card {
-  @apply rounded-none;
-
-  @screen sm {
-    @apply rounded-lg;
+@media screen(md) {
+  .foo {
+    color: blue;
   }
 }
 ```
 
-Instead, use a regular media query along with the `theme()` function to reference your screen sizes, or simply don't nest your `@screen` directives.
-
-<TipGood>Use a regular media query and theme()</TipGood>
+<TipGood>Wrap the screen() function in parentheses</TipGood>
 
 ```css
-.card {
-  @apply rounded-none;
-
-  @media (min-width: theme('screens.sm')) {
-    @apply rounded-lg;
+@media (screen(md)) {
+  .foo {
+    color: blue;
   }
 }
 ```
 
-<TipGood>Use the @screen directive at the top-level</TipGood>
-
-```css
-.card {
-  @apply rounded-none;
-}
-@screen sm {
-  .card {
-    @apply rounded-lg;
-  }
-}
-```
+Technically this results in an extra set of parentheses around your media query, but it still works.
 
 ### Stylus
 
-When using Tailwind with Stylus, you can't use Tailwind's `@apply` feature without wrapping the entire CSS rule in `@css` so that Stylus treats it as literal CSS:
+When using Tailwind with Stylus, you can't use Tailwind's `@apply` feature without wrapping the entire CSS rule in `@css` so that Stylus treats it as literal CSS.
 
 <TipBad>Won't work, Stylus complains about @apply</TipBad>
 
@@ -354,43 +335,26 @@ Another option is to use the `theme()` function instead of `@apply`, and write o
 }
 ```
 
-In addition to this, Stylus doesn't support nesting the `@screen` directive (just like Less).
+In addition to this, Stylus has trouble with Tailwind's `screen()` function unless you use interpolation and wrap it in parentheses.
 
-<TipBad>Won't work, Stylus doesn't realise it's a media query</TipBad>
+<TipBad>Won't work, Stylus will generate an error</TipBad>
 
 ```css
-.card {
-  border-radius: 0;
-
-  @screen sm {
-    border-radius: theme('borderRadius.lg');
+@media screen(md) {
+  .foo {
+    color: blue;
   }
 }
 ```
 
-Instead, use a regular media query along with the `theme()` function to reference your screen sizes, or simply don't nest your `@screen` directives.
-
-<TipGood>Use a regular media query and theme()</TipGood>
+<TipGood>Use interpolation and parentheses as a workaround</TipGood>
 
 ```css
-.card {
-  border-radius: 0;
-
-  @media (min-width: theme('screens.sm')) {
-    border-radius: theme('borderRadius.lg');
+@media ({'screen(md)'}) {
+  .foo {
+    color: blue;
   }
 }
 ```
 
-<TipGood>Use the @screen directive at the top-level</TipGood>
-
-```css
-.card {
-  border-radius: 0;
-}
-@screen sm {
-  .card {
-    border-radius: theme('borderRadius.lg');
-  }
-}
-```
+Technically this results in an extra set of parentheses around your media query, but it still works.

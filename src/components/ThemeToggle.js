@@ -10,14 +10,15 @@ const useSetting = create((set) => ({
 }))
 
 function update() {
+  document.documentElement.classList.add('changing-theme')
   if (
     localStorage.theme === 'dark' ||
     (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
-    document.documentElement.classList.add('dark', 'changing-theme')
+    document.documentElement.classList.add('dark')
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0B1120')
   } else {
-    document.documentElement.classList.remove('dark', 'changing-theme')
+    document.documentElement.classList.remove('dark')
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f8fafc')
   }
   window.setTimeout(() => {
@@ -195,7 +196,7 @@ export function ThemeToggle({ panelClassName = 'mt-4' }) {
         {settings.map(({ value, label, icon: Icon }) => (
           <Listbox.Option key={value} value={value} as={Fragment}>
             {({ active, selected }) => (
-              <li
+              <div
                 className={clsx(
                   'py-1 px-2 flex items-center cursor-pointer',
                   selected && 'text-sky-500',
@@ -204,7 +205,7 @@ export function ThemeToggle({ panelClassName = 'mt-4' }) {
               >
                 <Icon selected={selected} className="w-6 h-6 mr-2" />
                 {label}
-              </li>
+              </div>
             )}
           </Listbox.Option>
         ))}

@@ -19,8 +19,8 @@ Many CSS properties require vendor prefixes to be understood by browsers, for ex
 
 ```css
 .bg-clip-text {
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
 }
 ```
 
@@ -38,10 +38,10 @@ Then add it to the very end of your plugin list in your PostCSS configuration:
 
 ```js
 module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
 }
 ```
 

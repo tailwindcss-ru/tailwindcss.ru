@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import Link from 'next/link'
 import { showcase } from '@/showcase'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { Footer } from '@/components/Footer'
 import clsx from 'clsx'
 
@@ -26,13 +26,7 @@ function Site({ site, priority = false }) {
     videoContainerRef.current.style.opacity = 0
     videoContainerRef.current.style.transition = `opacity ${durationSeconds}s linear`
   }
-
-  function onTimeUpdate() {
-    if (state.current === 'playing') {
-      showVideo()
-    }
-  }
-
+  
   function onEnded() {
     state.current = 'looping'
     hideVideo()
@@ -57,12 +51,8 @@ function Site({ site, priority = false }) {
         }
       }}
       onMouseLeave={() => {
-        if (state.current === 'playing') {
-          state.current = 'leaving'
-          hideVideo()
-        } else if (state.current === 'looping') {
-          state.current = 'leaving'
-        }
+         state.current = 'leaving'
+         hideVideo()
       }}
     >
       <div className="aspect-[672/494] relative rounded-md transform overflow-hidden shadow-[0_2px_8px_rgba(15,23,42,0.08)] bg-slate-200 dark:bg-slate-700">
@@ -93,6 +83,7 @@ function Site({ site, priority = false }) {
               state.current = 'playing'
               getVideo().currentTime = 0
               getVideo().play()
+              showVideo()
             }
           }}
         >
@@ -105,7 +96,6 @@ function Site({ site, priority = false }) {
               'absolute inset-0 w-full h-full [mask-image:radial-gradient(white,black)]',
               site.dark && 'dark:hidden'
             )}
-            onTimeUpdate={onTimeUpdate}
             onEnded={onEnded}
           >
             <source src={site.video} type={site.videoType ?? 'video/mp4'} />
@@ -117,7 +107,6 @@ function Site({ site, priority = false }) {
               muted
               playsInline
               className="absolute inset-0 w-full h-full [mask-image:radial-gradient(white,black)] hidden dark:block"
-              onTimeUpdate={onTimeUpdate}
               onEnded={onEnded}
             >
               <source src={site.dark.video} type={site.dark.videoType ?? 'video/mp4'} />
@@ -128,10 +117,8 @@ function Site({ site, priority = false }) {
       <div className="flex flex-wrap items-center mt-6">
         <h2 className="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400">
           <Link href={`/showcase/${site.slug}`}>
-            <a>
-              <span className="absolute inset-0 rounded-3xl" />
-              {site.name}
-            </a>
+            <span className="absolute inset-0 rounded-3xl" />
+            {site.name}
           </Link>
         </h2>
         {site.isTemplate && (
@@ -189,10 +176,11 @@ export default function Showcase() {
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
             Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can
             definitely build the website for the spaceship —{' '}
-            <Link href="/showcase/nasa">
-              <a className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400">
-                NASA did
-              </a>
+            <Link
+              href="/showcase/nasa"
+              className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400"
+            >
+              NASA did
             </Link>
             .
           </p>

@@ -41,21 +41,21 @@ Tailwind CSS v2.0 is the first major update ever, including:
 - [**Extend variants**](#extend-variants), so you can enable extra variants like `focus-visible` without redeclaring the entire list or thinking about order
 - [**Group-hover and focus-within by default**](#group-hover-and-focus-within-by-default), because you were enabling them on every project anyways
 - [**Default transition duration and easing curve**](#default-transition-duration-and-easing-curve), so you only have to add 17 classes to make a button instead of 19
-- [**Incompatibility with IE11**](#incompatibility-with-ie11), so you can tell the person in charge _"sorry boss it's out of my hands, blame Tailwind"_
+- [**Incompatibility with IE11**](#incompatibility-with-ie-11), so you can tell the person in charge _"sorry boss it's out of my hands, blame Tailwind"_
 
 ...and [a bunch of other little things](https://github.com/tailwindlabs/tailwindcss/blob/master/CHANGELOG.md) too.
 
 Even though Tailwind CSS v2.0 is a new major version, **we've worked really hard to minimize significant breaking changes**, especially ones that would force you to edit tons of your templates. We've renamed two classes, removed three that are no longer relevant in modern browsers, and replaced two with more powerful alternatives. Any other breaking changes that might impact you can be remedied with a couple small additions to your `tailwind.config.js` file. Upgrading shouldn't take more than about 30 minutes.
 
-[Check out the upgrade guide](https://tailwindcss.com/docs/upgrading-to-v2) for more details and step-by-step instructions on migrating your project to Tailwind CSS v2.0.
+[Check out the upgrade guide](/docs/upgrading-to-v2) for more details and step-by-step instructions on migrating your project to Tailwind CSS v2.0.
 
-If you'd like to start a brand new project with v2.0, [head over to our updated installation documentation](https://tailwindcss.com/docs/installation) to get started fast.
+If you'd like to start a brand new project with v2.0, [head over to our updated installation documentation](/docs/installation) to get started fast.
 
-Also how about that [brand new website](https://tailwindcss.com) eh? Hot damn.
+Also how about that [brand new website](https://v3.tailwindcss.com/) eh? Hot damn.
 
 ---
 
-<h2 id="all-new-color-palette">All-new color palette</h2>
+## All-new color palette
 
 We've learned a lot about color since the first time we tried to design a general purpose color palette back in the Tailwind CSS v0.1.0 days, and v2.0 represents our best attempt so far.
 
@@ -75,7 +75,7 @@ The palette even includes 5 different shades of gray now, so you can choose "blu
 
 We configure a well-balanced 8-color palette for you out of the box, but the complete color palette lives in a new `tailwindcss/colors` module that you can import at the top of your config file to curate your own custom palette however you like:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -90,17 +90,17 @@ module.exports = {
 }
 ```
 
-Learn more in the new [customizing colors documentation](https://tailwindcss.com/docs/customizing-colors).
+Learn more in the new [customizing colors documentation](/docs/customizing-colors).
 
 ---
 
-<h2 id="dark-mode">Dark mode</h2>
+## Dark mode
 
 Ever since iOS added native dark mode all you dark mode nerds haven't been able to leave me alone about adding it to Tailwind. Well you did it, it's here, you win.
 
 Open up your `tailwind.config.js` file and flip `darkMode` to `media`:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   darkMode: 'media',
   // ...
@@ -144,11 +144,11 @@ And responsive hover stuff:
 </button>
 ```
 
-Check out the [dark mode docs](https://tailwindcss.com/docs/dark-mode) for all the gory details.
+Check out the [dark mode docs](/docs/dark-mode) for all the gory details.
 
 ---
 
-<h2 id="extra-wide-2-xl-breakpoint">Extra wide 2XL breakpoint</h2>
+## Extra wide 2XL breakpoint
 
 I'm pretty sure they make an iPhone that is 1280px wide now, so it's time to step it up.
 
@@ -158,11 +158,11 @@ We've added a new `2xl` breakpoint out-of-the-box that lets you target things at
 <h1 class="... 2xl:text-9xl">Godzilla</h1>
 ```
 
-Exciting I know but also let's be serious [you've been able to add this yourself](https://tailwindcss.com/docs/responsive-design#customizing-breakpoints) for like three years. Now it's blessed though, I get it.
+Exciting I know but also let's be serious [you've been able to add this yourself](/docs/responsive-design#customizing-breakpoints) for like three years. Now it's blessed though, I get it.
 
 ---
 
-<h2 id="new-outline-ring-utilities">New outline ring utilities</h2>
+## New outline ring utilities
 
 You know how the `outline` property ignores border radius and pretty much just always looks bad? The `ring` utilities are our attempt to will a better solution into existence through blood, sweat, and tears.
 
@@ -194,11 +194,11 @@ Using a bunch of CSS custom property voodoo we've even made them automatically c
 </button>
 ```
 
-The [ring width documentation](https://tailwindcss.com/docs/ring-width) is the best starting point for learning these new APIs. They seriously turned out so cool, more useful than you probably think.
+The [ring width documentation](/docs/ring-width) is the best starting point for learning these new APIs. They seriously turned out so cool, more useful than you probably think.
 
 ---
 
-<h2 id="utility-friendly-form-styles">Utility-friendly form styles</h2>
+## Utility-friendly form styles
 
 One thing I am constantly surprised by is how few people complain about how unbelievably useless form elements are out of the box with Tailwind. They literally look awful and you can't do anything about it without writing custom CSS full of weird background-image SVG tricks and worrying about obscure edge cases that require CSS properties you've never heard of before like `color-adjust`.
 
@@ -216,7 +216,7 @@ Alongside Tailwind CSS v2.0, we're releasing a brand new official plugin called 
 
 It's not included out of the box but you can add it to your `tailwind.config.js` file with a single line:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   plugins: [require('@tailwindcss/forms')],
@@ -227,9 +227,7 @@ Check out [the @tailwindcss/forms documentation](https://github.com/tailwindlabs
 
 ---
 
-<h2 id="default-line-heights-per-font-size">
-  Default line-heights per font-size
-</h2>
+## Default line-heights per font-size
 
 Every font-size utility in Tailwind now comes paired with a sensible default line-height:
 
@@ -269,13 +267,11 @@ If you want to override this, you can still do it by layering on a `leading` uti
 <p class="text-3xl leading-normal">Come on don't do this to me.</p>
 ```
 
-Check out the [font size documentation](https://tailwindcss.com/docs/font-size#providing-a-default-line-height) for some additional details.
+Check out the [font size documentation](/docs/font-size#providing-a-default-line-height) for some additional details.
 
 ---
 
-<h2 id="extended-spacing-typography-and-opacity-scales">
-  Extended spacing, typography, and opacity scales
-</h2>
+## Extended spacing, typography, and opacity scales
 
 We've extended the default spacing scale to include a bunch of micro values like `0.5`, `1.5`, `2.5`, and `3.5`:
 
@@ -316,7 +312,7 @@ Peruse the entire [default config file](https://unpkg.com/browse/tailwindcss@^2/
 
 ---
 
-<h2 id="use-apply-with-anything">Use @apply with anything</h2>
+## Use @apply with anything
 
 By far the most common question I've gotten over the years is "why doesn't `@apply hover:bg-black` work?"
 
@@ -330,11 +326,11 @@ It took some serious engineering muscle but we figured it out — now you can `@
 }
 ```
 
-Check out [the updated @apply documentation](https://tailwindcss.com/docs/functions-and-directives#apply) to learn more.
+Check out [the updated @apply documentation](/docs/functions-and-directives#apply) to learn more.
 
 ---
 
-<h2 id="new-text-overflow-utilities">New text overflow utilities</h2>
+## New text overflow utilities
 
 Up until v2.0, if you wanted to control overflowing text all we really gave you was the fairly heavy-handed `truncate` utility.
 
@@ -346,15 +342,15 @@ Now we've added dedicated `overflow-ellipsis` and `overflow-clip` utilities to c
 </p>
 ```
 
-Check out the new [text overflow documentation](https://tailwindcss.com/docs/text-overflow) to see it in action.
+Check out the new [text overflow documentation](/docs/text-overflow) to see it in action.
 
 ---
 
-<h2 id="extend-variants">Extend variants</h2>
+## Extend variants
 
 You know what sucks? Wanting to enable `focus-visible` for `backgroundColor` but having to list _every single default variant_ just to add one extra one:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   variants: {
@@ -365,7 +361,7 @@ module.exports = {
 
 You know what's better? Just adding the one you want to enable:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   variants: {
@@ -376,13 +372,11 @@ module.exports = {
 }
 ```
 
-[Giddy up](https://tailwindcss.com/docs/configuring-variants#enabling-extra-variants).
+[Giddy up](/docs/configuring-variants#enabling-extra-variants).
 
 ---
 
-<h2 id="group-hover-and-focus-within-by-default">
-  Group-hover and focus-within by default
-</h2>
+## Group-hover and focus-within by default
 
 One of the things we learned working on [Tailwind UI](https://tailwindui.com/components) is that `group-hover` and `focus-within` aren't nice-to-haves, they're must-haves.
 
@@ -394,13 +388,11 @@ Anywhere where we enabled hover or focus by default previously now has `group-ho
 </div>
 ```
 
-Check out [the default variants reference](https://tailwindcss.com/docs/configuring-variants#default-variants-reference) for a full list of what's enabled where in v2.0.
+Check out [the default variants reference](/docs/configuring-variants#default-variants-reference) for a full list of what's enabled where in v2.0.
 
 ---
 
-<h2 id="default-transition-duration-and-easing-curve">
-  Default transition duration and easing curve
-</h2>
+## Default transition duration and easing curve
 
 Until now, any time you wanted to add a transition in Tailwind you typically needed to add three classes:
 
@@ -410,7 +402,7 @@ Until now, any time you wanted to add a transition in Tailwind you typically nee
 
 In v2.0, we've made it possible to specify a default duration and timing function that is used automatically any time any `transitionProperty` utility is added:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
   // ...
   theme: {
@@ -439,11 +431,11 @@ Of course you can override this by layering on separate duration or timing funct
 <button class="... transition duration-300 ease-out">We're back baby</button>
 ```
 
-Learn more about transitions in the [transition property documentation](https://tailwindcss.com/docs/transition-property).
+Learn more about transitions in the [transition property documentation](/docs/transition-property).
 
 ---
 
-<h2 id="incompatibility-with-ie11">Incompatibility with IE11</h2>
+## Incompatibility with IE11
 
 We've decided to unburden ourselves with caring about IE11 at all, which has allowed us to fully embrace CSS custom properties for [all sorts of crazy stuff](https://adamwathan.me/composing-the-uncomposable-with-css-variables/) and is what makes things like the new `ring` utilities even possible.
 
@@ -457,4 +449,4 @@ The good news is that if you need to support IE11, you can always use Tailwind C
 
 So there you have it folks, that's Tailwind CSS v2.0 in a _(pretty big)_ nutshell!
 
-What are you waiting for? [Go build something awesome](https://tailwindcss.com).
+What are you waiting for? [Go build something awesome](https://v3.tailwindcss.com/).

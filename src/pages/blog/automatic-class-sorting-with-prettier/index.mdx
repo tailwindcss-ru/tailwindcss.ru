@@ -1,6 +1,5 @@
 import { reinink, adamwathan } from '@/authors'
 import card from './card.jpg'
-import banner from './banner.jpg'
 
 export const meta = {
   title: 'Automatic Class Sorting with Prettier',
@@ -12,15 +11,11 @@ export const meta = {
 
 People have been talking about the best way to sort your utility classes in Tailwind projects for [at least four years](https://github.com/tailwindlabs/discuss/issues/97). Today we're excited to announce that you can finally stop worrying about it with the release of our official <a href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">Prettier plugin for Tailwind CSS</a>.
 
-<div class="my-10">
-  <a href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">
-    <img src={banner.src} alt="" />
-  </a>
-</div>
+[![](./banner.jpg)](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
 
 This plugin scans your templates for class attributes containing Tailwind CSS classes, and then sorts those classes automatically following our [recommended class order](#how-classes-are-sorted).
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <!-- Before -->
 <button class="text-white px-4 sm:px-8 py-2 sm:py-3 bg-sky-700 hover:bg-sky-800">...</button>
 
@@ -30,13 +25,21 @@ This plugin scans your templates for class attributes containing Tailwind CSS cl
 
 It works seamlessly with custom Tailwind configurations, and because it's just a [Prettier](https://prettier.io/) plugin, it works anywhere Prettier works — including every popular editor and IDE, and of course on the command line.
 
-To get started, just install `prettier-plugin-tailwindcss` as a dev-dependency:
+To get started, install `prettier-plugin-tailwindcss` as a dev-dependency:
 
-```sh Terminal
+```sh {{ filename: 'Terminal' }}
 npm install -D prettier prettier-plugin-tailwindcss
 ```
 
-This plugin follows Prettier's [autoloading convention](https://prettier.io/docs/en/plugins.html), so as long as you've got Prettier set up in your project, it'll start working automatically as soon as it's installed.
+Then add the plugin to your [Prettier configuration file](https://prettier.io/docs/en/configuration):
+
+```json {{ filename: '.prettierrc' }}
+{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
+
+You can also [load the plugin by using the `--plugin` flag with the Prettier CLI, or by using the `plugins` option with the Prettier API](https://prettier.io/docs/en/plugins.html#using-plugins).
 
 ---
 

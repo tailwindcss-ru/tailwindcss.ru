@@ -49,6 +49,7 @@ export const ClassTable = memo(
     transformValue,
     custom,
     scroll,
+    showHeading = true,
   }) => {
     utilities = Object.fromEntries(Object.entries(utilities).filter(filterRules))
     let classes = Object.keys(utilities)
@@ -69,12 +70,15 @@ export const ClassTable = memo(
     }, [isCollapsed])
 
     return (
-      <div ref={ref} className="mt-10 relative">
-        <Heading level={2} id="class-reference" className="relative scroll-mt-[var(--scroll-mt)]">
-          <span className="sr-only">Quick reference</span>
-        </Heading>
+      <div ref={ref} className={clsx('relative', showHeading && 'mt-10')}>
+        {showHeading && (
+          <Heading level={2} id="class-reference" className="relative scroll-mt-[var(--scroll-mt)]">
+            <span className="sr-only">Quick reference</span>
+          </Heading>
+        )}
         <div className="overflow-x-auto flex -mx-4 sm:-mx-6 md:mx-0">
           <div
+            id="class-table"
             className={clsx(
               'flex-none min-w-full px-4 sm:px-6 md:px-0 overflow-hidden lg:overflow-auto scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded dark:scrollbar-track:!bg-slate-500/[0.16] dark:scrollbar-thumb:!bg-slate-500/50',
               isCollapsed && 'max-h-96',
@@ -82,7 +86,9 @@ export const ClassTable = memo(
               isScrollable && 'lg:supports-scrollbars:pr-2 lg:max-h-96'
             )}
           >
-            {custom || (
+            {custom ? (
+              custom()
+            ) : (
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr>

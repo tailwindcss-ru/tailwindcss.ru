@@ -7,8 +7,8 @@ import { SidebarLayout, SidebarContext } from '@/layouts/SidebarLayout'
 import { PageHeader } from '@/components/PageHeader'
 import clsx from 'clsx'
 import { DocsFooter } from '@/components/DocsFooter'
-import { Heading } from '@/components/Heading'
 import { MDXProvider } from '@mdx-js/react'
+import { mdxComponents } from '@/utils/mdxComponents'
 
 export const ContentsContext = createContext()
 
@@ -127,12 +127,17 @@ function TableOfContents({ tableOfContents, currentSection }) {
   )
 }
 
+function getTop(id) {
+  let el = document.getElementById(id)
+  return el ? el.getBoundingClientRect().top + window.scrollY : 0
+}
+
 function useTableOfContents(tableOfContents) {
   let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
   let [headings, setHeadings] = useState([])
 
-  const registerHeading = useCallback((id, top) => {
-    setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top }])
+  const registerHeading = useCallback((id) => {
+    setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top: getTop(id) }])
   }, [])
 
   const unregisterHeading = useCallback((id) => {
@@ -141,6 +146,7 @@ function useTableOfContents(tableOfContents) {
 
   useEffect(() => {
     if (tableOfContents.length === 0 || headings.length === 0) return
+
     function onScroll() {
       let style = window.getComputedStyle(document.documentElement)
       let scrollMt = parseFloat(style.getPropertyValue('--scroll-mt').match(/[\d.]+/)?.[0] ?? 0)
@@ -157,12 +163,23 @@ function useTableOfContents(tableOfContents) {
       }
       setCurrentSection(current)
     }
+
     window.addEventListener('scroll', onScroll, {
       capture: true,
       passive: true,
     })
+
     onScroll()
+
+    let resizeObserver = new window.ResizeObserver(() => {
+      for (let heading of headings) {
+        heading.top = getTop(heading.id)
+      }
+    })
+
+    resizeObserver.observe(document.body)
     return () => {
+      resizeObserver.disconnect()
       window.removeEventListener('scroll', onScroll, {
         capture: true,
         passive: true,
@@ -214,7 +231,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
         description={meta.description}
         repo={meta.repo}
         badge={{ key: 'Tailwind CSS version', value: meta.featureVersion }}
-        section={section}
+        section={section ?? meta.section}
       />
       <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
         {classes ? (
@@ -224,7 +241,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
               id="content-wrapper"
               className="relative z-20 prose prose-slate mt-12 dark:prose-dark"
             >
-              <MDXProvider components={{ Heading }}>{children}</MDXProvider>
+              <MDXProvider components={mdxComponents}>{children}</MDXProvider>
             </div>
           </>
         ) : (
@@ -232,7 +249,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
             id="content-wrapper"
             className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
           >
-            <MDXProvider components={{ Heading }}>{children}</MDXProvider>
+            <MDXProvider components={mdxComponents}>{children}</MDXProvider>
           </div>
         )}
       </ContentsContext.Provider>
@@ -240,8 +257,9 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
       <DocsFooter previous={prev} next={next}>
         <Link
           href={`https://github.com/tailwindlabs/tailwindcss.com/edit/master/src/pages${router.pathname}.mdx`}
+          className="hover:text-slate-900 dark:hover:text-slate-400"
         >
-          <a className="hover:text-slate-900 dark:hover:text-slate-400">Edit this page on GitHub</a>
+          Edit this page on GitHub
         </Link>
       </DocsFooter>
 

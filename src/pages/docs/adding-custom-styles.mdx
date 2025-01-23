@@ -16,7 +16,8 @@ This guide covers topics like customizing your design tokens, how to break out o
 
 If you want to change things like your color palette, spacing scale, typography scale, or breakpoints, add your customizations to the `theme` section of your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {
@@ -131,7 +132,7 @@ Arbitrary _variants_ are like arbitrary values but for doing on-the-fly selector
 
 <SnippetGroup>
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <ul role="list">
   {#each items as item}
     <li class="**lg:[&:nth-child(3)]:hover:underline**">{item}</li>
@@ -139,7 +140,7 @@ Arbitrary _variants_ are like arbitrary values but for doing on-the-fly selector
 </ul>
 ```
 
-```css Generated CSS
+```css {{ filename: 'Generated CSS' }}
 /* https://media.giphy.com/media/Sd3cd0SrUKZEyWmAlM/giphy.gif */
 @media (min-width: 1024px) {
   .lg\:\[\&\:nth-child\(3\)\]\:hover\:underline:hover:nth-child(3) {
@@ -222,7 +223,7 @@ In these situations, you can "hint" the underlying type to Tailwind by adding a 
 
 When you need to add truly custom CSS rules to a Tailwind project, the easiest approach is to just add the custom CSS to your stylesheet:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -234,7 +235,7 @@ When you need to add truly custom CSS rules to a Tailwind project, the easiest a
 
 For more power, you can also use the `@layer` directive to add styles to Tailwind's `base`, `components`, and `utilities` layers:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -245,7 +246,6 @@ For more power, you can also use the `@layer` directive to add styles to Tailwin
   }
 }
 ```
-
 
 <details className="-mt-0 mb-6 rounded-xl border px-6 py-3 prose prose-slate open:pb-5 dark:prose-dark dark:border-slate-800">
   <summary className="font-medium cursor-default select-none text-slate-900 dark:text-slate-200">Why does Tailwind group styles into "layers"?</summary>
@@ -297,7 +297,7 @@ This keeps your base styling decisions in your markup alongside all of your othe
 
 If you want to add your own default base styles for specific HTML elements, use the `@layer` directive to add those styles to Tailwind's `base` layer:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -321,7 +321,7 @@ Use the `components` layer for any more complicated classes you want to add to y
 
 Traditionally these would be classes like `card`, `btn`, `badge` — that kind of thing.
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -350,7 +350,7 @@ Using Tailwind you probably don't need these types of classes as often as you th
 
 The `components` layer is also a good place to put custom styles for any third-party components you're using:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -375,7 +375,7 @@ Use the [`theme`](/docs/functions-and-directives#theme) function or [`@apply`](/
 
 Add any of your own custom utility classes to Tailwind's `utilities` layer:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -393,7 +393,7 @@ This can be useful when there's a CSS feature you'd like to use in your project 
 
 Any custom styles you add to Tailwind with `@layer` will automatically support Tailwind's modifier syntax for handling things like hover states, responsive breakpoints, dark mode, and more.
 
-```css CSS
+```css {{ filename: 'CSS' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -405,7 +405,7 @@ Any custom styles you add to Tailwind with `@layer` will automatically support T
 }
 ```
 
-```html HTML
+```html {{ filename: 'HTML' }}
 <div class="**lg:dark:content-auto**">
   <!-- ... -->
 </div>
@@ -417,7 +417,7 @@ Learn more about how these modifiers work in the [Hover, Focus, and Other States
 
 Any custom styles you add to the `base`, `components`, or `utilities` layers will only be included in your compiled CSS if those styles are actually used in your HTML.
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -432,7 +432,7 @@ Any custom styles you add to the `base`, `components`, or `utilities` layers wil
 
 If you want to add some custom CSS that should always be included, add it to your stylesheet without using the `@layer` directive:
 
-```css main.css
+```css {{ filename: 'main.css' }}
 @tailwind base;
 @tailwind components;
 
@@ -452,7 +452,7 @@ If you are writing a lot of CSS and organizing it into multiple files, make sure
 
 The easiest way to do this is using the [postcss-import](https://github.com/postcss/postcss-import) plugin:
 
-```diff-js postcss.config.js
+```diff-js {{ filename: 'postcss.config.js' }}
   module.exports = {
     plugins: {
 +     'postcss-import': {},
@@ -472,7 +472,7 @@ While you can use features like `@apply` and `theme` inside component styles lik
 
 <TipBad>Don't use `@layer` in component styles</TipBad>
 
-```html Card.svelte
+```html {{ filename: 'Card.svelte' }}
 <div>
   <slot></slot>
 </div>
@@ -498,7 +498,7 @@ One solution to this is to simply _not_ use `@layer` inside your component style
 
 <TipGood>Add your styles without using `@layer`</TipGood>
 
-```html Card.svelte
+```html {{ filename: 'Card.svelte' }}
 <div>
   <slot></slot>
 </div>
@@ -519,12 +519,11 @@ Our recommendation is that you just don't use component styles like this at all 
 
 <TipGood>Use Tailwind's utilities instead of component styles</TipGood>
 
-```html Card.svelte
+```html {{ filename: 'Card.svelte' }}
 <div class="bg-white rounded-lg p-6 shadow-xl">
   <slot></slot>
 </div>
 ```
-
 
 ---
 
@@ -532,7 +531,7 @@ Our recommendation is that you just don't use component styles like this at all 
 
 You can also add custom styles to your project using Tailwind's plugin system instead of using a CSS file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {

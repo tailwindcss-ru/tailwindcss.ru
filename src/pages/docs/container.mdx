@@ -7,7 +7,7 @@ import defaultConfig from 'defaultConfig'
 export const screens = defaultConfig.theme.screens
 
 export const classes = {
-  custom: (
+  custom: () => (
     <table className="w-full text-left border-collapse">
       <colgroup>
         <col className="w-1/4" />
@@ -70,7 +70,7 @@ To center a container, use the `mx-auto` utility:
 </div>
 ```
 
-To add horizontal padding, use the `px-{size}` utilities:
+To add horizontal padding, use the `px-*` utilities:
 
 ```html
 <div class="container mx-auto **px-4**">
@@ -103,7 +103,8 @@ The `container` class also includes responsive variants like `md:container` by d
 
 To center containers by default, set the `center` option to `true` in the `theme.container` section of your config file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {
@@ -117,7 +118,8 @@ module.exports = {
 
 To add horizontal padding by default, specify the amount of padding you'd like using the `padding` option in the `theme.container` section of your config file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {
@@ -129,7 +131,8 @@ module.exports = {
 
 If you want to specify a different padding amount for each breakpoint, use an object to provide a `default` value and any breakpoint-specific overrides:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     container: {

@@ -3,8 +3,11 @@ import { InstallationLayout } from '@/layouts/InstallationLayout'
 import Link from 'next/link'
 
 import { ReactComponent as AdonisLogo } from '@/img/guides/adonis.svg'
+import { ReactComponent as AdonisLogoWhite } from '@/img/guides/adonis-white.svg'
 import { ReactComponent as AngularLogo } from '@/img/guides/angular.svg'
 import { ReactComponent as AngularLogoWhite } from '@/img/guides/angular-white.svg'
+import { ReactComponent as AstroLogo } from '@/img/guides/astro.svg'
+import { ReactComponent as AstroLogoWhite } from '@/img/guides/astro-white.svg'
 import { ReactComponent as CraLogo } from '@/img/guides/cra.svg'
 import { ReactComponent as EmberLogo } from '@/img/guides/ember.svg'
 import { ReactComponent as GatsbyLogo } from '@/img/guides/gatsby.svg'
@@ -15,10 +18,12 @@ import { ReactComponent as NextJsLogoWhite } from '@/img/guides/nextjs-white.svg
 import { ReactComponent as NuxtJsLogo } from '@/img/guides/nuxtjs.svg'
 import { ReactComponent as ParcelLogo } from '@/img/guides/parcel.svg'
 import { ReactComponent as PhoenixLogo } from '@/img/guides/phoenix.svg'
+import { ReactComponent as QwikLogo } from '@/img/guides/qwik.svg'
 import { ReactComponent as RailsLogo } from '@/img/guides/rails.svg'
 import { ReactComponent as RailsLogoWhite } from '@/img/guides/rails-white.svg'
 import { ReactComponent as RemixLogo } from '@/img/guides/remix.svg'
 import { ReactComponent as RemixLogoWhite } from '@/img/guides/remix-white.svg'
+import { ReactComponent as RspackLogo } from '@/img/guides/rspack.svg'
 import { ReactComponent as SolidJSLogo } from '@/img/guides/solidjs.svg'
 import { ReactComponent as SvelteLogo } from '@/img/guides/svelte.svg'
 import { ReactComponent as SymfonyLogo } from '@/img/guides/symfony.svg'
@@ -57,7 +62,7 @@ export default function FrameworkGuides() {
             logo: ViteLogo,
           },
           {
-            name: 'Nuxt.js',
+            name: 'Nuxt',
             slug: 'nuxtjs',
             description: 'Intuitive Vue framework for building universal applications.',
             logo: NuxtJsLogo,
@@ -138,6 +143,7 @@ export default function FrameworkGuides() {
             slug: 'adonisjs',
             description: 'A fully featured web framework for Node.js.',
             logo: AdonisLogo,
+            logoDark: AdonisLogoWhite,
           },
           {
             name: 'Ember.js',
@@ -145,27 +151,47 @@ export default function FrameworkGuides() {
             description: 'A JavaScript framework for ambitious web developers.',
             logo: EmberLogo,
           },
+          {
+            name: 'Astro',
+            slug: 'astro',
+            description: 'The all-in-one web framework designed for speed.',
+            logo: AstroLogo,
+            logoDark: AstroLogoWhite,
+          },
+          {
+            name: 'Qwik',
+            slug: 'qwik',
+            description: 'Build instantly-interactive web apps without effort.',
+            logo: QwikLogo,
+          },
+          {
+            name: 'Rspack',
+            slug: 'rspack',
+            description: 'A fast Rust-based web bundler.',
+            logo: RspackLogo,
+          },
         ].map(({ name, description, logo: Logo, logoDark: LogoDark, slug }) => (
           <li key={name} className="relative flex flex-row-reverse">
             <div className="peer group ml-6 flex-auto">
               <h4 className="mb-2 leading-6 text-slate-900 font-semibold dark:text-slate-200">
-                <Link href={`/docs/guides/${slug}`}>
-                  <a className="before:absolute before:-inset-3 before:rounded-2xl">
-                    {name}
-                    <svg
-                      viewBox="0 0 3 6"
-                      className="ml-3 w-auto h-1.5 overflow-visible inline -mt-px text-slate-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
-                    >
-                      <path
-                        d="M0 0L3 3L0 6"
-                        fill="none"
-                        strokeWidth="2"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </a>
+                <Link
+                  href={`/docs/guides/${slug}`}
+                  className="before:absolute before:-inset-3 before:rounded-2xl"
+                >
+                  {name}
+                  <svg
+                    viewBox="0 0 3 6"
+                    className="ml-3 w-auto h-1.5 overflow-visible inline -mt-px text-slate-400 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+                  >
+                    <path
+                      d="M0 0L3 3L0 6"
+                      fill="none"
+                      strokeWidth="2"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </Link>
               </h4>
               <p className="text-sm leading-6 text-slate-700 dark:text-slate-400">{description}</p>
@@ -187,14 +213,8 @@ export default function FrameworkGuides() {
       <div className="mt-16 prose prose-slate max-w-3xl dark:prose-dark">
         <p>
           Don't see your framework of choice? Try using{' '}
-          <Link href="/docs/installation">
-            <a>Tailwind CLI</a>
-          </Link>{' '}
-          or installing Tailwind{' '}
-          <Link href="/docs/installation/using-postcss">
-            <a>as a PostCSS plugin</a>
-          </Link>{' '}
-          instead.
+          <Link href="/docs/installation">Tailwind CLI</Link> or installing Tailwind{' '}
+          <Link href="/docs/installation/using-postcss">as a PostCSS plugin</Link> instead.
         </p>
       </div>
     </InstallationLayout>

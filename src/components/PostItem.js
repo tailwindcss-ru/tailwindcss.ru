@@ -3,6 +3,12 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { formatDate } from '@/utils/formatDate'
 
+const dateFormat = {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+}
+
 export default function PostItem({ title, category, slug, date, children, wide = false }) {
   return (
     <article
@@ -12,9 +18,7 @@ export default function PostItem({ title, category, slug, date, children, wide =
       })}
     >
       <h3 className="mb-4 text-xl text-slate-900 tracking-tight font-bold dark:text-slate-200">
-        <Link href={`/blog/${slug}`}>
-          <a>{title}</a>
-        </Link>
+        <Link href={`/blog/${slug}`}>{title}</Link>
       </h3>
       <div className="mb-6 prose prose-slate dark:prose-dark">{children}</div>
       <div className="mt-auto flex flex-row-reverse items-center justify-end">
@@ -33,7 +37,7 @@ export default function PostItem({ title, category, slug, date, children, wide =
               'lg:absolute lg:top-0 lg:right-full lg:mr-8 lg:whitespace-nowrap': wide,
             })}
           >
-            <time dateTime={date}>{formatDate(date, '{MMMM} {DD}, {YYYY}')}</time>
+            <time dateTime={date}>{formatDate(date, dateFormat)}</time>
           </dd>
         </dl>
         <svg

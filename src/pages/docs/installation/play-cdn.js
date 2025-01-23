@@ -35,10 +35,8 @@ let steps = [
     body: () => (
       <p>
         Edit the <code>tailwind.config</code> object to{' '}
-        <NextLink href="/docs/configuration">
-          <a>customize your configuration</a>
-        </NextLink>{' '}
-        with your own design tokens.
+        <NextLink href="/docs/configuration">customize your configuration</NextLink> with your own
+        design tokens.
       </p>
     ),
     code: {
@@ -119,7 +117,7 @@ let steps = [
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
->   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+>   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
   </head>
   <body>
 >   <div class="prose">

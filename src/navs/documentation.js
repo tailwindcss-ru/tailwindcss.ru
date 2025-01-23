@@ -103,6 +103,7 @@ export const documentationNav = {
     pages['height'],
     pages['min-height'],
     pages['max-height'],
+    pages['size'],
   ],
   Typography: [
     pages['font-family'],
@@ -126,6 +127,7 @@ export const documentationNav = {
     pages['text-underline-offset'],
     pages['text-transform'],
     pages['text-overflow'],
+    pages['text-wrap'],
     pages['text-indent'],
     pages['vertical-align'],
     pages['whitespace'],
@@ -226,9 +228,12 @@ export const documentationNav = {
     pages['will-change'],
   ],
   SVG: [pages['fill'], pages['stroke'], pages['stroke-width']],
-  Accessibility: [pages['screen-readers']],
+  Accessibility: [pages['screen-readers'], pages['forced-color-adjust']],
   'Official Plugins': [
-    pages['typography-plugin'],
+    {
+      title: 'Typography',
+      href: 'https://github.com/tailwindlabs/tailwindcss-typography',
+    },
     {
       title: 'Forms',
       href: 'https://github.com/tailwindlabs/tailwindcss-forms',

@@ -45,12 +45,12 @@ let steps = [
       code: `  /** @type {import('tailwindcss').Config} */
   module.exports = {
 >   content: [
->     "./app/**/*.{js,ts,jsx,tsx}",
->     "./pages/**/*.{js,ts,jsx,tsx}",
->     "./components/**/*.{js,ts,jsx,tsx}",
+>     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+>     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+>     "./components/**/*.{js,ts,jsx,tsx,mdx}",
 >
 >     // Or if using \`src\` directory:
->     "./src/**/*.{js,ts,jsx,tsx}",
+>     "./src/**/*.{js,ts,jsx,tsx,mdx}",
 >   ],
     theme: {
       extend: {},
@@ -63,7 +63,7 @@ let steps = [
     title: 'Add the Tailwind directives to your CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each Tailwind’s layers to your{' '}
+        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
         <code>globals.css</code> file.
       </p>
     ),

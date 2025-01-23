@@ -10,6 +10,19 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
 
+First, make sure you've added the [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) to the `<head>` of your document:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+Then to add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
+
+```html
+<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
+<img class="w-16 **md:w-32** **lg:w-48**" src="...">
+```
+
 There are five breakpoints by default, inspired by common device resolutions:
 
 | Breakpoint prefix | Minimum width | CSS |
@@ -20,20 +33,13 @@ There are five breakpoints by default, inspired by common device resolutions:
 | `xl` | 1280px | `@media (min-width: 1280px) { ... }` |
 | `2xl` | 1536px | `@media (min-width: 1536px) { ... }` |
 
-To add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
-
-```html
-<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
-<img class="w-16 **md:w-32** **lg:w-48**" src="...">
-```
-
 This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
 
-Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens *(resize your browser to see it in action)*:
+Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens:
 
-<Example resizable p="none">
-  <iframe class="w-full h-[496px] pointer-events-none" src="/examples/responsive-design-demo"></iframe>
-</Example>
+```html {{ example: { resizable: true, p: 'none' } }}
+<iframe class="w-full h-[496px] pointer-events-none" src="/examples/responsive-design-demo"></iframe>
+```
 
 ```html
 <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden **md:max-w-2xl**">
@@ -100,7 +106,6 @@ If you'd like to apply a utility _only_ when a specific breakpoint range is acti
 
 Tailwind generates a corresponding `max-*` modifier for each breakpoint, so out of the box the following modifiers are available:
 
-
 | Modifier | Media query |
 | --- | --- |
 | `max-sm` | `@media not all and (min-width: 640px) { ... }` |
@@ -108,7 +113,6 @@ Tailwind generates a corresponding `max-*` modifier for each breakpoint, so out 
 | `max-lg` | `@media not all and (min-width: 1024px) { ... }` |
 | `max-xl` | `@media not all and (min-width: 1280px) { ... }` |
 | `max-2xl` | `@media not all and (min-width: 1536px) { ... }` |
-
 
 ### Targeting a single breakpoint
 
@@ -130,7 +134,8 @@ Read about [targeting breakpoint ranges](#targeting-a-breakpoint-range) to learn
 
 You can completely customize your breakpoints in your `tailwind.config.js` file:
 
-```js tailwind.config.js
+```js {{ filename: 'tailwind.config.js' }}
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     screens: {

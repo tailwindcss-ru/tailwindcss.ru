@@ -4,16 +4,11 @@ import 'focus-visible'
 import { useState, useEffect, Fragment } from 'react'
 import { Header } from '@/components/Header'
 import { Description, OgDescription, OgTitle, Title } from '@/components/Meta'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import ProgressBar from '@badrap/bar-of-progress'
 import Head from 'next/head'
-import { ResizeObserver } from '@juggle/resize-observer'
-import 'intersection-observer'
 import { SearchProvider } from '@/components/Search'
-
-if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
-  window.ResizeObserver = ResizeObserver
-}
+import * as Fathom from 'fathom-client'
 
 const progress = new ProgressBar({
   size: 2,
@@ -33,6 +28,25 @@ Router.events.on('routeChangeStart', () => progress.start())
 Router.events.on('routeChangeComplete', () => progress.finish())
 Router.events.on('routeChangeError', () => progress.finish())
 
+function useFathom(code, options) {
+  const router = useRouter()
+
+  useEffect(() => {
+    Fathom.load(code, options)
+
+    function onRouteChangeComplete() {
+      Fathom.trackPageview()
+    }
+    // Record a pageview when route changes
+    router.events.on('routeChangeComplete', onRouteChangeComplete)
+
+    // Unassign event listener
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChangeComplete)
+    }
+  }, [])
+}
+
 export default function App({ Component, pageProps, router }) {
   let [navIsOpen, setNavIsOpen] = useState(false)
 
@@ -41,9 +55,9 @@ export default function App({ Component, pageProps, router }) {
     function handleRouteChange() {
       setNavIsOpen(false)
     }
-    Router.events.on('routeChangeComplete', handleRouteChange)
+    Router.events.on('routeChangeStart', handleRouteChange)
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange)
+      Router.events.off('routeChangeStart', handleRouteChange)
     }
   }, [navIsOpen])
 
@@ -51,16 +65,18 @@ export default function App({ Component, pageProps, router }) {
   const layoutProps = Component.layoutProps?.Layout
     ? { layoutProps: Component.layoutProps, navIsOpen, setNavIsOpen }
     : {}
-  const showHeader = router.pathname !== '/'
+  const showHeader = router.pathname !== '/' && router.pathname.startsWith('/careers') === false
   const meta = Component.layoutProps?.meta || {}
   const description =
-    meta.metaDescription || meta.description || 'Documentation for the Tailwind CSS framework.'
+    meta.metaDescription ||
+    meta.description ||
+    'Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.'
   let image = meta.ogImage ?? meta.image
   image = image
-    ? `https://tailwindcss.com${image.default?.src ?? image.src ?? image}`
-    : `https://tailwindcss.com/api/og?path=${router.pathname}`
+    ? `https://v3.tailwindcss.com/${image.default?.src ?? image.src ?? image}`
+    : `https://v3.tailwindcss.com//api/og?path=${router.pathname}`
 
-  if (router.pathname.startsWith('/examples/')) {
+  if (router.pathname.includes('/examples/')) {
     return <Component {...pageProps} />
   }
 
@@ -84,7 +100,7 @@ export default function App({ Component, pageProps, router }) {
         <meta
           key="og:url"
           property="og:url"
-          content={`https://tailwindcss.com${router.pathname}`}
+          content={`https://v3.tailwindcss.com/${router.pathname}`}
         />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:image" property="og:image" content={image} />
@@ -103,7 +119,7 @@ export default function App({ Component, pageProps, router }) {
           />
         )}
         <Layout {...layoutProps}>
-          <Component section={section} {...pageProps} />
+          <Component section={section} {...Component.layoutProps} {...pageProps} />
         </Layout>
       </SearchProvider>
     </>

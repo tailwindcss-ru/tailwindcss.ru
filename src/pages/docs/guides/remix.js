@@ -8,7 +8,7 @@ let steps = [
     body: () => (
       <p>
         Start by creating a new Remix project if you don’t have one set up already. The most common
-        approach is to use <a href="https://remix.run/docs/en/v1">Create Remix</a>.
+        approach is to use <a href="https://remix.run/docs">Create Remix</a>.
       </p>
     ),
     code: {
@@ -18,56 +18,38 @@ let steps = [
     },
   },
   {
-    title: 'Enable built-in Tailwind CSS support in Remix',
-    body: () => (
-      <p>
-        Set the <code>unstable_tailwind</code> feature flag in your <code>remix.config.js</code>{' '}
-        file. Eventually this will become stable and won't be necessary.
-      </p>
-    ),
-    code: {
-      name: 'remix.config.js',
-      lang: 'js',
-      code: `  /** @type {import('@remix-run/dev').AppConfig} */
-  module.exports = {
->   future: {
->     unstable_tailwind: true,
->   },
-  }`,
-    },
-  },
-  {
     title: 'Install Tailwind CSS',
     body: () => (
       <p>
         Install <code>tailwindcss</code> via npm, and then run the init command to generate a{' '}
-        <code>tailwind.config.js</code> file.
+        <code>tailwind.config.ts</code> and <code>postcss.config.js</code> file.
       </p>
     ),
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init --ts -p',
     },
   },
   {
     title: 'Configure your template paths',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Add the paths to all of your template files in your <code>tailwind.config.ts</code> file.
       </p>
     ),
     code: {
-      name: 'tailwind.config.js',
-      lang: 'js',
-      code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
->   content: ["./app/**/*.{js,jsx,ts,tsx}"],
+      name: 'tailwind.config.ts',
+      lang: 'ts',
+      code: `  import type { Config } from 'tailwindcss'
+
+  export default {
+>   content: ['./app/**/*.{js,jsx,ts,tsx}'],
     theme: {
       extend: {},
     },
     plugins: [],
-  }`,
+  } satisfies Config`,
     },
   },
   {
@@ -89,13 +71,14 @@ let steps = [
     body: () => (
       <p>
         Import the newly-created <code>./app/tailwind.css</code> file in your{' '}
-        <code>./app/root.jsx</code> file.
+        <code>./app/root.tsx</code> file.
       </p>
     ),
     code: {
       name: 'root.tsx',
       lang: 'tsx',
-      code: `import stylesheet from "~/tailwind.css";
+      code: `import type { LinksFunction } from "@remix-run/node";
+import stylesheet from "~/tailwind.css?url";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -119,7 +102,7 @@ export const links: LinksFunction = () => [
     title: 'Start using Tailwind in your project',
     body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
-      name: 'index.tsx',
+      name: '_index.tsx',
       lang: 'tsx',
       code: `  export default function Index() {
     return (
