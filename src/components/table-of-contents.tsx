@@ -53,7 +53,7 @@ export default function TableOfContents({ tableOfContents }: { tableOfContents: 
 
   return (
     <NavList>
-      <NavListHeading>On this page</NavListHeading>
+      <NavListHeading>На этой странице</NavListHeading>
       <NavListItems data-toc="true">
         {tableOfContents.map(({ text, slug, children }, i) => (
           <NavListItem key={i}>

@@ -20,16 +20,16 @@ export default function BookPromo() {
         </div>
       </div>
       <p className="text-[0.815rem]/6 font-semibold text-sky-500 dark:text-sky-400">
-        From the creators of Tailwind CSS
+        От создателей Tailwind CSS
       </p>
       <p className="mt-1.5 text-[0.9375rem]/5 font-semibold text-gray-950 dark:text-white">
-        Make your ideas look awesome, without relying on a designer.
+        Воплотите свои идеи в реальность, не прибегая к услугам дизайнера.
       </p>
       <blockquote className="mt-6 border-l border-black/5 pl-4 text-gray-600 dark:border-white/10 dark:text-gray-400">
         <p className="text-[0.8125rem]/5 [hanging-punctuation:first_last]">
-          “This is the survival kit I wish I had when I started building apps.”
+          “Это тот набор для выживания, который мне хотелось иметь, когда я начинал создавать приложения.”
         </p>
-        <p className="mt-3 text-xs">Derrick Reimer, SavvyCal</p>
+        <p className="mt-3 text-xs">Деррик Реймер, SavvyCal</p>
       </blockquote>
     </a>
   );

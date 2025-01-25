@@ -71,7 +71,7 @@ function VersionPicker() {
         </MenuItem>
         <MenuItem>
           <a
-            href="https://v3.tailwindcss.com"
+            href="https://v3.tailwindcss.ru"
             className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10"
           >
             v3.4.17
@@ -79,7 +79,7 @@ function VersionPicker() {
         </MenuItem>
         <MenuItem>
           <a
-            href="https://v2.tailwindcss.com"
+            href="https://v2.tailwindcss.ru"
             className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10"
           >
             v2.2.19
@@ -193,10 +193,10 @@ export function Header(props: React.PropsWithChildren) {
               </div>
               <div className="grid grid-cols-1 gap-1 px-1 pb-1 sm:px-3 sm:pb-3">
                 {[
-                  ["Docs", "/docs"],
-                  ["Components", "https://tailwindui.com/?ref=top"],
-                  ["Blog", "/blog"],
-                  ["Showcase", "/showcase"],
+                  ["Дока", "/docs"],
+                  ["Компоненты", "https://tailwindui.com/?ref=top"],
+                  ["блог", "/blog"],
+                  ["Витрина", "/showcase"],
                   ["GitHub", "https://github.com/tailwindlabs/tailwindcss"],
                 ].map(([text, href]) => (
                   <Link

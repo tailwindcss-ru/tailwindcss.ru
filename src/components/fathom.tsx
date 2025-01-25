@@ -11,7 +11,7 @@ function TrackPageView() {
   // Load the Fathom script on mount
   useEffect(() => {
     load("PMFMDJGK", {
-      includedDomains: ["tailwindcss.com"],
+      includedDomains: ["tailwindcss.ru"],
       auto: false,
     });
   }, []);

@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-const INDEX_NAME = "tailwindcss";
-const API_KEY = "5fc87cef58bb80203d2207578309fab6";
-const APP_ID = "KNPXZI5B0M";
+const INDEX_NAME = "tailwindcss-ru";
+const API_KEY = "c0d1f595d0aed76e370f464bea26636c";
+const APP_ID = "TMR40MKEZK";
 
 function isTailwindUIUrl(url: string) {
   return url.startsWith("https://tailwindui.com");
@@ -112,7 +112,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                   "product_category",
                 ],
               }}
-              placeholder="Search documentation"
+              placeholder="Поиск документации"
               onClose={onClose}
               indexName={INDEX_NAME}
               apiKey={API_KEY}

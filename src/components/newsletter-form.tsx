@@ -21,7 +21,7 @@ export function NewsletterForm({ action }: { action: string }) {
             autoComplete="email"
             aria-label="Email address"
             className="block w-full appearance-none rounded-4xl bg-white py-2 pr-3 pl-10 text-sm/6 text-gray-950 outline -outline-offset-1 outline-gray-950/8 placeholder:text-sm/6 placeholder:text-gray-950/50 focus:outline-gray-950 dark:bg-white/10 dark:text-white/50 dark:outline-white/15 dark:placeholder:text-white/50 dark:focus:outline-white"
-            placeholder="Subscribe via email"
+            placeholder="Подписаться по электронной почте"
           />
         </div>
       </div>
@@ -30,7 +30,7 @@ export function NewsletterForm({ action }: { action: string }) {
           type="submit"
           className="rounded-4xl bg-black px-4 py-2 text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
         >
-          Subscribe
+          Подписаться
         </button>
       </div>
     </form>

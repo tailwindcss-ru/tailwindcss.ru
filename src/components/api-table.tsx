@@ -102,7 +102,7 @@ export function ApiTable({ rows }: { rows: [string, string][] }) {
             className="rounded-full border border-gray-950 bg-gray-950 px-3 py-1 font-mono text-xs/7 font-medium tracking-widest text-white uppercase dark:border-gray-700 dark:bg-gray-700"
             onClick={() => setIsExpanded(!isExpanded)}
           >
-            {isExpanded ? "Show less" : "Show more"}
+            {isExpanded ? "Показать меньше" : "Показать больше"}
           </button>
         </div>
       )}

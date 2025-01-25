@@ -149,10 +149,10 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
           <h2 className="text-sm/6 font-medium">{showcase.name}</h2>
           {showcase.isTemplate && (
             <p
-              aria-label="This site is a Tailwind UI template"
+              aria-label="Этот сайт представляет собой шаблон Tailwind UI"
               className="ml-2 rounded-full border border-transparent bg-sky-100 px-1.5 text-[0.6875rem] leading-5 font-semibold text-sky-500 dark:bg-gray-600/50 dark:text-gray-200 dark:group-hover:bg-sky-500 dark:group-hover:text-white"
             >
-              Template
+              Шаблон
             </p>
           )}
           <p className="line-clamp-1 w-full flex-none font-mono text-xs/6 text-neutral-600 dark:text-neutral-400">

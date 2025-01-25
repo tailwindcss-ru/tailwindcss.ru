@@ -78,7 +78,7 @@ export function UsingACustomValue({
       <p>
         {utilities ? (
           <>
-            Use utilities like{" "}
+            Используйте такие утилиты, как{" "}
             {utilities.map((name, index) => (
               <Fragment key={index}>
                 {utilities.length > 1 && index === utilities.length - 1 ? " and " : ""}
@@ -91,14 +91,13 @@ export function UsingACustomValue({
           </>
         ) : (
           <>
-            Use the{" "}
+            Используйте синтаксис{" "}
             <code>
               {utility}-[<var>{"<value>"}</var>]
             </code>{" "}
-            syntax
           </>
-        )}{" "}
-        to set the {name || utility} based on a completely custom value:
+        )}, {" "}
+         чтобы задать {name || utility} на основе полностью пользовательского значения:
       </p>
       {children || (
         <div>
@@ -120,12 +119,11 @@ export function UsingACustomValue({
         </div>
       )}
       <p>
-        For CSS variables, you can also use the{" "}
+        Для переменных CSS вы также можете использовать синтаксис:{" "}
         <code>
           {utility}-({dataType ? `${dataType}:` : null}
           <var>{"<custom-property>"}</var>)
         </code>{" "}
-        syntax:
       </p>
       <div>
         <div className="not-prose">
@@ -145,11 +143,11 @@ export function UsingACustomValue({
         </div>
       </div>
       <p>
-        This is just a shorthand for{" "}
+        Это просто сокращение, {" "}
         <code>
           {utility}-[{dataType ? `${dataType}:` : null}var(<var>{"<custom-property>"}</var>)]
         </code>{" "}
-        that adds the <code>var()</code> function for you automatically.
+        которое автоматически добавляет функцию <code>var()</code>.
       </p>
     </>
   );
@@ -179,7 +177,7 @@ export function ResponsiveDesign({
       <p>
         {properties ? (
           <>
-            Prefix{" "}
+            Префикс утилит{" "}
             {properties.map((name, index) => (
               <Fragment key={index}>
                 {properties.length > 1 && index === properties.length - 1 ? " and " : ""}
@@ -187,15 +185,14 @@ export function ResponsiveDesign({
                 {index === properties.length - 1 || properties.length < 3 ? "" : ","}
               </Fragment>
             ))}{" "}
-            utilities{" "}
           </>
         ) : (
           <>
-            Prefix {startsWithVowel(property) ? "an" : "a"} <code>{property}</code> utility{" "}
+            Префикс {startsWithVowel(property) ? "an" : "a"} <code>{property}</code> утилита{" "}
           </>
         )}
-        with a breakpoint variant like <code>{breakpoint}:</code> to only apply the utility at {screens[breakpoint]}{" "}
-        screen sizes and above:
+        с вариантом контрольной точки, например <code>{breakpoint}:</code>, чтобы применить утилиту только при
+        размерах экрана {screens[breakpoint]}{" "} и выше:
       </p>
       {children || (
         <div>
@@ -217,7 +214,7 @@ export function ResponsiveDesign({
         </div>
       )}
       <p>
-        Learn more about using variants in the <a href="/docs/hover-focus-and-other-states">variants documentation</a>.
+        Подробнее об использовании вариантов читайте в <a href="/docs/hover-focus-and-other-states">документации по вариантам</a>.
       </p>
     </>
   );
@@ -243,8 +240,8 @@ export function TargetingSpecificStates({
   return (
     <>
       <p>
-        Prefix {startsWithVowel(property) ? "an" : "a"} <code>{property}</code> utility with a variant like{" "}
-        <code>{variant}:*</code> to only apply the utility in that state:
+        Префикс {startsWithVowel(property) ? "an" : "a"} <code>{property}</code> утилиты с вариантом, например{" "}
+        <code>{variant}:*</code>, чтобы применить утилиту только в этом состоянии:
       </p>
       {children || (
         <div>
@@ -266,7 +263,7 @@ export function TargetingSpecificStates({
         </div>
       )}
       <p>
-        Learn more about using variants in the <a href="/docs/hover-focus-and-other-states">variants documentation</a>.
+        Подробнее об использовании вариантов читайте в <a href="/docs/hover-focus-and-other-states">документации по вариантам</a>.
       </p>
     </>
   );
@@ -300,8 +297,8 @@ export function CustomizingYourTheme({
   return (
     <>
       <p>
-        Use the <code>--{themeKey || utility || utilities![0]}-*</code> theme variables to customize the {name}{" "}
-        utilities in your project:
+        Используйте переменные темы <code>--{themeKey || utility || utilities![0]}-*</code> для настройки утилит {name}{" "}
+        в вашем проекте:
       </p>
       <div>
         <div className="not-prose">
@@ -321,7 +318,7 @@ export function CustomizingYourTheme({
       </div>
       {utilities ? (
         <p>
-          Now utilities like{" "}
+          Теперь утилиты типа{" "}
           {utilities.map((name, index) => (
             <Fragment key={index}>
               {utilities.length > 1 && index === utilities.length - 1 ? " and " : ""}
@@ -331,15 +328,15 @@ export function CustomizingYourTheme({
               {index === utilities.length - 1 || utilities.length < 3 ? "" : ","}
             </Fragment>
           ))}{" "}
-          can be used in your markup:
+          можно использовать в вашей разметке:
         </p>
       ) : (
         <p>
-          Now the{" "}
+          Теперь утилиту{" "}
           <code>
             {utility}-{customName}
           </code>{" "}
-          utility can be used in your markup:
+          можно использовать в вашей разметке:
         </p>
       )}
       <div>
@@ -362,11 +359,11 @@ export function CustomizingYourTheme({
       {includeSpacingNote && (
         <>
           <p>
-            The{" "}
+            Утилиты{" "}
             <code>
               {utility}-<var>{"<number>"}</var>
             </code>{" "}
-            utilities are driven by the <code>--spacing</code> theme variable, which you can also customize:
+            управляются переменной темы <code>--spacing</code>, которую вы также можете настроить:
           </p>
           <div>
             <div className="not-prose">
@@ -387,13 +384,13 @@ export function CustomizingYourTheme({
       {children}
       {includeSpacingNote ? (
         <p>
-          Learn more about customizing the spacing scale in the{" "}
-          <a href="/docs/theme#customizing-your-theme">theme documentation</a>.
+          Подробнее о настройке шкалы интервалов читайте в{" "}
+          <a href="/docs/theme#customizing-your-theme">документации темы</a>.
         </p>
       ) : (
         <p>
-          Learn more about customizing your theme in the{" "}
-          <a href="/docs/theme#customizing-your-theme">theme documentation</a>.
+          Подробнее о настройке темы читайте в{" "}
+          <a href="/docs/theme#customizing-your-theme">документации темы</a>.
         </p>
       )}
     </>
@@ -406,7 +403,7 @@ export function CustomizingYourSpacingScale({ utility, utilities }: { utility: s
   return (
     <>
       <p>
-        The{" "}
+        Утилиты{" "}
         {utilities.map((name, index) => (
           <Fragment key={index}>
             {utilities.length > 1 && index === utilities.length - 1 ? " and " : ""}
@@ -416,7 +413,7 @@ export function CustomizingYourSpacingScale({ utility, utilities }: { utility: s
             {index === utilities.length - 1 || utilities.length < 3 ? "" : ","}
           </Fragment>
         ))}{" "}
-        utilities are driven by the <code>--spacing</code> theme variable, which can be customized in your own theme:
+        управляются переменной темы <code>--spacing</code>, которую можно настроить в вашей собственной теме:
       </p>
       <div>
         <div className="not-prose">
@@ -433,7 +430,7 @@ export function CustomizingYourSpacingScale({ utility, utilities }: { utility: s
         </div>
       </div>
       <p>
-        Learn more about customizing the spacing scale in the <a href="/docs/theme">theme variable documentation</a>.
+        Подробнее о настройке шкалы интервалов читайте в <a href="/docs/theme">документации по переменным темы</a>.
       </p>
     </>
   );

@@ -3,7 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { SearchProvider } from "@/components/search";
 import { ThemeProvider } from "@/components/theme-toggle";
-import Fathom from "@/components/fathom";
+// import Fathom from "@/components/fathom";
 
 const inter = localFont({
   src: [
@@ -164,7 +164,7 @@ export default async function RootLayout({
         />
       </head>
       <body>
-        <Fathom />
+        {/* <Fathom /> */}
         <SearchProvider>
           <ThemeProvider>
             <div className="isolate">{children}</div>

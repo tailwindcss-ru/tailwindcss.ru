@@ -86,7 +86,7 @@ export function Resizable({ children, className, ...props }: ComponentProps<"div
 
 export function ResizablePanel(props: ComponentProps<typeof motion.div>) {
   let context = useContext(ResizableContext);
-  if (!context) throw new Error("ResizablePanel must be a child of Resizable");
+  if (!context) throw new Error("ResizablePanel должен быть дочерним элементом Resizable");
   let { x } = context;
 
   return <motion.div ref={context.panelRef} {...props} style={{ marginRight: useTransform(x, (x) => -x) }} />;
@@ -94,7 +94,7 @@ export function ResizablePanel(props: ComponentProps<typeof motion.div>) {
 
 export function ResizableHandle(props: ComponentProps<typeof motion.div>) {
   let context = useContext(ResizableContext);
-  if (!context) throw new Error("ResizableHandle must be a child of Resizable");
+  if (!context) throw new Error("ResizableHandle должен быть дочерним элементом Resizable");
   let { x } = context;
   let handleRef = useRef<HTMLElement>(null);
   let constraintsRef = useRef<HTMLDivElement>(null);
@@ -124,7 +124,7 @@ export function ResizableHandle(props: ComponentProps<typeof motion.div>) {
         />
       </div>
       <motion.div
-        title="Drag to resize"
+        title="Перетащите, чтобы изменить размер"
         drag="x"
         dragElastic={0}
         dragMomentum={false}
