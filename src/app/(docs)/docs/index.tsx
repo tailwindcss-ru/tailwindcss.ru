@@ -1,9 +1,9 @@
 export default {
-  "Getting started": [
-    ["Installation", "/docs/installation"],
-    ["Editor setup", "/docs/editor-setup"],
-    ["Compatibility", "/docs/compatibility"],
-    ["Upgrade guide", "/docs/upgrade-guide"],
+  "Начало работы": [
+    ["Установка", "/docs/installation"],
+    ["Настройка редактора", "/docs/editor-setup"],
+    ["Совместимость", "/docs/compatibility"],
+    ["Руководство по обновлению", "/docs/upgrade-guide"],
   ] as const,
   "Core concepts": [
     ["Styling with utility classes", "/docs/styling-with-utility-classes"],

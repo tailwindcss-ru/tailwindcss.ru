@@ -6,14 +6,14 @@ import { generateTableOfContentsFromMarkdown } from "../docs/api";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Brand",
-  description: "Tailwind CSS brand assets and usage guidelines.",
+  title: "Бренд",
+  description: "Активы бренда Tailwind CSS и правила их использования.",
   openGraph: {
     type: "article",
     title: "Brand",
-    description: "Tailwind CSS brand assets and usage guidelines.",
+    description: "Активы бренда Tailwind CSS и правила их использования.",
     images: "https://tailwindcss.com/api/og?path=/brand",
-    url: "https://tailwindcss.com/brand",
+    url: "https://tailwindcss.ru/brand",
   },
 };
 
