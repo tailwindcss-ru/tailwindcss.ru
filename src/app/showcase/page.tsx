@@ -3,36 +3,35 @@ import ShowcaseThumbnail from "@/components/showcase-thumbnail";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Showcase",
+  title: "Витрина",
   description:
-    "A collection of beautiful websites built with Tailwind CSS, including marketing sites, SaaS applications, ecommerce stores, and more.",
+    "Коллекция красивых веб-сайтов, созданных с помощью Tailwind CSS, включая маркетинговые сайты, SaaS-приложения, интернет-магазины и многое другое.",
   openGraph: {
     type: "article",
-    title: "Showcase - Build anything",
-    description: "A collection of beautiful websites built with Tailwind CSS.",
+    title: "Витрина - Постройте что угодно",
+    description: "Коллекция красивых сайтов, созданных с помощью Tailwind CSS.",
     images: "https://tailwindcss.com/api/og?path=/showcase",
-    url: "https://tailwindcss.com/showcase",
+    url: "https://tailwindcss.ru/showcase",
   },
 };
 
 export default async function Showcase() {
   return (
     <div className="mt-24">
-      <div className="mx-2 font-mono text-sm/7 font-medium tracking-widest text-gray-500 uppercase">Showcase</div>
+      <div className="mx-2 font-mono text-sm/7 font-medium tracking-widest text-gray-500 uppercase">Витрина</div>
       <GridContainer>
         <h1 className="mx-2 text-4xl tracking-tighter text-balance sm:text-5xl lg:text-6xl xl:text-8xl">
-          You can build anything with Tailwind CSS.
+          С помощью Tailwind CSS можно создать что угодно.
         </h1>
       </GridContainer>
 
       <GridContainer className="mt-10">
         <p className="prose mx-2 max-w-(--breakpoint-md) text-lg leading-8 text-gray-600 dark:text-gray-400">
-          Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can definitely build the
-          website for the spaceship —{" "}
+          Ну, не совсем <em>что-то</em>, например, с его помощью нельзя построить космический корабль. Но веб-сайт для космического корабля построить точно можно —{" "}
           <a href="https://www.nasa.gov/" target="_blank" rel="noreferrer">
             NASA
           </a>{" "}
-          did.
+          так и сделало.
         </p>
       </GridContainer>
 

@@ -2,7 +2,7 @@ import { getBlogPostBySlug, getBlogPostSlugs, nonNullable } from "@/app/blog/api
 import { Feed } from "feed";
 import { notFound } from "next/navigation";
 
-const BASE_URL = "https://tailwindcss.com";
+const BASE_URL = "https://tailwindcss.ru";
 const BLOG_URL = `${BASE_URL}/blog`;
 
 export async function generateStaticParams() {
@@ -13,14 +13,14 @@ export async function GET(request: Request, { params }: { params: Promise<{ form
   let format = (await params).format;
 
   const feed = new Feed({
-    title: "Tailwind CSS Blog",
-    description: "All the latest Tailwind CSS news, straight from the team.",
+    title: "Блог Tailwind CSS",
+    description: "Все последние новости Tailwind CSS напрямую от команды.",
     id: BLOG_URL,
     link: BLOG_URL,
     language: "en",
     image: `${BASE_URL}/favicons/favicon-32x32.png?v=3`,
     favicon: `${BASE_URL}/favicons/favicon.ico?v=3`,
-    copyright: `All rights reserved ${new Date().getFullYear()}, Tailwind Labs`,
+    copyright: `Все права защищены ${new Date().getFullYear()}, Tailwind Labs`,
     feedLinks: {
       rss: `${BASE_URL}/feeds/feed.xml`,
       json: `${BASE_URL}/feeds/feed.json`,
