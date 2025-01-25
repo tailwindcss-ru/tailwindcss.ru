@@ -3,32 +3,32 @@ import Logo from "@/docs/img/guides/rspack.react.svg";
 
 export let tile: Tile = {
   title: "Rspack",
-  description: "A fast Rust-based web bundler.",
+  description: "Быстрый веб-упаковщик на основе Rust.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Rspack",
-  description: "Setting up Tailwind CSS in a Rspack project.",
+  title: "Установите Tailwind CSS с помощью Rspack",
+  description: "Настройка Tailwind CSS в проекте Rspack.",
 };
 
 export let tabs: Tab[] = [
   {
     slug: "react",
-    title: "Using React",
+    title: "Используя React",
   },
   {
     slug: "vue",
-    title: "Using Vue",
+    title: "Используя Vue",
   },
 ];
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Rspack project if you don’t have one set up already. The most common approach is to use{" "}
+        Начните с создания нового проекта Rspack, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
         <a href="https://rspack.dev/guide/start/quick-start#using-the-rspack-cli">Rspack CLI</a>.
       </p>
     ),
@@ -42,10 +42,10 @@ export let steps: Step[] = [
   },
 
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/postcss</code> and its peer dependencies.
+        Установите <code>@tailwindcss/postcss</code> и его одноранговые зависимости.
       </p>
     ),
     code: {
@@ -57,11 +57,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Enable PostCSS support",
+    title: "Включите поддержку PostCSS",
     body: (
       <p>
-        In your <code>rspack.config.js</code> file, enable the PostCSS loader. See{" "}
-        <a href="https://rspack.dev/guide/tech/css#tailwind-css">the documentation</a> for more information.
+        В файле <code>rspack.config.js</code> включите загрузчик PostCSS. Подробнее смотрите в{" "}
+        <a href="https://rspack.dev/guide/tech/css#tailwind-css">документации</a>.
       </p>
     ),
     code: {
@@ -86,11 +86,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS Plugins",
+    title: "Настройте плагины PostCSS",
     body: (
       <p>
-        Create a <code>postcss.config.mjs</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
+        Создайте файл <code>postcss.config.mjs</code> в корне вашего проекта и добавьте плагин {" "} <code>@tailwindcss/postcss</code> в вашу конфигурацию PostCSS.
       </p>
     ),
     code: {
@@ -108,10 +107,10 @@ export let steps: Step[] = [
   },
   {
     tabs: ["react"],
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/index.css</code> that imports Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./src/index.css</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -124,10 +123,10 @@ export let steps: Step[] = [
   },
   {
     tabs: ["vue"],
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/style.css</code> that imports Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./src/style.css</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -139,10 +138,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -155,8 +154,8 @@ export let steps: Step[] = [
   },
   {
     tabs: ["react"],
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в своем проекте",
+    body: <p>Начните использовать классы утилиты Tailwind для стилизации своего контента.</p>,
     code: {
       name: "App.jsx",
       lang: "jsx",
@@ -174,8 +173,8 @@ export let steps: Step[] = [
   },
   {
     tabs: ["vue"],
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в своем проекте",
+    body: <p>Начните использовать классы утилиты Tailwind для стилизации своего контента.</p>,
     code: {
       name: "App.vue",
       lang: "vue",
@@ -195,14 +194,14 @@ export let steps: Step[] = [
 // let tabs = [
 //       {
 //   {
-//     name: "Using Vue",
+//     name: "Используя Vue",
 //     href: "#vue",
 //     steps: [
 //       {
-//         title: "Start your build process",
+//         title: "Начните процесс сборки",
 //         body: (
 //           <p>
-//             Run your build process with <code>npm run dev</code>.
+//             Запустите процесс сборки с помощью <code>npm run dev</code>.
 //           </p>
 //         ),
 //         code: {
@@ -212,9 +211,9 @@ export let steps: Step[] = [
 //         },
 //       },
 //       {
-//         title: "Start using Tailwind in your project",
+//         title: "Начните использовать Tailwind в своем проекте",
 //         body: (
-//           <p>Start using Tailwind’s utility classes to style your content.</p>
+//           <p>Начните использовать классы утилиты Tailwind для стилизации своего контента.</p>
 //         ),
 //         code: {
 //           name: "App.vue",

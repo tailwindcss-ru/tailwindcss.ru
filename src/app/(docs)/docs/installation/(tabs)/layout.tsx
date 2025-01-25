@@ -16,19 +16,19 @@ export const metadata: Metadata = {
 };
 
 const tabs = {
-  "Using Vite": "/docs/installation/using-vite",
-  "Using PostCSS": "/docs/installation/using-postcss",
+  "Использование Vite": "/docs/installation/using-vite",
+  "Использование PostCSS": "/docs/installation/using-postcss",
   "Tailwind CLI": "/docs/installation/tailwind-cli",
-  "Framework Guides": "/docs/installation/framework-guides",
+  "Руководства по фреймворкам": "/docs/installation/framework-guides",
   "Play CDN": "/docs/installation/play-cdn",
 };
 
 const readNext = [
   {
-    title: "Styling with utility classes",
+    title: "Стилизация с использованием классов утилит",
     href: "/docs/styling-with-utility-classes",
     body: (
-      <p>Using a utility-first workflow to build complex components from a constrained set of primitive utilities.</p>
+      <p>Использование рабочего процесса, основанного на утилитах, для создания сложных компонентов из ограниченного набора примитивных утилит.</p>
     ),
     // icon: {
     //   className: "dark:bg-indigo-500 dark:highlight-white/20",
@@ -38,9 +38,9 @@ const readNext = [
     icon: require("@/components/home/icons/css-grid-icon").default,
   },
   {
-    title: "Responsive Design",
+    title: "Адаптивный дизайн",
     href: "/docs/responsive-design",
-    body: <p>Build fully responsive user interfaces that adapt to any screen size using responsive modifiers.</p>,
+    body: <p>Создавайте полностью адаптивные пользовательские интерфейсы, которые адаптируются к любому размеру экрана, используя адаптивные модификаторы.</p>,
     icon: {
       className: "dark:bg-indigo-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/mobile-first.png").default.src,
@@ -48,9 +48,9 @@ const readNext = [
     },
   },
   {
-    title: "Hover, Focus & Other States",
+    title: "Наведение, фокус и другие состояния",
     href: "/docs/hover-focus-and-other-states",
-    body: <p>Style elements in interactive states like hover, focus, and more using conditional modifiers.</p>,
+    body: <p>Создавайте стили элементов в интерактивных состояниях, таких как наведение, фокус и т. д., используя условные модификаторы.</p>,
     icon: {
       className: "dark:bg-blue-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/state-variants.png").default.src,
@@ -58,9 +58,9 @@ const readNext = [
     },
   },
   {
-    title: "Dark Mode",
+    title: "Темный режим",
     href: "/docs/dark-mode",
-    body: <p>Optimize your site for dark mode directly in your HTML using the dark mode modifier.</p>,
+    body: <p>Оптимизируйте свой сайт для темного режима непосредственно в HTML-коде, используя модификатор темного режима.</p>,
     icon: {
       className: "dark:bg-slate-600 dark:highlight-white/20",
       // light: require("@/img/icons/home/dark-mode.png").default.src,
@@ -68,9 +68,9 @@ const readNext = [
     },
   },
   {
-    title: "Reusing Styles",
+    title: "Переиспользование стилей",
     href: "/docs/reusing-styles",
-    body: <p>Manage duplication and keep your projects maintainable by creating reusable abstractions.</p>,
+    body: <p>Управляйте дублированием и поддерживайте удобство поддержки проектов, создавая повторно используемые абстракции.</p>,
     icon: {
       className: "dark:bg-sky-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/component-driven.png").default.src,
@@ -78,9 +78,9 @@ const readNext = [
     },
   },
   {
-    title: "Customizing the Framework",
+    title: "Кастомизация фреймворка",
     href: "/docs/adding-custom-styles",
-    body: <p>Customize the framework to match your brand and extend it with your own custom styles.</p>,
+    body: <p>Настройте структуру в соответствии с вашим брендом и дополните ее собственными стилями.</p>,
     icon: {
       className: "dark:bg-pink-500 dark:highlight-white/30",
       // light: require("@/img/icons/home/customization.png").default.src,
@@ -98,17 +98,17 @@ export default function Page({ children }: { children: React.ReactNode }) {
       <div className="isolate mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 pt-10 md:pb-24 xl:max-w-5xl">
         <div className="px-4 sm:px-6">
           <p className="font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400">
-            Installation
+            Установка
           </p>
           <h1 className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
-            Get started with Tailwind CSS
+            Начните работу с Tailwind CSS
           </h1>
           <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-            Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for
-            class names, generating the corresponding styles and then writing them to a static CSS file.
+            Tailwind CSS работает путем сканирования всех ваших HTML-файлов, JavaScript-компонентов и любых других
+            шаблонов на наличие классов, генерации соответствующих стилей и последующей записи их в статический CSS-файл.
           </p>
           <p className="mt-4 text-base/7 text-gray-700 dark:text-gray-300">
-            It's fast, flexible, and reliable — with zero-runtime.
+            Он быстрый, гибкий и надежный — без необходимости использования runtime.
           </p>
 
           <div className="mt-10" data-content="true">
@@ -118,7 +118,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                   data-docsearch-ignore
                   className="mb-6 text-lg font-semibold tracking-tight text-gray-950 dark:text-white"
                 >
-                  Installation
+                  Установка
                 </h2>
                 <TabBar
                   tabs={Object.entries(tabs).map(([title, url]) => ({

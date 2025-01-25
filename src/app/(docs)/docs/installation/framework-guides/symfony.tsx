@@ -4,23 +4,23 @@ import LogoDark from "@/docs/img/guides/symfony-white.react.svg";
 
 export let tile: Tile = {
   title: "Symfony",
-  description: "A PHP framework to create websites and web applications.",
+  description: "PHP-фреймворк для создания веб-сайтов и веб-приложений.",
   Logo,
   LogoDark,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Symfony",
-  description: "Setting up Tailwind CSS in a Symfony project.",
+  title: "Установите Tailwind CSS с помощью Symfony",
+  description: "Настройка Tailwind CSS в проекте Symfony.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Symfony project if you don’t have one set up already. The most common approach is to use{" "}
-        <a href="https://symfony.com/download">the Symfony Installer</a>.
+        Начните с создания нового проекта Symfony, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
+        <a href="https://symfony.com/download">установщик Symfony</a>.
       </p>
     ),
     code: {
@@ -33,11 +33,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Webpack Encore",
+    title: "Установите Webpack Encore",
     body: (
       <p>
-        Install Webpack Encore, which handles building your assets. See{" "}
-        <a href="https://symfony.com/doc/current/frontend.html">the documentation</a> for more information.
+        Установите Webpack Encore, который занимается сборкой ваших ресурсов. Подробнее смотрите в{" "}
+        <a href="https://symfony.com/doc/current/frontend.html">документации</a>.
       </p>
     ),
     code: {
@@ -50,10 +50,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Using npm, install <code>@tailwindcss/postcss</code> and its peer dependencies, as well as{" "}
+        Используя npm, установите <code>@tailwindcss/postcss</code> и его одноранговые зависимости, а также{" "}
         <code>postcss-loader</code>.
       </p>
     ),
@@ -66,12 +66,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Enable PostCSS support",
+    title: "Включите поддержку PostCSS",
     body: (
       <p>
-        In your <code>webpack.config.js</code> file, enable the PostCSS Loader. See{" "}
-        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">the documentation</a> for more
-        information.
+        В файле <code>webpack.config.js</code> включите PostCSS Loader. Подробнее смотрите в{" "}
+        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">документации</a>.
       </p>
     ),
     code: {
@@ -85,11 +84,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS Plugins",
+    title: "Настройте плагины PostCSS",
     body: (
       <p>
-        Create a <code>postcss.config.mjs</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
+        Создайте файл <code>postcss.config.mjs</code> в корне вашего проекта и добавьте плагин {" "} <code>@tailwindcss/postcss</code> в вашу конфигурацию PostCSS.
       </p>
     ),
     code: {
@@ -106,10 +104,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./assets/styles/app.css</code> that imports Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./assets/styles/app.css</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -121,10 +119,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npm run watch</code>.
+        Запустите процесс сборки с помощью <code>npm run watch</code>.
       </p>
     ),
     code: {
@@ -136,11 +134,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
+    title: "Начните использовать Tailwind в своем проекте",
     body: (
       <p>
-        Make sure your compiled CSS is included in the <code>{"<head>"}</code> then start using Tailwind’s utility
-        classes to style your content.
+        Убедитесь, что ваш скомпилированный CSS включен в <code>{"<head>"}</code> , а затем начните использовать классы утилиты Tailwind для стилизации вашего контента.
       </p>
     ),
     code: {

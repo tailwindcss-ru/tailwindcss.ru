@@ -4,22 +4,22 @@ import LogoDark from "@/docs/img/guides/astro-white.react.svg";
 
 export let tile: Tile = {
   title: "Astro",
-  description: "The all-in-one web framework designed for speed.",
+  description: "Универсальный веб-фреймворк, разработанный для скорости.",
   Logo,
   LogoDark,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Astro",
-  description: "Setting up Tailwind CSS in an Astro project.",
+  title: "Установите Tailwind CSS с помощью Astro",
+  description: "Настройка Tailwind CSS в проекте Astro.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Astro project if you don't have one set up already. The most common approach is to use{" "}
+        Начните с создания нового проекта Astro, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
         <a href="https://docs.astro.build/en/getting-started/#start-your-first-project">create astro</a>.
       </p>
     ),
@@ -33,10 +33,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
+        Установите <code>@tailwindcss/vite</code> и его зависимости через npm.
       </p>
     ),
     code: {
@@ -48,10 +48,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure Vite Plugin",
+    title: "Настройте плагин Vite",
     body: (
       <p>
-        Add the <code>@tailwindcss/vite</code> plugin to your Vite plugins in your Astro config file.
+        Добавьте плагин <code>@tailwindcss/vite</code> к плагинам Vite в файле конфигурации Astro.
       </p>
     ),
     code: {
@@ -74,10 +74,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Create a <code>./src/styles/global.css</code> file and add an <code>@import</code> for Tailwind CSS.
+        Создайте файл <code>./src/styles/global.css</code> и добавьте <code>@import</code> для Tailwind CSS.
       </p>
     ),
     code: {
@@ -89,10 +89,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -104,11 +104,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
+    title: "Начните использовать Tailwind в своем проекте",
     body: (
       <p>
-        Start using Tailwind's utility classes to style your content while making sure to import the newly created CSS
-        file.
+        Начните использовать классы утилиты Tailwind для стилизации своего контента,
+        не забыв при этом импортировать недавно созданный файл CSS.
       </p>
     ),
     code: {

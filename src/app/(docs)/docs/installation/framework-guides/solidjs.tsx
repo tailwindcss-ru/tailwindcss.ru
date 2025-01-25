@@ -3,22 +3,22 @@ import Logo from "@/docs/img/guides/solidjs.react.svg";
 
 export let tile: Tile = {
   title: "SolidJS",
-  description: "A tool for building simple, performant, and reactive user interfaces.",
+  description: "Инструмент для создания простых, производительных и реактивных пользовательских интерфейсов.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with SolidJS",
-  description: "Setting up Tailwind CSS in a SolidJS project.",
+  title: "Установите Tailwind CSS с помощью SolidJS",
+  description: "Настройка Tailwind CSS в проекте SolidJS.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new SolidJS project if you don't have one set up already. The most common approach is to use{" "}
-        <a href="https://www.solidjs.com/guides/getting-started">the SolidJS Vite template</a>.
+        Начните с создания нового проекта SolidJS, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
+        <a href="https://www.solidjs.com/guides/getting-started">шаблон SolidJS Vite</a>.
       </p>
     ),
     code: {
@@ -31,10 +31,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
+        Установите <code>@tailwindcss/vite</code> и его зависимости через npm.
       </p>
     ),
     code: {
@@ -46,10 +46,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure Vite Plugin",
+    title: "Настройте плагин Vite",
     body: (
       <p>
-        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
+        Добавьте плагин <code>@tailwindcss/vite</code> в конфигурацию Vite.
       </p>
     ),
     code: {
@@ -78,10 +78,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/index.css</code> that imports Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./src/index.css</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -93,10 +93,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -108,8 +108,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в своем проекте",
+    body: <p>Начните использовать классы утилиты Tailwind для стилизации своего контента.</p>,
     code: {
       name: "App.jsx",
       lang: "jsx",

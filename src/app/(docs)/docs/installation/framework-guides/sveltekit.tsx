@@ -3,22 +3,22 @@ import Logo from "@/docs/img/guides/svelte.react.svg";
 
 export let tile: Tile = {
   title: "SvelteKit",
-  description: "The fastest way to build apps of all sizes with Svelte.js.",
+  description: "Самый быстрый способ создания приложений любого размера с помощью Svelte.js.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with SvelteKit",
-  description: "Setting up Tailwind CSS in a SvelteKit project.",
+  title: "Установите Tailwind CSS с помощью SvelteKit",
+  description: "Настройка Tailwind CSS в проекте SvelteKit.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new SvelteKit project if you don't have one set up already. The most common approach is
-        outlined in the <a href="https://svelte.dev/docs/kit/creating-a-project">SvelteKit</a> documentation.
+        Начните с создания нового проекта SvelteKit, если у вас его еще нет. Наиболее распространенный подход описан
+        в документации <a href="https://svelte.dev/docs/kit/creating-a-project">SvelteKit</a>.
       </p>
     ),
     code: {
@@ -31,10 +31,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
+        Установите <code>@tailwindcss/vite</code> и его зависимости через npm.
       </p>
     ),
     code: {
@@ -46,10 +46,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure Vite Plugin",
+    title: "Настройте плагин Vite",
     body: (
       <p>
-        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
+        Добавьте плагин <code>@tailwindcss/vite</code> в конфигурацию Vite.
       </p>
     ),
     code: {
@@ -72,10 +72,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Create a <code>./src/app.css</code> file and add an <code>@import</code> that imports Tailwind CSS.
+        Создайте файл <code>./src/app.css</code> и добавьте <code>@import</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -87,10 +87,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import the CSS file",
+    title: "Импортируйте CSS-файл",
     body: (
       <p>
-        Create a <code>./src/routes/+layout.svelte</code> file and import the newly-created <code>app.css</code> file.
+        Создайте файл <code>./src/routes/+layout.svelte</code> и импортируйте недавно созданный файл <code>app.css</code>.
       </p>
     ),
     code: {
@@ -107,10 +107,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -122,11 +122,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
+    title: "Начните использовать Tailwind в своем проекте",
     body: (
       <p>
-        Start using Tailwind’s utility classes to style your content, making sure to import your Tailwind CSS theme for
-        any <code>&lt;style&gt;</code> blocks that need to be processed by Tailwind.
+        Начните использовать служебные классы Tailwind для стилизации своего контента, обязательно импортируйте тему
+        Tailwind CSS для всех блоков <code>&lt;style&gt;</code>, которые необходимо обработать с помощью Tailwind.
       </p>
     ),
     code: {

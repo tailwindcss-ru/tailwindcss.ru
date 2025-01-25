@@ -4,23 +4,23 @@ import LogoDark from "@/docs/img/guides/react-router-white.react.svg";
 
 export let tile: Tile = {
   title: "React Router",
-  description: "A standards‑focused router you can deploy anywhere.",
+  description: "Ориентированный на стандарты маршрутизатор, который можно развернуть где угодно.",
   Logo,
   LogoDark,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with React Router",
-  description: "Setting up Tailwind CSS in a React Router project.",
+  title: "Установите Tailwind CSS с помощью React Router",
+  description: "Настройка Tailwind CSS в проекте React Router.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new React Router project if you don’t have one set up already. The most common approach is
-        to use <a href="https://reactrouter.com/start/framework/installation">Create React Router</a>.
+        Начните с создания нового проекта React Router, если у вас его еще нет. Наиболее распространенный подход —
+        использовать <a href="https://reactrouter.com/start/framework/installation">Create React Router</a>.
       </p>
     ),
     code: {
@@ -33,10 +33,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
+        Установите <code>@tailwindcss/vite</code> и его зависимости через npm.
       </p>
     ),
     code: {
@@ -48,10 +48,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure Vite Plugin",
+    title: "Настройте плагин Vite",
     body: (
       <p>
-        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
+        Добавьте плагин <code>@tailwindcss/vite</code> в конфигурацию Vite.
       </p>
     ),
     code: {
@@ -76,10 +76,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./app/app.css</code> that imports Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./app/app.css</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -91,10 +91,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -106,8 +106,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в своем проекте",
+    body: <p>Начните использовать классы утилиты Tailwind для стилизации своего контента.</p>,
     code: {
       name: "home.tsx",
       lang: "tsx",

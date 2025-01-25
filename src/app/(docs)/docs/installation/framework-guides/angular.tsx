@@ -4,22 +4,22 @@ import LogoDark from "@/docs/img/guides/angular-white.react.svg";
 
 export let tile: Tile = {
   title: "Angular",
-  description: "Platform for building mobile and desktop web applications.",
+  description: "Платформа для создания мобильных и десктопных веб-приложений.",
   Logo,
   LogoDark,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Angular",
-  description: "Setting up Tailwind CSS in an Angular project.",
+  title: "Установите Tailwind CSS с помощью Angular",
+  description: "Настройка Tailwind CSS в проекте Angular.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Angular project if you don’t have one set up already. The most common approach is to use{" "}
+        Начните с создания нового проекта Angular, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
         <a href="https://angular.dev/tools/cli/setup-local">Angular CLI</a>.
       </p>
     ),
@@ -33,14 +33,14 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/postcss</code> and its peer dependencies via npm.
+        Установите <code>@tailwindcss/postcss</code> и его зависимости через npm.
       </p>
     ),
 
-    // NOTE: The `--force` flag is used to make sure the installation succeeds. Angular has a peer dependency on `tailwindcss` v3 which causes errors when installing `tailwindcss` v4.
+    // ПРИМЕЧАНИЕ: Флаг `--force` используется для обеспечения успешной установки. Angular имеет зависимость от `tailwindcss` v3, что приводит к ошибкам при установке `tailwindcss` v4.
     code: {
       name: "Terminal",
       lang: "shell",
@@ -50,11 +50,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS Plugins",
+    title: "Настройте плагины PostCSS",
     body: (
       <p>
-        Create a <code>.postcssrc.json</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
+        Создайте файл <code>.postcssrc.json</code> в корне вашего проекта и добавьте плагин{" "}
+        <code>@tailwindcss/postcss</code> в вашу конфигурацию PostCSS.
       </p>
     ),
     code: {
@@ -71,10 +71,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/styles.css</code> that imports Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./src/styles.css</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -86,10 +86,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>ng serve</code>.
+        Запустите процесс сборки с помощью <code>ng serve</code>.
       </p>
     ),
     code: {
@@ -101,8 +101,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в своем проекте",
+    body: <p>Начните использовать классы утилиты Tailwind для стилизации вашего контента.</p>,
     code: {
       name: "app.component.html",
       lang: "html",

@@ -3,22 +3,22 @@ import Logo from "@/docs/img/guides/phoenix.react.svg";
 
 export let tile: Tile = {
   title: "Phoenix",
-  description: "A framework to build rich, interactive applications with Elixir.",
+  description: "Фреймворк для создания многофункциональных интерактивных приложений с помощью Elixir.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Phoenix",
+  title: "Установите Tailwind CSS с помощью Phoenix",
   description: "Setting up Tailwind CSS in a Phoenix project.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Phoenix project if you don't have one set up already. You can follow their{" "}
-        <a href="https://hexdocs.pm/phoenix/installation.html">installation guide</a> to get up and running.
+        Начните с создания нового проекта Phoenix, если у вас его еще нет. Вы можете следовать их{" "}
+        <a href="https://hexdocs.pm/phoenix/installation.html">руководству по установке</a>, чтобы приступить к работе.
       </p>
     ),
     code: {
@@ -31,10 +31,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install the Tailwind plugin",
+    title: "Установите плагин Tailwind",
     body: (
       <p>
-        Add the Tailwind plugin to your dependencies and run <code>mix deps.get</code> to install it.
+        Добавьте плагин Tailwind в свои зависимости и запустите <code>mix deps.get</code>, чтобы установить его.
       </p>
     ),
     code: {
@@ -52,11 +52,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure the Tailwind plugin",
+    title: "Настройте плагин Tailwind",
     body: (
       <p>
-        In your <code>config/config.exs</code> file you can set which version of Tailwind CSS you want to use and
-        customize your asset paths.
+        В файле <code>config/config.exs</code> вы можете указать, какую версию Tailwind CSS вы хотите использовать,
+        а также настроить пути к ресурсам.
       </p>
     ),
     code: {
@@ -78,10 +78,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Update your deployment script",
+    title: "Обновите свой сценарий развертывания",
     body: (
       <p>
-        Configure your <code>assets.deploy</code> alias to build your CSS on deployment.
+        Настройте псевдоним <code>assets.deploy</code> для создания CSS при развертывании.
       </p>
     ),
     code: {
@@ -103,10 +103,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Enable watcher in development",
+    title: "Включите наблюдателя в разработке",
     body: (
       <p>
-        Add Tailwind to your list of watchers in your <code>./config/dev.exs</code> file.
+        Добавьте Tailwind в список наблюдателей в файле <code>./config/dev.exs</code>.
       </p>
     ),
     code: {
@@ -123,8 +123,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
-    body: <p>Run the install command to download the standalone Tailwind CLI.</p>,
+    title: "Установите Tailwind CSS",
+    body: <p>Запустите команду установки, чтобы загрузить автономный Tailwind CLI.</p>,
     code: {
       name: "Terminal",
       lang: "shell",
@@ -134,11 +134,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./assets/css/app.css</code> that imports Tailwind CSS. Additionally, tell
-        Tailwind CSS where to scan for utilities.
+        Добавьте <code>@import</code> в <code>./assets/css/app.css</code>, который импортирует Tailwind CSS.
+        Кроме того, сообщите Tailwind CSS, где сканировать утилиты.
       </p>
     ),
     code: {
@@ -150,10 +150,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Remove the default CSS import",
+    title: "Удалите импорт CSS по умолчанию",
     body: (
       <p>
-        Remove the CSS import from <code>./assets/js/app.js</code>, as Tailwind is now handling this for you.
+        Удалите импорт CSS из <code>./assets/js/app.js</code>, так как Tailwind теперь сделает это за вас.
       </p>
     ),
     code: {
@@ -167,10 +167,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>mix phx.server</code>.
+        Запустите процесс сборки с помощью <code>mix phx.server</code>.
       </p>
     ),
     code: {
@@ -182,8 +182,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в своем проекте",
+    body: <p>Начните использовать классы утилиты Tailwind для стилизации своего контента.</p>,
     code: {
       name: "index.html.heex",
       lang: "html",

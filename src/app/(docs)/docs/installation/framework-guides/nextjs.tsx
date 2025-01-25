@@ -4,22 +4,22 @@ import LogoDark from "@/docs/img/guides/nextjs-white.react.svg";
 
 export let tile: Tile = {
   title: "Next.js",
-  description: "Full-featured React framework with great developer experience.",
+  description: "Полнофункциональный фреймворк React с большим опытом разработки.",
   Logo,
   LogoDark,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Next.js",
-  description: "Setting up Tailwind CSS in a Next.js project.",
+  title: "Установите Tailwind CSS с помощью Next.js",
+  description: "Настройка Tailwind CSS в проекте Next.js.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Next.js project if you don’t have one set up already. The most common approach is to use{" "}
+        Начните с создания нового проекта Next.js, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
         <a href="https://nextjs.org/docs/api-reference/create-next-app">Create Next App</a>.
       </p>
     ),
@@ -33,10 +33,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/postcss</code> and its peer dependencies via npm.
+        Установите <code>@tailwindcss/postcss</code> и его зависимости через npm.
       </p>
     ),
     code: {
@@ -48,11 +48,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS Plugins",
+    title: "Настройте плагины PostCSS",
     body: (
       <p>
-        Create a <code>postcss.config.mjs</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
+        Создайте файл <code>postcss.config.mjs</code> в корне вашего проекта и добавьте плагин {" "}
+        <code>@tailwindcss/postcss</code> в вашу конфигурацию PostCSS.
       </p>
     ),
     code: {
@@ -71,10 +71,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/app/globals.css</code> that imports Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./src/app/globals.css</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -86,10 +86,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -101,8 +101,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в своем проекте",
+    body: <p>Начните использовать классы утилиты Tailwind для стилизации своего контента.</p>,
     code: {
       name: "page.tsx",
       lang: "jsx",

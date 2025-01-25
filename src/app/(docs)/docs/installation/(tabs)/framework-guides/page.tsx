@@ -4,13 +4,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Framework guides",
+  title: "Руководства по фреймворкам",
   description:
-    "Framework-specific guides that cover our recommended approach to installing Tailwind CSS in a number of popular environments.",
+    "Руководства по конкретным фреймворкам, в которых описывается рекомендуемый нами подход к установке Tailwind CSS в ряде популярных сред.",
   openGraph: {
     type: "article",
-    title: "Framework guides",
-    description: "Our recommended approach to installing Tailwind CSS in popular frameworks.",
+    title: "Руководства по фреймворкам",
+    description: "Наш рекомендуемый подход к установке Tailwind CSS в популярных фреймворках.",
     images: "https://tailwindcss.com/api/og?path=/docs/installation/framework-guides",
     url: "https://tailwindcss.com/docs/installation/framework-guides",
   },
@@ -24,8 +24,8 @@ export default async function FrameworkGuides() {
       <div id="content-wrapper" className="prose mb-10 max-w-3xl">
         <h3 className="sr-only">Framework Guides</h3>
         <p>
-          Framework-specific guides that cover our recommended approach to installing Tailwind CSS in a number of
-          popular environments.
+          Руководства по конкретным фреймворкам, в которых описывается рекомендуемый нами подход к установке
+          Tailwind CSS в ряде популярных сред.
         </p>
       </div>
       <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -35,9 +35,9 @@ export default async function FrameworkGuides() {
       </ul>
       <div className="my-4 md:my-16">
         <Cta>
-          Don't see your framework of choice? Try using the <Link href="/docs/installation">Tailwind CLI</Link>, the{" "}
-          <Link href="/docs/installation/using-vite">Vite plugin</Link>, or the{" "}
-          <Link href="/docs/installation/using-postcss">PostCSS plugin</Link> instead.
+          Не нашли нужный вам фреймворк? Попробуйте использовать <Link href="/docs/installation">Tailwind CLI</Link>, {" "}
+          <Link href="/docs/installation/using-vite">плагин Vite</Link> или{" "}
+          <Link href="/docs/installation/using-postcss">плагин PostCSS</Link>.
         </Cta>
       </div>
     </>

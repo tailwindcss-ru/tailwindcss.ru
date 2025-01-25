@@ -3,21 +3,21 @@ import Logo from "@/docs/img/guides/qwik.react.svg";
 
 export let tile: Tile = {
   title: "Qwik",
-  description: "Build instantly-interactive web apps without effort.",
+  description: "Создавайте мгновенно интерактивные веб-приложения без усилий.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Qwik",
-  description: "Setting up Tailwind CSS in an Qwik project.",
+  title: "Установите Tailwind CSS с помощью Qwik",
+  description: "Настройка Tailwind CSS в проекте Qwik.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Qwik project if you don't have one set up already. The most common approach is to use{" "}
+        Начните с создания нового проекта Qwik, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
         <a href="https://qwik.dev/docs/getting-started/#create-an-app-using-the-cli">Create Qwik</a>.
       </p>
     ),
@@ -31,10 +31,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
+        Установите <code>@tailwindcss/vite</code> и его зависимости через npm.
       </p>
     ),
     code: {
@@ -46,10 +46,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure Vite Plugin",
+    title: "Настройте плагин Vite",
     body: (
       <p>
-        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
+        Добавьте плагин <code>@tailwindcss/vite</code> в конфигурацию Vite.
       </p>
     ),
     code: {
@@ -81,10 +81,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/global.css</code> that imports Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./src/global.css</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -96,10 +96,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Запустите процесс сборки с помощью <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -111,8 +111,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в своем проекте",
+    body: <p>Начните использовать классы утилиты Tailwind для стилизации своего контента.</p>,
     code: {
       name: "index.tsx",
       lang: "tsx",

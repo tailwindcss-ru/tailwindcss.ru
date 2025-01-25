@@ -3,23 +3,23 @@ import Logo from "@/docs/img/guides/parcel.react.svg";
 
 export let tile: Tile = {
   title: "Parcel",
-  description: "The zero-configuration build tool for the web.",
+  description: "Инструмент сборки с нулевой конфигурацией для веб-сайтов.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Parcel",
-  description: "Setting up Tailwind CSS in a Parcel project.",
+  title: "Установите Tailwind CSS с помощью Parcel",
+  description: "Настройка Tailwind CSS в проекте Parcel.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Parcel project if you don’t have one set up already. The most common approach is to add
-        Parcel as a dev-dependency to your project as outlined in their{" "}
-        <a href="https://parceljs.org/getting-started/webapp/">getting started guide</a>.
+        Начните с создания нового проекта Parcel, если у вас его еще нет. Наиболее распространенный подход —
+        добавить Parcel в качестве dev-зависимости к вашему проекту, как описано в их{" "}
+        <a href="https://parceljs.org/getting-started/webapp/">руководстве по началу работы</a>.
       </p>
     ),
     code: {
@@ -36,10 +36,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/postcss</code> and its peer dependencies via npm.
+        Установите <code>@tailwindcss/postcss</code> и его зависимости через npm.
       </p>
     ),
     code: {
@@ -51,11 +51,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS",
+    title: "Настройте PostCSS",
     body: (
       <p>
-        Create a <code>.postcssrc</code> file in your project root, and enable the <code>@tailwindcss/postcss</code>{" "}
-        plugin.
+        Создайте файл <code>.postcssrc</code> в корневом каталоге проекта и включите плагин{" "}
+        <code>@tailwindcss/postcss</code>.
       </p>
     ),
     code: {
@@ -71,10 +71,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Create a <code>./src/index.css</code> file and add an <code>@import</code> for Tailwind CSS.
+        Создайте файл <code>./src/index.css</code> и добавьте <code>@import</code> для Tailwind CSS.
       </p>
     ),
     code: {
@@ -86,10 +86,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Начните процесс сборки",
     body: (
       <p>
-        Run your build process with <code>npx parcel src/index.html</code>.
+        Запустите процесс сборки с помощью <code>npx parcel src/index.html</code>.
       </p>
     ),
     code: {
@@ -101,11 +101,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
+    title: "Начните использовать Tailwind в своем проекте",
     body: (
       <p>
-        Add your CSS file to the <code>{"<head>"}</code> and start using Tailwind’s utility classes to style your
-        content.
+        Добавьте свой CSS-файл в <code>{"<head>"}</code> и начните использовать классы утилиты
+        Tailwind для стилизации своего контента.
       </p>
     ),
     code: {
