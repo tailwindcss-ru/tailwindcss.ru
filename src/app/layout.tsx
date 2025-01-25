@@ -78,11 +78,11 @@ const js = String.raw;
 export const metadata: Metadata = {
   metadataBase: new URL("https://tailwindcss.com"),
   title: {
-    default: "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
+    default: "Tailwind CSS — быстро создавайте современные веб-сайты, не выходя из HTML-кода.",
     template: "%s - Tailwind CSS",
   },
   description:
-    "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
+    "Tailwind CSS — это CSS-фреймворк, ориентированный на утилиты, для быстрого создания современных веб-сайтов без необходимости покидать HTML-код.",
 };
 
 export default async function RootLayout({
@@ -92,7 +92,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="ru"
       className={`${inter.variable} ${plexMono.variable} ${source.variable} ${ubuntuMono.variable} antialiased dark:bg-gray-950`}
       suppressHydrationWarning
     >

@@ -28,12 +28,12 @@ export default function TailwindUiSection() {
       </div>
 
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <CategoryHeader className="text-pink-600 dark:text-pink-500">Ready-made Components</CategoryHeader>
+        <CategoryHeader className="text-pink-600 dark:text-pink-500">Готовые компоненты</CategoryHeader>
       </GridContainer>
 
       <GridContainer>
         <h2 className="px-2 text-[2.5rem]/10 font-medium tracking-tighter max-sm:px-4 2xl:mt-0">
-          Move even faster with Tailwind UI
+          Двигайтесь еще быстрее с Tailwind UI
         </h2>
       </GridContainer>
 
@@ -44,15 +44,15 @@ export default function TailwindUiSection() {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          Tailwind UI is a collection of beautiful, fully responsive UI components, designed and developed by us, the
-          creators of Tailwind CSS. It's got hundreds of ready-to-use examples to choose from, and is guaranteed to help
-          you find the perfect starting point for what you want to build.
+          Tailwind UI — это коллекция красивых, полностью адаптивных компонентов пользовательского интерфейса,
+          спроектированных и разработанных нами, создателями Tailwind CSS. В нем есть сотни готовых к использованию
+          примеров на выбор, и он гарантированно поможет вам найти идеальную отправную точку для того, что вы хотите создать.
         </p>
       </GridContainer>
 
       <GridContainer className="mt-10">
         <div className="px-2 max-sm:px-4">
-          <LinkButton href="https://tailwindui.com/">Explore Tailwind UI</LinkButton>
+          <LinkButton href="https://tailwindui.com/">Изучить Tailwind UI</LinkButton>
         </div>
       </GridContainer>
       <TabGroup>
@@ -152,9 +152,9 @@ export default function TailwindUiSection() {
                   />
                 </svg>
                 <div className="text-center xl:text-left">
-                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Templates</p>
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Шаблоны</p>
                   <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
-                    Visually-stunning, easy to customize site templates built with React and Next.js.
+                    Визуально привлекательные и простые в настройке шаблоны сайтов, созданные с помощью React и Next.js.
                   </p>
                 </div>
               </TabButton>
@@ -225,9 +225,9 @@ export default function TailwindUiSection() {
                   </g>
                 </svg>
                 <div className="text-center xl:text-left">
-                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">UI Blocks</p>
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Блоки UI</p>
                   <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
-                    Over 500+ professionally designed, fully responsive, expertly crafted components.
+                    Более 500 профессионально разработанных, полностью адаптивных и искусно изготовленных компонентов.
                   </p>
                 </div>
               </TabButton>
@@ -306,9 +306,9 @@ export default function TailwindUiSection() {
                   </g>
                 </svg>
                 <div className="text-center xl:text-left">
-                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">UI Kit</p>
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Набор UI</p>
                   <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
-                    A starter kit for building your own component systems with React and Tailwind CSS.
+                    Стартовый набор для создания собственных компонентных систем с помощью React и Tailwind CSS.
                   </p>
                 </div>
               </TabButton>

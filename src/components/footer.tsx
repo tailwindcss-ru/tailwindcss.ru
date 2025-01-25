@@ -57,10 +57,10 @@ export function FooterMeta({ className }: { className?: string }) {
       >
         <ThemeToggle />
         <div className="flex flex-col gap-4 text-sm/6 text-gray-700 sm:flex-row sm:gap-2 sm:pr-4 dark:text-gray-400">
-          <span>Copyright ©&nbsp;2025&nbsp;Tailwind Labs Inc.</span>
+          <span>Авторские права ©&nbsp;2025&nbsp;Tailwind Labs Inc.</span>
           <span className="max-sm:hidden">&middot;</span>
           <Link href="/brand" className="hover:underline">
-            Trademark Policy
+            Политика в отношении товарных знаков
           </Link>
         </div>
       </div>
@@ -71,26 +71,26 @@ export function FooterMeta({ className }: { className?: string }) {
 function Learn() {
   return (
     <>
-      <h3 className="font-semibold">Learn</h3>
+      <h3 className="font-semibold">Изучайте</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="/docs" className="hover:underline">
-            Documentation
+            Документация
           </Link>
         </li>
         <li>
           <Link href="/showcase" className="hover:underline">
-            Showcase
+            Витрина
           </Link>
         </li>
         <li>
           <Link href="/blog" className="hover:underline">
-            Blog
+            Блог
           </Link>
         </li>
         <li>
           <Link href="https://play.tailwindcss.com/" className="hover:underline">
-            Playground
+            Игровая площадка
           </Link>
         </li>
       </ul>
@@ -105,17 +105,17 @@ function TailwindUI() {
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="https://tailwindui.com/components?ref=footer" className="hover:underline">
-            UI Blocks
+            UI блоки
           </Link>
         </li>
         <li>
           <Link href="https://tailwindui.com/templates?ref=footer" className="hover:underline">
-            Templates
+            Шаблоны
           </Link>
         </li>
         <li>
           <Link href="https://tailwindui.com/templates/catalyst?ref=footer" className="hover:underline">
-            UI Kit
+            UI набор
           </Link>
         </li>
       </ul>
@@ -126,7 +126,7 @@ function TailwindUI() {
 function Resources() {
   return (
     <>
-      <h3 className="font-semibold">Resources</h3>
+      <h3 className="font-semibold">Ресурсы</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="https://www.refactoringui.com" className="hover:underline">
@@ -156,7 +156,7 @@ function Resources() {
 function Community() {
   return (
     <>
-      <h3 className="font-semibold">Community</h3>
+      <h3 className="font-semibold">Сообщество</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="https://github.com/tailwindlabs/tailwindcss" className="hover:underline">
@@ -171,6 +171,11 @@ function Community() {
         <li>
           <Link href="https://x.com/tailwindcss" className="hover:underline">
             X
+          </Link>
+        </li>
+        <li>
+          <Link href="https://t.me/tailwindcss_rus" className="hover:underline">
+            Telegram
           </Link>
         </li>
       </ul>

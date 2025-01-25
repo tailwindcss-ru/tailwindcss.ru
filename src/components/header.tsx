@@ -147,10 +147,10 @@ export function Header(props: React.PropsWithChildren) {
             </kbd>
           </SearchButton>
           {[
-            ["Docs", "/docs"],
-            ["Components", "https://tailwindui.com/?ref=top"],
-            ["Blog", "/blog"],
-            ["Showcase", "/showcase"],
+            ["Дока", "/docs"],
+            ["Компоненты", "https://tailwindui.com/?ref=top"],
+            ["Блог", "/blog"],
+            ["Витрина", "/showcase"],
           ].map(([text, href]) => (
             <Link href={href} key={href} className="text-sm/6 text-gray-950 dark:text-white">
               {text}
