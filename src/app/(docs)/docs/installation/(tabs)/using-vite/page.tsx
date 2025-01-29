@@ -123,8 +123,10 @@ const steps: Step[] = [
 export default function Page() {
   return (
     <>
-      <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl">
-        <h3 className="sr-only">Установка Tailwind CSS как плагина Vite</h3>
+      <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl" data-content="true">
+        <h3 data-title="true" className="sr-only">
+          Установка Tailwind CSS как плагина Vite
+        </h3>
         <p>
           Установка Tailwind CSS как плагина Vite — наиболее простой способ его интеграции с такими фреймворками,
           как Laravel, SvelteKit, React Router, Nuxt и SolidJS.

@@ -97,13 +97,16 @@ export default function Page({ children }: { children: React.ReactNode }) {
 
       <div className="isolate mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 pt-10 md:pb-24 xl:max-w-5xl">
         <div className="px-4 sm:px-6">
-          <p className="font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400">
+          <p
+            data-section="true"
+            className="font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400"
+          >
             Установка
           </p>
           <h1 className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
             Начните работу с Tailwind CSS
           </h1>
-          <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
+          <p data-description="true" className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
             Tailwind CSS работает путем сканирования всех ваших HTML-файлов, JavaScript-компонентов и любых других
             шаблонов на наличие классов, генерации соответствующих стилей и последующей записи их в статический CSS-файл.
           </p>

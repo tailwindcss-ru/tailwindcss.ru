@@ -21,8 +21,10 @@ export default async function FrameworkGuides() {
 
   return (
     <>
-      <div id="content-wrapper" className="prose mb-10 max-w-3xl">
-        <h3 className="sr-only">Framework Guides</h3>
+      <div id="content-wrapper" className="prose mb-10 max-w-3xl" data-content="true">
+        <h3 className="sr-only" data-title="true">
+          Framework Guides
+        </h3>
         <p>
           Руководства по конкретным фреймворкам, в которых описывается рекомендуемый нами подход к установке
           Tailwind CSS в ряде популярных сред.
