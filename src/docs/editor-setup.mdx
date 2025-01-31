@@ -5,43 +5,43 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
-export const title = "Editor setup";
-export const description = "Tooling to improve the developer experience when working with Tailwind CSS.";
+export const title = "Настройка редактора";
+export const description = "Инструменты для улучшения опыта разработчика при работе с Tailwind CSS.";
 
-## Syntax support
+## Поддержка синтаксиса
 
-Tailwind CSS uses custom CSS syntax like `@theme`, `@variant`, and `@source`, and in some editors this can trigger warnings or errors where these rules aren't recognized.
+Tailwind CSS использует пользовательский синтаксис CSS, такой как `@theme`, `@variant` и `@source` и в некоторых редакторах это может вызвать предупреждения или ошибки, где эти правила не распознаются.
 
-If you're using VS Code, our official [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) plugin includes a dedicated Tailwind CSS language mode that has support for all of the custom at-rules and functions Tailwind uses.
+Если вы используете VS Code, наш официальный плагин [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) включает в себя специальный режим языка Tailwind CSS, который поддерживает все пользовательские at-rules и функции, которые использует Tailwind.
 
-In some cases, you may need to disable native CSS linting/validations if your editor is very strict about the syntax it expects in your CSS files.
+В некоторых случаях вам может потребоваться отключить встроенную проверку/валидацию CSS в вашем редакторе, если он очень строг к синтаксису, который он ожидает в ваших CSS-файлах.
 
-## IntelliSense for VS Code
+## IntelliSense для VS Code
 
-The official [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extension for Visual Studio Code enhances the Tailwind development experience by providing users with advanced features such as autocomplete, syntax highlighting, and linting.
+Официальное расширение [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) для Visual Studio Code улучшает опыт разработки с Tailwind, предоставляя пользователям расширенные функции, такие как автозаполнение, подсветка синтаксиса и линтинг.
 
 <img
   src={require("./img/intellisense.png").default.src}
-  alt="Tailwind CSS IntelliSense extension for Visual Studio Code"
+  alt="Tailwind CSS IntelliSense расширение для Visual Studio Code"
   width={1344}
   height={672}
   className="rounded-lg"
 />
 
-- **Autocomplete** — providing intelligent suggestions for utility classes, as well as [CSS functions and directives](/docs/functions-and-directives).
-- **Linting** — highlighting errors and potential bugs in both your CSS and your markup.
-- **Hover previews** — revealing the complete CSS for utility classes when you hover over them.
-- **Syntax highlighting** — so that Tailwind features that use custom CSS syntax are highlighted correctly.
+- **Автодополнение** — предоставление интеллектуальных предложений для утилитарных классов, а также [CSS-функций и директив](/docs/functions-and-directives).
+- **Линтинг** — highlighting errors and potential bugs in both your CSS and your markup.
+- **Превью при наведении** — раскрытие полного CSS для утилитарных классов при наведении на них.
+- **Подсветка синтаксиса** — так что функции Tailwind, которые используют пользовательский синтаксис CSS, выделяются правильно.
 
-Check out the project [on GitHub](https://github.com/tailwindcss/intellisense) to learn more, or [add it to Visual Studio Code](vscode:extension/bradlc.vscode-tailwindcss) to get started now.
+Узнайте больше о проекте [на GitHub](https://github.com/tailwindcss/intellisense) или [добавьте его в Visual Studio Code](vscode:extension/bradlc.vscode-tailwindcss), чтобы начать прямо сейчас.
 
-## Class sorting with Prettier
+## Сортировка классов с помощью Prettier
 
-We maintain an official [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) for Tailwind CSS that automatically sorts your classes following our [recommended class order](/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted).
+Мы поддерживаем официальный [плагин Prettier](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) для Tailwind CSS, который автоматически сортирует ваши классы в соответствии с нашим [рекомендуемым порядком классов](/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted).
 
 <img src={require("./img/prettier-banner.jpg").default.src} alt="" width={2400} height={819} className="rounded-lg" />
 
-It works seamlessly with custom Tailwind configurations, and because it’s just a Prettier plugin, it works anywhere Prettier works—including every popular editor and IDE, and of course on the command line.
+Это работает бесшовно с пользовательскими конфигурациями Tailwind, и поскольку это просто плагин Prettier, он работает везде, где работает Prettier - включая каждый популярный редактор и IDE, конечно, и в командной строке.
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -53,10 +53,11 @@ It works seamlessly with custom Tailwind configurations, and because it’s just
 <button class="bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3">Submit</button>
 ```
 
-Check out the plugin [on GitHub](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) to learn more and get started.
+Узнайте больше о плагине [на GitHub](https://github.com/tailwindlabs/prettier-plugin-tailwindcss), чтобы узнать больше и начать работу.
+
 
 ## JetBrains IDEs
 
-JetBrains IDEs like WebStorm, PhpStorm, and others include support for intelligent Tailwind CSS completions in your HTML.
+IDE JetBrains, такие как WebStorm, PhpStorm и другие, включают поддержку интеллектуальных завершений Tailwind CSS в вашем HTML.
 
-[Learn more about Tailwind CSS support in JetBrains IDEs &rarr;](https://www.jetbrains.com/help/webstorm/tailwind-css.html)
+[Узнайте больше о поддержке Tailwind CSS в IDE JetBrains &rarr;](https://www.jetbrains.com/help/webstorm/tailwind-css.html)
