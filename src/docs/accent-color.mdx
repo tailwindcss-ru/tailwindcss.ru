@@ -10,7 +10,7 @@ import { Figure } from "@/components/figure.tsx";
 import colors from "./utils/colors";
 
 export const title = "accent-color";
-export const description = "Utilities for controlling the accented color of a form control.";
+export const description = "Утилиты для управления акцентным цветом элемента формы.";
 
 <ApiTable
   rows={[
@@ -26,11 +26,11 @@ export const description = "Utilities for controlling the accented color of a fo
   ]}
 />
 
-## Examples
+## Примеры
 
-### Setting the accent color
+### Установка акцентного цвета
 
-Use utilities like `accent-rose-500` and `accent-lime-600` to change the accent color of an element:
+Используйте утилиты, такие как `accent-rose-500` и `accent-lime-600`, чтобы изменить акцентный цвет элемента:
 
 <Figure>
 
@@ -53,21 +53,21 @@ Use utilities like `accent-rose-500` and `accent-lime-600` to change the accent 
 <!-- [!code classes:accent-pink-500] -->
 <label>
   <input type="checkbox" checked />
-  Browser default
+  Браузер по умолчанию
 </label>
 <label>
   <input class="accent-pink-500" type="checkbox" checked />
-  Customized
+  Кастомизированный
 </label>
 ```
 
 </Figure>
 
-This is helpful for styling elements like checkboxes and radio groups by overriding the browser's default color.
+Это полезно для стилизации элементов, таких как чекбоксы и радиогруппы, позволяя переопределить стандартный цвет браузера.
 
-### Changing the opacity
+### Изменение прозрачности
 
-Use the color opacity modifier to control the opacity of an element's accent color:
+Используйте модификатор прозрачности цвета, чтобы управлять прозрачностью акцентного цвета элемента:
 
 <Figure>
 
@@ -95,9 +95,9 @@ Use the color opacity modifier to control the opacity of an element's accent col
 
 </Figure>
 
-Setting the accent color opacity has limited browser-support and only works in Firefox at this time.
+Установка прозрачности акцентного цвета имеет ограниченную поддержку браузеров и на данный момент работает только в Firefox.
 
-### Using a custom value
+### Использование пользовательского значения
 
 <UsingACustomValue
   element="input"
@@ -108,7 +108,7 @@ Setting the accent color opacity has limited browser-support and only works in F
   variable="accent-color"
 />
 
-### Applying on hover
+### Применение при наведении
 
 <TargetingSpecificStates property="accent-color">
 
@@ -134,7 +134,7 @@ Setting the accent color opacity has limited browser-support and only works in F
 
 </TargetingSpecificStates>
 
-### Responsive design
+### Адаптивный дизайн
 
 <ResponsiveDesign
   element="input"
@@ -144,6 +144,6 @@ Setting the accent color opacity has limited browser-support and only works in F
   featuredClass="accent-pink-500"
 />
 
-## Customizing your theme
+## Кастомизация вашей темы
 
 <CustomizingYourThemeColors element="input" elementAttributes={{ type: "checkbox" }} utility="accent" />

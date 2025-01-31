@@ -1,15 +1,15 @@
-export const title = "Adding custom styles";
-export const description = "Best practices for adding your own custom styles in Tailwind projects.";
+export const title = "Добавление пользовательских стилей";
+export const description = "Лучшие практики для добавления своих собственных пользовательских стилей в проекты Tailwind.";
 
-Often the biggest challenge when working with a framework is figuring out what you’re supposed to do when there’s something you need that the framework doesn’t handle for you.
+Часто самая большая проблема при работе с фреймворком заключается в том, чтобы понять, что делать, когда вам нужно что-то, чего фреймворк не обрабатывает для вас.
 
-Tailwind has been designed from the ground up to be extensible and customizable, so that no matter what you’re building you never feel like you’re fighting the framework.
+Tailwind был разработан с нуля для того, чтобы быть расширяемым и настраиваемым, чтобы вы никогда не чувствовали, что боретесь с фреймворком, независимо от того, что вы строите.
 
-This guide covers topics like customizing your design tokens, how to break out of those constraints when necessary, adding your own custom CSS, and extending the framework with plugins.
+В этом руководстве рассматриваются такие темы, как настройка ваших токенов дизайна, как выходить за рамки этих ограничений при необходимости, добавление своего собственного пользовательского CSS и расширение фреймворка с помощью плагинов.
 
-## Customizing your theme
+## Кастомизация вашей темы
 
-If you want to change things like your color palette, spacing scale, typography scale, or breakpoints, add your customizations using the `@theme` directive in your CSS:
+Если вы хотите изменить такие вещи, как цветовая палитра, масштаб отступов, масштаб типографики или точки останова, добавьте свои настройки с помощью директивы `@theme` в вашем CSS:
 
 ```css
 /* [!code filename:CSS] */
@@ -31,14 +31,13 @@ If you want to change things like your color palette, spacing scale, typography 
   /* ... */
 }
 ```
+Узнайте больше о настройке вашей темы в [документации по переменным темы](/docs/theme).
 
-Learn more about customizing your theme in the [theme variables documentation](/docs/theme).
+## Использование произвольных значений
 
-## Using arbitrary values
+Хотя обычно вы можете создать большую часть хорошо продуманного дизайна, используя ограниченный набор токенов дизайна, иногда вам нужно выйти за рамки этих ограничений, чтобы получить пиксель-идеальное расположение элементов.
 
-While you can usually build the bulk of a well-crafted design using a constrained set of design tokens, once in a while you need to break out of those constraints to get things pixel-perfect.
-
-When you find yourself really needing something like `top: 117px` to get a background image in just the right spot, use Tailwind's square bracket notation to generate a class on the fly with any arbitrary value:
+Когда вы действительно нуждаетесь в чем-то вроде `top: 117px`, чтобы разместить фоновое изображение в нужном месте, используйте квадратные скобки Tailwind, чтобы сгенерировать класс на лету с любым произвольным значением:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -48,7 +47,7 @@ When you find yourself really needing something like `top: 117px` to get a backg
 </div>
 ```
 
-This is basically like inline styles, with the major benefit that you can combine it with interactive modifiers like `hover` and responsive modifiers like `lg`:
+Это похоже на встроенные стили, с основным преимуществом, что вы можете комбинировать его с интерактивными модификаторами, такими как `hover`, и адаптивными модификаторами, такими как `lg`:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -58,7 +57,7 @@ This is basically like inline styles, with the major benefit that you can combin
 </div>
 ```
 
-This works for everything in the framework, including things like background colors, font sizes, pseudo-element content, and more:
+Это работает для всего в фреймворке, включая такие вещи, как цвета фона, размеры шрифта, содержимое псевдоэлементов и многое другое:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -68,7 +67,7 @@ This works for everything in the framework, including things like background col
 </div>
 ```
 
-If you're referencing a CSS variable as an arbitrary value, you can use the custom property syntax:
+Если вы ссылаетесь на переменную CSS в качестве произвольного значения, вы можете использовать синтаксис пользовательского свойства:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -78,11 +77,11 @@ If you're referencing a CSS variable as an arbitrary value, you can use the cust
 </div>
 ```
 
-This is just a shorthand for <code>fill-{'[var(--my-brand-color)]'}</code> that adds the `var()` function for you automatically.
+Это просто сокращение для <code>fill-{'[var(--my-brand-color)]'}</code>, которое автоматически добавляет функцию `var()`.
 
-### Arbitrary properties
+### Произвольные свойства
 
-If you ever need to use a CSS property that Tailwind doesn't include a utility for out of the box, you can also use square bracket notation to write completely arbitrary CSS:
+Если вам когда-либо понадобится использовать свойство CSS, для которого Tailwind не включает утилиту, вы также можете использовать квадратные скобки, чтобы написать полностью произвольный CSS:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -92,7 +91,7 @@ If you ever need to use a CSS property that Tailwind doesn't include a utility f
 </div>
 ```
 
-This is _really_ like inline styles, but again with the benefit that you can use modifiers:
+Это _на самом деле_ похоже на встроенные стили, но снова с преимуществом, что вы можете использовать модификаторы:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -102,7 +101,7 @@ This is _really_ like inline styles, but again with the benefit that you can use
 </div>
 ```
 
-This can be useful for things like CSS variables as well, especially when they need to change under different conditions:
+Это может быть полезно и для таких вещей, как переменные CSS, особенно когда они должны изменяться в зависимости от разных условий:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -112,9 +111,9 @@ This can be useful for things like CSS variables as well, especially when they n
 </div>
 ```
 
-### Arbitrary variants
+### Произвольные варианты
 
-Arbitrary _variants_ are like arbitrary values but for doing on-the-fly selector modification, like you can with built-in pseudo-class variants like `hover:{utility}` or responsive variants like `md:{utility}` but using square bracket notation directly in your HTML.
+Произвольные варианты похожи на произвольные значения, но для модификации селектора на лету, как вы можете это делать с встроенными псевдоклассовыми вариантами, такими как `hover:{utility}` или адаптивными вариантами, такими как `md:{utility}`, но с использованием квадратных скобок непосредственно в вашем HTML.
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -126,11 +125,11 @@ Arbitrary _variants_ are like arbitrary values but for doing on-the-fly selector
 </ul>
 ```
 
-Learn more in the [arbitrary variants](/docs/hover-focus-and-other-states#using-arbitrary-variants) documentation.
+Узнайте больше в документации [по произвольным вариантам](/docs/hover-focus-and-other-states#using-arbitrary-variants).
 
-### Handling whitespace
+### Обработка пробелов
 
-When an arbitrary value needs to contain a space, use an underscore (`_`) instead and Tailwind will automatically convert it to a space at build-time:
+Когда произвольное значение должно содержать пробел, используйте подчеркивание (`_`) вместо него, и Tailwind автоматически преобразует его в пробел во время сборки
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -140,7 +139,7 @@ When an arbitrary value needs to contain a space, use an underscore (`_`) instea
 </div>
 ```
 
-In situations where underscores are common but spaces are invalid, Tailwind will preserve the underscore instead of converting it to a space, for example in URLs:
+В ситуациях, когда подчеркивания являются общими, но пробелы недопустимы, Tailwind сохранит подчеркивание вместо преобразования его в пробел, например, в URL-адресах:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -150,7 +149,7 @@ In situations where underscores are common but spaces are invalid, Tailwind will
 </div>
 ```
 
-In the rare case that you actually need to use an underscore but it's ambiguous because a space is valid as well, escape the underscore with a backslash and Tailwind won't convert it to a space:
+В редких случаях, когда вам действительно нужно использовать подчеркивание, но это вызывает неоднозначность, потому что пробел также допустим, экранируйте подчеркивание обратной косой чертой, и Tailwind не преобразует его в пробел:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -160,7 +159,7 @@ In the rare case that you actually need to use an underscore but it's ambiguous 
 </div>
 ```
 
-If you're using something like JSX where the backslash is stripped from the rendered HTML, use [String.raw()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw) so the backslash isn't treated as a JavaScript escape character:
+Если вы используете что-то вроде JSX, где обратная косая черта удаляется из отображаемого HTML, используйте [String.raw()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw), чтобы обратная косая черта не рассматривалась как символ экранирования JavaScript:
 
 ```jsx
 <div className={String.raw`before:content-['hello\_world']`}>
@@ -168,11 +167,11 @@ If you're using something like JSX where the backslash is stripped from the rend
 </div>
 ```
 
-### Resolving ambiguities
+### Разрешение неоднозначности
 
-Many utilities in Tailwind share a common namespace but map to different CSS properties. For example `text-lg` and `text-black` both share the `text-` namespace, but one is for `font-size` and the other is for `color`.
+Многие утилиты в Tailwind разделяют общее пространство имен, но отображаются на разные свойства CSS. Например, `text-lg` и `text-black` оба используют пространство имен `text-`, но один предназначен для `font-size`, а другой - для `color`.
 
-When using arbitrary values, Tailwind can generally handle this ambiguity automatically based on the value you pass in:
+При использовании произвольных значений Tailwind обычно может автоматически разрешить эту неоднозначность на основе переданного вами значения:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -184,7 +183,7 @@ When using arbitrary values, Tailwind can generally handle this ambiguity automa
 <div class="text-[#bada55]">...</div>
 ```
 
-Sometimes it really is ambiguous though, for example when using CSS variables:
+Иногда это действительно вызывает неоднозначность, например, при использовании переменных CSS:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -192,7 +191,7 @@ Sometimes it really is ambiguous though, for example when using CSS variables:
 <div class="text-(--my-var)">...</div>
 ```
 
-In these situations, you can "hint" the underlying type to Tailwind by adding a [CSS data type](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types) before the value:
+В этих ситуациях вы можете "подсказать" базовый тип Tailwind, добавив [тип данных CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types) перед значением:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -204,9 +203,9 @@ In these situations, you can "hint" the underlying type to Tailwind by adding a 
 <div class="text-(color:--my-var)">...</div>
 ```
 
-## Using custom CSS
+## Использование пользовательского CSS
 
-While Tailwind is designed to handle the bulk of your styling needs, there is nothing stopping you from just writing plain CSS when you need to:
+Хотя Tailwind предназначен для обработки большей части ваших потребностей в стилизации, ничто не мешает вам просто писать обычный CSS, когда это необходимо:
 
 ```css
 /* [!code filename:CSS] */
@@ -218,9 +217,9 @@ While Tailwind is designed to handle the bulk of your styling needs, there is no
 }
 ```
 
-### Adding base styles
+### Добавление базовых стилей
 
-If you just want to set some defaults for the page (like the text color, background color, or font family), the easiest option is just adding some classes to the `html` or `body` elements:
+Если вы просто хотите установить некоторые значения по умолчанию для страницы (например, цвет текста, цвет фона или семейство шрифтов), самым простым вариантом будет добавление некоторых классов к элементам `html` или `body`:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -231,9 +230,9 @@ If you just want to set some defaults for the page (like the text color, backgro
 </html>
 ```
 
-This keeps your base styling decisions in your markup alongside all of your other styles, instead of hiding them in a separate file.
+Это позволяет сохранить ваши базовые стили в разметке вместе со всеми остальными стилями, вместо того чтобы скрывать их в отдельном файле.
 
-If you want to add your own default base styles for specific HTML elements, use the `@layer` directive to add those styles to Tailwind's `base` layer:
+Если вы хотите добавить свои собственные базовые стили по умолчанию для конкретных HTML-элементов, используйте директиву `@layer`, чтобы добавить эти стили в слой `base` Tailwind:
 
 ```css
 /* [!code filename:CSS] */
@@ -250,11 +249,11 @@ If you want to add your own default base styles for specific HTML elements, use 
 }
 ```
 
-### Adding component classes
+### Добавление классов компонентов
 
-Use the `components` layer for any more complicated classes you want to add to your project that you'd still like to be able to override with utility classes.
+Используйте слой `components` для любых более сложных классов, которые вы хотите добавить в свой проект и которые все еще можно переопределить с помощью утилитарных классов.
 
-Traditionally these would be classes like `card`, `btn`, `badge` — that kind of thing.
+Традиционно это были классы, такие как `card`, `btn`, `badge` — такого рода вещи.
 
 ```css
 /* [!code filename:CSS] */
@@ -270,7 +269,7 @@ Traditionally these would be classes like `card`, `btn`, `badge` — that kind o
 }
 ```
 
-By defining component classes in the `components` layer, you can still use utility classes to override them when necessary:
+Определяя классы компонентов в слое `components`, вы все равно можете использовать утилитарные классы для их переопределения при необходимости:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -281,9 +280,9 @@ By defining component classes in the `components` layer, you can still use utili
 </div>
 ```
 
-Using Tailwind you probably don't need these types of classes as often as you think. Read our guide on [managing duplication](/docs/styling-with-utility-classes#managing-duplication) for our recommendations.
+Используя Tailwind, вы, вероятно, не так часто используете эти типы классов, как вы думаете. Ознакомьтесь с нашим руководством по [управлению дублированием](/docs/styling-with-utility-classes#managing-duplication) для наших рекомендаций.
 
-The `components` layer is also a good place to put custom styles for any third-party components you're using:
+Слой `components` также является хорошим местом для размещения пользовательских стилей для любых сторонних компонентов, которые вы используете:
 
 ```css
 /* [!code filename:CSS] */
@@ -294,13 +293,13 @@ The `components` layer is also a good place to put custom styles for any third-p
 }
 ```
 
-## Adding custom utilities
+## Добавление пользовательских утилит
 
-### Simple utilities
+### Простые утилиты
 
-In addition to using the utilities that ship with Tailwind, you can also add your own custom utilities. This can be useful when there's a CSS feature you'd like to use in your project that Tailwind doesn't include utilities for out of the box.
+Помимо использования утилит, которые поставляются с Tailwind, вы также можете добавить свои собственные пользовательские утилиты. Это может быть полезно, когда вы хотите использовать функцию CSS в своем проекте, для которой Tailwind не включает утилиты по умолчанию.
 
-Use the `@utility` directive to add a custom utility to your project:
+Используйте директиву `@utility`, чтобы добавить пользовательскую утилиту в ваш проект:
 
 ```css
 /* [!code filename:CSS] */
@@ -309,7 +308,7 @@ Use the `@utility` directive to add a custom utility to your project:
 }
 ```
 
-You can now use this utility in your HTML:
+Теперь вы можете использовать эту утилиту в вашем HTML:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -319,7 +318,7 @@ You can now use this utility in your HTML:
 </div>
 ```
 
-It will also work with variants like `hover`, `focus` and `lg`:
+Она также будет работать с вариантами, такими как `hover`, `focus` и `lg`:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -329,11 +328,11 @@ It will also work with variants like `hover`, `focus` and `lg`:
 </div>
 ```
 
-Custom utilities are automatically inserted into the `utilities` layer along with all of the built-in utilities in the framework.
+Пользовательские утилиты автоматически вставляются в слой `utilities` вместе со всеми встроенными утилитами в фреймворке.
 
-### Complex utilities
+### Сложные утилиты
 
-If your custom utility is more complex than a single class name, use nesting to define the utility:
+Если ваша пользовательская утилита сложнее, чем одно имя класса, используйте вложенность для определения утилиты:
 
 ```css
 /* [!code filename:CSS] */
@@ -344,9 +343,9 @@ If your custom utility is more complex than a single class name, use nesting to 
 }
 ```
 
-### Functional utilities
+### Функциональные утилиты
 
-In addition to registering simple utilities with the `@utility` directive, you can also register functional utilities that accept an argument:
+Помимо регистрации простых утилит с помощью директивы `@utility`, вы также можете регистрировать функциональные утилиты, которые принимают аргумент:
 
 ```css
 /* [!code filename:CSS] */
@@ -356,11 +355,11 @@ In addition to registering simple utilities with the `@utility` directive, you c
 }
 ```
 
-The special `--value()` function is used to resolve the utility value.
+Специальная функция `--value()` используется для разрешения значения утилиты.
 
-#### Matching theme values
+#### Соответствие значениям темы
 
-Use the `--value(--theme-key-*)` syntax to resolve the utility value against a set of theme keys:
+Используйте синтаксис `--value(--theme-key-*)`, чтобы разрешить значение утилиты по набору ключей темы:
 
 ```css
 /* [!code filename:CSS] */
@@ -377,11 +376,11 @@ Use the `--value(--theme-key-*)` syntax to resolve the utility value against a s
 }
 ```
 
-This will match utilities like `tab-2`, `tab-4`, and `tab-github`.
+Это будет соответствовать утилитам, таким как `tab-2`, `tab-4` и `tab-github`.
 
-#### Bare values
+#### Чистые значения
 
-To resolve the value as a bare value, use the `--value({type})` syntax, where `{type}` is the data type you want to validate the bare value as:
+Чтобы разрешить значение как чистое значение, используйте синтаксис `--value({type})`, где `{type}` - это тип данных, который вы хотите проверить чистое значение на:
 
 ```css
 /* [!code filename:CSS] */
@@ -390,11 +389,11 @@ To resolve the value as a bare value, use the `--value({type})` syntax, where `{
 }
 ```
 
-This will match utilities like `tab-1` and `tab-76`.
+Это будет соответствовать утилитам, таким как `tab-1` и `tab-76`.
 
-#### Arbitrary values
+#### Произвольные значения
 
-To support arbitrary values, use the `--value([{type}])` syntax (notice the square brackets) to tell Tailwind which types are supported as an arbitrary value:
+Чтобы поддерживать произвольные значения, используйте синтаксис `--value([{type}])`  (обратите внимание на квадратные скобки), чтобы сообщить Tailwind, какие типы поддерживаются в качестве произвольного значения:
 
 ```css
 /* [!code filename:CSS] */
@@ -403,11 +402,11 @@ To support arbitrary values, use the `--value([{type}])` syntax (notice the squa
 }
 ```
 
-This will match utilities like `tab-[1]` and `tab-[76]`. If you want to support any data type, you can use `--value([*])`.
+Это будет соответствовать утилитам, таким как `tab-[1]` и `tab-[76]`. Если вы хотите поддерживать любой тип данных, вы можете использовать `--value([*])`.
 
-#### Supporting theme, bare, and arbitrary values together
+#### Поддержка тем, чистых и произвольных значений вместе
 
-All three forms of the `--value()` function can be used within a rule as multiple declarations, and any declarations that fail to resolve will be omitted in the output:
+Все три формы функции `--value()` могут использоваться в правиле в качестве нескольких объявлений, и любые объявления, которые не могут быть разрешены, будут опущены в выводе:
 
 ```css
 /* [!code filename:CSS] */
@@ -423,7 +422,9 @@ All three forms of the `--value()` function can be used within a rule as multipl
 }
 ```
 
-This makes it possible to treat the value differently in each case if necessary, for example translating a bare integer to a percentage:
+Это позволяет обрабатывать значение по-разному в каждом случае, если это необходимо, например, преобразуя целое число в процент:
+
+
 
 ```css
 /* [!code filename:CSS] */
@@ -436,7 +437,7 @@ This makes it possible to treat the value differently in each case if necessary,
 }
 ```
 
-The `--value()` function can also take multiple arguments and resolve them left to right if you don't need to treat the return value differently in different cases:
+Функция `--value()` также может принимать несколько аргументов и разрешать их слева направо, если вам не нужно обрабатывать возвращаемое значение по-разному в разных случаях:
 
 ```css
 /* [!code filename:CSS] */
@@ -458,9 +459,9 @@ The `--value()` function can also take multiple arguments and resolve them left 
 }
 ```
 
-#### Negative values
+#### Отрицательные значения
 
-To support negative values, register separate positive and negative utilities into separate declarations:
+Чтобы поддерживать отрицательные значения, зарегистрируйте отдельные положительные и отрицательные утилиты в отдельных объявлениях:
 
 ```css
 /* [!code filename:CSS] */
@@ -474,9 +475,9 @@ To support negative values, register separate positive and negative utilities in
 }
 ```
 
-#### Modifiers
+#### Модификаторы
 
-Modifiers are handled using the `--modifier()` function which works exactly like the `--value()` function but operates on a modifier if present:
+Модификаторы обрабатываются с помощью функции `--modifier()`, которая работает точно так же, как функция `--value()`, но оперирует модификатором, если он присутствует:
 
 ```css
 /* [!code filename:CSS] */
@@ -489,11 +490,11 @@ Modifiers are handled using the `--modifier()` function which works exactly like
 }
 ```
 
-If a modifier isn't present, any declaration depending on a modifier is just not included in the output.
+Если модификатор не указан, любое объявление, зависящее от модификатора, просто не включается в вывод.
 
-#### Fractions
+#### Дроби
 
-To handle fractions, we rely on the CSS `ratio` data type. If this is used with `--value()`, it's a signal to Tailwind to treat the value and modifier as a single value:
+Для обработки дробей мы полагаемся на тип данных CSS `ratio`. Если это используется с `--value()`, это сигнал Tailwind обрабатывать значение и модификатор как одно значение:
 
 ```css
 /* [!code filename:CSS] */
@@ -504,11 +505,11 @@ To handle fractions, we rely on the CSS `ratio` data type. If this is used with 
 }
 ```
 
-This will match utilities like `aspect-square`, `aspect-3/4`, and `aspect-[7/9]`.
+Это будет соответствовать утилитам, таким как `aspect-square`, `aspect-3/4` и `aspect-[7/9]`.
 
-## Adding custom variants
+## Добавление пользовательских вариантов
 
-Use the `@variant` directive to apply a Tailwind variant within custom CSS:
+Используйте директиву `@variant`, чтобы применить вариант Tailwind в пользовательском CSS:
 
 ```css
 /* [!code filename:CSS] */
@@ -522,7 +523,7 @@ Use the `@variant` directive to apply a Tailwind variant within custom CSS:
 }
 ```
 
-If you need to apply multiple variants at the same time, use nesting:
+Если вам нужно применить несколько вариантов одновременно, используйте вложенность:
 
 ```css
 /* [!code filename:CSS] */

@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "align-content";
-export const description = "Utilities for controlling how rows are positioned in multi-row flex and grid containers.";
+export const description = "Утилиты для управления позиционированием строк в многострочных контейнерах flex и grid.";
 
 <ApiTable
   rows={[
@@ -21,11 +21,11 @@ export const description = "Utilities for controlling how rows are positioned in
   ]}
 />
 
-## Examples
+## Примеры
 
 ### Start
 
-Use `content-start` to pack rows in a container against the start of the cross axis:
+Используйте `content-start`, чтобы упаковать строки в контейнере в начале поперечной оси:
 
 <Figure>
 
@@ -59,7 +59,7 @@ Use `content-start` to pack rows in a container against the start of the cross a
 
 ### Center
 
-Use `content-center` to pack rows in a container in the center of the cross axis:
+Используйте `content-center`, чтобы упаковать строки в контейнере по центру поперечной оси:
 
 <Figure>
 
@@ -93,7 +93,7 @@ Use `content-center` to pack rows in a container in the center of the cross axis
 
 ### End
 
-Use `content-end` to pack rows in a container against the end of the cross axis:
+Используйте `content-end`, чтобы упаковать строки в контейнере в конце поперечной оси:
 
 <Figure>
 
@@ -127,7 +127,7 @@ Use `content-end` to pack rows in a container against the end of the cross axis:
 
 ### Space between
 
-Use `content-between` to distribute rows in a container such that there is an equal amount of space between each line:
+Используйте `content-between`, чтобы распределить строки в контейнере таким образом, чтобы между каждой строкой было равное количество пространства:
 
 <Figure>
 
@@ -161,7 +161,7 @@ Use `content-between` to distribute rows in a container such that there is an eq
 
 ### Space around
 
-Use `content-around` to distribute rows in a container such that there is an equal amount of space around each line:
+Используйте `content-around`, чтобы распределить строки в контейнере таким образом, чтобы вокруг каждой строки было равное количество пространства:
 
 <Figure>
 
@@ -195,7 +195,7 @@ Use `content-around` to distribute rows in a container such that there is an equ
 
 ### Space evenly
 
-Use `content-evenly` to distribute rows in a container such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using `content-around`:
+Используйте `content-evenly`, чтобы распределить строки в контейнере таким образом, чтобы вокруг каждого элемента было равное количество пространства, но также учитывая удвоение пространства, которое вы обычно видите между каждым элементом при использовании `content-around`:
 
 <Figure>
 
@@ -229,7 +229,7 @@ Use `content-evenly` to distribute rows in a container such that there is an equ
 
 ### Stretch
 
-Use `content-stretch` to allow content items to fill the available space along the container’s cross axis:
+Используйте `content-stretch`, чтобы разрешить заполнение элементов контента доступного пространства вдоль поперечной оси контейнера:
 
 <Figure>
 
@@ -263,7 +263,7 @@ Use `content-stretch` to allow content items to fill the available space along t
 
 ### Normal
 
-Use `content-normal` to pack content items in their default position as if no `align-content` value was set:
+Используйте `content-normal`, чтобы упаковать элементы контента в их исходное положение, как если бы значение `align-content` не было установлено:
 
 <Figure>
 
@@ -295,6 +295,6 @@ Use `content-normal` to pack content items in their default position as if no `a
 
 </Figure>
 
-### Responsive design
+### Адаптивный дизайн
 
 <ResponsiveDesign property="align-content" defaultClass="grid content-start" featuredClass="content-around" />

@@ -8,7 +8,7 @@ export default {
   "Core concepts": [
     ["Styling with utility classes", "/docs/styling-with-utility-classes"],
     ["Hover, focus, and other states", "/docs/hover-focus-and-other-states"],
-    ["Responsive design", "/docs/responsive-design"],
+    ["Адаптивный дизайн", "/docs/responsive-design"],
     ["Dark mode", "/docs/dark-mode"],
     ["Theme variables", "/docs/theme"],
     ["Colors", "/docs/colors"],
