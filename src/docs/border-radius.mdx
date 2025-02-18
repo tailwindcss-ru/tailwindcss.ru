@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "border-radius";
-export const description = "Utilities for controlling the border radius of an element.";
+export const description = "Утилиты для управления скруглением углов элемента.";
 
 <ApiTable
   rows={[
@@ -48,7 +48,7 @@ export const description = "Utilities for controlling the border radius of an el
 
 ### Базовый пример
 
-Use utilities like `rounded-sm` and `rounded-md` to apply different border radius sizes to an element:
+Используйте утилиты вроде `rounded-sm` и `rounded-md` для применения разных размеров скругления углов к элементу:
 
 <Figure>
 
@@ -85,9 +85,9 @@ Use utilities like `rounded-sm` and `rounded-md` to apply different border radiu
 
 </Figure>
 
-### Rounding sides separately
+### Скругление сторон по отдельности
 
-Use utilities like `rounded-t-md` and `rounded-r-lg` to only round one side of an element:
+Используйте утилиты вроде `rounded-t-md` и `rounded-r-lg` для скругления только одной стороны элемента:
 
 <Figure>
 
@@ -124,9 +124,9 @@ Use utilities like `rounded-t-md` and `rounded-r-lg` to only round one side of a
 
 </Figure>
 
-### Rounding corners separately
+### Скругление углов по отдельности
 
-Use utilities like `rounded-tr-md` and `rounded-tl-lg` utilities to only round one corner of an element:
+Используйте утилиты вроде `rounded-tr-md` и `rounded-tl-lg` для скругления только одного угла элемента:
 
 <Figure>
 
@@ -163,9 +163,9 @@ Use utilities like `rounded-tr-md` and `rounded-tl-lg` utilities to only round o
 
 </Figure>
 
-### Using logical properties
+### Использование логических свойств
 
-Use utilities like `rounded-s-md` and `rounded-se-xl` to set the border radius using [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to the appropriate corners based on the text direction:
+Используйте утилиты вроде `rounded-s-md` и `rounded-se-xl` для установки скругления углов с помощью [логических свойств](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), которые соответствуют определенным углам в зависимости от направления текста:
 
 <Figure>
 
@@ -199,16 +199,15 @@ Use utilities like `rounded-s-md` and `rounded-se-xl` to set the border radius u
 
 </Figure>
 
-Here are all the available border radius logical property utilities and their physical property equivalents in both LTR and RTL modes.
+Вот все доступные утилиты логических свойств для скругления углов и их физические эквиваленты в режимах LTR и RTL.
 
 {
-
 <table>
   <thead>
     <tr>
-      <th>Class</th>
-      <th>Left-to-right</th>
-      <th>Right-to-left</th>
+      <th>Класс</th>
+      <th>Слева направо</th>
+      <th>Справа налево</th>
     </tr>
   </thead>
   <tbody>
@@ -280,14 +279,13 @@ Here are all the available border radius logical property utilities and their ph
     </tr>
   </tbody>
 </table>
-
 }
 
-For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+Для большего контроля вы также можете использовать [модификаторы LTR и RTL](/docs/hover-focus-and-other-states#rtl-support) для условного применения определенных стилей в зависимости от текущего направления текста.
 
-### Creating pill buttons
+### Создание кнопок-таблеток
 
-Use the `rounded-full` utility to create pill buttons:
+Используйте утилиту `rounded-full` для создания кнопок в виде таблеток:
 
 <Figure>
 
@@ -309,9 +307,9 @@ Use the `rounded-full` utility to create pill buttons:
 
 </Figure>
 
-### Removing the border radius
+### Удаление скругления углов
 
-Use the `rounded-none` utility to remove an existing border radius from an element:
+Используйте утилиту `rounded-none` для удаления существующего скругления углов элемента:
 
 <Figure>
 

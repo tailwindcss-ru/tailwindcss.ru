@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "background-image";
-export const description = "Utilities for controlling an element's background image.";
+export const description = "Утилиты для управления фоновым изображением элемента.";
 
 <svg className="hidden">
   <symbol id="gradient-color-stop" viewBox="0 0 32 34">
@@ -67,7 +67,7 @@ export const description = "Utilities for controlling an element's background im
 
 ### Базовый пример
 
-Use the `bg-[<value>]` syntax to set the background image of an element:
+Используйте синтаксис `bg-[<value>]` для установки фонового изображения элемента:
 
 <Figure>
 
@@ -86,9 +86,9 @@ Use the `bg-[<value>]` syntax to set the background image of an element:
 
 </Figure>
 
-### Adding a linear gradient
+### Добавление линейного градиента
 
-Use utilities like `bg-linear-to-r` and `bg-linear-<angle>` with the [color stop utilities](#setting-gradient-color-stops) to add a linear gradient to an element:
+спользуйте утилиты вроде `bg-linear-to-r` и `bg-linear-<angle>` вместе с [утилитами цветовых остановок](#setting-gradient-color-stops) для добавления линейного градиента к элементу:
 
 <Figure>
 
@@ -113,9 +113,9 @@ Use utilities like `bg-linear-to-r` and `bg-linear-<angle>` with the [color stop
 
 </Figure>
 
-### Adding a radial gradient
+### Добавление радиального градиента
 
-Use the `bg-radial` and `bg-radial-[<position>]` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a radial gradient to an element:
+Используйте утилиты `bg-radial` и `bg-radial-[<position>]` вместе с [утилитами цветовых остановок](#setting-gradient-color-stops) для добавления радиального градиента к элементу:
 
 <Figure>
 
@@ -138,9 +138,9 @@ Use the `bg-radial` and `bg-radial-[<position>]` utilities with the [color stop 
 
 </Figure>
 
-### Adding a conic gradient
+### Добавление конического градиента
 
-Use the `bg-conic` and `bg-conic-<angle>` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a conic gradient to an element:
+Используйте утилиты `bg-conic` и `bg-conic-<angle>` вместе с [утилитами цветовых остановок](#setting-gradient-color-stops) для добавления конического градиента к элементу:
 
 <Figure>
 
@@ -163,9 +163,9 @@ Use the `bg-conic` and `bg-conic-<angle>` utilities with the [color stop utiliti
 
 </Figure>
 
-### Setting gradient color stops
+### Установка цветовых остановок градиента
 
-Use utilities like `from-indigo-500`, `via-purple-500`, and `to-pink-500` to set the colors of the gradient stops:
+Используйте утилиты вроде `from-indigo-500`, `via-purple-500` и `to-pink-500` для установки цветов остановок градиента:
 
 <Figure>
 
@@ -204,9 +204,9 @@ Use utilities like `from-indigo-500`, `via-purple-500`, and `to-pink-500` to set
 
 </Figure>
 
-### Setting gradient stop positions
+### Установка позиций остановок градиента
 
-Use utilities like `from-10%`, `via-30%`, and `to-90%` to set more precise positions for the gradient color stops:
+Используйте утилиты вроде `from-10%`, `via-30%` и `to-90%` для установки более точных позиций цветовых остановок градиента:
 
 <Figure>
 
@@ -254,9 +254,9 @@ Use utilities like `from-10%`, `via-30%`, and `to-90%` to set more precise posit
 
 </Figure>
 
-### Changing interpolation mode
+### Изменение режима интерполяции
 
-Use the interpolation modifier to control the interpolation mode of a gradient:
+Используйте модификатор интерполяции для управления режимом интерполяции градиента:
 
 <Figure>
 
@@ -320,11 +320,11 @@ Use the interpolation modifier to control the interpolation mode of a gradient:
 
 </Figure>
 
-By default gradients are interpolated in the `oklab` color space.
+По умолчанию градиенты интерполируются в цветовом пространстве `oklab`.
 
-### Removing background images
+### Удаление фоновых изображений
 
-Use the `bg-none` utility to remove an existing background image from an element:
+Используйте утилиту `bg-none` для удаления существующего фонового изображения элемента:
 
 ```html
 <!-- [!code classes:bg-none] -->

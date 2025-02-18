@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import dedent from "dedent";
 
 export const title = "border-width";
-export const description = "Utilities for controlling the width of an element's borders.";
+export const description = "Утилиты для управления шириной границ элемента.";
 
 <ApiTable
   rows={[
@@ -126,7 +126,7 @@ export const description = "Utilities for controlling the width of an element's 
 
 ### Базовый пример
 
-Use `border` or `border-<number>` utilities like `border-2` and `border-4` to set the border width for all sides of an element:
+Используйте утилиты `border` или `border-<number>` вроде `border-2` и `border-4` для установки ширины границы со всех сторон элемента:
 
 <Figure>
 
@@ -163,9 +163,9 @@ Use `border` or `border-<number>` utilities like `border-2` and `border-4` to se
 
 </Figure>
 
-### Individual sides
+### Отдельные стороны
 
-Use utilities like `border-r` and `border-t-4` to set the border width for one side of an element:
+Используйте утилиты вроде `border-r` и `border-t-4` для установки ширины границы с одной стороны элемента:
 
 <Figure>
 
@@ -202,9 +202,9 @@ Use utilities like `border-r` and `border-t-4` to set the border width for one s
 
 </Figure>
 
-### Horizontal and vertical sides
+### Горизонтальные и вертикальные стороны
 
-Use utilities like `border-x` and `border-y-4` to set the border width on two sides of an element at the same time:
+Используйте утилиты вроде `border-x` и `border-y-4` для одновременной установки ширины границы на двух сторонах элемента:
 
 <Figure>
 
@@ -231,9 +231,9 @@ Use utilities like `border-x` and `border-y-4` to set the border width on two si
 
 </Figure>
 
-### Using logical properties
+### Использование логических свойств
 
-Use utilities like `border-s` and `border-e-4` to set the `border-inline-start-width` and `border-inline-end-width` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction:
+Используйте утилиты вроде `border-s` и `border-e-4` для установки [логических свойств](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) `border-inline-start-width` и `border-inline-end-width`, которые соответствуют левой или правой границе в зависимости от направления текста:
 
 <Figure>
 
@@ -266,9 +266,9 @@ Use utilities like `border-s` and `border-e-4` to set the `border-inline-start-w
 
 </Figure>
 
-### Between children
+### Между дочерними элементами
 
-Use utilities like `divide-x` and `divide-y-4` to add borders between child elements:
+Используйте утилиты вроде `divide-x` и `divide-y-4` для добавления границ между дочерними элементами:
 
 <Figure>
 
@@ -293,9 +293,9 @@ Use utilities like `divide-x` and `divide-y-4` to add borders between child elem
 
 </Figure>
 
-#### Reversing children order
+#### Изменение порядка дочерних элементов
 
-If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `divide-x-reverse` or `divide-y-reverse` utilities to ensure the border is added to the correct side of each element:
+Если ваши элементы расположены в обратном порядке (используя `flex-row-reverse` или `flex-col-reverse`), используйте утилиты `divide-x-reverse` или `divide-y-reverse`, чтобы граница добавлялась к правильной стороне каждого элемента:
 
 <Figure>
 

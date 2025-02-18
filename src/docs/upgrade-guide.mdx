@@ -365,9 +365,9 @@ npx @tailwindcss/cli -i input.css -o output.css
 <input class="ring-3 ring-blue-500" />
 ```
 
-### Space-between selector
+### Селектор пространства между элементами
 
-We've changed the selector used by the [`space-x-*` and `space-y-*` utilities](/docs/margin#adding-space-between-children) to address serious performance issues on large pages:
+Мы изменили селектор, используемый утилитами [`space-x-*` и `space-y-*`](/docs/margin#adding-space-between-children), чтобы решить серьезные проблемы с производительностью на больших страницах:
 
 ```css
 /* [!code filename:CSS] */
@@ -382,9 +382,9 @@ We've changed the selector used by the [`space-x-*` and `space-y-*` utilities](/
 }
 ```
 
-You might see changes in your project if you were ever using these utilities with inline elements, or if you were adding other margins to child elements to tweak their spacing.
+Вы можете заметить изменения в вашем проекте, если когда-либо использовали эти утилиты со встроенными элементами или если добавляли другие отступы к дочерним элементам для настройки их интервалов.
 
-If this change causes any issues in your project, we recommend migrating to a flex or grid layout and using `gap` instead:
+Если это изменение вызывает проблемы в вашем проекте, мы рекомендуем перейти на flex или grid макет и использовать `gap`:
 
 {/* prettier-ignore */}
 ```html
@@ -396,9 +396,9 @@ If this change causes any issues in your project, we recommend migrating to a fl
 </div>
 ```
 
-### Using variants with gradients
+### Использование вариантов с градиентами
 
-In v3, overriding part of a gradient with a variant would "reset" the entire gradient, so in this example the `to-*` color would be transparent in dark mode instead of yellow:
+В v3 переопределение части градиента с помощью варианта "сбрасывало" весь градиент, поэтому в этом примере цвет `to-*` становился прозрачным в темном режиме вместо желтого:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -408,9 +408,9 @@ In v3, overriding part of a gradient with a variant would "reset" the entire gra
 </div>
 ```
 
-In v4, these values are preserved which is more consistent with how other utilities in Tailwind work.
+В v4 эти значения сохраняются, что более согласуется с тем, как работают другие утилиты в Tailwind.
 
-This means you may need to explicitly use `via-none` if you want to "unset" a three-stop gradient back to a two-stop gradient in a specific state:
+Это означает, что вам может потребоваться явно использовать `via-none`, если вы хотите "сбросить" трехточечный градиент обратно в двухточечный в определенном состоянии:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -533,11 +533,11 @@ This means you may need to explicitly use `via-none` if you want to "unset" a th
 }
 ```
 
-#### Dialog margins removed
+#### Отступы диалогов удалены
 
-Preflight now resets margins on `<dialog>` elements to be consistent with how other elements are reset.
+Теперь Preflight сбрасывает отступы для элементов `<dialog>`, чтобы обеспечить согласованность с тем, как сбрасываются другие элементы.
 
-If you still want dialogs to be centered by default, add this CSS to your project:
+Если вы хотите, чтобы диалоги по-прежнему центрировались по умолчанию, добавьте этот CSS в ваш проект:
 
 ```css
 /* [!code filename:CSS] */
@@ -548,9 +548,9 @@ If you still want dialogs to be centered by default, add this CSS to your projec
 }
 ```
 
-### Using a prefix
+### Использование префикса
 
-Prefixes now look like variants and are always at the beginning of the class name:
+Теперь префиксы выглядят как варианты и всегда находятся в начале имени класса:
 
 ```html
 <!-- [!code classes:tw:bg-red-500,tw:flex,tw:hover:bg-red-600] -->
@@ -559,7 +559,7 @@ Prefixes now look like variants and are always at the beginning of the class nam
 </div>
 ```
 
-When using a prefix, you should still configure your theme variables as if you aren't using a prefix:
+При использовании префикса вы по-прежнему должны настраивать переменные темы так, как если бы вы не использовали префикс:
 
 ```css {{ filename: "app.css" }}
 @import "tailwindcss" prefix(tw);
@@ -577,7 +577,7 @@ When using a prefix, you should still configure your theme variables as if you a
 }
 ```
 
-The generated CSS variables _will_ include a prefix to avoid conflicts with any existing variables in your project:
+Сгенерированные CSS-переменные _будут_ включать префикс, чтобы избежать конфликтов с любыми существующими переменными в вашем проекте:
 
 ```css {{ filename: "dist.css" }}
 :root {
@@ -672,11 +672,11 @@ The generated CSS variables _will_ include a prefix to avoid conflicts with any 
 
 Однако в целом мы рекомендуем рассматривать функциональность наведения как улучшение и не зависеть от неё для работы вашего сайта, поскольку сенсорные устройства не имеют возможности наведения.
 
-### Transitioning outline-color
+### Переход outline-color
 
-The `transition` and `transition-color` utilities now include the `outline-color` property.
+Утилиты `transition` и `transition-color` теперь включают свойство `outline-color`.
 
-This means if you were adding an outline with a custom color on focus, you will see the color transition from the default color. To avoid this, make sure you set the outline color unconditionally, or explicitly set it for both states:
+Это означает, что если вы добавляли контур с пользовательским цветом в фокусе, вы увидите переход цвета от цвета по умолчанию. Чтобы избежать этого, убедитесь, что вы задали цвет контура безусловно или явно задали его для обоих состояний:
 
 ```html
 <!-- [!code filename:HTML] -->

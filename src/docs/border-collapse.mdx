@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "border-collapse";
-export const description = "Utilities for controlling whether table borders should collapse or be separated.";
+export const description = "Утилиты для управления тем, должны ли границы таблицы объединяться или разделяться.";
 
 <ApiTable
   rows={[
@@ -15,9 +15,9 @@ export const description = "Utilities for controlling whether table borders shou
 
 ## Примеры
 
-### Collapsing table borders
+### Объединение границ таблицы
 
-Use the `border-collapse` utility to combine adjacent cell borders into a single border when possible:
+Используйте утилиту `border-collapse` для объединения смежных границ ячеек в одну границу, где это возможно:
 
 <Figure>
 
@@ -92,11 +92,11 @@ Use the `border-collapse` utility to combine adjacent cell borders into a single
 
 </Figure>
 
-Note that this includes collapsing borders on the top-level `<table>` tag.
+Обратите внимание, что это включает объединение границ на корневом теге `<table>`.
 
-### Separating table borders
+### Разделение границ таблицы
 
-Use the `border-separate` utility to force each cell to display its own separate borders:
+Используйте утилиту `border-separate`, чтобы каждая ячейка отображала свои собственные отдельные границы:
 
 <Figure>
 

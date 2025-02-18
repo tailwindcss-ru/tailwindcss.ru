@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "box-sizing";
-export const description = "Utilities for controlling how the browser should calculate an element's total size.";
+export const description = "Утилиты для управления тем, как браузер должен вычислять общий размер элемента.";
 
 <ApiTable
   rows={[
@@ -16,11 +16,11 @@ export const description = "Utilities for controlling how the browser should cal
 
 ## Примеры
 
-### Including borders and padding
+### Включая границы и отступы
 
-Use the `box-border` utility to set an element's `box-sizing` to `border-box`, telling the browser to include the element's borders and padding when you give it a height or width.
+Используйте утилиту `box-border` для установки `box-sizing` элемента в значение `border-box`, указывая браузеру включать границы и отступы элемента при задании его высоты или ширины.
 
-This means a 100px &times; 100px element with a 2px border and 4px of padding on all sides will be rendered as 100px &times; 100px, with an internal content area of 88px &times; 88px:
+Это означает, что элемент размером 100px × 100px с границей 2px и отступами 4px со всех сторон будет отображаться как 100px × 100px, с внутренней областью содержимого 88px × 88px:
 
 <Figure>
 
@@ -92,13 +92,13 @@ This means a 100px &times; 100px element with a 2px border and 4px of padding on
 
 </Figure>
 
-Tailwind makes this the default for all elements in our [preflight base styles](/docs/preflight).
+Tailwind делает это поведением по умолчанию для всех элементов в наших [базовых стилях preflight](/docs/preflight).
 
-### Excluding borders and padding
+### Исключая границы и отступы
 
-Use the `box-content` utility to set an element's `box-sizing` to `content-box`, telling the browser to add borders and padding on top of the element's specified width or height.
+Используйте утилиту `box-content` для установки `box-sizing` элемента в значение `content-box`, указывая браузеру добавлять границы и отступы поверх указанной ширины или высоты элемента.
 
-This means a 100px &times; 100px element with a 2px border and 4px of padding on all sides will actually be rendered as 112px &times; 112px, with an internal content area of 100px &times; 100px:
+Это означает, что элемент размером 100px × 100px с границей 2px и отступами 4px со всех сторон будет фактически отображаться как 112px × 112px, с внутренней областью содержимого 100px × 100px:
 
 <Figure>
 
