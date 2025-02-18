@@ -19,7 +19,7 @@ export let steps: Step[] = [
     title: "Создайте свой проект",
     body: (
       <p>
-        Start by creating a new Astro project if you don't have one set up already. The most common approach is to use{" "}
+        Начните с создания нового проекта Astro, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
         <a href="https://docs.astro.build/en/install-and-setup/#install-from-the-cli-wizard">create astro</a>.
       </p>
     ),
