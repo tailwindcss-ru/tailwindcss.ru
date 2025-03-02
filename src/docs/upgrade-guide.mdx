@@ -567,7 +567,7 @@ npx @tailwindcss/cli -i input.css -o output.css
 @theme {
   --font-display: "Satoshi", "sans-serif";
 
-  --breakpoint-3xl: 1920px;
+  --breakpoint-3xl: 120rem;
 
   --color-avocado-100: oklch(0.99 0 0);
   --color-avocado-200: oklch(0.98 0.04 113.22);
@@ -583,7 +583,7 @@ npx @tailwindcss/cli -i input.css -o output.css
 :root {
   --tw-font-display: "Satoshi", "sans-serif";
 
-  --tw-breakpoint-3xl: 1920px;
+  --tw-breakpoint-3xl: 120rem;
 
   --tw-color-avocado-100: oklch(0.99 0 0);
   --tw-color-avocado-200: oklch(0.98 0.04 113.22);
@@ -595,7 +595,7 @@ npx @tailwindcss/cli -i input.css -o output.css
 
 ### Добавление пользовательских утилит
 
-В v3 любые пользовательские классы, которые вы определяли внутри `@layer utilities`, распознавались Tailwind как настоящие утилитарные классы и автоматически работали с вариантами, такими как `hover`, `focus` или `lg`.
+В версии 3 любые пользовательские классы, которые вы определили в `@layer utilities` или `@layer components, Tailwind воспринимал бы как настоящий служебный класс и автоматически работал бы с такими вариантами, как `hover`, `focus` или `lg`, с той разницей, что `@layer components` всегда был бы первым в сгенерированной таблице стилей.
 
 В v4 мы используем нативные каскадные слои и больше не перехватываем правило `@layer`, поэтому мы представили API `@utility` в качестве замены:
 
@@ -613,7 +613,27 @@ npx @tailwindcss/cli -i input.css -o output.css
 }
 ```
 
-Узнайте больше о регистрации пользовательских утилит в [документации по добавлению пользовательских утилит](/docs/adding-custom-styles#adding-custom-utilities).
+Пользовательские утилиты теперь также сортируются на основе количества определяемых ими свойств. Это означает, что такие компонентные утилиты, как `.btn`, могут быть перезаписаны другими утилитами Tailwind без дополнительной настройки:
+
+```css
+/* [!code filename:CSS] */
+/* [!code --:8] */
+@layer components {
+  .btn {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: ButtonFace;
+  }
+}
+/* [!code ++:6] */
+@utility btn {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: ButtonFace;
+}
+```
+
+Подробнее о регистрации пользовательских утилит читайте в [документации по добавлению пользовательских утилит](/docs/adding-custom-styles#adding-custom-utilities).
 
 ### Порядок наложения вариантов
 
@@ -724,6 +744,8 @@ npx @tailwindcss/cli -i input.css -o output.css
 /* [!code filename:CSS] */
 @config "../../tailwind.config.js";
 ```
+
+The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0.
 
 ### Значения темы в JavaScript
 
