@@ -1,4 +1,5 @@
 import { css, elixir, html, js, Page, shell, Step, Tile } from "./utils";
+import { css, elixir, html, js, Page, shell, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/phoenix.react.svg";
 
 export let tile: Tile = {
@@ -45,7 +46,7 @@ export let steps: Step[] = [
           [
             # …
             # [!code highlight:2]
-            {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
+            {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
           ]
         end
       `,
@@ -69,10 +70,11 @@ export let steps: Step[] = [
           myproject: [
             args: ~w(
               # [!code highlight:3]
-              --input=css/app.css
-              --output=../priv/static/assets/app.css
+              --input=assets/css/app.css
+              --output=priv/static/assets/app.css
             ),
-            cd: Path.expand("../assets", __DIR__)
+            # [!code highlight:2]
+            cd: Path.expand("..", __DIR__)
           ]
       `,
     },
@@ -138,14 +140,13 @@ export let steps: Step[] = [
     body: (
       <p>
         Добавьте <code>@import</code> в <code>./assets/css/app.css</code>, который импортирует Tailwind CSS.
-        Кроме того, сообщите Tailwind CSS, где сканировать утилиты.
       </p>
     ),
     code: {
       name: "app.css",
       lang: "css",
       code: css`
-        @import "tailwindcss" source("../..");
+        @import "tailwindcss";
       `,
     },
   },

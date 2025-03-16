@@ -64,22 +64,6 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Импортируйте Tailwind CSS",
-    body: (
-      <p>
-        Добавьте <code>@import</code>, который импортирует Tailwind CSS в ваш файл
-        <code>application.tailwind.css</code>, расположенный в каталоге <code>./app/assets/stylesheets</code>.
-      </p>
-    ),
-    code: {
-      name: "application.tailwind.css",
-      lang: "css",
-      code: css`
-        @import "tailwindcss";
-      `,
-    },
-  },
-  {
     title: "Начните процесс сборки",
     body: (
       <p>
