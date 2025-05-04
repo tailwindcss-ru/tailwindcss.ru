@@ -1,5 +1,7 @@
+import { CodeExampleStack } from "@/components/code-example";
+
 export const title = "Добавление пользовательских стилей";
-export const description = "Лучшие практики для добавления своих собственных пользовательских стилей в проекты Tailwind.";
+export const description = "Лучшие практики добавления собственных стилей в проекты Tailwind.";
 
 Часто самая большая проблема при работе с фреймворком заключается в том, чтобы понять, что делать, когда вам нужно что-то, чего фреймворк не обрабатывает для вас.
 
@@ -293,6 +295,74 @@ Tailwind был разработан с нуля для того, чтобы б�
 }
 ```
 
+### Использование вариантов
+
+Используйте директиву `@variant`, чтобы применить вариант Tailwind в пользовательском CSS:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @variant dark {
+    background: black;
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @media (prefers-color-scheme: dark) {
+    background: black;
+  }
+}
+```
+
+</CodeExampleStack>
+
+Если вам необходимо применить несколько вариантов одновременно, используйте вложение:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:6] */
+  @variant dark {
+    @variant hover {
+      background: black;
+    }
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:7] */
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background: black;
+      }
+    }
+  }
+}
+```
+
+</CodeExampleStack>
+
 ## Добавление пользовательских утилит
 
 ### Простые утилиты
@@ -390,6 +460,19 @@ Tailwind был разработан с нуля для того, чтобы б�
 ```
 
 Это будет соответствовать утилитам, таким как `tab-1` и `tab-76`.
+
+#### Литеральные значения
+
+Для поддержки литеральных значений используйте синтаксис `--value('literal')` (обратите внимание на кавычки):
+
+```css
+/* [!code filename:CSS] */
+@utility tab-* {
+  tab-size: --value('inherit', 'initial', 'unset');
+}
+```
+
+This will match utilities like `tab-inherit`, `tab-initial`, and `tab-unset`.
 
 #### Произвольные значения
 
@@ -509,31 +592,38 @@ Tailwind был разработан с нуля для того, чтобы б�
 
 ## Добавление пользовательских вариантов
 
-Используйте директиву `@variant`, чтобы применить вариант Tailwind в пользовательском CSS:
+Помимо использования вариантов, поставляемых с Tailwind, вы также можете добавлять свои собственные варианты с помощью директивы `@custom-variant`:
 
 ```css
-/* [!code filename:CSS] */
-.my-element {
-  background: white;
-
-  /* [!code highlight:4] */
-  @variant dark {
-    background: black;
+@custom-variant theme-midnight {
+  &:where([data-theme="midnight"] *) {
+    @slot;
   }
 }
 ```
 
-Если вам нужно применить несколько вариантов одновременно, используйте вложенность:
+Теперь вы можете использовать вариант `theme-midnight:<utility>` в своем HTML:
+
+```html
+<!-- [!code classes:theme-midnight:bg-black] -->
+<html data-theme="midnight">
+  <button class="theme-midnight:bg-black ..."></button>
+</html>
+```
+
+Вы можете создавать варианты, используя сокращенный синтаксис, когда вложенность не требуется:
 
 ```css
-/* [!code filename:CSS] */
-.my-element {
-  background: white;
+@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
+```
 
-  /* [!code highlight:6] */
-  @variant dark {
-    @variant hover {
-      background: black;
+When a custom variant has multiple rules, they can be nested within each other:
+
+```css
+@custom-variant any-hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @slot;
     }
   }
 }

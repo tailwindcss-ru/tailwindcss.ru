@@ -30,7 +30,7 @@ export let steps: Step[] = [
     body: (
       <p>
         Начните с создания нового проекта Laravel, если у вас его еще нет. Наиболее распространенный подход — использовать{" "}
-        <a href="https://laravel.com/docs/11.x#creating-an-application">установщик Laravel</a>.
+        <a href="https://laravel.com/docs#creating-an-application">установщик Laravel</a>.
       </p>
     ),
     code: {

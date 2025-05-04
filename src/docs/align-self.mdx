@@ -13,9 +13,12 @@ export const description =
     ["self-auto", "align-self: auto;"],
     ["self-start", "align-self: flex-start;"],
     ["self-end", "align-self: flex-end;"],
+    ["self-end-safe", "align-self: safe flex-end;"],
     ["self-center", "align-self: center;"],
+    ["self-center-safe", "align-self: safe center;"],
     ["self-stretch", "align-self: stretch;"],
     ["self-baseline", "align-self: baseline;"],
+    ["self-baseline", "align-self: last baseline;"],
   ]}
 />
 
@@ -23,7 +26,7 @@ export const description =
 
 ### Auto
 
-Используйте `self-auto`, чтобы выровнять элемент на основе значения свойства контейнера `align-items`:
+Используйте утилиту `self-auto` для выравнивания элемента на основе значения свойства `align-items` контейнера:
 
 <Figure>
 
@@ -57,7 +60,7 @@ export const description =
 
 ### Start
 
-Используйте `self-start`, чтобы выровнять элемент по началу поперечной оси контейнера, несмотря на значение контейнера `align-items`:
+Используйте утилиту `self-start` для выравнивания элемента по началу поперечной оси контейнера, независимо от значения `align-items` контейнера:
 
 <Figure>
 
@@ -91,7 +94,7 @@ export const description =
 
 ### Center
 
-Используйте `self-center`, чтобы выровнять элемент по центру поперечной оси контейнера, несмотря на значение контейнера `align-items`:
+Используйте утилиту `self-center` для выравнивания элемента по центру поперечной оси контейнера, независимо от значения `align-items` контейнера:
 
 <Figure>
 
@@ -125,7 +128,7 @@ export const description =
 
 ### End
 
-Используйте `self-end`, чтобы выровнять элемент по концу поперечной оси контейнера, несмотря на значение контейнера `align-items`:
+Используйте утилиту `self-end`, чтобы выровнять элемент по концу поперечной оси контейнера, независимо от значения `align-items` контейнера:
 
 <Figure>
 
@@ -159,7 +162,7 @@ export const description =
 
 ### Stretch
 
-Используйте `self-stretch`, чтобы растянуть элемент для заполнения поперечной оси контейнера, несмотря на значение контейнера `align-items`:
+Используйте утилиту `self-stretch`, чтобы растянуть элемент для заполнения поперечной оси контейнера, несмотря на значение `align-items` контейнера:
 
 <Figure>
 
@@ -190,6 +193,101 @@ export const description =
 ```
 
 </Figure>
+
+### Baseline
+
+Используйте утилиту `self-baseline` для выравнивания элемента таким образом, чтобы его базовая линия совпадала с базовой линией поперечной оси flex-контейнера:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex w-full gap-4 rounded-lg text-center font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex flex-1 items-center justify-center self-baseline rounded-lg bg-blue-500 pt-2 pb-6">01</div>
+        <div className="flex flex-1 items-center justify-center self-baseline rounded-lg bg-blue-500 pt-8 pb-12">
+          02
+        </div>
+        <div className="flex flex-1 items-center justify-center self-baseline rounded-lg bg-blue-500 pt-12 pb-4">
+          03
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:self-baseline] -->
+<div class="flex ...">
+  <div class="self-baseline pt-2 pb-6">01</div>
+  <div class="self-baseline pt-8 pb-12">02</div>
+  <div class="self-baseline pt-12 pb-4">03</div>
+</div>
+```
+
+</Figure>
+
+### Last baseline
+
+Используйте утилиту `self-baseline-last` для выравнивания элемента вдоль поперечной оси контейнера таким образом, чтобы его базовая линия совпадала с последней базовой линией в контейнере:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="mx-auto grid max-w-md divide-y divide-gray-100 border-x border-x-gray-200 text-gray-700 dark:divide-gray-800 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
+      <div className="grid grid-cols-[auto_1fr_auto] gap-x-4 px-4 py-6">
+        <img
+          className="size-[2rem] rounded-full"
+          src="https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.51a13c67.jpg&w=128&q=80"
+          alt=""
+        />
+        <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Spencer Sharp</div>
+        <p className="self-baseline-last text-sm sm:col-start-2">
+          Working on the future of astronaut recruitment at Space Recruit.
+        </p>
+        <a
+          href="#"
+          className="self-baseline-last font-mono text-xs font-medium text-gray-400 underline hover:text-blue-500 dark:text-gray-500"
+        >
+          spacerecruit.com
+        </a>
+      </div>
+      <div className="grid grid-cols-[auto_1fr_auto] gap-x-4 px-4 py-6">
+        <img
+          className="size-[2rem] rounded-full"
+          src="https://images.unsplash.com/photo-1590895340509-793cb98788c9?q=80&w=256&h=256&&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+        <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Alex Reed</div>
+        <p className="self-baseline-last text-sm sm:col-start-2">A multidisciplinary designer.</p>
+        <a
+          href="#"
+          className="self-baseline-last font-mono text-xs font-medium text-gray-400 underline hover:text-blue-500 dark:text-gray-500"
+        >
+          alex-reed.com
+        </a>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:self-baseline-last] -->
+<div class="grid grid-cols-[1fr_auto]">
+  <div>
+    <img src="img/spencer-sharp.jpg" />
+    <h4>Spencer Sharp</h4>
+    <p class="self-baseline-last">Working on the future of astronaut recruitment at Space Recruit.</p>
+  </div>
+  <p class="self-baseline-last">spacerecruit.com</p>
+</div>
+```
+
+</Figure>
+
+Это полезно для обеспечения выравнивания текстовых элементов друг относительно друга, даже если они имеют разную высоту.
 
 ### Адаптивный дизайн
 

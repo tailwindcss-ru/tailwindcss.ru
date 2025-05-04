@@ -33,15 +33,15 @@ export const description = "Утилиты для управления тень�
     ["shadow-2xl", "box-shadow: var(--shadow-2xl); /* 0 25px 50px -12px rgb(0 0 0 / 0.25) */"],
     ["shadow-none", "box-shadow: 0 0 #0000;"],
     ["shadow-(<custom-property>)", "box-shadow: var(<custom-property>);"],
-    ["shadow-(color:<custom-property>)", "--tw-shadow-color var(<custom-property>);"],
+    ["shadow-(color:<custom-property>)", "--tw-shadow-color: var(<custom-property>);"],
     ["shadow-[<value>]", "box-shadow: <value>;"],
     // Shadow colors
-    ["shadow-inherit", "--tw-shadow-color inherit;"],
-    ["shadow-current", "--tw-shadow-color currentColor;"],
-    ["shadow-transparent", "--tw-shadow-color transparent;"],
+    ["shadow-inherit", "--tw-shadow-color: inherit;"],
+    ["shadow-current", "--tw-shadow-color: currentColor;"],
+    ["shadow-transparent", "--tw-shadow-color: transparent;"],
     ...Object.entries(colors).map(([name, value]) => [
       `shadow-${name}`,
-      `--tw-shadow-color var(--color-${name}); /* ${value} */`,
+      `--tw-shadow-color: var(--color-${name}); /* ${value} */`,
     ]),
     // Inset shadows
     ["inset-shadow-2xs", "box-shadow: var(--inset-shadow-2xs); /* inset 0 1px rgb(0 0 0 / 0.05) */"],
@@ -51,12 +51,12 @@ export const description = "Утилиты для управления тень�
     ["inset-shadow-(<custom-property>)", "box-shadow: var(<custom-property>);"],
     ["inset-shadow-[<value>]", "box-shadow: <value>;"],
     // Inset shadow colors
-    ["inset-shadow-inherit", "--tw-inset-shadow-color inherit;"],
-    ["inset-shadow-current", "--tw-inset-shadow-color currentColor;"],
-    ["inset-shadow-transparent", "--tw-inset-shadow-color transparent;"],
+    ["inset-shadow-inherit", "--tw-inset-shadow-color: inherit;"],
+    ["inset-shadow-current", "--tw-inset-shadow-color: currentColor;"],
+    ["inset-shadow-transparent", "--tw-inset-shadow-color: transparent;"],
     ...Object.entries(colors).map(([name, value]) => [
       `inset-shadow-${name}`,
-      `--tw-inset-shadow-color var(--color-${name}); /* ${value} */`,
+      `--tw-inset-shadow-color: var(--color-${name}); /* ${value} */`,
     ]),
     // Rings
     ["ring", "--tw-ring-shadow: 0 0 0 1px;"],
@@ -97,17 +97,17 @@ export const description = "Утилиты для управления тень�
 
 <Example padding={false}>
   {
-    <div className="flex items-center justify-around gap-4 bg-white px-6 py-14 font-mono font-bold">
+    <div className="flex items-center justify-around gap-4 gap-y-6 bg-white px-6 py-14 font-mono font-bold max-sm:flex-col max-sm:py-10">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">shadow-md</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">shadow-md</p>
         <div className="size-24 rounded-lg bg-white shadow-md"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">shadow-lg</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">shadow-lg</p>
         <div className="size-24 rounded-lg bg-white shadow-lg"></div>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">shadow-xl</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">shadow-xl</p>
         <div className="size-24 rounded-lg bg-white shadow-xl"></div>
       </div>
     </div>
@@ -123,6 +123,42 @@ export const description = "Утилиты для управления тень�
 
 </Figure>
 
+### Изменение непрозрачности
+
+Используйте модификатор непрозрачности, чтобы настроить непрозрачность тени блока:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="flex items-center justify-around gap-4 gap-y-6 bg-white px-6 py-14 font-mono font-bold max-sm:flex-col max-sm:py-10">
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">shadow-xl</p>
+        <div className="size-24 rounded-lg bg-white shadow-xl"></div>
+      </div>
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">shadow-xl/20</p>
+        <div className="size-24 rounded-lg bg-white shadow-xl/20"></div>
+      </div>
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">shadow-xl/30</p>
+        <div className="size-24 rounded-lg bg-white shadow-xl/30"></div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:shadow-xl,shadow-xl/20,shadow-xl/30] -->
+<div class="shadow-xl ..."></div>
+<div class="shadow-xl/20 ..."></div>
+<div class="shadow-xl/30 ..."></div>
+```
+
+</Figure>
+
+По умолчанию непрозрачность теней довольно низкая (25% или меньше), поэтому увеличение непрозрачности (примерно до 50%) сделает тени более выраженными.
+
 ### Установка цвета тени
 
 Используйте утилиты вроде `shadow-indigo-500` и `shadow-cyan-500/50` для изменения цвета тени:
@@ -133,7 +169,7 @@ export const description = "Утилиты для управления тень�
   {
     <div className="flex flex-col justify-center gap-8 py-6 sm:flex-row sm:gap-12">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           shadow-cyan-500/50
         </p>
         <button className="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none">
@@ -141,7 +177,7 @@ export const description = "Утилиты для управления тень�
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           shadow-blue-500/50
         </p>
         <button className="rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/50 focus:outline-none">
@@ -149,7 +185,7 @@ export const description = "Утилиты для управления тень�
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           shadow-indigo-500/50
         </p>
         <button className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/50 focus:outline-none">
@@ -179,17 +215,17 @@ export const description = "Утилиты для управления тень�
 
 <Example padding={false}>
   {
-    <div className="flex items-center justify-around gap-4 bg-white p-6 font-mono font-bold">
+    <div className="flex flex-col items-center justify-around gap-4 gap-y-6 bg-white p-6 font-mono font-bold sm:flex-row">
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">inset-shadow-2xs</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">inset-shadow-2xs</p>
         <div className="size-24 rounded-lg bg-white ring-1 inset-shadow-2xs ring-black/5"></div>
       </div>
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">inset-shadow-xs</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">inset-shadow-xs</p>
         <div className="size-24 rounded-lg bg-white ring-1 inset-shadow-xs ring-black/5"></div>
       </div>
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">inset-shadow-sm</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">inset-shadow-sm</p>
         <div className="size-24 rounded-lg bg-white ring-1 inset-shadow-sm ring-black/5"></div>
       </div>
     </div>
@@ -205,7 +241,7 @@ export const description = "Утилиты для управления тень�
 
 </Figure>
 
-Эти утилиты могут быть полезны для элементов форм или колодцев.
+Вы можете настроить непрозрачность вложенной тени с помощью модификатора непрозрачности, например `inset-shadow-sm/50`. Непрозрачность вложенной тени по умолчанию довольно низкая (5%), поэтому увеличение непрозрачности (например, до 50%) сделает вложенные тени более выраженными.
 
 ### Установка цвета внутренней тени
 
@@ -215,13 +251,13 @@ export const description = "Утилиты для управления тень�
 
 <Example padding={false}>
   {
-    <div className="flex items-center justify-around gap-4 bg-white p-6 font-mono font-bold">
+    <div className="flex flex-col items-center justify-around gap-4 gap-y-6 bg-white p-6 font-mono font-bold sm:flex-row">
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">inset-shadow-indigo-500</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">inset-shadow-indigo-500</p>
         <div className="size-24 rounded-lg bg-indigo-200 inset-shadow-sm inset-shadow-indigo-500"></div>
       </div>
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">inset-shadow-indigo-500/50</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">inset-shadow-indigo-500/50</p>
         <div className="size-24 rounded-lg bg-indigo-200 inset-shadow-sm inset-shadow-indigo-500/50"></div>
       </div>
     </div>
@@ -246,21 +282,21 @@ export const description = "Утилиты для управления тень�
 
 <Example>
   {
-    <div className="grid grid-cols-1 gap-4 text-center leading-6 font-bold text-white sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-6 text-center leading-6 font-bold text-white sm:grid-cols-3">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">ring</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ring</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring dark:bg-white/15 dark:text-gray-200">
           Subscribe
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">ring-2</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ring-2</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-2 dark:bg-white/15 dark:text-gray-200">
           Subscribe
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">ring-4</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ring-4</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-4 dark:bg-white/15 dark:text-gray-200">
           Subscribe
         </button>
@@ -288,15 +324,15 @@ export const description = "Утилиты для управления тень�
 
 <Example>
   {
-    <div className="grid grid-cols-1 gap-4 text-center leading-6 font-bold text-white sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-6 text-center leading-6 font-bold text-white sm:grid-cols-2">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">ring-blue-500</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ring-blue-500</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-2 ring-blue-500 dark:bg-white/15 dark:text-gray-200">
           Subscribe
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           ring-blue-500/50
         </p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 ring-2 ring-blue-500/50 dark:bg-white/15 dark:text-gray-200">
@@ -325,21 +361,21 @@ export const description = "Утилиты для управления тень�
 
 <Example>
   {
-    <div className="grid grid-cols-1 gap-4 text-center leading-6 font-bold text-white sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-6 text-center leading-6 font-bold text-white sm:grid-cols-3">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">inset-ring</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">inset-ring</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 inset-ring dark:bg-white/15 dark:text-gray-200">
           Subscribe
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">inset-ring-2</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">inset-ring-2</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 inset-ring-2 dark:bg-white/15 dark:text-gray-200">
           Subscribe
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">inset-ring-4</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">inset-ring-4</p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 inset-ring-4 dark:bg-white/15 dark:text-gray-200">
           Subscribe
         </button>
@@ -367,9 +403,9 @@ export const description = "Утилиты для управления тень�
 
 <Example>
   {
-    <div className="grid grid-cols-1 gap-4 text-center leading-6 font-bold text-white sm:grid-cols-2">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-6 text-center leading-6 font-bold text-white sm:grid-cols-2">
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           inset-ring-blue-500
         </p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 inset-ring-2 inset-ring-blue-500 dark:bg-white/15 dark:text-gray-200">
@@ -377,7 +413,7 @@ export const description = "Утилиты для управления тень�
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500 dark:text-gray-400">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
           inset-ring-blue-500/50
         </p>
         <button className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-700 inset-ring-2 inset-ring-blue-500/50 dark:bg-white/15 dark:text-gray-200">
@@ -408,7 +444,7 @@ export const description = "Утилиты для управления тень�
   {
     <div className="flex items-center justify-around gap-4 bg-white p-6 font-mono font-bold">
       <div className="flex flex-col items-center">
-        <p className="mb-3 text-center font-mono text-sm font-medium text-gray-500">shadow-none</p>
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500">shadow-none</p>
         <div className="size-24 rounded-lg outline-1 -outline-offset-1 outline-gray-900/20 outline-dashed"></div>
       </div>
     </div>
