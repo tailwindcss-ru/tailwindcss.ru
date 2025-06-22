@@ -767,8 +767,6 @@ export function BrandedButton({ buttonColor, buttonColorHover, textColor, childr
 
 Когда дублирование локализовано в группе элементов в одном файле, самый простой способ справиться с этим — использовать [многокурсорное редактирование](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor), чтобы быстро выбрать и отредактировать список классов для каждого элемента одновременно:
 
-Вы удивитесь, как часто это оказывается лучшим решением. Если вы можете быстро отредактировать все дублирующиеся списки классов одновременно, нет никакой пользы в введении какой-либо дополнительной абстракции.
-
 <MultiCursorAnimation>
   <Figure>
     <Example>
@@ -779,6 +777,8 @@ export function BrandedButton({ buttonColor, buttonColorHover, textColor, childr
     </CodeExampleWrapper>
   </Figure>
 </MultiCursorAnimation>
+
+Вы удивитесь, как часто это оказывается лучшим решением. Если вы можете быстро редактировать все дублированные списки классов одновременно, нет смысла вводить дополнительную абстракцию.
 
 ### Использование компонентов
 

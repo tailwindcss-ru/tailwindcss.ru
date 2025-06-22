@@ -93,7 +93,8 @@ export default function Page() {
         </h3>
         <p>
           Самый простой и быстрый способ начать работу с Tailwind CSS с нуля — использовать инструмент Tailwind CLI.
-          CLI также доступен как <Link href="/blog/standalone-cli">автономный исполняемый файл</Link>,
+          CLI также доступен как{" "}
+          <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">автономный исполняемый файл</Link>,{" "}
           если вы хотите использовать его без установки Node.js.
         </p>
       </div>

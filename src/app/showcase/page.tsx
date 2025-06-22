@@ -28,11 +28,12 @@ export default async function Showcase() {
 
       <GridContainer className="mt-10">
         <p className="prose mx-2 max-w-(--breakpoint-md) text-lg leading-8 text-gray-600 dark:text-gray-400">
-          Ну, не совсем <em>что-то</em>, например, с его помощью нельзя построить космический корабль. Но веб-сайт для космического корабля построить точно можно —{" "}
-          <a href="https://www.nasa.gov/" target="_blank" rel="noreferrer">
+          Ну, не совсем <em>ничего</em>, типа, космический корабль с ним не построишь. Но сайт для космического корабля точно построишь —{" "}
+          <a href="https://www.jpl.nasa.gov/" target="_blank" rel="noreferrer">
             NASA
           </a>{" "}
           так и сделало.
+
         </p>
       </GridContainer>
 
@@ -171,7 +172,7 @@ const showcase = [
   },
   {
     name: "NASA Jet Propulsion Laboratory",
-    url: "https://jpl.nasa.gov",
+    url: "https://www.jpl.nasa.gov",
     thumbnail: require("./img/jpl.nasa.gov.png").default,
     video: "/showcase-videos/jpl.nasa.gov.mp4",
     description: "Space laboratory website",

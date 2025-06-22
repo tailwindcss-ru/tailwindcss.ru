@@ -761,7 +761,7 @@ Tailwind CSS v4.0 разработан для современных брауз�
 @config "../../tailwind.config.js";
 ```
 
-The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0.
+The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0. To safelist utilities in v4 use [`@source inline()`](/docs/detecting-classes-in-source-files#safelisting-specific-utilities).
 
 ### Значения темы в JavaScript
 
@@ -823,4 +823,10 @@ let shadow = styles.getPropertyValue("--shadow-xl");
 </style>
 ```
 
-Вы можете найти больше документации по [использованию Tailwind с CSS-модулями](/docs/compatibility#css-modules).
+Вы можете найти больше документации по [использованию Tailwind с модулями CSS](/docs/compatibility#css-modules).
+
+### Использование Sass, Less и Stylus
+
+Tailwind CSS v4.0 не предназначен для использования с препроцессорами CSS, такими как Sass, Less или Stylus. Думайте о самом Tailwind CSS как о вашем препроцессоре — вам не следует использовать Tailwind с Sass по той же причине, по которой вы не используете Sass со Stylus. Из-за этого невозможно использовать Sass, Less или Stylus для ваших таблиц стилей или блоков `<style>` в Vue, Svelte, Astro и т. д.
+
+Узнайте больше в [документации по совместимости](/docs/compatibility#sass-less-and-stylus).
