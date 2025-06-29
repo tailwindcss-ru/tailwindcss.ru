@@ -3,26 +3,26 @@ import Logo from "@/docs/img/guides/gatsby.react.svg";
 
 export let tile: Tile = {
   title: "Gatsby",
-  description: "Framework for building static sites with React and GraphQL.",
+  description: "Фреймворк для создания статических сайтов с React и GraphQL.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Install Tailwind CSS with Gatsby",
-  description: "Setting up Tailwind CSS in a Gatsby project.",
+  title: "Установка Tailwind CSS с Gatsby",
+  description: "Настройка Tailwind CSS в проекте Gatsby.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Создайте ваш проект",
     body: (
       <p>
-        Start by creating a new Gatsby project if you don’t have one set up already. The most common approach is to use{" "}
+        Начните с создания нового проекта Gatsby, если у вас еще нет настроенного. Самый распространенный подход — использовать{" "}
         <a href="https://www.gatsbyjs.com/docs/reference/gatsby-cli/#how-to-use-gatsby-cli">Gatsby CLI</a>.
       </p>
     ),
     code: {
-      name: "Terminal",
+      name: "Терминал",
       lang: "shell",
       code: shell`
         gatsby new my-project
@@ -31,15 +31,15 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Установите Tailwind CSS",
     body: (
       <p>
-        Using npm, install <code>@tailwindcss/postcss</code>, its peer dependencies, and{" "}
+        Используя npm, установите <code>@tailwindcss/postcss</code>, его peer зависимости и{" "}
         <code>gatsby-plugin-postcss</code>.
       </p>
     ),
     code: {
-      name: "Terminal",
+      name: "Терминал",
       lang: "shell",
       code: shell`
         npm install @tailwindcss/postcss tailwindcss postcss gatsby-plugin-postcss
@@ -47,12 +47,12 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Enable the Gatsby PostCSS plugin",
+    title: "Включите Gatsby PostCSS плагин",
     body: (
       <p>
-        In your <code>gatsby-config.js</code> file, enable <code>gatsby-plugin-postcss</code>. See{" "}
-        <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-postcss/">the plugin's documentation</a> for more
-        information.
+        В вашем файле <code>gatsby-config.js</code> включите <code>gatsby-plugin-postcss</code>. Смотрите{" "}
+        <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-postcss/">документацию плагина</a> для получения дополнительной
+        информации.
       </p>
     ),
     code: {
@@ -70,11 +70,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS Plugins",
+    title: "Настройте PostCSS плагины",
     body: (
       <p>
-        Create a <code>postcss.config.js</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
+        Создайте файл <code>postcss.config.js</code> в корне вашего проекта и добавьте{" "}
+        <code>@tailwindcss/postcss</code> плагин в вашу PostCSS конфигурацию.
       </p>
     ),
     code: {
@@ -91,10 +91,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Create a <code>./src/styles/global.css</code> file and add an <code>@import</code> for Tailwind CSS.
+        Создайте файл <code>./src/styles/global.css</code> и добавьте <code>@import</code> для Tailwind CSS.
       </p>
     ),
     code: {
@@ -106,11 +106,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import the CSS file",
+    title: "Импортируйте CSS файл",
     body: (
       <p>
-        Create a <code>gatsby-browser.js</code> file at the root of your project if it doesn’t already exist, and import
-        your newly-created <code>./src/styles/global.css</code> file.
+        Создайте файл <code>gatsby-browser.js</code> в корне вашего проекта, если он еще не существует, и импортируйте
+        ваш недавно созданный файл <code>./src/styles/global.css</code>.
       </p>
     ),
     code: {
@@ -122,14 +122,14 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Запустите процесс сборки",
     body: (
       <p>
-        Run your build process with <code>gatsby develop</code>.
+        Запустите процесс сборки с помощью <code>gatsby develop</code>.
       </p>
     ),
     code: {
-      name: "Terminal",
+      name: "Терминал",
       lang: "shell",
       code: shell`
         gatsby develop
@@ -137,8 +137,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Начните использовать Tailwind в вашем проекте",
+    body: <p>Начните использовать утилитарные классы Tailwind для стилизации вашего контента.</p>,
     code: {
       name: "index.js",
       lang: "js",
@@ -148,7 +148,7 @@ export let steps: Step[] = [
             <Layout>
               /* [!code highlight:4] */
               <h1 className="text-3xl font-bold underline">
-                Hello world!
+                Привет, мир!
               </h1>
             </Layout>
           )

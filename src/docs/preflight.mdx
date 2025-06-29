@@ -232,9 +232,9 @@ video {
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
-When importing Tailwind CSS' files individually, features like `source()`, `theme()`, and `prefix()` should go on their respective imports.
+При импорте файлов Tailwind CSS по отдельности функции типа `source()`, `theme()` и `prefix()` должны быть размещены на соответствующих импортах.
 
-For example, source detection affects generated utilities, so `source(…)` should be added to the `utilities.css` import:
+Например, обнаружение исходного кода влияет на сгенерированные утилиты, поэтому `source(…)` должен быть добавлен к импорту `utilities.css`:
 
 ```css
 /* [!code filename:CSS] */
@@ -245,7 +245,7 @@ For example, source detection affects generated utilities, so `source(…)` shou
 @import "tailwindcss/utilities.css" layer(utilities) source(none);  /* [!code ++] */
 ```
 
-The same goes for `important`, which also affects utilities:
+То же самое касается `important`, который также влияет на утилиты:
 
 ```css
 /* [!code filename:CSS] */
@@ -256,7 +256,7 @@ The same goes for `important`, which also affects utilities:
 @import "tailwindcss/utilities.css" layer(utilities) important;  /* [!code ++] */
 ```
 
-Similarly, `theme(static)` and `theme(inline)` affect the generated theme variables and should be placed on the `theme.css` import:
+Аналогично, `theme(static)` и `theme(inline)` влияют на сгенерированные переменные темы и должны быть размещены на импорте `theme.css`:
 
 ```css
 /* [!code filename:CSS] */
@@ -267,7 +267,7 @@ Similarly, `theme(static)` and `theme(inline)` affect the generated theme variab
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
-Finally, using a prefix with `prefix(tw)` affects the utilities and variables, so it should go on both imports:
+Наконец, использование префикса с `prefix(tw)` влияет на утилиты и переменные, поэтому он должен быть размещен на обоих импортах:
 
 ```css
 /* [!code filename:CSS] */
