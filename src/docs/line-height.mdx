@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "line-height";
-export const description = "Utilities for controlling the leading, or line height, of an element.";
+export const description = "Утилиты для управления интерлиньяжем, или высотой строки, элемента.";
 
 <ApiTable
   rows={[
@@ -22,7 +22,7 @@ export const description = "Utilities for controlling the leading, or line heigh
 
 ### Базовый пример
 
-Use font size utilities like `text-sm/6` and `text-lg/7` to set the font size and line-height of an element at the same time:
+Используйте утилиты размера шрифта типа `text-sm/6` и `text-lg/7` для одновременной установки размера шрифта и высоты строки элемента:
 
 <Figure>
 
@@ -31,25 +31,25 @@ Use font size utilities like `text-sm/6` and `text-lg/7` to set the font size an
     <div>
       <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-sm/6</span>
       <p className="text-sm/6 text-gray-900 dark:text-gray-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
-        my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship
-        of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел
+        мимо волн, на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство
+        всех живых существ, но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
       </p>
     </div>
     <div>
       <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-sm/7</span>
       <p className="text-sm/7 text-gray-900 dark:text-gray-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
-        my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship
-        of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел
+        мимо волн, на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство
+        всех живых существ, но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
       </p>
     </div>
     <div>
       <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-sm/8</span>
       <p className="text-sm/8 text-gray-900 dark:text-gray-200">
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
-        my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship
-        of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел
+        мимо волн, на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство
+        всех живых существ, но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
       </p>
     </div>
 
@@ -58,18 +58,18 @@ Use font size utilities like `text-sm/6` and `text-lg/7` to set the font size an
 
 ```html
 <!-- [!code classes:text-base/6,text-base/7,text-base/8] -->
-<p class="text-base/6 ...">So I started to walk into the water...</p>
-<p class="text-base/7 ...">So I started to walk into the water...</p>
-<p class="text-base/8 ...">So I started to walk into the water...</p>
+<p class="text-base/6 ...">Так я начал заходить в воду...</p>
+<p class="text-base/7 ...">Так я начал заходить в воду...</p>
+<p class="text-base/8 ...">Так я начал заходить в воду...</p>
 ```
 
 </Figure>
 
-Each font size utility also sets a default line height when one isn't provided. You can learn more about these values and how to customize them in the [font-size documentation](/docs/font-size).
+Каждая утилита размера шрифта также устанавливает высоту строки по умолчанию, когда она не предоставлена. Вы можете узнать больше об этих значениях и о том, как их настроить, в [документации по размеру шрифта](/docs/font-size).
 
-### Setting independently
+### Установка независимо
 
-Use `leading-<number>` utilities like `leading-6` and `leading-7` to set the line height of an element independent of the font-size:
+Используйте утилиты `leading-<number>` типа `leading-6` и `leading-7` для установки высоты строки элемента независимо от размера шрифта:
 
 <Figure>
 
@@ -79,25 +79,25 @@ Use `leading-<number>` utilities like `leading-6` and `leading-7` to set the lin
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">leading-6</span>
         <p className="leading-6 text-gray-900 dark:text-gray-200">
-          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
-          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
-          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+          Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел мимо волн, 
+          на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство всех живых существ, 
+          но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">leading-7</span>
         <p className="leading-7 text-gray-900 dark:text-gray-200">
-          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
-          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
-          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+          Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел мимо волн, 
+          на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство всех живых существ, 
+          но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">leading-8</span>
         <p className="leading-8 text-gray-900 dark:text-gray-200">
-          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
-          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
-          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+          Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел мимо волн, 
+          на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство всех живых существ, 
+          но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
         </p>
       </div>
     </div>
@@ -106,30 +106,30 @@ Use `leading-<number>` utilities like `leading-6` and `leading-7` to set the lin
 
 ```html
 <!-- [!code classes:leading-6,leading-7,leading-8] -->
-<p class="text-sm leading-6">So I started to walk into the water...</p>
-<p class="text-sm leading-7">So I started to walk into the water...</p>
-<p class="text-sm leading-8">So I started to walk into the water...</p>
+<p class="text-sm leading-6">Так я начал заходить в воду...</p>
+<p class="text-sm leading-7">Так я начал заходить в воду...</p>
+<p class="text-sm leading-8">Так я начал заходить в воду...</p>
 ```
 
 </Figure>
 
-### Removing the leading
+### Удаление интерлиньяжа
 
-Use the `leading-none` utility to set the line height of an element equal to its font size:
+Используйте утилиту `leading-none` для установки высоты строки элемента равной размеру шрифта:
 
 <Figure>
 
 <Example>
   {
     <p className="mx-auto max-w-2xs text-2xl leading-none text-gray-900 dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      Быстрая коричневая лиса перепрыгивает через ленивую собаку.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:leading-none] -->
-<p class="text-2xl leading-none ...">The quick brown fox...</p>
+<p class="text-2xl leading-none ...">Быстрая коричневая лиса...</p>
 ```
 
 </Figure>

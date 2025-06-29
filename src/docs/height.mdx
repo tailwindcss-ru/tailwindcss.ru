@@ -6,7 +6,7 @@ import { DynamicViewportExample } from "@/components/dynamic-viewport-example.ts
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "height";
-export const description = "Utilities for setting the height of an element.";
+export const description = "Утилиты для установки высоты элемента.";
 
 <ApiTable
   rows={[
@@ -51,7 +51,7 @@ export const description = "Utilities for setting the height of an element.";
 
 ### Базовый пример
 
-Use `h-<number>` utilities like `h-24` and `h-64` to set an element to a fixed height based on the spacing scale:
+Используйте утилиты `h-<number>` типа `h-24` и `h-64` для установки элемента на фиксированную высоту на основе шкалы интервалов:
 
 <Figure>
 
@@ -96,9 +96,9 @@ Use `h-<number>` utilities like `h-24` and `h-64` to set an element to a fixed h
 
 </Figure>
 
-### Using a percentage
+### Использование процентов
 
-Use `h-full` or `h-<fraction>` utilities like `h-1/2` and `h-2/5` to give an element a percentage-based height:
+Используйте утилиты `h-full` или `h-<fraction>` типа `h-1/2` и `h-2/5` для придания элементу высоты на основе процентов:
 
 <Figure>
 
@@ -150,9 +150,9 @@ Use `h-full` or `h-<fraction>` utilities like `h-1/2` and `h-2/5` to give an ele
 
 </Figure>
 
-### Matching viewport
+### Соответствие области просмотра
 
-Use the `h-screen` utility to make an element span the entire height of the viewport:
+Используйте утилиту `h-screen` для того, чтобы элемент занимал всю высоту области просмотра:
 
 ```html
 <!-- [!code classes:h-screen] -->
@@ -161,11 +161,11 @@ Use the `h-screen` utility to make an element span the entire height of the view
 </div>
 ```
 
-### Matching dynamic viewport
+### Соответствие динамической области просмотра
 
-Use the `h-dvh` utility to make an element span the entire height of the viewport, which changes as the browser UI expands or contracts:
+Используйте утилиту `h-dvh` для того, чтобы элемент занимал всю высоту области просмотра, которая изменяется при расширении или сжатии пользовательского интерфейса браузера:
 
-<Figure hint="Scroll the viewport to see the viewport height change">
+<Figure hint="Прокрутите область просмотра, чтобы увидеть изменение высоты области просмотра">
 
 <Example padding={false}>
   {<DynamicViewportExample unit="dvh" colorStyles="dark:bg-pink-500 bg-pink-500 border border-pink-400" />}
@@ -180,11 +180,11 @@ Use the `h-dvh` utility to make an element span the entire height of the viewpor
 
 </Figure>
 
-### Matching large viewport
+### Соответствие большой области просмотра
 
-Use the `h-lvh` utility to set an element's height to the largest possible height of the viewport:
+Используйте утилиту `h-lvh` для установки высоты элемента на максимально возможную высоту области просмотра:
 
-<Figure hint="Scroll the viewport to see the viewport height change">
+<Figure hint="Прокрутите область просмотра, чтобы увидеть изменение высоты области просмотра">
 
 <Example padding={false}>
   {<DynamicViewportExample unit="lvh" colorStyles="dark:bg-indigo-500 bg-indigo-500 border border-indigo-400" />}
@@ -199,11 +199,11 @@ Use the `h-lvh` utility to set an element's height to the largest possible heigh
 
 </Figure>
 
-### Matching small viewport
+### Соответствие малой области просмотра
 
-Use the `h-svh` utility to set an element's height to the smallest possible height of the viewport:
+Используйте утилиту `h-svh` для установки высоты элемента на минимально возможную высоту области просмотра:
 
-<Figure hint="Scroll the viewport to see the viewport height change">
+<Figure hint="Прокрутите область просмотра, чтобы увидеть изменение высоты области просмотра">
 
 <Example padding={false}>
   {<DynamicViewportExample unit="svh" colorStyles="dark:bg-purple-500 bg-purple-500 border border-purple-400" />}
@@ -218,9 +218,9 @@ Use the `h-svh` utility to set an element's height to the smallest possible heig
 
 </Figure>
 
-### Setting both width and height
+### Установка ширины и высоты одновременно
 
-Use utilities like `size-px`, `size-4`, and `size-full` to set both the width and height of an element at the same time:
+Используйте утилиты типа `size-px`, `size-4` и `size-full` для одновременной установки ширины и высоты элемента:
 
 <Figure>
 

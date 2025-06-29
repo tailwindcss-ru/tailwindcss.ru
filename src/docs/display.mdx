@@ -6,7 +6,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "display";
-export const description = "Utilities for controlling the display box type of an element.";
+export const description = "Утилиты для управления типом блока отображения элемента.";
 
 <ApiTable
   rows={[
@@ -63,34 +63,34 @@ export const description = "Utilities for controlling the display box type of an
 
 ## Примеры
 
-### Block and Inline
+### Block и Inline
 
-Use the `inline`, `inline-block`, and `block` utilities to control the flow of text and elements:
+Используйте утилиты `inline`, `inline-block` и `block` для управления потоком текста и элементов:
 
 <Figure>
 
 <Example>
   {
     <div className="mx-auto max-w-xs px-4 text-sm leading-6 text-gray-500 sm:text-base sm:leading-7 dark:text-gray-300">
-      When controlling the flow of text, using the CSS property{" "}
+      При управлении потоком текста использование CSS свойства{" "}
       <span className="inline rounded bg-sky-100 font-mono text-sm font-bold text-gray-900 dark:bg-white/15 dark:text-gray-200">
         display: inline
       </span>{" "}
-      will cause the text inside the element to wrap normally.
+      заставит текст внутри элемента переноситься нормально.
       <br />
       <br />
-      While using the property{" "}
+      В то время как использование свойства{" "}
       <span className="inline-block rounded bg-sky-100 font-mono text-sm font-bold text-gray-900 dark:bg-white/15 dark:text-gray-200">
         display: inline-block
       </span>{" "}
-      will wrap the element to prevent the text inside from extending beyond its parent.
+      обернет элемент, чтобы предотвратить выход текста за пределы его родителя.
       <br />
       <br />
-      Lastly, using the property{" "}
+      Наконец, использование свойства{" "}
       <span className="block rounded bg-sky-100 font-mono text-sm font-bold text-gray-900 dark:bg-white/15 dark:text-gray-200">
         display: block
       </span>{" "}
-      will put the element on its own line and fill its parent.
+      поместит элемент на свою собственную строку и заполнит его родителя.
     </div>
   }
 </Example>
@@ -98,16 +98,16 @@ Use the `inline`, `inline-block`, and `block` utilities to control the flow of t
 ```html
 <!-- [!code classes:inline,inline-block,block] -->
 <p>
-  When controlling the flow of text, using the CSS property <span class="inline">display: inline</span> will cause the
-  text inside the element to wrap normally.
+  При управлении потоком текста использование CSS свойства <span class="inline">display: inline</span> заставит
+  текст внутри элемента переноситься нормально.
 </p>
 <p>
-  While using the property <span class="inline-block">display: inline-block</span> will wrap the element to prevent the
-  text inside from extending beyond its parent.
+  В то время как использование свойства <span class="inline-block">display: inline-block</span> обернет элемент, чтобы предотвратить
+  выход текста за пределы его родителя.
 </p>
 <p>
-  Lastly, using the property <span class="block">display: block</span> will put the element on its own line and fill its
-  parent.
+  Наконец, использование свойства <span class="block">display: block</span> поместит элемент на свою собственную строку и заполнит его
+  родителя.
 </p>
 ```
 
@@ -115,7 +115,7 @@ Use the `inline`, `inline-block`, and `block` utilities to control the flow of t
 
 ### Flow Root
 
-Use the `flow-root` utility to create a block-level element with its own [block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context):
+Используйте утилиту `flow-root` для создания блочного элемента с собственным [контекстом блочного форматирования](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context):
 
 <Figure>
 
@@ -130,8 +130,8 @@ Use the `flow-root` utility to create a block-level element with its own [block 
           <Stripes border className="h-4" />
         </div>
         <div className="my-4">
-          Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New York Public
-          Library"? Well that may not mean anything to you, but that means a lot to me. One whole hell of a lot.
+          Ну, позвольте мне рассказать вам кое-что, забавный мальчик. Знаете эту маленькую печать, ту, что говорит "Нью-Йоркская публичная
+          библиотека"? Ну, это может ничего не значить для вас, но для меня это много значит. Очень много.
         </div>
       </div>
       <div className="relative mt-0.5 flow-root">
@@ -142,9 +142,9 @@ Use the `flow-root` utility to create a block-level element with its own [block 
           <Stripes border className="h-4" />
         </div>
         <div className="my-4">
-          Sure, go ahead, laugh if you want to. I've seen your type before: Flashy, making the scene, flaunting
-          convention. Yeah, I know what you're thinking. What's this guy making such a big stink about old library
-          books? Well, let me give you a hint, junior.
+          Конечно, смейтесь, если хотите. Я видел таких, как вы, раньше: Блестящие, создающие сцену, пренебрегающие
+          условностями. Да, я знаю, о чем вы думаете. Что этот парень так много шума поднимает из-за старых библиотечных
+          книг? Ну, позвольте мне дать вам подсказку, младший.
         </div>
       </div>
     </div>
@@ -155,10 +155,10 @@ Use the `flow-root` utility to create a block-level element with its own [block 
 <!-- [!code classes:flow-root] -->
 <div class="p-4">
   <div class="flow-root ...">
-    <div class="my-4 ...">Well, let me tell you something, ...</div>
+    <div class="my-4 ...">Ну, позвольте мне рассказать вам кое-что, ...</div>
   </div>
   <div class="flow-root ...">
-    <div class="my-4 ...">Sure, go ahead, laugh if you want...</div>
+    <div class="my-4 ...">Конечно, смейтесь, если хотите...</div>
   </div>
 </div>
 ```
@@ -167,7 +167,7 @@ Use the `flow-root` utility to create a block-level element with its own [block 
 
 ### Flex
 
-Use the `flex` utility to create a block-level flex container:
+Используйте утилиту `flex` для создания блочного flex-контейнера:
 
 <Figure>
 
@@ -180,8 +180,8 @@ Use the `flex` utility to create a block-level flex container:
           src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80"
         />
         <div className="flex flex-col">
-          <strong className="font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong>
-          <span className="font-medium text-gray-500 dark:text-gray-400">Technical advisor</span>
+          <strong className="font-medium text-gray-900 dark:text-gray-200">Эндрю Альфред</strong>
+          <span className="font-medium text-gray-500 dark:text-gray-400">Технический советник</span>
         </div>
       </div>
     </div>
@@ -193,8 +193,8 @@ Use the `flex` utility to create a block-level flex container:
 <div class="flex items-center">
   <img src="path/to/image.jpg" />
   <div>
-    <strong>Andrew Alfred</strong>
-    <span>Technical advisor</span>
+    <strong>Эндрю Альфред</strong>
+    <span>Технический советник</span>
   </div>
 </div>
 ```
@@ -203,25 +203,25 @@ Use the `flex` utility to create a block-level flex container:
 
 ### Inline Flex
 
-Use the `inline-flex` utility to create an inline flex container that flows with text:
+Используйте утилиту `inline-flex` для создания inline flex-контейнера, который течет с текстом:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-lg p-4 text-sm leading-6 text-gray-500 sm:text-base/7 dark:text-gray-300">
-      Today I spent most of the day researching ways to take advantage of the fact that bottles can be returned for 10
-      cents in Michigan, but only 5 cents here.{" "}
+      Сегодня я провел большую часть дня, исследуя способы воспользоваться тем фактом, что бутылки можно сдать за 10
+      центов в Мичигане, но только за 5 центов здесь.{" "}
       <span className="ml-1 inline-flex items-baseline">
         <img
           src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80"
           alt=""
           className="mr-1 size-5 self-center rounded-full"
         />
-        <span className="font-medium text-gray-900 dark:text-gray-100">Kramer</span>
+        <span className="font-medium text-gray-900 dark:text-gray-100">Крамер</span>
       </span>{" "}
-      keeps telling me there is no way to make it work, that he has run the numbers on every possible approach, but I
-      just have to believe there's a way to make it work, there's simply too much opportunity here.
+      продолжает говорить мне, что нет способа заставить это работать, что он просчитал все возможные подходы, но я
+      просто должен верить, что есть способ заставить это работать, здесь просто слишком много возможностей.
     </p>
   }
 </Example>
@@ -229,12 +229,12 @@ Use the `inline-flex` utility to create an inline flex container that flows with
 ```html
 <!-- [!code classes:inline-flex] -->
 <p>
-  Today I spent most of the day researching ways to ...
+  Сегодня я провел большую часть дня, исследуя способы...
   <span class="inline-flex items-baseline">
     <img src="/img/kramer.jpg" class="mx-1 size-5 self-center rounded-full" />
-    <span>Kramer</span>
+    <span>Крамер</span>
   </span>
-  keeps telling me there is no way to make it work, that ...
+  продолжает говорить мне, что нет способа заставить это работать, что...
 </p>
 ```
 
@@ -242,7 +242,7 @@ Use the `inline-flex` utility to create an inline flex container that flows with
 
 ### Grid
 
-Use the `grid` utility to create a grid container:
+Используйте утилиту `grid` для создания grid-контейнера:
 
 <Figure>
 
@@ -276,7 +276,7 @@ Use the `grid` utility to create a grid container:
 
 ### Inline Grid
 
-Use the `inline-grid` utility to create an inline grid container:
+Используйте утилиту `inline-grid` для создания inline grid-контейнера:
 
 <Figure>
 
@@ -333,7 +333,7 @@ Use the `inline-grid` utility to create an inline grid container:
 
 ### Contents
 
-Use the `contents` utility to create a "phantom" container whose children act like direct children of the parent:
+Используйте утилиту `contents` для создания "фантомного" контейнера, чьи дочерние элементы ведут себя как прямые дочерние элементы родителя:
 
 <Figure>
 
@@ -369,7 +369,7 @@ Use the `contents` utility to create a "phantom" container whose children act li
 
 ### Table
 
-Use the `table`, `table-row`, `table-cell`, `table-caption`, `table-column`, `table-column-group`, `table-header-group`, `table-row-group`, and `table-footer-group` utilities to create elements that behave like their respective table elements:
+Используйте утилиты `table`, `table-row`, `table-cell`, `table-caption`, `table-column`, `table-column-group`, `table-header-group`, `table-row-group` и `table-footer-group` для создания элементов, которые ведут себя как соответствующие элементы таблицы:
 
 <Figure>
 
@@ -380,13 +380,13 @@ Use the `table`, `table-row`, `table-cell`, `table-caption`, `table-column`, `ta
         <div className="table-header-group">
           <div className="table-row">
             <div className="table-cell border-b border-gray-200 p-4 pt-0 pb-3 pl-8 text-left font-medium text-gray-400 dark:border-white/20 dark:text-white">
-              Song
+              Песня
             </div>
             <div className="table-cell border-b border-gray-200 p-4 pt-0 pb-3 text-left font-medium text-gray-400 dark:border-white/20 dark:text-white">
-              Artist
+              Исполнитель
             </div>
             <div className="table-cell border-b border-gray-200 p-4 pt-0 pr-8 pb-3 text-left font-medium text-gray-400 dark:border-white/20 dark:text-white">
-              Year
+              Год
             </div>
           </div>
         </div>
@@ -435,9 +435,9 @@ Use the `table`, `table-row`, `table-cell`, `table-caption`, `table-column`, `ta
 <div class="table w-full ...">
   <div class="table-header-group ...">
     <div class="table-row">
-      <div class="table-cell text-left ...">Song</div>
-      <div class="table-cell text-left ...">Artist</div>
-      <div class="table-cell text-left ...">Year</div>
+      <div class="table-cell text-left ...">Песня</div>
+      <div class="table-cell text-left ...">Исполнитель</div>
+      <div class="table-cell text-left ...">Год</div>
     </div>
   </div>
   <div class="table-row-group">
@@ -464,7 +464,7 @@ Use the `table`, `table-row`, `table-cell`, `table-caption`, `table-column`, `ta
 
 ### Hidden
 
-Use the `hidden` utility to remove an element from the document:
+Используйте утилиту `hidden` для удаления элемента из документа:
 
 <Figure>
 
@@ -492,31 +492,31 @@ Use the `hidden` utility to remove an element from the document:
 
 </Figure>
 
-To visually hide an element but keep it in the document, use the [visibility](/docs/visibility#making-elements-invisible) property instead.
+Чтобы визуально скрыть элемент, но оставить его в документе, используйте вместо этого свойство [visibility](/docs/visibility#making-elements-invisible).
 
-### Screen-reader only
+### Только для программ чтения с экрана
 
-Use `sr-only` to hide an element visually without hiding it from screen readers:
+Используйте `sr-only` для визуального скрытия элемента без скрытия его от программ чтения с экрана:
 
 ```html
 <!-- [!code classes:sr-only] -->
 <a href="#">
   <svg><!-- ... --></svg>
-  <span class="sr-only">Settings</span>
+  <span class="sr-only">Настройки</span>
 </a>
 ```
 
-Use `not-sr-only` to undo `sr-only`, making an element visible to sighted users as well as screen readers:
+Используйте `not-sr-only` для отмены `sr-only`, делая элемент видимым для зрячих пользователей, а также для программ чтения с экрана:
 
 ```html
 <!-- [!code classes:sm:not-sr-only] -->
 <a href="#">
   <svg><!-- ... --></svg>
-  <span class="sr-only sm:not-sr-only">Settings</span>
+  <span class="sr-only sm:not-sr-only">Настройки</span>
 </a>
 ```
 
-This can be useful when you want to visually hide something on small screens but show it on larger screens for example.
+Это может быть полезно, когда вы хотите визуально скрыть что-то на маленьких экранах, но показать на больших экранах, например.
 
 ### Адаптивный дизайн
 

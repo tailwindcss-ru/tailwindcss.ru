@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "transition-duration";
-export const description = "Utilities for controlling the duration of CSS transitions.";
+export const description = "Утилиты для управления продолжительностью CSS-переходов.";
 
 <ApiTable
   rows={[
@@ -19,9 +19,9 @@ export const description = "Utilities for controlling the duration of CSS transi
 
 ### Базовый пример
 
-Use utilities like `duration-150` and `duration-700` to set the transition duration of an element in milliseconds:
+Используйте утилиты типа `duration-150` и `duration-700`, чтобы установить продолжительность перехода элемента в миллисекундах:
 
-<Figure hint="Hover each button to see the expected behavior">
+<Figure hint="Наведите курсор на каждую кнопку, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
@@ -29,19 +29,19 @@ Use utilities like `duration-150` and `duration-700` to set the transition durat
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">duration-150</p>
         <button className="rounded-md bg-violet-500 px-4 py-2 text-sm font-semibold text-white duration-150 ease-in-out hover:scale-125">
-          Button A
+          Кнопка A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">duration-300</p>
         <button className="rounded-md bg-violet-500 px-4 py-2 text-sm font-semibold text-white duration-300 ease-in-out hover:scale-125">
-          Button B
+          Кнопка B
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">duration-700</p>
         <button className="rounded-md bg-violet-500 px-4 py-2 text-sm font-semibold text-white duration-700 ease-in-out hover:scale-125">
-          Button C
+          Кнопка C
         </button>
       </div>
     </div>
@@ -50,9 +50,9 @@ Use utilities like `duration-150` and `duration-700` to set the transition durat
 
 ```html
 <!-- [!code classes:duration-150,duration-300,duration-700] -->
-<button class="transition duration-150 ease-in-out ...">Button A</button>
-<button class="transition duration-300 ease-in-out ...">Button B</button>
-<button class="transition duration-700 ease-in-out ...">Button C</button>
+<button class="transition duration-150 ease-in-out ...">Кнопка A</button>
+<button class="transition duration-300 ease-in-out ...">Кнопка B</button>
+<button class="transition duration-700 ease-in-out ...">Кнопка C</button>
 ```
 
 </Figure>

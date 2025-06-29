@@ -3,7 +3,7 @@ import { Example } from "@/components/example.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "will-change";
-export const description = "Utilities for optimizing upcoming animations of elements that are expected to change.";
+export const description = "Утилиты для оптимизации предстоящих анимаций элементов, которые ожидается изменятся.";
 
 <ApiTable
   rows={[
@@ -18,9 +18,9 @@ export const description = "Utilities for optimizing upcoming animations of elem
 
 ## Примеры
 
-### Optimizing with will change
+### Оптимизация с will-change
 
-Use the `will-change-scroll`, `will-change-contents` and `will-change-transform` utilities to optimize an element that's expected to change in the near future by instructing the browser to prepare the necessary animation before it actually begins:
+Используйте утилиты `will-change-scroll`, `will-change-contents` и `will-change-transform` для оптимизации элемента, который ожидается изменится в ближайшем будущем, инструктируя браузер подготовить необходимую анимацию до того, как она фактически начнется:
 
 ```html
 <!-- [!code classes:will-change-scroll] -->
@@ -29,9 +29,9 @@ Use the `will-change-scroll`, `will-change-contents` and `will-change-transform`
 </div>
 ```
 
-It's recommended that you apply these utilities just before an element changes, and then remove it shortly after it finishes using `will-change-auto`.
+Рекомендуется применять эти утилиты непосредственно перед изменением элемента, а затем удалять их вскоре после завершения, используя `will-change-auto`.
 
-The `will-change` property is intended to be used as a last resort when dealing with **known performance problems**. Avoid using these utilities too much, or simply in anticipation of performance issues, as it could actually cause the page to be less performant.
+Свойство `will-change` предназначено для использования в качестве последнего средства при работе с **известными проблемами производительности**. Избегайте использования этих утилит слишком часто или просто в ожидании проблем с производительностью, так как это может фактически сделать страницу менее производительной.
 
 ### Использование пользовательского значения
 

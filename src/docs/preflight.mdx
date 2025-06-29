@@ -1,11 +1,11 @@
 export const title = "Preflight";
-export const description = "An opinionated set of base styles for Tailwind projects.";
+export const description = "Набор базовых стилей для проектов Tailwind.";
 
 ## Обзор
 
-Built on top of [modern-normalize](https://github.com/sindresorhus/modern-normalize), Preflight is a set of base styles for Tailwind projects that are designed to smooth over cross-browser inconsistencies and make it easier for you to work within the constraints of your design system.
+Построенный поверх [modern-normalize](https://github.com/sindresorhus/modern-normalize), Preflight — это набор базовых стилей для проектов Tailwind, которые предназначены для сглаживания кроссбраузерных несоответствий и упрощения работы в рамках ограничений вашей системы дизайна.
 
-When you import `tailwindcss` into your project, Preflight is automatically injected into the `base` layer:
+Когда вы импортируете `tailwindcss` в свой проект, Preflight автоматически вставляется в слой `base`:
 
 ```css
 /* [!code filename:CSS] */
@@ -17,13 +17,13 @@ When you import `tailwindcss` into your project, Preflight is automatically inje
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
-While most of the styles in Preflight are meant to go unnoticed—they simply make things behave more like you'd expect them to—some are more opinionated and can be surprising when you first encounter them.
+Хотя большинство стилей в Preflight предназначены для того, чтобы оставаться незамеченными — они просто заставляют вещи вести себя более предсказуемо — некоторые из них более субъективны и могут быть неожиданными при первом знакомстве с ними.
 
-For a complete reference of all the styles applied by Preflight, [see the stylesheet](https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/preflight.css).
+Для полного справочника всех стилей, применяемых Preflight, [см. таблицу стилей](https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/preflight.css).
 
-### Margins are removed
+### Отступы удалены
 
-Preflight removes all of the default margins from all elements including headings, blockquotes, paragraphs, etc:
+Preflight удаляет все стандартные отступы со всех элементов, включая заголовки, цитаты, абзацы и т.д.:
 
 ```css
 /* [!code filename:CSS] */
@@ -37,11 +37,11 @@ Preflight removes all of the default margins from all elements including heading
 }
 ```
 
-This makes it harder to accidentally rely on margin values applied by the user-agent stylesheet that are not part of your spacing scale.
+Это затрудняет случайную зависимость от значений отступов, применяемых таблицей стилей пользовательского агента, которые не являются частью вашей шкалы интервалов.
 
-### Border styles are reset
+### Стили границ сброшены
 
-In order to make it easy to add a border by simply adding the `border` class, Tailwind overrides the default border styles for all elements with the following rules:
+Чтобы упростить добавление границы простым добавлением класса `border`, Tailwind переопределяет стандартные стили границ для всех элементов следующими правилами:
 
 ```css
 /* [!code filename:CSS] */
@@ -55,11 +55,11 @@ In order to make it easy to add a border by simply adding the `border` class, Ta
 }
 ```
 
-Since the `border` class only sets the `border-width` property, this reset ensures that adding that class always adds a solid `1px` border that uses `currentColor`.
+Поскольку класс `border` устанавливает только свойство `border-width`, этот сброс гарантирует, что добавление этого класса всегда добавляет сплошную границу `1px`, которая использует `currentColor`.
 
-This can cause some unexpected results when integrating certain third-party libraries, like [Google maps](https://github.com/tailwindlabs/tailwindcss/issues/484) for example.
+Это может вызвать некоторые неожиданные результаты при интеграции определенных сторонних библиотек, например [Google Maps](https://github.com/tailwindlabs/tailwindcss/issues/484).
 
-When you run into situations like this, you can work around them by overriding the Preflight styles with your own custom CSS:
+Когда вы сталкиваетесь с такими ситуациями, вы можете обойти их, переопределив стили Preflight собственным пользовательским CSS:
 
 ```css
 /* [!code filename:CSS] */
@@ -70,9 +70,9 @@ When you run into situations like this, you can work around them by overriding t
 }
 ```
 
-### Headings are unstyled
+### Заголовки не стилизованы
 
-All heading elements are completely unstyled by default, and have the same font size and weight as normal text:
+Все элементы заголовков по умолчанию полностью не стилизованы и имеют тот же размер шрифта и вес, что и обычный текст:
 
 ```css
 /* [!code filename:CSS] */
@@ -87,16 +87,16 @@ h6 {
 }
 ```
 
-The reason for this is two-fold:
+Причина этого двоякая:
 
-- **It helps you avoid accidentally deviating from your type scale**. By default, browsers assign sizes to headings that don't exist in Tailwind's default type scale, and aren't guaranteed to exist in your own type scale.
-- **In UI development, headings should often be visually de-emphasized**. Making headings unstyled by default means any styling you apply to headings happens consciously and deliberately.
+- **Это помогает избежать случайного отклонения от вашей типографической шкалы**. По умолчанию браузеры назначают заголовкам размеры, которых не существует в стандартной типографической шкале Tailwind и которые не гарантированно существуют в вашей собственной типографической шкале.
+- **В разработке UI заголовки часто должны быть визуально приглушены**. Сделать заголовки не стилизованными по умолчанию означает, что любое стилизование, которое вы применяете к заголовкам, происходит осознанно и намеренно.
 
-You can always add default header styles to your project by [adding your own base styles](/docs/adding-custom-styles#adding-base-styles).
+Вы всегда можете добавить стандартные стили заголовков в свой проект, [добавив собственные базовые стили](/docs/adding-custom-styles#adding-base-styles).
 
-### Lists are unstyled
+### Списки не стилизованы
 
-Ordered and unordered lists are unstyled by default, with no bullets or numbers:
+Нумерованные и маркированные списки по умолчанию не стилизованы, без маркеров или номеров:
 
 ```css
 /* [!code filename:CSS] */
@@ -107,35 +107,35 @@ menu {
 }
 ```
 
-If you'd like to style a list, you can do so using the [list-style-type](/docs/list-style-type) and [list-style-position](/docs/list-style-position) utilities:
+Если вы хотите стилизовать список, вы можете сделать это с помощью утилит [list-style-type](/docs/list-style-type) и [list-style-position](/docs/list-style-position):
 
 ```html
 <!-- [!code filename:HTML] -->
 <ul class="list-inside list-disc">
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
+  <li>Один</li>
+  <li>Два</li>
+  <li>Три</li>
 </ul>
 ```
 
-You can always add default list styles to your project by [adding your own base styles](/docs/adding-custom-styles#adding-base-styles).
+Вы всегда можете добавить стандартные стили списков в свой проект, [добавив собственные базовые стили](/docs/adding-custom-styles#adding-base-styles).
 
-#### Accessibility considerations
+#### Соображения доступности
 
-Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). If your content is truly a list but you would like to keep it unstyled, [add a "list" role](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) to the element:
+Не стилизованные списки [не объявляются как списки VoiceOver](https://unfetchedthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). Если ваш контент действительно является списком, но вы хотите оставить его не стилизованным, [добавьте роль "list"](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) к элементу:
 
 ```html
 <!-- [!code filename:HTML] -->
 <ul role="list">
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
+  <li>Один</li>
+  <li>Два</li>
+  <li>Три</li>
 </ul>
 ```
 
-### Images are block-level
+### Изображения являются блочными элементами
 
-Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default:
+Изображения и другие заменяемые элементы (такие как `svg`, `video`, `canvas` и другие) по умолчанию имеют `display: block`:
 
 ```css
 /* [!code filename:CSS] */
@@ -152,18 +152,18 @@ object {
 }
 ```
 
-This helps to avoid unexpected alignment issues that you often run into using the browser default of `display: inline`.
+Это помогает избежать неожиданных проблем с выравниванием, с которыми вы часто сталкиваетесь при использовании стандартного для браузера `display: inline`.
 
-If you ever need to make one of these elements `inline` instead of `block`, simply use the `inline` utility:
+Если вам когда-либо понадобится сделать один из этих элементов `inline` вместо `block`, просто используйте утилиту `inline`:
 
 ```html
 <!-- [!code filename:HTML] -->
 <img class="inline" src="..." alt="..." />
 ```
 
-### Images are constrained
+### Изображения ограничены
 
-Images and videos are constrained to the parent width in a way that preserves their intrinsic aspect ratio:
+Изображения и видео ограничены шириной родителя таким образом, что сохраняется их внутреннее соотношение сторон:
 
 ```css
 /* [!code filename:CSS] */
@@ -174,16 +174,16 @@ video {
 }
 ```
 
-This prevents them from overflowing their containers and makes them responsive by default. If you ever need to override this behavior, use the `max-w-none` utility:
+Это предотвращает их переполнение контейнеров и делает их адаптивными по умолчанию. Если вам когда-либо понадобится переопределить это поведение, используйте утилиту `max-w-none`:
 
 ```html
 <!-- [!code filename:HTML] -->
 <img class="max-w-none" src="..." alt="..." />
 ```
 
-## Extending Preflight
+## Расширение Preflight
 
-If you'd like to add your own base styles on top of Preflight, add them to the `base` CSS layer in your CSS using `@layer base`:
+Если вы хотите добавить собственные базовые стили поверх Preflight, добавьте их в слой `base` CSS в вашем CSS с помощью `@layer base`:
 
 ```css
 /* [!code filename:CSS] */
@@ -204,13 +204,13 @@ If you'd like to add your own base styles on top of Preflight, add them to the `
 }
 ```
 
-Learn more in the [adding base styles documentation](/docs/adding-custom-styles#adding-base-styles).
+Узнайте больше в [документации по добавлению базовых стилей](/docs/adding-custom-styles#adding-base-styles).
 
-## Disabling Preflight
+## Отключение Preflight
 
-If you'd like to completely disable Preflight—perhaps because you're integrating Tailwind into an existing project or you'd prefer to define your own base styles—you can do so by importing only the parts of Tailwind that you need.
+Если вы хотите полностью отключить Preflight — возможно, потому что вы интегрируете Tailwind в существующий проект или предпочитаете определять собственные базовые стили — вы можете сделать это, импортируя только те части Tailwind, которые вам нужны.
 
-By default, this is what `@import "tailwindcss";` injects:
+По умолчанию `@import "tailwindcss";` вставляет следующее:
 
 ```css
 /* [!code filename:CSS] */
@@ -221,7 +221,7 @@ By default, this is what `@import "tailwindcss";` injects:
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
-To disable Preflight, simply omit its import while keeping everything else:
+Чтобы отключить Preflight, просто пропустите его импорт, оставив все остальное:
 
 ```css
 /* [!code filename:CSS] */

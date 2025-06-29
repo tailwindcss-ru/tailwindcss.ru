@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "float";
-export const description = "Utilities for controlling the wrapping of content around an element.";
+export const description = "Утилиты для управления обтеканием контента вокруг элемента.";
 
 <ApiTable
   rows={[
@@ -18,9 +18,9 @@ export const description = "Utilities for controlling the wrapping of content ar
 
 ## Примеры
 
-### Floating elements to the right
+### Обтекание элементов справа
 
-Use the `float-right` utility to float an element to the right of its container:
+Используйте утилиту `float-right` для обтекания элемента справа от его контейнера:
 
 <Figure>
 
@@ -32,12 +32,12 @@ Use the `float-right` utility to float an element to the right of its container:
         src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="text-justify">
-        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
-        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
-        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
-        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
-        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
-        maybe that's how y'get your kicks. You and your good-time buddies.
+        Может быть, мы можем жить без библиотек, такие люди, как вы и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но
+        что насчет того ребенка, который сидит, открывает книгу, прямо сейчас, в филиале местной библиотеки и находит
+        рисунки пи-пи и ви-ви в "Коте в шляпе" и "Пяти китайских братьях"? Разве ОН не заслуживает
+        лучшего? Смотрите. Если вы думаете, что это касается просроченных штрафов и пропавших книг, вам лучше подумать еще раз. Это
+        о праве того ребенка читать книгу, не искажая свой разум! Или: может быть, это вас возбуждает, Сайнфелд;
+        может быть, так вы получаете свои кайфы. Вы и ваши приятели для веселья.
       </p>
     </>
   }
@@ -47,15 +47,15 @@ Use the `float-right` utility to float an element to the right of its container:
 <!-- [!code classes:float-right] -->
 <article>
   <img class="float-right ..." src="/img/mountains.jpg" />
-  <p>Maybe we can live without libraries, people like you and me. ...</p>
+  <p>Может быть, мы можем жить без библиотек, такие люди, как вы и я. ...</p>
 </article>
 ```
 
 </Figure>
 
-### Floating elements to the left
+### Обтекание элементов слева
 
-Use the `float-left` utility to float an element to the left of its container:
+Используйте утилиту `float-left` для обтекания элемента слева от его контейнера:
 
 <Figure>
 
@@ -67,12 +67,12 @@ Use the `float-left` utility to float an element to the left of its container:
         src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="text-justify">
-        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
-        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
-        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
-        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
-        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
-        maybe that's how y'get your kicks. You and your good-time buddies.
+        Может быть, мы можем жить без библиотек, такие люди, как вы и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но
+        что насчет того ребенка, который сидит, открывает книгу, прямо сейчас, в филиале местной библиотеки и находит
+        рисунки пи-пи и ви-ви в "Коте в шляпе" и "Пяти китайских братьях"? Разве ОН не заслуживает
+        лучшего? Смотрите. Если вы думаете, что это касается просроченных штрафов и пропавших книг, вам лучше подумать еще раз. Это
+        о праве того ребенка читать книгу, не искажая свой разум! Или: может быть, это вас возбуждает, Сайнфелд;
+        может быть, так вы получаете свои кайфы. Вы и ваши приятели для веселья.
       </p>
     </>
   }
@@ -82,15 +82,15 @@ Use the `float-left` utility to float an element to the left of its container:
 <!-- [!code classes:float-left] -->
 <article>
   <img class="float-left ..." src="/img/mountains.jpg" />
-  <p>Maybe we can live without libraries, people like you and me. ...</p>
+  <p>Может быть, мы можем жить без библиотек, такие люди, как вы и я. ...</p>
 </article>
 ```
 
 </Figure>
 
-### Using logical properties
+### Использование логических свойств
 
-Use the `float-start` and `float-end` utilities, which use [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) to map to either the left or right side based on the text direction:
+Используйте утилиты `float-start` и `float-end`, которые используют [логические свойства](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) для отображения на левую или правую сторону в зависимости от направления текста:
 
 <Figure>
 
@@ -98,24 +98,24 @@ Use the `float-start` and `float-end` utilities, which use [logical properties](
   {
     <>
       <div dir="ltr">
-        <p className="mb-4 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">left-to-right</p>
+        <p className="mb-4 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">слева направо</p>
         <div>
           <img
             className="float-start me-6 aspect-16/9 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
             src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
           />
           <p className="text-justify">
-            Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world,
-            but what about that kid, sitting down, opening a book, right now, in a branch at the local library and
-            finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE
-            deserve better? Look. If you think this is about overdue fines and missing books, you'd better think again.
-            This is about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on,
-            Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+            Может быть, мы можем жить без библиотек, такие люди, как вы и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но
+            что насчет того ребенка, который сидит, открывает книгу, прямо сейчас, в филиале местной библиотеки и находит
+            рисунки пи-пи и ви-ви в "Коте в шляпе" и "Пяти китайских братьях"? Разве ОН не заслуживает
+            лучшего? Смотрите. Если вы думаете, что это касается просроченных штрафов и пропавших книг, вам лучше подумать еще раз. Это
+            о праве того ребенка читать книгу, не искажая свой разум! Или: может быть, это вас возбуждает, Сайнфелд;
+            может быть, так вы получаете свои кайфы. Вы и ваши приятели для веселья.
           </p>
         </div>
       </div>
       <div dir="rtl" className="mt-6">
-        <p className="mb-4 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">right-to-left</p>
+        <p className="mb-4 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">справа налево</p>
         <div>
           <img
             className="float-start me-6 aspect-16/9 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
@@ -139,7 +139,7 @@ Use the `float-start` and `float-end` utilities, which use [logical properties](
 <!-- [!code classes:float-start] -->
 <article>
   <img class="float-start ..." src="/img/mountains.jpg" />
-  <p>Maybe we can live without libraries, people like you and me. ...</p>
+  <p>Может быть, мы можем жить без библиотек, такие люди, как вы и я. ...</p>
 </article>
 
 <article dir="rtl">
@@ -150,9 +150,9 @@ Use the `float-start` and `float-end` utilities, which use [logical properties](
 
 </Figure>
 
-### Disabling a float
+### Отключение обтекания
 
-Use the `float-none` utility to reset any floats that are applied to an element:
+Используйте утилиту `float-none` для сброса любых обтеканий, примененных к элементу:
 
 <Figure>
 
@@ -164,12 +164,12 @@ Use the `float-none` utility to reset any floats that are applied to an element:
         src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="text-justify">
-        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
-        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
-        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
-        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
-        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
-        maybe that's how y'get your kicks. You and your good-time buddies.
+        Может быть, мы можем жить без библиотек, такие люди, как вы и я. Может быть. Конечно, мы слишком стары, чтобы изменить мир, но
+        что насчет того ребенка, который сидит, открывает книгу, прямо сейчас, в филиале местной библиотеки и находит
+        рисунки пи-пи и ви-ви в "Коте в шляпе" и "Пяти китайских братьях"? Разве ОН не заслуживает
+        лучшего? Смотрите. Если вы думаете, что это касается просроченных штрафов и пропавших книг, вам лучше подумать еще раз. Это
+        о праве того ребенка читать книгу, не искажая свой разум! Или: может быть, это вас возбуждает, Сайнфелд;
+        может быть, так вы получаете свои кайфы. Вы и ваши приятели для веселья.
       </p>
     </>
   }
@@ -179,7 +179,7 @@ Use the `float-none` utility to reset any floats that are applied to an element:
 <!-- [!code classes:float-none] -->
 <article>
   <img class="float-none ..." src="/img/mountains.jpg" />
-  <p>Maybe we can live without libraries, people like you and me. ...</p>
+  <p>Может быть, мы можем жить без библиотек, такие люди, как вы и я. ...</p>
 </article>
 ```
 

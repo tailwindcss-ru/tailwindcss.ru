@@ -4,38 +4,38 @@ import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
 
 export const title = "Адаптивный дизайн";
-export const description = "Using responsive utility variants to build adaptive user interfaces.";
+export const description = "Использование адаптивных утилит для построения адаптивных пользовательских интерфейсов.";
 
 ## Обзор
 
-Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
+Каждая утилита в Tailwind может применяться условно на разных брейкпоинтах, что позволяет легко строить сложные адаптивные интерфейсы, не выходя из HTML.
 
-First, make sure you've added the [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) to the `<head>` of your document:
+Сначала убедитесь, что вы добавили [мета-тег viewport](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) в `<head>` вашего документа:
 
 ```html
 <!-- [!code filename:index.html] -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
-Then to add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
+Чтобы применить утилиту только на определённом брейкпоинте, просто добавьте к ней префикс с именем брейкпоинта и двоеточием:
 
 ```html
 <!-- [!code filename:HTML]  -->
 <!-- [!code word:md\:w-32] -->
 <!-- [!code word:lg\:w-48] -->
-<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
+<!-- Ширина 16 по умолчанию, 32 на средних экранах и 48 на больших -->
 <img class="w-16 md:w-32 lg:w-48" src="..." />
 ```
 
-There are five breakpoints by default, inspired by common device resolutions:
+По умолчанию есть пять брейкпоинтов, вдохновлённых распространёнными разрешениями устройств:
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Breakpoint prefix</th>
-      <th>Minimum width</th>
+      <th>Префикс брейкпоинта</th>
+      <th>Минимальная ширина</th>
       <th>CSS</th>
     </tr>
   </thead>
@@ -99,9 +99,9 @@ There are five breakpoints by default, inspired by common device resolutions:
 </table>
 }
 
-This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
+Это работает для **каждой утилиты фреймворка**, то есть вы можете изменять буквально что угодно на любом брейкпоинте — даже такие вещи, как межбуквенное расстояние или стили курсора.
 
-Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens:
+Вот простой пример компонента маркетинговой страницы, который использует вертикальную компоновку на маленьких экранах и горизонтальную — на больших:
 
 <Figure>
 
@@ -117,19 +117,17 @@ Here's a simple example of a marketing page component that uses a stacked layout
                 src="https://images.unsplash.com/photo-1637734433731-621aca1c8cb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=404&q=80"
                 width="202"
                 height="192"
-                alt="Beautiful abstract building in the sun"
+                alt="Красивое абстрактное здание на солнце"
               />
             </div>
             <div className="space-y-2 p-6 2xl:p-8">
-              <div className="text-sm leading-6 font-medium text-indigo-600">Company retreats</div>
+              <div className="text-sm leading-6 font-medium text-indigo-600">Корпоративные ретриты</div>
               <a href="#" className="block text-base leading-6 font-semibold text-gray-900 hover:underline">
-                Incredible accommodation for your team
+                Невероятное размещение для вашей команды
               </a>
               <p
                 className="text-sm leading-6 text-gray-600"
-                children={`Looking to take your team away on a retreat to enjoy awesome food
-              and take in some sunshine? We have a list of places to do just
-              that.`}
+                children={`Хотите увезти команду на ретрит, чтобы насладиться отличной едой и солнцем? У нас есть список мест для этого.`}
               ></p>
             </div>
           </div>
@@ -140,28 +138,27 @@ Here's a simple example of a marketing page component that uses a stacked layout
 </Example>
 
 ```html
-<!-- [!code word:md\:max-w-2xl] -->
+<!-- [!code word:md:max-w-2xl] -->
 <div class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
-  <!-- [!code word:md\:flex] -->
+  <!-- [!code word:md:flex] -->
   <div class="md:flex">
-    <!-- [!code word:md\:shrink-0] -->
+    <!-- [!code word:md:shrink-0] -->
     <div class="md:shrink-0">
-      <!-- [!code word:md\:h-full] -->
-      <!-- [!code word:md\:w-48] -->
+      <!-- [!code word:md:h-full] -->
+      <!-- [!code word:md:w-48] -->
       <img
         class="h-48 w-full object-cover md:h-full md:w-48"
         src="/img/building.jpg"
-        alt="Modern building architecture"
+        alt="Современная архитектура здания"
       />
     </div>
     <div class="p-8">
-      <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">Company retreats</div>
+      <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">Корпоративные ретриты</div>
       <a href="#" class="mt-1 block text-lg leading-tight font-medium text-black hover:underline">
-        Incredible accommodation for your team
+        Невероятное размещение для вашей команды
       </a>
       <p class="mt-2 text-gray-500">
-        Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of
-        places to do just that.
+        Хотите увезти команду на ретрит, чтобы насладиться отличной едой и солнцем? У нас есть список мест для этого.
       </p>
     </div>
   </div>
@@ -170,53 +167,53 @@ Here's a simple example of a marketing page component that uses a stacked layout
 
 </Figure>
 
-Here's how the example above works:
+Вот как работает пример выше:
 
-- By default, the outer `div` is `display: block`, but by adding the `md:flex` utility, it becomes `display: flex` on medium screens and larger.
-- When the parent is a flex container, we want to make sure the image never shrinks, so we've added `md:shrink-0` to prevent shrinking on medium screens and larger. Technically we could have just used `shrink-0` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear in the class name.
-- On small screens the image is automatically full width by default. On medium screens and up, we've constrained the width to a fixed size and ensured the image is full height using `md:h-full md:w-48`.
+- По умолчанию внешний `div` — это `display: block`, но с помощью утилиты `md:flex` он становится `display: flex` на средних экранах и больше.
+- Когда родитель — flex-контейнер, мы хотим, чтобы изображение не сжималось, поэтому добавили `md:shrink-0` для предотвращения сжатия на средних экранах и больше. Технически можно было бы использовать просто `shrink-0`, но так понятнее.
+- На маленьких экранах изображение по умолчанию занимает всю ширину. На средних и больше — ограничено фиксированным размером и всегда по высоте контейнера с помощью `md:h-full md:w-48`.
 
-We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, `xl`, or `2xl` responsive prefixes as well.
+В этом примере использован только один брейкпоинт, но вы легко можете кастомизировать компонент и для других размеров с помощью префиксов `sm`, `lg`, `xl` или `2xl`.
 
-## Working mobile-first
+## Мобильный подход (mobile-first)
 
-Tailwind uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
+Tailwind использует mobile-first систему брейкпоинтов, как и другие популярные фреймворки.
 
-What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint _and above_.
+Это значит, что утилиты без префикса (например, `uppercase`) применяются на всех экранах, а с префиксом (например, `md:uppercase`) — только на указанном брейкпоинте и выше.
 
-### Targeting mobile screens
+### Стилизация для мобильных экранов
 
-Where this approach surprises people most often is that to style something for mobile, you need to use the unprefixed version of a utility, not the `sm:` prefixed version. Don't think of `sm:` as meaning "on small screens", think of it as "at the small _breakpoint_".
+Чаще всего ошибка — попытка стилизовать мобильную версию с помощью `sm:`. Не думайте о `sm:` как о "маленьких экранах", это именно "маленький брейкпоинт".
 
 <TipBad>
   {
     <>
-      Don't use <code>sm:</code> to target mobile devices
+      Не используйте <code>sm:</code> для стилизации мобильных устройств
     </>
   }
 </TipBad>
 
 ```html
 <!-- [!code filename:HTML]  -->
-<!-- This will only center text on screens 640px and wider, not on small screens -->
+<!-- Это выровняет текст по центру только на экранах 640px и шире, а не на мобильных -->
 <div class="sm:text-center"></div>
 ```
 
-<TipGood>{<>Use unprefixed utilities to target mobile, and override them at larger breakpoints</>}</TipGood>
+<TipGood>{<>Используйте утилиты без префикса для мобильных, а на больших экранах переопределяйте их</>}</TipGood>
 
 ```html
 <!-- [!code filename:HTML]  -->
-<!-- This will center text on mobile, and left align it on screens 640px and wider -->
+<!-- Это выровняет текст по центру на мобильных, а на экранах 640px и шире — по левому краю -->
 <div class="text-center sm:text-left"></div>
 ```
 
-For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
+Поэтому часто лучше сначала реализовать мобильную версию, а затем добавлять изменения для `sm`, `md` и т.д.
 
-### Targeting a breakpoint range
+### Стилизация диапазона брейкпоинтов
 
-By default, styles applied by rules like `md:flex` will apply at that breakpoint and stay applied at larger breakpoints.
+По умолчанию стили, применённые через `md:flex`, будут работать на этом брейкпоинте и выше.
 
-If you'd like to apply a utility _only_ when a specific breakpoint range is active, stack a responsive variant like `md` with a `max-*` variant to limit that style to a specific range:
+Если нужно применить утилиту _только_ в определённом диапазоне, комбинируйте префикс брейкпоинта с `max-*`:
 
 ```html
 <!-- [!code filename:HTML]  -->
@@ -225,14 +222,14 @@ If you'd like to apply a utility _only_ when a specific breakpoint range is acti
 </div>
 ```
 
-Tailwind generates a corresponding `max-*` variant for each breakpoint, so out of the box the following variants are available:
+Tailwind генерирует соответствующий вариант `max-*` для каждого брейкпоинта, например:
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Variant</th>
+      <th>Вариант</th>
       <th>Media query</th>
     </tr>
   </thead>
@@ -281,9 +278,9 @@ Tailwind generates a corresponding `max-*` variant for each breakpoint, so out o
 </table>
 }
 
-### Targeting a single breakpoint
+### Стилизация только одного брейкпоинта
 
-To target a single breakpoint, target the range for that breakpoint by stacking a responsive variant like `md` with the `max-*` variant for the next breakpoint:
+Чтобы применить стиль только на одном брейкпоинте, комбинируйте префикс брейкпоинта с `max-*` для следующего брейкпоинта:
 
 ```html
 <!-- [!code filename:HTML]  -->
@@ -292,13 +289,13 @@ To target a single breakpoint, target the range for that breakpoint by stacking 
 </div>
 ```
 
-Read about [targeting breakpoint ranges](#targeting-a-breakpoint-range) to learn more.
+Подробнее — [в разделе про диапазоны брейкпоинтов](#targeting-a-breakpoint-range).
 
-## Using custom breakpoints
+## Кастомные брейкпоинты
 
 ### Кастомизация вашей темы
 
-Use the `--breakpoint-*` theme variables to customize your breakpoints:
+Используйте переменные темы `--breakpoint-*` для настройки брейкпоинтов:
 
 ```css
 /* [!code filename:app.css] */
@@ -312,27 +309,27 @@ Use the `--breakpoint-*` theme variables to customize your breakpoints:
 }
 ```
 
-This updates the `2xl` breakpoint to use `100rem` instead of the default `96rem`, and creates new `xs` and `3xl` breakpoints that can be used in your markup:
+Это обновит брейкпоинт `2xl` до 100rem вместо 96rem по умолчанию и добавит новые `xs` и `3xl`, которые можно использовать в разметке:
 
 ```html
 <!-- [!code filename:HTML]  -->
-<!-- [!code word:xs\:grid-cols-2] -->
-<!-- [!code word:3xl\:grid-cols-6] -->
+<!-- [!code word:xs:grid-cols-2] -->
+<!-- [!code word:3xl:grid-cols-6] -->
 <!-- prettier-ignore -->
 <div class="grid xs:grid-cols-2 3xl:grid-cols-6">
   <!-- ... -->
 </div>
 ```
 
-Note that it's important to always use the same unit for defining your breakpoints or the generated utilities may be sorted in an unexpected order, causing breakpoint classes to override each other in unexpected ways.
+Важно всегда использовать одну и ту же единицу измерения для всех брейкпоинтов, иначе порядок применения утилит может быть неожиданным.
 
-Tailwind uses `rem` for the default breakpoints, so if you are adding additional breakpoints to the defaults, make sure you use `rem` as well.
+Tailwind по умолчанию использует `rem`, поэтому если добавляете свои брейкпоинты — используйте тоже `rem`.
 
-Learn more about customizing your theme in the [theme documentation](/docs/theme).
+Подробнее о кастомизации темы — [в документации по теме](/docs/theme).
 
-### Removing default breakpoints
+### Удаление стандартных брейкпоинтов
 
-To remove a default breakpoint, reset its value to the `initial` keyword:
+Чтобы удалить стандартный брейкпоинт, сбросьте его значение на `initial`:
 
 ```css
 /* [!code filename:app.css] */
@@ -344,7 +341,7 @@ To remove a default breakpoint, reset its value to the `initial` keyword:
 }
 ```
 
-You can also reset all of the default breakpoints using `--breakpoint-*: initial`, then define all of your breakpoints from scratch:
+Можно сбросить все стандартные брейкпоинты с помощью `--breakpoint-*: initial`, а затем определить свои:
 
 ```css
 /* [!code filename:app.css] */
@@ -359,36 +356,36 @@ You can also reset all of the default breakpoints using `--breakpoint-*: initial
 }
 ```
 
-Learn more removing default theme values in the [theme documentation](/docs/theme).
+Подробнее — [в документации по теме](/docs/theme).
 
 ### Использование произвольных значений
 
-If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the `min` or `max` variants to generate a custom breakpoint on the fly using any arbitrary value.
+Если нужно использовать разовый брейкпоинт, который не имеет смысла добавлять в тему, используйте варианты `min` или `max` с любым значением:
 
 ```html
-<!-- [!code word:min-\[320px\]\:text-center] -->
-<!-- [!code word:max-\[600px\]\:bg-sky-300] -->
+<!-- [!code word:min-\[320px\]:text-center] -->
+<!-- [!code word:max-\[600px\]:bg-sky-300] -->
 <div class="max-[600px]:bg-sky-300 min-[320px]:text-center">
   <!-- ... -->
 </div>
 ```
 
-Learn more about arbitrary value support in the [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) documentation.
+Подробнее — [в документации по произвольным значениям](/docs/adding-custom-styles#using-arbitrary-values).
 
-## Container queries
+## Контейнерные запросы (container queries)
 
-### What are container queries?
+### Что такое контейнерные запросы?
 
-[Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) are a modern CSS feature that let you style something based on the size of a parent element instead of the size of the entire viewport. They let you build components that are a lot more portable and reusable because they can change based on the actual space available for that component.
+[Контейнерные запросы](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) — современная возможность CSS, позволяющая стилизовать элемент в зависимости от размера родителя, а не всего окна. Это делает компоненты более переносимыми и переиспользуемыми.
 
 ### Базовый пример
 
-Use the `@container` class to mark an element as a container, then use variants like `@sm` and `@md` to style child elements based on the size of the container:
+Используйте класс `@container` для пометки элемента как контейнера, а затем варианты типа `@sm` и `@md` для стилизации дочерних элементов в зависимости от размера контейнера:
 
 ```html
 <!-- [!code filename:HTML] -->
 <!-- [!code word:@container] -->
-<!-- [!code word:@md\:flex-row] -->
+<!-- [!code word:@md:flex-row] -->
 <div class="@container">
   <div class="flex flex-col @md:flex-row">
     <!-- ... -->
@@ -396,15 +393,15 @@ Use the `@container` class to mark an element as a container, then use variants 
 </div>
 ```
 
-Just like breakpoint variants, container queries are mobile-first in Tailwind CSS and apply at the target container size and up.
+Как и брейкпоинты, контейнерные запросы в Tailwind mobile-first и применяются при достижении размера контейнера и выше.
 
-### Max-width container queries
+### Контейнерные запросы с max-width
 
-Use variants like `@max-sm` and `@max-md` to apply a style below a specific container size:
+Используйте варианты типа `@max-md` для применения стиля ниже определённого размера контейнера:
 
 ```html
 <!-- [!code filename:HTML] -->
-<!-- [!code word:@max-md\:flex-col] -->
+<!-- [!code word:@max-md:flex-col] -->
 <div class="@container">
   <div class="flex flex-row @max-md:flex-col">
     <!-- ... -->
@@ -412,13 +409,13 @@ Use variants like `@max-sm` and `@max-md` to apply a style below a specific cont
 </div>
 ```
 
-### Container query ranges
+### Диапазоны контейнерных запросов
 
-Stack a regular container query variant with a max-width container query variant to target a specific range:
+Комбинируйте обычный вариант с max-width для применения стиля только в определённом диапазоне:
 
 ```html
 <!-- [!code filename:HTML] -->
-<!-- [!code word:@sm\:@max-md\:flex-col] -->
+<!-- [!code word:@sm:@max-md:flex-col] -->
 <div class="@container">
   <div class="flex flex-row @sm:@max-md:flex-col">
     <!-- ... -->
@@ -426,14 +423,14 @@ Stack a regular container query variant with a max-width container query variant
 </div>
 ```
 
-### Named containers
+### Именованные контейнеры
 
-For complex designs that use multiple nested containers, you can name containers using `@container/{name}` and target specific containers with variants like `@sm/{name}` and `@md/{name}`:
+Для сложных макетов с несколькими вложенными контейнерами можно использовать имена контейнеров через `@container/{name}` и таргетировать их с помощью вариантов типа `@sm/{name}` и `@md/{name}`:
 
 ```html
 <!-- [!code filename:HTML] -->
 <!-- [!code word:@container/main] -->
-<!-- [!code word:@sm/main\:flex-col] -->
+<!-- [!code word:@sm/main:flex-col] -->
 <div class="@container/main">
   <!-- ... -->
   <div class="flex flex-row @sm/main:flex-col">
@@ -442,11 +439,11 @@ For complex designs that use multiple nested containers, you can name containers
 </div>
 ```
 
-This makes it possible to style something based on the size of a distant container, rather than just the nearest container.
+Это позволяет стилизовать элемент в зависимости от размера не только ближайшего, но и любого другого контейнера.
 
-### Using custom container sizes
+### Кастомные размеры контейнеров
 
-Use the `--container-*` theme variables to customize your container sizes:
+Используйте переменные темы `--container-*` для настройки размеров контейнеров:
 
 ```css
 /* [!code filename:app.css] */
@@ -458,11 +455,11 @@ Use the `--container-*` theme variables to customize your container sizes:
 }
 ```
 
-This adds a new `8xl` container query variant that can be used in your markup:
+Это добавит новый вариант контейнерного запроса `8xl`, который можно использовать в разметке:
 
 ```html
 <!-- [!code filename:HTML] -->
-<!-- [!code word:@8xl\:flex-row] -->
+<!-- [!code word:@8xl:flex-row] -->
 <div class="@container">
   <!-- prettier-ignore -->
   <div class="flex flex-col @8xl:flex-row">
@@ -471,17 +468,17 @@ This adds a new `8xl` container query variant that can be used in your markup:
 </div>
 ```
 
-Learn more about customizing your theme in the [theme documentation](/docs/theme).
+Подробнее — [в документации по теме](/docs/theme).
 
 <h3 id="using-arbitrary-container-query-values">
   <a href="#using-arbitrary-container-query-values">Использование произвольных значений</a>
 </h3>
 
-Use variants like `@min-[475px]` and `@max-[960px]` for one-off container query sizes you don't want to add to your theme:
+Используйте варианты типа `@min-[475px]` и `@max-[960px]` для разовых размеров контейнеров:
 
 ```html
 <!-- [!code filename:HTML] -->
-<!-- [!code word:@min-\[475px\]\:flex-row] -->
+<!-- [!code word:@min-\[475px\]:flex-row] -->
 <div class="@container">
   <div class="flex flex-col @min-[475px]:flex-row">
     <!-- ... -->
@@ -489,9 +486,9 @@ Use variants like `@min-[475px]` and `@max-[960px]` for one-off container query 
 </div>
 ```
 
-### Using container query units
+### Использование единиц контейнерных запросов
 
-Use [container query length units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units) like `cqw` as arbitrary values in other utility classes to reference the container size:
+Используйте [единицы длины контейнера](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units) типа `cqw` как произвольные значения в других утилитах для ссылки на размер контейнера:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -503,17 +500,17 @@ Use [container query length units](https://developer.mozilla.org/en-US/docs/Web/
 </div>
 ```
 
-### Container size reference
+### Справочник размеров контейнеров
 
-By default, Tailwind includes container sizes ranging from 16rem _(256px)_ to 80rem _(1280px)_:
+По умолчанию Tailwind включает размеры контейнеров от 16rem _(256px)_ до 80rem _(1280px)_:
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Variant</th>
-      <th>Minimum width</th>
+      <th>Вариант</th>
+      <th>Минимальная ширина</th>
       <th>CSS</th>
     </tr>
   </thead>

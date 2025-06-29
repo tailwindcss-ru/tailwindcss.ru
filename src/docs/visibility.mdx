@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "visibility";
-export const description = "Utilities for controlling the visibility of an element.";
+export const description = "Утилиты для управления видимостью элемента.";
 
 <ApiTable
   rows={[
@@ -17,9 +17,9 @@ export const description = "Utilities for controlling the visibility of an eleme
 
 ## Примеры
 
-### Making elements invisible
+### Скрытие элементов
 
-Use the `invisible` utility to hide an element, but still maintain its place in the document, affecting the layout of other elements:
+Используйте утилиту `invisible` для скрытия элемента, но с сохранением его места в документе, что влияет на макет других элементов:
 
 <Figure>
 
@@ -47,29 +47,29 @@ Use the `invisible` utility to hide an element, but still maintain its place in 
 
 </Figure>
 
-To completely remove an element from the document, use the [display](/docs/display#hidden) property instead.
+Для полного удаления элемента из документа используйте свойство [display](/docs/display#hidden) вместо этого.
 
-### Collapsing elements
+### Сворачивание элементов
 
-Use the `collapse` utility to hide table rows, row groups, columns, and column groups as if they were set to `display: none`, but without impacting the size of other rows and columns:
+Используйте утилиту `collapse` для скрытия строк таблицы, групп строк, столбцов и групп столбцов так, как если бы они были установлены в `display: none`, но без влияния на размер других строк и столбцов:
 
 <Figure>
 
 <Example padding={false}>
   {
     <div className="py-8">
-      <div className="mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">Showing all rows</div>
+      <div className="mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">Показаны все строки</div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Invoice #
+              Счет #
             </th>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Client
+              Клиент
             </th>
             <th className="border border-gray-300 px-4 py-3 text-right font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Amount
+              Сумма
             </th>
           </tr>
         </thead>
@@ -110,19 +110,19 @@ Use the `collapse` utility to hide table rows, row groups, columns, and column g
         </tbody>
       </table>
       <div className="mt-10 mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">
-        Hiding a row using <code className="text-xs text-gray-700 dark:text-gray-300">`collapse`</code>
+        Скрытие строки с помощью <code className="text-xs text-gray-700 dark:text-gray-300">`collapse`</code>
       </div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Invoice #
+              Счет #
             </th>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Client
+              Клиент
             </th>
             <th className="border border-gray-300 px-4 py-3 text-right font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Amount
+              Сумма
             </th>
           </tr>
         </thead>
@@ -163,19 +163,19 @@ Use the `collapse` utility to hide table rows, row groups, columns, and column g
         </tbody>
       </table>
       <div className="mt-10 mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">
-        Hiding a row using <code className="text-xs text-gray-700 dark:text-gray-300">`hidden`</code>
+        Скрытие строки с помощью <code className="text-xs text-gray-700 dark:text-gray-300">`hidden`</code>
       </div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Invoice #
+              Счет #
             </th>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Client
+              Клиент
             </th>
             <th className="border border-gray-300 px-4 py-3 text-right font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Amount
+              Сумма
             </th>
           </tr>
         </thead>
@@ -224,9 +224,9 @@ Use the `collapse` utility to hide table rows, row groups, columns, and column g
 <table>
   <thead>
     <tr>
-      <th>Invoice #</th>
-      <th>Client</th>
-      <th>Amount</th>
+      <th>Счет #</th>
+      <th>Клиент</th>
+      <th>Сумма</th>
     </tr>
   </thead>
   <tbody>
@@ -251,11 +251,11 @@ Use the `collapse` utility to hide table rows, row groups, columns, and column g
 
 </Figure>
 
-This makes it possible to dynamically toggle rows and columns without affecting the table layout.
+Это позволяет динамически переключать строки и столбцы без влияния на макет таблицы.
 
-### Making elements visible
+### Отображение элементов
 
-Use the `visible` utility to make an element visible:
+Используйте утилиту `visible` для отображения элемента:
 
 <Figure>
 
@@ -280,7 +280,7 @@ Use the `visible` utility to make an element visible:
 
 </Figure>
 
-This is mostly useful for undoing the `invisible` utility at different screen sizes.
+Это в основном полезно для отмены утилиты `invisible` на разных размерах экрана.
 
 ### Адаптивный дизайн
 

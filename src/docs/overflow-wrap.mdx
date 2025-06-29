@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "overflow-wrap";
-export const description = "Utilities for controlling line breaks within words in an overflowing element.";
+export const description = "Утилиты для управления переносом строк внутри слов в переполняющемся элементе.";
 
 <ApiTable
   rows={[
@@ -14,35 +14,35 @@ export const description = "Utilities for controlling line breaks within words i
   ]}
 />
 
-## Examples
+## Примеры
 
-### Wrapping mid-word
+### Перенос в середине слова
 
-Use the `wrap-break-word` utility to allow line breaks between letters in a word if needed:
+Используйте утилиту `wrap-break-word` для разрешения переноса строк между буквами в слове при необходимости:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-break-word text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      Самое длинное слово в любом из основных словарей английского языка - это{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> слово, которое относится к легочному
+      заболеванию, полученному от вдыхания очень мелких частиц кремнезема, особенно из вулкана; с медицинской точки зрения, это
+      то же самое, что и силикоз.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:wrap-break-word] -->
-<p class="wrap-break-word">The longest word in any of the major...</p>
+<p class="wrap-break-word">Самое длинное слово в любом из основных...</p>
 ```
 
 </Figure>
 
-### Wrapping anywhere
+### Перенос в любом месте
 
-The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that the browser factors in mid-word line breaks when calculating the intrinsic size of the element:
+Утилита `wrap-anywhere` ведет себя аналогично `wrap-break-word`, за исключением того, что браузер учитывает переносы строк в середине слова при вычислении внутреннего размера элемента:
 
 <Figure>
 
@@ -57,7 +57,7 @@ The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that 
           alt=""
         />
         <div className="wrap-break-word">
-          <p className="text-sm font-medium text-gray-900 dark:text-white">Jay Riemenschneider</p>
+          <p className="text-sm font-medium text-gray-900 dark:text-white">Джей Рименшнайдер</p>
           <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
         </div>
       </div>
@@ -71,7 +71,7 @@ The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that 
           alt=""
         />
         <div className="wrap-anywhere">
-          <p className="text-sm font-medium text-gray-900 dark:text-white">Jay Riemenschneider</p>
+          <p className="text-sm font-medium text-gray-900 dark:text-white">Джей Рименшнайдер</p>
           <p className="text-sm text-gray-500 dark:text-gray-400">jason.riemenschneider@vandelayindustries.com</p>
         </div>
       </div>
@@ -84,14 +84,14 @@ The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that 
 <div class="flex max-w-sm">
   <img class="size-16 rounded-full" src="/img/profile.jpg" />
   <div class="wrap-break-word">
-    <p class="font-medium">Jay Riemenschneider</p>
+    <p class="font-medium">Джей Рименшнайдер</p>
     <p>jason.riemenschneider@vandelayindustries.com</p>
   </div>
 </div>
 <div class="flex max-w-sm">
   <img class="size-16 rounded-full" src="/img/profile.jpg" />
   <div class="wrap-anywhere">
-    <p class="font-medium">Jay Riemenschneider</p>
+    <p class="font-medium">Джей Рименшнайдер</p>
     <p>jason.riemenschneider@vandelayindustries.com</p>
   </div>
 </div>
@@ -99,32 +99,32 @@ The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that 
 
 </Figure>
 
-This is useful for wrapping text inside of `flex` containers, where you would usually need to set `min-width: 0` on the child element to allow it to shrink below its content size.
+Это полезно для переноса текста внутри `flex` контейнеров, где обычно нужно устанавливать `min-width: 0` на дочернем элементе, чтобы позволить ему сжиматься ниже размера его содержимого.
 
-### Wrapping normally
+### Обычный перенос
 
-Use the `wrap-normal` utility to only allow line breaks at natural wrapping points, like spaces, hyphens, and punctuation:
+Используйте утилиту `wrap-normal` для разрешения переноса строк только в естественных точках переноса, таких как пробелы, дефисы и знаки препинания:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-normal text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      Самое длинное слово в любом из основных словарей английского языка - это{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> слово, которое относится к легочному
+      заболеванию, полученному от вдыхания очень мелких частиц кремнезема, особенно из вулкана; с медицинской точки зрения, это
+      то же самое, что и силикоз.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:wrap-normal] -->
-<p class="wrap-normal">The longest word in any of the major...</p>
+<p class="wrap-normal">Самое длинное слово в любом из основных...</p>
 ```
 
 </Figure>
 
-### Responsive design
+### Адаптивный дизайн
 
 <ResponsiveDesign element="p" property="overflow-wrap" defaultClass="wrap-normal" featuredClass="wrap-break-word" />

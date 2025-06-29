@@ -7,7 +7,7 @@ import { Stripes } from "@/components/stripes.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "padding";
-export const description = "Utilities for controlling an element's padding.";
+export const description = "Утилиты для управления внутренними отступами элемента.";
 
 <ApiTable
   rows={[
@@ -32,7 +32,7 @@ export const description = "Utilities for controlling an element's padding.";
 
 ### Базовый пример
 
-Use `p-<number>` utilities like `p-4` and `p-8` to control the padding on all sides of an element:
+Используйте утилиты `p-<number>` такие как `p-4` и `p-8` для управления внутренними отступами со всех сторон элемента:
 
 <Figure>
 
@@ -54,9 +54,9 @@ Use `p-<number>` utilities like `p-4` and `p-8` to control the padding on all si
 
 </Figure>
 
-### Adding padding to one side
+### Добавление внутренних отступов с одной стороны
 
-Use `pt-<number>`, `pr-<number>`, `pb-<number>`, and `pl-<number>` utilities like `pt-6` and `pr-4` to control the padding on one side of an element:
+Используйте утилиты `pt-<number>`, `pr-<number>`, `pb-<number>` и `pl-<number>` такие как `pt-6` и `pr-4` для управления внутренними отступами с одной стороны элемента:
 
 <Figure>
 
@@ -105,9 +105,9 @@ Use `pt-<number>`, `pr-<number>`, `pb-<number>`, and `pl-<number>` utilities lik
 
 </Figure>
 
-### Adding horizontal padding
+### Добавление горизонтальных внутренних отступов
 
-Use `px-<number>` utilities like `px-4` and `px-8` to control the horizontal padding of an element:
+Используйте утилиты `px-<number>` такие как `px-4` и `px-8` для управления горизонтальными внутренними отступами элемента:
 
 <Figure>
 
@@ -130,9 +130,9 @@ Use `px-<number>` utilities like `px-4` and `px-8` to control the horizontal pad
 
 </Figure>
 
-### Adding vertical padding
+### Добавление вертикальных внутренних отступов
 
-Use `py-<number>` utilities like `py-4` and `py-8` to control the vertical padding of an element:
+Используйте утилиты `py-<number>` такие как `py-4` и `py-8` для управления вертикальными внутренними отступами элемента:
 
 <Figure>
 
@@ -155,9 +155,9 @@ Use `py-<number>` utilities like `py-4` and `py-8` to control the vertical paddi
 
 </Figure>
 
-### Using logical properties
+### Использование логических свойств
 
-Use `ps-<number>` or `pe-<number>` utilities like `ps-4` and `pe-8` to set the `padding-inline-start` and `padding-inline-end` logical properties, which map to either the left or right side based on the text direction:
+Используйте утилиты `ps-<number>` или `pe-<number>` такие как `ps-4` и `pe-8` для установки логических свойств `padding-inline-start` и `padding-inline-end`, которые соответствуют левой или правой стороне в зависимости от направления текста:
 
 <Figure>
 
@@ -165,7 +165,7 @@ Use `ps-<number>` or `pe-<number>` utilities like `ps-4` and `pe-8` to set the `
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4">
-        <p className="text-sm font-medium">Left-to-right</p>
+        <p className="text-sm font-medium">Слева направо</p>
         <div className="flex overflow-hidden rounded-lg bg-indigo-500 font-mono text-sm leading-6 font-bold text-white">
           <Stripes noColor className="min-h-full w-8 rounded-s-lg text-white/50" />
           <div className="p-4">ps-8</div>
@@ -176,7 +176,7 @@ Use `ps-<number>` or `pe-<number>` utilities like `ps-4` and `pe-8` to set the `
         </div>
       </div>
       <div className="flex flex-col items-end gap-y-4">
-        <p className="text-sm font-medium">Right-to-left</p>
+        <p className="text-sm font-medium">Справа налево</p>
         <div className="flex overflow-hidden rounded-lg bg-indigo-500 font-mono text-sm leading-6 font-bold text-white">
           <div className="p-4">ps-8</div>
           <Stripes noColor className="min-h-full w-8 rounded-e-lg text-white/50" />
@@ -208,7 +208,7 @@ Use `ps-<number>` or `pe-<number>` utilities like `ps-4` and `pe-8` to set the `
 
 </Figure>
 
-For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+Для большего контроля вы также можете использовать [LTR и RTL модификаторы](/docs/hover-focus-and-other-states#rtl-support) для условного применения конкретных стилей в зависимости от текущего направления текста.
 
 ### Использование пользовательского значения
 

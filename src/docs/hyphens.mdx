@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "hyphens";
-export const description = "Utilities for controlling how words should be hyphenated.";
+export const description = "Утилиты для управления тем, как слова должны переноситься.";
 
 <ApiTable
   rows={[
@@ -16,20 +16,20 @@ export const description = "Utilities for controlling how words should be hyphen
 
 ## Примеры
 
-### Preventing hyphenation
+### Предотвращение переноса
 
-Use the `hyphens-none` utility to prevent words from being hyphenated even if the line break suggestion `&shy;` is used:
+Используйте утилиту `hyphens-none` для предотвращения переноса слов, даже если используется предложение переноса строки `&shy;`:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-none text-gray-900 dark:text-gray-200">
-      Officially recognized by the Duden dictionary as the longest word in German,{" "}
+      Официально признанное словарем Дудена как самое длинное слово в немецком языке,{" "}
       <span className="font-bold" lang="de">
         Kraftfahrzeug&shy;haftpflichtversicherung
       </span>{" "}
-      is a 36 letter word for motor vehicle liability insurance.
+      это 36-буквенное слово для страхования гражданской ответственности автотранспортных средств.
     </p>
   }
 </Example>
@@ -45,20 +45,20 @@ Use the `hyphens-none` utility to prevent words from being hyphenated even if th
 
 </Figure>
 
-### Manual hyphenation
+### Ручной перенос
 
-Use the `hyphens-manual` utility to only set hyphenation points where the line break suggestion `&shy;` is used:
+Используйте утилиту `hyphens-manual` для установки точек переноса только там, где используется предложение переноса строки `&shy;`:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-manual text-gray-900 dark:text-gray-200">
-      Officially recognized by the Duden dictionary as the longest word in German,{" "}
+      Официально признанное словарем Дудена как самое длинное слово в немецком языке,{" "}
       <span className="font-bold" lang="de">
         Kraftfahrzeug&shy;haftpflichtversicherung
       </span>{" "}
-      is a 36 letter word for motor vehicle liability insurance.
+      это 36-буквенное слово для страхования гражданской ответственности автотранспортных средств.
     </p>
   }
 </Example>
@@ -74,22 +74,22 @@ Use the `hyphens-manual` utility to only set hyphenation points where the line b
 
 </Figure>
 
-This is the default browser behavior.
+Это поведение браузера по умолчанию.
 
-### Automatic hyphenation
+### Автоматический перенос
 
-Use the `hyphens-auto` utility to allow the browser to automatically choose hyphenation points based on the language:
+Используйте утилиту `hyphens-auto` для разрешения браузеру автоматически выбирать точки переноса на основе языка:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-auto text-gray-900 dark:text-gray-200">
-      Officially recognized by the Duden dictionary as the longest word in German,{" "}
+      Официально признанное словарем Дудена как самое длинное слово в немецком языке,{" "}
       <span className="font-bold" lang="de">
         Kraftfahrzeughaftpflichtversicherung
       </span>{" "}
-      is a 36 letter word for motor vehicle liability insurance.
+      это 36-буквенное слово для страхования гражданской ответственности автотранспортных средств.
     </p>
   }
 </Example>
@@ -105,7 +105,7 @@ Use the `hyphens-auto` utility to allow the browser to automatically choose hyph
 
 </Figure>
 
-The line break suggestion `&shy;` will be preferred over automatic hyphenation points.
+Предложение переноса строки `&shy;` будет предпочтительнее автоматических точек переноса.
 
 ### Адаптивный дизайн
 

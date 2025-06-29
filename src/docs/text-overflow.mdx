@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 import dedent from "dedent";
 
 export const title = "text-overflow";
-export const description = "Utilities for controlling how the text of an element overflows.";
+export const description = "Утилиты для управления тем, как текст элемента переполняется.";
 
 <ApiTable
   rows={[
@@ -24,79 +24,76 @@ export const description = "Utilities for controlling how the text of an element
 
 ## Примеры
 
-### Truncating text
+### Обрезка текста
 
-Use the `truncate` utility to prevent text from wrapping and truncate overflowing text with an ellipsis (…) if needed:
+Используйте утилиту `truncate` для предотвращения переноса текста и обрезки переполняющегося текста с многоточием (…) при необходимости:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs truncate border-x border-x-pink-400/30 py-8 text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      Самое длинное слово в любом из основных словарей английского языка - это{" "}
+      <span className="font-bold">пневмоультрамикроскопикосиковулканокониоз,</span> слово, которое относится к заболеванию легких, 
+      полученному от вдыхания очень мелких частиц кремнезема, особенно из вулкана; с медицинской точки зрения это то же самое, что и силикоз.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:truncate] -->
-<p class="truncate">The longest word in any of the major...</p>
+<p class="truncate">Самое длинное слово в любом из основных...</p>
 ```
 
 </Figure>
 
-### Adding an ellipsis
+### Добавление многоточия
 
-Use the `text-ellipsis` utility to truncate overflowing text with an ellipsis (…) if needed:
+Используйте утилиту `text-ellipsis` для обрезки переполняющегося текста с многоточием (…) при необходимости:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs overflow-hidden border-x border-x-pink-400/30 py-8 text-ellipsis text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      Самое длинное слово в любом из основных словарей английского языка - это{" "}
+      <span className="font-bold">пневмоультрамикроскопикосиковулканокониоз,</span> слово, которое относится к заболеванию легких, 
+      полученному от вдыхания очень мелких частиц кремнезема, особенно из вулкана; с медицинской точки зрения это то же самое, что и силикоз.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:text-ellipsis] -->
-<p class="overflow-hidden text-ellipsis">The longest word in any of the major...</p>
+<p class="overflow-hidden text-ellipsis">Самое длинное слово в любом из основных...</p>
 ```
 
 </Figure>
 
-### Clipping text
+### Обрезка текста
 
-Use the `text-clip` utility to truncate the text at the limit of the content area:
+Используйте утилиту `text-clip` для обрезки текста на границе области содержимого:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs overflow-hidden border-x border-x-pink-400/30 py-8 text-clip text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      Самое длинное слово в любом из основных словарей английского языка - это{" "}
+      <span className="font-bold">пневмоультрамикроскопикосиковулканокониоз,</span> слово, которое относится к заболеванию легких, 
+      полученному от вдыхания очень мелких частиц кремнезема, особенно из вулкана; с медицинской точки зрения это то же самое, что и силикоз.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:text-clip] -->
-<p class="overflow-hidden text-clip">The longest word in any of the major...</p>
+<p class="overflow-hidden text-clip">Самое длинное слово в любом из основных...</p>
 ```
 
 </Figure>
 
-This is the default browser behavior.
+Это поведение браузера по умолчанию.
 
 ### Адаптивный дизайн
 

@@ -1,5 +1,4 @@
 import { css, elixir, html, js, Page, shell, Step, Tile } from "./utils";
-import { css, elixir, html, js, Page, shell, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/phoenix.react.svg";
 
 export let tile: Tile = {

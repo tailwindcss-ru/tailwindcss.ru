@@ -127,7 +127,7 @@ let darkModeScript = js`
 `;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tailwindcss.com"),
+  metadataBase: new URL("https://tailwindcss.ru"),
   title: {
     default: "Tailwind CSS — быстро создавайте современные веб-сайты, не выходя из HTML-кода.",
     template: "%s - Tailwind CSS",

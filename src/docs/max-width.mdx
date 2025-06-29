@@ -6,7 +6,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "max-width";
-export const description = "Utilities for setting the maximum width of an element.";
+export const description = "Утилиты для установки максимальной ширины элемента.";
 
 <ApiTable
   rows={[
@@ -58,7 +58,7 @@ export const description = "Utilities for setting the maximum width of an elemen
 
 ### Базовый пример
 
-Use `max-w-<number>` utilities like `max-w-24` and `max-w-64` to set an element to a fixed maximum width based on the spacing scale:
+Используйте утилиты `max-w-<number>` такие как `max-w-24` и `max-w-64` для установки элемента на фиксированную максимальную ширину на основе шкалы отступов:
 
 <Figure hint="Измените размер примера, чтобы увидеть ожидаемое поведение">
 
@@ -110,9 +110,9 @@ Use `max-w-<number>` utilities like `max-w-24` and `max-w-64` to set an element 
 
 </Figure>
 
-### Using a percentage
+### Использование процентов
 
-Use `max-w-full` or `max-w-<fraction>` utilities like `max-w-1/2` and `max-w-2/5` to give an element a percentage-based maximum width:
+Используйте утилиты `max-w-full` или `max-w-<fraction>` такие как `max-w-1/2` и `max-w-2/5` для установки элемента на максимальную ширину на основе процентов:
 
 <Figure hint="Измените размер примера, чтобы увидеть ожидаемое поведение">
 
@@ -149,9 +149,9 @@ Use `max-w-full` or `max-w-<fraction>` utilities like `max-w-1/2` and `max-w-2/5
 
 </Figure>
 
-### Using the container scale
+### Использование шкалы контейнеров
 
-Use utilities like `max-w-sm` and `max-w-xl` to set an element to a fixed maximum width based on the container scale:
+Используйте утилиты такие как `max-w-sm` и `max-w-xl` для установки элемента на фиксированную максимальную ширину на основе шкалы контейнеров:
 
 <Figure hint="Измените размер примера, чтобы увидеть ожидаемое поведение">
 
@@ -163,9 +163,9 @@ Use utilities like `max-w-sm` and `max-w-xl` to set an element to a fixed maximu
         src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
       />
       <div className="min-w-0 py-5 pr-5 pl-28">
-        <div className="truncate text-sm font-medium text-gray-900 sm:text-base dark:text-gray-200">Andrew Alfred</div>
+        <div className="truncate text-sm font-medium text-gray-900 sm:text-base dark:text-gray-200">Эндрю Альфред</div>
         <div className="truncate text-sm leading-tight text-gray-500 sm:text-base dark:text-gray-400">
-          Assistant to the Traveling Secretary
+          Помощник путешествующего секретаря
         </div>
       </div>
     </div>
@@ -181,9 +181,9 @@ Use utilities like `max-w-sm` and `max-w-xl` to set an element to a fixed maximu
 
 </Figure>
 
-### Using breakpoints container
+### Использование контейнера с брейкпоинтами
 
-Use the `container` utility to set the maximum width of an element to match the `min-width` of the current breakpoint. This is useful if you'd prefer to design for a fixed set of screen sizes instead of trying to accommodate a fully fluid viewport:
+Используйте утилиту `container` для установки максимальной ширины элемента в соответствии с `min-width` текущего брейкпоинта. Это полезно, если вы предпочитаете проектировать для фиксированного набора размеров экранов вместо попытки приспособиться к полностью адаптивному viewport:
 
 ```html
 <!-- [!code classes:container] -->
@@ -192,7 +192,7 @@ Use the `container` utility to set the maximum width of an element to match the 
 </div>
 ```
 
-Note that unlike containers you might have used in other frameworks, Tailwind's container does not center itself automatically and does not have any built-in horizontal padding. Use `mx-auto` and the `px-<number>` utilities to add these:
+Обратите внимание, что в отличие от контейнеров, которые вы могли использовать в других фреймворках, контейнер Tailwind не центрируется автоматически и не имеет встроенных горизонтальных отступов. Используйте `mx-auto` и утилиты `px-<number>` для добавления этих свойств:
 
 ```html
 <!-- [!code classes:mx-auto,px-4] -->

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "font-smoothing";
-export const description = "Utilities for controlling the font smoothing of an element.";
+export const description = "Утилиты для управления сглаживанием шрифтов элемента.";
 
 <ApiTable
   rows={[
@@ -15,44 +15,44 @@ export const description = "Utilities for controlling the font smoothing of an e
 
 ## Примеры
 
-### Grayscale antialiasing
+### Сглаживание в оттенках серого
 
-Use the `antialiased` utility to render text using grayscale antialiasing:
+Используйте утилиту `antialiased` для отображения текста с использованием сглаживания в оттенках серого:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 antialiased dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      Быстрая коричневая лиса перепрыгивает через ленивую собаку.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:antialiased] -->
-<p class="antialiased ...">The quick brown fox ...</p>
+<p class="antialiased ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
 ```
 
 </Figure>
 
-### Subpixel antialiasing
+### Субпиксельное сглаживание
 
-Use the `subpixel-antialiased` utility to render text using subpixel antialiasing:
+Используйте утилиту `subpixel-antialiased` для отображения текста с использованием субпиксельного сглаживания:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 subpixel-antialiased dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      Быстрая коричневая лиса перепрыгивает через ленивую собаку.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:subpixel-antialiased] -->
-<p class="subpixel-antialiased ...">The quick brown fox ...</p>
+<p class="subpixel-antialiased ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
 ```
 
 </Figure>

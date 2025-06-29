@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "transition-delay";
-export const description = "Utilities for controlling the delay of CSS transitions.";
+export const description = "Утилиты для управления задержкой CSS-переходов.";
 
 <ApiTable
   rows={[
@@ -18,9 +18,9 @@ export const description = "Utilities for controlling the delay of CSS transitio
 
 ### Базовый пример
 
-Use utilities like `delay-150` and `delay-700` to set the transition delay of an element in milliseconds:
+Используйте утилиты типа `delay-150` и `delay-700`, чтобы установить задержку перехода элемента в миллисекундах:
 
-<Figure hint="Hover each button to see the expected behavior">
+<Figure hint="Наведите курсор на каждую кнопку, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
@@ -28,19 +28,19 @@ Use utilities like `delay-150` and `delay-700` to set the transition delay of an
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">delay-150</p>
         <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white delay-150 duration-300 ease-in-out hover:scale-125">
-          Button A
+          Кнопка A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">delay-300</p>
         <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white delay-300 duration-300 ease-in-out hover:scale-125">
-          Button B
+          Кнопка B
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">delay-700</p>
         <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white delay-700 duration-300 ease-in-out hover:scale-125">
-          Button C
+          Кнопка C
         </button>
       </div>
     </div>
@@ -49,9 +49,9 @@ Use utilities like `delay-150` and `delay-700` to set the transition delay of an
 
 ```html
 <!-- [!code classes:delay-150,delay-300,delay-700] -->
-<button class="transition delay-150 duration-300 ease-in-out ...">Button A</button>
-<button class="transition delay-300 duration-300 ease-in-out ...">Button B</button>
-<button class="transition delay-700 duration-300 ease-in-out ...">Button C</button>
+<button class="transition delay-150 duration-300 ease-in-out ...">Кнопка A</button>
+<button class="transition delay-300 duration-300 ease-in-out ...">Кнопка B</button>
+<button class="transition delay-700 duration-300 ease-in-out ...">Кнопка C</button>
 ```
 
 </Figure>

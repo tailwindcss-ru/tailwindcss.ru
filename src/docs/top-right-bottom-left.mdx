@@ -6,7 +6,7 @@ import { CustomizingYourSpacingScale } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "top / right / bottom / left";
-export const description = "Utilities for controlling the placement of positioned elements.";
+export const description = "Утилиты для управления размещением позиционированных элементов.";
 
 <ApiTable
   rows={[
@@ -40,7 +40,7 @@ export const description = "Utilities for controlling the placement of positione
 
 ### Базовый пример
 
-Use `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<number>`, and `inset-<number>` utilities like `top-0` and `bottom-4` to set the horizontal or vertical position of a [positioned element](/docs/position):
+Используйте утилиты `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<number>` и `inset-<number>` типа `top-0` и `bottom-4` для установки горизонтального или вертикального положения [позиционированного элемента](/docs/position):
 
 <Figure>
 
@@ -123,47 +123,47 @@ Use `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<number>`, and `i
 
 ```html
 <!-- [!code classes:inset-x-0,inset-y-0,inset-0,right-0,left-0,top-0,bottom-0] -->
-<!-- Pin to top left corner -->
+<!-- Закрепление в левом верхнем углу -->
 <div class="relative size-32 ...">
   <div class="absolute top-0 left-0 size-16 ...">01</div>
 </div>
 
-<!-- Span top edge -->
+<!-- Растягивание по верхнему краю -->
 <div class="relative size-32 ...">
   <div class="absolute inset-x-0 top-0 h-16 ...">02</div>
 </div>
 
-<!-- Pin to top right corner -->
+<!-- Закрепление в правом верхнем углу -->
 <div class="relative size-32 ...">
   <div class="absolute top-0 right-0 size-16 ...">03</div>
 </div>
 
-<!-- Span left edge -->
+<!-- Растягивание по левому краю -->
 <div class="relative size-32 ...">
   <div class="absolute inset-y-0 left-0 w-16 ...">04</div>
 </div>
 
-<!-- Fill entire parent -->
+<!-- Заполнение всего родителя -->
 <div class="relative size-32 ...">
   <div class="absolute inset-0 ...">05</div>
 </div>
 
-<!-- Span right edge -->
+<!-- Растягивание по правому краю -->
 <div class="relative size-32 ...">
   <div class="absolute inset-y-0 right-0 w-16 ...">06</div>
 </div>
 
-<!-- Pin to bottom left corner -->
+<!-- Закрепление в левом нижнем углу -->
 <div class="relative size-32 ...">
   <div class="absolute bottom-0 left-0 size-16 ...">07</div>
 </div>
 
-<!-- Span bottom edge -->
+<!-- Растягивание по нижнему краю -->
 <div class="relative size-32 ...">
   <div class="absolute inset-x-0 bottom-0 h-16 ...">08</div>
 </div>
 
-<!-- Pin to bottom right corner -->
+<!-- Закрепление в правом нижнем углу -->
 <div class="relative size-32 ...">
   <div class="absolute right-0 bottom-0 size-16 ...">09</div>
 </div>
@@ -171,9 +171,9 @@ Use `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<number>`, and `i
 
 </Figure>
 
-### Using negative values
+### Использование отрицательных значений
 
-To use a negative top/right/bottom/left value, prefix the class name with a dash to convert it to a negative value:
+Для использования отрицательного значения top/right/bottom/left добавьте дефис перед именем класса, чтобы преобразовать его в отрицательное значение:
 
 <Figure>
 
@@ -199,9 +199,9 @@ To use a negative top/right/bottom/left value, prefix the class name with a dash
 
 </Figure>
 
-### Using logical properties
+### Использование логических свойств
 
-Use `start-<number>` or `end-<number>` utilities like `start-0` and `end-4` to set the `inset-inline-start` and `inset-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction:
+Используйте утилиты `start-<number>` или `end-<number>` типа `start-0` и `end-4` для установки [логических свойств](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) `inset-inline-start` и `inset-inline-end`, которые отображаются либо на левой, либо на правой стороне в зависимости от направления текста:
 
 <Figure>
 
@@ -209,7 +209,7 @@ Use `start-<number>` or `end-<number>` utilities like `start-0` and `end-4` to s
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4">
-        <p className="text-sm font-medium">Left-to-right</p>
+        <p className="text-sm font-medium">Слева направо</p>
         <div className="relative size-18 rounded-lg sm:size-32">
           <div className="absolute inset-0">
             <Stripes border className="h-full rounded-lg" />
@@ -218,7 +218,7 @@ Use `start-<number>` or `end-<number>` utilities like `start-0` and `end-4` to s
         </div>
       </div>
       <div className="flex flex-col items-end gap-y-4">
-        <p className="text-sm font-medium">Right-to-left</p>
+        <p className="text-sm font-medium">Справа налево</p>
         <div className="relative size-18 rounded-lg sm:size-32">
           <div className="absolute inset-0">
             <Stripes border className="h-full rounded-lg" />
@@ -249,7 +249,7 @@ Use `start-<number>` or `end-<number>` utilities like `start-0` and `end-4` to s
 
 </Figure>
 
-For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+Для большего контроля вы также можете использовать [модификаторы LTR и RTL](/docs/hover-focus-and-other-states#rtl-support) для условного применения конкретных стилей в зависимости от текущего направления текста.
 
 ### Использование пользовательского значения
 

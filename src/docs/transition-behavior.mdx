@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "transition-behavior";
-export const description = "Utilities to control the behavior of CSS transitions.";
+export const description = "Утилиты для управления поведением CSS-переходов.";
 
 <ApiTable
   rows={[
@@ -17,9 +17,9 @@ export const description = "Utilities to control the behavior of CSS transitions
 
 ### Базовый пример
 
-Use the `transition-discrete` utility to start transitions when changing properties with a discrete set of values, such as elements that change from `hidden` to `block`:
+Используйте утилиту `transition-discrete`, чтобы запускать переходы при изменении свойств с дискретным набором значений, таких как элементы, которые изменяются с `hidden` на `block`:
 
-<Figure hint="Interact with the checkboxes to see the expected behavior">
+<Figure hint="Взаимодействуйте с флажками, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
@@ -30,7 +30,7 @@ Use the `transition-discrete` utility to start transitions when changing propert
           transition-normal
         </label>
         <button className="hidden rounded-md bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-all transition-normal duration-300 not-peer-has-checked:opacity-0 peer-has-checked:block">
-          I hide
+          Я скрываюсь
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center sm:w-1/2">
@@ -39,7 +39,7 @@ Use the `transition-discrete` utility to start transitions when changing propert
           transition-discrete
         </label>
         <button className="hidden rounded-md bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-all transition-discrete duration-300 not-peer-has-checked:opacity-0 peer-has-checked:block">
-          I fade out
+          Я исчезаю
         </button>
       </div>
     </div>
@@ -53,14 +53,14 @@ Use the `transition-discrete` utility to start transitions when changing propert
 </label>
 <button class="hidden transition-all not-peer-has-checked:opacity-0 peer-has-checked:block ...">
   <!-- prettier-ignore -->
-  I hide
+  Я скрываюсь
 </button>
 
 <label class="peer ...">
   <input type="checkbox" checked />
 </label>
 <button class="hidden transition-all transition-discrete not-peer-has-checked:opacity-0 peer-has-checked:block ...">
-  I fade out
+  Я исчезаю
 </button>
 ```
 

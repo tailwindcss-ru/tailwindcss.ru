@@ -131,7 +131,7 @@ export default function Page() {
       </div>
       <Steps steps={steps} />
       <div className="my-4 md:my-16">
-        <Cta label="Explore our framework guides" href="/docs/installation/framework-guides">
+        <Cta label="Изучите наши руководства по фреймворкам" href="/docs/installation/framework-guides">
           <strong className="font-semibold text-gray-950 dark:text-white">Вы застряли?</strong> Настройка Tailwind с PostCSS может немного отличаться в зависимости от различных инструментов сборки. Проверьте наши руководства по фреймворкам, чтобы узнать, есть ли у нас более конкретные инструкции для вашей конкретной настройки.
         </Cta>
       </div>

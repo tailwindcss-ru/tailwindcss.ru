@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "scroll-snap-align";
-export const description = "Utilities for controlling the scroll snap alignment of an element.";
+export const description = "Утилиты для управления выравниванием привязки прокрутки элемента.";
 
 <ApiTable
   rows={[
@@ -17,18 +17,18 @@ export const description = "Utilities for controlling the scroll snap alignment 
 
 ## Примеры
 
-### Snapping to the center
+### Привязка к центру
 
-Use the `snap-center` utility to snap an element to its center when being scrolled inside a snap container:
+Используйте утилиту `snap-center` для привязки элемента к его центру при прокрутке внутри контейнера с привязкой:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Прокрутите в сетке изображений, чтобы увидеть ожидаемое поведение">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          snap point
+          точка привязки
         </div>
         <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
       </div>
@@ -106,18 +106,18 @@ Use the `snap-center` utility to snap an element to its center when being scroll
 
 </Figure>
 
-### Snapping to the start
+### Привязка к началу
 
-Use the `snap-start` utility to snap an element to its start when being scrolled inside a snap container:
+Используйте утилиту `snap-start` для привязки элемента к его началу при прокрутке внутри контейнера с привязкой:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Прокрутите в сетке изображений, чтобы увидеть ожидаемое поведение">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-6 flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          snap point
+          точка привязки
         </div>
         <div className="absolute top-0 bottom-0 left-6 border-l border-indigo-500"></div>
       </div>
@@ -190,18 +190,18 @@ Use the `snap-start` utility to snap an element to its start when being scrolled
 
 </Figure>
 
-### Snapping to the end
+### Привязка к концу
 
-Use the `snap-end` utility to snap an element to its end when being scrolled inside a snap container:
+Используйте утилиту `snap-end` для привязки элемента к его концу при прокрутке внутри контейнера с привязкой:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Прокрутите в сетке изображений, чтобы увидеть ожидаемое поведение">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mr-6 mb-6 flex items-end justify-end pt-10">
         <div className="dark:highlight-white/10 mr-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          snap point
+          точка привязки
         </div>
         <div className="absolute top-0 right-6 bottom-0 border-l border-indigo-500"></div>
       </div>

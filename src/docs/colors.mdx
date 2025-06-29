@@ -4,10 +4,10 @@ import { ColorPalette } from "../components/color-palette.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 import { TipGood, TipBad, TipCompat, TipInfo } from "@/components/tips";
 
-export const title = "Colors";
-export const description = "Using and customizing the color palette in Tailwind CSS projects.";
+export const title = "Цвета";
+export const description = "Использование и настройка цветовой палитры в проектах Tailwind CSS.";
 
-Tailwind CSS includes a vast, beautiful color palette out of the box, carefully crafted by expert designers and suitable for a wide range of different design styles.
+Tailwind CSS включает обширную, красивую цветовую палитру из коробки, тщательно созданную экспертами-дизайнерами и подходящую для широкого спектра различных стилей дизайна.
 
 <div className="my-10">
   {/* <TipInfo>{<>Click to copy OKLCH, shift+click to copy nearest hex</>}</TipInfo> */}
@@ -16,7 +16,7 @@ Tailwind CSS includes a vast, beautiful color palette out of the box, carefully 
   {/* </div> */}
 </div>
 
-Every color in the default palette includes 11 steps, with 50 being the lightest, and 950 being the darkest:
+Каждый цвет в палитре по умолчанию включает 11 ступеней, где 50 является самым светлым, а 950 — самым темным:
 
 <Figure>
 
@@ -88,13 +88,13 @@ Every color in the default palette includes 11 steps, with 50 being the lightest
 
 </Figure>
 
-The entire color palette is available across all color related utilities, including things like [background color](/docs/background-color), [border color](/docs/border-color), [fill](/docs/fill), [caret color](/docs/caret-color), and many more.
+Теперь утилиты типа `bg-midnight`, `text-tahiti` и `fill-bermuda` будут доступны в вашем проекте в дополнение к цветам по умолчанию.
 
-## Working with colors
+## Работа с цветами
 
-### Using color utilities
+### Использование цветовых утилит
 
-Use color utilities like `bg-white`, `border-pink-300`, and `text-gray-950` to set the different color properties of elements in your design:
+Используйте цветовые утилиты типа `bg-white`, `border-pink-300` и `text-gray-950` для установки различных цветовых свойств элементов в вашем дизайне:
 
 <Figure>
 
@@ -148,15 +148,13 @@ Use color utilities like `bg-white`, `border-pink-300`, and `text-gray-950` to s
 
 </Figure>
 
-Here's a full list of utilities that use your color palette:
-
-{
+Вот полный список утилит, которые используют вашу цветовую палитру:
 
 <table>
   <thead>
     <tr>
-      <th>Utility</th>
-      <th>Description</th>
+      <th>Утилита</th>
+      <th>Описание</th>
     </tr>
   </thead>
   <tbody>
@@ -165,7 +163,7 @@ Here's a full list of utilities that use your color palette:
         <code>bg-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/background-color">background color</a> of an element
+        Устанавливает <a href="/docs/background-color">цвет фона</a> элемента
       </td>
     </tr>
     <tr>
@@ -173,7 +171,7 @@ Here's a full list of utilities that use your color palette:
         <code>text-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/text-color">text color</a> of an element
+        Устанавливает <a href="/docs/text-color">цвет текста</a> элемента
       </td>
     </tr>
     <tr>
@@ -181,7 +179,7 @@ Here's a full list of utilities that use your color palette:
         <code>decoration-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/text-decoration-color">text decoration color</a> of an element
+        Устанавливает <a href="/docs/text-decoration-color">цвет декорации текста</a> элемента
       </td>
     </tr>
     <tr>
@@ -189,7 +187,7 @@ Here's a full list of utilities that use your color palette:
         <code>border-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/border-color">border color</a> of an element
+        Устанавливает <a href="/docs/border-color">цвет границы</a> элемента
       </td>
     </tr>
     <tr>
@@ -197,7 +195,7 @@ Here's a full list of utilities that use your color palette:
         <code>outline-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/outline-color">outline color</a> of an element
+        Устанавливает <a href="/docs/outline-color">цвет контура</a> элемента
       </td>
     </tr>
     <tr>
@@ -205,7 +203,7 @@ Here's a full list of utilities that use your color palette:
         <code>shadow-*</code>
       </td>
       <td>
-        Sets the color of <a href="/docs/box-shadow#setting-the-shadow-color">box shadows</a>
+        Устанавливает цвет <a href="/docs/box-shadow#setting-the-shadow-color">теней блока</a>
       </td>
     </tr>
     <tr>
@@ -213,7 +211,7 @@ Here's a full list of utilities that use your color palette:
         <code>inset-shadow-*</code>
       </td>
       <td>
-        Sets the color of <a href="/docs/box-shadow#setting-the-inset-shadow-color">inset box shadows</a>
+        Устанавливает цвет <a href="/docs/box-shadow#setting-the-inset-shadow-color">внутренних теней блока</a>
       </td>
     </tr>
     <tr>
@@ -221,7 +219,7 @@ Here's a full list of utilities that use your color palette:
         <code>ring-*</code>
       </td>
       <td>
-        Sets the color of <a href="/docs/box-shadow#setting-the-ring-color">ring shadows</a>
+        Устанавливает цвет <a href="/docs/box-shadow#setting-the-ring-color">кольцевых теней</a>
       </td>
     </tr>
     <tr>
@@ -229,7 +227,7 @@ Here's a full list of utilities that use your color palette:
         <code>inset-ring-*</code>
       </td>
       <td>
-        Sets the color of <a href="/docs/box-shadow#setting-the-inset-ring-color">inset ring shadows</a>
+        Устанавливает цвет <a href="/docs/box-shadow#setting-the-inset-ring-color">внутренних кольцевых теней</a>
       </td>
     </tr>
     <tr>
@@ -237,7 +235,7 @@ Here's a full list of utilities that use your color palette:
         <code>accent-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/accent-color">accent color</a> of form controls
+        Устанавливает <a href="/docs/accent-color">акцентный цвет</a> элементов управления формы
       </td>
     </tr>
     <tr>
@@ -245,7 +243,7 @@ Here's a full list of utilities that use your color palette:
         <code>caret-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/caret-color">caret color</a> in form controls
+        Устанавливает <a href="/docs/caret-color">цвет курсора</a> в элементах управления формы
       </td>
     </tr>
     <tr>
@@ -253,7 +251,7 @@ Here's a full list of utilities that use your color palette:
         <code>fill-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/fill">fill color</a> of SVG elements
+        Устанавливает <a href="/docs/fill">цвет заливки</a> SVG элементов
       </td>
     </tr>
     <tr>
@@ -261,16 +259,15 @@ Here's a full list of utilities that use your color palette:
         <code>stroke-*</code>
       </td>
       <td>
-        Sets the <a href="/docs/stroke">stroke color</a> of SVG elements
+        Устанавливает <a href="/docs/stroke">цвет обводки</a> SVG элементов
       </td>
     </tr>
   </tbody>
 </table>
-}
 
-### Adjusting opacity
+### Настройка прозрачности
 
-You can adjust the opacity of a color using syntax like `bg-black/75`, where `75` sets the alpha channel of the color to 75%:
+Вы можете настроить прозрачность цвета, используя синтаксис типа `bg-black/75`, где `75` устанавливает альфа-канал цвета на 75%:
 
 <Figure>
 
@@ -340,7 +337,7 @@ You can adjust the opacity of a color using syntax like `bg-black/75`, where `75
 
 </Figure>
 
-This syntax also supports arbitrary values and the CSS variable shorthand:
+Этот синтаксис также поддерживает произвольные значения и сокращение CSS-переменных:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -349,9 +346,9 @@ This syntax also supports arbitrary values and the CSS variable shorthand:
 <div class="bg-cyan-400/(--my-alpha-value)"><!-- ... --></div>
 ```
 
-### Targeting dark mode
+### Нацеливание на темный режим
 
-Use the `dark` variant to write classes like `dark:bg-gray-800` that only apply a color when dark mode is active:
+Используйте вариант `dark` для написания классов типа `dark:bg-gray-800`, которые применяют цвет только когда активен темный режим:
 
 <Figure>
 
@@ -359,7 +356,7 @@ Use the `dark` variant to write classes like `dark:bg-gray-800` that only apply 
   {
     <div className="grid grid-cols-1 sm:grid-cols-2">
       <div className="p-8 pt-7">
-        <p className="mb-2 text-sm font-medium text-gray-500">Light mode</p>
+        <p className="mb-2 text-sm font-medium text-gray-500">Светлый режим</p>
         <div className="rounded-lg bg-white px-6 py-8 shadow-xl ring ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
@@ -380,16 +377,16 @@ Use the `dark` variant to write classes like `dark:bg-gray-800` that only apply 
               </svg>
             </span>
           </div>
-          <p className="mt-5 text-base font-medium tracking-tight text-gray-900">Writes upside-down</p>
+          <p className="mt-5 text-base font-medium tracking-tight text-gray-900">Пишет вверх ногами</p>
           <p
             className="mt-2 text-sm text-gray-500"
-            children={`The Zero Gravity Pen can be used to write in any orientation,
-          including upside-down. It even works in outer space.`}
+            children={`Ручка Zero Gravity может использоваться для письма в любом направлении,
+          включая вверх ногами. Она даже работает в космическом пространстве.`}
           />
         </div>
       </div>
       <div className="bg-gray-900 p-8 pt-7">
-        <p className="mb-2 text-sm font-medium text-gray-400">Dark mode</p>
+        <p className="mb-2 text-sm font-medium text-gray-400">Темный режим</p>
         <div className="rounded-lg bg-gray-800 px-6 py-8 shadow-xl ring ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
@@ -410,11 +407,11 @@ Use the `dark` variant to write classes like `dark:bg-gray-800` that only apply 
               </svg>
             </span>
           </div>
-          <p className="mt-5 text-base font-medium tracking-tight text-white">Writes upside-down</p>
+          <p className="mt-5 text-base font-medium tracking-tight text-white">Пишет вверх ногами</p>
           <p
             className="mt-2 text-sm text-gray-400"
-            children={`The Zero Gravity Pen can be used to write in any orientation,
-          including upside-down. It even works in outer space.`}
+            children={`Ручка Zero Gravity может использоваться для письма в любом направлении,
+          включая вверх ногами. Она даже работает в космическом пространстве.`}
           />
         </div>
       </div>
@@ -446,11 +443,11 @@ Use the `dark` variant to write classes like `dark:bg-gray-800` that only apply 
 
 </Figure>
 
-Learn more about styling for dark mode in the [dark mode documentation](/docs/dark-mode).
+Узнайте больше о стилизации для темного режима в [документации по темному режиму](/docs/dark-mode).
 
-### Referencing in CSS
+### Ссылки в CSS
 
-Colors are exposed as CSS variables in the `--color-*` namespace, so you can reference them in CSS with variables like `--color-blue-500` and `--color-pink-700`:
+Цвета представлены как CSS-переменные в пространстве имен `--color-*`, поэтому вы можете ссылаться на них в CSS с помощью переменных типа `--color-blue-500` и `--color-pink-700`:
 
 ```css
 /* [!code filename:CSS] */
@@ -472,7 +469,7 @@ Colors are exposed as CSS variables in the `--color-*` namespace, so you can ref
 }
 ```
 
-You can also use these as [arbitrary values]() in utility classes:
+Вы также можете использовать их как [произвольные значения]() в утилитарных классах:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -482,7 +479,7 @@ You can also use these as [arbitrary values]() in utility classes:
 </div>
 ```
 
-To quickly adjust the opacity of a color when referencing it as a variable in CSS, Tailwind includes a special <code>--alpha()</code> function:
+Для быстрой настройки прозрачности цвета при ссылке на него как на переменную в CSS, Tailwind включает специальную функцию <code>--alpha()</code>:
 
 ```css
 /* [!code filename:CSS] */
@@ -496,9 +493,9 @@ To quickly adjust the opacity of a color when referencing it as a variable in CS
 }
 ```
 
-## Customizing your colors
+## Настройка ваших цветов
 
-Use `@theme` to add custom colors to your project under the `--color-*` theme namespace:
+Используйте `@theme` для добавления пользовательских цветов в ваш проект под пространством имен темы `--color-*`:
 
 ```css
 /* [!code filename:CSS] */
@@ -512,13 +509,13 @@ Use `@theme` to add custom colors to your project under the `--color-*` theme na
 }
 ```
 
-Now utilities like `bg-midnight`, `text-tahiti`, and `fill-bermuda` will be available in your project in addition to the default colors.
+Теперь утилиты типа `bg-midnight`, `text-tahiti` и `fill-bermuda` будут доступны в вашем проекте в дополнение к цветам по умолчанию.
 
-Learn more about theme variables in the [theme variables documentation](/docs/theme).
+Узнайте больше о переменных темы в [документации по переменным темы](/docs/theme).
 
-### Overriding default colors
+### Переопределение цветов по умолчанию
 
-Override any of the default colors by defining new theme variables with the same name:
+Переопределите любой из цветов по умолчанию, определив новые переменные темы с тем же именем:
 
 ```css
 /* [!code filename:CSS] */
@@ -540,9 +537,9 @@ Override any of the default colors by defining new theme variables with the same
 }
 ```
 
-### Disabling default colors
+### Отключение цветов по умолчанию
 
-Disable any default color by setting the theme namespace for that color to `initial`:
+Отключите любой цвет по умолчанию, установив пространство имен темы для этого цвета в `initial`:
 
 ```css
 /* [!code filename:CSS] */
@@ -555,11 +552,11 @@ Disable any default color by setting the theme namespace for that color to `init
 }
 ```
 
-This is especially useful for removing the corresponding CSS variables from your output for colors you don't intend to use.
+Это особенно полезно для удаления соответствующих CSS-переменных из вашего вывода для цветов, которые вы не планируете использовать.
 
-### Using a custom palette
+### Использование пользовательской палитры
 
-Use `--color-*: initial` to completely disable all of the default colors and define your own custom color palette:
+Используйте `--color-*: initial` для полного отключения всех цветов по умолчанию и определения собственной пользовательской цветовой палитры:
 
 ```css
 /* [!code filename:CSS] */
@@ -576,9 +573,9 @@ Use `--color-*: initial` to completely disable all of the default colors and def
 }
 ```
 
-### Referencing other variables
+### Ссылки на другие переменные
 
-Use `@theme inline` when defining colors that reference other colors:
+Используйте `@theme inline` при определении цветов, которые ссылаются на другие цвета:
 
 ```css
 /* [!code filename:CSS] */
@@ -598,11 +595,11 @@ Use `@theme inline` when defining colors that reference other colors:
 }
 ```
 
-Learn more in the theme documentation on [referencing other variables](/docs/theme#referencing-other-variables).
+Узнайте больше в документации по теме о [ссылках на другие переменные](/docs/theme#referencing-other-variables).
 
-## Default color palette reference
+## Справочник цветовой палитры по умолчанию
 
-Here's a complete list of the default colors and their values for reference:
+Вот полный список цветов по умолчанию и их значений для справки:
 
 ```css
 /* [!code filename:CSS] */
@@ -876,4 +873,4 @@ Here's a complete list of the default colors and their values for reference:
 }
 ```
 
-This can be useful if you want to reuse any of these scales but under a different name, like redefining `--color-gray-*` to use the `--color-slate-*` scale.
+Это может быть полезно, если вы хотите повторно использовать любую из этих шкал, но под другим именем, например, переопределить `--color-gray-*` для использования шкалы `--color-slate-*`.

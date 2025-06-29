@@ -5,20 +5,20 @@ import { Figure } from "@/components/figure.tsx";
 import { Iframe } from "@/components/iframe.tsx";
 import { TipGood, TipBad, TipInfo } from "@/components/tips";
 
-export const title = "Hover, focus, and other states";
-export const description = "Using utilities to style elements on hover, focus, and more.";
+export const title = "Наведение, фокус и другие состояния";
+export const description = "Использование утилит для стилизации элементов при наведении, фокусе и других состояниях.";
 
-Every utility class in Tailwind can be applied _conditionally_ by adding a variant to the beginning of the class name that describes the condition you want to target.
+Каждый утилитарный класс в Tailwind может применяться _условно_, добавляя вариант в начало имени класса, который описывает условие, на которое вы хотите воздействовать.
 
-For example, to apply the `bg-sky-700` class on hover, use the `hover:bg-sky-700` class:
+Например, чтобы применить класс `bg-sky-700` при наведении, используйте класс `hover:bg-sky-700`:
 
-<Figure hint="Hover over this button to see the background color change">
+<Figure hint="Наведите курсор на эту кнопку, чтобы увидеть изменение цвета фона">
 
 <Example>
   {
     <div className="grid place-items-center">
       <button className="rounded-full bg-sky-500 px-5 py-2 text-sm leading-5 font-semibold text-white hover:bg-sky-700">
-        Save changes
+        Сохранить изменения
       </button>
     </div>
   }
@@ -26,17 +26,17 @@ For example, to apply the `bg-sky-700` class on hover, use the `hover:bg-sky-700
 
 ```html
 <!-- [!code classes:hover:bg-sky-700] -->
-<button class="bg-sky-500 hover:bg-sky-700 ...">Save changes</button>
+<button class="bg-sky-500 hover:bg-sky-700 ...">Сохранить изменения</button>
 ```
 
 </Figure>
 
 <details className="mb-10 rounded-xl border border-gray-200 px-6 py-3 prose open:pb-5 dark:prose-dark dark:border-gray-800">
-<summary className="font-medium cursor-default select-none text-gray-900 dark:text-gray-200">How does this compare to traditional CSS?</summary>
+<summary className="font-medium cursor-default select-none text-gray-900 dark:text-gray-200">Как это сравнивается с традиционным CSS?</summary>
 
-When writing CSS the traditional way, a single class name would do different things based on the current state:
+При написании CSS традиционным способом одно имя класса делало бы разные вещи в зависимости от текущего состояния:
 
-<TipBad>{<>Traditionally the same class name applies different styles on hover</>}</TipBad>
+<TipBad>{<>Традиционно одно и то же имя класса применяет разные стили при наведении</>}</TipBad>
 
 ```css
 .btn-primary {
@@ -48,9 +48,9 @@ When writing CSS the traditional way, a single class name would do different thi
 }
 ```
 
-In Tailwind, rather than adding the styles for a hover state to an existing class, you add another class to the element that _only_ does something on hover:
+В Tailwind, вместо добавления стилей для состояния наведения к существующему классу, вы добавляете другой класс к элементу, который _только_ что-то делает при наведении:
 
-<TipGood>{<>In Tailwind, separate classes are used for the default state and the hover state</>}</TipGood>
+<TipGood>{<>В Tailwind используются отдельные классы для состояния по умолчанию и состояния наведения</>}</TipGood>
 
 ```css
 .bg-sky-500 {
@@ -62,36 +62,36 @@ In Tailwind, rather than adding the styles for a hover state to an existing clas
 }
 ```
 
-Notice how `hover:bg-sky-700` _only_ defines styles for the `:hover` state? It does nothing by default, but as soon as you hover over an element with that class, the background color will change to `sky-700`.
+Обратите внимание, как `hover:bg-sky-700` _только_ определяет стили для состояния `:hover`? Он ничего не делает по умолчанию, но как только вы наводите курсор на элемент с этим классом, цвет фона изменится на `sky-700`.
 
-This is what we mean when we say a utility class can be applied _conditionally_ — by using variants you can control exactly how your design behaves in different states, without ever leaving your HTML.
+Это то, что мы имеем в виду, когда говорим, что утилитарный класс может применяться _условно_ — используя варианты, вы можете точно контролировать, как ваш дизайн ведет себя в разных состояниях, никогда не покидая HTML.
 
 </details>
 
-Tailwind includes variants for just about everything you'll ever need, including:
+Tailwind включает варианты практически для всего, что вам когда-либо понадобится, включая:
 
-- [Pseudo-classes](#pseudo-classes), like `:hover`, `:focus`, `:first-child`, and `:required`
-- [Pseudo-elements](#pseudo-elements), like `::before`, `::after`, `::placeholder`, and `::selection`
-- [Media and feature queries](#media-and-feature-queries), like responsive breakpoints, dark mode, and `prefers-reduced-motion`
-- [Attribute selectors](#attribute-selectors), like `[dir="rtl"]` and `[open]`
-- [Child selectors](#child-selectors), like `& > *` and `& *`
+- [Псевдоклассы](#pseudo-classes), такие как `:hover`, `:focus`, `:first-child` и `:required`
+- [Псевдоэлементы](#pseudo-elements), такие как `::before`, `::after`, `::placeholder` и `::selection`
+- [Медиа и функциональные запросы](#media-and-feature-queries), такие как адаптивные контрольные точки, тёмный режим и `prefers-reduced-motion`
+- [Селекторы атрибутов](#attribute-selectors), такие как `[dir="rtl"]` и `[open]`
+- [Дочерние селекторы](#child-selectors), такие как `& > *` и `& *`
 
-These variants can even be stacked to target more specific situations, for example changing the background color in dark mode, at the medium breakpoint, on hover:
+Эти варианты даже можно комбинировать для нацеливания на более специфичные ситуации, например, изменение цвета фона в тёмном режиме, на среднем брейкпоинте, при наведении:
 
 ```html
 <!-- [!code classes:dark:md:hover:bg-fuchsia-600] -->
-<button class="dark:md:hover:bg-fuchsia-600 ...">Save changes</button>
+<button class="dark:md:hover:bg-fuchsia-600 ...">Сохранить изменения</button>
 ```
 
-In this guide you'll learn about every variant available in the framework, how to use them with your own custom classes, and even how to create your own.
+В этом руководстве вы узнаете о каждом доступном варианте в фреймворке, как использовать их с вашими собственными пользовательскими классами, и даже как создавать свои собственные.
 
-## Pseudo-classes
+## Псевдоклассы
 
-### :hover, :focus, and :active
+### :hover, :focus и :active
 
-Style elements on hover, focus, and active using the `hover`, `focus`, and `active` variants:
+Стилизуйте элементы при наведении, фокусе и активном состоянии, используя варианты `hover`, `focus` и `active`:
 
-<Figure hint="Try interacting with this button to see the hover, focus, and active states">
+<Figure hint="Попробуйте взаимодействовать с этой кнопкой, чтобы увидеть состояния наведения, фокуса и активности">
 
 <Example>
   {
@@ -100,7 +100,7 @@ Style elements on hover, focus, and active using the `hover`, `focus`, and `acti
         type="button"
         className="rounded-full bg-violet-500 px-5 py-2 text-sm leading-5 font-semibold text-white hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700"
       >
-        Save changes
+        Сохранить изменения
       </button>
     </div>
   }
@@ -110,19 +110,19 @@ Style elements on hover, focus, and active using the `hover`, `focus`, and `acti
 <!-- [!code classes:hover:bg-violet-600,focus:outline-2,focus:outline-offset-2,focus:outline-violet-500,active:bg-violet-700] -->
 <!-- prettier-ignore -->
 <button class="bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 ...">
-  Save changes
+  Сохранить изменения
 </button>
 ```
 
 </Figure>
 
-Tailwind also includes variants for other interactive states like `:visited`, `:focus-within`, `:focus-visible`, and more.
+Tailwind также включает варианты для других интерактивных состояний, таких как `:visited`, `:focus-within`, `:focus-visible` и других.
 
-See the [pseudo-class reference](#pseudo-class-reference) for a complete list of available pseudo-class variants.
+См. [справочник псевдоклассов](#pseudo-class-reference) для полного списка доступных вариантов псевдоклассов.
 
-### :first, :last, :odd, and :even
+### :first, :last, :odd и :even
 
-Style an element when it is the first-child or last-child using the `first` and `last` variants:
+Стилизуйте элемент, когда он является первым или последним дочерним элементом, используя варианты `first` и `last`:
 
 <Figure>
 
@@ -138,7 +138,7 @@ Style an element when it is the first-child or last-child using the `first` and 
               alt=""
             />
             <div className="ml-3 overflow-hidden">
-              <p className="text-sm font-medium text-gray-900 dark:text-white">Kristen Ramos</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white">Кристен Рамос</p>
               <p className="truncate text-sm text-gray-500 dark:text-gray-400">kristen.ramos@example.com</p>
             </div>
           </li>
@@ -149,7 +149,7 @@ Style an element when it is the first-child or last-child using the `first` and 
               alt=""
             />
             <div className="ml-3 overflow-hidden">
-              <p className="text-sm font-medium text-gray-900 dark:text-white">Floyd Miles</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white">Флойд Майлз</p>
               <p className="truncate text-sm text-gray-500 dark:text-gray-400">floyd.miles@example.com</p>
             </div>
           </li>
@@ -160,7 +160,7 @@ Style an element when it is the first-child or last-child using the `first` and 
               alt=""
             />
             <div className="ml-3 overflow-hidden">
-              <p className="text-sm font-medium text-gray-900 dark:text-white">Courtney Henry</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white">Кортни Генри</p>
               <p className="truncate text-sm text-gray-500 dark:text-gray-400">courtney.henry@example.com</p>
             </div>
           </li>
@@ -171,7 +171,7 @@ Style an element when it is the first-child or last-child using the `first` and 
               alt=""
             />
             <div className="ml-3 overflow-hidden">
-              <p className="text-sm font-medium text-gray-900 dark:text-white">Ted Fox</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white">Тед Фокс</p>
               <p className="truncate text-sm text-gray-500 dark:text-gray-400">ted.fox@example.com</p>
             </div>
           </li>
@@ -185,7 +185,7 @@ Style an element when it is the first-child or last-child using the `first` and 
 <!-- [!code classes:first:pt-0,last:pb-0] -->
 <ul role="list">
   {#each people as person}
-    <!-- Remove top/bottom padding when first/last child -->
+    <!-- Удаляем верхний/нижний отступ, когда первый/последний дочерний элемент -->
     <li class="flex py-4 first:pt-0 last:pb-0">
       <img class="h-10 w-10 rounded-full" src={person.imageUrl} alt="" />
       <div class="ml-3 overflow-hidden">
@@ -199,7 +199,7 @@ Style an element when it is the first-child or last-child using the `first` and 
 
 </Figure>
 
-You can also style an element when it's an odd or even child using the `odd` and `even` variants:
+Вы также можете стилизовать элемент, когда он является нечётным или чётным дочерним элементом, используя варианты `odd` и `even`:
 
 <Figure>
 
@@ -215,6 +215,9 @@ You can also style an element when it's an odd or even child using the `odd` and
                   <tr>
                     <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
                       Name
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
+                      Имя
                     </th>
                     <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-900 dark:text-white">
                       Title
@@ -252,7 +255,7 @@ You can also style an element when it's an odd or even child using the `odd` and
                       Leonard Krasner
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Senior Designer
+                      Старший дизайнер
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
                       leonard.krasner@example.com
@@ -263,7 +266,7 @@ You can also style an element when it's an odd or even child using the `odd` and
                       Emily Selman
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      VP, Hardware Engineering
+                      Вице-президент по аппаратному обеспечению
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
                       emily.selman@example.com
@@ -274,7 +277,7 @@ You can also style an element when it's an odd or even child using the `odd` and
                       Anna Roberts
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
-                      Chief Strategy Officer
+                      Директор по стратегии
                     </td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
                       anna.roberts@example.com
@@ -296,7 +299,7 @@ You can also style an element when it's an odd or even child using the `odd` and
   <!-- ... -->
   <tbody>
     {#each people as person}
-      <!-- Use different background colors for odd and even rows -->
+      <!-- Используйте разные цвета фона для нечётных и чётных строк -->
       <tr class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
         <td>{person.name}</td>
         <td>{person.title}</td>
@@ -309,7 +312,7 @@ You can also style an element when it's an odd or even child using the `odd` and
 
 </Figure>
 
-Use the `nth-*` and `nth-last-*` variants to style children based on their position in the list:
+Используйте варианты `nth-*` и `nth-last-*` для стилизации дочерних элементов на основе их позиции в списке:
 
 ```html
 <!-- [!code classes:nth-3:underline,nth-last-5:underline,nth-of-type-4:underline,nth-last-of-type-6:underline] -->
@@ -327,15 +330,15 @@ Use the `nth-*` and `nth-last-*` variants to style children based on their posit
 </div>
 ```
 
-You can pass any number you want to these by default, and use arbitrary values for more complex expressions like `nth-[2n+1_of_li]`.
+Вы можете передать любое число по умолчанию, и использовать произвольные значения для более сложных выражений, таких как `nth-[2n+1_of_li]`.
 
-Tailwind also includes variants for other structural pseudo-classes like `:only-child`, `:first-of-type`, `:empty`, and more.
+Tailwind также включает варианты для других структурных псевдоклассов, таких как `:only-child`, `:first-of-type`, `:empty` и других.
 
-See the [pseudo-class reference](#pseudo-class-reference) for a complete list of available pseudo-class variants.
+См. [справочник по псевдоклассам](#pseudo-class-reference) для полного списка доступных вариантов псевдоклассов.
 
-### :required and :disabled
+### :required и :disabled
 
-Style form elements in different states using variants like `required`, `invalid`, and `disabled`:
+Стилизуйте элементы форм в различных состояниях, используя варианты, такие как `required`, `invalid` и `disabled`:
 
 <Figure hint="Try making the email address valid to see the styles change">
 
@@ -345,7 +348,7 @@ Style form elements in different states using variants like `required`, `invalid
       <form>
         <div>
           <label htmlFor="username" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-            Username
+            Имя пользователя
           </label>
           <div className="mt-1">
             <input
@@ -375,7 +378,7 @@ Style form elements in different states using variants like `required`, `invalid
         </div>
         <div className="mt-6">
           <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-            Password
+            Пароль
           </label>
           <div className="mt-1">
             <input
@@ -390,7 +393,7 @@ Style form elements in different states using variants like `required`, `invalid
         </div>
         <div className="mt-6 text-right">
           <button className="rounded-md bg-sky-500 px-5 py-2.5 text-sm leading-5 font-semibold text-white hover:bg-sky-700">
-            Save changes
+            Сохранить изменения
           </button>
         </div>
       </form>
@@ -410,15 +413,15 @@ Style form elements in different states using variants like `required`, `invalid
 
 </Figure>
 
-Using variants for this sort of thing can reduce the amount of conditional logic in your templates, letting you use the same set of classes regardless of what state an input is in and letting the browser apply the right styles for you.
+Использование вариантов для подобных вещей может уменьшить количество условной логики в ваших шаблонах, позволяя использовать один и тот же набор классов независимо от того, в каком состоянии находится input, и позволяя браузеру применять правильные стили за вас.
 
-Tailwind also includes variants for other form states like `:read-only`, `:indeterminate`, `:checked`, and more.
+Tailwind также включает варианты для других состояний форм, таких как `:read-only`, `:indeterminate`, `:checked` и другие.
 
-See the [pseudo-class reference](#pseudo-class-reference) for a complete list of available pseudo-class variants.
+См. [справочник псевдоклассов](#pseudo-class-reference) для полного списка доступных вариантов псевдоклассов.
 
 ### :has()
 
-Use the `has-*` variant to style an element based on the state or content of its descendants:
+Используйте вариант `has-*` для стилизации элемента на основе состояния или содержимого его дочерних элементов:
 
 <Figure>
 
@@ -426,7 +429,7 @@ Use the `has-*` variant to style an element based on the state or content of its
   {
     <div className="mx-auto max-w-md border-x border-x-gray-200 px-4 py-6 text-gray-700 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-200">
       <fieldset>
-        <legend className="text-base font-semibold text-gray-900 dark:text-white">Payment method</legend>
+        <legend className="text-base font-semibold text-gray-900 dark:text-white">Способ оплаты</legend>
         <div className="mt-4 space-y-2">
           <label
             htmlFor="apple"
@@ -472,7 +475,7 @@ Use the `has-*` variant to style an element based on the state or content of its
                 d="M16.539 3.18591C16.0742 3.01652 15.5828 2.93152 15.088 2.93491C13.488 2.93491 12.358 3.74091 12.35 4.89791C12.34 5.74791 13.153 6.22691 13.768 6.51091C14.399 6.80291 14.61 6.98691 14.608 7.24791C14.604 7.64491 14.104 7.82491 13.639 7.82491C13 7.82491 12.651 7.73591 12.114 7.51291L11.915 7.41991L11.688 8.75191C12.077 8.91391 12.778 9.05291 13.502 9.06491C15.203 9.06491 16.315 8.26391 16.328 7.03291C16.342 6.35391 15.902 5.84091 14.976 5.41691C14.413 5.14191 14.064 4.95791 14.064 4.67891C14.064 4.43191 14.363 4.16791 14.988 4.16791C15.404 4.15785 15.8174 4.23589 16.201 4.39691L16.351 4.46391L16.578 3.17691L16.539 3.18591ZM20.691 3.04291H19.441C19.052 3.04291 18.759 3.14991 18.589 3.53591L16.185 8.98191H17.886L18.226 8.08891L20.302 8.09091C20.351 8.29991 20.501 8.98191 20.501 8.98191H22.001L20.691 3.04291ZM10.049 2.99291H11.67L10.656 8.93491H9.03705L10.049 2.99091V2.99291ZM5.93405 6.26791L6.10205 7.09291L7.68605 3.04291H9.40305L6.85205 8.97391H5.13905L3.73905 3.95191C3.71637 3.8691 3.66312 3.79798 3.59005 3.75291C3.08545 3.49225 2.55079 3.29444 1.99805 3.16391L2.02005 3.03891H4.62905C4.98305 3.05291 5.26805 3.16391 5.36305 3.54191L5.93305 6.27091L5.93405 6.26791ZM18.691 6.87391L19.337 5.21191C19.329 5.22991 19.47 4.86891 19.552 4.64591L19.663 5.15891L20.038 6.87291H18.69L18.691 6.87391Z"
               />
             </svg>
-            Credit Card
+            Кредитная карта
             <input
               name="payment_method"
               id="credit-card"
@@ -502,11 +505,11 @@ Use the `has-*` variant to style an element based on the state or content of its
 
 </Figure>
 
-You can use `has-*` with a pseudo-class, like `has-[:focus]`, to style an element based on the state of its descendants. You can also use element selectors, like `has-[img]` or `has-[a]`, to style an element based on the content of its descendants.
+Вы можете использовать `has-*` с псевдоклассом, например, `has-[:focus]`, для стилизации элемента на основе состояния его дочерних элементов. Вы также можете использовать селекторы элементов, такие как `has-[img]` или `has-[a]`, для стилизации элемента на основе содержимого его дочерних элементов.
 
-#### Styling based on the descendants of a group
+#### Стилизация на основе дочерних элементов группы
 
-If you need to style an element based on the descendants of a parent element, you can mark the parent with the `group` class and use the `group-has-*` variant to style the target element:
+Если вам нужно стилизовать элемент на основе дочерних элементов родительского элемента, вы можете пометить родителя классом `group` и использовать вариант `group-has-*` для стилизации целевого элемента:
 
 <Figure>
 
@@ -531,7 +534,7 @@ If you need to style an element based on the descendants of a parent element, yo
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
         </svg>
         <p className="col-start-2 text-sm">
-          Product Designer at{" "}
+          Дизайнер продукта в{" "}
           <a href="#" className="dark;text-blue-400 text-blue-500 underline">
             planeteria.tech
           </a>
@@ -554,7 +557,7 @@ If you need to style an element based on the descendants of a parent element, yo
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
         </svg>
-        <p className="col-start-2 text-sm">Just happy to be here.</p>
+        <p className="col-start-2 text-sm">Просто счастлив быть здесь.</p>
       </div>
       <div className="group grid grid-cols-[32px_1fr_auto] items-center gap-x-4 px-4 py-4">
         <img
@@ -574,7 +577,7 @@ If you need to style an element based on the descendants of a parent element, yo
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
         </svg>
         <p className="col-start-2 text-sm">
-          A multidisciplinary designer, working at the intersection of art and technology. <br />
+          Мультидисциплинарный дизайнер, работающий на пересечении искусства и технологий. <br />
           <br />
           <a href="#" className="dark;text-blue-400 text-blue-500 underline">
             alex-reed.com
@@ -598,7 +601,7 @@ If you need to style an element based on the descendants of a parent element, yo
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
         </svg>
-        <p className="col-start-2 text-sm">Pushing pixels. Slinging divs.</p>
+        <p className="col-start-2 text-sm">Перемещаю пиксели. Бросаю div'ы.</p>
       </div>
     </div>
   }
@@ -610,15 +613,15 @@ If you need to style an element based on the descendants of a parent element, yo
   <img src="..." />
   <h4>Spencer Sharp</h4>
   <svg class="hidden group-has-[a]:block ..."><!-- ... --></svg>
-  <p>Product Designer at <a href="...">planeteria.tech</a></p>
+  <p>Дизайнер продукта в <a href="...">planeteria.tech</a></p>
 </div>
 ```
 
 </Figure>
 
-#### Styling based on the descendants of a peer
+#### Стилизация на основе дочерних элементов соседнего элемента
 
-If you need to style an element based on the descendants of a sibling element, you can mark the sibling with the `peer` class and use the `peer-has-*` variant to style the target element:
+Если вам нужно стилизовать элемент на основе дочерних элементов соседнего элемента, вы можете пометить соседний элемент классом `peer` и использовать вариант `peer-has-*` для стилизации целевого элемента:
 
 <Figure>
 
@@ -626,7 +629,7 @@ If you need to style an element based on the descendants of a sibling element, y
   {
     <div className="mx-auto max-w-md border-x border-x-gray-200 px-4 py-6 dark:border-x-gray-800 dark:bg-gray-950/10">
       <fieldset className="space-y-3">
-        <legend className="text-base font-semibold text-gray-900 dark:text-white">Today</legend>
+        <legend className="text-base font-semibold text-gray-900 dark:text-white">Сегодня</legend>
         <div className="grid grid-cols-[1fr_24px] items-center gap-6">
           <label className="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-gray-100 dark:hover:bg-white/5">
             <input
@@ -635,7 +638,7 @@ If you need to style an element based on the descendants of a sibling element, y
               defaultChecked
             />
             <span className="text-gray-700 select-none peer-checked:text-gray-400 peer-checked:line-through dark:text-gray-300">
-              Create a to do list
+              Создать список дел
             </span>
           </label>
           <div className="size-[26px] rounded-md p-1 peer-has-checked:hidden hover:bg-red-50 hover:text-pink-500">
@@ -651,7 +654,7 @@ If you need to style an element based on the descendants of a sibling element, y
               className="peer size-3.5 appearance-none rounded-sm border border-gray-300 accent-pink-500 checked:appearance-auto dark:border-gray-600 dark:accent-pink-600"
             />
             <span className="text-gray-700 select-none peer-checked:text-gray-400 peer-checked:line-through dark:text-gray-300">
-              Check off first item
+              Отметить первый пункт
             </span>
           </label>
           <div className="size-[26px] rounded-md p-1 peer-has-checked:hidden hover:bg-red-50 hover:text-pink-500">
@@ -667,7 +670,7 @@ If you need to style an element based on the descendants of a sibling element, y
               className="peer size-3.5 appearance-none rounded-sm border border-gray-300 accent-pink-500 checked:appearance-auto dark:border-gray-600 dark:accent-pink-600"
             />
             <span className="text-gray-700 select-none peer-checked:text-gray-400 peer-checked:line-through dark:text-gray-300">
-              Investigate race condition
+              Исследовать состояние гонки
             </span>
           </label>
           <div className="block size-[26px] rounded-md p-1 peer-has-checked:hidden hover:bg-red-50 hover:text-pink-500">
@@ -686,7 +689,7 @@ If you need to style an element based on the descendants of a sibling element, y
 <div>
   <label class="peer ...">
     <input type="checkbox" name="todo[1]" checked />
-    Create a to do list
+    Создать список дел
   </label>
   <svg class="peer-has-checked:hidden ..."><!-- ... --></svg>
 </div>
@@ -696,11 +699,11 @@ If you need to style an element based on the descendants of a sibling element, y
 
 ### :not()
 
-Use the `not-` variant to style an element when a condition is not true.
+Используйте вариант `not-` для стилизации элемента, когда условие не выполняется.
 
-It's particularly powerful when combined with other pseudo-class variants, for example combining `not-focus:` with `hover:` to only apply hover styles when an element is not focused:
+Это особенно мощно в сочетании с другими вариантами псевдоклассов, например, комбинируя `not-focus:` с `hover:` для применения стилей наведения только когда элемент не в фокусе:
 
-<Figure hint="Try focusing on the button and then hovering over it">
+<Figure hint="Попробуйте сфокусироваться на кнопке, а затем навести на неё">
 
 <Example>
   {
@@ -710,7 +713,7 @@ It's particularly powerful when combined with other pseudo-class variants, for e
         className="rounded-full bg-indigo-600 px-5 py-2 text-sm leading-5 font-semibold text-white hover:not-focus:bg-indigo-700 focus:outline focus:outline-violet-300 active:bg-violet-700"
         tabIndex="0"
       >
-        Save changes
+        Сохранить изменения
       </button>
     </div>
   }
@@ -725,7 +728,7 @@ It's particularly powerful when combined with other pseudo-class variants, for e
 
 </Figure>
 
-You can also combine the `not-` variant with media query variants like `forced-colors` or `supports` to only style an element when something about the user's environment is not true:
+Вы также можете комбинировать вариант `not-` с вариантами медиа-запросов, такими как `forced-colors` или `supports`, для стилизации элемента только когда что-то в окружении пользователя не соответствует истине:
 
 ```html
 <!-- [!code classes:not-supports-[display:grid]:flex] -->
@@ -734,11 +737,11 @@ You can also combine the `not-` variant with media query variants like `forced-c
 </div>
 ```
 
-### Styling based on parent state
+### Стилизация на основе состояния родителя
 
-When you need to style an element based on the state of some _parent_ element, mark the parent with the `group` class, and use `group-*` variants like `group-hover` to style the target element:
+Когда вам нужно стилизовать элемент на основе состояния какого-то _родительского_ элемента, пометьте родителя классом `group` и используйте варианты `group-*`, такие как `group-hover`, для стилизации целевого элемента:
 
-<Figure hint="Hover over the card to see both text elements change color">
+<Figure hint="Наведите курсор на карточку, чтобы увидеть изменение цвета обоих текстовых элементов">
 
 <Example>
   {
@@ -762,10 +765,10 @@ When you need to style an element based on the state of some _parent_ element, m
           />
         </svg>
         {/* This is not an h3 because we're converting h3's to links in MDX files */}
-        <div className="text-sm font-semibold text-gray-900 group-hover:text-white dark:text-white">New project</div>
+        <div className="text-sm font-semibold text-gray-900 group-hover:text-white dark:text-white">Новый проект</div>
       </div>
       <p className="text-sm text-gray-500 group-hover:text-white dark:text-gray-400">
-        Create a new project from a variety of starting templates.
+        Создайте новый проект из различных начальных шаблонов.
       </p>
     </a>
   }
@@ -781,19 +784,19 @@ When you need to style an element based on the state of some _parent_ element, m
     <svg class="stroke-sky-500 group-hover:stroke-white ..." fill="none" viewBox="0 0 24 24">
       <!-- ... -->
     </svg>
-    <h3 class="text-gray-900 group-hover:text-white ...">New project</h3>
+    <h3 class="text-gray-900 group-hover:text-white ...">Новый проект</h3>
   </div>
-  <p class="text-gray-500 group-hover:text-white ...">Create a new project from a variety of starting templates.</p>
+  <p class="text-gray-500 group-hover:text-white ...">Создайте новый проект из различных начальных шаблонов.</p>
 </a>
 ```
 
 </Figure>
 
-This pattern works with every pseudo-class variant, for example `group-focus`, `group-active`, or even `group-odd`.
+Этот паттерн работает с каждым вариантом псевдо-класса, например `group-focus`, `group-active` или даже `group-odd`.
 
-#### Differentiating nested groups
+#### Различение вложенных групп
 
-When nesting groups, you can style something based on the state of a _specific_ parent group by giving that parent a unique group name using a `group/{name}` class, and including that name in variants using classes like `group-hover/{name}`:
+При вложении групп вы можете стилизовать что-то на основе состояния _конкретной_ родительской группы, дав этой родительской группе уникальное имя группы с помощью класса `group/{name}`, и включив это имя в варианты с помощью классов типа `group-hover/{name}`:
 
 <Figure>
 
@@ -933,11 +936,11 @@ When nesting groups, you can style something based on the state of a _specific_ 
 
 </Figure>
 
-Groups can be named however you like and don’t need to be configured in any way — just name your groups directly in your markup and Tailwind will automatically generate the necessary CSS.
+Группы можно называть как угодно, и их не нужно настраивать каким-либо образом — просто назовите ваши группы прямо в разметке, и Tailwind автоматически сгенерирует необходимый CSS.
 
-#### Arbitrary groups
+#### Произвольные группы
 
-You can create one-off `group-*` variants on the fly by providing your own selector as an [arbitrary value](/docs/adding-custom-styles#using-arbitrary-values) between square brackets:
+Вы можете создавать одноразовые варианты `group-*` на лету, предоставив свой собственный селектор как [произвольное значение](/docs/adding-custom-styles#using-arbitrary-values) в квадратных скобках:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -963,7 +966,7 @@ You can create one-off `group-*` variants on the fly by providing your own selec
   />
 </CodeExampleGroup>
 
-For more control, you can use the `&` character to mark where `.group` should end up in the final selector relative to the selector you are passing in:
+Для более точного контроля вы можете использовать символ `&` для обозначения того, где `.group` должен оказаться в итоговом селекторе относительно селектора, который вы передаете:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -989,9 +992,9 @@ For more control, you can use the `&` character to mark where `.group` should en
   />
 </CodeExampleGroup>
 
-#### Implicit groups
+#### Неявные группы
 
-The `in-*` variant works similarly to `group` except you don't need to add `group` to the parent element:
+Вариант `in-*` работает аналогично `group`, но вам не нужно добавлять `group` к родительскому элементу:
 
 {/* prettier-ignore */}
 ```html
@@ -1007,13 +1010,13 @@ The `in-*` variant works similarly to `group` except you don't need to add `grou
 </div>
 ```
 
-The `in-*` variant responds to state changes in any parent, so if you want more fine-grained control you'll need to use `group` instead.
+Вариант `in-*` реагирует на изменения состояния в любом родительском элементе, поэтому если вам нужен более точный контроль, вам придется использовать `group` вместо этого.
 
-### Styling based on sibling state
+### Стилизация на основе состояния соседнего элемента
 
-When you need to style an element based on the state of a _sibling_ element, mark the sibling with the `peer` class, and use `peer-*` variants like `peer-invalid` to style the target element:
+Когда вам нужно стилизовать элемент на основе состояния _соседнего_ элемента, пометьте соседний элемент классом `peer`, и используйте варианты `peer-*`, такие как `peer-invalid`, для стилизации целевого элемента:
 
-<Figure hint="Try making the email address valid to see the warning disappear">
+<Figure hint="Попробуйте сделать email-адрес действительным, чтобы увидеть исчезновение предупреждения">
 
 <Example className="py-0">
   {
@@ -1033,7 +1036,7 @@ When you need to style an element based on the state of a _sibling_ element, mar
               placeholder="you@example.com"
             />
             <p className="invisible mt-2 text-sm text-pink-600 peer-invalid:visible">
-              Please provide a valid email address.
+              Пожалуйста, укажите действительный email-адрес.
             </p>
           </div>
         </div>
@@ -1049,20 +1052,20 @@ When you need to style an element based on the state of a _sibling_ element, mar
   <label class="block">
     <span class="...">Email</span>
     <input type="email" class="peer ..." />
-    <p class="invisible peer-invalid:visible ...">Please provide a valid email address.</p>
+    <p class="invisible peer-invalid:visible ...">Пожалуйста, укажите действительный email-адрес.</p>
   </label>
 </form>
 ```
 
 </Figure>
 
-This makes it possible to do all sorts of neat tricks, like [floating labels](https://www.youtube.com/watch?v=nJzKi6oIvBA) for example without any JS.
+Это позволяет делать всевозможные интересные трюки, например [плавающие метки](https://www.youtube.com/watch?v=nJzKi6oIvBA), без использования JavaScript.
 
-This pattern works with every pseudo-class variant, for example `peer-focus`, `peer-required`, and `peer-disabled`.
+Этот паттерн работает с каждым вариантом псевдо-класса, например `peer-focus`, `peer-required` и `peer-disabled`.
 
-It's important to note that the `peer` marker can only be used on _previous_ siblings because of how the [subsequent-sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Subsequent-sibling_combinator) works in CSS:
+Важно отметить, что маркер `peer` может использоваться только на _предыдущих_ соседних элементах из-за того, как работает [комбинатор последующих соседних элементов](https://developer.mozilla.org/en-US/docs/Web/CSS/Subsequent-sibling_combinator) в CSS:
 
-<TipBad>{<>Won't work, only previous siblings can be marked as peers</>}</TipBad>
+<TipBad>{<>Не будет работать, только предыдущие соседние элементы могут быть помечены как peers</>}</TipBad>
 
 ```html
 <!-- [!code classes:peer-invalid:text-red-500] -->
@@ -1073,9 +1076,9 @@ It's important to note that the `peer` marker can only be used on _previous_ sib
 </label>
 ```
 
-#### Differentiating peers
+#### Различение peers
 
-When using multiple peers, you can style something on the state of a _specific_ peer by giving that peer a unique name using a `peer/{name}` class, and including that name in variants using classes like `peer-checked/{name}`:
+При использовании нескольких peers вы можете стилизовать что-то на основе состояния _конкретного_ peer, дав этому peer уникальное имя с помощью класса `peer/{name}`, и включив это имя в варианты с помощью классов типа `peer-checked/{name}`:
 
 <Figure>
 
@@ -1084,7 +1087,7 @@ When using multiple peers, you can style something on the state of a _specific_ 
     <div className="px-4">
       <fieldset className="mx-auto max-w-md border-x border-x-gray-200 p-8 text-sm text-gray-700 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-100">
         <div className="mb-6 border-b border-gray-200 pb-2 text-base font-semibold dark:border-gray-800">
-          Published status
+          Статус публикации
         </div>
         <input
           id="draft"
@@ -1094,7 +1097,7 @@ When using multiple peers, you can style something on the state of a _specific_ 
           defaultChecked
         />
         <label className="font-medium peer-checked/draft:text-sky-500" htmlFor="draft">
-          Draft
+          Черновик
         </label>
         <input
           id="published"
@@ -1103,13 +1106,13 @@ When using multiple peers, you can style something on the state of a _specific_ 
           name="status"
         />
         <label className="font-medium peer-checked/published:text-sky-500" htmlFor="published">
-          Published
+          Опубликовано
         </label>
         <div className="mt-4 hidden text-gray-500 peer-checked/draft:block dark:text-gray-400">
-          Drafts are only visible to administrators.
+          Черновики видны только администраторам.
         </div>
         <div className="mt-4 hidden text-gray-500 peer-checked/published:block dark:text-gray-400">
-          Your post will be publicly visible on your site.
+          Ваша запись будет публично видна на вашем сайте.
         </div>
       </fieldset>
     </div>
@@ -1124,25 +1127,25 @@ When using multiple peers, you can style something on the state of a _specific_ 
 <!-- [!code classes:peer/draft] -->
 <!-- [!code classes:peer/published] -->
 <fieldset>
-  <legend>Published status</legend>
+  <legend>Статус публикации</legend>
 
   <input id="draft" class="peer/draft" type="radio" name="status" checked />
-  <label for="draft" class="peer-checked/draft:text-sky-500">Draft</label>
+  <label for="draft" class="peer-checked/draft:text-sky-500">Черновик</label>
 
   <input id="published" class="peer/published" type="radio" name="status" />
-  <label for="published" class="peer-checked/published:text-sky-500">Published</label>
-  <div class="hidden peer-checked/draft:block">Drafts are only visible to administrators.</div>
-  <div class="hidden peer-checked/published:block">Your post will be publicly visible on your site.</div>
+  <label for="published" class="peer-checked/published:text-sky-500">Опубликовано</label>
+  <div class="hidden peer-checked/draft:block">Черновики видны только администраторам.</div>
+  <div class="hidden peer-checked/published:block">Ваша запись будет публично видна на вашем сайте.</div>
 </fieldset>
 ```
 
 </Figure>
 
-Peers can be named however you like and don’t need to be configured in any way — just name your peers directly in your markup and Tailwind will automatically generate the necessary CSS.
+Peers могут быть названы как угодно и не требуют никакой настройки — просто назовите ваших peers прямо в разметке, и Tailwind автоматически сгенерирует необходимый CSS.
 
-#### Arbitrary peers
+#### Произвольные peers
 
-You can create one-off `peer-*` variants on the fly by providing your own selector as an [arbitrary value](/docs/adding-custom-styles#using-arbitrary-values) between square brackets:
+Вы можете создавать одноразовые варианты `peer-*` на лету, предоставляя свой собственный селектор как [произвольное значение](/docs/adding-custom-styles#using-arbitrary-values) в квадратных скобках:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -1153,7 +1156,7 @@ You can create one-off `peer-*` variants on the fly by providing your own select
       <form>
         <label for="email">Email:</label>
         <input id="email" name="email" type="email" class="is-dirty peer" required />
-        <div class="peer-[.is-dirty]:peer-required:block hidden">This field is required.</div>
+        <div class="peer-[.is-dirty]:peer-required:block hidden">Это поле обязательно для заполнения.</div>
         <!-- ... -->
       </form>
     `}
@@ -1171,7 +1174,7 @@ You can create one-off `peer-*` variants on the fly by providing your own select
   />
 </CodeExampleGroup>
 
-For more control, you can use the `&` character to mark where `.peer` should end up in the final selector relative to the selector you are passing in:
+Для большего контроля вы можете использовать символ `&`, чтобы обозначить, где `.peer` должен оказаться в финальном селекторе относительно селектора, который вы передаете:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -1200,11 +1203,11 @@ For more control, you can use the `&` character to mark where `.peer` should end
   />
 </CodeExampleGroup>
 
-## Pseudo-elements
+## Псевдоэлементы
 
-### ::before and ::after
+### ::before и ::after
 
-Style the `::before` and `::after` pseudo-elements using the `before` and `after` variants:
+Стилизуйте псевдоэлементы `::before` и `::after` с помощью вариантов `before` и `after`:
 
 <Figure>
 
@@ -1241,7 +1244,7 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
 
 </Figure>
 
-When using these variants, Tailwind will automatically add `content: ''` by default so you don't have to specify it unless you want a different value:
+При использовании этих вариантов Tailwind автоматически добавляет `content: ''` по умолчанию, поэтому вам не нужно указывать его, если только вы не хотите другое значение:
 
 <Figure>
 
@@ -1250,7 +1253,7 @@ When using these variants, Tailwind will automatically add `content: ''` by defa
     <div className="px-6">
       <div className="mx-auto max-w-lg border-x border-x-gray-200 px-6 py-8 dark:border-x-gray-800 dark:bg-gray-950/10">
         <blockquote className="text-center text-2xl font-semibold text-gray-900 italic dark:text-white">
-          When you look{" "}
+          Когда вы выглядите{" "}
           <span className="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-pink-500">
             <span className="relative text-white dark:text-gray-950">annoyed</span>
           </span>{" "}
@@ -1278,9 +1281,9 @@ When using these variants, Tailwind will automatically add `content: ''` by defa
 
 </Figure>
 
-It's worth noting that you don't really need `::before` and `::after` pseudo-elements for most things in Tailwind projects — it's usually simpler to just use a real HTML element.
+Стоит отметить, что в большинстве случаев в проектах Tailwind вам не нужны псевдоэлементы `::before` и `::after` — обычно проще использовать реальный HTML элемент.
 
-For example, here's the same design from above but using a `<span>` instead of the `::before` pseudo-element, which is a little easier to read and is actually less code:
+Например, вот тот же дизайн сверху, но использующий `<span>` вместо псевдоэлемента `::before`, что немного легче читается и фактически содержит меньше кода:
 
 ```html
 <blockquote class="text-center text-2xl font-semibold text-gray-900 italic">
@@ -1294,11 +1297,11 @@ For example, here's the same design from above but using a `<span>` instead of t
 </blockquote>
 ```
 
-Save `before` and `after` for situations where it's important that the content of the pseudo-element is not actually in the DOM and can't be selected by the user.
+Сохраните `before` и `after` для ситуаций, когда важно, чтобы содержимое псевдоэлемента фактически не находилось в DOM и не могло быть выбрано пользователем.
 
 ### ::placeholder
 
-Style the placeholder text of any input or textarea using the `placeholder` variant:
+Стилизуйте текст-заполнитель любого input или textarea с помощью варианта `placeholder`:
 
 <Figure>
 
@@ -1343,7 +1346,7 @@ Style the placeholder text of any input or textarea using the `placeholder` vari
 
 ### ::file
 
-Style the button in file inputs using the `file` variant:
+Стилизуйте кнопку в file inputs с помощью варианта `file`:
 
 <Figure>
 
@@ -1384,7 +1387,7 @@ Style the button in file inputs using the `file` variant:
 
 ### ::marker
 
-Style the counters or bullets in lists using the `marker` variant:
+Стилизуйте счетчики или маркеры в списках с помощью варианта `marker`:
 
 <Figure>
 
@@ -1414,22 +1417,22 @@ Style the counters or bullets in lists using the `marker` variant:
 
 </Figure>
 
-We've designed the `marker` variant to be inheritable, so although you can use it directly on an `<li>` element, you can also use it on a parent to avoid repeating yourself.
+Мы разработали вариант `marker` так, чтобы он был наследуемым, поэтому хотя вы можете использовать его напрямую на элементе `<li>`, вы также можете использовать его на родительском элементе, чтобы избежать повторений.
 
 ### ::selection
 
-Style the active text selection using the `selection` variant:
+Стилизуйте активное выделение текста с помощью варианта `selection`:
 
-<Figure hint="Try selecting some of this text with your mouse">
+<Figure hint="Попробуйте выделить часть этого текста мышью">
 
 <Example className="py-0">
   {
     <div className="px-6">
       <div className="mx-auto max-w-lg border-x border-x-gray-200 px-6 py-8 text-gray-700 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:border-x-gray-800 dark:bg-gray-950/10 dark:text-gray-300">
         <p>
-          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
-          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
-          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+          Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел мимо волн, 
+          на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство всех живых существ, 
+          но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
         </p>
       </div>
     </div>
@@ -1441,18 +1444,18 @@ Style the active text selection using the `selection` variant:
 <!-- [!code classes:selection:text-fuchsia-900] -->
 <div class="selection:bg-fuchsia-300 selection:text-fuchsia-900">
   <p>
-    So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my
-    way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all
-    living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+    Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел мимо волн, 
+    на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство всех живых существ, 
+    но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
   </p>
 </div>
 ```
 
 </Figure>
 
-We've designed the `selection` variant to be inheritable, so you can add it anywhere in the tree and it will be applied to all descendant elements.
+Мы разработали вариант `selection` так, чтобы он был наследуемым, поэтому вы можете добавить его в любое место в дереве, и он будет применен ко всем дочерним элементам.
 
-This makes it easy to set the selection color to match your brand across your entire site:
+Это позволяет легко установить цвет выделения в соответствии с вашим брендом по всему сайту:
 
 ```html
 <!-- [!code classes:selection:bg-pink-300] -->
@@ -1466,9 +1469,9 @@ This makes it easy to set the selection color to match your brand across your en
 </html>
 ```
 
-### ::first-line and ::first-letter
+### ::first-line и ::first-letter
 
-Style the first line in a block of content using the `first-line` variant, and the first letter using the `first-letter` variant:
+Стилизуйте первую строку в блоке содержимого с помощью варианта `first-line`, и первую букву с помощью варианта `first-letter`:
 
 <Figure>
 
@@ -1518,7 +1521,7 @@ Style the first line in a block of content using the `first-line` variant, and t
 
 ### ::backdrop
 
-Style the backdrop of a [native `<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) using the `backdrop` variant:
+Стилизуйте фон нативного элемента [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) с помощью варианта `backdrop`:
 
 ```html
 <!-- [!code classes:backdrop:bg-gray-50] -->
@@ -1531,13 +1534,13 @@ Style the backdrop of a [native `<dialog>` element](https://developer.mozilla.or
 
 If you're using native `<dialog>` elements in your project, you may also want to read about [styling open/closed states](/docs/hover-focus-and-other-states#openclosed-state) using the `open` variant.
 
-## Media and feature queries
+## Медиа и функциональные запросы
 
-### Responsive breakpoints
+### Адаптивные контрольные точки
 
-To style an element at a specific breakpoint, use responsive variants like `md` and `lg`.
+Для стилизации элемента на определённой контрольной точке используйте адаптивные варианты, такие как `md` и `lg`.
 
-For example, this will render a 3-column grid on mobile, a 4-column grid on medium-width screens, and a 6-column grid on large-width screens:
+Например, это будет отображать сетку из 3 колонок на мобильных устройствах, сетку из 4 колонок на экранах средней ширины и сетку из 6 колонок на широких экранах:
 
 ```html
 <!-- [!code classes:md:grid-cols-4,lg:grid-cols-6] -->
@@ -1546,7 +1549,7 @@ For example, this will render a 3-column grid on mobile, a 4-column grid on medi
 </div>
 ```
 
-To style an element based on the width of a parent element instead of the viewport, use variants like `@md` and `@lg`:
+Для стилизации элемента на основе ширины родительского элемента вместо viewport используйте варианты, такие как `@md` и `@lg`:
 
 ```html
 <!-- [!code classes:@container,@md:flex-row] -->
@@ -1557,13 +1560,13 @@ To style an element based on the width of a parent element instead of the viewpo
 </div>
 ```
 
-Check out the [Адаптивный дизайн](/docs/responsive-design) documentation for an in-depth look at how these features work.
+Ознакомьтесь с документацией [Адаптивный дизайн](/docs/responsive-design) для подробного изучения того, как работают эти функции.
 
 ### prefers-color-scheme
 
-The `prefers-color-scheme` media query tells you whether the user prefers a light theme or dark theme, and is usually configured at the operating system level.
+Медиа-запрос `prefers-color-scheme` сообщает вам, предпочитает ли пользователь светлую или тёмную тему, и обычно настраивается на уровне операционной системы.
 
-Use utilities with no variant to target light mode, and use the `dark` variant to provide overrides for dark mode:
+Используйте утилиты без варианта для нацеливания на светлый режим, и используйте вариант `dark` для предоставления переопределений для тёмного режима:
 
 <Figure>
 
@@ -1571,7 +1574,7 @@ Use utilities with no variant to target light mode, and use the `dark` variant t
   {
     <div className="grid grid-cols-1 sm:grid-cols-2">
       <div className="p-8 pt-7">
-        <p className="mb-2 text-sm font-medium text-gray-500">Light mode</p>
+        <p className="mb-2 text-sm font-medium text-gray-500">Светлый режим</p>
         <div className="rounded-lg bg-white px-6 py-8 shadow-xl ring-1 ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
@@ -1592,15 +1595,14 @@ Use utilities with no variant to target light mode, and use the `dark` variant t
             </span>
           </div>
           {/* This is not an h3 because we're converting h3's to links in MDX files */}
-          <div className="mt-5 text-base font-medium tracking-tight text-gray-900">Writes upside-down</div>
+          <div className="mt-5 text-base font-medium tracking-tight text-gray-900">Пишет вверх ногами</div>
           <p className="mt-2 text-sm text-gray-500">
-            The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer
-            space.
+            Ручка Zero Gravity может использоваться для письма в любой ориентации, включая вверх ногами. Она даже работает в открытом космосе.
           </p>
         </div>
       </div>
       <div className="border-l border-l-transparent bg-black/90 p-8 pt-7 dark:border-l-white/10 dark:bg-transparent">
-        <p className="mb-2 text-sm font-medium text-gray-400">Dark mode</p>
+        <p className="mb-2 text-sm font-medium text-gray-400">Тёмный режим</p>
         <div className="rounded-lg bg-gray-800 px-6 py-8 shadow-xl ring-1 ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
@@ -1647,15 +1649,15 @@ Use utilities with no variant to target light mode, and use the `dark` variant t
 
 </Figure>
 
-Check out the [Dark Mode](/docs/dark-mode) documentation for an in-depth look at how this feature works.
+Ознакомьтесь с документацией [Тёмный режим](/docs/dark-mode) для подробного изучения того, как работает эта функция.
 
 ### prefers-reduced-motion
 
-The `prefers-reduced-motion` media query tells you if the user has requested that you minimize non-essential motion.
+Медиа-запрос `prefers-reduced-motion` сообщает вам, запросил ли пользователь минимизацию несущественных анимаций.
 
-Use the `motion-reduce` variant to conditionally add styles when the user has requested reduced motion:
+Используйте вариант `motion-reduce` для условного добавления стилей, когда пользователь запросил уменьшение анимации:
 
-<Figure hint="Try emulating &#96;prefers-reduced-motion: reduce&#96; in your developer tools to hide the spinner">
+<Figure hint="Попробуйте эмулировать &#96;prefers-reduced-motion: reduce&#96; в инструментах разработчика, чтобы скрыть спиннер">
 
 <Example>
   {
@@ -1693,7 +1695,7 @@ Use the `motion-reduce` variant to conditionally add styles when the user has re
 
 </Figure>
 
-Tailwind also includes a `motion-safe` variant that only adds styles when the user has _not_ requested reduced motion. This can be useful when using the `motion-reduce` helper would mean having to "undo" a lot of styles:
+Tailwind также включает вариант `motion-safe`, который добавляет стили только когда пользователь _не_ запросил уменьшение анимации. Это может быть полезно, когда использование помощника `motion-reduce` означало бы необходимость "отменять" много стилей:
 
 ```html
 <!-- [!code classes:motion-reduce:hover:translate-y-0] -->
@@ -1711,11 +1713,11 @@ Tailwind also includes a `motion-safe` variant that only adds styles when the us
 
 ### prefers-contrast
 
-The `prefers-contrast` media query tells you if the user has requested more or less contrast.
+Медиа-запрос `prefers-contrast` сообщает вам, запросил ли пользователь больше или меньше контраста.
 
-Use the `contrast-more` variant to conditionally add styles when the user has requested more contrast:
+Используйте вариант `contrast-more` для условного добавления стилей, когда пользователь запросил больше контраста:
 
-<Figure hint="Try emulating &#96;prefers-contrast: more&#96; in your developer tools to see the changes">
+<Figure hint="Попробуйте эмулировать &#96;prefers-contrast: more&#96; в инструментах разработчика, чтобы увидеть изменения">
 
 <Example className="py-0">
   {
@@ -1756,15 +1758,15 @@ Use the `contrast-more` variant to conditionally add styles when the user has re
 
 </Figure>
 
-Tailwind also includes a `contrast-less` variant you can use to conditionally add styles when the user has requested less contrast.
+Tailwind также включает вариант `contrast-less`, который вы можете использовать для условного добавления стилей, когда пользователь запросил меньше контраста.
 
 ### forced-colors
 
-The `forced-colors` media query indicates if the user is using a forced colors mode. These modes override your site's colors with a user defined palette for text, backgrounds, links and buttons.
+Медиа-запрос `forced-colors` указывает, использует ли пользователь режим принудительных цветов. Эти режимы переопределяют цвета вашего сайта пользовательской палитрой для текста, фонов, ссылок и кнопок.
 
-Use the `forced-colors` variant to conditionally add styles when the user has enabled a forced color mode:
+Используйте вариант `forced-colors` для условного добавления стилей, когда пользователь включил режим принудительных цветов:
 
-<Figure hint="Try emulating &#96;forced-colors: active&#96; in your developer tools to see the changes">
+<Figure hint="Попробуйте эмулировать &#96;forced-colors: active&#96; в инструментах разработчика, чтобы увидеть изменения">
 
 <Example className="py-0">
   {
@@ -1846,7 +1848,7 @@ Use the `forced-colors` variant to conditionally add styles when the user has en
 
 </Figure>
 
-Use the `not-forced-colors` variant to apply styles based when the user is _not_ using a forced colors mode:
+Используйте вариант `not-forced-colors` для применения стилей, когда пользователь _не_ использует режим принудительных цветов:
 
 ```html
 <!-- [!code classes:not-forced-colors:appearance-none] -->
@@ -1855,11 +1857,11 @@ Use the `not-forced-colors` variant to apply styles based when the user is _not_
 </div>
 ```
 
-Tailwind also includes a [forced color adjust](/docs/forced-color-adjust) utilities to opt in and out of forced colors.
+Tailwind также включает утилиты [forced color adjust](/docs/forced-color-adjust) для включения и отключения принудительных цветов.
 
 ### inverted-colors
 
-Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme:
+Используйте вариант `inverted-colors` для условного добавления стилей, когда пользователь включил инвертированную цветовую схему:
 
 ```html
 <!-- [!code classes:inverted-colors:shadow-none] -->
@@ -1868,21 +1870,21 @@ Use the `inverted-colors` variant to conditionally add styles when the user has 
 </div>
 ```
 
-### pointer and any-pointer
+### pointer и any-pointer
 
-The `pointer` media query tells you whether the user has a primary pointing device, like a mouse, and the accuracy of that pointing device.
+Медиа-запрос `pointer` сообщает вам, есть ли у пользователя основное указывающее устройство, такое как мышь, и точность этого указывающего устройства.
 
-Use the `pointer-fine` variant to target an accurate pointing device, like a mouse or trackpad, or the `pointer-coarse` variant to target a less accurate pointing device, like a touchscreen, which can be useful for providing larger click targets on touch devices:
+Используйте вариант `pointer-fine` для нацеливания на точное указывающее устройство, такое как мышь или трекпад, или вариант `pointer-coarse` для нацеливания на менее точное указывающее устройство, такое как сенсорный экран, что может быть полезно для предоставления больших целей для клика на сенсорных устройствах:
 
-<Figure hint="Try emulating a touch device in your developer tools to see the changes">
+<Figure hint="Попробуйте эмулировать сенсорное устройство в инструментах разработчика, чтобы увидеть изменения">
 
 <Example>
   {
-    <fieldset aria-label="Choose a memory option" className="mx-auto max-w-md">
+    <fieldset aria-label="Выберите опцию памяти" className="mx-auto max-w-md">
       <div className="flex items-center justify-between">
         <div className="text-sm/6 font-medium text-gray-900 dark:text-white">RAM</div>
         <a href="#" className="text-sm/6 font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400">
-          See performance specs
+          См. спецификации производительности
         </a>
       </div>
       <div className="mt-4 grid grid-cols-6 gap-2 max-sm:grid-cols-3 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
@@ -1917,10 +1919,10 @@ Use the `pointer-fine` variant to target an accurate pointing device, like a mou
 
 ```html
 <!-- [!code classes:pointer-coarse:mt-6,pointer-coarse:grid-cols-3,pointer-coarse:gap-4,pointer-coarse:p-4] -->
-<fieldset aria-label="Choose a memory option">
+<fieldset aria-label="Выберите опцию памяти">
   <div class="flex items-center justify-between">
     <div>RAM</div>
-    <a href="#"> See performance specs </a>
+    <a href="#"> См. спецификации производительности </a>
   </div>
   <div class="mt-4 grid grid-cols-6 gap-2 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
     <label class="p-2 pointer-coarse:p-4 ...">
@@ -1934,13 +1936,13 @@ Use the `pointer-fine` variant to target an accurate pointing device, like a mou
 
 </Figure>
 
-While `pointer`only targets the primary pointing device, `any-pointer` is used to target any of the pointing devices that might be available. Use the `any-pointer-fine` and `any-pointer-coarse` variants to provide different styles if at least one connected pointing device meets the criteria.
+В то время как `pointer` нацелен только на основное указывающее устройство, `any-pointer` используется для нацеливания на любое из доступных указывающих устройств. Используйте варианты `any-pointer-fine` и `any-pointer-coarse` для предоставления различных стилей, если хотя бы одно подключенное указывающее устройство соответствует критериям.
 
-You can use `pointer-none` and `any-pointer-none` to target the absence of a pointing device.
+Вы можете использовать `pointer-none` и `any-pointer-none` для нацеливания на отсутствие указывающего устройства.
 
 ### orientation
 
-Use the `portrait` and `landscape` variants to conditionally add styles when the viewport is in a specific orientation:
+Используйте варианты `portrait` и `landscape` для условного добавления стилей, когда область просмотра находится в определенной ориентации:
 
 ```html
 <!-- [!code classes:portrait:hidden,landscape:hidden] -->
@@ -1949,42 +1951,42 @@ Use the `portrait` and `landscape` variants to conditionally add styles when the
     <!-- ... -->
   </div>
   <div class="landscape:hidden">
-    <p>This experience is designed to be viewed in landscape. Please rotate your device to view the site.</p>
+    <p>Этот опыт предназначен для просмотра в альбомной ориентации. Пожалуйста, поверните ваше устройство для просмотра сайта.</p>
   </div>
 </div>
 ```
 
 ### scripting
 
-Use the `noscript` variant to conditionally add styles based on whether the user has scripting, such as JavaScript, enabled:
+Используйте вариант `noscript` для условного добавления стилей в зависимости от того, включен ли у пользователя скриптинг, такой как JavaScript:
 
 ```html
 <!-- [!code classes:noscript:block] -->
 <div class="hidden noscript:block">
-  <p>This experience requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
+  <p>Этот опыт требует JavaScript для работы. Пожалуйста, включите JavaScript в настройках вашего браузера.</p>
 </div>
 ```
 
 ### print
 
-Use the `print` variant to conditionally add styles that only apply when the document is being printed:
+Используйте вариант `print` для условного добавления стилей, которые применяются только при печати документа:
 
 ```html
 <!-- [!code classes:print:hidden] -->
 <!-- [!code classes:print:block] -->
 <div>
   <article class="print:hidden">
-    <h1>My Secret Pizza Recipe</h1>
-    <p>This recipe is a secret, and must not be shared with anyone</p>
+    <h1>Мой секретный рецепт пиццы</h1>
+    <p>Этот рецепт секретный и не должен быть передан никому</p>
     <!-- ... -->
   </article>
-  <div class="hidden print:block">Are you seriously trying to print this? It's secret!</div>
+  <div class="hidden print:block">Вы серьёзно пытаетесь распечатать это? Это секрет!</div>
 </div>
 ```
 
 ### @supports
 
-Use the `supports-[...]` variant to style things based on whether a certain feature is supported in the user's browser:
+Используйте вариант `supports-[...]` для стилизации элементов в зависимости от того, поддерживается ли определенная функция в браузере пользователя:
 
 ```html
 <!-- [!code classes:supports-[display:grid]:grid] -->
@@ -1993,9 +1995,9 @@ Use the `supports-[...]` variant to style things based on whether a certain feat
 </div>
 ```
 
-Under the hood the `supports-[...]` variant generates [`@supports rules`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) and takes anything you’d use with `@supports (...)` between the square brackets, like a property/value pair, and even expressions using `and` and `or`.
+Под капотом вариант `supports-[...]` генерирует [`@supports правила`](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) и принимает все, что вы бы использовали с `@supports (...)` между квадратными скобками, например пару свойство/значение, и даже выражения с использованием `and` и `or`.
 
-For terseness, if you only need to check if a property is supported (and not a specific value), you can just specify the property name:
+Для краткости, если вам нужно только проверить, поддерживается ли свойство (а не конкретное значение), вы можете просто указать имя свойства:
 
 ```html
 <!-- [!code classes:supports-backdrop-filter:bg-black/25,supports-backdrop-filter:backdrop-blur] -->
@@ -2004,7 +2006,7 @@ For terseness, if you only need to check if a property is supported (and not a s
 </div>
 ```
 
-Use the `not-supports-[...]` variant to style things based on whether a certain feature is not supported in the user's browser:
+Используйте вариант `not-supports-[...]` для стилизации элементов в зависимости от того, не поддерживается ли определенная функция в браузере пользователя:
 
 ```html
 <!-- [!code classes:not-supports-[display:grid]:flex] -->
@@ -2013,7 +2015,7 @@ Use the `not-supports-[...]` variant to style things based on whether a certain 
 </div>
 ```
 
-You can configure shortcuts for common `@supports` rules you're using in your project by creating a new variant in the `supports-*` namespace:
+Вы можете настроить сокращения для часто используемых правил `@supports` в вашем проекте, создав новый вариант в пространстве имен `supports-*`:
 
 ```css
 @custom-variant supports-grid {
@@ -2023,7 +2025,7 @@ You can configure shortcuts for common `@supports` rules you're using in your pr
 }
 ```
 
-You can then use these custom `supports-*` variants in your project:
+Затем вы можете использовать эти пользовательские варианты `supports-*` в вашем проекте:
 
 ```html
 <!-- [!code classes:supports-grid:grid] -->
@@ -2034,7 +2036,7 @@ You can then use these custom `supports-*` variants in your project:
 
 ### @starting-style
 
-Use the `starting` variant to set the appearance of an element when it is first rendered in the DOM, or transitions from `display: none` to visible:
+Используйте вариант `starting` для установки внешнего вида элемента при его первом рендеринге в DOM или при переходе из `display: none` в видимое состояние:
 
 <Figure>
 
@@ -2046,7 +2048,7 @@ Use the `starting` variant to set the appearance of an element when it is first 
           popoverTarget="my-popover"
           className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2"
         >
-          Check for updates
+          Проверить обновления
         </button>
         <div
           popover="auto"
@@ -2071,13 +2073,13 @@ Use the `starting` variant to set the appearance of an element when it is first 
             </div>
             <div className="mt-3 text-center sm:mt-5">
               <h3 className="text-base font-semibold text-gray-900 dark:text-white" id="modal-title">
-                Update available
+                Доступно обновление
               </h3>
               <div className="mt-2">
                 <p className="text-sm text-gray-500 dark:text-gray-200">
-                  A new software update is available: <span className="font-semibold">v2.0.4.</span>
+                  Доступно новое обновление программного обеспечения: <span className="font-semibold">v2.0.4.</span>
                   <br />
-                  Click the button below to install it.
+                  Нажмите кнопку ниже, чтобы установить его.
                 </p>
               </div>
             </div>
@@ -2087,7 +2089,7 @@ Use the `starting` variant to set the appearance of an element when it is first 
               type="button"
               className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2"
             >
-              Install
+              Установить
             </button>
           </div>
         </div>
@@ -2099,7 +2101,7 @@ Use the `starting` variant to set the appearance of an element when it is first 
 ```html
 <!-- [!code classes:starting:open:opacity-0] -->
 <div>
-  <button popovertarget="my-popover">Check for updates</button>
+  <button popovertarget="my-popover">Проверить обновления</button>
   <div popover id="my-popover" class="opacity-0 starting:open:opacity-0 ...">
     <!-- ... -->
   </div>
@@ -2108,13 +2110,13 @@ Use the `starting` variant to set the appearance of an element when it is first 
 
 </Figure>
 
-## Attribute selectors
+## Селекторы атрибутов
 
-### ARIA states
+### Состояния ARIA
 
-Use the `aria-*` variant to conditionally style things based on [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes).
+Используйте вариант `aria-*` для условного стилизования элементов на основе [ARIA атрибутов](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes).
 
-For example, to apply the `bg-sky-700` class when the `aria-checked` attribute is set to `true`, use the `aria-checked:bg-sky-700` class:
+Например, чтобы применить класс `bg-sky-700` когда атрибут `aria-checked` установлен в `true`, используйте класс `aria-checked:bg-sky-700`:
 
 ```html
 <!-- [!code classes:aria-checked:bg-sky-700] -->
@@ -2123,7 +2125,7 @@ For example, to apply the `bg-sky-700` class when the `aria-checked` attribute i
 </div>
 ```
 
-By default we've included variants for the most common boolean ARIA attributes:
+По умолчанию мы включили варианты для наиболее распространенных булевых ARIA атрибутов:
 
 {
 
@@ -2230,14 +2232,14 @@ By default we've included variants for the most common boolean ARIA attributes:
 
 }
 
-You can customize which `aria-*` variants are available by creating a new variant:
+Вы можете настроить, какие варианты `aria-*` доступны, создав новый вариант:
 
 ```css
 @custom-variant aria-asc (&[aria-sort="ascending"]);
 @custom-variant aria-desc (&[aria-sort="descending"]);
 ```
 
-If you need to use a one-off `aria` variant that doesn’t make sense to include in your project, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value:
+Если вам нужно использовать одноразовый вариант `aria`, который не имеет смысла включать в ваш проект, или для более сложных ARIA-атрибутов, которые принимают конкретные значения, используйте квадратные скобки для генерации свойства на лету с помощью любого произвольного значения:
 
 <Figure>
 
@@ -2252,7 +2254,7 @@ If you need to use a one-off `aria` variant that doesn’t make sense to include
               aria-sort="ascending"
             >
               <span className="flex w-full items-center justify-between gap-2">
-                Invoice #
+                Номер счёта
                 <svg
                   viewBox="0 0 20 20"
                   className="h-5 w-5 fill-gray-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180"
@@ -2266,10 +2268,10 @@ If you need to use a one-off `aria` variant that doesn’t make sense to include
               </span>
             </th>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-white/10 dark:text-gray-200">
-              Client
+              Клиент
             </th>
             <th className="border border-gray-300 px-4 py-3 text-right font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-white/10 dark:text-gray-200">
-              Amount
+              Сумма
             </th>
           </tr>
         </thead>
@@ -2326,7 +2328,7 @@ If you need to use a one-off `aria` variant that doesn’t make sense to include
                 aria-sort="ascending"
                 class="aria-[sort=ascending]:bg-[url('/img/down-arrow.svg')] aria-[sort=descending]:bg-[url('/img/up-arrow.svg')]"
               >
-                Invoice #
+                Номер счёта
               </th>
               <!-- ... -->
             </tr>
@@ -2353,7 +2355,7 @@ If you need to use a one-off `aria` variant that doesn’t make sense to include
   </CodeExampleGroup>
 </Figure>
 
-ARIA state variants can also target parent and sibling elements using the `group-aria-*` and `peer-aria-*` variants:
+Варианты состояний ARIA также могут нацеливаться на родительские и соседние элементы с помощью вариантов `group-aria-*` и `peer-aria-*`:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -2365,7 +2367,7 @@ ARIA state variants can also target parent and sibling elements using the `group
         <thead>
           <tr>
           <th aria-sort="ascending" class="group">
-            Invoice #
+            Номер счёта
             <svg class="group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180"><!-- ... --></svg>
           </th>
           <!-- ... -->
@@ -2395,9 +2397,9 @@ ARIA state variants can also target parent and sibling elements using the `group
 
 ### Data attributes
 
-Use the `data-*` variant to conditionally apply styles based on [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
+Используйте вариант `data-*` для условного применения стилей на основе [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
 
-To check if a data attribute exists (and not a specific value), you can just specify the attribute name:
+Чтобы проверить, существует ли data-атрибут (а не конкретное значение), вы можете просто указать имя атрибута:
 
 ```html
 <!-- Will apply -->
@@ -2427,7 +2429,7 @@ If you need to check for a specific value you may use an arbitrary value:
 </div>
 ```
 
-Alternatively, you can configure shortcuts for common data attributes you're using in your project by creating a new variant in the `data-*` namespace:
+Альтернативно, вы можете настроить сокращения для часто используемых data-атрибутов в вашем проекте, создав новый вариант в пространстве имен `data-*`:
 
 ```css
 <!-- [!code filename:app.css] -->
@@ -2436,7 +2438,7 @@ Alternatively, you can configure shortcuts for common data attributes you're usi
 @custom-variant data-checked (&[data-ui~="checked"]);
 ```
 
-You can then use these custom `data-*` variants in your project:
+Затем вы можете использовать эти пользовательские варианты `data-*` в вашем проекте:
 
 ```html
 <!-- [!code classes:data-checked:underline] -->
@@ -2445,9 +2447,9 @@ You can then use these custom `data-*` variants in your project:
 </div>
 ```
 
-### RTL support
+### Поддержка RTL
 
-Use the `rtl` and `ltr` variants to conditionally add styles in right-to-left and left-to-right modes respectively when building multi-directional layouts:
+Используйте варианты `rtl` и `ltr` для условного добавления стилей в режимах справа-налево и слева-направо соответственно при создании многонаправленных макетов:
 
 <Figure>
 
@@ -2467,7 +2469,7 @@ Use the `rtl` and `ltr` variants to conditionally add styles in right-to-left an
               Tom Cook
             </p>
             <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">
-              Director of Operations
+              Директор по операциям
             </p>
           </div>
         </div>
@@ -2507,13 +2509,13 @@ Use the `rtl` and `ltr` variants to conditionally add styles in right-to-left an
 
 </Figure>
 
-Remember, these variants are only useful if you are building a site that needs to support _both_ left-to-right and right-to-left layouts. If you're building a site that only needs to support a single direction, you don't need these variants — just apply the styles that make sense for your content.
+Помните, что эти варианты полезны только если вы создаете сайт, который должен поддерживать _оба_ направления — слева направо и справа налево. Если вы создаете сайт, который должен поддерживать только одно направление, вам не нужны эти варианты — просто применяйте стили, которые подходят для вашего контента.
 
-### Open/closed state
+### Состояние открыто/закрыто
 
-Use the `open` variant to conditionally add styles when a `<details>` or `<dialog>` element is in an open state:
+Используйте вариант `open` для условного добавления стилей, когда элемент `<details>` или `<dialog>` находится в открытом состоянии:
 
-<Figure hint="Try toggling the disclosure to see the styles change">
+<Figure hint="Попробуйте переключить раскрывающийся элемент, чтобы увидеть изменение стилей">
 
 <Example>
   {
@@ -2545,7 +2547,7 @@ Use the `open` variant to conditionally add styles when a `<details>` or `<dialo
 
 </Figure>
 
-This variant also targets the `:popover-open` pseudo-class for popovers:
+Этот вариант также нацелен на псевдо-класс `:popover-open` для попапов:
 
 ```html
 <!-- [!code classes:open:opacity-100] -->
@@ -2557,9 +2559,9 @@ This variant also targets the `:popover-open` pseudo-class for popovers:
 </div>
 ```
 
-### Styling inert elements
+### Стилизация инертных элементов
 
-The `inert` variant lets you style elements marked with the `inert` attribute:
+Вариант `inert` позволяет стилизовать элементы, помеченные атрибутом `inert`:
 
 <Figure>
 
@@ -2702,13 +2704,13 @@ The `inert` variant lets you style elements marked with the `inert` attribute:
 
 </Figure>
 
-This is useful for adding visual cues that make it clear that sections of content aren't interactive.
+Это полезно для добавления визуальных подсказок, которые делают очевидным, что разделы контента не являются интерактивными.
 
-## Child selectors
+## Селекторы дочерних элементов
 
-### Styling direct children
+### Стилизация прямых дочерних элементов
 
-While it's generally preferable to put utility classes directly on child elements, you can use the `*` variant in situations where you need to style direct children that you don’t have control over:
+Хотя обычно предпочтительнее размещать утилитарные классы непосредственно на дочерних элементах, вы можете использовать вариант `*` в ситуациях, когда вам нужно стилизовать прямые дочерние элементы, которыми вы не можете управлять:
 
 <Figure>
 
@@ -2755,9 +2757,9 @@ While it's generally preferable to put utility classes directly on child element
 
 </Figure>
 
-It's important to note that overriding a style with a utility directly on the child itself won't work since children rules are generated after the regular ones and they have the same specificity:
+Важно отметить, что переопределение стиля с помощью утилиты непосредственно на дочернем элементе не будет работать, поскольку правила для дочерних элементов генерируются после обычных правил и имеют ту же специфичность:
 
-<TipBad>{<>Won't work, children can't override styles given to them by the parent.</>}</TipBad>
+<TipBad>{<>Не будет работать, дочерние элементы не могут переопределить стили, заданные им родителем.</>}</TipBad>
 
 ```html
 <!-- [!code classes:*:bg-sky-50] -->
@@ -2770,9 +2772,9 @@ It's important to note that overriding a style with a utility directly on the ch
 </ul>
 ```
 
-### Styling all descendants
+### Стилизация всех потомков
 
-Like `*`, the `**` variant can be used to style children of an element. The main difference is that `**` will apply styles to _all_ descendants, not just the direct children. This is especially useful when you combine it with another variant for narrowing the thing you're selecting:
+Как и `*`, вариант `**` можно использовать для стилизации дочерних элементов. Основное различие заключается в том, что `**` будет применять стили ко _всем_ потомкам, а не только к прямым дочерним элементам. Это особенно полезно, когда вы комбинируете его с другим вариантом для сужения того, что вы выбираете:
 
 <Figure>
 
@@ -2853,13 +2855,13 @@ Like `*`, the `**` variant can be used to style children of an element. The main
 
 </Figure>
 
-## Custom variants
+## Пользовательские варианты
 
-### Using arbitrary variants
+### Использование произвольных вариантов
 
-Just like [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) let you use custom values with your utility classes, arbitrary variants let you write custom selector variants directly in your HTML.
+Так же, как [произвольные значения](/docs/adding-custom-styles#using-arbitrary-values) позволяют использовать пользовательские значения с вашими утилитарными классами, произвольные варианты позволяют писать пользовательские варианты селекторов прямо в HTML.
 
-Arbitrary variants are just format strings that represent the selector, wrapped in square brackets. For example, this arbitrary variant changes the cursor to `grabbing` when the element has the `is-dragging` class:
+Произвольные варианты — это просто строки формата, которые представляют селектор, обёрнутые в квадратные скобки. Например, этот произвольный вариант изменяет курсор на `grabbing`, когда элемент имеет класс `is-dragging`:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -2887,7 +2889,7 @@ Arbitrary variants are just format strings that represent the selector, wrapped 
   />
 </CodeExampleGroup>
 
-Arbitrary variants can be stacked with built-in variants or with each other, just like the rest of the variants in Tailwind:
+Произвольные варианты можно комбинировать со встроенными вариантами или друг с другом, точно так же, как и остальные варианты в Tailwind:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -2915,7 +2917,7 @@ Arbitrary variants can be stacked with built-in variants or with each other, jus
   />
 </CodeExampleGroup>
 
-If you need spaces in your selector, you can use an underscore. For example, this arbitrary variant selects all `p` elements within the element where you've added the class:
+Если в вашем селекторе нужны пробелы, вы можете использовать подчеркивание. Например, этот произвольный вариант выбирает все элементы `p` внутри элемента, к которому вы добавили класс:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -2945,7 +2947,7 @@ If you need spaces in your selector, you can use an underscore. For example, thi
   />
 </CodeExampleGroup>
 
-You can also use at-rules like `@media` or `@supports` in arbitrary variants:
+Вы также можете использовать at-правила, такие как `@media` или `@supports`, в произвольных вариантах:
 
 <CodeExampleGroup
   filenames={["HTML", "Generated CSS"]}
@@ -2969,17 +2971,17 @@ You can also use at-rules like `@media` or `@supports` in arbitrary variants:
   />
 </CodeExampleGroup>
 
-With at-rule custom variants the `&` placeholder isn't necessary, just like when nesting with a preprocessor.
+При использовании произвольных вариантов с at-правилами заполнитель `&` не нужен, точно так же, как при вложении с препроцессором.
 
-### Registering a custom variant
+### Регистрация пользовательского варианта
 
-If you find yourself using the same arbitrary variant multiple times in your project, it might be worth creating a custom variant using the `@custom-variant` directive:
+Если вы обнаруживаете, что используете один и тот же произвольный вариант несколько раз в своем проекте, возможно, стоит создать пользовательский вариант с помощью директивы `@custom-variant`:
 
 ```css
 @custom-variant theme-midnight (&:where([data-theme="midnight"] *));
 ```
 
-Now you can use the `theme-midnight:<utility>` variant in your HTML:
+Теперь вы можете использовать вариант `theme-midnight:<utility>` в вашем HTML:
 
 ```html
 <!-- [!code classes:theme-midnight:bg-black] -->
@@ -2988,13 +2990,13 @@ Now you can use the `theme-midnight:<utility>` variant in your HTML:
 </html>
 ```
 
-Learn more about adding custom variants in the [adding custom variants documentation](/docs/adding-custom-styles#adding-custom-variants).
+Узнайте больше о добавлении пользовательских вариантов в [документации по добавлению пользовательских стилей](/docs/adding-custom-styles#adding-custom-variants).
 
-## Appendix
+## Приложение
 
-### Quick reference
+### Быстрая справка
 
-A quick reference table of every single variant included in Tailwind by default.
+Таблица быстрой справки всех вариантов, включенных в Tailwind по умолчанию.
 
 {
 
@@ -4499,13 +4501,13 @@ A quick reference table of every single variant included in Tailwind by default.
 
 }
 
-### Pseudo-class reference
+### Справочник псевдоклассов
 
-This is a comprehensive list of examples for all the pseudo-class variants included in Tailwind to complement the [pseudo-classes documentation](/docs/hover-focus-and-other-states#pseudo-classes) at the beginning of this guide.
+Это полный список примеров для всех вариантов псевдоклассов, включенных в Tailwind, чтобы дополнить [документацию по псевдоклассам](/docs/hover-focus-and-other-states#pseudo-classes) в начале этого руководства.
 
 #### :hover
 
-Style an element when the user hovers over it with the mouse cursor using the `hover` variant:
+Стилизуйте элемент, когда пользователь наводит на него курсор мыши, используя вариант `hover`:
 
 ```html
 <!-- [!code classes:hover:bg-white] -->
@@ -4516,7 +4518,7 @@ Style an element when the user hovers over it with the mouse cursor using the `h
 
 #### :focus
 
-Style an element when it has focus using the `focus` variant:
+Стилизуйте элемент, когда он имеет фокус, используя вариант `focus`:
 
 ```html
 <!-- [!code classes:focus:border-blue-400] -->
@@ -4525,7 +4527,7 @@ Style an element when it has focus using the `focus` variant:
 
 #### :focus-within
 
-Style an element when it or one of its descendants has focus using the `focus-within` variant:
+Стилизуйте элемент, когда он или один из его потомков имеет фокус, используя вариант `focus-within`:
 
 ```html
 <!-- [!code classes:focus-within:shadow-lg] -->
@@ -4545,7 +4547,7 @@ Style an element when it has been focused using the keyboard using the `focus-vi
 
 #### :active
 
-Style an element when it is being pressed using the `active` variant:
+Стилизуйте элемент, когда он нажимается, используя вариант `active`:
 
 ```html
 <!-- [!code classes:active:bg-blue-600] -->
@@ -4554,7 +4556,7 @@ Style an element when it is being pressed using the `active` variant:
 
 #### :visited
 
-Style a link when it has already been visited using the `visited` variant:
+Стилизуйте ссылку, когда она уже была посещена, используя вариант `visited`:
 
 ```html
 <!-- [!code classes:visited:text-purple-600] -->
@@ -4563,7 +4565,7 @@ Style a link when it has already been visited using the `visited` variant:
 
 #### :target
 
-Style an element if its ID matches the current URL fragment using the `target` variant:
+Стилизуйте элемент, если его ID соответствует текущему фрагменту URL, используя вариант `target`:
 
 ```html
 <!-- [!code classes:target:shadow-lg] -->
@@ -4574,7 +4576,7 @@ Style an element if its ID matches the current URL fragment using the `target` v
 
 #### :first-child
 
-Style an element if it's the first child using the `first` variant:
+Стилизуйте элемент, если он является первым дочерним элементом, используя вариант `first`:
 
 ```svelte
 <!-- [!code classes:first:pt-0] -->
@@ -4589,7 +4591,7 @@ Style an element if it's the first child using the `first` variant:
 
 #### :last-child
 
-Style an element if it's the last child using the `last` variant:
+Стилизуйте элемент, если он является последним дочерним элементом, используя вариант `last`:
 
 ```svelte
 <!-- [!code classes:last:pb-0] -->
@@ -4604,7 +4606,7 @@ Style an element if it's the last child using the `last` variant:
 
 #### :only-child
 
-Style an element if it's the only child using the `only` variant:
+Стилизуйте элемент, если он является единственным дочерним элементом, используя вариант `only`:
 
 ```svelte
 <!-- [!code classes:only:py-0] -->
@@ -4619,7 +4621,7 @@ Style an element if it's the only child using the `only` variant:
 
 #### :nth-child(odd)
 
-Style an element if it's an oddly numbered child using the `odd` variant:
+Стилизуйте элемент, если он является нечётным по номеру дочерним элементом, используя вариант `odd`:
 
 ```svelte
 <!-- [!code classes:odd:bg-gray-100] -->
@@ -4634,7 +4636,7 @@ Style an element if it's an oddly numbered child using the `odd` variant:
 
 #### :nth-child(even)
 
-Style an element if it's an evenly numbered child using the `even` variant:
+Стилизуйте элемент, если он является чётным по номеру дочерним элементом, используя вариант `even`:
 
 ```svelte
 <!-- [!code classes:even:bg-gray-100] -->
@@ -4649,7 +4651,7 @@ Style an element if it's an evenly numbered child using the `even` variant:
 
 #### :first-of-type
 
-Style an element if it's the first child of its type using the `first-of-type` variant:
+Стилизуйте элемент, если он является первым дочерним элементом своего типа, используя вариант `first-of-type`:
 
 ```svelte
 <!-- [!code classes:first-of-type:ml-6] -->
@@ -4665,7 +4667,7 @@ Style an element if it's the first child of its type using the `first-of-type` v
 
 #### :last-of-type
 
-Style an element if it's the last child of its type using the `last-of-type` variant:
+Стилизуйте элемент, если он является последним дочерним элементом своего типа, используя вариант `last-of-type`:
 
 ```svelte
 <!-- [!code classes:last-of-type:mr-6] -->
@@ -4682,7 +4684,7 @@ Style an element if it's the last child of its type using the `last-of-type` var
 
 #### :only-of-type
 
-Style an element if it's the only child of its type using the `only-of-type` variant:
+Стилизуйте элемент, если он является единственным дочерним элементом своего типа, используя вариант `only-of-type`:
 
 ```svelte
 <!-- [!code classes:only-of-type:mx-6] -->
@@ -4699,7 +4701,7 @@ Style an element if it's the only child of its type using the `only-of-type` var
 
 #### :nth-child()
 
-Style an element at a specific position using the `nth` variant:
+Стилизуйте элемент в определённой позиции, используя вариант `nth`:
 
 ```svelte
 <!-- [!code classes:nth-3:mx-6,nth-[3n+1]:mx-7] -->
@@ -4716,7 +4718,7 @@ Style an element at a specific position using the `nth` variant:
 
 #### :nth-last-child()
 
-Style an element at a specific position from the end using the `nth-last` variant:
+Стилизуйте элемент в определённой позиции с конца, используя вариант `nth-last`:
 
 ```svelte
 <!-- [!code classes:nth-last-3:mx-6,nth-last-[3n+1]:mx-7] -->
@@ -4733,7 +4735,7 @@ Style an element at a specific position from the end using the `nth-last` varian
 
 #### :nth-of-type()
 
-Style an element at a specific position, of the same type using the `nth-of-type` variant:
+Стилизуйте элемент в определённой позиции того же типа, используя вариант `nth-of-type`:
 
 ```svelte
 <!-- [!code classes:nth-of-type-3:mx-6,nth-of-type-[3n+1]:mx-7] -->
@@ -4750,7 +4752,7 @@ Style an element at a specific position, of the same type using the `nth-of-type
 
 #### :nth-last-of-type()
 
-Style an element at a specific position from the end, of the same type using the `nth-last-of-type` variant:
+Стилизуйте элемент в определённой позиции с конца того же типа, используя вариант `nth-last-of-type`:
 
 ```svelte
 <!-- [!code classes:nth-last-of-type-3:mx-6,nth-last-of-type-[3n+1]:mx-7] -->
@@ -4767,7 +4769,7 @@ Style an element at a specific position from the end, of the same type using the
 
 #### :empty
 
-Style an element if it has no content using the `empty` variant:
+Стилизуйте элемент, если у него нет содержимого, используя вариант `empty`:
 
 ```svelte
 <!-- [!code classes:empty:hidden] -->
@@ -4780,7 +4782,7 @@ Style an element if it has no content using the `empty` variant:
 
 #### :disabled
 
-Style an input when it's disabled using the `disabled` variant:
+Стилизуйте поле ввода, когда оно отключено, используя вариант `disabled`:
 
 ```html
 <!-- [!code classes:disabled:opacity-75] -->
@@ -4789,7 +4791,7 @@ Style an input when it's disabled using the `disabled` variant:
 
 #### :enabled
 
-Style an input when it's enabled using the `enabled` variant, most helpful when you only want to apply another style when an element is not disabled:
+Стилизуйте поле ввода, когда оно включено, используя вариант `enabled`, что особенно полезно, когда вы хотите применить другой стиль только когда элемент не отключен:
 
 ```html
 <!-- [!code classes:enabled:hover:border-gray-400] -->
@@ -4798,7 +4800,7 @@ Style an input when it's enabled using the `enabled` variant, most helpful when 
 
 #### :checked
 
-Style a checkbox or radio button when it's checked using the `checked` variant:
+Стилизуйте флажок или переключатель, когда он отмечен, используя вариант `checked`:
 
 ```html
 <!-- [!code classes:checked:bg-blue-500] -->
@@ -4807,7 +4809,7 @@ Style a checkbox or radio button when it's checked using the `checked` variant:
 
 #### :indeterminate
 
-Style a checkbox or radio button in an indeterminate state using the `indeterminate` variant:
+Стилизуйте флажок или переключатель в неопределенном состоянии, используя вариант `indeterminate`:
 
 ```html
 <!-- [!code classes:indeterminate:bg-gray-300] -->
@@ -4816,7 +4818,7 @@ Style a checkbox or radio button in an indeterminate state using the `indetermin
 
 #### :default
 
-Style an option, checkbox or radio button that was the default value when the page initially loaded using the `default` variant:
+Стилизуйте опцию, флажок или переключатель, который был значением по умолчанию при первоначальной загрузке страницы, используя вариант `default`:
 
 ```html
 <!-- [!code classes:default:outline-2] -->
@@ -4825,7 +4827,7 @@ Style an option, checkbox or radio button that was the default value when the pa
 
 #### :optional
 
-Style an input when it's optional using the `optional` variant:
+Стилизуйте поле ввода, когда оно необязательно, используя вариант `optional`:
 
 ```html
 <!-- [!code classes:optional:border-red-500] -->
@@ -4834,7 +4836,7 @@ Style an input when it's optional using the `optional` variant:
 
 #### :required
 
-Style an input when it's required using the `required` variant:
+Стилизуйте поле ввода, когда оно обязательно, используя вариант `required`:
 
 ```html
 <!-- [!code classes:required:border-red-500] -->
@@ -4843,7 +4845,7 @@ Style an input when it's required using the `required` variant:
 
 #### :valid
 
-Style an input when it's valid using the `valid` variant:
+Стилизуйте поле ввода, когда оно валидно, используя вариант `valid`:
 
 ```html
 <!-- [!code classes:valid:border-green-500] -->
@@ -4852,7 +4854,7 @@ Style an input when it's valid using the `valid` variant:
 
 #### :invalid
 
-Style an input when it's invalid using the `invalid` variant:
+Стилизуйте поле ввода, когда оно невалидно, используя вариант `invalid`:
 
 ```html
 <!-- [!code classes:invalid:border-red-500] -->
@@ -4861,7 +4863,7 @@ Style an input when it's invalid using the `invalid` variant:
 
 #### :user-valid
 
-Style an input when it's valid and the user has interacted with it, using the `user-valid` variant:
+Стилизуйте поле ввода, когда оно валидно и пользователь взаимодействовал с ним, используя вариант `user-valid`:
 
 ```html
 <!-- [!code classes:user-valid:border-green-500] -->
@@ -4870,7 +4872,7 @@ Style an input when it's valid and the user has interacted with it, using the `u
 
 #### :user-invalid
 
-Style an input when it's invalid and the user has interacted with it, using the `user-invalid` variant:
+Стилизуйте поле ввода, когда оно невалидно и пользователь взаимодействовал с ним, используя вариант `user-invalid`:
 
 ```html
 <!-- [!code classes:user-invalid:border-red-500] -->
@@ -4879,7 +4881,7 @@ Style an input when it's invalid and the user has interacted with it, using the 
 
 #### :in-range
 
-Style an input when its value is within a specified range limit using the `in-range` variant:
+Стилизуйте поле ввода, когда его значение находится в пределах указанного диапазона, используя вариант `in-range`:
 
 ```html
 <!-- [!code classes:in-range:border-green-500] -->
@@ -4888,7 +4890,7 @@ Style an input when its value is within a specified range limit using the `in-ra
 
 #### :out-of-range
 
-Style an input when its value is outside of a specified range limit using the `out-of-range` variant:
+Стилизуйте поле ввода, когда его значение находится вне указанного диапазона, используя вариант `out-of-range`:
 
 ```html
 <!-- [!code classes:out-of-range:border-red-500] -->
@@ -4897,7 +4899,7 @@ Style an input when its value is outside of a specified range limit using the `o
 
 #### :placeholder-shown
 
-Style an input when the placeholder is shown using the `placeholder-shown` variant:
+Стилизуйте поле ввода, когда отображается placeholder, используя вариант `placeholder-shown`:
 
 ```html
 <!-- [!code classes:placeholder-shown:border-gray-500] -->
@@ -4906,7 +4908,7 @@ Style an input when the placeholder is shown using the `placeholder-shown` varia
 
 #### :details-content
 
-Style the content of a `<details>` element using the `details-content` variant:
+Стилизуйте содержимое элемента `<details>` с помощью варианта `details-content`:
 
 ```html
 <!-- [!code classes:details-content:bg-gray-100] -->
@@ -4918,7 +4920,7 @@ Style the content of a `<details>` element using the `details-content` variant:
 
 #### :autofill
 
-Style an input when it has been autofilled by the browser using the `autofill` variant:
+Стилизуйте поле ввода, когда оно было автоматически заполнено браузером, используя вариант `autofill`:
 
 ```html
 <!-- [!code classes:autofill:bg-yellow-200] -->
@@ -4927,7 +4929,7 @@ Style an input when it has been autofilled by the browser using the `autofill` v
 
 #### :read-only
 
-Style an input when it is read-only using the `read-only` variant:
+Стилизуйте поле ввода, когда оно доступно только для чтения, используя вариант `read-only`:
 
 ```html
 <!-- [!code classes:read-only:bg-gray-100] -->

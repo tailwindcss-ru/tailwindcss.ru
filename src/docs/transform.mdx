@@ -2,7 +2,7 @@ import { ApiTable } from "@/components/api-table.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "transform";
-export const description = "Utilities for transforming elements.";
+export const description = "Утилиты для трансформации элементов.";
 
 <ApiTable
   rows={[
@@ -22,9 +22,9 @@ export const description = "Utilities for transforming elements.";
 
 ## Примеры
 
-### Hardware acceleration
+### Аппаратное ускорение
 
-If your transition performs better when rendered by the GPU instead of the CPU, you can force hardware acceleration by adding the `transform-gpu` utility:
+Если ваша анимация работает лучше при рендеринге на GPU вместо CPU, вы можете принудительно включить аппаратное ускорение, добавив утилиту `transform-gpu`:
 
 ```html
 <!-- [!code classes:transform-gpu] -->
@@ -33,11 +33,11 @@ If your transition performs better when rendered by the GPU instead of the CPU, 
 </div>
 ```
 
-Use the `transform-cpu` utility to force things back to the CPU if you need to undo this conditionally.
+Используйте утилиту `transform-cpu` для принудительного возврата к CPU, если вам нужно отменить это условно.
 
-### Removing transforms
+### Удаление трансформаций
 
-Use the `transform-none` utility to remove all of the transforms on an element at once:
+Используйте утилиту `transform-none` для удаления всех трансформаций элемента одновременно:
 
 ```html
 <!-- [!code classes:transform-none] -->

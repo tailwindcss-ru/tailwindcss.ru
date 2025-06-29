@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "position";
-export const description = "Utilities for controlling how an element is positioned in the document.";
+export const description = "Утилиты для управления тем, как элемент позиционируется в документе.";
 
 <ApiTable
   rows={[
@@ -18,9 +18,9 @@ export const description = "Utilities for controlling how an element is position
 
 ## Примеры
 
-### Statically positioning elements
+### Статическое позиционирование элементов
 
-Use the `static` utility to position an element according to the normal flow of the document:
+Используйте утилиту `static` для позиционирования элемента в соответствии с нормальным потоком документа:
 
 <Figure>
 
@@ -29,9 +29,9 @@ Use the `static` utility to position an element according to the normal flow of 
     <div className="relative text-sm leading-6 font-medium">
       <div className="rounded-lg border border-purple-700/10 bg-purple-400/20 p-4 dark:border-0 dark:bg-sky-900/70">
         <div className="static h-32 border border-purple-700/10 bg-purple-400/20 p-4 dark:border-0 dark:bg-sky-400/20">
-          <p className="text-purple-700 dark:text-sky-200">Static parent</p>
+          <p className="text-purple-700 dark:text-sky-200">Статический родитель</p>
           <div className="absolute bottom-0 left-0 rounded-lg bg-purple-500 p-4 text-white shadow-lg dark:bg-sky-500">
-            <p>Absolute child</p>
+            <p>Абсолютный дочерний элемент</p>
           </div>
         </div>
       </div>
@@ -42,20 +42,20 @@ Use the `static` utility to position an element according to the normal flow of 
 ```html
 <!-- [!code classes:static] -->
 <div class="static ...">
-  <p>Static parent</p>
+  <p>Статический родитель</p>
   <div class="absolute bottom-0 left-0 ...">
-    <p>Absolute child</p>
+    <p>Абсолютный дочерний элемент</p>
   </div>
 </div>
 ```
 
 </Figure>
 
-With statically positioned elements, any [offsets](/docs/top-right-bottom-left) will be ignored and the element will not act as a position reference for absolutely positioned children.
+При статически позиционированных элементах любые [смещения](/docs/top-right-bottom-left) будут игнорироваться, и элемент не будет действовать как позиционная ссылка для абсолютно позиционированных дочерних элементов.
 
-### Relatively positioning elements
+### Относительное позиционирование элементов
 
-Use the `relative` utility to position an element according to the normal flow of the document:
+Используйте утилиту `relative` для позиционирования элемента в соответствии с нормальным потоком документа:
 
 <Figure>
 
@@ -64,9 +64,9 @@ Use the `relative` utility to position an element according to the normal flow o
     <div className="relative text-sm leading-6 font-medium">
       <div className="rounded-lg border border-sky-700/10 bg-sky-400/20 p-4 dark:border-0 dark:bg-blue-900/70">
         <div className="relative h-32 border border-sky-700/10 bg-sky-400/20 p-4 dark:border-0 dark:bg-blue-400/20">
-          <p className="text-sky-700 dark:text-white">Relative parent</p>
+          <p className="text-sky-700 dark:text-white">Относительный родитель</p>
           <div className="absolute bottom-0 left-0 rounded-lg bg-sky-500 p-4 text-white shadow-lg dark:bg-blue-500">
-            <p>Absolute child</p>
+            <p>Абсолютный дочерний элемент</p>
           </div>
         </div>
       </div>
@@ -77,20 +77,20 @@ Use the `relative` utility to position an element according to the normal flow o
 ```html
 <!-- [!code classes:relative] -->
 <div class="relative ...">
-  <p>Relative parent</p>
+  <p>Относительный родитель</p>
   <div class="absolute bottom-0 left-0 ...">
-    <p>Absolute child</p>
+    <p>Абсолютный дочерний элемент</p>
   </div>
 </div>
 ```
 
 </Figure>
 
-With relatively position elements, any [offsets](/docs/top-right-bottom-left) are calculated relative to the element's normal position and the element will act as a position reference for absolutely positioned children.
+При относительно позиционированных элементах любые [смещения](/docs/top-right-bottom-left) рассчитываются относительно нормальной позиции элемента, и элемент будет действовать как позиционная ссылка для абсолютно позиционированных дочерних элементов.
 
-### Absolutely positioning elements
+### Абсолютное позиционирование элементов
 
-Use the `absolute` utility to position an element _outside_ of the normal flow of the document, causing neighboring elements to act as if the element doesn't exist:
+Используйте утилиту `absolute` для позиционирования элемента _вне_ нормального потока документа, заставляя соседние элементы вести себя так, как будто элемент не существует:
 
 <Figure>
 
@@ -98,18 +98,18 @@ Use the `absolute` utility to position an element _outside_ of the normal flow o
   {
     <div className="space-y-8">
       <div>
-        <p className="mb-4 text-sm font-medium text-gray-500">With static positioning</p>
+        <p className="mb-4 text-sm font-medium text-gray-500">Со статическим позиционированием</p>
         <div className="relative text-sm leading-6 font-medium">
           <div className="relative rounded-lg border border-indigo-700/10 bg-indigo-400/20 p-4 dark:border-0 dark:bg-indigo-900/80">
-            <p className="-mt-2 mb-2 text-indigo-700 dark:text-indigo-200">Relative parent</p>
+            <p className="-mt-2 mb-2 text-indigo-700 dark:text-indigo-200">Относительный родитель</p>
             <div className="static flex h-32 flex-col justify-between border border-indigo-700/10 bg-indigo-400/20 p-4 dark:border-0">
-              <p className="text-indigo-700 dark:text-indigo-200">Static parent</p>
+              <p className="text-indigo-700 dark:text-indigo-200">Статический родитель</p>
               <div className="flex gap-4">
                 <div className="bottom-0 left-0 rounded-lg bg-indigo-500 p-4 text-white shadow-lg">
-                  <p>Static child?</p>
+                  <p>Статический дочерний элемент?</p>
                 </div>
                 <div className="rounded-lg bg-indigo-100 p-4 text-indigo-600 shadow-lg">
-                  <p>Static sibling</p>
+                  <p>Статический соседний элемент</p>
                 </div>
               </div>
             </div>
@@ -117,18 +117,18 @@ Use the `absolute` utility to position an element _outside_ of the normal flow o
         </div>
       </div>
       <div>
-        <p className="mb-4 text-sm font-medium text-gray-500">With absolute positioning</p>
+        <p className="mb-4 text-sm font-medium text-gray-500">С абсолютным позиционированием</p>
         <div className="relative text-sm leading-6 font-medium">
           <div className="relative rounded-lg border border-indigo-700/10 bg-indigo-400/20 p-4 dark:border-0 dark:bg-indigo-900/80">
-            <p className="-mt-2 mb-2 text-indigo-700 dark:text-indigo-200">Relative parent</p>
+            <p className="-mt-2 mb-2 text-indigo-700 dark:text-indigo-200">Относительный родитель</p>
             <div className="static flex h-32 flex-col justify-between border border-indigo-700/10 bg-indigo-400/20 p-4 dark:border-0">
-              <p className="text-indigo-700 dark:text-indigo-200">Static parent</p>
+              <p className="text-indigo-700 dark:text-indigo-200">Статический родитель</p>
               <div className="flex gap-4">
                 <div className="absolute top-0 right-0 rounded-lg bg-indigo-500 p-4 text-white shadow-lg">
-                  <p>Absolute child</p>
+                  <p>Абсолютный дочерний элемент</p>
                 </div>
                 <div className="rounded-lg bg-indigo-100 p-4 text-indigo-600 shadow-lg">
-                  <p>Static sibling</p>
+                  <p>Статический соседний элемент</p>
                 </div>
               </div>
             </div>
@@ -142,31 +142,31 @@ Use the `absolute` utility to position an element _outside_ of the normal flow o
 ```html
 <!-- [!code classes:absolute] -->
 <div class="static ...">
-  <!-- Static parent -->
-  <div class="static ..."><p>Static child</p></div>
-  <div class="inline-block ..."><p>Static sibling</p></div>
-  <!-- Static parent -->
-  <div class="absolute ..."><p>Absolute child</p></div>
-  <div class="inline-block ..."><p>Static sibling</p></div>
+  <!-- Статический родитель -->
+  <div class="static ..."><p>Статический дочерний элемент</p></div>
+  <div class="inline-block ..."><p>Статический соседний элемент</p></div>
+  <!-- Статический родитель -->
+  <div class="absolute ..."><p>Абсолютный дочерний элемент</p></div>
+  <div class="inline-block ..."><p>Статический соседний элемент</p></div>
 </div>
 ```
 
 </Figure>
 
-With absolutely positioned elements, any [offsets](/docs/top-right-bottom-left) are calculated relative to the nearest parent that has a position other than `static`, and the element will act as a position reference for other absolutely positioned children.
+При абсолютно позиционированных элементах любые [смещения](/docs/top-right-bottom-left) рассчитываются относительно ближайшего родителя, который имеет позицию, отличную от `static`, и элемент будет действовать как позиционная ссылка для других абсолютно позиционированных дочерних элементов.
 
-### Fixed positioning elements
+### Фиксированное позиционирование элементов
 
-Use the `fixed` utility to position an element relative to the browser window:
+Используйте утилиту `fixed` для позиционирования элемента относительно окна браузера:
 
-<Figure hint="Scroll this element to see the fixed positioning in action">
+<Figure hint="Прокрутите этот элемент, чтобы увидеть фиксированное позиционирование в действии">
 
 <Example padding={false}>
   {
     <div className="px-3">
       <div className="relative mx-auto h-80 max-w-md overflow-hidden bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800">
         <div className="absolute top-0 right-0 left-0 flex items-center bg-gray-50/90 px-4 py-3 text-sm font-semibold text-gray-900 ring-1 ring-gray-900/10 backdrop-blur-sm dark:bg-gray-700/90 dark:text-gray-200 dark:ring-black/10">
-          Contacts
+          Контакты
         </div>
         <div className="flex h-80 flex-col divide-y divide-gray-200 overflow-auto dark:divide-gray-200/5">
           <div className="flex items-center gap-4 p-4">
@@ -174,42 +174,42 @@ Use the `fixed` utility to position an element relative to the browser window:
               className="size-12 rounded-full"
               src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
             />
-            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong>
+            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Эндрю Альфред</strong>
           </div>
           <div className="flex items-center gap-4 p-4">
             <img
               className="size-12 rounded-full"
               src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
             />
-            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Debra Houston</strong>
+            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Дебра Хьюстон</strong>
           </div>
           <div className="flex items-center gap-4 p-4">
             <img
               className="size-12 rounded-full"
               src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
             />
-            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Jane White</strong>
+            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Джейн Уайт</strong>
           </div>
           <div className="flex items-center gap-4 p-4">
             <img
               className="size-12 rounded-full"
               src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
             />
-            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Ray Flint</strong>
+            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Рэй Флинт</strong>
           </div>
           <div className="flex items-center gap-4 p-4">
             <img
               className="size-12 rounded-full"
               src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
             />
-            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Mindy Albrect</strong>
+            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Минди Альбрект</strong>
           </div>
           <div className="flex items-center gap-4 p-4">
             <img
               className="size-12 rounded-full"
               src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
             />
-            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">David Arnold</strong>
+            <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Дэвид Арнольд</strong>
           </div>
         </div>
       </div>
@@ -220,15 +220,15 @@ Use the `fixed` utility to position an element relative to the browser window:
 ```html
 <!-- [!code classes:fixed] -->
 <div class="relative">
-  <div class="fixed top-0 right-0 left-0">Contacts</div>
+  <div class="fixed top-0 right-0 left-0">Контакты</div>
   <div>
     <div>
       <img src="/img/andrew.jpg" />
-      <strong>Andrew Alfred</strong>
+      <strong>Эндрю Альфред</strong>
     </div>
     <div>
       <img src="/img/debra.jpg" />
-      <strong>Debra Houston</strong>
+      <strong>Дебра Хьюстон</strong>
     </div>
     <!-- ... -->
   </div>
@@ -237,13 +237,13 @@ Use the `fixed` utility to position an element relative to the browser window:
 
 </Figure>
 
-With fixed positioned elements, any [offsets](/docs/top-right-bottom-left) are calculated relative to the viewport and the element will act as a position reference for absolutely positioned children:
+При фиксированно позиционированных элементах любые [смещения](/docs/top-right-bottom-left) рассчитываются относительно области просмотра, и элемент будет действовать как позиционная ссылка для абсолютно позиционированных дочерних элементов:
 
-### Sticky positioning elements
+### Липкое позиционирование элементов
 
-Use the `sticky` utility to position an element as `relative` until it crosses a specified threshold, then treat it as `fixed` until its parent is off screen:
+Используйте утилиту `sticky` для позиционирования элемента как `relative` до тех пор, пока он не пересечет указанный порог, а затем обрабатывайте его как `fixed` до тех пор, пока его родитель не исчезнет с экрана:
 
-<Figure hint="Scroll this element to see the sticky positioning in action">
+<Figure hint="Прокрутите этот элемент, чтобы увидеть липкое позиционирование в действии">
 
 <Example padding={false}>
   {
@@ -251,7 +251,7 @@ Use the `sticky` utility to position an element as `relative` until it crosses a
       <div className="relative mx-auto -my-px h-80 max-w-md overflow-auto bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800">
         <div className="relative">
           <div className="sticky top-0 flex items-center bg-gray-50/90 px-4 py-3 text-sm font-semibold text-gray-900 ring-1 ring-gray-900/10 backdrop-blur-sm dark:bg-gray-700/90 dark:text-gray-200 dark:ring-black/10">
-            A
+            А
           </div>
           <div className="divide-y divide-gray-200 dark:divide-gray-200/5">
             <div className="flex items-center gap-4 p-4">
@@ -259,34 +259,34 @@ Use the `sticky` utility to position an element as `relative` until it crosses a
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Эндрю Альфред</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Aisha Houston</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Айша Хьюстон</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Anna White</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Анна Уайт</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Andy Flint</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Энди Флинт</strong>
             </div>
           </div>
         </div>
         <div className="relative">
           <div className="sticky top-0 flex items-center bg-gray-50/90 px-4 py-3 text-sm font-semibold text-gray-900 ring-1 ring-gray-900/10 backdrop-blur-sm dark:bg-gray-700/90 dark:text-gray-200 dark:ring-black/10">
-            B
+            Б
           </div>
           <div className="divide-y divide-gray-200 dark:divide-gray-200/5">
             <div className="flex items-center gap-4 p-4">
@@ -294,34 +294,34 @@ Use the `sticky` utility to position an element as `relative` until it crosses a
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Bob Alfred</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Боб Альфред</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Bianca Houston</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Бьянка Хьюстон</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Brianna White</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Брианна Уайт</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Bert Flint</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Берт Флинт</strong>
             </div>
           </div>
         </div>
         <div className="relative">
           <div className="sticky top-0 flex items-center bg-gray-50/90 px-4 py-3 text-sm font-semibold text-gray-900 ring-1 ring-gray-900/10 backdrop-blur-sm dark:bg-gray-700/90 dark:text-gray-200 dark:ring-black/10">
-            C
+            В
           </div>
           <div className="divide-y divide-gray-200 dark:divide-gray-200/5">
             <div className="flex items-center gap-4 p-4">
@@ -329,28 +329,28 @@ Use the `sticky` utility to position an element as `relative` until it crosses a
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Colton Alfred</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Колтон Альфред</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Cynthia Houston</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Синтия Хьюстон</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Cheyenne White</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Шайенн Уайт</strong>
             </div>
             <div className="flex items-center gap-4 p-4">
               <img
                 className="size-12 rounded-full"
                 src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80"
               />
-              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Charlie Flint</strong>
+              <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Чарли Флинт</strong>
             </div>
           </div>
         </div>
@@ -363,25 +363,25 @@ Use the `sticky` utility to position an element as `relative` until it crosses a
 <!-- [!code classes:sticky,top-0] -->
 <div>
   <div>
-    <div class="sticky top-0 ...">A</div>
+    <div class="sticky top-0 ...">А</div>
     <div>
       <div>
         <img src="/img/andrew.jpg" />
-        <strong>Andrew Alfred</strong>
+        <strong>Эндрю Альфред</strong>
       </div>
       <div>
         <img src="/img/aisha.jpg" />
-        <strong>Aisha Houston</strong>
+        <strong>Айша Хьюстон</strong>
       </div>
       <!-- ... -->
     </div>
   </div>
   <div>
-    <div class="sticky top-0">B</div>
+    <div class="sticky top-0">Б</div>
     <div>
       <div>
         <img src="/img/bob.jpg" />
-        <strong>Bob Alfred</strong>
+        <strong>Боб Альфред</strong>
       </div>
       <!-- ... -->
     </div>
@@ -392,7 +392,7 @@ Use the `sticky` utility to position an element as `relative` until it crosses a
 
 </Figure>
 
-With sticky positioned elements, any [offsets](/docs/top-right-bottom-left) are calculated relative to the element's normal position and the element will act as a position reference for absolutely positioned children.
+При липко позиционированных элементах любые [смещения](/docs/top-right-bottom-left) рассчитываются относительно нормальной позиции элемента, и элемент будет действовать как позиционная ссылка для абсолютно позиционированных дочерних элементов.
 
 ### Адаптивный дизайн
 

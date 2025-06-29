@@ -6,7 +6,7 @@ import Image from "next/image";
 import tshirtImage from "./img/t-shirt.jpg";
 
 export const title = "forced-color-adjust";
-export const description = "Utilities for opting in and out of forced colors.";
+export const description = "Утилиты для включения и исключения принудительных цветов.";
 
 <ApiTable
   rows={[
@@ -17,11 +17,11 @@ export const description = "Utilities for opting in and out of forced colors.";
 
 ## Примеры
 
-### Opting out of forced colors
+### Исключение принудительных цветов
 
-Use the `forced-color-adjust-none` utility to opt an element out of the colors enforced by forced colors mode. This is useful in situations where enforcing a limited color palette will degrade usability.
+Используйте утилиту `forced-color-adjust-none` для исключения элемента из цветов, навязываемых режимом принудительных цветов. Это полезно в ситуациях, когда навязывание ограниченной цветовой палитры ухудшит удобство использования.
 
-<Figure hint="Try emulating `forced-colors: active` in your developer tools to see the changes">
+<Figure hint="Попробуйте эмулировать `forced-colors: active` в инструментах разработчика, чтобы увидеть изменения">
 
 <Example>
   {
@@ -114,11 +114,11 @@ Use the `forced-color-adjust-none` utility to opt an element out of the colors e
 
 </Figure>
 
-You can also use the [forced colors variant](/docs/hover-focus-and-other-states#forced-colors) to conditionally add styles when the user has enabled a forced color mode.
+Вы также можете использовать [вариант принудительных цветов](/docs/hover-focus-and-other-states#forced-colors) для условного добавления стилей, когда пользователь включил режим принудительных цветов.
 
-### Restoring forced colors
+### Восстановление принудительных цветов
 
-Use the `forced-color-adjust-auto` utility to make an element adhere to colors enforced by forced colors mode:
+Используйте утилиту `forced-color-adjust-auto` для того, чтобы элемент следовал цветам, навязываемым режимом принудительных цветов:
 
 ```html
 <!-- [!code classes:lg:forced-color-adjust-auto] -->
@@ -141,7 +141,7 @@ Use the `forced-color-adjust-auto` utility to make an element adhere to colors e
 </form>
 ```
 
-This can be useful if you want to undo the `forced-color-adjust-none` utility, for example on a larger screen size.
+Это может быть полезно, если вы хотите отменить утилиту `forced-color-adjust-none`, например, на экране большего размера.
 
 ### Адаптивный дизайн
 

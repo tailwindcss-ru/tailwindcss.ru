@@ -6,7 +6,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "mask-size";
-export const description = "Utilities for controlling the size of an element's mask image.";
+export const description = "Утилиты для управления размером изображения маски элемента.";
 
 <ApiTable
   rows={[
@@ -18,11 +18,11 @@ export const description = "Utilities for controlling the size of an element's m
   ]}
 />
 
-## Examples
+## Примеры
 
-### Filling the container
+### Заполнение контейнера
 
-Use the `mask-cover` utility to scale the mask image until it fills the mask layer, cropping the image if needed:
+Используйте утилиту `mask-cover` для масштабирования изображения маски до тех пор, пока оно не заполнит слой маски, обрезая изображение при необходимости:
 
 <Figure>
 
@@ -45,9 +45,9 @@ Use the `mask-cover` utility to scale the mask image until it fills the mask lay
 
 </Figure>
 
-### Filling without cropping
+### Заполнение без обрезки
 
-Use the `mask-contain` utility to scale the mask image to the outer edges without cropping or stretching:
+Используйте утилиту `mask-contain` для масштабирования изображения маски до внешних краев без обрезки или растяжения:
 
 <Figure>
 
@@ -70,9 +70,9 @@ Use the `mask-contain` utility to scale the mask image to the outer edges withou
 
 </Figure>
 
-### Using the default size
+### Использование размера по умолчанию
 
-Use the `mask-auto` utility to display the mask image at its default size:
+Используйте утилиту `mask-auto` для отображения изображения маски в его размере по умолчанию:
 
 <Figure>
 
@@ -95,10 +95,10 @@ Use the `mask-auto` utility to display the mask image at its default size:
 
 </Figure>
 
-### Using a custom value
+### Использование пользовательского значения
 
 <UsingACustomValue utility="mask-size" value="auto_100px" name="mask image size" variable="mask-size" />
 
-### Responsive design
+### Адаптивный дизайн
 
 <ResponsiveDesign property="mask-size" defaultClass="mask-auto" featuredClass="mask-contain" />

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "word-break";
-export const description = "Utilities for controlling word breaks in an element.";
+export const description = "Утилиты для управления переносом слов в элементе.";
 
 <ApiTable
   rows={[
@@ -16,9 +16,9 @@ export const description = "Utilities for controlling word breaks in an element.
 
 ## Примеры
 
-### Normal
+### Обычный
 
-Use the `break-normal` utility to only add line breaks at normal word break points:
+Используйте утилиту `break-normal` для добавления переносов строк только в обычных точках переноса слов:
 
 <Figure>
 
@@ -40,9 +40,9 @@ Use the `break-normal` utility to only add line breaks at normal word break poin
 
 </Figure>
 
-### Break All
+### Разрыв всех
 
-Use the `break-all` utility to add line breaks whenever necessary, without trying to preserve whole words:
+Используйте утилиту `break-all` для добавления переносов строк при необходимости, не пытаясь сохранить целые слова:
 
 <Figure>
 
@@ -64,9 +64,9 @@ Use the `break-all` utility to add line breaks whenever necessary, without tryin
 
 </Figure>
 
-### Break Keep
+### Сохранение разрыва
 
-Use the `break-keep` utility to prevent line breaks from being applied to Chinese/Japanese/Korean (CJK) text:
+Используйте утилиту `break-keep` для предотвращения применения переносов строк к китайскому/японскому/корейскому (CJK) тексту:
 
 <Figure>
 
@@ -87,7 +87,7 @@ Use the `break-keep` utility to prevent line breaks from being applied to Chines
 
 </Figure>
 
-For non-CJK text the `break-keep` utility has the same behavior as the `break-normal` utility.
+Для не-CJK текста утилита `break-keep` имеет то же поведение, что и утилита `break-normal`.
 
 ### Адаптивный дизайн
 

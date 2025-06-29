@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "scroll-padding";
-export const description = "Utilities for controlling an element's scroll offset within a snap container.";
+export const description = "Утилиты для управления отступом прокрутки элемента внутри контейнера с привязкой.";
 
 <ApiTable
   rows={[
@@ -30,9 +30,9 @@ export const description = "Utilities for controlling an element's scroll offset
 
 ### Базовый пример
 
-Use the `scroll-pt-<number>`, `scroll-pr-<number>`, `scroll-pb-<number>`, and `scroll-pl-<number>` utilities like `scroll-pl-4` and `scroll-pt-6` to set the scroll offset of an element within a snap container:
+Используйте утилиты `scroll-pt-<number>`, `scroll-pr-<number>`, `scroll-pb-<number>` и `scroll-pl-<number>` как `scroll-pl-4` и `scroll-pt-6` для установки отступа прокрутки элемента внутри контейнера с привязкой:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Прокрутите в сетке изображений, чтобы увидеть ожидаемое поведение">
 
 <Example padding={false}>
   {
@@ -97,16 +97,16 @@ Use the `scroll-pt-<number>`, `scroll-pr-<number>`, `scroll-pb-<number>`, and `s
 
 </Figure>
 
-### Using logical properties
+### Использование логических свойств
 
-Use the `scroll-ps-<number>` and `scroll-pe-<number>` utilities to set the `scroll-padding-inline-start` and `scroll-padding-inline-end` logical properties, which map to either the left or right side based on the text direction:
+Используйте утилиты `scroll-ps-<number>` и `scroll-pe-<number>` для установки логических свойств `scroll-padding-inline-start` и `scroll-padding-inline-end`, которые отображаются на левую или правую сторону в зависимости от направления текста:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Прокрутите в сетке изображений, чтобы увидеть ожидаемое поведение">
 
 <Example padding={false}>
   {
     <>
-      <p className="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
+      <p className="mb-4 pt-8 pl-6 text-sm font-medium">Слева направо</p>
       <div className="relative" dir="ltr">
         <Stripes border className="absolute start-0 top-0 bottom-10 w-6" />
         <div className="flex w-full snap-x scroll-ps-6 gap-8 overflow-x-auto pb-10">
@@ -142,7 +142,7 @@ Use the `scroll-ps-<number>` and `scroll-pe-<number>` utilities to set the `scro
           </div>
         </div>
       </div>
-      <p className="mt-4 mb-4 pl-6 text-sm font-medium">Right-to-left</p>
+      <p className="mt-4 mb-4 pl-6 text-sm font-medium">Справа налево</p>
       <div className="relative" dir="rtl">
         <Stripes border className="absolute start-0 top-0 bottom-10 w-6" />
         <div className="flex w-full snap-x scroll-ps-6 gap-8 overflow-x-auto pb-10">
@@ -201,9 +201,9 @@ Use the `scroll-ps-<number>` and `scroll-pe-<number>` utilities to set the `scro
 
 </Figure>
 
-### Using negative values
+### Использование отрицательных значений
 
-To use a negative scroll padding value, prefix the class name with a dash to convert it to a negative value:
+Для использования отрицательного значения отступа прокрутки добавьте дефис перед именем класса, чтобы преобразовать его в отрицательное значение:
 
 ```html
 <!-- [!code classes:-scroll-ps-6] -->

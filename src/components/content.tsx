@@ -191,7 +191,7 @@ export function ResponsiveDesign({
             Префикс {startsWithVowel(property) ? "an" : "a"} <code>{property}</code> утилита{" "}
           </>
         )}
-        с вариантом точки останова, например <code>{breakpoint}:</code>, чтобы применить утилиту только при
+        с вариантом контрольной точки, например <code>{breakpoint}:</code>, чтобы применить утилиту только при
         размерах экрана {screens[breakpoint]}{" "} и выше:
       </p>
       {children || (

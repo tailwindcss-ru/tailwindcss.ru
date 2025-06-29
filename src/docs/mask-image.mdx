@@ -9,7 +9,7 @@ import { Stripes } from "@/components/stripes.tsx";
 import dedent from "dedent";
 
 export const title = "mask-image";
-export const description = "Utilities for controlling an element's mask image.";
+export const description = "Утилиты для управления маской изображения элемента.";
 
 <svg className="sr-only">
   <defs>
@@ -473,11 +473,11 @@ export const description = "Utilities for controlling an element's mask image.";
   ]}
 />
 
-## Examples
+## Примеры
 
-### Using an image mask
+### Использование маски изображения
 
-Use the `mask-[<value>]` syntax to set the mask image of an element:
+Используйте синтаксис `mask-[<value>]` для установки маски изображения элемента:
 
 <Figure>
 
@@ -505,9 +505,9 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 </Figure>
 
-### Masking edges
+### Маскирование краев
 
-Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
+Используйте утилиты такие как `mask-b-from-<value>` и `mask-t-to-<value>` для добавления линейной градиентной маски к одной стороне элемента:
 
 <Figure>
 
@@ -557,7 +557,7 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
 
 </Figure>
 
-Additionally, use utilities like `mask-x-from-70%` and `mask-y-to-90%` to apply a mask to two sides of an element at the same time:
+Кроме того, используйте утилиты такие как `mask-x-from-70%` и `mask-y-to-90%` для применения маски к двум сторонам элемента одновременно:
 
 <Figure>
 
@@ -591,11 +591,11 @@ Additionally, use utilities like `mask-x-from-70%` and `mask-y-to-90%` to apply 
 
 </Figure>
 
-By default, linear gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-<side>-from-<color>` and `mask-<side>-to-<color>` utilities.
+По умолчанию линейные градиентные маски переходят от черного к прозрачному, но вы можете настроить цвета градиента, используя утилиты `mask-<side>-from-<color>` и `mask-<side>-to-<color>`.
 
-### Adding an angled linear mask
+### Добавление угловой линейной маски
 
-Use utilities like `mask-linear-<angle>`, `mask-linear-from-20`, and `mask-linear-to-40` to add a custom linear gradient mask to an element:
+Используйте утилиты такие как `mask-linear-<angle>`, `mask-linear-from-20` и `mask-linear-to-40` для добавления пользовательской линейной градиентной маски к элементу:
 
 <Figure>
 
@@ -629,13 +629,13 @@ Use utilities like `mask-linear-<angle>`, `mask-linear-from-20`, and `mask-linea
 
 </Figure>
 
-### Adding a radial mask
+### Добавление радиальной маски
 
-Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add a radial gradient mask to an element:
+Используйте утилиты `mask-radial-from-<value>` и `mask-radial-to-<value>` для добавления радиальной градиентной маски к элементу:
 
 <Figure>
 
-<Example padding={false}>
+<Example>
   {
     <div className="mx-auto flex items-center p-16 max-sm:p-6">
       <img
@@ -649,10 +649,10 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
         alt=""
       />
       <div className="font-medium max-sm:-mx-3">
-        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
-        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
+        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Скорость</p>
+        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Создано для опытных пользователей</p>
         <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-          Work faster than ever with our keyboard shortcuts
+          Работайте быстрее чем когда-либо с нашими сочетаниями клавиш
         </p>
       </div>
     </div>
@@ -664,10 +664,10 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 <div class="flex items-center gap-4">
   <img class="mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left ..." src="/img/keyboard.png" />
   <div class="font-medium">
-    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
-    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Скорость</p>
+    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Создано для опытных пользователей</p>
     <p class="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-      Work faster than ever with customizable keyboard shortcuts
+      Работайте быстрее чем когда-либо с настраиваемыми сочетаниями клавиш
     </p>
   </div>
 </div>
@@ -675,11 +675,11 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 
 </Figure>
 
-By default, radial gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-radial-from-<color>` and `mask-radial-to-<color>` utilities.
+По умолчанию радиальные градиентные маски переходят от черного к прозрачному, но вы можете настроить цвета градиента, используя утилиты `mask-radial-from-<color>` и `mask-radial-to-<color>`.
 
-#### Setting the radial position
+#### Установка радиальной позиции
 
-Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` to set the position of the center of the radial gradient mask:
+Используйте утилиты такие как `mask-radial-at-bottom-left` и `mask-radial-at-[35%_35%]` для установки позиции центра радиальной градиентной маски:
 
 <Figure>
 
@@ -769,11 +769,11 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
 
 </Figure>
 
-This is different from [`mask-position`](/docs/mask-position) which sets the position of the mask image itself, not the radial gradient.
+Это отличается от [`mask-position`](/docs/mask-position), который устанавливает позицию самого изображения маски, а не радиального градиента.
 
-#### Setting the radial size
+#### Установка радиального размера
 
-Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` to set the size of the radial gradient mask:
+Используйте утилиты такие как `mask-radial-closest-corner` и `mask-radial-farthest-side` для установки размера радиальной градиентной маски:
 
 <Figure>
 
@@ -823,13 +823,13 @@ Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` 
 
 </Figure>
 
-When setting a custom radial gradient size, the units you can use depend on the `<ending-shape>` of the gradient which is set to `ellipse` by default.
+При установке пользовательского размера радиального градиента единицы, которые вы можете использовать, зависят от `<ending-shape>` градиента, который по умолчанию установлен в `ellipse`.
 
-With `mask-circle`, you can only use a single fixed length, like `mask-radial-[5rem]`. Whereas with `mask-ellipse`, you can specify each axis as a fixed length or percentage, like `mask-radial-[40%_80%]`.
+С `mask-circle` вы можете использовать только одну фиксированную длину, например `mask-radial-[5rem]`. В то время как с `mask-ellipse`, вы можете указать каждую ось как фиксированную длину или процент, например `mask-radial-[40%_80%]`.
 
-### Adding a conic mask
+### Добавление конической маски
 
-Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angle>` utilities to add a conic gradient mask to an element:
+Используйте утилиты `mask-conic-from-<value>`, `mask-conic-to-<value>` и `mask-conic-<angle>` для добавления конической градиентной маски к элементу:
 
 <Figure>
 
@@ -841,9 +841,9 @@ Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angl
         <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400" />
       </div>
       <div className="w-0 flex-1 text-sm text-gray-950 dark:text-white">
-        <p className="font-medium">Storage used: 75%</p>
+        <p className="font-medium">Использовано хранилища: 75%</p>
         <p className="mt-1 text-gray-500 dark:text-gray-400">
-          <span className="font-medium">0.48 GB</span> out of 2 GB remaining
+          <span className="font-medium">0.48 ГБ</span> из 2 ГБ осталось
         </p>
       </div>
     </div>
@@ -858,19 +858,19 @@ Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angl
     <div class="border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400 ..."></div>
   </div>
   <div class="w-0 flex-1 text-sm text-gray-950 dark:text-white">
-    <p class="font-medium">Storage used: 75%</p>
-    <p class="mt-1 text-gray-500 dark:text-gray-400"><span class="font-medium">0.48 GB</span> out of 2 GB remaining</p>
+    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Использовано хранилища: 75%</p>
+    <p class="mt-1 text-gray-500 dark:text-gray-400"><span class="font-medium">0.48 ГБ</span> из 2 ГБ осталось</p>
   </div>
 </div>
 ```
 
 </Figure>
 
-By default, conic gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-conic-from-<color>` and `mask-conic-to-<color>` utilities.
+По умолчанию конические градиентные маски переходят от черного к прозрачному, но вы можете настроить цвета градиента, используя утилиты `mask-conic-from-<color>` и `mask-conic-to-<color>`.
 
-### Combining masks
+### Комбинирование масок
 
-Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>`, and `mask-l-from-<value>` can be combined to create more complex gradient masks:
+Утилиты градиентных масок, такие как `mask-radial-from-<value>`, `mask-conic-to-<value>` и `mask-l-from-<value>`, можно комбинировать для создания более сложных градиентных масок:
 
 <Figure>
 
@@ -902,11 +902,11 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
 
 </Figure>
 
-This behavior relies on the fact that Tailwind sets the [`mask-composite` property](/docs/mask-composite) to `intersect` by default. Changing this property will affect how the gradient masks are combined.
+Это поведение основано на том факте, что Tailwind устанавливает свойство [`mask-composite`](/docs/mask-composite) в `intersect` по умолчанию. Изменение этого свойства повлияет на то, как градиентные маски объединяются.
 
-### Removing mask images
+### Удаление масок изображений
 
-Use the `mask-none` utility to remove an existing mask image from an element:
+Используйте утилиту `mask-none` для удаления существующей маски изображения с элемента:
 
 ```html
 <!-- [!code classes:mask-none] -->
@@ -915,7 +915,7 @@ Use the `mask-none` utility to remove an existing mask image from an element:
 </div>
 ```
 
-### Using a custom value
+### Использование пользовательского значения
 
 <UsingACustomValue
   utilities={["mask-linear", "mask-radial"]}
@@ -924,10 +924,10 @@ Use the `mask-none` utility to remove an existing mask image from an element:
   variable="mask"
 />
 
-### Responsive design
+### Адаптивный дизайн
 
 <ResponsiveDesign property="mask-image" defaultClass="mask-radial-from-70%" featuredClass="mask-radial-from-50%" />
 
-## Customizing your theme
+## Кастомизация вашей темы
 
 <CustomizingYourThemeColors utilities={["mask-radial-from", "mask-conic-to", "mask-b-from"]} />

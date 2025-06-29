@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "user-select";
-export const description = "Utilities for controlling whether the user can select text in an element.";
+export const description = "Утилиты для управления возможностью выбора текста пользователем в элементе.";
 
 <ApiTable
   rows={[
@@ -17,17 +17,17 @@ export const description = "Utilities for controlling whether the user can selec
 
 ## Примеры
 
-### Disabling text selection
+### Отключение выбора текста
 
-Use the `select-none` utility to prevent selecting text in an element and its children:
+Используйте утилиту `select-none` для предотвращения выбора текста в элементе и его дочерних элементах:
 
-<Figure hint="Try selecting the text to see the expected behavior">
+<Figure hint="Попробуйте выделить текст, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
     <div className="flex justify-center">
       <div className="dark:highlight-white/5 inline-flex rounded-lg bg-white px-4 py-3 text-center font-sans text-sm font-semibold text-gray-900 ring-1 ring-gray-900/5 select-none dark:bg-gray-800 dark:text-gray-200 dark:ring-0">
-        The quick brown fox jumps over the lazy dog.
+        Быстрая коричневая лиса перепрыгивает через ленивую собаку.
       </div>
     </div>
   }
@@ -35,22 +35,22 @@ Use the `select-none` utility to prevent selecting text in an element and its ch
 
 ```html
 <!-- [!code classes:select-none] -->
-<div class="select-none ...">The quick brown fox jumps over the lazy dog.</div>
+<div class="select-none ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку.</div>
 ```
 
 </Figure>
 
-### Allowing text selection
+### Разрешение выбора текста
 
-Use the `select-text` utility to allow selecting text in an element and its children:
+Используйте утилиту `select-text` для разрешения выбора текста в элементе и его дочерних элементах:
 
-<Figure hint="Try selecting the text to see the expected behavior">
+<Figure hint="Попробуйте выделить текст, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
     <div className="flex justify-center">
       <div className="dark:highlight-white/5 inline-flex rounded-lg bg-white px-4 py-3 text-center font-sans text-sm font-semibold text-gray-900 ring-1 ring-gray-900/5 select-text dark:bg-gray-800 dark:text-gray-200 dark:ring-0">
-        The quick brown fox jumps over the lazy dog.
+        Быстрая коричневая лиса перепрыгивает через ленивую собаку.
       </div>
     </div>
   }
@@ -58,22 +58,22 @@ Use the `select-text` utility to allow selecting text in an element and its chil
 
 ```html
 <!-- [!code classes:select-text] -->
-<div class="select-text ...">The quick brown fox jumps over the lazy dog.</div>
+<div class="select-text ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку.</div>
 ```
 
 </Figure>
 
-### Selecting all text in one click
+### Выбор всего текста одним кликом
 
-Use the `select-all` utility to automatically select all the text in an element when a user clicks:
+Используйте утилиту `select-all` для автоматического выбора всего текста в элементе при клике пользователя:
 
-<Figure hint="Try clicking the text to see the expected behavior">
+<Figure hint="Попробуйте кликнуть по тексту, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
     <div className="flex justify-center">
       <div className="dark:highlight-white/5 inline-flex rounded-lg bg-white px-4 py-3 text-center font-sans text-sm font-semibold text-gray-900 ring-1 ring-gray-900/5 select-all dark:bg-gray-800 dark:text-gray-200 dark:ring-0">
-        The quick brown fox jumps over the lazy dog.
+        Быстрая коричневая лиса перепрыгивает через ленивую собаку.
       </div>
     </div>
   }
@@ -81,22 +81,22 @@ Use the `select-all` utility to automatically select all the text in an element 
 
 ```html
 <!-- [!code classes:select-all] -->
-<div class="select-all ...">The quick brown fox jumps over the lazy dog.</div>
+<div class="select-all ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку.</div>
 ```
 
 </Figure>
 
-### Using auto select behavior
+### Использование автоматического поведения выбора
 
-Use the `select-auto` utility to use the default browser behavior for selecting text:
+Используйте утилиту `select-auto` для использования стандартного поведения браузера для выбора текста:
 
-<Figure hint="Try selecting the text to see the expected behavior">
+<Figure hint="Попробуйте выделить текст, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
     <div className="flex justify-center">
       <div className="dark:highlight-white/5 inline-flex rounded-lg bg-white px-4 py-3 text-center font-sans text-sm font-semibold text-gray-900 ring-1 ring-gray-900/5 select-auto dark:bg-gray-800 dark:text-gray-200 dark:ring-0">
-        The quick brown fox jumps over the lazy dog.
+        Быстрая коричневая лиса перепрыгивает через ленивую собаку.
       </div>
     </div>
   }
@@ -104,7 +104,7 @@ Use the `select-auto` utility to use the default browser behavior for selecting 
 
 ```html
 <!-- [!code classes:select-auto] -->
-<div class="select-auto ...">The quick brown fox jumps over the lazy dog.</div>
+<div class="select-auto ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку.</div>
 ```
 
 </Figure>

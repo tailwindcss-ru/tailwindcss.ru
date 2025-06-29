@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, TargetingSpecificStates } from "@/components/content.tsx";
 
 export const title = "text-decoration-line";
-export const description = "Utilities for controlling the decoration of text.";
+export const description = "Утилиты для управления украшением текста.";
 
 <ApiTable
   rows={[
@@ -17,86 +17,86 @@ export const description = "Utilities for controlling the decoration of text.";
 
 ## Примеры
 
-### Underling text
+### Подчеркивание текста
 
-Use the `underline` utility to add an underline to the text of an element:
+Используйте утилиту `underline` для добавления подчеркивания к тексту элемента:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 underline dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      Быстрая коричневая лиса перепрыгивает через ленивую собаку.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:underline] -->
-<p class="underline">The quick brown fox...</p>
+<p class="underline">Быстрая коричневая лиса...</p>
 ```
 
 </Figure>
 
-### Adding an overline to text
+### Добавление надчеркивания к тексту
 
-Use the `overline` utility to add an overline to the text of an element:
+Используйте утилиту `overline` для добавления надчеркивания к тексту элемента:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 overline dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      Быстрая коричневая лиса перепрыгивает через ленивую собаку.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:overline] -->
-<p class="overline">The quick brown fox...</p>
+<p class="overline">Быстрая коричневая лиса...</p>
 ```
 
 </Figure>
 
-### Adding a line through text
+### Добавление зачеркивания к тексту
 
-Use the `line-through` utility to add a line through the text of an element:
+Используйте утилиту `line-through` для добавления зачеркивания к тексту элемента:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 line-through dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      Быстрая коричневая лиса перепрыгивает через ленивую собаку.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:line-through] -->
-<p class="line-through">The quick brown fox...</p>
+<p class="line-through">Быстрая коричневая лиса...</p>
 ```
 
 </Figure>
 
-### Removing a line from text
+### Удаление линии из текста
 
-Use the `no-underline` utility to remove a line from the text of an element:
+Используйте утилиту `no-underline` для удаления линии из текста элемента:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 no-underline dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      Быстрая коричневая лиса перепрыгивает через ленивую собаку.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:no-underline] -->
-<p class="no-underline">The quick brown fox...</p>
+<p class="no-underline">Быстрая коричневая лиса...</p>
 ```
 
 </Figure>
@@ -105,27 +105,27 @@ Use the `no-underline` utility to remove a line from the text of an element:
 
 <TargetingSpecificStates property="text-decoration-line">
 
-<Figure hint="Hover over the text to see the expected behavior">
+<Figure hint="Наведите на текст, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
     <div className="text-center text-lg font-medium text-gray-900 no-underline dark:text-gray-200">
-      The{" "}
+      Быстрая{" "}
       <a
         href="https://en.wikipedia.org/wiki/The_quick_brown_fox_jumps_over_the_lazy_dog"
         target="blank"
         className="text-sky-600 no-underline hover:underline dark:text-sky-400"
       >
-        quick brown fox
+        коричневая лиса
       </a>{" "}
-      jumps over the lazy dog.
+      перепрыгивает через ленивую собаку.
     </div>
   }
 </Example>
 
 ```html
 <!-- [!code classes:hover:underline] -->
-<p>The <a href="..." class="no-underline hover:underline ...">quick brown fox</a> jumps over the lazy dog.</p>
+<p>Быстрая <a href="..." class="no-underline hover:underline ...">коричневая лиса</a> перепрыгивает через ленивую собаку.</p>
 ```
 
 </Figure>

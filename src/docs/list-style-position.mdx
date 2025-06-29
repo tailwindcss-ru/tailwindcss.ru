@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "list-style-position";
-export const description = "Utilities for controlling the position of bullets and numbers in lists.";
+export const description = "Утилиты для управления позицией маркеров и номеров в списках.";
 
 <ApiTable
   rows={[
@@ -17,7 +17,7 @@ export const description = "Utilities for controlling the position of bullets an
 
 ### Базовый пример
 
-Use utilities like `list-inside` and `list-outside` to control the position of the markers and text indentation in a list:
+Используйте утилиты типа `list-inside` и `list-outside` для управления позицией маркеров и отступом текста в списке:
 
 <Figure>
 
@@ -28,18 +28,18 @@ Use utilities like `list-inside` and `list-outside` to control the position of t
         <div className="absolute -top-8 -bottom-8 left-8 w-px bg-pink-400/40 dark:bg-pink-400/30"></div>
         <p className="mb-3 ml-8 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">list-inside</p>
         <ul className="list-inside list-disc rounded-xl p-4 pl-8 text-gray-900 dark:text-gray-200">
-          <li>5 cups chopped Porcini mushrooms</li>
-          <li>1/2 cup of olive oil</li>
-          <li>3lb of celery</li>
+          <li>5 чашек нарезанных грибов порчини</li>
+          <li>1/2 чашки оливкового масла</li>
+          <li>3 фунта сельдерея</li>
         </ul>
       </div>
       <div className="relative">
         <div className="absolute -top-0 -bottom-8 left-8 w-px bg-pink-400/40 sm:-top-8 dark:bg-pink-400/30"></div>
         <p className="mb-3 ml-8 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">list-outside</p>
         <ul className="list-outside list-disc rounded-xl p-4 pl-8 text-gray-900 dark:text-gray-200">
-          <li>5 cups chopped Porcini mushrooms</li>
-          <li>1/2 cup of olive oil</li>
-          <li>3lb of celery</li>
+          <li>5 чашек нарезанных грибов порчини</li>
+          <li>1/2 чашки оливкового масла</li>
+          <li>3 фунта сельдерея</li>
         </ul>
       </div>
     </div>
@@ -49,13 +49,13 @@ Use utilities like `list-inside` and `list-outside` to control the position of t
 ```html
 <!-- [!code classes:list-inside] -->
 <ul class="list-inside">
-  <li>5 cups chopped Porcini mushrooms</li>
+  <li>5 чашек нарезанных грибов порчини</li>
   <!-- ... -->
 </ul>
 
 <!-- [!code classes:list-outside] -->
 <ul class="list-outside">
-  <li>5 cups chopped Porcini mushrooms</li>
+  <li>5 чашек нарезанных грибов порчини</li>
   <!-- ... -->
 </ul>
 ```

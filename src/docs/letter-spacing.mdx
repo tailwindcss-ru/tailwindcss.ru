@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "letter-spacing";
-export const description = "Utilities for controlling the tracking, or letter spacing, of an element.";
+export const description = "Утилиты для управления трекингом, или межбуквенным интервалом, элемента.";
 
 <ApiTable
   rows={[
@@ -23,7 +23,7 @@ export const description = "Utilities for controlling the tracking, or letter sp
 
 ### Базовый пример
 
-Use utilities like `tracking-tight` and `tracking-wide` to set the letter spacing of an element:
+Используйте утилиты типа `tracking-tight` и `tracking-wide` для установки межбуквенного интервала элемента:
 
 <Figure>
 
@@ -33,19 +33,19 @@ Use utilities like `tracking-tight` and `tracking-wide` to set the letter spacin
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-tight</span>
         <p className="text-lg font-medium tracking-tight text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          Быстрая коричневая лиса перепрыгивает через ленивую собаку.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-normal</span>
         <p className="text-lg font-medium tracking-normal text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          Быстрая коричневая лиса перепрыгивает через ленивую собаку.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-wide</span>
         <p className="text-lg font-medium tracking-wide text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          Быстрая коричневая лиса перепрыгивает через ленивую собаку.
         </p>
       </div>
     </div>
@@ -54,16 +54,16 @@ Use utilities like `tracking-tight` and `tracking-wide` to set the letter spacin
 
 ```html
 <!-- [!code classes:tracking-tight,tracking-normal,tracking-wide] -->
-<p class="tracking-tight ...">The quick brown fox ...</p>
-<p class="tracking-normal ...">The quick brown fox ...</p>
-<p class="tracking-wide ...">The quick brown fox ...</p>
+<p class="tracking-tight ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
+<p class="tracking-normal ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
+<p class="tracking-wide ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
 ```
 
 </Figure>
 
-### Using negative values
+### Использование отрицательных значений
 
-Using negative values doesn't make a ton of sense with the named letter spacing scale Tailwind includes out of the box, but if you've customized your scale to use numbers it can be useful:
+Использование отрицательных значений не имеет особого смысла с именованной шкалой межбуквенного интервала, которую Tailwind включает из коробки, но если вы настроили свою шкалу для использования чисел, это может быть полезно:
 
 ```css
 @theme {
@@ -74,11 +74,11 @@ Using negative values doesn't make a ton of sense with the named letter spacing 
 }
 ```
 
-To use a negative letter spacing value, prefix the class name with a dash to convert it to a negative value:
+Для использования отрицательного значения межбуквенного интервала добавьте дефис перед именем класса, чтобы преобразовать его в отрицательное значение:
 
 ```html
 <!-- [!code classes:-tracking-2] -->
-<p class="-tracking-2">The quick brown fox ...</p>
+<p class="-tracking-2">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
 ```
 
 ### Использование пользовательского значения

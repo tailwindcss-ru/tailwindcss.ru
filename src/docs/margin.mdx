@@ -6,7 +6,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "margin";
-export const description = "Utilities for controlling an element's margin.";
+export const description = "Утилиты для управления внешними отступами элемента.";
 
 <ApiTable
   rows={[
@@ -102,7 +102,7 @@ export const description = "Utilities for controlling an element's margin.";
 
 ### Базовый пример
 
-Use `m-<number>` utilities like `m-4` and `m-8` to control the margin on all sides of an element:
+Используйте утилиты `m-<number>` такие как `m-4` и `m-8` для управления внешними отступами со всех сторон элемента:
 
 <Figure>
 
@@ -126,9 +126,9 @@ Use `m-<number>` utilities like `m-4` and `m-8` to control the margin on all sid
 
 </Figure>
 
-### Adding margin to a single side
+### Добавление внешнего отступа к одной стороне
 
-Use `mt-<number>`, `mr-<number>`, `mb-<number>`, and `ml-<number>` utilities like `ml-2` and `mt-6` to control the margin on one side of an element:
+Используйте утилиты `mt-<number>`, `mr-<number>`, `mb-<number>` и `ml-<number>` такие как `ml-2` и `mt-6` для управления внешним отступом с одной стороны элемента:
 
 <Figure>
 
@@ -173,9 +173,9 @@ Use `mt-<number>`, `mr-<number>`, `mb-<number>`, and `ml-<number>` utilities lik
 
 </Figure>
 
-### Adding horizontal margin
+### Добавление горизонтального внешнего отступа
 
-Use `mx-<number>` utilities like `mx-4` and `mx-8` to control the horizontal margin of an element:
+Используйте утилиты `mx-<number>` такие как `mx-4` и `mx-8` для управления горизонтальными внешними отступами элемента:
 
 <Figure>
 
@@ -199,9 +199,9 @@ Use `mx-<number>` utilities like `mx-4` and `mx-8` to control the horizontal mar
 
 </Figure>
 
-### Adding vertical margin
+### Добавление вертикального внешнего отступа
 
-Use `my-<number>` utilities like `my-4` and `my-8` to control the vertical margin of an element:
+Используйте утилиты `my-<number>` такие как `my-4` и `my-8` для управления вертикальными внешними отступами элемента:
 
 <Figure>
 
@@ -225,9 +225,9 @@ Use `my-<number>` utilities like `my-4` and `my-8` to control the vertical margi
 
 </Figure>
 
-### Using negative values
+### Использование отрицательных значений
 
-To use a negative margin value, prefix the class name with a dash to convert it to a negative value:
+Для использования отрицательного значения внешнего отступа добавьте дефис перед именем класса, чтобы преобразовать его в отрицательное значение:
 
 <Figure>
 
@@ -250,9 +250,9 @@ To use a negative margin value, prefix the class name with a dash to convert it 
 
 </Figure>
 
-### Using logical properties
+### Использование логических свойств
 
-Use `ms-<number>` or `me-<number>` utilities like `ms-4` and `me-8` to set the `margin-inline-start` and `margin-inline-end` logical properties:
+Используйте утилиты `ms-<number>` или `me-<number>` такие как `ms-4` и `me-8` для установки логических свойств `margin-inline-start` и `margin-inline-end`:
 
 <Figure>
 
@@ -260,7 +260,7 @@ Use `ms-<number>` or `me-<number>` utilities like `ms-4` and `me-8` to set the `
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4" dir="ltr">
-        <p className="text-sm font-medium">Left-to-right</p>
+        <p className="text-sm font-medium">Слева направо</p>
         <div className="relative flex rounded-lg font-mono text-sm leading-6 font-bold text-white">
           <Stripes border className="absolute min-h-full w-full rounded-lg" />
           <div className="relative ms-8 rounded-lg bg-indigo-500 p-4">ms-8</div>
@@ -271,7 +271,7 @@ Use `ms-<number>` or `me-<number>` utilities like `ms-4` and `me-8` to set the `
         </div>
       </div>
       <div className="flex flex-col items-start gap-y-4" dir="rtl">
-        <p className="text-sm font-medium">Right-to-left</p>
+        <p className="text-sm font-medium">Справа налево</p>
         <div className="relative flex rounded-lg font-mono text-sm leading-6 font-bold text-white">
           <Stripes border className="absolute min-h-full w-full rounded-lg" />
           <div className="relative ms-8 rounded-lg bg-indigo-500 p-4">ms-8</div>
@@ -303,9 +303,9 @@ Use `ms-<number>` or `me-<number>` utilities like `ms-4` and `me-8` to set the `
 
 </Figure>
 
-### Adding space between children
+### Добавление пространства между дочерними элементами
 
-Use `space-x-<number>` or `space-y-<number>` utilities like `space-x-4` and `space-y-8` to control the space between elements:
+Используйте утилиты `space-x-<number>` или `space-y-<number>` такие как `space-x-4` и `space-y-8` для управления пространством между элементами:
 
 <Figure>
 
@@ -335,9 +335,9 @@ Use `space-x-<number>` or `space-y-<number>` utilities like `space-x-4` and `spa
 
 </Figure>
 
-#### Reversing children order
+#### Изменение порядка дочерних элементов
 
-If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `space-x-reverse` or `space-y-reverse` utilities to ensure the space is added to the correct side of each element:
+Если ваши элементы находятся в обратном порядке (используя, например, `flex-row-reverse` или `flex-col-reverse`), используйте утилиты `space-x-reverse` или `space-y-reverse`, чтобы убедиться, что пространство добавляется к правильной стороне каждого элемента:
 
 <Figure>
 
@@ -367,13 +367,13 @@ If your elements are in reverse order (using say `flex-row-reverse` or `flex-col
 
 </Figure>
 
-#### Limitations
+#### Ограничения
 
-The space utilities are really just a shortcut for adding margin to all-but-the-last-item in a group, and aren't designed to handle complex cases like grids, layouts that wrap, or situations where the children are rendered in a complex custom order rather than their natural DOM order.
+Утилиты пространства - это просто сокращение для добавления внешнего отступа ко всем элементам, кроме последнего в группе, и они не предназначены для обработки сложных случаев, таких как сетки, макеты с переносом или ситуации, когда дочерние элементы отображаются в сложном пользовательском порядке, а не в их естественном порядке DOM.
 
-For those situations, it's better to use the [gap utilities](/docs/gap) when possible, or add margin to every element with a matching negative margin on the parent.
+Для таких ситуаций лучше использовать [утилиты gap](/docs/gap) когда это возможно, или добавить внешний отступ к каждому элементу с соответствующим отрицательным внешним отступом на родительском элементе.
 
-Additionally, the space utilities are not designed to work together with the [divide utilities](/docs/border-width#between-children). For those situations, consider adding margin/padding utilities to the children instead.
+Кроме того, утилиты пространства не предназначены для работы вместе с [утилитами divide](/docs/border-width#between-children). Для таких ситуаций рассмотрите возможность добавления утилит внешнего/внутреннего отступа к дочерним элементам вместо этого.
 
 ### Использование пользовательского значения
 

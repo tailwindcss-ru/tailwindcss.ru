@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "font-family";
-export const description = "Utilities for controlling the font family of an element.";
+export const description = "Утилиты для управления семейством шрифтов элемента.";
 
 <ApiTable
   rows={[
@@ -26,7 +26,7 @@ export const description = "Utilities for controlling the font family of an elem
 
 ### Базовый пример
 
-Use utilities like `font-sans` and `font-mono` to set the font family of an element:
+Используйте утилиты типа `font-sans` и `font-mono` для установки семейства шрифтов элемента:
 
 <Figure>
 
@@ -36,19 +36,19 @@ Use utilities like `font-sans` and `font-mono` to set the font family of an elem
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-sans</span>
         <p className="font-sans text-lg font-medium text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          Быстрая коричневая лиса перепрыгивает через ленивую собаку.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-serif</span>
         <p className="font-serif text-lg font-medium text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          Быстрая коричневая лиса перепрыгивает через ленивую собаку.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-mono</span>
         <p className="font-mono text-lg font-medium text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          Быстрая коричневая лиса перепрыгивает через ленивую собаку.
         </p>
       </div>
     </div>
@@ -57,9 +57,9 @@ Use utilities like `font-sans` and `font-mono` to set the font family of an elem
 
 ```html
 <!-- [!code classes:font-sans,font-serif,font-mono] -->
-<p class="font-sans ...">The quick brown fox ...</p>
-<p class="font-serif ...">The quick brown fox ...</p>
-<p class="font-mono ...">The quick brown fox ...</p>
+<p class="font-sans ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
+<p class="font-serif ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
+<p class="font-mono ...">Быстрая коричневая лиса перепрыгивает через ленивую собаку ...</p>
 ```
 
 </Figure>
@@ -81,7 +81,7 @@ Use utilities like `font-sans` and `font-mono` to set the font family of an elem
   customValue='"Oswald", "sans-serif"'
 >
 
-You can also provide default `font-feature-settings` and `font-variation-settings` values for a font family:
+Вы также можете предоставить значения по умолчанию для `font-feature-settings` и `font-variation-settings` для семейства шрифтов:
 
 ```css
 @theme {
@@ -91,7 +91,7 @@ You can also provide default `font-feature-settings` and `font-variation-setting
 }
 ```
 
-If needed, use the [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) at-rule to load custom fonts:
+При необходимости используйте правило [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) для загрузки пользовательских шрифтов:
 
 ```css
 @font-face {
@@ -103,7 +103,7 @@ If needed, use the [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS
 }
 ```
 
-If you're loading a font from a service like [Google Fonts](https://fonts.google.com/), make sure to put the `@import` at the very top of your CSS file:
+Если вы загружаете шрифт из сервиса типа [Google Fonts](https://fonts.google.com/), убедитесь, что `@import` находится в самом верху вашего CSS файла:
 
 ```css
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); /* [!code highlight] */
@@ -114,6 +114,6 @@ If you're loading a font from a service like [Google Fonts](https://fonts.google
 }
 ```
 
-Browsers require that `@import` statements come before any other rules, so URL imports need to be above imports like `@import "tailwindcss"` which are inlined in the compiled CSS.
+Браузеры требуют, чтобы операторы `@import` шли перед любыми другими правилами, поэтому URL импорты должны быть выше импортов типа `@import "tailwindcss"`, которые встраиваются в скомпилированный CSS.
 
 </CustomizingYourTheme>

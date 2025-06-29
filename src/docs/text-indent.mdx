@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "text-indent";
-export const description = "Utilities for controlling the amount of empty space shown before text in a block.";
+export const description = "Утилиты для управления количеством пустого пространства, отображаемого перед текстом в блоке.";
 
 <ApiTable
   rows={[
@@ -21,46 +21,46 @@ export const description = "Utilities for controlling the amount of empty space 
 
 ### Базовый пример
 
-Use `indent-<number>` utilities like `indent-2` and `indent-8` to set the amount of empty space (indentation) that's shown before text in a block:
+Используйте утилиты `indent-<number>` типа `indent-2` и `indent-8` для установки количества пустого пространства (отступа), которое отображается перед текстом в блоке:
 
 <Figure>
 
 <Example>
   {
     <p className="mx-auto max-w-sm indent-8 text-gray-900 dark:text-gray-200">
-      So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my
-      way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of
-      all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел мимо волн, 
+      на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство всех живых существ, 
+      но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:indent-8] -->
-<p class="indent-8">So I started to walk into the water...</p>
+<p class="indent-8">Так я начал заходить в воду...</p>
 ```
 
 </Figure>
 
-### Using negative values
+### Использование отрицательных значений
 
-To use a negative text indent value, prefix the class name with a dash to convert it to a negative value:
+Для использования отрицательного значения отступа текста добавьте дефис перед именем класса, чтобы преобразовать его в отрицательное значение:
 
 <Figure>
 
 <Example>
   {
     <p className="mx-auto max-w-sm -indent-8 text-gray-900 dark:text-gray-200">
-      So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my
-      way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of
-      all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+      Так я начал заходить в воду. Не буду врать вам, ребята, я был в ужасе. Но я продолжал идти, и когда я прошел мимо волн, 
+      на меня снизошло странное спокойствие. Не знаю, было ли это божественное вмешательство или родство всех живых существ, 
+      но говорю вам, Джерри, в тот момент я <em>был</em> морским биологом.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:-indent-8] -->
-<p class="-indent-8">So I started to walk into the water...</p>
+<p class="-indent-8">Так я начал заходить в воду...</p>
 ```
 
 </Figure>

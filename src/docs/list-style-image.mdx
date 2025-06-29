@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "list-style-image";
-export const description = "Utilities for controlling the marker images for list items.";
+export const description = "Утилиты для управления изображениями маркеров для элементов списка.";
 
 <ApiTable
   rows={[
@@ -18,7 +18,7 @@ export const description = "Utilities for controlling the marker images for list
 
 ### Базовый пример
 
-Use the `list-image-[<value>]` syntax to control the marker image for list items:
+Используйте синтаксис `list-image-[<value>]` для управления изображением маркера для элементов списка:
 
 <Figure>
 
@@ -27,9 +27,9 @@ Use the `list-image-[<value>]` syntax to control the marker image for list items
     <div className="px-4 sm:px-0">
       <div className="mx-auto max-w-sm p-8 text-gray-700 sm:text-base sm:leading-7 dark:text-gray-400">
         <ul className="list-image-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNCAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjMzhiZGY4Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy42ODUuMTUzYS43NTIuNzUyIDAgMCAxIC4xNDMgMS4wNTJsLTggMTAuNWEuNzUuNzUgMCAwIDEtMS4xMjcuMDc1bC00LjUtNC41YS43NS43NSAwIDAgMSAxLjA2LTEuMDZsMy44OTQgMy44OTMgNy40OC05LjgxN2EuNzUuNzUgMCAwIDEgMS4wNS0uMTQzWiIgLz48L3N2Zz4=')] pl-4 text-gray-900 dark:text-gray-200">
-          <li className="pl-2">5 cups chopped Porcini mushrooms</li>
-          <li className="pl-2">1/2 cup of olive oil</li>
-          <li className="pl-2">3lb of celery</li>
+          <li className="pl-2">5 чашек нарезанных грибов порчини</li>
+          <li className="pl-2">1/2 чашки оливкового масла</li>
+          <li className="pl-2">3 фунта сельдерея</li>
         </ul>
       </div>
     </div>
@@ -39,16 +39,16 @@ Use the `list-image-[<value>]` syntax to control the marker image for list items
 ```html
 <!-- [!code classes:list-image-[url(/img/checkmark.png)]] -->
 <ul class="list-image-[url(/img/checkmark.png)]">
-  <li>5 cups chopped Porcini mushrooms</li>
+  <li>5 чашек нарезанных грибов порчини</li>
   <!-- ... -->
 </ul>
 ```
 
 </Figure>
 
-### Using a CSS variable
+### Использование CSS переменной
 
-Use the <code>list-image-{'(<custom-property>)'}</code> syntax to control the marker image for list items using a CSS variable:
+Используйте синтаксис <code>list-image-{'(<custom-property>)'}</code> для управления изображением маркера для элементов списка с помощью CSS переменной:
 
 ```html
 <!-- [!code classes:list-image-(--my-list-image)] -->
@@ -57,11 +57,11 @@ Use the <code>list-image-{'(<custom-property>)'}</code> syntax to control the ma
 </ul>
 ```
 
-This is just a shorthand for <code>list-image-{'[var(<custom-property>)]'}</code> that adds the `var()` function for you automatically.
+Это просто сокращение для <code>list-image-{'[var(<custom-property>)]'}</code>, которое автоматически добавляет функцию `var()` для вас.
 
-### Removing a marker image
+### Удаление изображения маркера
 
-Use the `list-image-none` utility to remove an existing marker image from list items:
+Используйте утилиту `list-image-none` для удаления существующего изображения маркера из элементов списка:
 
 ```html
 <!-- [!code classes:list-image-none] -->

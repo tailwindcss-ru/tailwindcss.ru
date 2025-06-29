@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "transition-timing-function";
-export const description = "Utilities for controlling the easing of CSS transitions.";
+export const description = "Утилиты для управления функцией ускорения CSS-переходов.";
 
 <ApiTable
   rows={[
@@ -22,9 +22,9 @@ export const description = "Utilities for controlling the easing of CSS transiti
 
 ### Базовый пример
 
-Use utilities like `ease-in` and `ease-out` to control the easing curve of an element's transition:
+Используйте утилиты типа `ease-in` и `ease-out`, чтобы управлять кривой ускорения перехода элемента:
 
-<Figure hint="Hover each button to see the expected behavior">
+<Figure hint="Наведите курсор на каждую кнопку, чтобы увидеть ожидаемое поведение">
 
 <Example>
   {
@@ -32,19 +32,19 @@ Use utilities like `ease-in` and `ease-out` to control the easing curve of an el
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ease-in</p>
         <button className="rounded-md bg-sky-500 px-4 py-2 text-sm font-semibold text-white duration-300 ease-in hover:scale-125">
-          Button A
+          Кнопка A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ease-out</p>
         <button className="rounded-md bg-sky-500 px-4 py-2 text-sm font-semibold text-white duration-300 ease-out hover:scale-125">
-          Button B
+          Кнопка B
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ease-in-out</p>
         <button className="rounded-md bg-sky-500 px-4 py-2 text-sm font-semibold text-white duration-300 ease-in-out hover:scale-125">
-          Button C
+          Кнопка C
         </button>
       </div>
     </div>
@@ -53,9 +53,9 @@ Use utilities like `ease-in` and `ease-out` to control the easing curve of an el
 
 ```html
 <!-- [!code classes:ease-in,ease-out,ease-in-out] -->
-<button class="duration-300 ease-in ...">Button A</button>
-<button class="duration-300 ease-out ...">Button B</button>
-<button class="duration-300 ease-in-out ...">Button C</button>
+<button class="duration-300 ease-in ...">Кнопка A</button>
+<button class="duration-300 ease-out ...">Кнопка B</button>
+<button class="duration-300 ease-in-out ...">Кнопка C</button>
 ```
 
 </Figure>

@@ -16,8 +16,8 @@ export default {
     ["Обнаружение классов в исходных файлах", "/docs/detecting-classes-in-source-files"],
     ["Функции и директивы", "/docs/functions-and-directives"],
   ] as const,
-  "Base styles": [["Preflight", "/docs/preflight"]] as const,
-  Layout: [
+  "Базовые стили": [["Preflight", "/docs/preflight"]] as const,
+  "Макет": [
     ["aspect-ratio", "/docs/aspect-ratio"],
     ["columns", "/docs/columns"],
     ["break-after", "/docs/break-after"],
@@ -38,7 +38,7 @@ export default {
     ["visibility", "/docs/visibility"],
     ["z-index", "/docs/z-index"],
   ] as const,
-  "Flexbox & Grid": [
+  "Flexbox и Grid": [
     ["flex-basis", "/docs/flex-basis"],
     ["flex-direction", "/docs/flex-direction"],
     ["flex-wrap", "/docs/flex-wrap"],
@@ -64,11 +64,11 @@ export default {
     ["place-items", "/docs/place-items"],
     ["place-self", "/docs/place-self"],
   ] as const,
-  Spacing: [
+  "Интервалы": [
     ["padding", "/docs/padding"],
     ["margin", "/docs/margin"],
   ] as const,
-  Sizing: [
+  "Размеры": [
     ["width", "/docs/width"],
     ["min-width", "/docs/min-width"],
     ["max-width", "/docs/max-width"],
@@ -76,7 +76,7 @@ export default {
     ["min-height", "/docs/min-height"],
     ["max-height", "/docs/max-height"],
   ] as const,
-  Typography: [
+  "Типография": [
     ["font-family", "/docs/font-family"],
     ["font-size", "/docs/font-size"],
     ["font-smoothing", "/docs/font-smoothing"],
@@ -108,7 +108,7 @@ export default {
     ["hyphens", "/docs/hyphens"],
     ["content", "/docs/content"],
   ] as const,
-  Backgrounds: [
+  "Фоны": [
     ["background-attachment", "/docs/background-attachment"],
     ["background-clip", "/docs/background-clip"],
     ["background-color", "/docs/background-color"],
@@ -118,7 +118,7 @@ export default {
     ["background-repeat", "/docs/background-repeat"],
     ["background-size", "/docs/background-size"],
   ] as const,
-  Borders: [
+  "Границы": [
     ["border-radius", "/docs/border-radius"],
     ["border-width", "/docs/border-width"],
     ["border-color", "/docs/border-color"],
@@ -128,7 +128,7 @@ export default {
     ["outline-style", "/docs/outline-style"],
     ["outline-offset", "/docs/outline-offset"],
   ] as const,
-  Effects: [
+  "Эффекты": [
     ["box-shadow", "/docs/box-shadow"],
     ["text-shadow", "/docs/text-shadow"],
     ["opacity", "/docs/opacity"],
@@ -144,7 +144,7 @@ export default {
     ["mask-size", "/docs/mask-size"],
     ["mask-type", "/docs/mask-type"],
   ] as const,
-  Filters: [
+  "Фильтры": [
     [
       "filter",
       "/docs/filter",
@@ -176,13 +176,13 @@ export default {
       ] as const,
     ] as const,
   ] as const,
-  Tables: [
+  "Таблицы": [
     ["border-collapse", "/docs/border-collapse"],
     ["border-spacing", "/docs/border-spacing"],
     ["table-layout", "/docs/table-layout"],
     ["caption-side", "/docs/caption-side"],
   ] as const,
-  "Transitions & Animation": [
+  "Переходы и анимация": [
     ["transition-property", "/docs/transition-property"],
     ["transition-behavior", "/docs/transition-behavior"],
     ["transition-duration", "/docs/transition-duration"],
@@ -190,7 +190,7 @@ export default {
     ["transition-delay", "/docs/transition-delay"],
     ["animation", "/docs/animation"],
   ] as const,
-  Transforms: [
+  "Трансформации": [
     ["backface-visibility", "/docs/backface-visibility"],
     ["perspective", "/docs/perspective"],
     ["perspective-origin", "/docs/perspective-origin"],
@@ -202,7 +202,7 @@ export default {
     ["transform-style", "/docs/transform-style"],
     ["translate", "/docs/translate"],
   ] as const,
-  Interactivity: [
+  "Интерактивность": [
     ["accent-color", "/docs/accent-color"],
     ["appearance", "/docs/appearance"],
     ["caret-color", "/docs/caret-color"],
@@ -221,10 +221,10 @@ export default {
     ["user-select", "/docs/user-select"],
     ["will-change", "/docs/will-change"],
   ] as const,
-  SVG: [
+  "SVG": [
     ["fill", "/docs/fill"],
     ["stroke", "/docs/stroke"],
     ["stroke-width", "/docs/stroke-width"],
   ] as const,
-  Accessibility: [["forced-color-adjust", "/docs/forced-color-adjust"]] as const,
+  "Доступность": [["forced-color-adjust", "/docs/forced-color-adjust"]] as const,
 };
