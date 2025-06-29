@@ -155,7 +155,7 @@ export function Header(props: React.PropsWithChildren) {
           </Link>
           <a href="/plus?ref=top" className="group relative px-1.5 text-sm/6 text-sky-800 dark:text-sky-300">
             <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
-            Plus
+            Плюс
             <svg
               width="5"
               height="5"

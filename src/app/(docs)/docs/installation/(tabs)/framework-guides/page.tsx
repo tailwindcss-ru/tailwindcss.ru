@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Руководства по фреймворкам",
     description: "Наш рекомендуемый подход к установке Tailwind CSS в популярных фреймворках.",
-    images: "https://tailwindcss.com/api/og?path=/docs/installation/framework-guides",
-    url: "https://tailwindcss.com/docs/installation/framework-guides",
+    images: "https://tailwindcss.ru/api/og?path=/docs/installation/framework-guides",
+    url: "https://tailwindcss.ru/docs/installation/framework-guides",
   },
 };
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     type: "article",
     title: "Витрина - Постройте что угодно",
     description: "Коллекция красивых сайтов, созданных с помощью Tailwind CSS.",
-    images: "https://tailwindcss.com/api/og?path=/showcase",
+    images: "https://tailwindcss.ru/api/og?path=/showcase",
     url: "https://tailwindcss.ru/showcase",
   },
 };

@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Установка с помощью PostCSS",
     description: "Интегрируйте Tailwind CSS с такими фреймворками, как Next.js и Angular.",
-    images: "https://tailwindcss.com/api/og?path=/docs/installation/using-postcss",
-    url: "https://tailwindcss.com/docs/installation/using-postcss",
+    images: "https://tailwindcss.ru/api/og?path=/docs/installation/using-postcss",
+    url: "https://tailwindcss.ru/docs/installation/using-postcss",
   },
 };
 

@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
                 clipRule="evenodd"
               />
             </svg>
-            Quick search
+            Быстрый поиск
             <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&]:block">
               <span className="opacity-60">⌘</span>K
             </kbd>

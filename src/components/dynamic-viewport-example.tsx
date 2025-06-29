@@ -83,7 +83,7 @@ export function DynamicViewportExample({
                 />
               </svg>
               <div className="w-full rounded-full border border-slate-200 bg-slate-50 px-4 py-1 text-slate-600 dark:border-slate-700 dark:bg-slate-700 dark:text-slate-400">
-                tailwindcss.com
+                tailwindcss.ru
               </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

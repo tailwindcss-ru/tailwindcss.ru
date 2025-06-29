@@ -22,7 +22,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   let { page } = guide;
 
   return {
-    metadataBase: new URL("https://tailwindcss.com"),
+    metadataBase: new URL("https://tailwindcss.ru"),
     title: page.title,
     description: page.description,
     openGraph: {

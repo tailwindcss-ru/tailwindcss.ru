@@ -75,7 +75,7 @@ function TopNav() {
               d="M0.5 4.5V11.5L8 15.5M0.5 4.5L8 0.5L15.5 4.5M0.5 4.5L8 8.5M15.5 4.5V11.5L8 15.5M15.5 4.5L8 8.5M8 15.5V8.5"
             />
           </svg>
-          UI Kit
+          Набор UI
         </TopNavLink>
       </li>
       <li>
@@ -99,10 +99,10 @@ function TopNav() {
               d="M3.5 7.429V13A7.466 7.466 0 0 0 8 14.5a7.466 7.466 0 0 0 4.5-1.5V7.43m-9 0L8 10l4.5-2.571m-9 0-2-1.143m11 1.143L15 6 8 2 1 6l.5.286m0 5.214V6.286"
             />
           </svg>
-          <span>Course</span>
+          <span>Курс</span>
           <span className="relative px-1.5 font-mono text-[0.625rem]/[1.125rem] font-medium tracking-widest text-sky-800 uppercase dark:text-sky-300">
             <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
-            New
+            Новое
             <svg
               width="5"
               height="5"

@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Tailwind CLI",
     description: "Самый простой и быстрый способ начать работу с Tailwind CSS с нуля.",
-    images: "https://tailwindcss.com/api/og?path=/docs/installation/tailwind-cli",
-    url: "https://tailwindcss.com/docs/installation/tailwind-cli",
+    images: "https://tailwindcss.ru/api/og?path=/docs/installation/tailwind-cli",
+    url: "https://tailwindcss.ru/docs/installation/tailwind-cli",
   },
 };
 

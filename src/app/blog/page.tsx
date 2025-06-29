@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     type: "article",
     title: "Latest updates - Blog",
     description: "All the latest Tailwind CSS news, straight from the team.",
-    images: "https://tailwindcss.com/api/og?path=/blog",
-    url: "https://tailwindcss.com/blog",
+    images: "https://tailwindcss.ru/api/og?path=/blog",
+    url: "https://tailwindcss.ru/blog",
   },
 };
 

@@ -7,14 +7,14 @@ import { HeroSection } from "./hero-section";
 import card from "./card.jpg";
 
 export const metadata: Metadata = {
-  title: "Build UIs that don't suck",
-  description: "A free videos series from the creator of Tailwind CSS.",
+  title: "Создавайте интерфейсы, которые не отстой",
+  description: "Бесплатная серия видео от создателя Tailwind CSS.",
   openGraph: {
     type: "website",
-    title: "Build UIs that don't suck",
-    description: "A free video series from the creator of Tailwind CSS.",
+    title: "Создавайте интерфейсы, которые не отстой",
+    description: "Бесплатная серия видео от создателя Tailwind CSS.",
     images: card.src,
-    url: "https://tailwindcss.com/build-uis-that-dont-suck",
+    url: "https://tailwindcss.ru/build-uis-that-dont-suck",
   },
 };
 
@@ -28,40 +28,40 @@ export default async function Course() {
         <GridContainer>
           <div className="max-w-xl space-y-8 text-base/7 text-gray-400 marker:text-white/60 **:[li]:pl-2 **:[strong]:font-medium **:[strong]:text-white **:[ul]:list-[square] **:[ul]:space-y-4 **:[ul]:pl-8">
             <p>
-              When you build UI components that are used by <strong>tens of thousands of developers</strong>, you learn
-              to really care about the details, like:
+              Когда вы создаете UI компоненты, которые используются <strong>десятками тысяч разработчиков</strong>, вы учитесь
+              действительно заботиться о деталях, таких как:
             </p>
             <ul>
               <li>
-                <strong>Building layouts that don't break</strong> when the content is longer than you planned for in
+                <strong>Создание макетов, которые не ломаются</strong> когда контент длиннее, чем вы планировали в
                 Figma
               </li>
               <li>
-                Making a table scrollable, <strong>without the content getting cropped</strong> by the page padding
+                Делать таблицу прокручиваемой, <strong>без обрезания контента</strong> отступом страницы
               </li>
               <li>
-                <strong>Automatically aligning icons</strong> in dropdown menus, even when some items are just text
+                <strong>Автоматическое выравнивание иконок</strong> в выпадающих меню, даже когда некоторые элементы — просто текст
               </li>
               <li>
-                Making an entire card clickable, <strong>without destroying the experience</strong> for screen readers
+                Делать всю карточку кликабельной, <strong>не разрушая опыт</strong> для пользователей скринридеров
               </li>
               <li>
-                <strong>Fine-tuning click targets for mobile</strong>, without making everything else harder to maintain
+                <strong>Точная настройка областей клика для мобильных устройств</strong>, не усложняя поддержку всего остального
               </li>
               <li>
-                Getting the border radius <strong>mathematically perfect</strong> on nested elements, without
-                hard-coding magic numbers
+                Получение идеального радиуса границы <strong>математически точно</strong> на вложенных элементах, без
+                жесткого кодирования магических чисел
               </li>
             </ul>
             <p>
-              <strong>“Build UIs that don’t suck”</strong> is a crash course in some of the coolest tricks I've picked
-              up over the years building things that need to be both beautiful and bullet-proof.
+              <strong>"Создавайте интерфейсы, которые не отстой"</strong> — это интенсивный курс по некоторым из самых крутых трюков, которые я подобрал
+              за годы создания вещей, которые должны быть одновременно красивыми и надежными.
             </p>
 
             <p>
-              <strong>Every day for a week I'll send you a short video lesson</strong> walking you through an
-              interesting UI problem, <strong>as well as the code</strong> so you can play with it yourself and adapt it
-              for your own projects.
+              <strong>Каждый день в течение недели я буду отправлять вам короткий видеоурок</strong>, проводя вас через
+              интересную проблему UI, <strong>а также код</strong>, чтобы вы могли поэкспериментировать с ним сами и адаптировать
+              для своих собственных проектов.
             </p>
           </div>
           <div className="mt-8">
