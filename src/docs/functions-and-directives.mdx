@@ -246,6 +246,8 @@ Tailwind предоставляет следующие функции време
 
 Следующие директивы и функции существуют исключительно для совместимости с Tailwind CSS v3.x.
 
+The `@config` and `@plugin` directives may be used in conjunction with `@theme`, `@utility`, and other CSS-driven features. This can be used to incrementally move over your theme, custom configuration, utilities, variants, and presets to CSS. Things defined in CSS will be merged where possible and otherwise take precedence over those defined in configs, presets, and plugins.
+
 <h3 id="config-directive">
   <a href="#config-directive">@config</a>
 </h3>
@@ -257,7 +259,7 @@ Tailwind предоставляет следующие функции време
 @config "../../tailwind.config.js";
 ```
 
-Опции `corePlugins`, `safelist` и `separator` из конфигурации на основе JavaScript не поддерживаются в v4.0.
+Параметры `corePlugins`, `safelist` и `separator` из конфигурации на основе JavaScript не поддерживаются в v4.0. Для внесения утилит в безопасный список в v4 используйте [`@source inline()`](/docs/detecting-classes-in-source-files#safelisting-specific-utilities).
 
 <h3 id="plugin-directive">
   <a href="#plugin-directive">@plugin</a>
