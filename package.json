@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "postbuild": "node scripts/generate-index-files.js",
+    "export": "next build && next export",
     "start": "next start",
+    "serve": "node serve.js",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mdx}\""
   },

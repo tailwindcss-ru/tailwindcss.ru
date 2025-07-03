@@ -93,7 +93,7 @@ const nextConfig = {
       },
       {
         source: "/docs/ring-offset-width",
-        destination: "https://v3.tailwindcss.com/docs/ring-offset-width",
+        destination: "https://v3.tailwindcss.ru/docs/ring-offset-width",
         permanent: false,
       },
       {
@@ -103,12 +103,12 @@ const nextConfig = {
       },
       {
         source: "/docs/configuring-variants",
-        destination: "https://v2.tailwindcss.com/docs/configuring-variants",
+        destination: "https://v2.tailwindcss.ru/docs/configuring-variants",
         permanent: false,
       },
       {
         source: "/docs/optimizing-for-production",
-        destination: "https://v3.tailwindcss.com/docs/optimizing-for-production",
+        destination: "https://v3.tailwindcss.ru/docs/optimizing-for-production",
         permanent: false,
       },
       {
@@ -118,12 +118,12 @@ const nextConfig = {
       },
       {
         source: "/docs/just-in-time-mode",
-        destination: "https://v2.tailwindcss.com/docs/just-in-time-mode",
+        destination: "https://v2.tailwindcss.ru/docs/just-in-time-mode",
         permanent: false,
       },
       {
         source: "/docs/upgrading-to-v2",
-        destination: "https://v2.tailwindcss.com/docs/upgrading-to-v2",
+        destination: "https://v2.tailwindcss.ru/docs/upgrading-to-v2",
         permanent: false,
       },
       {
@@ -239,27 +239,27 @@ const nextConfig = {
       },
       {
         source: "/resources",
-        destination: "http://v3.tailwindcss.com/resources",
+        destination: "http://v3.tailwindcss.ru/resources",
         permanent: false,
       },
       {
         source: "/docs/using-with-preprocessors",
-        destination: "http://v3.tailwindcss.com/docs/using-with-preprocessors",
+        destination: "http://v3.tailwindcss.ru/docs/using-with-preprocessors",
         permanent: false,
       },
       {
         source: "/docs/intellisense",
-        destination: "http://v3.tailwindcss.com/docs/intellisense",
+        destination: "http://v3.tailwindcss.ru/docs/intellisense",
         permanent: false,
       },
       {
         source: "/docs/presets",
-        destination: "http://v3.tailwindcss.com/docs/presets",
+        destination: "http://v3.tailwindcss.ru/docs/presets",
         permanent: false,
       },
       {
         source: "/docs/ring-offset-color",
-        destination: "http://v3.tailwindcss.com/docs/ring-offset-color",
+        destination: "http://v3.tailwindcss.ru/docs/ring-offset-color",
         permanent: false,
       },
 
@@ -464,12 +464,12 @@ const nextConfig = {
       // Tailwind UI
       {
         source: "/components",
-        destination: "https://tailwindcss.com/plus/ui-blocks",
+        destination: "https://tailwindcss.ru/plus/ui-blocks",
         permanent: false,
       },
       {
         source: "/components/:slug",
-        destination: "https://tailwindcss.com/plus/ui-blocks",
+        destination: "https://tailwindcss.ru/plus/ui-blocks",
         permanent: false,
       },
 
@@ -477,6 +477,7 @@ const nextConfig = {
       { source: "/discord", destination: "https://discord.gg/7NF8GNe", permanent: false },
     ];
   },
+
   async rewrites() {
     return ["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
       {

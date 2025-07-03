@@ -27,7 +27,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   return {
-    metadataBase: new URL("https://tailwindcss.ru"),
+    metadataBase: new URL("http://localhost:3000"),
     title: post.meta.title,
     description: post.meta.description,
     openGraph: {
