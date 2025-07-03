@@ -95,7 +95,7 @@ function TailwindCSS() {
         </li>
         <li>
           <Link href="/sponsor" className="hover:underline">
-            Спонсоры
+            Спонсор
           </Link>
         </li>
       </ul>

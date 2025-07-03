@@ -11,13 +11,13 @@ import InsidersGitHubRepositoryDarkImage from "./insiders-github-repository-dark
 import TailwindcssRaycastExtensionImage from "./tailwindcss-raycast-extension.png";
 
 export const metadata: Metadata = {
-  title: "Sponsor",
-  description: "Help keep Tailwind CSS sustainable long term by supporting the project individually or as a company.",
+  title: "Спонсор",
+  description: "Помогите сделать Tailwind CSS устойчивым в долгосрочной перспективе, поддержав проект индивидуально или как компания.",
   openGraph: {
     type: "article",
-    title: "Sponsor - Tailwind CSS",
-    description: "Help keep Tailwind CSS sustainable long term by supporting the project individually or as a company.",
-    url: "https://tailwindcss.com/sponsor",
+    title: "Спонсор - Tailwind CSS",
+    description: "Помогите сделать Tailwind CSS устойчивым в долгосрочной перспективе, поддержав проект индивидуально или как компания.",
+    url: "https://tailwindcss.ru/sponsor",
   },
 };
 
@@ -183,24 +183,24 @@ function Header() {
   return (
     <div className="line-y mt-12 grid gap-x-10 sm:mt-20 lg:mt-24 lg:grid-cols-[3fr_2fr]">
       <div className="px-4 py-2 max-lg:line-b sm:px-2 lg:border-r lg:border-gray-950/5 dark:lg:border-white/10">
-        <Eyebrow>Sponsor</Eyebrow>
-        <h1 className="mt-2 text-6xl tracking-tighter text-pretty sm:text-8xl">Support the future of Tailwind CSS</h1>
+        <Eyebrow>Спонсор</Eyebrow>
+        <h1 className="mt-2 text-6xl tracking-tighter text-pretty sm:text-8xl">Поддержите будущее Tailwind CSS</h1>
       </div>
       <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
         <div className="flex items-center px-4 py-2 max-lg:line-y max-lg:mt-6 sm:px-2">
           <p className="max-w-2xl text-lg/7 font-medium text-pretty text-gray-600 dark:text-gray-400">
-            Help keep Tailwind CSS sustainable long term by supporting the project individually or as a company.
+            Помогите сделать Tailwind CSS устойчивым в долгосрочной перспективе, поддержав проект индивидуально или как компания.
           </p>
         </div>
         <div className="flex gap-4 px-4 py-2 whitespace-nowrap max-lg:line-t max-lg:mt-6 sm:px-2 lg:border-t lg:border-gray-950/5 @max-md:flex-col dark:lg:border-white/10">
           <DarkButtonLink href="#insiders" className="inline-flex items-center justify-center gap-2">
-            Support as an individual
+            Поддержать как индивидуальное лицо
             <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
               <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
             </svg>
           </DarkButtonLink>
           <LightButtonLink href="#partners" className="inline-flex items-center justify-center gap-2">
-            Support as a company
+            Поддержать как компания
             <svg
               fill="currentColor"
               aria-hidden="true"
@@ -231,12 +231,12 @@ function MessageFromAdam() {
           />
           <div className="relative text-white max-xl:max-w-2xl max-lg:mx-auto max-lg:mt-60 lg:max-w-lg xl:max-w-2xl">
             <p className="text-2xl/10">
-              Tailwind CSS exists because a passionate community believes in building better software together. By
-              becoming a Tailwind Insider or Partner you can directly support that mission — so we can keep shipping
-              tools you love, with no strings attached.
+              Tailwind CSS существует благодаря страстному сообществу, которое верит в совместное создание лучшего ПО. 
+              Став Инсайдером или Партнером, вы напрямую поддерживаете эту миссию — чтобы мы могли продолжать 
+              выпускать инструменты, которые вы любите, без каких-либо условий.
             </p>
             <p className="mt-8 text-base/8 font-medium">Adam Wathan</p>
-            <p className="text-gray-400">Creator of Tailwind CSS</p>
+            <p className="text-gray-400">Создатель Tailwind CSS</p>
           </div>
         </section>
       </div>
@@ -276,51 +276,51 @@ function Insiders() {
     <div id="insiders" className="line-y mt-40 grid scroll-mt-24 grid-cols-1 gap-10 xl:grid-cols-2">
       <div className="border-r border-gray-950/5 px-4 py-2 sm:px-2 dark:border-white/10">
         <Eyebrow as="h2" color="sky">
-          <a href="#insiders">Insiders</a>
+          <a href="#insiders">Инсайдеры</a>
         </Eyebrow>
         <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
-          Support as an individual
+          Поддержите как индивидуальное лицо
         </p>
         <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
-          Join a community of enthusiasts who get early access to new features, internal tooling we've built for
-          Tailwind, and direct connection with the team — all while supporting the project you love.
+          Присоединяйтесь к сообществу энтузиастов, которые получают ранний доступ к новым функциям, 
+          внутренним инструментам для Tailwind и прямую связь с командой — поддерживая любимый проект.
         </p>
       </div>
       <div className="grid grid-cols-1 gap-2 bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-xl:-mx-px max-xl:px-[calc(--spacing(2)+1px)] sm:grid-cols-2 xl:-mr-px xl:border-l xl:border-gray-950/5 xl:pr-[calc(--spacing(2)+1px)] xl:pl-2 dark:bg-white/10 dark:xl:border-white/10">
         <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
           <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
-            Monthly
+            Ежемесячно
           </p>
           <div className="mt-6">
             <div className="flex flex-wrap items-start gap-6 @max-md:flex-col @md:items-center @md:justify-between">
               <div className="flex items-center gap-x-4">
                 <p className="text-5xl/12 font-medium first-letter:font-light">$12</p>
                 <div>
-                  <p className="text-sm/6 font-semibold">per month</p>
-                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                  <p className="text-sm/6 font-semibold">в месяц</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">плюс налог</p>
                 </div>
               </div>
               <DarkButtonLink href="https://buy.polar.sh/polar_cl_Nz5rJ2PfhRopgT4nR7KHVWN8Nfdhdta6OdH7c2YiJhM">
-                Sponsor monthly
+                Поддержать ежемесячно
               </DarkButtonLink>
             </div>
           </div>
         </div>
         <div className="@container rounded-2xl bg-white p-6 sm:rounded-4xl sm:p-10 dark:bg-gray-950/80 dark:outline dark:outline-white/10">
           <p className="font-mono text-[0.8125rem]/6 font-medium tracking-widest text-pretty text-gray-600 uppercase dark:text-gray-400">
-            Annually
+            Ежегодно
           </p>
           <div className="mt-6">
             <div className="flex flex-wrap items-start gap-6 @max-md:flex-col @md:items-center @md:justify-between">
               <div className="flex items-center gap-x-4">
                 <p className="text-5xl/12 font-medium first-letter:font-light">$120</p>
                 <div>
-                  <p className="text-sm/6 font-semibold">per year</p>
-                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                  <p className="text-sm/6 font-semibold">в год</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">плюс налог</p>
                 </div>
               </div>
               <LightButtonLink href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv">
-                Sponsor annually
+                Поддержать ежегодно
               </LightButtonLink>
             </div>
           </div>
@@ -333,7 +333,7 @@ function Insiders() {
 function InsiderPerks() {
   return (
     <section className="mt-16">
-      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Insider perks</h2>
+      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Преимущества Инсайдеров</h2>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
           <div className="border-r border-gray-950/5 dark:border-white/10"></div>
@@ -344,46 +344,41 @@ function InsiderPerks() {
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
               <strong className="font-semibold text-gray-950 dark:text-white">
-                Access to private insiders area in Discord
+                Доступ к приватной области инсайдеров в Discord
               </strong>{" "}
-              — where Tailwind insiders share tips, play with upcoming features, and connect directly with the core
-              team.
+              — где инсайдеры Tailwind делятся советами, тестируют новые функции и общаются напрямую с командой.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Cursor/Claude/AGENTS.md rules</strong> —
-              Adam's personal ruleset for working with AI coding assistants, straight from the Tailwind founder's own
-              development setup.
+              <strong className="font-semibold text-gray-950 dark:text-white">Правила Cursor/Claude/AGENTS.md</strong> —
+              Личные правила для работы с AI-ассистентами, прямо из разработки основателя Tailwind.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
               <strong className="font-semibold text-gray-950 dark:text-white">
-                Early documentation for pre-release builds
+                Документация для предварительных версий
               </strong>{" "}
-              — preview documentation for unreleased Tailwind features and start experimenting with tomorrow's CSS
-              utilities today.
+              — документация для невыпущенных функций Tailwind и возможность экспериментировать с утилитами CSS уже сегодня.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">VS Code themes</strong> — get the VS Code
-              themes built and battle-tested by the Tailwind team, crafted with the same attention to detail we put into
-              Tailwind CSS itself
+              <strong className="font-semibold text-gray-950 dark:text-white">Темы VS Code</strong> — получите темы VS Code, 
+              созданные и протестированные командой Tailwind, с таким же вниманием к деталям, как и в Tailwind CSS.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Raycast extension</strong> — instantly
-              find the nearest Tailwind theme value for any color or size, or see the generated CSS output of any class.
+              <strong className="font-semibold text-gray-950 dark:text-white">Расширение Raycast</strong> — мгновенно
+              найдите ближайшее значение темы Tailwind для любого цвета или размера, или посмотрите сгенерированный CSS для любого класса.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Source code + Figma files</strong> —
-              download the source code from our feature demos, that usually never see the light of day, to learn exactly
-              how we prototype ideas with Tailwind.
+              <strong className="font-semibold text-gray-950 dark:text-white">Исходный код + файлы Figma</strong> —
+              скачайте исходный код из наших демонстраций функций, которые обычно никогда не видят свет, чтобы узнать, как мы прототипируем идеи с помощью Tailwind.
             </p>
           </li>
         </ul>
@@ -406,7 +401,7 @@ function InsiderPerkScreenshots() {
             <path fill="#E3E3E3" d="M15.988 4h-7v12" />
             <path fill="#fff" d="M1.988 4h14l-7 4" />
           </svg>
-          AGENTS.md file
+          Файл AGENTS.md
         </p>
         <Image
           src={InsidersGitHubRepositoryImage}
@@ -428,7 +423,7 @@ function InsiderPerkScreenshots() {
               fillRule="evenodd"
             />
           </svg>
-          Raycast extension
+          Расширение Raycast
         </p>
         <Image
           src={TailwindcssRaycastExtensionImage}
@@ -439,7 +434,7 @@ function InsiderPerkScreenshots() {
       <div className="relative flex items-center justify-center rounded-xl bg-[#5865F2] inset-ring inset-ring-gray-950/10 max-md:aspect-[4/3] md:row-start-2 md:max-lg:col-start-1 lg:col-start-2">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <LockClosedIcon className="size-4 fill-white/75" />
-          Private community
+          Приватное сообщество
         </p>
         <svg fill="#E0E3FF" viewBox="0 0 127 96" className="w-1/4">
           <path d="M81.15 0a73.745 73.745 0 0 0-3.36 6.794 97.867 97.867 0 0 0-28.994 0A67.876 67.876 0 0 0 45.437 0a105.544 105.544 0 0 0-26.14 8.057C2.779 32.53-1.691 56.373.53 79.887a105.038 105.038 0 0 0 32.05 16.088 76.912 76.912 0 0 0 6.87-11.063c-3.737-1.389-7.35-3.131-10.81-5.152.91-.657 1.794-1.339 2.653-1.995a75.255 75.255 0 0 0 64.075 0c.86.707 1.743 1.389 2.652 1.995a68.772 68.772 0 0 1-10.835 5.178A76.903 76.903 0 0 0 94.056 96a104.99 104.99 0 0 0 32.051-16.063c2.626-27.277-4.496-50.917-18.817-71.855A103.922 103.922 0 0 0 81.175.051L81.15 0ZM42.28 65.414c-6.238 0-11.416-5.657-11.416-12.653s4.976-12.679 11.391-12.679 11.517 5.708 11.416 12.679c-.101 6.97-5.026 12.653-11.39 12.653Zm42.078 0c-6.264 0-11.391-5.657-11.391-12.653s4.975-12.679 11.39-12.679c6.416 0 11.492 5.708 11.391 12.679-.1 6.97-5.026 12.653-11.39 12.653Z" />
@@ -473,7 +468,7 @@ function InsiderPerkScreenshots() {
             <path fill="#E3E3E3" d="M15.988 4h-7v12" />
             <path fill="#fff" d="M1.988 4h14l-7 4" />
           </svg>
-          Editor themes
+          Редактор тем
         </p>
         <Image
           src={TailwindCSSVsCodeThemeImage}
@@ -490,15 +485,15 @@ function Partners() {
     <div id="partners" className="line-y mt-40 scroll-mt-24">
       <div className="px-4 py-2 sm:px-2">
         <Eyebrow as="h2" color="pink">
-          <a href="#partners">Partners</a>
+          <a href="#partners">Партнеры</a>
         </Eyebrow>
         <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
-          Support as a company
+          Поддержка как компания
         </p>
         <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
-          Become a Tailwind CSS partner to put your brand in front of 10 million developers a month, give your team
-          early access to new features and our roadmap, and get direct access to the Tailwind CSS core team — all while
-          helping ensure Tailwind stays around for the long haul.
+          Станьте партнером Tailwind CSS, чтобы представить свой бренд 10 миллионам разработчиков в месяц, 
+          дать вашей команде ранний доступ к новым функциям и дорожной карте, а также получить прямой контакт 
+          с командой Tailwind CSS — и помочь проекту оставаться устойчивым надолго.
         </p>
       </div>
     </div>
@@ -508,7 +503,7 @@ function Partners() {
 function PartnerPerks() {
   return (
     <section className="mt-16">
-      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Why become a partner?</h2>
+      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Почему стать партнером?</h2>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
           <div className="border-r border-gray-950/5 dark:border-white/10"></div>
@@ -518,46 +513,43 @@ function PartnerPerks() {
         <ul className="grid-cols-1 gap-2 text-sm/7 text-gray-600 max-sm:line-y max-sm:overflow-x-auto max-sm:px-2 sm:grid sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Your logo in front of millions</strong> —
-              the Tailwind CSS website gets over 10 million visitors per month, and your brand will be featured on the
-              homepage as a partner.
+              <strong className="font-semibold text-gray-950 dark:text-white">Ваш логотип перед миллионами</strong> —
+              сайт Tailwind CSS посещают более 10 миллионов человек в месяц, и ваш бренд будет размещён на главной странице как партнёр.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Insiders team access</strong> — get all
-              the perks of the Insiders tier for everyone in your team, including early access to new features,
-              specialized tooling, and more.
+              <strong className="font-semibold text-gray-950 dark:text-white">Доступ к Инсайдерам</strong> — получите все
+              преимущества Инсайдеров для всей вашей команды, включая раннее доступ к новым функциям,
+              специальные инструменты и многое другое.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Tailwind Plus team access</strong> —
-              access to Tailwind Plus for your whole team, including the React UI Kit, expertly crafted templates, and
-              500+ thoughtfully designed components.
+              <strong className="font-semibold text-gray-950 dark:text-white">Доступ к Tailwind Plus</strong> — 
+              доступ к Tailwind Plus для всей вашей команды, включая React UI Kit, тщательно созданные шаблоны и
+              500+ тщательно разработанных компонентов.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
               <strong className="font-semibold text-gray-950 dark:text-white">
-                Expedited bug fixes and issue resolution
+                Ускоренное решение проблем
               </strong>{" "}
-              — we’ll work to address issues you run into on an expedited schedule, even if normally they would be lower
-              priority due to their limited impact on the user base.
+              — мы будем решать ваши проблемы в приоритетном порядке, даже если обычно они имеют низкий приоритет из-за ограниченного влияния на пользователей.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Website in the showcase</strong> — your
-              website will feature prominently in our showcase, bringing more attention to your brand when new Tailwind
-              users go to see what is possible with the framework.
+              <strong className="font-semibold text-gray-950 dark:text-white">Сайт в витрине</strong> — ваш сайт будет 
+              выделяться в нашей витрине, привлекая больше внимания к вашему бренду, когда новые пользователи Tailwind 
+              идут посмотреть, что возможно с фреймворком.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Support Tailwind CSS</strong> — you’ll be
-              helping contribute to the sustainability of the framework, giving you peace of mind that a core technology
-              in your stack will continue to function smoothly.
+              <strong className="font-semibold text-gray-950 dark:text-white">Поддержка Tailwind CSS</strong> — вы поможете
+              сохранить фреймворк на долгие годы, дав вам спокойствие, что ваша основная технология будет продолжать работать гладко.
             </p>
           </li>
         </ul>
@@ -592,74 +584,74 @@ function CheckmarkIcon() {
 function PartnerPlans() {
   const plans = [
     {
-      name: "Supporter",
+      name: "Спонсор",
       price: "$500",
       url: "https://buy.polar.sh/polar_cl_som3lU3ZaBEFOr4nZlkoAuRBhRbFDMoFzJUC04Jn1Sc",
-      description: "For companies who want to support Tailwind while getting some extra exposure.",
+      description: "Для компаний, которые хотят поддержать Tailwind, получая дополнительное внимание.",
       features: [
-        { name: "Logo on the sponsors page", description: "your logo proudly displayed on the sponsors page." },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        { name: "Логотип на странице спонсоров", description: "ваш логотип будет отображаться на странице спонсоров." },
+        { name: "Доступ к Инсайдерам", description: "все преимущества Инсайдеров для всей вашей команды." },
         {
           name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+          description: "sleep easy knowing that you're supporting the development of Tailwind CSS.",
         },
       ],
       remaining: null,
     },
     {
-      name: "Ambassador",
+      name: "Амбассадор",
       price: "$2,500",
       url: "https://buy.polar.sh/polar_cl_TqBd09tnOwN7SQf7YpOcUZnDwxMVQB58Snhas2cdEDL",
-      description: "For companies looking to boost visibility and credibility with the Tailwind community.",
+      description: "Для компаний, которые хотят повысить видимость и доверие в сообществе Tailwind.",  
       features: [
         {
-          name: "Logo on the Tailwind homepage",
-          description: "your logo displayed in a rotating spot on the homepage.",
+          name: "Логотип на главной странице Tailwind",
+          description: "ваш логотип будет отображаться в поворотном месте на главной странице.",
         },
-        { name: "Logo on the sponsors page", description: "your logo proudly displayed on the sponsors page." },
-        { name: "Website in the showcase", description: "a spot on the showcase page for your company’s website." },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        { name: "Логотип на странице спонсоров", description: "ваш логотип будет отображаться на странице спонсоров." },
+        { name: "Сайт в витрине", description: "место на странице витрины для вашего сайта." },
+        { name: "Доступ к Инсайдерам", description: "все преимущества Инсайдеров для всей вашей команды." },
         {
-          name: "Tailwind Plus team access",
-          description: "access to the UI Kit, templates, and 500+ components for your team.",
+          name: "Доступ к Tailwind Plus",
+          description: "доступ к UI Kit, шаблонам и 500+ компонентам для вашей команды.",
         },
         {
-          name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+          name: "Поддержка Tailwind CSS",
+          description: "вы будете помогать сохранить фреймворк на долгие годы, дав вам спокойствие, что ваша основная технология будет продолжать работать гладко.",
         },
       ],
       remaining: 23,
     },
     {
-      name: "Partner",
+      name: "Партнер",
       price: "$5,000",
       url: "https://buy.polar.sh/polar_cl_Ae2EFQATomRTUPq3DVTqzjOCAEsI7m7GNrmoh1n6ZRk",
-      description: "For companies who want increased exposure and easy access to the Tailwind team.",
+      description: "Для компаний, которые хотят увеличить свою видимость и легкий доступ к команде Tailwind.",
       features: [
         {
-          name: "Permanent logo on the Tailwind homepage",
-          description: "your logo permanently displayed on the homepage.",
+          name: "Постоянный логотип на главной странице Tailwind",
+          description: "ваш логотип будет постоянно отображаться на главной странице.",
         },
         {
-          name: "Priority logo placement on sponsors page",
-          description: "your logo will appear at the top of the sponsors page.",
+          name: "Приоритетное размещение логотипа на странице спонсоров",
+          description: "ваш логотип будет отображаться в верхней части страницы спонсоров.",
         },
         {
-          name: "Featured spot in the showcase",
-          description: "a featured spot on the showcase page for your website.",
+          name: "Избранное место на странице витрины",
+          description: "место на странице витрины для вашего сайта.",
         },
         {
-          name: "Expedited bug fixes and issue resolution",
-          description: "we’ll address issues you run into on an expedited schedule.",
+          name: "Ускоренное решение проблем",
+          description: "мы будем решать ваши проблемы в приоритетном порядке.",
         },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        { name: "Доступ к Инсайдерам", description: "все преимущества Инсайдеров для всей вашей команды." },
         {
-          name: "Tailwind Plus team access",
-          description: "access to the UI Kit, templates, and 500+ components for your team.",
+          name: "Доступ к Tailwind Plus",
+          description: "доступ к UI Kit, шаблонам и 500+ компонентам для вашей команды.",
         },
         {
-          name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+          name: "Поддержка Tailwind CSS",
+          description: "вы будете помогать сохранить фреймворк на долгие годы, дав вам спокойствие, что ваша основная технология будет продолжать работать гладко.",
         },
       ],
       remaining: 5,
@@ -685,7 +677,7 @@ function PartnerPlans() {
                       : "bg-sky-400/25 text-sky-700 dark:text-sky-400",
                   )}
                 >
-                  {plan.remaining} spots left
+                  {plan.remaining} мест осталось
                 </p>
               )}
             </div>
@@ -693,13 +685,13 @@ function PartnerPlans() {
               <div className="flex items-center gap-x-4">
                 <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
                 <div>
-                  <p className="text-sm/6 font-semibold">per month</p>
-                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                  <p className="text-sm/6 font-semibold">в месяц</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">плюс налог</p>
                 </div>
               </div>
 
               <DarkButtonLink className="max-sm:hidden xl:hidden" href={plan.url}>
-                Become {plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} {plan.name.toLowerCase()}
+                Стать {plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} {plan.name.toLowerCase()}
               </DarkButtonLink>
             </div>
             <p className="max-w-2xl text-sm/7 text-gray-600 dark:text-gray-400">{plan.description}</p>
@@ -721,7 +713,7 @@ function PartnerPlans() {
               </ul>
             </div>
             <DarkButtonLink className="mt-auto sm:max-xl:hidden" href={plan.url}>
-              Become {plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} {plan.name.toLowerCase()}
+              Стать {plan.name.toLowerCase()}ом
             </DarkButtonLink>
           </div>
         </div>
@@ -771,65 +763,59 @@ function Faqs() {
       <div className="lg:border-r lg:border-gray-950/5 dark:lg:border-white/5">
         <div className="grid grid-cols-1 gap-y-2 px-4 py-2 max-lg:line-b sm:px-2 lg:line-b/half">
           <Eyebrow as="h2" color="fuchsia">
-            Frequently asked questions
+            Часто задаваемые вопросы
           </Eyebrow>
-          <p className="text-[2.5rem]/none font-medium tracking-tight text-pretty">Everything you need to know.</p>
+          <p className="text-[2.5rem]/none font-medium tracking-tight text-pretty">Всё, что вам нужно знать.</p>
         </div>
       </div>
       <div className="lg:border-l lg:border-gray-950/5 dark:lg:border-white/5">
         <div className="grid grid-cols-1 gap-10">
-          <FaqGroup title="General">
-            <Faq question="Who can I contact about a sponsorship?">
+          <FaqGroup title="Общие">
+            <Faq question="С кем я могу связаться о спонсорстве?">
               <p>
-                If you have any questions about sponsoring, reach out to us at{" "}
-                <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> and we'll be happy to help.
+                Если у вас есть вопросы о спонсорстве, напишите нам на{" "}
+                <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> и мы будем рады помочь.
               </p>
             </Faq>
-            <Faq question="How are the sponsor perks delivered?">
+            <Faq question="Как предоставляются преимущества спонсоров?">
               <p>
-                After you check out via Polar, you'll get access to a Polar customer portal where you can manage your
-                sponsorship and access any perks that come with it.
+                После того, как вы оплатите через Polar, вы получите доступ к порталу Polar, где вы можете управлять своим спонсорством и получать доступ к любым преимуществам, которые есть у вас.
               </p>
               <p>
-                If you're sponsoring as a company, we'll follow up to coordinate how to feature you on the Tailwind CSS
-                website as well as how to give your team <strong>Tailwind Insider</strong> access.
+                Если вы спонсируете как компания, мы будем следовать за вами, чтобы координировать, как вы будете отображаться на сайте Tailwind CSS, а также как предоставить вашей команде <strong>Инсайдеры</strong> доступ.
               </p>
             </Faq>
-            <Faq question="How are the sponsor perks licensed?">
-              <p>Sponsor perks are provided under a custom commercial license.</p>
+            <Faq question="Как предоставляются преимущества спонсоров?">
+              <p>Преимущества спонсоров предоставляются под пользовательским коммерческим лицензионным соглашением.</p>
               <p>
-                They’re licensed for personal or internal use by active Tailwind CSS Insiders sponsors only.
-                Redistribution, sublicensing, or public sharing of the perks — such as the VS Code theme, Raycast
-                extension, or Cursor/Claude/AGENTS.md rules — is not permitted.
+                Они лицензированы для личного или внутреннего использования только активными спонсорами Tailwind CSS Insiders.
+                Распространение, передача или публичное использование преимуществ — таких как тема VS Code, расширение Raycast, или правила Cursor/Claude/AGENTS.md — не разрешено.
               </p>
             </Faq>
           </FaqGroup>
-          <FaqGroup title="Support">
-            <Faq question="Do you offer technical support for sponsor perks?">
+          <FaqGroup title="Поддержка">  
+            <Faq question="Вы предлагаете техническую поддержку для преимущества спонсоров?">
               <p>
-                No — we don't offer technical support for sponsor perks. These perks are a bonus for supporters who want
-                to give back to the project, but they're provided as-is.
+                Нет — мы не предлагаем техническую поддержку для преимущества спонсоров. Эти преимущества являются бонусом для спонсоров, которые хотят
+                вернуться к проекту, но они предоставляются как есть.
               </p>
               <p>
-                That said, the <strong>Insiders Discord</strong> is a great place to ask for help with anything related
-                to the perks.
-              </p>
-            </Faq>
-            <Faq question="How do I cancel my sponsorship?">
-              <p>
-                You can cancel your sponsorship at any time through the Polar customer portal. Once you cancel, your
-                perks will remain active until the end of your current billing period.
+                Тем не менее, <strong>Discord Инсайдеров</strong> — это отличное место, чтобы спросить о чем угодно, связанном с преимуществами.
               </p>
             </Faq>
-            <Faq question="What happens if I stop sponsoring?">
+            <Faq question="Как отменить спонсорство?">
               <p>
-                If your sponsorship ends, you'll lose access to any perks like the Insiders Discord server,
-                Cursor/Claude/AGENTS.md rules, and pre-release documentation. These are only available while you're
-                actively sponsoring.
+                Вы можете отменить спонсорство в любое время через портал Polar. После отмены ваши преимущества останутся активными до конца вашего текущего периода оплаты.
               </p>
             </Faq>
-            <Faq question="What is your refund policy?">
-              <p>Sponsorships are non-refundable, but of course you can cancel your sponsorship at any time.</p>
+            <Faq question="Что произойдет, если я перестану спонсировать?">
+              <p>
+                Если ваше спонсорство закончится, вы потеряете доступ к любым преимуществам, таким как сервер Discord Инсайдеров,
+                правила Cursor/Claude/AGENTS.md, и предварительная документация. Эти преимущества доступны только во время вашего спонсорства.
+              </p>
+            </Faq>
+            <Faq question="Какова ваша политика возврата денег?">
+              <p>Спонсорство не возвращается, но, конечно, вы можете отменить спонсорство в любое время.</p>
             </Faq>
           </FaqGroup>
         </div>

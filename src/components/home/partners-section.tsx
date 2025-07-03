@@ -15,12 +15,12 @@ export default function WhyTailwindCssSection() {
       </div>
 
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <CategoryHeader className="text-sky-500 dark:text-sky-400">Sponsors</CategoryHeader>
+        <CategoryHeader className="text-sky-500 dark:text-sky-400">Спонсоры</CategoryHeader>
       </GridContainer>
 
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
-          Supported by the best.
+          Нас поддерживают лучшие.
         </h2>
       </GridContainer>
 
@@ -34,8 +34,7 @@ export default function WhyTailwindCssSection() {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          Tailwind is supported by incredible partners and sponsors who make it possible for a team of talented
-          designers and engineers to maintain the framework full-time.
+          Tailwind поддерживается невероятными партнерами и спонсорами, которые позволяют команде талантливых дизайнеров и инженеров поддерживать фреймворк на постоянной основе.
         </p>
       </GridContainer>
 

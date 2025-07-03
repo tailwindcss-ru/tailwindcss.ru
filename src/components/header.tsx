@@ -154,7 +154,7 @@ export function Header(props: React.PropsWithChildren) {
             Витрина
           </Link>
           <Link href="/sponsor" className="text-sm/6 text-gray-950 dark:text-white">
-            Sponsor
+            Спонсор
           </Link>
           <a href="/plus?ref=top" className="group relative px-1.5 text-sm/6 text-sky-800 dark:text-sky-300">
             <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
@@ -257,7 +257,7 @@ export function Header(props: React.PropsWithChildren) {
                   href="/sponsor"
                   className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
                 >
-                  Sponsor
+                  Спонсор
                 </Link>
                 <Link
                   href="https://github.com/tailwindlabs/tailwindcss"
