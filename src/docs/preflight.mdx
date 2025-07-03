@@ -241,8 +241,8 @@ video {
 @layer theme, base, components, utilities;
 
 @import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);  /* [!code --] */
-@import "tailwindcss/utilities.css" layer(utilities) source(none);  /* [!code ++] */
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities) source(none); /* [!code ++] */
 ```
 
 То же самое касается `important`, который также влияет на утилиты:
@@ -252,8 +252,8 @@ video {
 @layer theme, base, components, utilities;
 
 @import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);  /* [!code --] */
-@import "tailwindcss/utilities.css" layer(utilities) important;  /* [!code ++] */
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities) important; /* [!code ++] */
 ```
 
 Аналогично, `theme(static)` и `theme(inline)` влияют на сгенерированные переменные темы и должны быть размещены на импорте `theme.css`:
@@ -262,8 +262,8 @@ video {
 /* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
-@import "tailwindcss/theme.css" layer(theme);  /* [!code --] */
-@import "tailwindcss/theme.css" layer(theme) theme(static);  /* [!code ++] */
+@import "tailwindcss/theme.css" layer(theme); /* [!code --] */
+@import "tailwindcss/theme.css" layer(theme) theme(static); /* [!code ++] */
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
@@ -273,8 +273,8 @@ video {
 /* [!code filename:CSS] */
 @layer theme, base, components, utilities;
 
-@import "tailwindcss/theme.css" layer(theme);  /* [!code --] */
-@import "tailwindcss/utilities.css" layer(utilities);  /* [!code --] */
-@import "tailwindcss/theme.css" layer(theme) prefix(tw);  /* [!code ++] */
-@import "tailwindcss/utilities.css" layer(utilities) prefix(tw);  /* [!code ++] */
+@import "tailwindcss/theme.css" layer(theme); /* [!code --] */
+@import "tailwindcss/utilities.css" layer(utilities); /* [!code --] */
+@import "tailwindcss/theme.css" layer(theme) prefix(tw); /* [!code ++] */
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw); /* [!code ++] */
 ```
