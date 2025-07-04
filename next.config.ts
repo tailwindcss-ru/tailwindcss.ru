@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig = {
+  images: {
+    unoptimized: true
+  },
   serverExternalPackages: ["@tailwindcss/node"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   outputFileTracingIncludes: {
