@@ -15,7 +15,7 @@ let steps = [
     code: {
       name: 'Terminal',
       lang: 'terminal',
-      code: 'npm install -D tailwindcss\nnpx tailwindcss init',
+      code: 'npm install -D tailwindcss@3\nnpx tailwindcss init',
     },
   },
   {
@@ -29,7 +29,7 @@ let steps = [
       name: 'tailwind.config.js',
       lang: 'js',
       code: `  /** @type {import('tailwindcss').Config} */
-  module.exports = {
+ export default {
 >   content: ["./src/**/*.{html,js}"],
     theme: {
       extend: {},
