@@ -36,7 +36,7 @@ let tabs = [
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
+          code: 'npm install -D tailwindcss@3 postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
         },
       },
       {
@@ -162,7 +162,7 @@ let tabs = [
         code: {
           name: 'Terminal',
           lang: 'terminal',
-          code: 'npm install -D tailwindcss postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
+          code: 'npm install -D tailwindcss@3 postcss postcss-loader autoprefixer\nnpx tailwindcss init -p',
         },
       },
       {

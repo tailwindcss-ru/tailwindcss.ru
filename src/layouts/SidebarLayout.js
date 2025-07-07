@@ -528,14 +528,12 @@ export function SidebarLayout({
 
             <div className="fixed bottom-0 left-[max(0px,calc(50%-45rem))] right-auto w-[19rem] pl-8 pr-6">
               <Link
-                href={'/docs/v4-beta'}
+                href={'https://tailwindcss.com/docs/upgrade-guide'}
                 className="group relative px-4 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-sm grid overflow-hidden border border-white/10 shadow-lg"
               >
                 <div className="grid gap-1 z-20">
-                  <p>Документация v4.0 Beta →</p>
-                  <p className="text-[0.8125rem] text-gray-300">
-                    Предварительный просмотр следующего CSS Tailwind.
-                  </p>
+                  <p>Tailwind CSS v4.0 уже здесь →</p>
+                  <p className="text-[0.8125rem] text-gray-300">Узнайте больше в руководстве по обновлению.</p>
                 </div>
                 <div className="absolute h-full w-1/2 right-0 top-0 overflow-hidden">
                   <div className="absolute h-full w-full bg-gradient-to-r from-slate-800 group-hover:from-slate-900 z-10" />
