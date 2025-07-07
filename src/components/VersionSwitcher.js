@@ -7,11 +7,14 @@ export function VersionSwitcher({ className }) {
 
   function submit(e) {
     e.preventDefault()
-    if (selectRef.current.value === 'v3') {
-      window.location = 'https://tailwindcss.ru/'
+    if (selectRef.current.value === 'v0') {
+      window.location = 'https://tailwindcss-v0.netlify.app/'
+    }
+    if (selectRef.current.value === 'v1') {
+      window.location = 'https://v1.tailwindcss.com/'
     }
     if (selectRef.current.value === 'v3') {
-      window.location = 'https://tailwindcss.com/'
+      window.location = 'https://tailwindcss.ru/'
     }
   }
 

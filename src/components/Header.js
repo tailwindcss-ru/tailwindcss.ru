@@ -185,7 +185,7 @@ export function Header({ navIsOpen, onNavToggle }) {
             </div>
             <div class="mt-1 sm:hidden">
               <a
-                href="https://tailwindcss.com"
+                href="https://tailwindcss.ru"
                 className="text-sm text-white font-bold underline sm:hidden"
               >
                 Перейти к Tailwind CSS v4 &rarr;
@@ -197,7 +197,7 @@ export function Header({ navIsOpen, onNavToggle }) {
             ></span>
             <div className="hidden sm:block">
               <a
-                href="https://tailwindcss.com"
+                href="https://tailwindcss.ru"
                 className="whitespace-nowrap inline-flex rounded-md bg-white py-2 px-3 text-xs font-semibold  text-blue-500 hover:bg-opacity-90"
               >
                 Перейти к Tailwind CSS v4 &rarr;

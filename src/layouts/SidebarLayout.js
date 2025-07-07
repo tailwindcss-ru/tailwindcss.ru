@@ -212,7 +212,7 @@ function TopLevelNav() {
         Игровая площадка
       </TopLevelLink>
       <TopLevelLink
-        href="https://blog.tailwindcss.com"
+        href="https://tailwindcss.ru/blog"
         color="teal"
         className="mb-4"
         icon={
