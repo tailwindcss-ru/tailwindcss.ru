@@ -62,7 +62,7 @@ export function Search() {
   return (
     <>
       <Head>
-        <link rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossOrigin="true" />
+        <link rel="preconnect" href="https://KNPXZI5B0M-dsn.algolia.net" crossOrigin="true" />
       </Head>
       <button
         type="button"
