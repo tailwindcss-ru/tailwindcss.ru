@@ -15,6 +15,7 @@
 
 # next.js
 /.next/
+/.api-og-backup/
 /out/
 
 # production

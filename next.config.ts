@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import createMdx from "@next/mdx";
 
 const nextConfig = {
+  output: "export",
   images: {
     unoptimized: true
   },
@@ -464,18 +465,19 @@ const nextConfig = {
     ];
   },
 
-  async rewrites() {
-    return ["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
-      {
-        source: `/${path}`,
-        destination: `https://tailwindui.com/${path}`,
-      },
-      {
-        source: `/${path}/:path*`,
-        destination: `https://tailwindui.com/${path}/:path*`,
-      },
-    ]);
-  },
+  // rewrites не поддерживаются при output: "export" (статическая сборка для nginx)
+  // async rewrites() {
+  //   return ["plus", "plus-assets", "vendor", "nova-api"].flatMap((path) => [
+  //     {
+  //       source: `/${path}`,
+  //       destination: `https://tailwindui.com/${path}`,
+  //     },
+  //     {
+  //       source: `/${path}/:path*`,
+  //       destination: `https://tailwindui.com/${path}/:path*`,
+  //     },
+  //   ]);
+  // },
 } satisfies NextConfig;
 
 const withMDX = createMdx();
