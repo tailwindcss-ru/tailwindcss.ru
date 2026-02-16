@@ -57,6 +57,17 @@ export const description = "Утилиты для управления прод�
 
 </Figure>
 
+### Поддержка режима уменьшенного движения
+
+В ситуациях, когда пользователь указал, что предпочитает уменьшенное движение, вы можете условно применять анимации и переходы с помощью вариантов `motion-safe` и `motion-reduce`:
+
+```html
+<!-- [!code classes:motion-reduce:duration-0] -->
+<button type="button" class="duration-300 motion-reduce:duration-0 ...">
+  <!-- ... -->
+</button>
+```
+
 ### Использование пользовательского значения
 
 <UsingACustomValue element="button" utility="duration" value="1s,15s" name="transition duration" />

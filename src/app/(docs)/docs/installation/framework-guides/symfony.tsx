@@ -107,7 +107,8 @@ export let steps: Step[] = [
     title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Добавьте <code>@import</code> в <code>./assets/styles/app.css</code>, который импортирует Tailwind CSS.
+        Добавьте <code>@import</code> в <code>./assets/styles/app.css</code> для импорта Tailwind CSS и{" "}
+        <code>@source</code>, исключающий директорию public, чтобы избежать циклов перекомпиляции в режиме watch.
       </p>
     ),
     code: {
@@ -115,6 +116,7 @@ export let steps: Step[] = [
       lang: "css",
       code: css`
         @import "tailwindcss";
+        @source not "../../public";
       `,
     },
   },

@@ -263,8 +263,8 @@ Tailwind был разработан с нуля для того, чтобы б�
 @layer components {
   .card {
     background-color: var(--color-white);
-    border-radius: var(--rounded-lg);
-    padding: var(--spacing-6);
+    border-radius: var(--radius-lg);
+    padding: --spacing(6);
     box-shadow: var(--shadow-xl);
   }
   /* [!code highlight:2] */
@@ -461,6 +461,8 @@ Tailwind был разработан с нуля для того, чтобы б�
 
 Это будет соответствовать утилитам, таким как `tab-1` и `tab-76`.
 
+Доступные типы данных для чистых значений: `number`, `integer`, `ratio`, и `percentage`.
+
 #### Литеральные значения
 
 Для поддержки литеральных значений используйте синтаксис `--value('literal')` (обратите внимание на кавычки):
@@ -485,7 +487,9 @@ Tailwind был разработан с нуля для того, чтобы б�
 }
 ```
 
-Это будет соответствовать утилитам, таким как `tab-[1]` и `tab-[76]`. Если вы хотите поддерживать любой тип данных, вы можете использовать `--value([*])`.
+Это будет соответствовать утилитам, таким как `tab-[1]` и `tab-[76]`.
+
+Доступные типы данных для произвольных значений: `absolute-size`, `angle`, `bg-size`, `color`, `family-name`, `generic-name`, `image`, `integer`, `length`, `line-width`, `number`, `percentage`, `position`, `ratio`, `relative-size`, `url`, `vector`, и `*`.
 
 #### Поддержка тем, чистых и произвольных значений вместе
 

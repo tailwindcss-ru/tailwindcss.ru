@@ -56,6 +56,17 @@ export const description = "Утилиты для управления заде�
 
 </Figure>
 
+### Поддержка режима уменьшенного движения
+
+В ситуациях, когда пользователь указал, что предпочитает уменьшенное движение, вы можете условно применять анимации и переходы с помощью вариантов `motion-safe` и `motion-reduce`:
+
+```html
+<!-- [!code classes:motion-reduce:delay-0] -->
+<button type="button" class="delay-300 motion-reduce:delay-0 ...">
+  <!-- ... -->
+</button>
+```
+
 ### Использование пользовательского значения
 
 <UsingACustomValue element="button" utility="delay" value="1s,250ms" name="transition delay" />

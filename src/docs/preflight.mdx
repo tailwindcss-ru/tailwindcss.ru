@@ -181,6 +181,17 @@ video {
 <img class="max-w-none" src="..." alt="..." />
 ```
 
+#### Элементы с атрибутом `hidden` остаются скрытыми
+
+```css
+/* [!code filename:CSS] */
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none !important;
+}
+```
+
+Это обеспечивает, что элементы с атрибутом `hidden` остаются скрытыми, если не используется `hidden="until-found"`. Удалите атрибут `hidden`, если вы хотите, чтобы элемент был видимым для пользователя.
+
 ## Расширение Preflight
 
 Если вы хотите добавить собственные базовые стили поверх Preflight, добавьте их в слой `base` CSS в вашем CSS с помощью `@layer base`:

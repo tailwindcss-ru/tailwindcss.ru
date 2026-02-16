@@ -57,7 +57,7 @@ export function FooterMeta({ className }: { className?: string }) {
       >
         <ThemeToggle />
         <div className="flex flex-col gap-4 text-sm/6 text-gray-700 sm:flex-row sm:gap-2 sm:pr-4 dark:text-gray-400">
-          <span>Авторские права ©&nbsp;2025&nbsp;Tailwind Labs Inc.</span>
+          <span>Авторские права ©&nbsp;{new Date().getFullYear()}&nbsp;Tailwind Labs Inc.</span>
           <span className="max-sm:hidden">&middot;</span>
           <Link href="/brand" className="hover:underline">
             Политика в отношении товарных знаков
@@ -173,7 +173,7 @@ function Community() {
           </Link>
         </li>
         <li>
-          <Link href="https://tailwindcss.com/discord" className="hover:underline">
+          <Link href="/sponsor#insiders" className="hover:underline">
             Discord
           </Link>
         </li>

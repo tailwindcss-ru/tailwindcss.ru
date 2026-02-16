@@ -18,14 +18,14 @@ export let steps: Step[] = [
     body: (
       <p>
         Начните с создания нового проекта Nuxt, если у вас его еще нет. Наиболее распространенный подход — использовать
-        <a href="https://nuxt.com/docs/getting-started/installation">Nuxt Command Line Interface</a>.
+        <a href="https://nuxt.com/docs/4.x/getting-started/installation#new-project">Create Nuxt</a>.
       </p>
     ),
     code: {
       name: "Terminal",
       lang: "shell",
       code: shell`
-        npx nuxi init my-project
+        npm create nuxt my-project
         cd my-project
       `,
     },
@@ -60,7 +60,7 @@ export let steps: Step[] = [
         import tailwindcss from "@tailwindcss/vite";
 
         export default defineNuxtConfig({
-          compatibilityDate: "2024-11-01",
+          compatibilityDate: "2025-07-15",
           devtools: { enabled: true },
           vite: {
             plugins: [
@@ -76,7 +76,7 @@ export let steps: Step[] = [
     title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Создайте файл <code>./assets/css/main.css</code> и добавьте <code>@import</code>, который импортирует Tailwind CSS.
+        Создайте файл <code>./app/assets/css/main.css</code> и добавьте <code>@import</code>, который импортирует Tailwind CSS.
       </p>
     ),
     code: {
@@ -91,7 +91,7 @@ export let steps: Step[] = [
     title: "Добавьте CSS-файл глобально",
     body: (
       <p>
-        Добавьте недавно созданный <code>./assets/css/main.css</code> в массив <code>css</code> в вашем файле{" "}
+        Добавьте недавно созданный <code>./app/assets/css/main.css</code> в массив <code>css</code> в вашем файле{" "}
         <code>nuxt.config.ts</code>.
       </p>
     ),
@@ -102,10 +102,10 @@ export let steps: Step[] = [
         import tailwindcss from "@tailwindcss/vite";
 
         export default defineNuxtConfig({
-          compatibilityDate: "2024-11-01",
+          compatibilityDate: "2025-07-15",
           devtools: { enabled: true },
           // [!code highlight:2]
-          css: ['~/assets/css/main.css'],
+          css: ['./app/assets/css/main.css'],
           vite: {
             plugins: [
               tailwindcss(),

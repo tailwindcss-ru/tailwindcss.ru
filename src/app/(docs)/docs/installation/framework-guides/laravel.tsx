@@ -129,8 +129,8 @@ export let steps: Step[] = [
     title: "Импортируйте Tailwind CSS",
     body: (
       <p>
-        Добавьте <code>@import</code> в <code>./resources/css/app.css</code>, который импортирует Tailwind CSS.
-        Кроме того, скажите Tailwind CSS сканировать ваш каталог <code>resources/views</code> на наличие утилит.
+        Добавьте <code>@import</code> в <code>./resources/css/app.css</code> для импорта Tailwind CSS. 
+        Также укажите Tailwind CSS директории для сканирования утилит.
       </p>
     ),
     code: {
@@ -138,7 +138,11 @@ export let steps: Step[] = [
       lang: "css",
       code: css`
         @import "tailwindcss";
-        @source "../views";
+
+        @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+        @source '../../storage/framework/views/*.php';
+        @source '../**/*.blade.php';
+        @source '../**/*.js';
       `,
     },
   },

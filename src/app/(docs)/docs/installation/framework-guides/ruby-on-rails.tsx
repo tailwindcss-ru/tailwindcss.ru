@@ -11,7 +11,7 @@ export let tile: Tile = {
 
 export let page: Page = {
   title: "Установите Tailwind CSS с помощью Ruby on Rails",
-  description: "Настройка Tailwind CSS в проекте Ruby on Rails v7+.",
+  description: "Настройка Tailwind CSS в проекте Ruby on Rails v8+.",
 
   // ПРИМЕЧАНИЕ: Это введение в настоящее время не используется, но приведено здесь для справки, поскольку мы захотим вернуть его, как только гем rails будет обновлен до стабильной версии v4.
   intro: (
@@ -48,8 +48,7 @@ export let steps: Step[] = [
     title: "Установите Tailwind CSS",
     body: (
       <p>
-        Установите гемы <code>tailwindcss-ruby</code> и <code>tailwindcss-rails</code>, а затем выполните команду
-        установки, чтобы настроить Tailwind CSS в вашем проекте.
+        Установите гем <code>tailwindcss-rails</code> и выполните команду установки, чтобы настроить Tailwind CSS в вашем проекте.
       </p>
     ),
 
@@ -57,8 +56,7 @@ export let steps: Step[] = [
       name: "Terminal",
       lang: "shell",
       code: shell`
-        ./bin/bundle add tailwindcss-ruby
-        ./bin/bundle add tailwindcss-rails
+        bundle add tailwindcss-rails
         ./bin/rails tailwindcss:install
       `,
     },

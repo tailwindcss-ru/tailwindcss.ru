@@ -2,6 +2,7 @@ import { ApiTable } from "@/components/api-table.tsx";
 import { CustomizingYourTheme, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
+import { CodeExample } from "@/components/code-example.tsx";
 
 export const title = "font-weight";
 export const description = "Утилиты для управления жирностью шрифта элемента.";
@@ -80,7 +81,14 @@ export const description = "Утилиты для управления жирн�
 
 ### Использование пользовательского значения
 
-<UsingACustomValue element="p" utility="font" value="1000" name="font weight" variable="font-weight" />
+<UsingACustomValue
+  element="p"
+  utility="font"
+  value="1000"
+  name="font weight"
+  variable="font-weight"
+  dataType="weight"
+/>
 
 ### Адаптивный дизайн
 

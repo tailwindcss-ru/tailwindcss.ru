@@ -160,7 +160,7 @@ export const description = "Справочник по пользовательс
 </style>
 ```
 
-Если вы просто используете тему по умолчанию без кастомизации, вы можете импортировать `tailwindcss` напрямую:
+Если вы просто используете тему по умолчанию без кастомизации (например, используя такие вещи, как `@theme`, `@custom-variant`, `@plugin`, и т.д.), вы можете импортировать `tailwindcss` напрямую:
 
 ```html
 <!-- [!code filename:Vue] -->
@@ -178,7 +178,38 @@ export const description = "Справочник по пользовательс
 </style>
 ```
 
-## Функции
+### Импорты подпутей
+
+При использовании CLI, Vite или PostCSS директивы `@import`, `@reference`, `@plugin`, и `@config` все поддерживают [импорты подпутей](https://nodejs.org/api/packages.html#subpath-imports), которые работают аналогично импортам путей в bundler и TypeScript:
+
+```json
+// [!code filename:package.json]
+{
+  // ...
+  "imports": {
+    /* [!code highlight:2] */
+    "#app.css": "./src/css/app.css"
+  }
+}
+```
+
+```html
+<!-- [!code filename:Vue] -->
+<template>
+  <h1>Hello world!</h1>
+</template>
+
+<style>
+  /* [!code highlight:2] */
+  @reference "#app.css";
+
+  h1 {
+    @apply text-2xl font-bold text-red-500;
+  }
+</style>
+```
+
+## Functions
 
 Tailwind предоставляет следующие функции времени сборки для упрощения работы с цветами и шкалой отступов.
 
