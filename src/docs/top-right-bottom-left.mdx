@@ -13,8 +13,10 @@ export const description = "Утилиты для управления разм�
     { prefix: "inset", property: "inset" },
     { prefix: "inset-x", property: "inset-inline" },
     { prefix: "inset-y", property: "inset-block" },
-    { prefix: "start", property: "inset-inline-start" },
-    { prefix: "end", property: "inset-inline-end" },
+    { prefix: "inset-s", property: "inset-inline-start" },
+    { prefix: "inset-e", property: "inset-inline-end" },
+    { prefix: "inset-bs", property: "inset-block-start" },
+    { prefix: "inset-be", property: "inset-block-end" },
     { prefix: "top", property: "top" },
     { prefix: "right", property: "right" },
     { prefix: "bottom", property: "bottom" },
@@ -201,7 +203,7 @@ export const description = "Утилиты для управления разм�
 
 ### Использование логических свойств
 
-Используйте утилиты `start-<number>` или `end-<number>` типа `start-0` и `end-4` для установки [логических свойств](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) `inset-inline-start` и `inset-inline-end`, которые отображаются либо на левой, либо на правой стороне в зависимости от направления текста:
+Используйте утилиты `inset-s-<number>` или `inset-e-<number>`, например `inset-s-0` и `inset-e-4`, для установки [логических свойств](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) `inset-inline-start` и `inset-inline-end`, которые сопоставляются с левой или правой стороной в зависимости от направления текста:
 
 <Figure>
 
@@ -231,15 +233,15 @@ export const description = "Утилиты для управления разм�
 </Example>
 
 ```html
-<!-- [!code classes:start-0] -->
+<!-- [!code classes:inset-s-0] -->
 <div dir="ltr">
   <div class="relative size-32 ...">
-    <div class="absolute start-0 top-0 size-14 ..."></div>
+    <div class="absolute inset-s-0 top-0 size-14 ..."></div>
   </div>
   <div>
     <div dir="rtl">
       <div class="relative size-32 ...">
-        <div class="absolute start-0 top-0 size-14 ..."></div>
+        <div class="absolute inset-s-0 top-0 size-14 ..."></div>
       </div>
       <div></div>
     </div>
@@ -258,7 +260,19 @@ export const description = "Утилиты для управления разм�
 ### Адаптивный дизайн
 
 <ResponsiveDesign
-  properties={["inset", "inset-x", "inset-y", "start", "end", "top", "left", "bottom", "right"]}
+  properties={[
+    "inset",
+    "inset-x",
+    "inset-y",
+    "inset-s",
+    "inset-e",
+    "inset-bs",
+    "inset-be",
+    "top",
+    "left",
+    "bottom",
+    "right",
+  ]}
   defaultClass="top-4"
   featuredClass="top-6"
 />
@@ -266,5 +280,17 @@ export const description = "Утилиты для управления разм�
 ## Кастомизация вашей темы
 
 <CustomizingYourSpacingScale
-  utilities={["inset", "inset-x", "inset-y", "start", "end", "top", "left", "bottom", "right"]}
+  utilities={[
+    "inset",
+    "inset-x",
+    "inset-y",
+    "inset-s",
+    "inset-e",
+    "inset-bs",
+    "inset-be",
+    "top",
+    "left",
+    "bottom",
+    "right",
+  ]}
 />

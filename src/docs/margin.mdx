@@ -16,6 +16,8 @@ export const description = "Утилиты для управления внеш�
       ["my", "margin-block"],
       ["ms", "margin-inline-start"],
       ["me", "margin-inline-end"],
+      ["mbs", "margin-block-start"],
+      ["mbe", "margin-block-end"],
       ["mt", "margin-top"],
       ["mr", "margin-right"],
       ["mb", "margin-bottom"],
@@ -303,7 +305,14 @@ export const description = "Утилиты для управления внеш�
 
 </Figure>
 
-### Добавление пространства между дочерними элементами
+Используйте утилиты `mbs-<number>` и `mbe-<number>` для установки логических свойств `margin-block-start` и `margin-block-end`, которые сопоставляются с верхней или нижней стороной в зависимости от режима письма:
+
+```html
+<!-- [!code classes:mbs-8] -->
+<div class="mbs-8 ...">mbs-8</div>
+```
+
+### Добавление отступа между дочерними элементами
 
 Используйте утилиты `space-x-<number>` или `space-y-<number>` такие как `space-x-4` и `space-y-8` для управления пространством между элементами:
 
@@ -385,4 +394,4 @@ export const description = "Утилиты для управления внеш�
 
 ## Кастомизация вашей темы
 
-<CustomizingYourSpacingScale utilities={["m", "mx", "my", "ms", "me", "mt", "mr", "mb", "ml"]} />
+<CustomizingYourSpacingScale utilities={["m", "mx", "my", "ms", "me", "mbs", "mbe", "mt", "mr", "mb", "ml"]} />

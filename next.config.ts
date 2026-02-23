@@ -461,7 +461,6 @@ const nextConfig = {
         destination: "https://tailwindcss.ru/plus/ui-blocks",
         permanent: false,
       },
-
     ];
   },
 

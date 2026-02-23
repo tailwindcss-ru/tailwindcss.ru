@@ -14,6 +14,8 @@ export const description = "Утилиты для управления отст�
     ["scroll-py", "scroll-padding-block"],
     ["scroll-ps", "scroll-padding-inline-start"],
     ["scroll-pe", "scroll-padding-inline-end"],
+    ["scroll-pbs", "scroll-padding-block-start"],
+    ["scroll-pbe", "scroll-padding-block-end"],
     ["scroll-pt", "scroll-padding-top"],
     ["scroll-pr", "scroll-padding-right"],
     ["scroll-pb", "scroll-padding-bottom"],
@@ -201,6 +203,15 @@ export const description = "Утилиты для управления отст�
 
 </Figure>
 
+Используйте утилиты `scroll-pbs-<number>` и `scroll-pbe-<number>` для установки логических свойств `scroll-padding-block-start` и `scroll-padding-block-end`, которые сопоставляются с верхней или нижней стороной в зависимости от режима письма:
+
+```html
+<!-- [!code classes:scroll-pbs-6] -->
+<div class="snap-y scroll-pbs-6 ...">
+  <!-- ... -->
+</div>
+```
+
 ### Использование отрицательных значений
 
 Для использования отрицательного значения отступа прокрутки добавьте дефис перед именем класса, чтобы преобразовать его в отрицательное значение:
@@ -234,6 +245,8 @@ export const description = "Утилиты для управления отст�
     "scroll-py",
     "scroll-ps",
     "scroll-pe",
+    "scroll-pbs",
+    "scroll-pbe",
     "scroll-pt",
     "scroll-pr",
     "scroll-pb",

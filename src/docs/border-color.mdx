@@ -21,6 +21,8 @@ export const description = "Утилиты для управления цвет�
       ["border-y", (value) => `border-block-color: ${value}`],
       ["border-s", (value) => `border-inline-start-color: ${value}`],
       ["border-e", (value) => `border-inline-end-color: ${value}`],
+      ["border-bs", (value) => `border-block-start-color: ${value}`],
+      ["border-be", (value) => `border-block-end-color: ${value}`],
       ["border-t", (value) => `border-top-color: ${value}`],
       ["border-r", (value) => `border-right-color: ${value}`],
       ["border-b", (value) => `border-bottom-color: ${value}`],
@@ -238,6 +240,13 @@ export const description = "Утилиты для управления цвет�
 ```
 
 </Figure>
+
+Используйте утилиты `border-bs-*` и `border-be-*` для установки логических свойств `border-block-start-color` и `border-block-end-color`, которые сопоставляются с верхней или нижней границей в зависимости от режима письма:
+
+```html
+<!-- [!code classes:border-bs-indigo-500] -->
+<div class="border-bs-indigo-500 ..."></div>
+```
 
 ### Разделитель между дочерними элементами
 

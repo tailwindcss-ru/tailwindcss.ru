@@ -16,6 +16,8 @@ export const description = "Утилиты для управления внут�
     ["py", "padding-block"],
     ["ps", "padding-inline-start"],
     ["pe", "padding-inline-end"],
+    ["pbs", "padding-block-start"],
+    ["pbe", "padding-block-end"],
     ["pt", "padding-top"],
     ["pr", "padding-right"],
     ["pb", "padding-bottom"],
@@ -210,7 +212,14 @@ export const description = "Утилиты для управления внут�
 
 Для большего контроля вы также можете использовать [LTR и RTL модификаторы](/docs/hover-focus-and-other-states#rtl-support) для условного применения конкретных стилей в зависимости от текущего направления текста.
 
-### Использование пользовательского значения
+Используйте утилиты `pbs-<number>` и `pbe-<number>` для установки логических свойств `padding-block-start` и `padding-block-end`, которые сопоставляются с верхней или нижней стороной в зависимости от режима письма:
+
+```html
+<!-- [!code classes:pbs-8] -->
+<div class="pbs-8 ...">pbs-8</div>
+```
+
+### Использование произвольного значения
 
 <UsingACustomValue utilities={["p", "px", "pb"]} name="padding" variable="padding" value="5px" />
 
@@ -220,4 +229,4 @@ export const description = "Утилиты для управления внут�
 
 ## Кастомизация вашей темы
 
-<CustomizingYourSpacingScale utilities={["p", "px", "py", "ps", "pe", "pt", "pr", "pb", "pl"]} />
+<CustomizingYourSpacingScale utilities={["p", "px", "py", "ps", "pe", "pbs", "pbe", "pt", "pr", "pb", "pl"]} />
